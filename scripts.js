@@ -120,11 +120,11 @@ NAVIGATION UTILITIES
 */
 
 function navigateToIndex() {
-    window.location.href = "/zombiesGuides/index.html";
+    window.location.href = "/zombiesGuidesPublic/index.html";
 }
 
 function navigateToSettings() {
-    window.open("/zombiesGuides/settings/settings.html", "_blank");
+    window.open("/zombiesGuidesPublic/settings/settings.html", "_blank");
 }
 
 /*

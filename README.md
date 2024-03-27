@@ -1,6 +1,6 @@
 # mmmrkennedy's Zombies Easter Egg Guides
 
-### https://mmmrkennedy.github.io/zombiesGuides/
+### https://mmmrkennedy.github.io/zombiesGuidesPublic/
 
 The goal of this site is to archive and compile accurate and up-to-date information on all COD: Zombies Main Easter Eggs and most Side Easter Eggs.
 The guides don't contain video tutorials (as of right now), but rather text and images. Other than the main Easter Eggs, I've only chosen to include side Easter Eggs that have a reward (e.g. Songs, Free Perks, Free Weapons, etc.). This means there will be no cyphers, radios, etc.
