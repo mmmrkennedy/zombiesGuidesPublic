@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/zombiesGuides/styles.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuides/favicon.ico">
+    <title>Settings</title>
+</head>
+<body>
+
+<h1>Settings</h1>
+
+<br><br>
+
+<label for="colourMode">Default Theme: </label>
+<select id="colourMode">
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+</select>
+
+<br><br>
+
+<label for="preload">Preload Images (Instead of loading on request): </label>
+<input type="checkbox" id="preload">
+
+<br><br>
+
+<label for="substeps">Show Sub Steps in Quick Links at top of Guide: </label>
+<input type="checkbox" id="substeps">
+
+<br><br>
+
+<label for="close_setting_auto">Automatically Close Settings Tab once saved: </label>
+<input type="checkbox" id="close_setting_auto">
+
+<br><br>
+
+<label for="fontSelector">Default Font: </label>
+<select id="fontSelector">
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="OpenDyslexic">OpenDyslexic</option>
+</select>
+
+<br><br>
+
+<button>Save</button>
+
+<br><br>
+
+<p id="saveSettingsText"></p>
+
+<script src="/zombiesGuides/settings/settings.js"></script>
+</body>
+</html>

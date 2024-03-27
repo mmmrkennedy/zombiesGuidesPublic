@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Die Maschine</title>
+  <link rel="stylesheet" href="/zombiesGuides/styles.css">
+  <link rel="icon" type="image/x-icon" href="/zombiesGuides/favicon.ico">
+  <base target="_blank">
+</head>
+
+<body>
+<!-- Your HTML content for mobile devices goes here -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Your HTML content for non-mobile devices goes here -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right-down" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<h2 class="title_text">Die Maschine Guide</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+  <!-- Legend to other parts -->
+  <div class="content-container-top">
+    <label for="fontSelector">Select a Font:</label>
+    <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+
+    <h2>Weapons</h2>
+    <ul>
+      <li><a href="#die_shockwave">D.I.E. Shockwave</a></li>
+      <ul>
+        <li><a href="#nova_5">Nova-5</a></li>
+        <li><a href="#cryo_emitter">Cryo-Emitter</a></li>
+        <li><a href="#elecrobolt">Elecrobolt</a></li>
+        <li><a href="#thermophasic">Thermophasic</a></li>
+      </ul>
+    </ul>
+
+    <h2>Easter Eggs</h2>
+    <ul>
+      <li><a href="#main_ee">'Seal the Deal' Main Quest</a></li>
+      <ol>
+        <li><a href="#main_ee_step1">Prerequisites</a></li>
+        <li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li>
+        <li><a href="#main_ee_step3">Creating Orlov</a></li>
+        <li><a href="#main_ee_step4">Boss Fight</a></li>
+      </ol>
+      <li><a href="#song_ee">'Alone' Song</a></li>
+      <li><a href="#free_jug">Coffin Dance (Free Jug)</a></li>
+      <li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li>
+      <li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li>
+      <li><a href="#free_essence">Free 1,500 Essence</a></li>
+      <li><a href="#orda_ee">See Orda Walking Outside the Map</a></li>
+    </ul>
+  </div>
+
+  <!-- Wonder Weapons -->
+  <div class="content-container" id="die_shockwave">
+    <h2>D.I.E. Shockwave</h2>
+    <p class="weapon-desc">The D.I.E. Shockwave is a weapon that fires an energy blast, capable of killing multiple Zombies with one shot. It can be Pack-a-Punch'd and there are four variants, the <a href="#nova_5" class="link-to-page">Nova-5</a>, <a href="#cryo_emitter" class="link-to-page">Cryo Emitter</a>, <a href="#elecrobolt" class="link-to-page">Electrobolt</a> or <a href="#thermophasic" class="link-to-page">Thermophasic</a>.</p>
+    <p class="weapon-desc">The D.I.E. Shockwave is available from the mystery box, through the completion of trials, and via the following quest: </p>
+    <ol>
+      <li>Kill a Megaton and pick up the <a href="pictures/die/shockwave/keycard.webp">Keycard</a>.</li>
+      <li>In the 'Weapons Lab', interact with the <a href="pictures/die/shockwave/weapon_locker.webp">Weapon Locker</a> and pick up the D.I.E. Remote Control.</li>
+      <li>In the "Living Room", interact with this <a href="pictures/die/shockwave/brokenwall.webp">Broken Wall</a> to activate the "D.I.E.". The D.I.E. needs to be charged by sucking up zombies through the window of the door. If the D.I.E. turns off without sucking up enough zombies, it will go on cooldown for about 30 seconds, after which you can activate it again.</li>
+      <li>Once enough zombies are sucked up, interact with the wall again, and the D.I.E. will shoot the door off.</li>
+      <li>Once the door has been blown off, the <a href="pictures/die/shockwave/pickup.webp">D.I.E. Shockwave</a> should be available for pickup.</li>
+    </ol>
+    <ol class="step-content">
+      <p class="upgrade-title" id="nova_5">Nova-5</p>
+        <li>Go to the "Mezzanine" and find the <a href="pictures/die/nova_5/canister.webp">Empty Canister outside the map</a>. Pull the canister toward you with the Alt Fire mode on the D.I.E. and pick it up once it lands at your feet.</li>
+        <li>Place the canister in the <a href="pictures/die/nova_5/canisterunit.webp">Cleaning Unit</a> in the 'Weapons Lab'.</li>
+        <li>Kill a Plaguehound near the canister to make the Cleaning Unit suck up the gas from the Plaguehound.</li>
+        <li>Once all the gas has been collected, pick up the canister and place it on the <a href="pictures/die/nova_5/nova_crate.webp">Weapon Crate</a> in the 'Crash Site'.</li>
+        <li>Melee the canister to destroy the vines on the crate. The Nova-5 upgrade can now be picked up from the Weapon Crate.</li>
+    </ol>
+    <ol class="step-content">
+      <p class="upgrade-title" id="cryo_emitter">Cryo Emitter</p>
+        <li>Go to the "Penthouse" and find the <a href="pictures/die/cryo_emitter/flaskbox_unbroken.webp">wooden crate on the ledge of the building</a> and shoot it with the D.I.E. to knock it down. The box will fall to the ground below, breaking on impact, allowing you to pick up the <a href="pictures/die/cryo_emitter/flaskbox_broken.webp">Flask</a>.</li>
+        <li>Have a Megaton shoot the <a href="pictures/die/cryo_emitter/fungus.webp">fungus on a tree in the 'Pond'</a> with its long range attack. If the Fungus is hit by the Megaton, it will <a href="pictures/die/cryo_emitter/activated_fungus.webp">turn purple</a>.</li>
+        <li>Place the Flask below the Fungus on the ground. Wait 60 Seconds for the flask to fill.</li>
+        <li>Once filled, pick up the flask and interact with the <a href="pictures/die/cryo_emitter/cryo_crate.webp">Weapon Crate</a> in the 'Medical Bay' to break the chains on it.</li>
+        <li>The Cryo Emitter upgrade can now be picked up from the Weapon Crate.</li>
+      </ol>
+    <ol class="step-content">
+      <p class="upgrade-title" id="elecrobolt">Elecrobolt</p>
+        <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a></li>
+        <li>Enter the <a href="pictures/die/electrobolt/elec_portal.webp">Anomaly</a> on the lowest level of the Particle Accelerator.</li>
+        <li>Locate three Glowing Crystals and use the Alt Fire mode on the D.I.E. to collect the energy. Only one crystal's energy can be held at a time. Crystal Locations:</li>
+        <ul>
+          <li>The Crash Site - <a href="pictures/die/electrobolt/elec_jug_rock.webp">Left of Juggernog</a></li>
+          <li>"Penthouse" - <a href="pictures/die/electrobolt/elec_wunder_rock.webp">Right of Wunderfizz</a></li>
+          <li>Pond - <a href="pictures/die/electrobolt/elec_box_rock.webp">Right of Mystery Box</a></li>
+        </ul>
+      <p class="warning">Warning: Other variants of the D.I.E. might struggle to accurately do the following step, so it is recommended to return the D.I.E. to the Shockwave/default variant.</p>
+        <li>While the D.I.E. has the energy, shoot the <a href="pictures/die/electrobolt/elec_crate.webp">Weapon Crate</a> in the 'Particle Accelerator' with the D.I.E. If done correctly, one of the crystals on the crate will begin glowing.</li>
+        <li>Once all three crystal's energy has been transferred to the crate, you can pick up the upgrade from the Weapon Crate.</li>
+      </ol>
+    <ol class="step-content">
+      <p class="upgrade-title" id="thermophasic">Thermophasic</p>
+        <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
+        <li>Enter the <a href="pictures/die/thermophasic/pond_anomaly.webp">Anomaly</a> in the 'Pond'.</li>
+        <li>Go to the <a href="pictures/die/thermophasic/fuse_crashsite.webp">Crash Site</a> and shoot/melee open the <a href="pictures/die/thermophasic/fuse.webp">Fuse Box</a> beside the Fast Travel Portal to pick up the Fuse.</li>
+        <li>In the 'Weapons Lab', interact with <a href="pictures/die/thermophasic/plasmacutter.webp">the Plasma Cutter</a> to insert the fuse. Doing so will remove you from the Dark Aether.</li>
+        <li>In the 'Pond', interact with the <a href="pictures/die/thermophasic/firebox.webp">Weapon Crate</a> to obtain the Thermophasic Upgrade.</li>
+    </ol>
+  </div>
+
+  <!-- Easter Egg -->
+  <div class="content-container" id="main_ee">
+    <h2>'Seal the Deal' Main Quest</h2>
+    <p class="stats">Stats (Solo): Difficulty - 4/10, Est Completion Time - 40 Mins to 1 Hr, RNG Rating - 0/5</p>
+    <ol>
+      <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+      <li>Turn on Power and activate Pack-a-Punch.</li>
+
+      <p class="step-group-title" id="main_ee_step2">Activate the Der Wechsler's Computer</p>
+      <li>Collect the three Aetherscope parts in the Dark Aether. The parts spawn one at a time in a random order: </li>
+      <ul>
+        <li>Particle Accelerator - <a href="pictures/main_ee/activate_the_der_wechslers_computer/scope_accelerator.webp">Near the Aether Tunnel</a></li>
+        <li>Yard - <a href="pictures/main_ee/activate_the_der_wechslers_computer/scope_spawn.webp">Beneath the concrete staircase near Rampage Inducer</a></li>
+        <li>Crash Site - <a href="pictures/main_ee/activate_the_der_wechslers_computer/scope_crashsite.webp">Near the cockpit on top of the plane debris</a></li>
+      </ul>
+      <li>Once you collect all three parts and exit the Dark Aether, build the Aetherscope at the <a href="pictures/main_ee/activate_the_der_wechslers_computer/scope_bench.webp">workbench</a> behind Pack-a-Punch in the 'Particle Accelerator'.</li>
+      <li>Enter the <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_anomaly.webp">Dark Aether</a> Anomaly in the 'Medical Bay'. Collect Dr. Vogel's Diary, <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_book.webp">upstairs in the Medical Bay</a>.</li>
+      <li>You must interact with three Spectral Reflections in the following order. Each reflection must be interacted with twice (once to activate a reflection then again to hand it the book) before moving to the next one. You don't need to wait for one to finish before talking to another. The reflections need to be activated in the following order: </li>
+      <ol>
+        <li>Medical Bay - <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_1.webp">Behind Speed Cola</a></li>
+        <li>Control Room - <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_2.webp">In between Two Challenge Podiums</a></li>
+        <li>Particle Accelerator - <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_3.webp">In front of the Aetherscope Workbench</a></li>
+      </ol>
+      <li>Go back to the <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_comp.webp">computer where you picked up the diary</a> and interact with it.</li>
+
+      <p class="step-group-title" id="main_ee_step3">Creating Orlov</p>
+      <li>Obtain all four <a href="#die_shockwave" class="link-to-page">D.I.E. Variants</a></li>
+      <li>Once you have obtained all four upgrades, you must shoot coloured ports the corresponding D.I.E. Upgrade. Ports: </li>
+      <ul>
+        <li>Nova-5 - <a href="pictures/main_ee/creating_orlov/port_green.webp">Green Port</a></li>
+        <li>Cryo-emitter - <a href="pictures/main_ee/creating_orlov/port_blue.webp">Blue Port</a></li>
+        <li>Electrobolt - <a href="pictures/main_ee/creating_orlov/port_yellow.webp">Yellow Port</a></li>
+        <li>Thermophasic - <a href="pictures/main_ee/creating_orlov/port_orange.webp">Orange Port</a></li>
+      </ul>
+      <li>Enter the Dark Aether via the <a href="pictures/main_ee/creating_orlov/wrench_portal.webp">Anomaly</a> in the 'Medical Bay' and watch the <a href="pictures/main_ee/creating_orlov/wrench_cutscene.webp">reflection</a> on the walkway above Speed Cola.</li>
+      <li>Once the reflection ends, you will be removed from the Dark Aether. Collect the <a href="pictures/main_ee/creating_orlov/wrench.webp">Dark Aether Wrench</a> on the ground where the reflection was.</li>
+      <li>Interact with the <a href="pictures/main_ee/creating_orlov/tank.webp">Tank</a> in the 'Yard' three times. A zombie will then pop out of the top of the tank, kill it and throw an explosive at the open hatch. If the explosive is aimed correctly, the Tank will fire a shot.</li>
+      <li>Go to the 'Crash Site', pick up the <a href="pictures/main_ee/creating_orlov/agent_floor.webp">Decontamination Agent</a> and bring it to the <a href="pictures/main_ee/creating_orlov/containment_unit.webp">Containment Unit</a> in the 'Medical Bay'.</li>
+      <ul>
+        <li>You cannot fast travel, mantle or sprint while holding the Decontamination Agent.</li>
+        <li>You must walk it from the 'Crash Site' to the 'Medical Bay' without dropping it. If you drop the Decontamination Agent, it will respawn back at the tree where it spawned originally.</li>
+      </ul>
+      <li>Wait for a Megaton to Spawn. Split it by shooting it and then bring the two split Megatons under the <a href="pictures/main_ee/creating_orlov/machine.webp">large machine</a> on the ceiling of the 'Medical Bay'. They will each get sucked in one at a time.</li>
+      <li>Once the two Bombers are in the machine, go back to the <a href="pictures/main_ee/activate_the_der_wechslers_computer/reflect_comp.webp">computer</a> and interact with it to start an in-game story sequence.</li>
+      <li>Once the cutscene ends, enter the <a href="pictures/main_ee/boss_fight/final_orlov_portal.webp">Anomaly</a> in the "Living Room". While in the Dark Aether, there will be a Spectral Reflection near the M1911 wallbuy, interact with it.</li>
+      <p class="warning">Warning: Point of No Return. Once you pick up the Orlov Family Photo, you will be put into the "Boss Fight"</p>
+      <li>Once the Spectral Reflection ends, you will be removed from the Dark Aether.</li>
+      <li>The Orlov Family Photo will spawn on a table near where the reflection was. Pick it up to start the Boss Fight.</li>
+
+      <p class="step-group-title" id="main_ee_step4">Boss Fight</p>
+      <li>After picking up the Orlov Family Photo, you will be teleported to the 'Particle Accelerator', where Orlov will start a conversation. Once the conversation is done, he will run to one of his objectives.</li>
+      <li>You must protect Orlov from zombies while he deactivates the Particle Accelerator. Orlov can't take damage, but he will stop working while zombies are attacking him.</li>
+      <li>There are three objectives Orlov has to complete, the Magnetic Containment, Primary Coolant, and Fail-Safe. Other than surviving and defending Orlov, there is nothing more to do.</li>
+      <li>Once the Particle Accelerator is deactivated, a short dialogue will play. Once the dialogue is finished, a 90-second timer will start, and the players need to make their way through the facility to the exfil chopper in the 'Pond'.
+        <ul>
+          <li>On the way to the 'Pond', players must avoid lethal beams of electricity coming from the ground.</li>
+          <li>There is only one path to the 'Pond' which takes you through the 'Weapons Lab' to the 'Control Room', out to the 'Tunnel' then the 'Crash Site' then down to the 'Pond'.</li>
+        </ul>
+      <li>Once in the 'Pond', board the exfil chopper to finish the Easter Egg.</li>
+    </ol>
+  </div>
+
+  <!-- Song EE -->
+  <div class="content-container" id="song_ee">
+    <h2>'Alone' Song</h2>
+    <ol>
+      <li>There are three tapes required to start the song. Tape Locations: </li>
+      <ul>
+        <li>"Living Room" - <a href="pictures/song_ee/tape1.webp">Inside the toppled refrigerator</a></li>
+        <li>Medical Bay - <a href="pictures/song_ee/tape2.webp">On a shelf near a wooden crate</a></li>
+        <li>Particle Accelerator - <a href="pictures/song_ee/tape3.webp">On top of machinery</a></li>
+      </ul>
+      <li>Once all three tapes are collected, the song will start.</li>
+    </ol>
+  </div>
+
+  <!-- Coffin Dance EE -->
+  <div class="content-container" id="free_jug">
+    <h2>Coffin Dance</h2>
+    <p class="weapon-desc">The coffin dance rewards the players with a chest that has green and blue salvage, free jug for one player and a random weapon, which could be the D.I.E.</p>
+    <ol>
+      <li>Turn on Power and activate Pack-a-Punch.</li>
+      <li>There are five orbs in the 'Particle Accelerator' that need to be shot. Orb Locations: </li>
+      <ul>
+        <li><a href="pictures/free_jug/orb1.webp">Near the right-side door to Main Power</a></li>
+        <li><a href="pictures/free_jug/orb2.webp">Within the barrier beneath the stairs</a></li>
+        <li><a href="pictures/free_jug/orb3.webp">On an air duct near the door to Weapons Lab</a></li>
+        <li><a href="pictures/free_jug/orb4.webp">Behind the grate on the Main Power wall</a></li>
+        <li><a href="pictures/free_jug/orb5.webp">Behind the machinery to the right of the stairs, below the Armory</a></li>
+      </ul>
+      <li>Once all five orbs were shot, you will be teleported to the Dark Aether version of the 'Particle Accelerator' to watch a cutscene. Once the cutscene is over, you will be presented with a chest.</li>
+    </ol>
+  </div>
+
+  <!-- Free Legendary Upgrade -->
+  <div class="content-container" id="free_legendary_upgrade">
+    <h2>Free Legendary Weapon Upgrade</h2>
+    <p class="weapon-desc">Upon completion, the player's held weapon will be upgraded from its current rarity to Legendary (Orange)</p>
+    <ol>
+      <li>Turn on Power and activate Pack-a-Punch.</li>
+      <li>Pack-a-Punch'd the Weapon you'd like to upgrade.</li>
+      <p class="warning">For the Remainder of this Easter Egg, you must be in the Dark Aether.</p>
+      <li>Navigate to the 'Medical Bay' and shoot <a href="pictures/free_legendary_upgrade/buttonneardoor.webp">four red buttons</a> lining the walls of the <a href="pictures/free_legendary_upgrade/hallway.webp">hallway with the barrier</a> with a Pack-a-Punch'd weapon.</li>
+      <li>Once all Four Buttons have turned green, a <a href="pictures/free_legendary_upgrade/glowingdoor.webp">door on the left</a> will begin to emit a green light.</li>
+      <li>Shoot the <a href="pictures/free_legendary_upgrade/buttontorightofglowingdoor.webp">button to the right of the glowing door</a> with a Pack-a-Punch'd weapon to spawn an Orda's Hand from the door. The Hand will kill zombies near the door.</li>
+      <li>Once the Hand kills 15 Zombies, your currently equipped weapon will be upgraded to Legendary.</li>
+    </ol>
+  </div>
+
+  <!-- Free Scorestreak -->
+  <div class="content-container" id="free_scorestreak">
+    <h2>Free Scorestreak or Jumpscare</h2>
+    <ol>
+      <li>Turn on Power and activate Pack-a-Punch.</li>
+      <p class="warning">For the Remainder of this Easter Egg, you must be in the Dark Aether.</p>
+      <li>A Zombie can be found suspended in the air in each of the following five locations. The locations in which a Zombie will spawn is randomized each match and only one Zombie will be spawned at a time.</li>
+      <ul>
+        <li>Particle Accelerator - <a href="pictures/free_scorestreak/particleaccelerator.webp">Outside the barrier on the Weapons Lab side</a></li>
+        <li>Control Room - <a href="pictures/free_scorestreak/medicalbay.webp">In the water beneath the catwalk to the Medical Bay</a></li>
+        <li>Pond - <a href="pictures/free_scorestreak/pond_quick_revive.webp">Near the trees left of the door to Tunnel</a></li>
+        <li>Crash Site - <a href="pictures/free_scorestreak/crashsite.webp">Near the tail of the crashed plane</a></li>
+        <li>Yard - <a href="pictures/free_scorestreak/yard_spawn.webp">Near the trees left of the door to "Living Room"</a></li>
+      </ul>
+      <p class="warning">If you want the Free Scorestreak, complete Step 3. Otherwise, if you want to see the Jumpscare, skip Step 3 and complete Step 4.</p>
+      <li>Return to the Pond and locate the Zombie floating near the <a href="pictures/free_scorestreak/pond_final.webp">center of the Pond</a>. Shoot it to reveal a Scorestreak which can be collected on the ground beneath where the Zombie was.</li>
+      <li>Don't shoot the zombie, instead stand underneath it.</li>
+    </ol>
+  </div>
+
+  <!-- Free 1500 Essence -->
+  <div class="content-container" id="free_essence">
+    <h2>Free 1,500 Essence</h2>
+    <ol>
+      <li>Turn on Power and activate Pack-a-Punch.</li>
+      <li>Obtain Dead Wire from Pack-a-Punch.</li>
+      <li>Rotate three satellites on towers around the map using the Dead Wire equipped weapon until they point toward the <a href="pictures/free_essence/penthouse.webp">"Penthouse" antenna</a> and emit a blue pulse.</li>
+      <ul>
+        <li>Crash Site - <a href="pictures/free_essence/crashsite_left_of_staminup.webp">Left of Stamin-Up</a></li>
+        <li>Crash Site - <a href="pictures/free_essence/crashsite_behind_jug.webp">Behind Juggernog in the forest</a></li>
+        <li>Pond - <a href="pictures/free_essence/pond_behind_quick_revive.webp">Right of Quick Revive in the forest</a></li>
+      </ul>
+      <li>Once all three dishes are facing the "Penthouse" antenna, they will be connected by electricity and three Essence Canisters will appear <a href="pictures/free_essence/essence_canisters.webp">near the wunderfizz</a> in the "Penthouse" for you to pick up.</li>
+    </ol>
+  </div>
+
+  <!-- See Orda Out of Map -->
+  <div class="content-container" id="orda_ee">
+    <h2>See Orda Walking Outside the Map</h2>
+    <ol>
+      <li>Reach Round 42.</li>
+      <li>Enter the Dark Aether.</li>
+      <li>Navigate to the <a href="pictures/orda_ee/pond.webp">Pond</a> and look to <a href="pictures/orda_ee/forest.webp">this part</a> of the forest.</li>
+    </ol>
+  </div>
+</div>
+
+
+<h2 class="bottom-padding"></h2>
+
+<script src="/zombiesGuides/scripts.js"></script>
+</body>
+</html>

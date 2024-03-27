@@ -1,0 +1,19 @@
+Versioning - Documentation:
+v#1.#2.#3.#4
+#1 = Major Frontend Change (Either HTML or CSS)
+#2 = JS Change (Major or Minor to either scripts or settings)
+#3 = Number of Finished Guides (This is the number of guides that have been completed and are ready to be released)
+#4 = The number of commits to the repo no matter how small
+
+When Guide is not being added:
+Update Versioning in Index.html
+convert pictures to webp
+
+When Guide is being added:
+Update Versioning in Index.html
+convert pictures to webp
+Update Index.html to make sure the new guide can be accessed
+Update Readme.md
+Check comments of the new guide for anything undesirable.
+Make sure the new guide's picture directory is segmented by substep
+
