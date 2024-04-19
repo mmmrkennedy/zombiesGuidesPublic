@@ -152,7 +152,7 @@ def valid_dir(image_dir):
     if image_dir == "":
         new_input = input("Enter the path to the image directory: ") #.strip('\'"')
         if new_input == "":
-            default_dir = "D:\\zombiesGuides\\games"
+            default_dir = "D:\\zombiesGuidesPublic\\games"
             print(f"Using default directory: {default_dir}")
             return default_dir
         else:
@@ -192,7 +192,7 @@ if __name__ == "__main__":
 
                 png_to_webp(image_dir, image_quality, image_extensions)
             else:
-                png_to_webp("D:\\zombiesGuides\\games", "87", ['.png', '.jpg', '.jpeg', '.bmp'])
+                png_to_webp("D:\\zombiesGuidesPublic\\games", "87", ['.png', '.jpg', '.jpeg', '.bmp'])
 
         elif convert_option == "2":
             image_dir = valid_dir(image_dir)

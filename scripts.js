@@ -329,10 +329,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Check if the hrefValue doesn't have a file extension.
-        if (!/\.(webp|jpg|jpeg|png|html|mp4|gif)$/i.test(hrefValue)) {
+        if (!/\.(webp|jpg|jpeg|png|html|mp4|gif|webm)$/i.test(hrefValue)) {
             tag.classList.add('incomplete-path');
 
-        } else if (!(hrefValue.includes(".webp") || hrefValue.includes(".html"))) {
+        } else if (!(hrefValue.includes(".webp") || hrefValue.includes(".html") || hrefValue.includes(".webm"))) {
             tag.classList.add('file-dne');
         }
         

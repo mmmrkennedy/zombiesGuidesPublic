@@ -1,15 +1,22 @@
-function main(mNum, lowerBound, upperBound, insectNum, racingNum = undefined) {
+function main(mNum, lowerBound, upperBound, insectNum, racingNum= undefined) {
+    if (lowerBound > upperBound){
+        let [lowerBound, upperBound] = [upperBound, lowerBound]
+    } else if (lowerBound === upperBound){
+        return "Top number ≠ Bottom number"
+    }
+
     const possibleFinalNums = [lowerBound - 1, lowerBound + 1, upperBound + 1];
 
-    let [possibleTVNumbers, possibleONums] = getValidONums(mNum, possibleFinalNums);
+    // getValidONums checks the given mNum against the possible oNums to see which matches the given TV numbers (possibleFinalNums)
+    const [possibleTVNumbers, possibleONums] = getValidONums(mNum, possibleFinalNums);
 
     // === Determine 'oNum' String ===
     let oNumStr = "";
     let oNumStrCounter = 0;
 
-
     if (possibleONums.length === 1) {
         oNumStr += possibleONums[0];
+
     } else if (possibleONums.length >= 2) {
         for (const index of possibleONums) {
             if (oNumStrCounter === 0) {
@@ -23,6 +30,7 @@ function main(mNum, lowerBound, upperBound, insectNum, racingNum = undefined) {
 
     // === Return Results ===
     return [oNumStr, getColorOption(possibleTVNumbers, possibleFinalNums), getLetter(insectNum, racingNum)];
+
 }
 
 function getValidONums(mNum, possibleFinalNums) {
@@ -30,14 +38,14 @@ function getValidONums(mNum, possibleFinalNums) {
     const defaultONums = [2, 4, 5, 6, 8, 9, 11, 15]; // These are the only numbers the O-number can ever be.
 
     // === Calculate Possible Results ===
-    let possibleTVNumbers = []; // A TV number is the number obtained by multiplying the mNum by an oNum. It is used to compare to the numbers on the TV to get the right colour.
+    let possibleTVNumbers = []; // A TV number is a number that can be obtained by multiplying the mNum by an oNum. It is used to compare to the numbers on the TV to get the right colour.
     let possibleONums = [];
 
     for (let index = 0; index < defaultONums.length; index++) {
-        let TVNum = mNum * defaultONums[index];
+        let colourNum = mNum * defaultONums[index];
 
-        if (TVNum === possibleFinalNums[0] || TVNum === possibleFinalNums[1] || TVNum === possibleFinalNums[2]) {
-            possibleTVNumbers.push(TVNum);
+        if (colourNum === possibleFinalNums[0] || colourNum === possibleFinalNums[1] || colourNum === possibleFinalNums[2]) {
+            possibleTVNumbers.push(colourNum);
             possibleONums.push(defaultONums[index]);
         }
     }
