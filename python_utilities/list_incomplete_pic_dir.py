@@ -2,8 +2,6 @@ import re
 import os
 
 def is_incomplete_link(line):
-    print(line)
-
     if '<a href="' not in line:
         return False
 

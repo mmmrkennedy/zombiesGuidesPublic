@@ -1,6 +1,5 @@
 import fnmatch
 import os
-
 from bs4 import BeautifulSoup
 
 
@@ -102,11 +101,24 @@ def compare(webp_from_folder, webp_from_html):
     return list(set(webp_from_folder) - set(webp_from_html))
 
 if __name__ == "__main__":
-    html_path, pictures_path = find_html_and_pictures_folder(input("Enter directory path: "))
+    default_path = input("Default Path? (Yes default):")
+
+    if default_path == "":
+        html_path, pictures_path = find_html_and_pictures_folder("D:\zombiesGuidesPublic")
+    else:
+        html_path, pictures_path = find_html_and_pictures_folder(input("Enter directory path: "))
 
     unreferenced_images = compare(find_webp_image_names(pictures_path), find_webp_in_a_tags(html_path))
 
-    print("Unused images:" + str(find_files_abs_paths(unreferenced_images, pictures_path)))
+    paths = find_files_abs_paths(unreferenced_images, pictures_path)
+
+    if len(paths) == 0:
+        print("All images are being used")
+    else:
+        print("Unused images:")
+        for path in paths:
+            print(path)
+
 
 
 
