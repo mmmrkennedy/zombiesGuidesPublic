@@ -10,7 +10,6 @@ Update Versioning in Index.html
 convert pictures to webp
 
 When Guide is being added:
-Update Versioning in Index.html
 convert pictures to webp
 Update Index.html to make sure the new guide can be accessed
 Update Readme.md

@@ -1,6 +1,7 @@
 import re
 import os
 
+
 def is_incomplete_link(line):
     if '<a href="' not in line:
         return False
@@ -13,10 +14,13 @@ def is_incomplete_link(line):
 
     return True
 
+
 def extract_link_name(line):
     start_index = line.find('/">') + 3
-    end_index = line.find('</a>')
+    line_after_start = line[start_index:]
+    end_index = line_after_start.find('</a>') + start_index
     return line[start_index:end_index]
+
 
 def save_incomplete_links(html_path):
     current_header = None
@@ -25,7 +29,7 @@ def save_incomplete_links(html_path):
         for line in f:
             stripped_line = line.strip()
             h2_match = re.search(r'<h2.*?>(.*?)</h2>', stripped_line)
-            p_upgrade_title_match = re.search(r'<p class="upgrade-title".*?>(.*?)</p>', stripped_line)
+            p_upgrade_title_match = re.search(r'<p class="step-group-title".*?>(.*?)</p>', stripped_line)
 
             if h2_match:
                 current_header = h2_match.group(1)
