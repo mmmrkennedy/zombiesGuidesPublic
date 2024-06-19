@@ -339,3 +339,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 });
+
+/*
+=======================================
+ADD LINK TO PAGE CLASS TO A TAGS
+=======================================
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all <a> tags in the document that are not inside .content-container-top
+    const links = document.querySelectorAll("a:not(.content-container-top a)");
+
+    // Loop through each <a> tag
+    links.forEach(function(link) {
+        // Check if the href attribute contains a #
+        if (link.getAttribute("href").includes("#")) {
+            // Add the class link-to-page to the <a> tag
+            link.classList.add("link-to-page");
+        }
+    });
+});
