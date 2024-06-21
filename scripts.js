@@ -351,10 +351,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Loop through each <a> tag
     links.forEach(function(link) {
-        // Check if the href attribute contains a #
         if (link.getAttribute("href").includes("#")) {
-            // Add the class link-to-page to the <a> tag
             link.classList.add("link-to-page");
+        }
+            
+        if (link.getAttribute("href").includes("youtu.be")) {
+            link.classList.add("youtube-link");
         }
     });
 });

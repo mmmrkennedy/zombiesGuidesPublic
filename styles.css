@@ -28,6 +28,18 @@ a.link-to-page {
     font-style: italic;
 }
 
+a.youtube-link {
+    color: #34a400;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.light-mode a.youtube-link {
+    color: #62163d;
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .bird-highlight-orange {
     color: #d4b365;
 }
