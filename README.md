@@ -9,19 +9,12 @@ The plan is to also include solvers for steps that require them (such as IW's At
 
 ## Roadmap
 Next:
-- Ancient Evil
 - The Final Reich
 
 Finished:
 - All Of CW (Except Outbreak)
 - All Of VG
-- IX
-- Voyage of Despair
-- Blood of the Dead
-- Classified
-- Dead of The Night (Images Missing for Infinite Ammo Side EE)
-- Alpha Omega
-- Tag Der Toten
+- All Of BO4
 
 In Limbo (I don't wanna):
 - Outbreak
