@@ -19,9 +19,14 @@ def list_pictures(folder, size):
 
 def main():
     folder = input("Enter the folder path: ")
-    width = int(input("Enter the width of the images: "))
-    height = int(input("Enter the height of the images: "))
-    size = (width, height)
+    default_sizes = [(3840, 2160), (2560, 1440), (1920, 1080)]
+    default_ask = int(input("Enter resolution options (1: 4K, 2: 2K, 3:1080p, 4:Custom): "))
+    if default_ask > 3:
+        width = int(input("Enter the width of the images: "))
+        height = int(input("Enter the height of the images: "))
+        size = (width, height)
+    else:
+        size = default_sizes[default_ask-1]
 
     pictures = list_pictures(folder, size)
 

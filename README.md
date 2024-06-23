@@ -10,7 +10,7 @@ The plan is to also include solvers for steps that require them (such as IW's At
 ## Roadmap
 Next:
 - Ancient Evil
-- Tag Der Toten
+- The Final Reich
 
 Finished:
 - All Of CW (Except Outbreak)
@@ -21,6 +21,7 @@ Finished:
 - Classified
 - Dead of The Night (Images Missing for Infinite Ammo Side EE)
 - Alpha Omega
+- Tag Der Toten
 
 In Limbo (I don't wanna):
 - Outbreak
