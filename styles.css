@@ -161,7 +161,7 @@ p.warning {
     line-height: 1.75;
 }
 
-p.step-group-title, p.upgrade-title, p.archon-special, p.sub-sub-step {
+p.step-group-title, p.archon-special, p.sub-sub-step {
     margin-top: 13px;
     margin-bottom: 10px;
     margin-right: 0;
@@ -170,6 +170,11 @@ p.step-group-title, p.upgrade-title, p.archon-special, p.sub-sub-step {
 }
 
 p.upgrade-title {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    margin-left: -40px;
+    font-weight: bold;
     font-size: 21px;
 }
 
