@@ -2,6 +2,7 @@ import os
 import subprocess
 from PIL import Image
 import shutil
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 def png_to_webp(root_dir, image_quality, image_extensions):
@@ -12,39 +13,44 @@ def png_to_webp(root_dir, image_quality, image_extensions):
         print("No images found!")
     else:
         if input("Backup directory? (y/n), No is default: ") == "y":
-            incremental_backup(image_dir, image_dir + "_backup")
+            incremental_backup(root_dir, root_dir + "_backup")
 
-        for dirpath, dirnames, filenames in os.walk(root_dir):
-            for filename in filenames:
-                # Check if the file has any of the common image extensions
-                if any(filename.endswith(ext) for ext in image_extensions):
-                    input_path = os.path.join(dirpath, filename)
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(convert_to_webp, dirpath, filename, image_quality)
+                       for dirpath, dirnames, filenames in os.walk(root_dir)
+                       for filename in filenames if any(filename.endswith(ext) for ext in image_extensions)]
 
-                    # Check the image dimensions
-                    with Image.open(input_path) as img:
-                        width, height = img.size
-
-                    # The output filename will always have a .webp extension
-                    output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.webp')
-
-                    # Try executing the cwebp command
-                    try:
-                        result = subprocess.run(['cwebp', '-q', str(image_quality), input_path, '-o', output_path],
-                                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
-
-                        # If conversion was successful and output file exists, delete the original image
-                        if result.returncode == 0 and os.path.exists(output_path):
-                            if input_path != output_path:
-                                os.remove(input_path)
-
-                            images_converted += 1
-                            print(f"Converted {images_converted} of {num_images} images - {filename}")
-                        else:
-                            print(f"Conversion failed for {input_path}")
-                    except subprocess.CalledProcessError:
-                        print(f"Error processing {input_path}")
+            for future in as_completed(futures):
+                result = future.result()
+                if result:
+                    images_converted += 1
+                    print(f"Converted {images_converted} of {num_images} images - {result}")
+                else:
+                    print(f"Conversion failed for {result}")
 
         print(f"Conversion to WebP @ {image_quality} Quality Completed!")
+
+
+def convert_to_webp(dirpath, filename, image_quality):
+    input_path = os.path.join(dirpath, filename)
+
+    with Image.open(input_path) as img:
+        width, height = img.size
+
+    output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.webp')
+
+    try:
+        result = subprocess.run(['cwebp', '-q', str(image_quality), input_path, '-o', output_path],
+                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+
+        if result.returncode == 0 and os.path.exists(output_path):
+            if input_path != output_path:
+                os.remove(input_path)
+            return filename
+        else:
+            return None
+    except subprocess.CalledProcessError:
+        return None
 
 
 def webp_to_png(root_dir):
@@ -54,85 +60,80 @@ def webp_to_png(root_dir):
     if num_images == 0:
         print("No images found!")
     else:
-        incremental_backup(image_dir, image_dir + "_backup")
-        for dirpath, dirnames, filenames in os.walk(root_dir):
-            for filename in filenames:
-                # Check if the file has a .webp extension
-                if filename.endswith('.webp'):
-                    input_path = os.path.join(dirpath, filename)
+        incremental_backup(root_dir, root_dir + "_backup")
 
-                    # The output filename will always have a .png extension
-                    output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.png')
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(convert_to_png, dirpath, filename)
+                       for dirpath, dirnames, filenames in os.walk(root_dir)
+                       for filename in filenames if filename.endswith('.webp')]
 
-                    # Try executing the dwebp command
-                    try:
-                        result = subprocess.run(['dwebp', input_path, '-o', output_path], stdout=subprocess.DEVNULL,
-                                                stderr=subprocess.DEVNULL, check=True)
-
-                        # If conversion was successful and output file exists, delete the original webp image
-                        if result.returncode == 0 and os.path.exists(output_path):
-                            os.remove(input_path)
-                            # print(f"Converted and deleted {input_path}")
-                            images_converted += 1
-                            print(f"Converted {images_converted} of {num_images} images")
-                        else:
-                            print(f"Conversion failed for {input_path}")
-                    except subprocess.CalledProcessError:
-                        print(f"Error processing {input_path}")
+            for future in as_completed(futures):
+                result = future.result()
+                if result:
+                    images_converted += 1
+                    print(f"Converted {images_converted} of {num_images} images")
+                else:
+                    print(f"Conversion failed for {result}")
 
         print("Conversion to PNG Completed!")
+
+
+def convert_to_png(dirpath, filename):
+    input_path = os.path.join(dirpath, filename)
+    output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.png')
+
+    try:
+        result = subprocess.run(['dwebp', input_path, '-o', output_path], stdout=subprocess.DEVNULL,
+                                stderr=subprocess.DEVNULL, check=True)
+
+        if result.returncode == 0 and os.path.exists(output_path):
+            os.remove(input_path)
+            return filename
+        else:
+            return None
+    except subprocess.CalledProcessError:
+        return None
 
 
 def remove_empty_dirs(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path, topdown=False):
         try:
-            if not os.listdir(dirpath):  # Check if the directory is empty
+            if not os.listdir(dirpath):
                 print(f"Removing empty directory: {dirpath}")
                 os.rmdir(dirpath)
                 parent_dir = os.path.dirname(dirpath)
-                if parent_dir != dir_path:  # Prevent trying to remove the root backup directory
-                    remove_empty_dirs(parent_dir)  # Recursively check and remove empty parent directories
-
+                if parent_dir != dir_path:
+                    remove_empty_dirs(parent_dir)
         except FileNotFoundError:
             continue
 
+
 def incremental_backup(src_dir, dest_dir):
-    # Ensure source directory exists
     if not os.path.exists(src_dir):
         raise ValueError(f"Source directory {src_dir} does not exist!")
 
     print(f"Backing up {src_dir} to {dest_dir}")
 
-    # Define allowed image extensions
     image_extensions = {".jpg", ".jpeg", ".webp", ".png"}
 
-    # Walk through the source directory
     for dirpath, dirnames, filenames in os.walk(src_dir):
-        # Construct the destination directory path
         rel_path = os.path.relpath(dirpath, src_dir)
         dest_path = os.path.join(dest_dir, rel_path)
 
-        # Make sure the destination directory exists
         if not os.path.exists(dest_path):
             os.makedirs(dest_path)
 
-        # Loop through all files in the current directory
         for filename in filenames:
-            # Check if the file is an image
             if os.path.splitext(filename)[1].lower() in image_extensions:
-                # Construct full file paths
                 src_file = os.path.join(dirpath, filename)
                 dest_file = os.path.join(dest_path, filename)
 
-                # Copy the file if it doesn't exist in the destination
-                # or if it's newer than the destination file
                 if (not os.path.exists(dest_file)) or (os.path.getmtime(src_file) > os.path.getmtime(dest_file)):
                     shutil.copy2(src_file, dest_file)
                     print(f"Copied {src_file} to {dest_file}")
                 else:
                     print(f"Skipped {src_file}, already up to date.")
 
-    # Remove any empty directories in the destination
     remove_empty_dirs(dest_dir)
 
 
@@ -150,7 +151,7 @@ def count_image_files(directory_path, image_extensions):
 
 def valid_dir(image_dir):
     if image_dir == "":
-        new_input = input("Enter the path to the image directory: ") #.strip('\'"')
+        new_input = input("Enter the path to the image directory: ")
         if new_input == "":
             default_dir = "D:\\zombiesGuidesPublic\\games"
             print(f"Using default directory: {default_dir}")
@@ -183,12 +184,10 @@ if __name__ == "__main__":
                     image_quality = "87"
 
                 include_webp = input("Include webp files? (y/n), No is default: ")
-                if include_webp == "":
+                if include_webp == "" or include_webp.lower() == "n":
                     image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
                 else:
                     image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.webp']
-
-                print(image_dir)
 
                 png_to_webp(image_dir, image_quality, image_extensions)
             else:
@@ -210,4 +209,3 @@ if __name__ == "__main__":
 
         elif convert_option == "5":
             break
-
