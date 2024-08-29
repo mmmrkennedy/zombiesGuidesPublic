@@ -75,6 +75,15 @@ a {
     color: orange;
 }
 
+.file-doesnt-exist {
+    color: yellow;
+}
+
+.main-line {
+    border-top: 3px solid gray;
+    margin: 20px 15px;
+}
+
 
 /* Button in the Corners */
 .toggle-button {
@@ -136,16 +145,21 @@ a {
 .content-container-top,
 .content-container {
     text-align: left;
-    margin: 50px 0 0 20px;
-    max-width: fit-content;
+    margin: 10px 0 0 20px;
     position: relative;
-    z-index: 0;
     inline-size: auto;
     overflow-wrap: break-word;
 }
 
 .content-container-top {
     margin-top: 100px;
+    border-bottom: 4px solid grey; /* 3px line at the bottom */
+    padding-bottom: 10px; /* Adjust padding as needed to create space between content and line */
+}
+
+.content-container {
+    border-bottom: 2px solid grey; /* 1px line at the bottom */
+    padding-bottom: 10px; /* Adjust padding as needed to create space between content and line */
 }
 
 .step-content {

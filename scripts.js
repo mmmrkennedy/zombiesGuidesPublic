@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (href && href.startsWith('#')) {
                 event.preventDefault();
                 const elementId = href.substring(1);
-                scrollToElement(elementId, 100);
+                scrollToElement(elementId, 105);
             }
         }
     });
@@ -252,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     setTimeout(function(){
-        console.log("Check Called")
         if (check1 || check2) {
             document.getElementById('mobileContent').style.display = 'block';
             document.getElementById('nonMobileContent').style.display = 'none';
@@ -321,22 +320,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     allATags.forEach(function (tag) {
         var hrefValue = tag.getAttribute('href');
-        console.log(hrefValue)
 
         // Skip if hrefValue starts with # (anchor link) or http/https (absolute URL).
         if (hrefValue.startsWith('#') || hrefValue.startsWith('http://') || hrefValue.startsWith('https://')) {
             return;
         }
 
-        // Check if the hrefValue doesn't have a file extension.
-        if (!/\.(webp|jpg|jpeg|png|html|mp4|gif|webm)$/i.test(hrefValue)) {
+        if (hrefValue.endsWith("/")) {
             tag.classList.add('incomplete-path');
-
+            console.log(hrefValue);
         } else if (!(hrefValue.includes(".webp") || hrefValue.includes(".html") || hrefValue.includes(".webm"))) {
             tag.classList.add('file-dne');
         }
-        
 
+        // Create a request to check if the file exists
+        let xhr = new XMLHttpRequest();
+        xhr.open('HEAD', hrefValue, true);
+        xhr.onload = function () {
+            if (xhr.status !== 200 && hrefValue.includes()) {
+                // File does not exist, change text color
+                tag.classList.add('file-doesnt-exist');
+            }
+        };
+        xhr.onerror = function () {
+            // An error occurred, assume file does not exist
+            tag.classList.add('file-doesnt-exist');
+        };
+        xhr.send();
     });
 });
 
@@ -355,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function() {
             link.classList.add("link-to-page");
         }
             
-        if (link.getAttribute("href").includes("youtu.be")) {
+        if (link.getAttribute("href").includes("youtu.be") || link.getAttribute("href").includes("youtube")) {
             link.classList.add("youtube-link");
         }
     });
