@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title -->
-    <title>CHANGE ME</title>
+    <title>Rave in the Redwoods</title>
     <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
     <base target="_blank">
@@ -26,7 +26,7 @@
     <button class="toggle-button top-right-down" onclick="navigateToSettings()">Settings</button>
 </div>
 
-<h2 class="title_text">CHANGE ME</h2>
+<h2 class="title_text">Rave in the Redwoods Guide</h2>
 <div class="top_buttons_background_box"></div>
 
 <div class="smooth-scroll">
@@ -39,34 +39,323 @@
             <option value="OpenDyslexic">OpenDyslexic</option>
         </select>
 
-        <h2>Weapons</h2>
+        <h2>Map Progression</h2>
         <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
-                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
-            </ol>
+            <li><a href="#power">Power</a></li>
+            <li><a href="#pap">Pack-a-Punch</a></li>
+            <ul>
+                <li><a href="#double_pap">Double Pack-a-Punch</a></li>
+            </ul>
+            <li><a href="#rave_mode">Rave Mode</a></li>
+            <li><a href="#challenges">Bear Lake Camp Challenges</a></li>
+        </ul>
+
+        <h2>Weapons and Buildables</h2>
+        <ul>
+            <li><a href="#totems_and_gems">Totems & Gems (Craftable Scorestreaks)</a></li>
+            <li><a href="#vlad">'Vlad' Crossbow Wonder Weapons</a></li>
+            <ul>
+                <li><a href="#whirlwind">Whirlwind EF-5 (Wind)</a></li>
+                <li><a href="#whirlwind">Trap-o-Matic</a></li>
+                <li><a href="#whirlwind">Acid Rain</a></li>
+                <li><a href="#whirlwind">Ben Franklin (Lightning)</a></li>
+            </ul>
+            <li><a href="#smiley">'Smiley' Chainsaw Wonder Weapon</a></li>
+            <li><a href="#charms">Charms</a></li>
+            <ul>
+                <li><a href="#binoculars">Binoculars</a></li>
+                <li><a href="#shovel">Shovel</a></li>
+                <li><a href="#arrowhead">Arrowhead</a></li>
+                <li><a href="#ring">Ring</a></li>
+                <li><a href="#bird_mask">Bird Mask</a></li>
+                <li><a href="#8_ball">8 Ball</a></li>
+                <li><a href="#fish">Fish</a></li>
+                <li><a href="#frog">Frog</a></li>
+                <li><a href="#pacifier">Pacifier</a></li>
+                <li><a href="#boot">Boot</a></li>
+            </ul>
         </ul>
 
         <h2>Easter Eggs</h2>
         <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <li><a href="#main_ee">'Locksmith' Main Quest</a></li>
+            <div id="substeps1">
+                <ol>
+                    <li><a href="#main_ee">Prerequisites</a></li>
+                    <li><a href="#main_ee_step2">Photo #1 Challenge</a></li>
+                    <li><a href="#main_ee_step3">Photo #2 Challenge</a></li>
+                    <li><a href="#main_ee_step4">Skull Challenge</a></li>
+                    <li><a href="#main_ee_step5">Super Slasher Boss Fight</a></li>
+                </ol>
+            </div>
+            <li><a href="#mw1_song">'Puppet Strings' Song</a></li>
+            <li><a href="#lobby_music">Additional Lobby Music</a></li>
+            <li><a href="#ghosts_and_skulls">Ghosts 'N Skulls 2</a></li>
             <ol>
-                <li><a href="#main_ee_step1">CHANGE ME</a></li>
-                <li><a href="#main_ee_step2">CHANGE ME</a></li>
-                <li><a href="#main_ee_step3">CHANGE ME</a></li>
-                <li><a href="#main_ee_step4">CHANGE ME</a></li>
-                <li><a href="#main_ee_step5">CHANGE ME</a></li>
+                <li><a href="#ghosts_and_skulls">Coin 1/6 - Trap Kills</a></li>
+                <li><a href="#side_ee_step2">Coin 2/6 - Rave Mode Symbols</a></li>
+                <li><a href="#side_ee_step3">Coin 3/6 - Knife Throwing Game</a></li>
+                <li><a href="#side_ee_step4">Coin 4/6 - Spell SKULL with Symbols</a></li>
+                <li><a href="#side_ee_step5">Coin 5/6 - Boat Shooting Gallery</a></li>
+                <li><a href="#side_ee_step6">Coin 6/6 - Ben Franklin Bow</a></li>
+                <li><a href="#side_ee_step7">The Ghost N' Skulls Mini-Game</a></li>
             </ol>
+            <li><a href="#smith_code">Play as Kevin Smith</a></li>
         </ul>
     </div>
 
-    <!-- Wonder Weapons -->
-    <div class="content-container" id="CHANGE ME">
-        <h2>CHANGE ME</h2>
-        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
-        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    <!-- Power -->
+    <div class="content-container" id="power">
+        <h2>Power</h2>
+        <ul>
+            <li>There is only one Power Switch, and it is located in the <a href="pictures/power/">basement of the Bear Lodge (spawn)</a>. The Basement can be accessed through the Mines.</li>
+        </ul>
     </div>
+
+    <!-- PaP -->
+    <div class="content-container" id="pap">
+        <h2>Pack-a-Punch</h2>
+        <ol>
+            <li>Activate the <a href="#power">Power</a>.</li>
+            <li>To access Pack-a-Punch, you must build the Boat. The Boat requires three parts to be built - Handle, Engine, Propeller:
+            <ul>
+                <li>Handle: <a href="pictures/pap/">Rave Area - Leaning against the structure near the Quickies Perk Machine</a></li>
+                <li>Engine: <a href="pictures/pap/">Mess Hall - Leaning against the pillar in the middle of the room</a></li>
+                <li>Propeller: <a href="pictures/pap/">Bear Lodge (spawn) - In Tuff 'Nuff room above Spawn</a></li>
+            </ul>
+            <li>Before you use the Boat, pick up the <a href="pictures/pap/">Film Reel</a> on the Docks.</li>
+            <li>Once you've collected all three parts, the Boat can be used inside the <a href="pictures/pap/">Boathouse</a> on the Docks. After a slow ride, you will be dropped off on Turtle Island.</li>
+            <li>Pick up the <a href="pictures/pap/">Film Reel</a> just outside the backdoor of the Cabin.</li>
+            <li>Once you have both film reels, interact with the <a href="pictures/pap/">Broken Projector</a> in the Cabin to fix it. This will cause the Projector to project a portal on the wall.</li>
+            <li>Interact with the portal on the wall to teleport to the Pack-a-Punch room.</li>
+            <ul>
+                <li>While in the projector room, you'll have 30 seconds to use the Pack-a-Punch before you are forcefully teleported back to the main map.</li>
+            </ul>
+            <li>After being forcefully teleported back, the teleporter will go on cooldown for about one minute. After the minute is up, the teleporter will reactivate.</li>
+        </ol>
+
+        <p class="step-group-title" id="double_pap">Double Pack-a-Punch</p>
+        <ol start="0">
+            <li>If you have completed the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">'Sooooul Key' Main Quest</a> on Zombies in Spaceland, the Alien Fuses will already be present in the Pack-a-Punch Projector every game you play, and you will not have to do the following steps.</li>
+            <li>Activate the <a href="#power">Power</a>.</li>
+            <li>Interact with the <a href="pictures/pap/double_pap/">Computer</a> in the Spawn room. The computer will begin to make internet dial-up sounds.</li>
+            <li>After three rounds, the Alien Fuses will appear <a href="pictures/pap/double_pap/">behind the Computer</a> for you to pick up.</li>
+            <li>Unlock the <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>The Alien Fuses can now be inserted into the Pack-a-Punch Projector. Once inserted, you will be able to Pack-a-Punch any Pack-a-Punched weapon again for 10,000 Points.</li>
+            <li>If you have not completed the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">'Sooooul Key' Main Quest</a> on Zombies in Spaceland, the alien fuses will only be activated for the <strong>remainder of the CURRENT</strong> game.</li>
+        </ol>
+    </div>
+
+    <!-- Challenges -->
+    <div class="content-container" id="rave_mode">
+        <h2>Rave Mode</h2>
+        <ul>
+            <li>Rave Mode is a special mode a player can enter that adds visual effects to the map, such as adding coloured effect to the Zombies and environment.</li>
+            <li>Rave Mode can be activated by first, getting a <a href="pictures/rave_mode/">Rave Mode Pouch</a>, which Zombies randomly drop, and then interact with any fire around the map. Entering Rave Mode will use the Pouch, and you will have to get another one to re-enter Rave Mode.</li>
+            <li>Entering Rave Mode is per-player, meaning if one player enters Rave Mode, the other players don't enter Rave Mode as well.</li>
+            <ul>
+                <li>Players can "share" a Rave Mode Pouch by standing near the player with the Pouch when that player activates Rave Mode.</li>
+            </ul>
+            <li>By default, Rave Mode lasts for one minute, but killing Zombies will shorten the duration by a couple seconds. Taking Damage, buying things, activating F&F Cards, and reviving other players has no effect on the duration.</li>
+            <li>Rave Mode can be extended by interacting with <a href="pictures/rave_mode/">Fairies</a> around the map. Each group of Fairies you interact with will extend the duration of Rave Mode by about 30 seconds. Once a group of Fairies is interacted with, it will disappear for the remainder of the current Rave Mode.</li>
+        </ul>
+    </div>
+
+    <!-- Challenges -->
+    <div class="content-container" id="challenges">
+        <h2>Bear Lake Camp Challenges</h2>
+        <ul>
+            <li>Around the map, there are five challenge stations, each with a unique challenge to complete, rewarding a different special grenade.</li>
+            <li>A player can only have one challenge at a time, and challenge progress/rewards are <strong>NOT</strong> shared between players.</li>
+            <li>After a player picks up an item, it will go on cooldown for one full round. After which it will become available for pickup again.</li>
+            <table>
+                <thead>
+                <tr>
+                    <th>Badge Animal</th>
+                    <th>Challenge</th>
+                    <th>Location</th>
+                    <th>Reward</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Bear</td>
+                    <td>Melee kill 15 Zombies</td>
+                    <td><a href="pictures/challenges/">Between the Mess Hall and the Bear Lodge (spawn)</a></td>
+                    <td>Rewind Grenade</td>
+                </tr>
+                <tr>
+                    <td>Owl</td>
+                    <td>25 long-distance kills</td>
+                    <td><a href="pictures/challenges/">In the Owl Camp</a></td>
+                    <td>Transponder</td>
+                </tr>
+                <tr>
+                    <td>Whitetail Deer</td>
+                    <td>Rebuild 45 window boards</td>
+                    <td><a href="pictures/challenges/">On the Beach near the fire barrel</a></td>
+                    <td>Repulsor</td>
+                </tr>
+                <tr>
+                    <td>Thunderbird</td>
+                    <td>Kill 25 Crawlers</td>
+                    <td><a href="pictures/challenges/">Outside the Bait & Tackle Shop</a></td>
+                    <td>Armageddon</td>
+                </tr>
+                <tr>
+                    <td>Wolf</td>
+                    <td>Get 10 Multikills</td>
+                    <td><a href="pictures/challenges/">In the Wolf Camp, near the RPR Evo wallbuy</a></td>
+                    <td>Black Hole Grenade</td>
+                </tr>
+                </tbody>
+            </table>
+        </ul>
+    </div>
+
+
+    <!-- Souvenir Coins -->
+    <div class="content-container" id="totems_and_gems">
+        <h2>Totems & Gems (Craftable Scorestreaks)</h2>
+        <ul>
+            <li>There are five Totems around the map that can be used to craft Scorestreaks.</li>
+            <ul>
+                <li><a href="pictures/gems/">Mess Hall - Near the Fire Pit</a></li>
+                <li><a href="pictures/gems/">Beach - Near the Fire Barrel</a></li>
+                <li><a href="pictures/gems/">Bear Lodge - At the top of the path to the Amphitheatre</a></li>
+                <li><a href="pictures/gems/">Rave Area - Left of the door to the Rock Climbing Wall</a></li>
+                <li><a href="pictures/gems/">Mines - Left of the Bang Bangs Perk machine</a></li>
+            </ul>
+
+            <li>Zombies will occasionally drop Souvenir Coins upon death. Place three coins into any Souvenir Station, in any order, to craft a Souvenir. Recipes Below:</li>
+            <table>
+                <thead>
+                <tr>
+                    <th>Souvenir</th>
+                    <th>Combination</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <p>Revocator</p>
+                    </td>
+                    <td>
+                        <p><span style="color: dodgerblue">Blue</span>, <span style="color: dodgerblue">Blue</span>, <span style="color: dodgerblue">Blue</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Lawnmower</p>
+                    </td>
+                    <td>
+                        <p><span style="color: dodgerblue">Blue</span>, <span style="color: dodgerblue">Blue</span>, <span style="color: mediumpurple">Purple</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Electric Trap</p>
+                    </td>
+                    <td>
+                        <p><span style="color: dodgerblue">Blue</span>, <span style="color: mediumpurple">Purple</span>, <span style="color: mediumpurple">Purple</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Sentry Turret</p>
+                    </td>
+                    <td>
+                        <p><span style="color: mediumpurple">Purple</span>, <span style="color: mediumpurple">Purple</span>, <span style="color: mediumpurple">Purple</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Laser Window Trap</p>
+                    </td>
+                    <td>
+                        <p><span style="color: mediumpurple">Purple</span>, <span style="color: mediumpurple">Purple</span>, <span style="color: orange">Orange</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Fireworks Trap</p>
+                    </td>
+                    <td>
+                        <p> <span style="color: mediumpurple">Purple</span>, <span style="color: orange">Orange</span>, <span style="color: orange">Orange</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Medusa Device</p>
+                    </td>
+                    <td>
+                        <p><span style="color: orange">Orange</span>, <span style="color: orange">Orange</span>, <span style="color: orange">Orange</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Boombox</p>
+                    </td>
+                    <td>
+                        <p><span style="color: orange">Orange</span>, <span style="color: orange">Orange</span>, <span style="color: dodgerblue">Blue</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Balloon Trap</p>
+                    </td>
+                    <td>
+                        <p><span style="color: orange">Orange</span>, <span style="color: dodgerblue">Blue</span>, <span style="color: dodgerblue">Blue</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Kindle Pops</p>
+                    </td>
+                    <td>
+                        <p><span style="color: orange">Orange</span>, <span style="color: dodgerblue">Blue</span>, <span style="color: mediumpurple">Purple</span></p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </ul>
+    </div>
+
+    <div class="content-container" id="vlad">
+        <h2>'Vlad' Crossbow Wonder Weapons</h2>
+        <p class="weapon-desc">The Vlad Crossbow is a crossbow that fires explosive bolts. The Vlad can be upgraded into four variants, <a href="#whirlwind">Whirlwind EF-5</a>, <a href="#whirlwind">Trap-o-matic</a>, <a href="#whirlwind">Acid Rain</a> or <a href="#whirlwind">Ben Franklin</a>. The Vlad and its variants can't be upgraded using the Pack-a-Punch machine, even with the Fuses installed.</p>
+
+        <ol>
+            <li>Unlock the <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>While on Turtle Island, interact with <a href="pictures/vlad/">this Bucket</a> in the Bathroom of the Cabin to pick up a Hot Dog. This will replace your tactical equipment with a throwable Hot Dog which will go on a CHANGE ME cooldown after being thrown.</li>
+            <li>Pick up a <a href="pictures/rave_mode/">Rave Mode Pouch</a>, which Zombies randomly drop. Interact with the <a href="pictures/vlad/">Fireplace in the Bear Lodge</a> (you can enter Rave Mode at any fire location and this will still work, the spawn fire just works the best) to enter Rave Mode.</li>
+            <ul>
+                <li>For more information on Rave Mode, see the <a href="#rave_mode">Rave Mode</a> section.</li>
+            </ul>
+            <li>Around the map, there are three Deer heads mounted on walls. While in Rave Mode, throw a Hot Dog at a Deer head to cause it to fly off the wall and start floating around. While the Deer head is in the air, shoot it with any weapon till it breaks. This will drop a <a href="pictures/vlad/">Glowing Symbol</a> for you to pick up. Deer head Locations: </li>
+            <ul>
+                <li><a href="pictures/vlad/">Bear Lodge - Above the Couch with the Golf Club on it</a></li>
+                <li><a href="pictures/vlad/">Mess Hall - On the wall above the fireplace</a></li>
+                <li><a href="pictures/vlad/">Owl Camp -  In one of the Cabins out-of-bounds</a></li>
+            </ul>
+            <li>Once you have collected all three symbols, exit Rave Mode (by waiting out the timer, killing Zombies to lower the timer, or going down). Once you're out of Rave Mode, interact with the <a href="pictures/vlad/">Crossbow Cabinet</a> in the Bear Lodge. The lock on the cabinet will disappear, and the Vlad will become available for pickup.</li>
+        </ol>
+
+        <p class="step-group-title" id="whirlwind">Vlad Upgrade Variants</p>
+        <p class="weapon-desc">The Whirlwind EF-5 will fire a projectile that will blow back any Zombies caught in its area (very similar to the Thundergun). The Trap-o-Matic will make the crossbow akimbo, and if two (or more) bolts are fired close enough together on the ground, a laser will connect them, killing any Zombie that walks through it. The Acid Rain will rain acid on the area around where the bolt lands for a couple seconds. The Ben Franklin will cause a bolt of lightning to strike where the bolt lands; the bolt of lightning is small and will only kill a few Zombies.</p>
+        <ol start="0">
+            <li>There are four upgrades with each of them roughly sharing the same steps to get, except for step 4.</li>
+            <li>Obtain a <a href="#vlad">Vlad Crossbow</a>. Note: By the end of the upgrade quest, the crossbow will be converted into the upgraded variant with no way to get it back.</li>
+            <li>Around the map, there are four different animal statues with each corresponding to an upgrade.</li>
+            <ul>
+                <li>Deer: Whirlwind EF-5 (Wind) Crossbow</li>
+                <li>Eagle: Trap-o-Matic Crossbow</li>
+                <li>Owl: Acid Rain Crossbow</li>
+                <li>Wolf: Ben Franklin (Lightning) Crossbow</li>
+            </ul>
+        </ol>
+    </div>
+
 
     <!-- Main Easter Egg -->
     <div class="content-container" id="main_ee">
