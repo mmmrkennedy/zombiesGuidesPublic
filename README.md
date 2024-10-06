@@ -9,12 +9,13 @@ The plan is to also include solvers for steps that require them (such as IW's At
 
 ## Roadmap
 Next:
-- The Final Reich
+- Rave in the Redwoods
 
 Finished:
 - All Of CW (Except Outbreak)
 - All Of VG
 - All Of BO4
+- Zombies in Spaceland
 
 In Limbo (I don't wanna):
 - Outbreak
