@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 
+
 def list_pictures(folder, size):
     pictures = []
 
@@ -17,6 +18,7 @@ def list_pictures(folder, size):
 
     return pictures
 
+
 def main():
     folder = input("Enter the folder path: ")
     default_sizes = [(3840, 2160), (2560, 1440), (1920, 1080)]
@@ -26,7 +28,7 @@ def main():
         height = int(input("Enter the height of the images: "))
         size = (width, height)
     else:
-        size = default_sizes[default_ask-1]
+        size = default_sizes[default_ask - 1]
 
     pictures = list_pictures(folder, size)
 
@@ -36,6 +38,7 @@ def main():
             print(picture)
     else:
         print(f"No pictures of size {size} found in {folder}")
+
 
 if __name__ == "__main__":
     main()

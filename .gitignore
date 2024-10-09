@@ -93,3 +93,4 @@ fabric.properties
 .*
 !.gitignore
 !.gitattributes
+easter_egg_help

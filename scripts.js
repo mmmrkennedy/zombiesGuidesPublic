@@ -364,8 +364,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (link.getAttribute("href").includes("#")) {
             link.classList.add("link-to-page");
         }
-            
-        if (link.getAttribute("href").includes("youtu.be") || link.getAttribute("href").includes("youtube")) {
+
+        if (link.getAttribute("href").includes("youtu.be") || link.getAttribute("href").includes("youtube") || link.getAttribute("href").includes(".com") || link.getAttribute("href").includes("http")) {
             link.classList.add("youtube-link");
         }
     });

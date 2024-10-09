@@ -9,13 +9,14 @@ The plan is to also include solvers for steps that require them (such as IW's At
 
 ## Roadmap
 Next:
-- Rave in the Redwoods
+- Shaolin Shuffle
 
 Finished:
 - All Of CW (Except Outbreak)
 - All Of VG
 - All Of BO4
 - Zombies in Spaceland
+- Rave in the Redwoods
 
 In Limbo (I don't wanna):
 - Outbreak

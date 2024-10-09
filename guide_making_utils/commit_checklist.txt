@@ -14,5 +14,5 @@ convert pictures to webp
 Update Index.html to make sure the new guide can be accessed
 Update Readme.md
 Check comments of the new guide for anything undesirable.
-Make sure the new guide's picture directory is segmented by substep
+Update the "given_difficulties.txt" file
 
