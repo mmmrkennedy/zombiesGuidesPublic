@@ -261,12 +261,6 @@ h2.sticky-header {
     margin-top: 20px;
 }
 
-
-.title_text {
-    margin-top: 0;
-    z-index: 2;
-}
-
 li {
     margin-top: 2px;
     margin-bottom: 5px;
@@ -284,9 +278,19 @@ a:hover {
     text-decoration: underline;
 }
 
-.title_text{
+.title-text{
+    margin-top: 0;
     position: fixed;
     top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.title-sub-text{
+    margin-top: 0;
+    position: fixed;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;

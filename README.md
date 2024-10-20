@@ -17,12 +17,13 @@ Finished:
 - All Of BO4
 - Zombies in Spaceland
 - Rave in the Redwoods
+- Outbreak (AW)
 
 In Limbo (I don't wanna):
-- Outbreak
+- Outbreak (CW)
 
 Planned:
 - All of WW2
 
-If you have any suggestions or feedback, or you'd even like to contribute, please let me know!
+If you have any suggestions or feedback, or you'd even like to contribute, join the Discord (https://discord.gg/YzJ2TRhc).
 
