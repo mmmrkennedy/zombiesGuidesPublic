@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Browser Tab Title (don't include "guide", just map name) -->
+    <title>CHANGE ME</title>
+    <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
+    <link rel="stylesheet" href="ww_math_solver/solver.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
+    <base target="_blank">
+</head>
+
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right-down" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide"-->
+<h2 class="title-text">CHANGE ME</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+
+        <h2>Weapons</h2>
+        <ul>
+            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <ol>
+                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
+                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
+            </ol>
+        </ul>
+
+        <h2>Easter Eggs</h2>
+        <ul>
+            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <ol>
+                <li><a href="#main_ee_step1">CHANGE ME</a></li>
+                <li><a href="#main_ee_step2">CHANGE ME</a></li>
+                <li><a href="#main_ee_step3">CHANGE ME</a></li>
+                <li><a href="#main_ee_step4">CHANGE ME</a></li>
+                <li><a href="#main_ee_step5">CHANGE ME</a></li>
+            </ol>
+        </ul>
+    </div>
+
+    <!-- Wonder Weapons -->
+    <div class="content-container" id="CHANGE ME">
+        <h2>CHANGE ME</h2>
+        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
+        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    </div>
+
+    <!-- Main Easter Egg -->
+    <div class="content-container" id="main_ee">
+        <h2>CHANGE ME</h2>
+        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+        <ol class="step-content">
+            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
+            <li>Solver:
+                <button onclick="toggleSolver()">Show/Hide</button>
+                <div id="solverContent" style="display: none;">
+                    <div class="solver-container">
+                        <h2>Input Symbols</h2>
+
+                        <div class="solver-symbol-select" id="xSymbols">
+                            <p>X Symbol:</p>
+                            <img src="pictures/beamsmasher/0.png" alt="X0" onclick="selectSymbol('X', 0, this)">
+                            <img src="pictures/beamsmasher/10.png" alt="X10" onclick="selectSymbol('X', 10, this)">
+                            <img src="pictures/beamsmasher/11.png" alt="X11" onclick="selectSymbol('X', 11, this)">
+                            <img src="pictures/beamsmasher/20.png" alt="X20" onclick="selectSymbol('X', 20, this)">
+                            <img src="pictures/beamsmasher/21.png" alt="X21" onclick="selectSymbol('X', 21, this)">
+                            <img src="pictures/beamsmasher/22.png" alt="X22" onclick="selectSymbol('X', 22, this)">
+                        </div>
+
+                        <div class="solver-symbol-select" id="ySymbols">
+                            <p>Y Symbol:</p>
+                            <img src="pictures/beamsmasher/0.png" alt="Y0" onclick="selectSymbol('Y', 0, this)">
+                            <img src="pictures/beamsmasher/10.png" alt="Y10" onclick="selectSymbol('Y', 10, this)">
+                            <img src="pictures/beamsmasher/11.png" alt="Y11" onclick="selectSymbol('Y', 11, this)">
+                            <img src="pictures/beamsmasher/20.png" alt="Y20" onclick="selectSymbol('Y', 20, this)">
+                            <img src="pictures/beamsmasher/21.png" alt="Y21" onclick="selectSymbol('Y', 21, this)">
+                            <img src="pictures/beamsmasher/22.png" alt="Y22" onclick="selectSymbol('Y', 22, this)">
+                        </div>
+
+                        <div class="solver-symbol-select" id="zSymbols">
+                            <p>Z Symbol:</p>
+                            <img src="pictures/beamsmasher/0.png" alt="Z0" onclick="selectSymbol('Z', 0, this)">
+                            <img src="pictures/beamsmasher/10.png" alt="Z10" onclick="selectSymbol('Z', 10, this)">
+                            <img src="pictures/beamsmasher/11.png" alt="Z11" onclick="selectSymbol('Z', 11, this)">
+                            <img src="pictures/beamsmasher/20.png" alt="Z20" onclick="selectSymbol('Z', 20, this)">
+                            <img src="pictures/beamsmasher/21.png" alt="Z21" onclick="selectSymbol('Z', 21, this)">
+                            <img src="pictures/beamsmasher/22.png" alt="Z22" onclick="selectSymbol('Z', 22, this)">
+                        </div>
+
+                        <div class="solver-output" id="codeOutput">
+                            <p>Code: <span id="solver_code">N/A</span></p>
+                        </div>
+                        <button onclick="resetAll()">Reset All</button>
+                    </div>
+                </div>
+            </li>
+
+            <li>CHANGE ME</li>
+        </ol>
+    </div>
+</div>
+
+<!-- <h2 class="bottom-padding"></h2> -->
+<script src="/zombiesGuidesPublic/scripts.js"></script>
+<script src="ww_math_solver/solver.js"></script>
+</body>
+</html>

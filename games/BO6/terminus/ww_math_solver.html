@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .symbol-select {
+            margin: 10px;
+        }
+
+        .symbol-select img {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .symbol-select img.selected {
+            border-color: darkgreen;
+        }
+
+        .symbol-select img.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Input Symbols</h2>
+
+    <div class="symbol-select" id="xSymbols">
+        <p>X Symbol:</p>
+        <img src="pictures/beamsmasher/0.png" alt="0" onclick="selectSymbol('X', 0, this)">
+        <img src="pictures/beamsmasher/10.png" alt="10" onclick="selectSymbol('X', 10, this)">
+        <img src="pictures/beamsmasher/11.png" alt="11" onclick="selectSymbol('X', 11, this)">
+        <img src="pictures/beamsmasher/20.png" alt="20" onclick="selectSymbol('X', 20, this)">
+        <img src="pictures/beamsmasher/21.png" alt="21" onclick="selectSymbol('X', 21, this)">
+        <img src="pictures/beamsmasher/22.png" alt="22" onclick="selectSymbol('X', 22, this)">
+    </div>
+
+    <div class="symbol-select" id="ySymbols">
+        <p>Y Symbol:</p>
+        <img src="pictures/beamsmasher/0.png" alt="0" onclick="selectSymbol('Y', 0, this)">
+        <img src="pictures/beamsmasher/10.png" alt="10" onclick="selectSymbol('Y', 10, this)">
+        <img src="pictures/beamsmasher/11.png" alt="11" onclick="selectSymbol('Y', 11, this)">
+        <img src="pictures/beamsmasher/20.png" alt="20" onclick="selectSymbol('Y', 20, this)">
+        <img src="pictures/beamsmasher/21.png" alt="21" onclick="selectSymbol('Y', 21, this)">
+        <img src="pictures/beamsmasher/22.png" alt="22" onclick="selectSymbol('Y', 22, this)">
+    </div>
+
+    <div class="symbol-select" id="zSymbols">
+        <p>Z Symbol:</p>
+        <img src="pictures/beamsmasher/0.png" alt="0" onclick="selectSymbol('Z', 0, this)">
+        <img src="pictures/beamsmasher/10.png" alt="10" onclick="selectSymbol('Z', 10, this)">
+        <img src="pictures/beamsmasher/11.png" alt="11" onclick="selectSymbol('Z', 11, this)">
+        <img src="pictures/beamsmasher/20.png" alt="20" onclick="selectSymbol('Z', 20, this)">
+        <img src="pictures/beamsmasher/21.png" alt="21" onclick="selectSymbol('Z', 21, this)">
+        <img src="pictures/beamsmasher/22.png" alt="22" onclick="selectSymbol('Z', 22, this)">
+    </div>
+
+    <div class="output" id="codeOutput">
+        <p>Formulas Results:</p>
+        <p>Formula 1: <span id="formula1">N/A</span></p>
+        <p>Formula 2: <span id="formula2">N/A</span></p>
+        <p>Formula 3: <span id="formula3">N/A</span></p>
+    </div>
+    <button onclick="resetAll()">Reset All</button>
+</div>
+
+<script>
+    const selectedSymbols = {X: null, Y: null, Z: null};
+
+    function selectSymbol(type, value, element) {
+        // Toggle selection
+        if (selectedSymbols[type] === value) {
+            // Unselect if the same symbol is clicked again
+            selectedSymbols[type] = null;
+            element.classList.remove("selected");
+        } else {
+            // Deselect any previously selected symbol for this type
+            const container = document.getElementById(type.toLowerCase() + "Symbols");
+            const images = container.getElementsByTagName("img");
+            for (let img of images) {
+                img.classList.remove("selected");
+            }
+            // Select new symbol
+            selectedSymbols[type] = value;
+            element.classList.add("selected");
+        }
+
+        // Update disabled states for other symbols
+        updateDisabledSymbols();
+
+        // Calculate formulas
+        calculateFormulas();
+    }
+
+    function updateDisabledSymbols() {
+        // Get all symbol containers
+        const xSymbols = document.getElementById("xSymbols").getElementsByTagName("img");
+        const ySymbols = document.getElementById("ySymbols").getElementsByTagName("img");
+        const zSymbols = document.getElementById("zSymbols").getElementsByTagName("img");
+
+        // Get selected values
+        const selectedValues = Object.values(selectedSymbols).filter(val => val !== null);
+
+        // Update disable state for each symbol
+        for (let img of [...xSymbols, ...ySymbols, ...zSymbols]) {
+            const value = parseInt(img.alt);
+            if (selectedValues.includes(value) && !Object.values(selectedSymbols).includes(value)) {
+                img.classList.add("disabled");
+            } else {
+                img.classList.remove("disabled");
+            }
+        }
+    }
+
+    function calculateFormulas() {
+        const {X, Y, Z} = selectedSymbols;
+
+        if (X !== null && Y !== null && Z !== null) {
+            // Calculate each formula
+            const formula1 = 2 * X + 11;
+            const formula2 = (2 * Z + Y) - 5;
+            const formula3 = Math.abs((Y + Z) - X);
+
+            // Display results
+            document.getElementById("formula1").textContent = formula1;
+            document.getElementById("formula2").textContent = formula2;
+            document.getElementById("formula3").textContent = formula3;
+        } else {
+            // Display "N/A" if not all symbols are selected
+            document.getElementById("formula1").textContent = "N/A";
+            document.getElementById("formula2").textContent = "N/A";
+            document.getElementById("formula3").textContent = "N/A";
+        }
+    }
+
+    function resetAll() {
+        // Reset selections
+        selectedSymbols.X = null;
+        selectedSymbols.Y = null;
+        selectedSymbols.Z = null;
+
+        // Remove selected and disabled styles
+        const allImages = document.querySelectorAll(".symbol-select img");
+        allImages.forEach(img => {
+            img.classList.remove("selected");
+            img.classList.remove("disabled");
+        });
+
+        // Reset formula results display
+        document.getElementById("formula1").textContent = "N/A";
+        document.getElementById("formula2").textContent = "N/A";
+        document.getElementById("formula3").textContent = "N/A";
+    }
+</script>
+</body>
+</html>
