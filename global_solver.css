@@ -1,0 +1,116 @@
+body.solver-body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.solver-container {
+    min-width: 450px;
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: max-content;
+}
+
+.solver-container.gorod {
+    text-align: left;
+}
+
+.solver-container.attack {
+    text-align: left;
+}
+
+.solver-container div {
+    margin-bottom: 7px; /* Consistent space between blocks */
+}
+
+.solver-container label {
+    margin-bottom: 5px; /* Space between label and input/select */
+}
+
+.solver-container select {
+    margin-bottom: 5px; /* Space between label and input/select */
+}
+
+.solver-container input.solver,
+.solver-container select.solver {
+    width: fit-content;
+    min-width: 50px; /* Ensures usability */
+    max-width: 150px; /* Restricts width */
+    margin: 0; /* Remove default margins */
+}
+
+.solver-symbol-select {
+    margin: 10px;
+}
+
+.solver-symbol-select img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.solver-symbol-select img.selected {
+    border-color: darkgreen;
+}
+
+.solver-symbol-select img.disabled {
+    display: none;
+    pointer-events: none;
+}
+
+.solver-output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.solver-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.solver-button:hover {
+    background-color: #555;
+}
+
+.solver-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.aligned-buttons,
+.aligned-labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 5px; /* Space between buttons and labels */
+    text-align: center; /* Center-align the content within each grid cell */
+}
+
+.aligned-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.aligned-label {
+    font-size: 14px;
+    display: inline-block;
+}
+

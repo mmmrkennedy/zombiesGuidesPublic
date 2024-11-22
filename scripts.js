@@ -1,3 +1,5 @@
+console.log("Loaded Scripts")
+
 /*
 =======================================
 LIGHT AND DARK MODE FUNCTIONALITIES
@@ -88,16 +90,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let path = window.location.pathname;
     let page = path.split("/").pop();
 
-    if(page !== "index.html") {
+    if (page !== "index.html") {
         let savedFont = localStorage.getItem('fontSelector');
 
         // First Load protection, so the user has a populated font selection box the first time they load the page
-        if(savedFont == null) {
+        if (savedFont == null) {
             savedFont = "Verdana";
         }
 
         const smoothScroll = document.querySelector('.smooth-scroll');
         let fontSelector = document.getElementById('fontSelector');
+        if (fontSelector == null){
+            return
+        }
+
         fontSelector.value = savedFont;
 
         if (savedFont === 'OpenDyslexic') {
@@ -172,26 +178,32 @@ FONT SELECTOR FUNCTIONALITIES
 =======================================
 */
 
-const fontSelector = document.getElementById('fontSelector');
-const smoothScroll = document.querySelector('.smooth-scroll');
-let path = window.location.pathname;
-let page = path.split("/").pop();
+document.addEventListener("DOMContentLoaded", function() {
+    const fontSelector = document.getElementById('fontSelector');
+    if (fontSelector == null){
+        return
+    }
 
-if(page !== "index.html") {
-    fontSelector.addEventListener('change', () => {
-        const selectedFont = fontSelector.value;
-        if (selectedFont === 'OpenDyslexic') {
-            smoothScroll.classList.remove('verdana');
-            smoothScroll.classList.add('open-dyslexic');
-        } else if (selectedFont === 'Verdana') {
-            smoothScroll.classList.remove('open-dyslexic');
-            smoothScroll.classList.add('verdana');
-        } else if (selectedFont === 'Arial') {
-            smoothScroll.classList.remove('open-dyslexic');
-            smoothScroll.classList.remove('verdana');
-        }
-    });
-}
+    const smoothScroll = document.querySelector('.smooth-scroll');
+    let path = window.location.pathname;
+    let page = path.split("/").pop();
+
+    if (page !== "index.html") {
+        fontSelector.addEventListener('change', () => {
+            const selectedFont = fontSelector.value;
+            if (selectedFont === 'OpenDyslexic') {
+                smoothScroll.classList.remove('verdana');
+                smoothScroll.classList.add('open-dyslexic');
+            } else if (selectedFont === 'Verdana') {
+                smoothScroll.classList.remove('open-dyslexic');
+                smoothScroll.classList.add('verdana');
+            } else if (selectedFont === 'Arial') {
+                smoothScroll.classList.remove('open-dyslexic');
+                smoothScroll.classList.remove('verdana');
+            }
+        });
+    }
+});
 
 /*
 =======================================
@@ -239,10 +251,10 @@ function isMobileDevice() {
     return check;
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
     let check1 = hasTouchScreen();
-    let check2 = isMobileDevice()
+    let check2 = isMobileDevice();
+
     if (check1 || check2) {
         document.getElementById('mobileContent').style.display = 'block';
         document.getElementById('nonMobileContent').style.display = 'none';
@@ -250,16 +262,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('mobileContent').style.display = 'none';
         document.getElementById('nonMobileContent').style.display = 'block';
     }
-
-    setTimeout(function(){
-        if (check1 || check2) {
-            document.getElementById('mobileContent').style.display = 'block';
-            document.getElementById('nonMobileContent').style.display = 'none';
-        } else {
-            document.getElementById('mobileContent').style.display = 'none';
-            document.getElementById('nonMobileContent').style.display = 'block';
-        }
-    }, 2000);
 });
 
 /*
@@ -294,7 +296,7 @@ function substeps(check) {
     } else {
         displayStyle = 'none';
     }
-    
+
     let i = 1;
     while(true) {
         try{

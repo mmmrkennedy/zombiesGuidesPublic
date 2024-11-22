@@ -233,7 +233,7 @@ p.weapon-desc {
     font-weight: bold;
 }
 
-details.spacing {
+details.solver {
     margin-top: 23px;
     margin-right: 0;
     margin-bottom: 23px;
@@ -303,7 +303,6 @@ a:hover {
 h1.centered {
     text-align: center;
 }
-
 
 /* Top Buttons Background */
 .top_buttons_background_box {
