@@ -15,6 +15,7 @@ function main_logic(mNum, lowerBound, insectNum, racingNum = undefined) {
     // === Determine 'oNum' String ===
     let oNumStr = "";
     let oNumStrCounter = 0;
+    let oNumNumbers = [];
 
     if (possibleONums.length === 1) {
         oNumStr += possibleONums[0];
@@ -27,11 +28,12 @@ function main_logic(mNum, lowerBound, insectNum, racingNum = undefined) {
             } else {
                 oNumStr += " or " + index;
             }
+            oNumNumbers.push(index)
         }
     }
 
     // === Return Results ===
-    return [oNumStr, getColorOption(possibleTVNumbers, possibleFinalNums), getLetter(insectNum, racingNum)];
+    return [oNumStr, getColorOption(possibleTVNumbers, possibleFinalNums), getLetter(insectNum, racingNum), oNumNumbers];
 }
 
 function getValidONums(mNum, possibleFinalNums) {
@@ -238,11 +240,16 @@ function main() {
     let o_num = calc_results[0]
     let colour_option_tv = calc_results[1]
     let letter = calc_results[2];
-
+    let oNumNumbers = calc_results[3];
 
     if (oNumElement.value.length !== 0) {
         o_num = Number(oNumElement.value)
-        colour_option_tv = get_tv_option_with_o_num(Number(oNumElement.value), mNumElement, lowerBoundElement)
+        if (oNumNumbers.includes(o_num)){
+            colour_option_tv = get_tv_option_with_o_num(o_num, mNumElement, lowerBoundElement)
+        } else {
+            resultElement.innerHTML = `Enter one of the possible correct O Numbers: ${o_num}.\n`;
+            return;
+        }
     }
 
     if (String(o_num).includes("or")){
@@ -268,7 +275,7 @@ function main() {
     resultElement.innerHTML = result.replace(/\n/g, "<br>");
 
     if (!valid_o_num || finalChemElement === "default" || racing_num_needed) {
-        return 0;
+        return;
     }
 
     result += "\n\n" + calc_chem_nums(o_num, letter, finalChemElement)

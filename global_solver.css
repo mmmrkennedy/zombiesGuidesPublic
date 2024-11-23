@@ -10,13 +10,15 @@ body.solver-body {
 }
 
 .solver-container {
-    min-width: 450px;
+    display: inline-block; /* Shrinks to fit the content width */
+    max-width: 100%; /* Ensures it doesn't overflow the viewport */
     text-align: center;
     background-color: #333;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: max-content;
+    overflow-wrap: break-word; /* Breaks long words if necessary */
+    word-wrap: break-word; /* Ensures compatibility for word breaking */
 }
 
 .solver-container.gorod {
@@ -54,12 +56,11 @@ body.solver-body {
 .solver-symbol-select img {
     width: 50px;
     height: 50px;
-    margin: 5px;
+    margin: 2px;
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 5px;
 }
-
 .solver-symbol-select img.selected {
     border-color: darkgreen;
 }
@@ -103,10 +104,28 @@ body.solver-body {
     text-align: center; /* Center-align the content within each grid cell */
 }
 
+.aligned-buttons.vertical {
+    grid-template-columns: 1fr; /* Change to a single column for vertical layout */
+    gap: 10px; /* Optional: Add spacing between the buttons */
+    text-align: center; /* Optional: Center-align the buttons */
+}
+
 .aligned-button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.aligned-button.square {
+    padding: 0; /* Remove default padding to ensure square shape */
+    font-size: 16px;
+    cursor: pointer;
+    aspect-ratio: 1; /* Makes the button a perfect square */
+    width: 100%; /* Optional: Adjust to fit the container width */
+    max-width: 50px; /* Optional: Limit size for consistent squares */
+    display: flex;
+    justify-content: center; /* Center text inside the button */
+    align-items: center;
 }
 
 .aligned-label {

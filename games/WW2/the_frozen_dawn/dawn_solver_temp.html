@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>The Shadowed Throne Statue Solver</title>
+    <title>The Frozen Dawn Hammer Puzzle Solver</title>
     <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
     <link rel="stylesheet" href="/zombiesGuidesPublic/global_solver.css">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
@@ -43,38 +43,26 @@
 </div>
 
 <!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">The Shadowed Throne Statue Solver</h2>
+<h2 class="title-text">The Frozen Dawn Hammer Puzzle Solver</h2>
 <div class="top_buttons_background_box"></div>
 
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top">
         <div class="solver-container">
-            <h2>Select Which Wall</h2>
-            <div>
-                <button id="wall1" class="solver-button" onclick="setActiveButton('wall1')">Wall 1</button>
-                <button id="wall2" class="solver-button" onclick="setActiveButton('wall2')">Wall 2</button>
-                <button id="wall3" class="solver-button" onclick="setActiveButton('wall3')">Wall 3</button>
-                <button id="wall4" class="solver-button" onclick="setActiveButton('wall4')">Wall 4</button>
-            </div>
-            <br>
-            <h3>Statue Positions (click to change)</h3>
-            <div class="aligned-buttons">
-                <button class="aligned-button solver-button" id="statueA" onclick="change_directions(0)">↑</button>
-                <button class="aligned-button solver-button" id="statueB" onclick="change_directions(1)">↑</button>
-                <button class="aligned-button solver-button" id="statueC" onclick="change_directions(2)">↑</button>
-                <button class="aligned-button solver-button" id="statueD" style="display:none;"
-                        onclick="change_directions(3)">↑
-                </button>
-            </div>
-            <div class="aligned-labels">
-                <span class="aligned-label">A</span>
-                <span class="aligned-label">B</span>
-                <span class="aligned-label">C</span>
-                <span class="aligned-label" id="d_span" style="display:none;">D</span>
+            <h3>Block Positions (click to change)</h3>
+            <p>Up = Facing Away, Down = Facing Front</p>
+
+            <div class="aligned-buttons vertical">
+                <button class="aligned-button square solver-button" id="blockA" onclick="change_directions(0)">↑</button>
+                <button class="aligned-button square solver-button" id="blockB" onclick="change_directions(1)">↑</button>
+                <button class="aligned-button square solver-button" id="blockC" onclick="change_directions(2)">↑</button>
+                <button class="aligned-button square solver-button" id="blockD" onclick="change_directions(3)">↑</button>
             </div>
 
+
             <button class="solver-button" id="solve" onclick="main()">Solve!</button>
+
             <div class="solver-output">
                 <p><span id="result"></span></p>
             </div>
@@ -82,7 +70,7 @@
     </div>
 </div>
 
-<script src="throne_statue_solver.js"></script>
+<script src="lightning_puzzle_solver/dawn_lightning_solver.js"></script>
 <script src="/zombiesGuidesPublic/scripts.js"></script>
 </body>
 </html>

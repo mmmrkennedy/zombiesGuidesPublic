@@ -224,7 +224,7 @@ function main() {
 
     resultElement.innerHTML = result.replace(/\n/g, "<br>");
 
-    reset_all_directions(save_directions)
+    reset_all_directions(save_directions);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

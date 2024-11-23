@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Browser Tab Title (don't include "guide", just map name) -->
+    <title>Attack GnS Skull 4 Solver</title>
+    <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
+    <link rel="stylesheet" href="/zombiesGuidesPublic/global_solver.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
+    <base target="_blank">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EVBLWE1MJL', { 'anonymize_ip': true });
+
+</script>
+
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent" style="display:none;">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent" style="display:none;">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide"-->
+<h2 class="title-text">Attack GnS Skull 4 Solver</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <div class="solver-container attack">
+            <h2>Attack GnS Skull 4 Solver</h2>
+            <h3>Input Word and Symbols</h3>
+
+            <div>
+                <label class="solver-symbol-select" for="word">Enter Word: </label>
+                <input type="text" id="word" class="solver">
+            </div>
+
+            <div class="solver-symbol-select" id="symbol_1">
+                <p>Symbol 1:</p>
+            </div>
+
+            <div class="solver-symbol-select" id="symbol_2">
+                <p>Symbol 2:</p>
+            </div>
+
+            <div class="solver-symbol-select" id="symbol_3">
+                <p>Symbol 3:</p>
+            </div>
+
+            <div class="solver-symbol-select" id="symbol_4">
+                <p>Symbol 4:</p>
+            </div>
+
+            <button class="solver-button" onclick="main_solve()">Calculate</button>
+
+            <button class="solver-button" onclick="resetAllButtons()">Reset All</button>
+
+            <div class="solver-output">
+                <p><span id="result">Enter the Word and select 4 symbols.</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h2 class="bottom-padding"></h2> -->
+<script src="attack_gns_solver.js"></script>
+<script src="attack_gns_solver_html_helper.js"></script>
+<script src="/zombiesGuidesPublic/scripts.js"></script>
+</body>
+</html>

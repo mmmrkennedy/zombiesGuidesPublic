@@ -1,4 +1,4 @@
-// solver.js
+// attack_gns_solver.js
 
 // Function to toggle the visibility of the solver content
 function toggleSolver() {
