@@ -6,7 +6,6 @@ v#1.#2.#3.#4
 #4 = The number of commits to the repo no matter how small
 
 When Guide is not being added:
-Update Versioning in Index.html
 convert pictures to webp
 
 When Guide is being added:

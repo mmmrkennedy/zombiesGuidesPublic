@@ -85,15 +85,17 @@ function checkSettingsSaved(colourModeValue, preloadValue, substepsValue, close_
 
 
 function changeText(text) {
-    var paragraph = document.getElementById('saveSettingsText');
+    let paragraph = document.getElementById('saveSettingsText');
     paragraph.innerText = text;
     if(localStorage.getItem('close_setting_auto') === 'true') {
         setTimeout(function () {
             window.close();
         }, 800); // 800 milliseconds or 0.8 seconds
+
     } else {
         setTimeout(function () {
             paragraph.innerText = '';
         }, 3000); // 3000 milliseconds or 3 seconds
+
     }
 }

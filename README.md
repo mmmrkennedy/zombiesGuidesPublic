@@ -9,21 +9,24 @@ The plan is to also include solvers for steps that require them (such as IW's At
 
 ## Roadmap
 Next:
-- Shaolin Shuffle
+- Carrier (AW)
 
 Finished:
 - All Of CW (Except Outbreak)
 - All Of VG
 - All Of BO4
-- Zombies in Spaceland
-- Rave in the Redwoods
+- Zombies in Spaceland (IW)
+- Rave in the Redwoods (IW)
 - Outbreak (AW)
+- Infection (AW)
 
 In Limbo (I don't wanna):
 - Outbreak (CW)
 
 Planned:
-- All of WW2
+- Rest of AW
+- Then the rest of IW
+- Then all of WW2
 
 If you have any suggestions or feedback, or you'd even like to contribute, join the Discord (https://discord.gg/YzJ2TRhc).
 
