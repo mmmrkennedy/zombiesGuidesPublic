@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Browser Tab Title (don't include "guide", just map name) -->
+  <title>Shaolin Shuffle Mahjong Solver</title>
+  <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
+  <link rel="stylesheet" href="/zombiesGuidesPublic/global_solver.css">
+  <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
+  <base target="_blank">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
+
+</script>
+
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+  <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+  <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+  <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+  <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+  <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+  <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+  <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide"-->
+<h2 class="title-text">Shaolin Shuffle Mahjong Solver</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+  <!-- Legend to other parts -->
+  <div class="content-container-top">
+    <div class="solver-container">
+      <h2>Mahjong Tile Solver (W.I.P. Solver may not work properly)</h2>
+
+      <div>
+        <label>Select Tiles (1 Dot to 5 Dot):</label>
+        <div class="solver-symbol-select" id="tileSelection">
+          <img src="mahjong_solver/dot_1.png" alt="1 Dot" data-value="1" data-src="mahjong_solver/dot_1.png" class="shaolin">
+          <img src="mahjong_solver/dot_2.png" alt="2 Dot" data-value="2" data-src="mahjong_solver/dot_2.png" class="shaolin">
+          <img src="mahjong_solver/dot_3.png" alt="3 Dot" data-value="3" data-src="mahjong_solver/dot_3.png" class="shaolin">
+          <img src="mahjong_solver/dot_4.png" alt="4 Dot" data-value="4" data-src="mahjong_solver/dot_4.png" class="shaolin">
+          <img src="mahjong_solver/dot_5.png" alt="5 Dot" data-value="5" data-src="mahjong_solver/dot_5.png" class="shaolin">
+        </div>
+      </div>
+
+      <button class="solver-button" onclick="resetSelection()">Reset</button>
+
+      <div class="solver-output" id="output">
+        <p id="result"></p>
+        <div id="resultTiles"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="mahjong_solver/mahjong_solver.js"></script>
+<script src="/zombiesGuidesPublic/scripts.js"></script>
+</body>
+</html>

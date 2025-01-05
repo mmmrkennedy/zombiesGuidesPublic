@@ -55,24 +55,12 @@ function updateDisabledSymbols(letter, value, element_selected) {
 
         if ((letter !== img_letter && value === img_value) || (letter === img_letter && value !== img_value)) {
             if ("selected" === element_selected.value) {
-                img.classList.add("disabled");
+                img.classList.add("hidden");
             } else {
-                img.classList.remove("disabled");
+                img.classList.remove("hidden");
             }
         }
     }
-
-    /*
-    // Update disable state for each symbol
-    for (let img of [...xSymbols, ...ySymbols, ...zSymbols]) {
-        const value = parseInt(img.alt);
-        if (selectedValues.includes(value) && !Object.values(selectedSymbols).includes(value)) {
-            img.classList.add("disabled");
-        } else {
-            img.classList.remove("disabled");
-        }
-    }
-    */
 }
 
 function calculateFormulas() {
@@ -122,7 +110,7 @@ function resetAll() {
     const allImages = document.querySelectorAll(".solver-symbol-select img");
     allImages.forEach(img => {
         img.classList.remove("selected");
-        img.classList.remove("disabled");
+        img.classList.remove("hidden");
     });
 
     // Reset formula results display

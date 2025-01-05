@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>CHANGE ME</title>
+    <title>Shaolin Shuffle</title>
     <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
     <base target="_blank">
 </head>
+
+<script>
+    window.location.href = "/zombiesGuidesPublic/unfinished.html";
+    setInterval(() => {
+        window.location.href = "/zombiesGuidesPublic/unfinished.html";
+    }, 1000); // Redirect every 5 seconds
+</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
@@ -38,7 +45,7 @@
 </div>
 
 <!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">CHANGE ME</h2>
+<h2 class="title-text">Shaolin Shuffle Guide</h2>
 <div class="top_buttons_background_box"></div>
 
 <div class="smooth-scroll">
@@ -51,48 +58,491 @@
             <option value="OpenDyslexic">OpenDyslexic</option>
         </select>
 
-        <h2>Weapons</h2>
+        <h2>Map Progression</h2>
         <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
-                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
-            </ol>
+            <li><a href="#power">Power</a></li>
+            <li><a href="#pap">Pack-a-Punch</a></li>
+            <ul>
+                <li><a href="#double_pap">Double Pack-a-Punch</a></li>
+            </ul>
+            <li><a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a></li>
+        </ul>
+
+        <h2>Weapons and Buildables</h2>
+        <ul>
+            <li><a href="#katana">‘Kirisute Gomen’ Katana</a></li>
+            <li><a href="#mahjong_scorestreaks">Mahjong Tiles (Craftable Scorestreaks)</a></li>
+            <li><a href="#nunchucks">Nunchakus/Character Bios</a></li>
         </ul>
 
         <h2>Easter Eggs</h2>
         <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <li><a href="#main_ee">‘Pest Control’ Main Quest</a></li>
+            <div id="substeps1">
+                <ol>
+                    <li><a href="#main_ee">The Rat King's Eye</a></li>
+                    <li><a href="#main_ee_step1">The Rat King's Brain</a></li>
+                    <li><a href="#main_ee_step2">The Rat King's Heart</a></li>
+                    <li><a href="#main_ee_step3">Rat King Boss Fight</a></li>
+                </ol>
+            </div>
+            <li><a href="#song_ee">‘Cats on the Boulevard’ Song</a></li>
+            <li><a href="#lobby_music">Additional Lobby Music</a></li>
+            <li><a href="#skullbuster">Skullbuster (Ghost N Skulls)</a></li>
             <ol>
-                <li><a href="#main_ee_step1">CHANGE ME</a></li>
-                <li><a href="#main_ee_step2">CHANGE ME</a></li>
-                <li><a href="#main_ee_step3">CHANGE ME</a></li>
-                <li><a href="#main_ee_step4">CHANGE ME</a></li>
-                <li><a href="#main_ee_step5">CHANGE ME</a></li>
+                <li><a href="#skullbuster">Coin 1/6 - Trap Kills</a></li>
+                <li><a href="#side_ee_step2">Coin 2/6 - Rave Mode Symbols</a></li>
+                <li><a href="#side_ee_step3">Coin 3/6 - Knife Throwing Game</a></li>
+                <li><a href="#side_ee_step4">Coin 4/6 - Spell SKULL with Symbols</a></li>
+                <li><a href="#side_ee_step5">Coin 5/6 - Boat Shooting Gallery</a></li>
+                <li><a href="#side_ee_step6">Coin 6/6 - Ben Franklin Bow</a></li>
+                <li><a href="#side_ee_step7">The Ghost N' Skulls 2 Mini-Game</a></li>
             </ol>
+            <li><a href="#trolltastic">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</a></li>
+            <li><a href="#phone_codes">Phone Booth Secret Codes</a></li>
+            <li><a href="#grier_code">Play as Pam Grier</a></li>
+        </ul>
+    </div>
+
+    <!-- Power -->
+    <div class="content-container" id="power">
+        <h2>Power</h2>
+        <ul>
+            <li>There are a total of four Power Switches on the map, each activating power for its corresponding area. Locations:</li>
+            <ul>
+                <li><a href="pictures/power/">Subway Station (Spawn) - On one of the support pillars</a></li>
+                <li><a href="pictures/power/">Disco Inferno Roof - Left of the Quickes Perk Machine</a></li>
+                <li><a href="pictures/power/">Park Area - On the wall, left of Deadeye Dewdrops</a></li>
+                <li><a href="pictures/power/">Main Street Subway Station - Left of Bang Bangs (on the other side of the tracks)</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <!-- PaP -->
+    <div class="content-container" id="pap">
+        <h2>Pack-a-Punch</h2>
+        <ol>
+            <li>To access Pack-a-Punch, you must collect three different items - Flyer, Coin, and Film Reel:</li>
+            <ul>
+                <li>Flyer:</li>
+                <ul>
+                    <li><a href="pictures/pap/">Rooftop near the Dojo - In front of Racin’ Stripes, on a chair</a></li>
+                    <li><a href="pictures/pap/">Disco Inferno Rooftop - On a stool, around the corner from the KBS Longbow wallbuy</a></li>
+                    <li><a href="pictures/pap/">Main Street - On the ground in front of the Pink Cat</a></li>
+                    <li><a href="pictures/pap/">Dojo - On a pile of garbage, on the left side of the Dojo</a></li>
+                </ul>
+
+                <li>Coin:</li>
+                <ul>
+                    <li><a href="pictures/pap/">Sewers - Underneath the Tuff ‘Nuff Perk Machine</a></li>
+                </ul>
+
+                <li>Film Reel:</li>
+                <ul>
+                    <li><a href="pictures/pap/">Sewers - On a box at the top of the stairs near Tuff ‘Nuff</a></li>
+                    <li><a href="pictures/pap/">Main Street Subway Station - On a stack of boxes between the ticket booth and the lockers</a></li>
+                    <li><a href="pictures/pap/">Disco Inferno - On a couch on the second floor, right of the Rack-9 wallbuy</a></li>
+                    <li><a href="pictures/pap/">Pink Cat - On a couch near the right-most entrance (flyer needed)</a></li>
+                    <li><a href="pictures/pap/">Rat King’s Lair - In the Sewer holes in the wall, right of the Rat King’s “Throne”</a></li>
+                </ul>
+            </ul>
+            <li>Once you have the Flyer, you can open the <a href="pictures/pap/">front door of the Pink Cat</a>. The Coin can open the <a href="pictures/pap/">door to the room on the left</a> when coming from the street. The <a href="pictures/pap/">projector</a> inside can be repaired using the Film Reel. This will cause the Projector to project a portal on the wall.</li>
+            <li>Interact with the portal on the wall to teleport to the Pack-a-Punch room.</li>
+            <ul>
+                <li>While in the projector room, you'll have 30 seconds to use the Pack-a-Punch before you’re forcefully teleported back to the main map.</li>
+            </ul>
+            <li>After being forcefully teleported back, the teleporter will go on cooldown for about one minute. After a minute, the teleporter will reactivate.</li>
+        </ol>
+
+        <p class="step-group-title" id="double_pap">Double Pack-a-Punch</p>
+        <ol>
+            <li>Obtain a <a href="#chi_fast_travel">Chi Ability and open the Fast Travel from the Racin’ Stripes rooftop to the Main Street</a>.</li>
+            <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>Enter the Pack-a-Punch room and interact with the <a href="pictures/pap/double_pap/">button on the wall</a>.</li>
+            <li>Quickly, exit the Pack-a-Punch room, and take the portal on the Main Street. Once teleported, pick up the <a href="pictures/pap/double_pap/">uncharged Alien Fuses from the box on the wall</a> beside the portal.</li>
+            <ul>
+                <li>You have about 25 seconds to pick up the fuses before the box closes.</li>
+                <li>If you take too long, you can retry as soon as the PAP teleporter becomes available again.</li>
+            </ul>
+            <li>Place the fuses on the <a href="pictures/pap/double_pap/">electric part of the Subway Tracks</a> in the Main Street Subway Station. Wait for the train to run them over.</li>
+            <li>Once the fuses have been run over, they will be charged and picked up, then they can be inserted into the Pack-a-Punch Projector. Once inserted, you will be able to Pack-a-Punch any Pack-a-Punched weapon again for 10,000 Points.</li>
+            <li>The Alien Fuses will only be activated for the remainder of the <strong>CURRENT</strong> game.</li>
+        </ol>
+    </div>
+
+    <div class="content-container" id="chi_fast_travel">
+        <h2>Power</h2>
+        <ul>
+            <li>The Chi Abilities are melee abilities that can be used once per round. They can be upgraded by completing kill challenges.</li>
+            <li>There are four different “fighting styles”, Dragon, Tiger, Crane, and Snake, each with their own unique tier 3 and 4 abilities. Tier 1 is only melee, tier 2 adds a Shuriken, tier 3 adds a style-specific Chi ability and tier 4 adds a style-specific ultimate Chi ability.</li>
+            <li>The Chi can be obtained by talking to Pam Grier in the Dojo on/after Round 5, then by picking up one of the four Gourds around the Dojo. All players can have the same style at the same time and, a style can be switched for another one by going to the Dojo and picking up that style’s gourd.</li>
+            <li>The Chi can also be used to unlock Fast Travel Portals and open Torii gates around the map. These doors/gates can be opened by meleeing/throwing a shuriken to break them. The fast travel doors must be opened in pairs to activate the portal.</li>
+            <li>Fast Travel Door Locations:</li>
+            <ul>
+                <li><a href="pictures/chi_fast_travel/">Rooftop near the Dojo near Racin’ Stripes</a> <==> <a href="pictures/chi_fast_travel/">Main Street right of Blue Bolts</a></li>
+                <li><a href="pictures/chi_fast_travel/">In the alley beside the Heebie Geebies bar</a> <==> <a href="pictures/chi_fast_travel/">Bottom floor of the Main Street Subway Station</a></li>
+            </ul>
+
+            <li>Torii Gate Locations:</li>
+            <ul>
+                <li>Rooftop near the Dojo near Racin’ Stripes — <a href="pictures/chi_fast_travel/">Location 1</a>, <a href="pictures/chi_fast_travel/">Location 2</a></li>
+                <li>Disco Inferno Rooftop — <a href="pictures/chi_fast_travel/">Location 1</a>, <a href="pictures/chi_fast_travel/">Location 2</a></li>
+            </ul>
         </ul>
     </div>
 
     <!-- Wonder Weapons -->
-    <div class="content-container" id="CHANGE ME">
-        <h2>CHANGE ME</h2>
-        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
-        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    <div class="content-container" id="katana">
+        <h2>‘Kirisute Gomen’ Katana</h2>
+        <p class="weapon-desc">The Katana can be Pack-a-Punched and doesn’t require an Easter Egg to do so.</p>
+        <ul>
+            <li>Complete the <a href="#main_ee">Main Quest</a> at least once in any game.</li>
+            <li>Once you’ve completed the Main Quest, the Katana can be purchased from the wall in the Dojo for 10,000 points (or free if you do the quest in the current game).</li>
+        </ul>
+    </div>
+
+    <div class="content-container" id="mahjong_scorestreaks">
+        <h2>Mahjong Tiles (Craftable Scorestreaks)</h2>
+        <ul>
+            <li>Around the map, there are tables with Mahjong tiles with scorestreaks on them. To get the scorestreaks, find the three missing Mahjong tiles and bring them back to the table. When all three tiles are returned, the scorestreak will appear for you to pick up. The scorestreak will respawn two rounds after being picked up.</li>
+            <li>Once you’ve completed the Main Quest, the Katana can be purchased from the wall in the Dojo for 10,000 points (or free if you do the quest in the current game).</li>
+            <ul>
+                <li>Toy Robot Table: <a href="pictures/">Near the bus on the street near the Dojo</a></li>
+                <ul>
+                    <li><a href="pictures/">At the front of the bus, on the top</a></li>
+                    <li><a href="pictures/">Halfway up the stairs from the Spawn Subway to the Dojo, near some trash on the ground</a></li>
+                    <li><a href="pictures/">Left of Tuff 'Nuff, in a crate</a></li>
+                </ul>
+
+                <li>Boom Box Table: <a href="pictures/">At the bottom of the stairs near Racin’ Stripes</a></li>
+                <ul>
+                    <li><a href="pictures/">Up the ramp near the Dojo, next to some concrete bricks</a></li>
+                    <li><a href="pictures/">Up the ramp near the Dojo, on a spool</a></li>
+                    <li><a href="pictures/">On the ground at the top of the staircase near Racin' Stripes</a></li>
+                    <li><a href="pictures/">On a paint bucket near the garbage chute on the roof</a></li>
+                </ul>
+
+                <li>Zom-B-Gone Table: <a href="pictures/">In the alley with Mule Munchies and Bombstoppers</a></li>
+                <ul>
+                    <li><a href="pictures/">Opposite the portal door near Mule Munchies</a></li>
+                    <li><a href="pictures/">On the burning pallet near Mule Munchies</a></li>
+                    <li><a href="pictures/">On a white table in the private room (the room behind the GnS arcade machine) of the Disco</a></li>
+                    <li><a href="pictures/">On a red table in the Heebie Geebies, next to a hookah</a></li>
+                    <li><a href="pictures/">To the right of the table, in front of the fence</a></li>
+                </ul>
+
+                <li>Lava Lamp Table: <a href="pictures/">Next to the Mystery Wheel near Deadeye Dewdrops</a></li>
+                <ul>
+                    <li><a href="pictures/">On a white table outside the Disco, next to the R-VN wallbuy</a></li>
+                    <li><a href="pictures/">Up the first flight of stairs from the R-VN wallbuy outside</a></li>
+                    <li><a href="pictures/">On the ground in the pile of garbage opposite the Volk wallbuy</a></li>
+                    <li><a href="pictures/">In front of the home just around the corner from the Mystery Wheel location</a></li>
+                </ul>
+
+                <li>Sentry Turret Table: <a href="pictures/">Opposite the Blue Bolts perk machine</a></li>
+                <ul>
+                    <li><a href="pictures/">In front of the entrance to the subway near the Disco</a></li>
+                    <li><a href="pictures/">Next to the back right wheel of the white van in front of The Pink Cat</a></li>
+                    <li><a href="pictures/">Next to the Mystery Wheel outside the Disco</a></li>
+                    <li><a href="pictures/">On the counter in the blue coat check room inside the Disco</a></li>
+                    <li><a href="pictures/">On a counter on a support beam on the 2nd floor of the Disco</a></li>
+                    <li><a href="pictures/">On a wooden box near the stairs close to Tuff 'Nuff</a></li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content-container" id="nunchucks">
+        <h2>Nunchakus/Character Bios</h2>
+        <p class="weapon-desc">The Nunchucks can be Pack-a-Punched and doesn’t require an Easter Egg to do so.</p>
+        <ul>
+            <li>Activate the two sets of fast travel portals and open all Torii gates.</li>
+            <li>On a <a href="pictures/">wooden pallet left of Blue Bolts</a>, you will find an item related to your character: a trophy for AJ, a microphone for Andre, a newspaper for Sally, and a comic book for Poindexter.</li>
+            <li>Interact with the alarm clock in the Disco to activate a timed “clock vision,” which is indicated by the “wind” effect on the edges of the screen.</li>
+            <li>While in clock vision, melee the item corresponding to your character. Quickly enter the portal to your right. Once out, take a sharp left turn, and melee the item on the <a href="pictures/">stack of wood</a>.</li>
+            <ul>
+                <li>If you fail any of the clock steps, end the round to be able to retry.</li>
+            </ul>
+            <li>Activate the <a href="pictures/">clock</a> in the Bang Bangs Subway Station. Run through the portal next to it, and melee the <a href="pictures/">script lying on a dumpster</a> beside Bombstoppers. You will be brought back to the subway. Quickly run across the tracks and melee another <a href="pictures/">script on the floor next to Bang Bangs</a>.</li>
+            <li>Go to the roof of the Disco and interact with the <a href="pictures/">clock</a> there. Drop through the open skylight on the roof near Quickies and melee the <a href="pictures/">book next to the Rack-9 wallbuy</a>. You will be brought back to the clock. Melee the <a href="pictures/">book on the ledge</a> of the roof overlooking the street.</li>
+            <li>Around the map, there are four TVs, one for each of the four different playable characters. Interact with the TV to change the image displayed on it. Keep interacting with it until a cartoon image of your character appears. TV locations:</li>
+            <ul>
+                <li>Sally: <a href="pictures/">In the spawn room inside the train car</a></li>
+                <li>Andre: <a href="pictures/">Inside Heebie Geebies</a></li>
+                <li>Poindexter: <a href="pictures/">On the rooftop near the RPR Evo wallbuy</a></li>
+                <li>AJ: <a href="pictures/">Next to the Blue Bolts perk machine</a></li>
+            </ul>
+            <li>Once your character’s image is on the TV screen, a horde of Ninjas and Zombies will spawn that you must kill.</li>
+            <li>Return to the Disco roof and punch the <a href="pictures/">clock</a>. Then head down to the disco and punch the <a href="pictures/">clock</a> inside. Finally, go down to the subway and punch that <a href="pictures/">clock</a>. A fire sale will spawn once you complete this step.</li>
+            <li>Pick up the fire sale and head to a Mystery Wheel. The Nunchakus will be the first item you get from the wheel.</li>
+            <li>After completing this process with any character, the Nunchakus will become permanently available from the Mystery Wheel in any future game.</li>
+        </ul>
     </div>
 
     <!-- Main Easter Egg -->
     <div class="content-container" id="main_ee">
-        <h2>CHANGE ME</h2>
-        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+        <h2>‘Pest Control’ Main Quest</h2>
+        <p class="stats">Stats (Solo): Difficulty - 6/10 (4/10 Dir. Cut), Est Completion Time - 1 Hr to 1:30 Hr (40 Mins to 1 Hr Dir. Cut)</p>
         <ol class="step-content">
-            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
-            <li>CHANGE ME</li>
-            <li>CHANGE ME</li>
+            <p class="step-group-title">The Eye</p>
+            <li>Obtain a <a href="#chi_fast_travel">Chi ability</a> and level it up to Shurikens. See <a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a> for more information.</li>
+            <li>Talk to Pam Grier (if she is talking, you will have to wait for her to finish to talk to her). This will spawn rat cages around the map.</li>
+            <li>Throw a Shuriken at one of the rat cages to release the rat (any of the rat cages will work, so where you start is just personal preference). Here are some locations close to the Dojo: </li>
+            <ul>
+                <li>Up the ramp from the street in front of the Dojo</li>
+                <li>In the side hallway in the Heebie Geebies</li>
+            </ul>
+            <li>Follow the rat as it leads you to another cage. Each time the rat enters a cage, throw a Shuriken to release it and continue following it. After releasing the final rat, the cage will just disappear and a <a href="pictures/">large yellow circle</a> will appear near the last cage.</li>
+            <li>Kill zombies inside the circle until it disappears and Ninja Zombies start spawning.</li>
+            <li>Once all Ninjas are dead, a <a href="pictures/">key</a> will appear where the circle was for you to pick up.</li>
+            <li>In the Bang Bangs Subway Station, interact with the <a href="pictures/">locker with symbols on it</a> to reveal symbols inside.</li>
+            <li>Shoot the following symbols around the map in order. If you shoot the wrong symbol, you'll have to restart at the first symbol. Symbol Locations:</li>
+            <ol>
+                <li><a href="pictures/">To the right of the Dojo - Second Symbol from left</a></li>
+                <li><a href="pictures/">In the bathroom of the Disco - Second Symbol from left</a></li>
+                <li><a href="pictures/">Above the Volk wallbuy near Deadeye Dewdrops - First Symbol from left</a></li>
+                <li><a href="pictures/">Above the Volk wallbuy near Deadeye Dewdrops - Second Symbol from left</a></li>
+            </ol>
+            <li>Interact with the <a href="pictures/">circle in front of the Black Cat Dojo</a> to spawn the Rat King. Kill him and pick up <a href="pictures/">the Eye</a> he drops.</li>
+
+            <p class="step-group-title" id="main_ee_step1">The Brain</p>
+            <li>Talk to Pam.</li>
+            <li>Use the eye (in your tactical slot) to find and reveal six <a href="pictures/">orange Rat King symbols</a> around the map. Shoot them when they appear.</li>
+            <ul>
+                <li>Only one symbol spawns at a time.</li>
+                <li>The eye will “recharge” after a few seconds.</li>
+                <li>Possible locations include:</li>
+                <ul>
+                    <li><a href="pictures/">In the dojo above the main door</a></li>
+                    <li><a href="pictures/">In the window of a barber shop next to the dojo</a></li>
+                    <li><a href="pictures/">In the spawn area behind the train</a></li>
+                    <li><a href="pictures/">Behind a speaker in the Heebie Geebies</a></li>
+                    <li><a href="pictures/">On a water tower on the roof of the Inferno Disco</a></li>
+                    <li><a href="pictures/">In a window on the roof near the dojo</a></li>
+                    <li><a href="pictures/">On a clothesline near the Magic Wheel by Deadeye Dewdrops</a></li>
+                    <li><a href="pictures/">On top of an air duct in the Inferno Disco</a></li>
+                    <li><a href="pictures/">To the right of the Ripper wallbuy on another building</a></li>
+                    <li><a href="pictures/">Behind Bombstoppers, on a police car</a></li>
+                    <li><a href="pictures/">In the left corner of the blue room near Trail Blazers (jump to see it)</a></li>
+                    <li><a href="pictures/">On the Disco Inferno sign across from the theatre</a></li>
+                    <li><a href="pictures/">Behind the stairs on the side of Bang Bangs (requires a small jump)</a></li>
+                </ul>
+            </ul>
+            <li>After collecting six symbols, one of the phones in either subway station will start ringing. It will play a Morse Code message. There are only <a href="pictures/">six possible numbers</a> that the Morse code can be.</li>
+            <ul>
+                <li>You MUST wait for the call to hang up. Hanging up early or being hit by a zombie will cause you to not complete the step, and you will have to listen to the phone call again.</li>
+            </ul>
+            <li>Pick up the <a href="pictures/">Nightmare Summer poster</a> with the same “Film Registration” number as the Morse Code.</li>
+            <li>Place the poster on the <a href="pictures/">spotlight</a>, revealing an <a href="pictures/">"X" on a window</a>.</li>
+            <li>Use explosives on the window to make the X disappear, then defeat the Ninja Zombies that spawn.</li>
+            <li>Once all Ninjas are dead, a letter will appear on the wall right of the drop-down to the street and six symbols will spawn around the roof. Using this <a href="pictures/">letter key</a> and the list of possible words below, you must spell one of the words based on the available letters. Once you find a letter that you think MIGHT be the next in the word, shoot it to add it to the word. If it is correct, the letter will be added to the word; otherwise, the word will reset back to one letter.</li>
+            <ul>
+                <li>The word is random, and there is no way to know what it is exactly, but most of the time there will only be one or two letters that line up with one of the possible words.</li>
+                <li>There is no penalty for failing and you can retry immediately. So if you get a long word (like ROLLERCOASTER or ROLLERSKATES) you can just fail it on purpose to try and get another (hopefully shorter) word.</li>
+                <details class="spacing">
+                    <summary><strong>Click to expand/collapse the list of possible words</strong></summary>
+                    <ul>
+                        <li>ACTORS</li>
+                        <li>AFTERLIFE</li>
+                        <li>ANCESTOR</li>
+                        <li>ARCADE</li>
+                        <li>ARTHUR</li>
+                        <li>AUDITION</li>
+                        <li>BASEMENT</li>
+                        <li>BEVERLYHILLS</li>
+                        <li>BLACKCAT</li>
+                        <li>BOAT</li>
+                        <li>BREEDER</li>
+                        <li>BROADWAY</li>
+                        <li>BRUTE</li>
+                        <li>BUMPERCARS</li>
+                        <li>CHARMS</li>
+                        <li>COMICBOOKS</li>
+                        <li>CRANE</li>
+                        <li>CRYPTID</li>
+                        <li>DANCE</li>
+                        <li>DAVIDARCHER</li>
+                        <li>DEATH</li>
+                        <li>DIRECTOR</li>
+                        <li>DISCO</li>
+                        <li>DRAGON</li>
+                        <li>DRCROSS</li>
+                        <li>FAIRIES</li>
+                        <li>FORGEFREEZE</li>
+                        <li>GEYSER</li>
+                        <li>GHETTO</li>
+                        <li>HARPOON</li>
+                        <li>HIVES</li>
+                        <li>INFERNO</li>
+                        <li>KATANA</li>
+                        <li>KEVINSMITH</li>
+                        <li>KRAKEN</li>
+                        <li>KUNGFU</li>
+                        <li>LOSANGELES</li>
+                        <li>MCINTOSH</li>
+                        <li>MEMORIES</li>
+                        <li>MEPHISTOPHELES</li>
+                        <li>NEWYORK</li>
+                        <li>NIGHTFALL</li>
+                        <li>NUNCHUCKS</li>
+                        <li>OBELISK</li>
+                        <li>OCTONIAN</li>
+                        <li>PAMGRIER</li>
+                        <li>PINKCAT</li>
+                        <li>PUNKS</li>
+                        <li>RATKING</li>
+                        <li>REALITYTV</li>
+                        <li>REDWOODS</li>
+                        <li>ROLLERCOASTER</li>
+                        <li>ROLLERSKATES</li>
+                        <li>SAMANTHA</li>
+                        <li>SHAOLIN</li>
+                        <li>SHIELD</li>
+                        <li>SHUFFLE</li>
+                        <li>SLASHER</li>
+                        <li>SIXTYMILLION</li>
+                        <li>SLASHER</li>
+                        <li>SLIDE</li>
+                        <li>SNAKE</li>
+                        <li>SPACELAND</li>
+                        <li>STAFF</li>
+                        <li>SUBWAY</li>
+                        <li>TIGER</li>
+                        <li>TREES</li>
+                        <li>WEREWOLFPOETS</li>
+                        <li>WINONAWYLER</li>
+                        <li>YETIEYES</li>
+                        <li>ZAPPER</li>
+                    </ul>
+                </details>
+            </ul>
+            <li>Once you finish the word, a gong sound will play and no more symbols will spawn. Go to the RPR Evo wallbuy near Deadeye Dewdrops and interact with the <a href="pictures/">Rat King symbol</a> to start a boss fight with the Rat King. Defeat him and pick up <a href="pictures/">his brain</a>.</li>
+
+            <p class="step-group-title" id="main_ee_step2">The Heart</p>
+            <li>Talk to Pam. At the start of the next three rounds, a cigarette burn will appear on the top right of the screen.</li>
+            <li>After three rounds, the game will skip ahead three rounds and lock you on the street outside the Dojo with fire blocking the exits. Kill all the enemies that spawn to cause a <a href="pictures/">turnstile piece</a> to drop and to remove the fire blocking the exits.</li>
+            <li>Bring the turnstile piece to the <a href="pictures/">broken turnstile gate in the spawn subway</a>. Interact with it to fix the gate.</li>
+            <li>Climb the <a href="pictures/">wooden ladder in the alley</a> near Mule Munchies and shoot the <a href="pictures/">symbol in the window</a>. After shooting the symbol, the window will close and a glowing circle will spawn somewhere around the map.</li>
+            <li>Kill zombies inside the glowing circle until it disappears. Find the next circle and repeat until you hear a gong. Circle locations:</li>
+            <ul>
+                <li><a href="pictures/">In the Mule Munchies/Bombstoppers Alley</a></li>
+                <li><a href="pictures/">In the private room of the Disco (the room behind GnS Arcade Machine)</a></li>
+                <li><a href="pictures/">In the park path, near Deadeye Dewdrops</a></li>
+                <li><a href="pictures/">Beside the RPR Evo wallbuy near Deadeye Dewdrops</a></li>
+                <li><a href="pictures/">In the spawn Subway, near the Hornet wallbuy</a></li>
+            </ul>
+            <li>Go to the Disco and interact with the <a href="pictures/">DJ booth</a> to spawn a Dancing Zombie with a glowing Disco Ball over its head on the dance floor.</li>
+            <li>Lure a normal Zombie onto the dance floor and kill the Disco Ball Zombie only while another zombie is on the dance floor. This will cause the Disco Ball to transfer to the new zombie.</li>
+            <ul>
+                <li>Killing the Disco Zombie without another zombie on the dance floor will reset your progress. A new Disco Ball Zombie will spawn soon after.</li>
+                <li>If the Disco Ball Zombie is the last zombie of the round, you will have to kill it to start the next round, resetting your progress.</li>
+            </ul>
+            <li>Repeat until the Disco Ball Zombie stops spawning and you hear a gong.</li>
+            <li>A <a href="pictures/">Rat King Symbol</a> will spawn on the street in front of the Pink Cat. Activate it to fight the Rat King for the third time and claim his heart.</li>
+            <li>Once ready for the boss fight, speak to Pam in the Black Cat Dojo and then enter the Rat King’s lair in the sewers to start the final boss fight. Make sure you have a high ammo capacity bullet-based weapon (PAPed NV4 or similar should be fine) for the boss fight since you can soft-lock yourself if you don’t have one, or you run out of ammo.</li>
+        </ol>
+
+        <ol>
+            <p class="step-group-title" id="main_ee_step3">Rat King Boss Fight</p>
+            <li>The Rat King can throw his shield at you, send a ground strike in your direction, and spawn Rat Ninja zombies. Occasionally, he will defend himself using his shield. When this happens, a yellow armour marker will appear when you shoot him. The more you shoot him while his shield is raised, the longer he will hold it up.</li>
+            <ul>
+                <li>You can destroy his staff by throwing a Chi Shuriken at it.</li>
+            </ul>
+            <li>When you first enter the fight, you must deal damage to the Rat King using any weapon that isn’t explosive or melee. Once you’ve done enough damage, the Rat King will retreat to the rafters around the room, and the Eye, Brain, and Heart will appear on the ground.</li>
+            <li>At this point, you must interact with one of the three and then interact with the big symbol in the center of the lair to activate its challenge. Each organ triggers a specific challenge that you must complete. The challenges can be completed in any order:</li>
+            <ul>
+                <li>Eye: The eye in the center will scan the room, revealing pink symbols around the arena (you can also manually scan using the eye you’re holding.) You must shoot all the symbols to complete this challenge. If you take too long, the Rat King will throw his shield around the arena, spawning symbols where it hits the walls.</li>
+                <ul>
+                    <li>If you run out of ammo, there is no way to get more, and you will have to quit the game.</li>
+                </ul>
+                <li>Heart: Deadly acid will be dumped around the perimeter of the arena, and the acid can damage you if you stand in it for too long. Killing a zombie in a puddle of acid will remove the acid for a short time. The goal is to clear the entire perimeter of acid before more is dumped into the arena.</li>
+                <li>Brain: The Brain will spawn on the ground in the middle of the room and Zombies with blue eyes (they are friendly and won’t attack). The Zombies will start attacking the Brain. You must wait until they destroy the Brain, as well as defend them from the Rat King. Destroying the Rat King’s staff with a Shuriken can make this step faster, as he will be unable to kill the blue-eyed zombies quickly. If a blue-eyed Zombie dies, another one will spawn shortly after.</li>
+            </ul>
+            <li>After completing the challenge, you will hear a gong sound, and you must again damage the Rat King until he retreats to the rafters again.</li>
+            <li>After completing the third challenge, you will be able to kill the Rat King by dealing enough damage. Once he is defeated, the ending cutscene will play, and the <a href="pictures/">Soul Key</a> will drop where the Rat King was killed. If you're in Director's Cut, the <a href="pictures/">Talisman</a> will spawn where the Soul Key was.</li>
+        </ol>
+    </div>
+
+    <!-- Song EE -->
+    <div class="content-container" id="song_ee">
+        <h2>‘Cats on the Boulevard’ Song</h2>
+        <ul>
+            <li>There are seven hidden radios scattered around the map that you need to interact with. Once you interact with the seventh radio, the song will start playing. Radio locations:</li>
+            <ul>
+                <li><a href="pictures/song_ee/">In some trash to the right of the robot build table.</a></li>
+                <li><a href="pictures/song_ee/">Behind a pallet to the left of the main entrance to the Heebie Geebies.</a></li>
+                <li><a href="pictures/song_ee/">In a tire on the right side of the roof of the Heebie Geebies.</a></li>
+                <li><a href="pictures/song_ee/">In a trash can up the stairs from Racin' Stripes, next to a trash chute.</a></li>
+                <li><a href="pictures/song_ee/">On a red ledge after going down the trash chute near Racin' Stripes.</a></li>
+                <li><a href="pictures/song_ee/">Behind a speaker inside the Heebie Geebies.</a></li>
+                <li><a href="pictures/song_ee/">In a red crate near the bathrooms inside the Heebie Geebies.</a></li>
+                <li><a href="pictures/song_ee/">Behind a trash can in the alley between Deadeye Dewdrops and the Inferno Disco, near the Mystery Wheel.</a></li>
+                <li><a href="pictures/song_ee/">Behind a trash can in the alley between Deadeye Dewdrops and the Inferno Disco, in the middle section.</a></li>
+                <li><a href="pictures/song_ee/">In a trash can inside the Inferno Disco, on the bottom floor near the service counter.</a></li>
+                <li><a href="pictures/song_ee/">On the roof of the Disco, behind some bricks.</a></li>
+                <li><a href="pictures/song_ee/">In a vent on the roof of the Disco, next to the Mystery Wheel.</a></li>
+                <li><a href="pictures/song_ee/">In a broken gas pipe between The Pink Cat and Tuff 'Nuff.</a></li>
+                <li><a href="pictures/song_ee/">To the left of Racin' Stripes, behind a stack of wood.</a></li>
+                <li><a href="pictures/song_ee/">Opposite the Rpr Evo wallbuy near Deadeye Dewdrops, on top of a green container.</a></li>
+                <li><a href="pictures/song_ee/">In the Tuff 'Nuff hallway, between an oil barrel and a green container.</a></li>
+                <li><a href="pictures/song_ee/">Outside the Inferno Disco near the RV-N wallbuy, underneath a white table.</a></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content-container" id="lobby_music">
+        <h2>Additional Lobby Music</h2>
+
+        <ol class="step-content">
+            <li>Unlock Director's Cut mode (Complete all five Main Quests, <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">Zombies in Spaceland - 'Sooooul Key'</a>, <a href="/games/IW/rave_in_the_redwoods/rave_in_the_redwoods_guide.html#main_ee">Rave in the Redwoods - 'Locksmith'</a>, <a href="#main_ee">Shaolin Shuffle - 'Pest Control'</a>, <a href="/games/IW/attack_of_the_radioactive_thing/attack_of_the_radioactive_thing_guide.html#main_ee">Attack of the Radioactive Thing - 'Soul-Less'</a>, <a href="/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#main_ee">The Beast From Beyond - 'The End?'</a>)</li>
+
+            <p class="warning">The following steps can only be completed on Round 1.</p>
+
+            <li>On Scene 1, make your way to the Rat King's lair and shoot the <a href="pictures/">White Talisman mask</a> on the painting beside the Rat King’s Throne.</li>
+        </ol>
+    </div>
+
+    <div class="content-container" id="trolltastic">
+        <h2>Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</h2>
+        <ul>
+            <li>You must find a radio that mentions the "eccentric billionaire David Savage" when interacted with. The radio locations are the same ones used in the Hidden Song easter egg.</li>
+            <li>Once you have found the specific radio, head to the roof of the Inferno Disco and look directly at the <a href="pictures/">Savage Industries clock</a>. When done correctly, a Wyler Language cipher will appear on the clock.</li>
+            <li>You must now interact with all 12 <a href="pictures/">standing trash cans</a> in the Subway Stations by holding interact on them. The trash cans will make a sound when interacted with. After activating the trash cans, aim at the <a href="pictures/">dumpster across from Mule Munchies</a>, and another cipher will appear.</li>
+            <li>Aim at the <a href="pictures/">stop sign</a> on the street below the Electric Barbed Wire trap bridge near Racin’ Stripes to spawn another cypher.</li>
+            <li>In the Inferno Disco, there is an inaccessible staircase in the same hallway as Trail Blazers. Crouch and look directly at the <a href="pictures/">roof above the staircase</a> to spawn the cypher.</li>
+            <li>The next cipher is in the Spawn Subway behind a <a href="pictures/">gated door, to the right of the bank</a>. Aim directly at the wall, and the cipher will appear.</li>
+            <li>This next cipher will only spawn between 12:00 AM and 1:00 AM Eastern US Time (the equivalent in your local time is <span id="timezone_conversion"><strong>TIME_1</strong> to <strong>TIME_2</strong></span>). The cipher is located on the <a href="pictures/">wall to the left of Tuff 'Nuff</a>.</li>
+            <ul>
+                <li>Changing your console/PC’s date or time will not work.</li>
+            </ul>
+            <li>Aim at the <a href="pictures/">Rat King's chair</a> in the Sewers. An image of David Savage and his treasure will appear, and you will be awarded the Trolltastic calling card.</li>
+        </ul>
+    </div>
+
+    <!-- Play as Pam Grier -->
+    <div class="content-container" id="grier_code">
+        <h2>Play as Pam Grier</h2>
+        <ol class="step-content">
+            <li>Complete the <a href="#main_ee">Main Quest</a> at least once in any game.</li>
+            <li>In the pre-game lobby, select Shaolin Shuffle and enter the following code using the D-Pad or Arrow Keys:</li>
+            <ul>
+                <li>Up (⬆️)</li>
+                <li>Up (⬆️)</li>
+                <li>Right (➡️)</li>
+                <li>Left (⬅️)</li>
+                <li>Down (⬇️)</li>
+                <li>Left (⬅️)</li>
+            </ul>
+            <li>When done correctly, a <a href="pictures/grier_code/">Pam Grier icon</a> will appear, and when you start the match, you will spawn as Pam Grier.</li>
+            <ul>
+                <li>Note: If you enter any other menus (like Barracks or Loadout) after activating the code, the icon will disappear, and you will need to enter the code again.</li>
+            </ul>
         </ol>
     </div>
 </div>
 
 <!-- <h2 class="bottom-padding"></h2> -->
 <script src="/zombiesGuidesPublic/scripts.js"></script>
+<script src="timezone_conversion.js"></script>
 </body>
 </html>

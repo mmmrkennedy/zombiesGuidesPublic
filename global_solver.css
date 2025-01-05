@@ -56,18 +56,29 @@ body.solver-body {
 .solver-symbol-select img {
     width: 50px;
     height: 50px;
-    margin: 2px;
+    max-height: 100px;
+    margin: 1px;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 4px solid transparent;
     border-radius: 5px;
 }
+
+.solver-symbol-select img.shaolin {
+    height: auto;
+}
+
 .solver-symbol-select img.selected {
-    border-color: darkgreen;
+    border-color: green;
+}
+
+.solver-symbol-select img.hidden {
+    display: none;
+    pointer-events: none;
 }
 
 .solver-symbol-select img.disabled {
-    display: none;
-    pointer-events: none;
+    opacity: 0.5; /* Makes the button appear "greyed out" */
+    pointer-events: none; /* Prevents interaction with the button */
 }
 
 .solver-output {

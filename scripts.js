@@ -232,10 +232,13 @@ function hasTouchScreen() {
     return hasTouchScreen;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    let check = hasTouchScreen();
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
-    if (check) {
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (hasTouchScreen() || isMobile()) {
         document.getElementById('mobileContent').style.display = 'block';
         document.getElementById('nonMobileContent').style.display = 'none';
     } else {
@@ -298,7 +301,6 @@ INCOMPLETE PATH FOR A TAGS
 =======================================
  */
 window.addEventListener("DOMContentLoaded", function () {
-    //document.addEventListener("DOMContentLoaded", function () {
     const allATags = document.querySelectorAll('a');
 
     allATags.forEach(function (tag) {
@@ -321,6 +323,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         }
 
+        /*
         fetch(hrefValue, { method: 'HEAD' })
             .then(response => {
                 if (!response.ok && !response.url.endsWith("/")) {
@@ -330,6 +333,7 @@ window.addEventListener("DOMContentLoaded", function () {
             .catch(() => {
                 tag.classList.add('file-doesnt-exist');
             });
+         */
     });
 });
 

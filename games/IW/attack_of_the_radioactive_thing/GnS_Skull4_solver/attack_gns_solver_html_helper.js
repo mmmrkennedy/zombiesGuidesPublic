@@ -27,7 +27,7 @@ function resetAllButtons() {
             imgContainer.style.display = 'inline-block'; // Restore visibility
             const img = imgContainer.querySelector('img');
             if (img) {
-                img.classList.remove('disabled'); // Remove 'disabled' class from images
+                img.classList.remove('hidden');
             }
         }
     }
@@ -74,6 +74,7 @@ function generate_images(div_id_name) {
         img.setAttribute('onclick', 'setActiveButton(this)'); // Onclick event
         img.setAttribute('onmouseover', 'showAltText(this)'); // Onmouseover event
         img.setAttribute('onmouseout', 'hideAltText(this)'); // Onmouseout event
+        img.style.margin = '-5px'; // Set spacing between images
 
         // Create a div for the alt text
         const altTextDiv = document.createElement('div');
