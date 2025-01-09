@@ -4,65 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
     <title>Settings</title>
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-EVBLWE1MJL', { 'anonymize_ip': true });
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
 
 </script>
 <body>
 
-<h1>Settings</h1>
+<div class="content-container">
+    <h1>Settings</h1>
 
-<br><br>
+    <br><br>
 
-<label for="colourMode">Default Theme: </label>
-<select id="colourMode">
-    <option value="dark">Dark</option>
-    <option value="light">Light</option>
-</select>
+    <label for="colourMode">Default Theme: </label>
+    <select id="colourMode">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
 
-<br><br>
+    <br><br>
 
-<label for="preload">Preload Images (Instead of loading on request): </label>
-<input type="checkbox" id="preload">
+    <label for="preload">Preload Images (Instead of loading on request): </label>
+    <input type="checkbox" id="preload">
 
-<br><br>
+    <br><br>
 
-<label for="substeps">Show Sub Steps in Quick Links at top of Guide: </label>
-<input type="checkbox" id="substeps">
+    <label for="close_setting_auto">Automatically Close Settings Tab once saved: </label>
+    <input type="checkbox" id="close_setting_auto">
 
-<br><br>
+    <br><br>
 
-<label for="close_setting_auto">Automatically Close Settings Tab once saved: </label>
-<input type="checkbox" id="close_setting_auto">
+    <label for="fontSelector">Default Font: </label>
+    <select id="fontSelector">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="OpenDyslexic">OpenDyslexic</option>
+    </select>
 
-<br><br>
+    <br><br>
 
-<label for="fontSelector">Default Font: </label>
-<select id="fontSelector">
-    <option value="Arial">Arial</option>
-    <option value="Verdana">Verdana</option>
-    <option value="OpenDyslexic">OpenDyslexic</option>
-</select>
+    <button>Save</button>
 
-<br><br>
+    <br><br>
 
-<button>Save</button>
+    <p id="saveSettingsText"></p>
+</div>
 
-<br><br>
-
-<p id="saveSettingsText"></p>
-
-<script src="/zombiesGuidesPublic/settings/settings.js"></script>
+<script src="/settings/settings.js"></script>
 </body>
 </html>

@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>CHANGE ME</title>
-    <link rel="stylesheet" href="/zombiesGuidesPublic/styles.css">
-    <link rel="stylesheet" href="../../../global_solver.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
+    <link rel="stylesheet" href="../../../zombiesGuidesPublic/css/global_solver.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
     <base target="_blank">
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-EVBLWE1MJL', { 'anonymize_ip': true });
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
 
 </script>
 
@@ -55,7 +59,7 @@
         <h2>Weapons</h2>
         <ul>
             <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
+            <ol class="step-content">
                 <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
                 <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
             </ol>
@@ -64,7 +68,7 @@
         <h2>Easter Eggs</h2>
         <ul>
             <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
+            <ol class="step-content">
                 <li><a href="#main_ee_step1">CHANGE ME</a></li>
                 <li><a href="#main_ee_step2">CHANGE ME</a></li>
                 <li><a href="#main_ee_step3">CHANGE ME</a></li>
@@ -84,7 +88,8 @@
     <!-- Main Easter Egg -->
     <div class="content-container" id="main_ee">
         <h2>CHANGE ME</h2>
-        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE
+            ME</p>
         <ol class="step-content">
             <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
             <li>Solver:
@@ -137,7 +142,7 @@
 </div>
 
 <!-- <h2 class="bottom-padding"></h2> -->
-<script src="/zombiesGuidesPublic/scripts.js"></script>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
 <script src="ww_math_solver/terminus_ww_solver.js"></script>
 </body>
 </html>

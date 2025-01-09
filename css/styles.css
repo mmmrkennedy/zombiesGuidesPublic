@@ -1,0 +1,409 @@
+body  {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #151515; /* Dark background color */
+    color: #c0bfbf; /* Dark text color */
+}
+
+.top_buttons_background_box {
+    background-color: #151515;
+}
+
+/* Light Mode */
+.light-mode a {
+    color: blue;
+}
+
+a.link-to-page {
+    color: #359fad;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.light-mode a.link-to-page {
+    color: #9d2268;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+a.youtube-link {
+    color: #34a400;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.light-mode a.youtube-link {
+    color: #62163d;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.bird-highlight-orange {
+    color: #d4b365;
+}
+
+.bird-highlight-green {
+    color: #6bc343;
+}
+
+.light-mode .bird-highlight-orange {
+    color: #a97b00;
+}
+
+.light-mode .bird-highlight-green {
+    color: #34a400;
+}
+
+.light-mode {
+    background-color: #f2f2f2; /* Light background color */
+    color: #000; /* Light text color */
+}
+
+/* Dark Mode */
+a {
+    color: #6185e8;
+    text-decoration: none;
+}
+
+.incomplete-path {
+    color: red;
+}
+
+.wrong_file_type {
+    color: orange;
+}
+
+.file-doesnt-exist {
+    color: yellow;
+}
+
+.main-line {
+    border-top: 3px solid gray;
+    margin: 20px 15px;
+}
+
+
+/* Button in the Corners */
+.toggle-button {
+    position: fixed;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.toggle-button.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.toggle-button.top-left-down {
+    top: 70px;
+    left: 20px;
+}
+
+.toggle-button.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.toggle-button.top-right-down {
+    top: 70px;
+    right: 20px;
+}
+
+.toggle-button.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.toggle-button.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.toggle-button.index-bottom-right {
+    bottom: 70px;
+    right: 20px;
+}
+
+.toggle-button:hover {
+    background-color: #555;
+    opacity: 1;
+}
+
+
+/* Overall Content Formating */
+.content-container-top,
+.content-container {
+    text-align: left;
+    margin: 10px 0 0 20px;
+    position: relative;
+    inline-size: auto;
+    overflow-wrap: break-word;
+    line-height: 1.35;
+}
+
+.content-container-top {
+    margin-top: 100px;
+    border-bottom: 4px solid grey; /* 3px line at the bottom */
+    padding-bottom: 10px; /* Adjust padding as needed to create space between content and line */
+}
+
+.content-container {
+    border-bottom: 2px solid grey; /* 1px line at the bottom */
+    padding-bottom: 10px; /* Adjust padding as needed to create space between content and line */
+}
+
+p.warning {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 1.75;
+}
+
+p.step-group-title, p.archon-special, p.sub-sub-step {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+p.upgrade-title {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    margin-left: -40px;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+
+p.sub-sub-step {
+    font-size: 105%;
+    line-height: 1.75;
+}
+
+p.archon-special {
+    margin-top: 17px;
+    margin-bottom: 17px;
+    font-size: 115%;
+}
+
+p.version_text {
+    font-size: 60%;
+    position: absolute;
+    top: -20px;
+    right: 13px;
+}
+
+p.version_text {
+    font-size: 60%;
+    position: absolute;
+    top: -10px;
+    right: 13px;
+}
+
+p.li-spacing {
+    margin-top: 7px;
+    margin-right: 0;
+    margin-bottom: 7px;
+    margin-left: 0;
+}
+
+p.weapon-desc {
+    margin-top: 7px;
+    margin-right: 0;
+    margin-bottom: 7px;
+    margin-left: 0;
+    font-weight: bold;
+}
+
+details.spacing {
+    margin-top: 15px;
+    margin-right: 0;
+    margin-bottom: 15px;
+    margin-left: 0;
+    border: #6bc343 solid 1.5px;
+    display: inline-block;
+    padding: 0.2em;
+}
+
+p.stats {
+    font-weight: bold;
+    font-style: italic;
+}
+
+caption.table-title {
+    font-weight: bold;
+    font-size: 110%;
+    margin-bottom: 10px;
+}
+
+h2.sticky-header {
+    position: sticky;
+    top: 0;  /* At the top of the containing element */
+}
+
+.upgrades {
+    margin-top: 20px;
+}
+
+li {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.in-line-p {
+    margin-top: 10px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.title-text{
+    margin-top: 0;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.title-sub-text{
+    margin-top: 0;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.bottom-padding {
+    padding-bottom: 575px;
+}
+
+h1.centered {
+    text-align: center;
+}
+
+/* Top Buttons Background */
+.top_buttons_background_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 89px;
+    z-index: 1;
+}
+
+.light-mode .top_buttons_background_box {
+    background-color: #f2f2f2;
+}
+
+
+/* Font Things */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verdana';
+    src: url('../font/verdana.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.smooth-scroll, .smooth-scroll.open-dyslexic {
+    font-family: Arial, sans-serif;
+    padding-right: 20px;
+}
+
+.smooth-scroll.open-dyslexic {
+    font-family: 'OpenDyslexic', sans-serif;
+}
+
+.smooth-scroll, .smooth-scroll.verdana {
+    font-family: Arial, sans-serif;
+    padding-right: 20px;
+}
+
+.smooth-scroll.verdana {
+    font-family: 'Verdana', sans-serif;
+}
+
+
+/* Default table styles */
+table {
+    margin: 20px 30px 20px 10px;
+    border-collapse: collapse;
+    width: auto; /* Default width limit for all tables */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.light-mode th, .light-mode td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #000;
+}
+
+/* Gauntlet class to remove width limit */
+.gauntlet table {
+    width: auto; /* Removing the width limit */
+}
+
+.square-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0; /* This makes the corners squared */
+    text-transform: uppercase; /* Optional for uppercase text */
+    margin-bottom: 5px;
+}
+
+.square-button.active {
+    background-color: #fff;
+    color: #000;
+}
+
+.square-button:hover {
+    opacity: 0.8;
+}
+
+.button-activated-div {
+    max-width: 850px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.button-activated-div.border {
+    border: 5px dashed red;
+}
+

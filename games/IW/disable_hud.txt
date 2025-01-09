@@ -1,0 +1,3 @@
+cg_draw2D = Disable HUD
+cg_drawCrosshair = Disable Crosshair
+cg_drawGun = Show Gun on screen

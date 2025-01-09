@@ -21,17 +21,16 @@ window.addEventListener('storage', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
     // Remove preloadVideo from local storage, due to functionality removal
     localStorage.removeItem('preloadVideo');
+    localStorage.removeItem('substeps');
 
     const colourModeSelect = document.getElementById('colourMode');
     const preloadInput = document.getElementById('preload');
-    const substepsInput = document.getElementById('substeps');
     const closeSettingAutoInput = document.getElementById('close_setting_auto');
     const fontSelectorSelect = document.getElementById('fontSelector');
 
     // Load and set values from local storage
     const savedColourMode = localStorage.getItem('colourMode');
     const savedPreloadValue = (localStorage.getItem('preload') === 'true');
-    const savedSubstepsValue = (localStorage.getItem('substeps') === 'true');
     const savedCloseSettingAutoValue = (localStorage.getItem('close_setting_auto') === 'true');
     const savedfontSelector = localStorage.getItem('fontSelector');
 
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     preloadInput.checked = savedPreloadValue;
-    substepsInput.checked = savedSubstepsValue;
     closeSettingAutoInput.checked = savedCloseSettingAutoValue;
 
     // Save button click event listener
@@ -55,27 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const colourModeValue = colourModeSelect.value;
         const preloadValue = preloadInput.checked;
-        const substepsValue = substepsInput.checked;
         const closeSettingAutoValue = closeSettingAutoInput.checked;
         const fontSelectorValue = fontSelectorSelect.value;
 
         // Save values to local storage
         localStorage.setItem('colourMode', colourModeValue);
         localStorage.setItem('preload', preloadValue.toString());
-        localStorage.setItem('substeps', substepsValue.toString());
         localStorage.setItem('close_setting_auto', closeSettingAutoValue.toString());
         localStorage.setItem('fontSelector', fontSelectorValue);
 
-        checkSettingsSaved(colourModeValue, preloadValue.toString(), substepsValue.toString(), closeSettingAutoValue.toString(), fontSelectorValue);
+        checkSettingsSaved(colourModeValue, preloadValue.toString(), closeSettingAutoValue.toString(), fontSelectorValue);
     });
 });
 
 // Utility functions for settings
-function checkSettingsSaved(colourModeValue, preloadValue, substepsValue, close_setting_auto_value, fontSelectorValue) {
+function checkSettingsSaved(colourModeValue, preloadValue, close_setting_auto_value, fontSelectorValue) {
     const settingsSaved =
         colourModeValue === localStorage.getItem('colourMode') &&
         preloadValue === localStorage.getItem('preload') &&
-        substepsValue === localStorage.getItem('substeps') &&
         close_setting_auto_value === localStorage.getItem('close_setting_auto') &&
         fontSelectorValue === localStorage.getItem('fontSelector');
 
