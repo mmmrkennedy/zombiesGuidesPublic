@@ -576,10 +576,7 @@ function getTagIndentLevelsFromHTML() {
                 }
 
                 // Adjust <p> tag indent level if needed
-                if (
-                    lastAdjustedIndentLevel !== null &&
-                    rawIndentLevel === lastAdjustedRawIndentLevel
-                ) {
+                if (lastAdjustedIndentLevel !== null && rawIndentLevel === lastAdjustedRawIndentLevel) {
                     indentLevel = lastAdjustedIndentLevel;
                 } else if (result.length > 0) {
                     const previousIndentLevel = result[result.length - 1].indentLevel;
