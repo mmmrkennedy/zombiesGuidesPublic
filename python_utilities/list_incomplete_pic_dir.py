@@ -1,7 +1,6 @@
 import re
 import os
 
-
 def is_incomplete_link(line):
     if '<a href="' not in line:
         return False
@@ -14,18 +13,18 @@ def is_incomplete_link(line):
 
     return True
 
-
 def extract_link_name(line):
     start_index = line.find('/">') + 3
     line_after_start = line[start_index:]
     end_index = line_after_start.find('</a>') + start_index
     return line[start_index:end_index]
 
-
 def save_incomplete_links(html_path):
     current_header = None
     last_written_header = None
-    with open(html_path, 'r', encoding='utf-8') as f, open("incomplete_links.txt", 'w', encoding='utf-8') as out:
+    lines_to_write = []  # Store lines to write here
+
+    with open(html_path, 'r', encoding='utf-8') as f:
         for line in f:
             stripped_line = line.strip()
             h2_match = re.search(r'<h2.*?>(.*?)</h2>', stripped_line)
@@ -40,15 +39,21 @@ def save_incomplete_links(html_path):
 
                 # Only write the header if it's different from the last one we wrote.
                 if current_header != last_written_header:
-                    out.write(f"\n{current_header}\n")
+                    lines_to_write.append(f"\n{current_header}\n")
                     last_written_header = current_header
 
-                out.write(f" - {link_name}\n")
+                lines_to_write.append(f" - {link_name}\n")
 
-    if os.name == 'nt':  # for Windows
-        os.system('start incomplete_links.txt')
-    elif os.name == 'posix':  # for Linux/MacOS
-        os.system('open incomplete_links.txt')
+    if lines_to_write:  # Only write if there are lines to write
+        with open("incomplete_links.txt", 'w', encoding='utf-8') as out:
+            out.writelines(lines_to_write)
+
+        if os.name == 'nt':  # for Windows
+            os.system('start incomplete_links.txt')
+        elif os.name == 'posix':  # for Linux/MacOS
+            os.system('open incomplete_links.txt')
+    else:
+        print("No incomplete links found")
 
 
 if __name__ == "__main__":

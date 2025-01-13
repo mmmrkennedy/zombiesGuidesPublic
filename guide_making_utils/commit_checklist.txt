@@ -8,4 +8,5 @@ Update Readme.md
 Check comments of the new guide for anything undesirable.
 Update the "given_difficulties.txt" file
 Make sure the auto redirect to "unfinished.html" is disabled
+Check for any CHANGE MEs in the new guide
 

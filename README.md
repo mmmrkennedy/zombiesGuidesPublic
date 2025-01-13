@@ -9,7 +9,7 @@ The plan is to also include solvers for steps that require them (such as Attack 
 
 ## Roadmap
 Next:
-- Attack of the Radioactive Thing (IW)
+- The Beast From Beyond (IW)
 
 Finished:
 - All Of CW (Except Outbreak)
@@ -18,6 +18,7 @@ Finished:
 - Zombies in Spaceland (IW)
 - Rave in the Redwoods (IW)
 - Shaolin Shuffle (IW)
+- Attack of the Radioactive Thing (IW)
 - Outbreak (AW)
 - Infection (AW)
 
@@ -25,8 +26,8 @@ In Limbo (I don't wanna):
 - Outbreak (CW)
 
 Planned:
-- The rest of IW
 - The rest of AW
+- WW2
 
 If you have any suggestions or feedback, or you'd even like to contribute, join the Discord (https://discord.com/invite/hQng3Yz48A).
 

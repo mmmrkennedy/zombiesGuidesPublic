@@ -69,7 +69,8 @@ function generate_images(div_id_name) {
 
         // Create an <img> element
         const img = document.createElement('img');
-        img.src = `../wyler_language_symbols/${letter}.webp`; // Path to the image
+        img.src = `/zombiesGuidesPublic/games/IW/wyler_language_symbols/${letter}.webp`; // Path to the image
+        img.dataset.boolQuickLink = "false";
         img.alt = letter.toUpperCase(); // Alt text (uppercase letter)
         img.setAttribute('onclick', 'setActiveButton(this)'); // Onclick event
         img.setAttribute('onmouseover', 'showAltText(this)'); // Onmouseover event

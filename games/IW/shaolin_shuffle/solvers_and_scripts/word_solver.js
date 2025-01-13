@@ -82,7 +82,7 @@ function generate_letter_img(possible_letters) {
 
         // Create the <img> element
         const img = document.createElement('img');
-        img.src = `../wyler_language_symbols/${letter}.webp`; // Path to the image
+        img.src = `/zombiesGuidesPublic/games/IW/wyler_language_symbols/${letter}.webp`; // Path to the image
         img.alt = letter.toUpperCase(); // Alt text (uppercase letter)
         img.style.height = "60px";
         img.style.width = "60px";

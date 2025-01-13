@@ -368,28 +368,32 @@ AUTO GENERATE THE QUICK ACCESS TAGS
 
 document.addEventListener("DOMContentLoaded", function () {
     // JavaScript to toggle the 'active' class
-    const solver_button_div = document.getElementById('solver_with_button');
+    const solver_button_divs = document.getElementsByClassName('solver-with-button');
 
-    if (!solver_button_div) {
+    if (!solver_button_divs) {
         return;
     }
 
-    // Get the button inside the parent div
-    const solver_button = solver_button_div.querySelector('.square-button');
+    for (let i = 0; i < solver_button_divs.length; i++) {
+        let solver_button_div = solver_button_divs[i];
 
-    // Get the solverContainer div inside the parent div
-    const solver_container = solver_button_div.querySelector('.solver-container');
+        // Get the button inside the parent div
+        const toggle_button = solver_button_div.querySelector('.square-button');
 
-    solver_button.addEventListener('click', () => {
-        // Toggle the 'active' class
-        solver_button.classList.toggle('active');
+        // Get the solverContainer div inside the parent div
+        const nested_container = solver_button_div.querySelector('div');
 
-        if (solver_button.classList.contains('active')) {
-            solver_container.style.display = 'block';
-        } else {
-            solver_container.style.display = 'none';
-        }
-    });
+        toggle_button.addEventListener('click', () => {
+            // Toggle the 'active' class
+            toggle_button.classList.toggle('active');
+
+            if (toggle_button.classList.contains('active')) {
+                nested_container.style.display = 'block';
+            } else {
+                nested_container.style.display = 'none';
+            }
+        });
+    }
 });
 
 

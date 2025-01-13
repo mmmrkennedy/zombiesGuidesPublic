@@ -191,7 +191,7 @@ if __name__ == "__main__":
 
                 png_to_webp(image_dir, image_quality, image_extensions)
             else:
-                png_to_webp("D:\\zombiesGuidesPublic\\games", "90", ['.png', '.jpg', '.jpeg', '.bmp'])
+                png_to_webp(r"D:\ZombiesGuidesHolder\zombiesGuidesPublic\games", "90", ['.png', '.jpg', '.jpeg', '.bmp'])
 
         elif convert_option == "2":
             image_dir = valid_dir(image_dir)

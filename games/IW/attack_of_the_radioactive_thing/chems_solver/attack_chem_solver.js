@@ -12,6 +12,10 @@ function main_logic(mNum, lowerBound, insectNum, racingNum = undefined) {
     // getValidONums checks the given mNum against the possible oNums to see which matches the given TV numbers (possibleFinalNums)
     const [possibleTVNumbers, possibleONums] = getValidONums(mNum, possibleFinalNums);
 
+    if (possibleTVNumbers.length === 0 || possibleONums.length === 0) {
+        return "Invalid M number or TV number, please try again.";
+    }
+
     // === Determine 'oNum' String ===
     let oNumStr = "";
     let oNumStrCounter = 0;
@@ -19,6 +23,7 @@ function main_logic(mNum, lowerBound, insectNum, racingNum = undefined) {
 
     if (possibleONums.length === 1) {
         oNumStr += possibleONums[0];
+        oNumNumbers.push(possibleONums[0]);
 
     } else if (possibleONums.length >= 2) {
         for (const index of possibleONums) {
@@ -93,6 +98,8 @@ function getLetter(insectNum, racingNum) {
         return insectMap[insectNum];
     } else if (insectNum === 7 || insectNum === 15) {
         return racingMap[racingNum] || "Invalid Racing Num";
+    } else if (insectNum === 0) {
+        return "Enter your Insect Number"
     } else {
         return "Invalid Insect Num";
     }
@@ -102,11 +109,9 @@ function get_tv_option_with_o_num(oNum, mNum, lowerBound){
     const possibleFinalNums = [lowerBound - 1, lowerBound + 1, lowerBound + 3];
     const options = ["Top Colour", "Middle Colour", "Bottom Colour"];
 
-    const [possibleTVNumbers, possibleONums] = getValidONums(mNum, possibleFinalNums);
-
     let real_tv_number = oNum * mNum;
 
-    return options[possibleTVNumbers.indexOf(real_tv_number)]
+    return options[possibleFinalNums.indexOf(real_tv_number)]
 }
 
 function calc_chem_nums(o_num, letter, chemical){
@@ -213,6 +218,22 @@ function format_result(oNum, colour_option) {
     return oNum + "\n" + colour_option;
 }
 
+function noHandHolding(){
+    const insectContainer = document.getElementById("insectContainer");
+    const racingFuelContainer = document.getElementById("racingFuelContainer");
+    const finalChemContainer = document.getElementById("finalChemContainer");
+    const step2_text = document.getElementById("step2_text");
+    const step3_text = document.getElementById("step3_text");
+    const oNumContainerElement = document.getElementById("oNumContainer");
+
+    insectContainer.style.display = "block";
+    racingFuelContainer.style.display = "block";
+    finalChemContainer.style.display = "block";
+    step2_text.style.display = "block";
+    step3_text.style.display = "block";
+    oNumContainerElement.style.display = "block";
+}
+
 function main() {
     let result = "";
     let resultElement = document.getElementById("result");
@@ -225,17 +246,27 @@ function main() {
     const oNumElement = document.getElementById("oNum");
     const finalChemElement = document.getElementById("finalChem").value;
 
+    const insectContainer = document.getElementById("insectContainer");
     const racingFuelContainer = document.getElementById("racingFuelContainer");
     const oNumContainerElement = document.getElementById("oNumContainer");
+    const finalChemContainer = document.getElementById("finalChemContainer");
+    const step2_text = document.getElementById("step2_text");
+    const step3_text = document.getElementById("step3_text");
 
-    if (mNumElement === 0 || lowerBoundElement === 0 || insectNumElement === 0) {
+    if (mNumElement === 0 || lowerBoundElement === 0) {
         return 0;
     }
 
     let valid_o_num = true;
     let racing_num_needed = false;
+    let insect_num_needed = false;
 
     let calc_results = main_logic(mNumElement, lowerBoundElement, insectNumElement, racingNumElement);
+
+    if (typeof calc_results === "string") {
+        resultElement.innerHTML = `${calc_results}\n`;
+        return;
+    }
 
     let o_num = calc_results[0]
     let colour_option_tv = calc_results[1]
@@ -247,34 +278,48 @@ function main() {
         if (oNumNumbers.includes(o_num)){
             colour_option_tv = get_tv_option_with_o_num(o_num, mNumElement, lowerBoundElement)
         } else {
-            resultElement.innerHTML = `Enter one of the possible correct O Numbers: ${o_num}.\n`;
-            return;
+            result += `Enter one of the possible correct O Numbers: ${o_num}.\n`;
         }
+    }
+
+    step2_text.style.display = "block";
+
+    if (letter === "Invalid Insect Num") {
+        result += "Insect Number is Invalid, please enter a valid Insect Number\n";
+        insectContainer.style.display = "block";
+        insect_num_needed = true;
+    } else if (letter === "Enter your Insect Number") {
+        result += letter + ".\n";
+        insectContainer.style.display = "block";
+        insect_num_needed = true;
     }
 
     if (String(o_num).includes("or")){
         result += "Please enter the correct O Number (The correct one couldn't be determined due to there being multiple potential 'correct' options based on the given info). O Number options listed below.\n\n"
         oNumContainerElement.style.display = "block";
+        step3_text.style.display = "block";
         valid_o_num = false;
     }
 
     if (letter === "Invalid Racing Num"){
-        result += "Unable to calculate result only using the Insect Repellent Number, please enter the Racing Fuel Number and try again.";
+        result += "Unable to calculate result only using the Insect Repellent Number, please enter the Racing Fuel Number and try again.\n";
         racingFuelContainer.style.display = "block";
+        step3_text.style.display = "block";
         racing_num_needed = true;
     }
 
     if (finalChemElement === "default"){
         result += "Enter the final chemical.\n\n"
+        finalChemContainer.style.display = "block";
+    } else if (step2_text.style.display === "block") {
+        finalChemContainer.style.display = "block";
     }
 
-    if (!racing_num_needed) {
-        result += format_result(o_num, colour_option_tv);
-    }
+    result += format_result(o_num, colour_option_tv);
 
     resultElement.innerHTML = result.replace(/\n/g, "<br>");
 
-    if (!valid_o_num || finalChemElement === "default" || racing_num_needed) {
+    if (!valid_o_num || finalChemElement === "default" || racing_num_needed || insect_num_needed) {
         return;
     }
 
@@ -282,41 +327,29 @@ function main() {
     resultElement.innerHTML = result.replace(/\n/g, "<br>");
 }
 
-/*
-// ++++ Testing ++++
-console.log(main(4, 7, 9, 15, 14));
-console.log(main(2, 19, 21, 9, 0));
-const inputValue = parseFloat(inputNumber.value);
-
-try {
-    document.getElementById("calculateButton").addEventListener("click", function () {
-        const mNum = parseFloat(document.getElementById("mNum").value);
-        const upperBound = parseFloat(document.getElementById("upperBound").value);
-        const lowerBound = parseFloat(document.getElementById("lowerBound").value);
-        const insectNum = parseInt(document.getElementById("insectNum").value);
-        const racingNum = parseInt(document.getElementById("racingNum").value);
-
-        const [oNumStr, colourOption, letter] = main(mNum, upperBound, lowerBound, insectNum, racingNum);
-
-        const resultElement = document.getElementById("result");
-        resultElement.innerHTML = `O Number: ${oNumStr}<br>Colour Option: ${colourOption}<br>Letter: ${letter}`;
-    });
-} catch (error){
-    console.log("")
-
-*/
 
 function resetAll() {
+    const insectContainer = document.getElementById("insectContainer");
+    const racingFuelContainer = document.getElementById("racingFuelContainer");
+    const finalChemContainer = document.getElementById("finalChemContainer");
+    const step2_text = document.getElementById("step2_text");
+    const step3_text = document.getElementById("step3_text");
+
+    insectContainer.style.display = "none";
+    racingFuelContainer.style.display = "none";
+    finalChemContainer.style.display = "none";
+    step2_text.style.display = "none";
+    step3_text.style.display = "none";
+
+    document.getElementById("finalChem").value = "default";
     document.getElementById("mNum").value = null;
     document.getElementById("lowerBound").value = null;
     document.getElementById("insectNum").value = null;
     document.getElementById("racingNum").value = null;
     document.getElementById("result").innerHTML = null;
 
-    const racingFuelContainer = document.getElementById("racingFuelContainer");
     const oNumContainerElement = document.getElementById("oNumContainer");
 
-    racingFuelContainer.style.display = "none";
     oNumContainerElement.style.display = "none";
 }
 

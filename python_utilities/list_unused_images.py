@@ -131,6 +131,9 @@ if __name__ == "__main__":
             subfolder_path = os.path.join(game_path, subfolder_path)
             html_path, pictures_path = find_html_and_pictures_folder(subfolder_path)
 
+            if not pictures_path:
+                continue
+
             webp_images, webp_images_w_paths = find_webp_image_names(pictures_path)
             a_tags = find_webp_in_a_tags(html_path)
 

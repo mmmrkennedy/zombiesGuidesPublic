@@ -29,7 +29,7 @@ def create_animation(image_folder, output_gif, frame_duration=2):
 
 # Example usage
 create_animation(
-    image_folder=r"",  # Folder where cropped images are stored
-    output_gif="trolltastic_calling_card.gif",
+    image_folder=r"D:\zombiesGuidesPublic\python_utilities\imgs",  # Folder where cropped images are stored
+    output_gif="message_rerouted_calling_card.gif",
     frame_duration=2  # Each image displayed for 2 frames
 )

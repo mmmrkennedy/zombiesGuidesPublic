@@ -32,7 +32,7 @@ def split_image_fixed(image_path, output_folder, sub_image_width, sub_image_heig
 
 # Example usage
 split_image_fixed(
-    image_path=r"D:\zombiesGuidesPublic\python_utilities\trolltastic - Copy.png",
+    image_path=r"D:\zombiesGuidesPublic\python_utilities\ui_playercard_785.png",
     output_folder=r"D:\zombiesGuidesPublic\python_utilities",
     sub_image_width=376,
     sub_image_height=148,
