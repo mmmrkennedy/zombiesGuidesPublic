@@ -1,7 +1,7 @@
 const selectedSymbols = [];
 const maxSymbols = 4;
-const solverCode = document.getElementById('solver_code');
-const resultDiv = document.getElementById('result');
+const solverCode = document.getElementById('floppy_solver_code');
+const resultDiv = document.getElementById('floppy_result');
 
 // Update the solver output and display selected images in order
 function updateSolverOutput() {
@@ -25,7 +25,7 @@ function updateSolverOutput() {
                 solverCode.textContent = 'Valid Sequence:';
                 processedResult.forEach(id => {
                     const img = document.createElement('img');
-                    img.src = `pictures/picture_${id}.webp`;
+                    img.src = `floppy_disk_puzzle/pictures/picture_${id}.webp`;
                     img.alt = `Symbol ${id}`;
                     img.style.width = '50px';
                     img.style.height = '50px';
@@ -55,9 +55,9 @@ function selectSymbol(imgElement) {
 }
 
 // Reset the selection
-function resetAll() {
+function floppyResetAll() {
     selectedSymbols.length = 0; // Clear the array
-    document.querySelectorAll('.solver-symbol-select img').forEach(img => {
+    document.querySelectorAll('#floppy_solver_symbol_select img').forEach(img => {
         img.classList.remove('selected');
     });
     updateSolverOutput();
@@ -85,14 +85,14 @@ function processSymbols(symbols) {
 }
 
 // Add data-symbol-id to the images for reference
-document.querySelectorAll('.solver-symbol-select img').forEach((img, index) => {
-    img.setAttribute('data-symbol-id', index + 1);
+document.querySelectorAll('#floppy_solver_symbol_select img').forEach((img, index) => {
+    img.setAttribute('data-symbol-id', String(index + 1));
 });
 
-const symbolContainer = document.querySelector('.solver-symbol-select');
+const symbolContainer = document.querySelector('#floppy_solver_symbol_select');
 const totalSymbols = 12; // Total number of symbols/images
 const symbolsPerRow = 4; // Number of symbols per row
-const imagePath = 'pictures/'; // Base path for images
+const imagePath = 'floppy_disk_puzzle/pictures/'; // Base path for images
 
 function generateSymbolGrid() {
     for (let i = 0; i < totalSymbols; i++) {

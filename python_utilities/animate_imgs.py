@@ -7,6 +7,7 @@ def create_animation(image_folder, output_gif, frame_duration=2):
     for file_name in sorted(os.listdir(image_folder)):
         if file_name.endswith(".png"):
             file_path = os.path.join(image_folder, file_name)
+            print(file_path)
             images.append(Image.open(file_path))
 
     # Ensure there are images to animate
@@ -29,7 +30,7 @@ def create_animation(image_folder, output_gif, frame_duration=2):
 
 # Example usage
 create_animation(
-    image_folder=r"D:\zombiesGuidesPublic\python_utilities\imgs",  # Folder where cropped images are stored
-    output_gif="message_rerouted_calling_card.gif",
+    image_folder=r"C:\Users\Markk\OneDrive\Desktop\Cod Ripping Tools\Greyhound\exported_files\infinite_warfare\ximages\Cropped",  # Folder where cropped images are stored
+    output_gif=r"C:\Users\Markk\OneDrive\Desktop\Cod Ripping Tools\Greyhound\exported_files\infinite_warfare\ximages\gif\spaceland_dc.gif",
     frame_duration=2  # Each image displayed for 2 frames
 )

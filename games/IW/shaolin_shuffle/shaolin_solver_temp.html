@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Browser Tab Title (don't include "guide", just map name) -->
+    <title>Shaolin Shuffle Solvers</title>
+    <link href="/zombiesGuidesPublic/css/styles.css" rel="stylesheet">
+    <link href="/zombiesGuidesPublic/css/global_solver.css" rel="stylesheet">
+    <link href="/zombiesGuidesPublic/favicon/favicon.ico" rel="icon" type="image/x-icon">
+    <base target="_blank">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
+
+</script>
+
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide"-->
+<h2 class="title-text">Shaolin Shuffle Solvers</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <div class="content-container">
+            <div class="solver-container" style="min-width: 850px;">
+                <h2>Mahjong Tile Solver</h2>
+                
+                <div>
+                    <label>Select Tiles (1 Dot to 5 Dot):</label>
+                    <div class="solver-symbol-select" id="tileSelection">
+                        <img alt="1 Dot" class="shaolin" data-src="solvers_and_scripts/mahjong_solver/dot_1.webp"
+                             data-value="1" src="solvers_and_scripts/mahjong_solver/dot_1.webp">
+                        <img alt="2 Dot" class="shaolin" data-src="solvers_and_scripts/mahjong_solver/dot_2.webp"
+                             data-value="2" src="solvers_and_scripts/mahjong_solver/dot_2.webp">
+                        <img alt="3 Dot" class="shaolin" data-src="solvers_and_scripts/mahjong_solver/dot_3.webp"
+                             data-value="3" src="solvers_and_scripts/mahjong_solver/dot_3.webp">
+                        <img alt="4 Dot" class="shaolin" data-src="solvers_and_scripts/mahjong_solver/dot_4.webp"
+                             data-value="4" src="solvers_and_scripts/mahjong_solver/dot_4.webp">
+                        <img alt="5 Dot" class="shaolin" data-src="solvers_and_scripts/mahjong_solver/dot_5.webp"
+                             data-value="5" src="solvers_and_scripts/mahjong_solver/dot_5.webp">
+                    </div>
+                </div>
+                
+                <button class="solver-button" onclick="resetSelection()">Reset</button>
+                
+                <div class="solver-output" id="output">
+                    <p id="result"></p>
+                    <div id="resultTiles"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <h2>Main Quest Word Solver</h2>
+            <div id="word_filter" data-bool-quick-link="false" class="button-activated-div border">
+                <label for="word_filter_text">Enter what letters you have of your word so far: </label>
+                <input id="word_filter_text" type="text" oninput="filterWordsByPrefix(this.value)">
+                <p class="sub-sub-step" data-bool-quick-link="false">List of possible letters to finish the word: </p>
+                <p style="text-indent: 20px;" id="possible_letters"></p>
+                <div id="word_filter_imgs"></div>
+                
+                <p class="sub-sub-step" data-bool-quick-link="false">List of possible words: </p>
+                <ul id="word_list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="solvers_and_scripts/mahjong_solver/mahjong_solver.js"></script>
+<script src="solvers_and_scripts/word_solver.js"></script>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+</body>
+</html>

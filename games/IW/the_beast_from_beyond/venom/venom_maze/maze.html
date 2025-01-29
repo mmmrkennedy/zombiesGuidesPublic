@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beast From Beyond</title>
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/global_solver.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <base target="_blank">
+</head>
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide" -->
+<h2 class="title-text">The Beast From Beyond Guide</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <div class="solver-container">
+            <h2>Venom-X Maze Solver</h2>
+            
+            <div id="maze-container">
+                <div class="venom-board" id="board"></div>
+                <p id="venom-maze-error"></p>
+                
+                <div class="draggable-container">
+                    <img src="pictures/yellow_square.png" id="start" class="draggable-image" draggable="true" alt="start">
+                    <img src="pictures/blue_diamond.png" id="end" class="draggable-image" draggable="true" alt="end">
+                </div>
+            </div>
+            
+            <div id="maze_img_container" style="display: none">
+                <img id="maze_sol_0" class="maze-sol_img" src="pictures/maze_sol_pic_0.png" alt="0">
+                <img id="maze_sol_1" class="maze-sol_img" src="pictures/maze_sol_pic_1.png" alt="1">
+                <img id="maze_sol_2" class="maze-sol_img" src="pictures/maze_sol_pic_2.png" alt="2">
+                <img id="maze_sol_3" class="maze-sol_img" src="pictures/maze_sol_pic_3.png" alt="3">
+                <img id="maze_sol_4" class="maze-sol_img" src="pictures/maze_sol_pic_4.png" alt="4">
+                <img id="maze_sol_5" class="maze-sol_img" src="pictures/maze_sol_pic_5.png" alt="5">
+                <img id="maze_sol_6" class="maze-sol_img" src="pictures/maze_sol_pic_6.png" alt="6">
+                <img id="maze_sol_7" class="maze-sol_img" src="pictures/maze_sol_pic_7.png" alt="7">
+                <img id="maze_sol_8" class="maze-sol_img" src="pictures/maze_sol_pic_8.png" alt="8">
+                <img id="maze_sol_9" class="maze-sol_img" src="pictures/maze_sol_pic_9.png" alt="9">
+                <img id="maze_sol_10" class="maze-sol_img" src="pictures/maze_sol_pic_10.png" alt="10">
+                <img id="maze_sol_11" class="maze-sol_img" src="pictures/maze_sol_pic_11.png" alt="11">
+                <img id="maze_sol_12" class="maze-sol_img" src="pictures/maze_sol_pic_12.png" alt="12">
+                <img id="maze_sol_13" class="maze-sol_img" src="pictures/maze_sol_pic_13.png" alt="13">
+                <img id="maze_sol_14" class="maze-sol_img" src="pictures/maze_sol_pic_14.png" alt="14">
+                <img id="maze_sol_15" class="maze-sol_img" src="pictures/maze_sol_pic_15.png" alt="15">
+            </div>
+            
+            <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
+            <button class="solver-button" onclick="resetMaze()">Reset All</button>
+        </div>
+    </div>
+</div>
+
+<script src="maze_board_html_helper.js"></script>
+<script src="maze.js"></script>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+</body>
+</html>

@@ -1,12 +1,4 @@
 function main_logic(mNum, lowerBound, insectNum, racingNum = undefined) {
-    /*
-    if (lowerBound > upperBound) {
-        let [lowerBound, upperBound] = [upperBound, lowerBound]
-    } else if (lowerBound === upperBound) {
-        return "Top number can't be the same Bottom number"
-    }
-     */
-
     const possibleFinalNums = [lowerBound - 1, lowerBound + 1, lowerBound + 3];
 
     // getValidONums checks the given mNum against the possible oNums to see which matches the given TV numbers (possibleFinalNums)
@@ -152,11 +144,31 @@ function calc_chem_nums(o_num, letter, chemical){
         "Dinitro": [12, 11, 13, 8, 13, 9, 9, 10, 12, 15, 7, 12]
     };
 
+    const ingredient_links = {
+        "Baking Soda": "pictures/ingredients/baking_soda.webp",
+        "Detergent": "pictures/ingredients/detergent.webp",
+        "Drain Opener": "pictures/ingredients/drain_opener.webp",
+        "Fat": "pictures/ingredients/fat.webp",
+        "Glass Cleaner": "pictures/ingredients/glass_cleaner.webp",
+        "Ice": "pictures/ingredients/ice.webp",
+        "Insect Repellent": "pictures/ingredients/insect.webp",
+        "Motor Oil": "pictures/ingredients/motor_oil.webp",
+        "Nail Polish Remover": "pictures/ingredients/nail_polish.webp",
+        "Paint": "pictures/ingredients/paint.webp",
+        "Pennies": "pictures/ingredients/pennies.webp",
+        "Plant Food": "pictures/ingredients/plant_food.webp",
+        "Quarters": "pictures/ingredients/quarters.webp",
+        "Racing Fuel": "pictures/ingredients/racing_fuel.webp",
+        "Vinegar": "pictures/ingredients/vinegar.webp",
+        "Vodka": "pictures/ingredients/vodka.webp",
+        "Wheel Cleaner": "pictures/ingredients/wheel_cleaner.webp",
+    };
+
     let result_str = "";
     const index = columns.indexOf(letter.toUpperCase());
     let formulas;
 
-    if (chemical === "chem_1") {  // 3,4-di-nitroxy-methyl-propane
+    if (chemical === "chem_1") {
         formulas = [
             { name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters'] },
             { name: "Formula 2", ingredients: ['Vodka', 'Pennies'] },
@@ -164,28 +176,28 @@ function calc_chem_nums(o_num, letter, chemical){
             { name: "Formula 4", ingredients: ['Nail Polish Remover', 'Sludge'] }
         ];
 
-    } else if (chemical === "chem_2") {  // 1,3,5 tera-nitro-phenol
+    } else if (chemical === "chem_2") {
         formulas = [
             { name: "Formula 1", ingredients: ['Motor Oil', 'Wheel Cleaner', 'Insect Repellent'] },
             { name: "Formula 2", ingredients: ['Phenol', 'Drain Opener'] },
             { name: "Formula 3", ingredients: ['Phenolsulfonic Acid', 'Detergent'] }
         ];
 
-    } else if (chemical === "chem_3") {  // Octa-hydro-2,5-nitro-3,4,7-para-zokine
+    } else if (chemical === "chem_3") {
         formulas = [
             { name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters'] },
             { name: "Formula 2", ingredients: ['Glass Cleaner', 'Formaldehyde'] },
             { name: "Formula 3", ingredients: ['Vinegar', 'Plant Food', 'Detergent', 'Hexamine'] }
         ];
 
-    } else if (chemical === "chem_4") {  // 3-methyl-2,4-di-nitrobenzene
+    } else if (chemical === "chem_4") {
         formulas = [
             { name: "Formula 1", ingredients: ['Paint', 'Detergent', 'Drain Opener'] },
             { name: "Formula 2", ingredients: ['Baking Soda', 'Vinegar', 'Detergent', 'Methylbenzene'] },
             { name: "Formula 3", ingredients: ['Racing Fuel', 'Dinitro'] }
         ];
 
-    } else if (chemical === "chem_5"){  // 2,4-propane-3,5-tetra-nitrite
+    } else if (chemical === "chem_5") {
         formulas = [
             { name: "Formula 1", ingredients: ['Fat', 'Vodka'] },
             { name: "Formula 2", ingredients: ['Detergent', 'Drain Opener'] },
@@ -194,18 +206,24 @@ function calc_chem_nums(o_num, letter, chemical){
         ];
 
     } else {
-        return "Invalid Chemical. Chem Value Debug: " + chemical
+        return "Invalid Chemical. Chem Value Debug: " + chemical;
     }
 
     // Calculate results dynamically
     formulas.forEach(({ name, ingredients }) => {
         let formula_result = 0; // Initialize the result
-        ingredients.forEach(ing => {
+        const linked_ingredients = ingredients.map(ing => {
             formula_result += ingredient_data[ing][index]; // Add each ingredient's value
+            const link = ingredient_links[ing] || "#"; // Use '#' if no link is provided
+            if (link === "#") {
+                return ing;
+            } else {
+                return `<a href="${link}">${ing}</a>`;
+            }
         });
         formula_result -= o_num; // Subtract o_num
-        const ingredient_list = ingredients.join(" + ");
-        result_str += `${name}: ${ingredient_list} --- Number: ${formula_result}\n`;
+        const ingredient_list = linked_ingredients.join(" + ");
+        result_str += `${name}: ${ingredient_list} <b>---</b> Number: ${formula_result}\n`;
     });
 
     return result_str;

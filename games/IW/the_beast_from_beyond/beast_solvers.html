@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beast From Beyond</title>
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/global_solver.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <base target="_blank">
+</head>
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide" -->
+<h2 class="title-text">The Beast From Beyond Solvers</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <div class="content-container">
+            <div class="solver-container">
+                <h2>Venom-X Box Solver</h2>
+                
+                <label for="venom-x-box-button-selector">Select the number of buttons:</label>
+                <select id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
+                    <option value="3">3 Buttons</option>
+                    <option value="4">4 Buttons</option>
+                    <option value="5">5 Buttons</option>
+                    <option value="6">6 Buttons</option>
+                </select>
+                
+                <div id="venom-x-box-buttons"></div>
+                
+                <p id="venom-x-box-result"></p>
+            
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="solver-container">
+                <h2>Venom-X Maze Solver</h2>
+                
+                <div id="maze-container">
+                    <div class="venom-board" id="board"></div>
+                    <p id="venom-maze-error"></p>
+                    
+                    <div class="draggable-container">
+                        <img src="venom/venom_maze/pictures/yellow_square.png" id="start" class="draggable-image" draggable="true" alt="start">
+                        <img src="venom/venom_maze/pictures/blue_diamond.png" id="end" class="draggable-image" draggable="true" alt="end">
+                    </div>
+                </div>
+                
+                <div id="maze_img_container" style="display: none"></div>
+                
+                <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
+                <button class="solver-button" onclick="resetMaze()">Reset All</button>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="solver-container left">
+                <h2>Beast Venom-Y/Z Morse Code Solver</h2>
+                
+                <div class="solver-symbol-select" id="morse_input_div">
+                    <ul>
+                        <p style="font-weight: bold; margin-left: -20px" data-bool-quick-link="false">How to use</p>
+                        <li>Enter your Morse Code below, "-" for Long Beep and "." for Short Beep.</li>
+                        <li>Make sure to include the spaces, this won't work without them.</li>
+                        <li>You can enter the code from either of the consoles, and it should be accurately translated.</li>
+                        <li>Keep entering the code until the solver gives you the extracted number.</li>
+                        <li>If you want to decrypt a code without either Cross' or Archer's starting code, enter the Key.</li>
+                    </ul>
+                    <label for="morse_input">Enter your Morse Code:</label>
+                    <input type="text" id="morse_input" name="morse_input" class="spacing" oninput="process_morse_code(this.value)">
+                    <br>
+                    <label for="morse_code_key_select">Enter your Key (Optional):</label>
+                    <select id="morse_code_key_select" name="morse_code_key_select" class="spacing">
+                        <option value="no_key">No Key</option>
+                        <option value="archer">ARCHER</option>
+                        <option value="cross">CROSS</option>
+                    </select>
+                </div>
+                
+                <div class="solver-output">
+                    <p><span id="solver_code"></span></p>
+                    <div id="morse_result">
+                        <p><strong>Cypher Decryption Key: </strong><span id="morse_key"></span></p>
+                        <p><strong>Decoded Morse Code: </strong><span id="morse_decoded_text"></span></p>
+                        <p><strong>Deciphered Morse Code: </strong><span id="morse_decrypted_text"></span></p>
+                        <p><strong>Extracted Number: </strong><span id="morse_kill_number"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="solver-container">
+                <h2>Beast Main Quest Floppy Disk Puzzle</h2>
+                
+                <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
+                
+                <div class="solver-output">
+                    <p><span id="floppy_solver_code"></span></p>
+                    <div id="floppy_result"></div>
+                </div>
+                
+                <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="solver-container">
+                <h2>GnS Skull 5 Solver</h2>
+                <p id="queens-explain">Click a square to move the Queen.</p>
+                
+                <div class="chessboard" id="chessboard"></div>
+                
+                <button id="solve-button-queens" class="solver-button" onclick="solve_eight_queens()">Solve</button>
+                <button class="solver-button" onclick="reset_eight_queens()">Reset All</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="bottom-padding"></h2>
+
+<script src="venom/box/venom_x_box_html_helper.js"></script>
+<script src="venom/box/venom_x_box.js"></script>
+<script src="skull_5/eight_queens_html_helper.js"></script>
+<script src="skull_5/eight_queens.js"></script>
+<script src="venom/venom_maze/maze_board_html_helper.js"></script>
+<script src="venom/venom_maze/maze.js"></script>
+<script src="venom/venom_y/venom_y_morse_code.js"></script>
+<script src="floppy_disk_puzzle/floppy_disk_solver.js"></script>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+</body>
+</html>

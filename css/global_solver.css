@@ -21,11 +21,7 @@ body.solver-body {
     word-wrap: break-word; /* Ensures compatibility for word breaking */
 }
 
-.solver-container.gorod {
-    text-align: left;
-}
-
-.solver-container.attack {
+.solver-container.left {
     text-align: left;
 }
 
@@ -96,6 +92,7 @@ body.solver-body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    pointer-events: auto;
 }
 
 .solver-button:hover {
@@ -103,8 +100,13 @@ body.solver-body {
 }
 
 .solver-button.active {
-    background-color: #007bff;
+    background-color: #0060cd;
     color: white;
+}
+
+.solver-button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .aligned-buttons,
@@ -144,3 +146,70 @@ body.solver-body {
     display: inline-block;
 }
 
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 5px solid black;
+}
+
+.chessboard div {
+    width: 50px;
+    height: 50px;
+}
+
+.black-board {
+    background-color: #769656;
+}
+
+.white-board {
+    background-color: #eeeed2;
+}
+
+.queen {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.draggable-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.draggable-image {
+    width: 45px;
+    height: 45px;
+    cursor: grab;
+}
+
+.venom-board {
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    gap: 2px;
+    background-color: yellow;
+    padding: 2px;
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 0 !important;
+    position: relative;
+}
+
+.green-square {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: green;
+    margin-bottom: 0 !important;
+    position: relative;
+}
+
+.maze-sol_img {
+    width: 320px;
+    height: 320px;
+}
