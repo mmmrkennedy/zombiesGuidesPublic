@@ -771,3 +771,209 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
+/*
+=======================================
+LIGHTBOX FOR IMAGES
+=======================================
+ */
+function addLightboxClass() {
+    // Get all anchor tags on the page
+    const anchorTags = document.querySelectorAll('a');
+
+    // Common image file extensions
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.svg'];
+
+    // Loop through all anchor tags
+    anchorTags.forEach(anchor => {
+        const href = anchor.getAttribute('href');
+
+        // Skip if no href attribute or null
+        if (!href) return;
+
+        // Check if the href ends with any image extension (case insensitive)
+        const endsWithImageExt = imageExtensions.some(ext =>
+            href.toLowerCase().endsWith(ext)
+        );
+
+        // Add the class if it's an image link
+        if (endsWithImageExt) {
+            anchor.classList.add('lightbox-trigger');
+        }
+    });
+}
+
+
+function addLightboxContainer() {
+    const smoothScrollDiv = document.querySelector('div.smooth-scroll');
+
+    if (smoothScrollDiv) {
+
+        const lightboxHTML = `
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-header">
+            <span class="close-lightbox">&times;</span>
+        </div>
+        <div class="lightbox-content">
+            <div class="lightbox-caption"></div>
+            <img id="lightbox-img" src="" alt="Enlarged image">
+        </div>
+    </div>
+    `;
+        smoothScrollDiv.insertAdjacentHTML('afterend', lightboxHTML);
+
+        console.log('Lightbox container added successfully');
+    } else {
+        console.error('No div with class "smooth-scroll" found');
+    }
+}
+
+/**
+ * Opens the lightbox with the specified image source
+ * @param {string} imgSrc - Source URL of the image
+ * @param {string} captionText - Text to display as caption
+ */
+function openLightbox(imgSrc, captionText) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+
+    if (!lightbox || !lightboxImg || !lightboxCaption) return;
+
+    // Show a loading state (optional)
+    lightbox.style.display = 'flex';
+    lightboxImg.style.display = 'none';
+    lightboxCaption.textContent = 'Loading...';
+
+    // Create a new image to load in the background
+    const img = new Image();
+    img.src = imgSrc;
+
+    img.onload = function() {
+        // Set the source and display the image
+        lightboxImg.setAttribute('src', imgSrc);
+        lightboxImg.style.display = 'block';
+        lightboxCaption.textContent = captionText;
+    };
+
+    img.onerror = function() {
+        // Handle error case
+        lightboxCaption.textContent = 'Error loading image';
+        lightboxImg.style.display = 'none';
+    };
+}
+
+
+/**
+ * Closes the lightbox
+ */
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+    }
+}
+
+/**
+ * Event handler for lightbox trigger clicks
+ * @param {Event} event - Click event
+ */
+function handleTriggerClick(event) {
+    event.preventDefault();
+    const imgSrc = this.getAttribute('href');
+    let captionText = this.textContent.trim()
+    captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1); // Uppercase the first letter of the string
+    openLightbox(imgSrc, captionText);
+}
+
+/**
+ * Initializes the lightbox by setting up event listeners
+ */
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const closeBtn = document.querySelector('.close-lightbox');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    if (!lightbox || !closeBtn) {
+        console.error('Lightbox elements not found');
+        return;
+    }
+
+    // Add click event listeners to triggers
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', handleTriggerClick);
+    });
+
+    // Add close button event listener
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Add lightbox background click listener
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Add keyboard event listener
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.style.display === 'flex') {
+            closeLightbox();
+        }
+    });
+}
+
+// Single DOMContentLoaded event listener that handles everything in the right order
+document.addEventListener('DOMContentLoaded', () => {
+    addLightboxContainer(); // First add the container to the DOM
+    addLightboxClass(); // Then add classes to the appropriate anchor tags
+    initLightbox(); // Finally initialize the lightbox functionality
+});
+
+
+/*
+=======================================
+LAZY LOAD IMAGES
+=======================================
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Cache for loaded images
+    const imageCache = new Map();
+
+    // Options for the IntersectionObserver
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '100px', // load images 100px before they enter the viewport
+        threshold: 0.01 // trigger when at least 1% of the element is visible
+    };
+
+    // Callback for the IntersectionObserver
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const aTag = entry.target;
+                const imgUrl = aTag.getAttribute('href');
+
+                // If image isn't in cache, load it
+                if (!imageCache.has(imgUrl)) {
+                    const img = new Image();
+                    img.src = imgUrl;
+                    imageCache.set(imgUrl, img);
+
+                    // Optional: You could preload by adding to DOM (hidden)
+                    // img.style.display = 'none';
+                    // document.body.appendChild(img);
+                }
+
+                // Unobserve since we've loaded it and it's now cached
+                observer.unobserve(aTag);
+            }
+        });
+    };
+
+    // Create the observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all a tags with href pointing to an image
+    document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".webp"]').forEach(aTag => {
+        observer.observe(aTag);
+    });
+});
