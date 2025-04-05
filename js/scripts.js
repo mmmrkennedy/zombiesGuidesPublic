@@ -422,7 +422,7 @@ function generate_font_box(parentElement){
         return false;
     }
 
-    console.log("Auto generating font box/quick links...");
+    // console.log("Auto generating font box/quick links...");
 
     // Create the label element
     const label = document.createElement("label");
@@ -637,7 +637,7 @@ function getTagIndentLevelsFromHTML() {
 }
 
 function generate_quick_links(parentElement, result) {
-    console.log(result);
+    // console.log(result);
 
     if (!result || result.length === 0) {
         console.error("Result array is empty or undefined.");
@@ -810,9 +810,7 @@ function addLightboxContainer() {
 
         const lightboxHTML = `
     <div id="lightbox" class="lightbox">
-        <div class="lightbox-header">
-            <span class="close-lightbox">&times;</span>
-        </div>
+        <span class="close-lightbox">&times;</span>
         <div class="lightbox-content">
             <div class="lightbox-caption"></div>
             <img id="lightbox-img" src="" alt="Enlarged image">
@@ -821,7 +819,7 @@ function addLightboxContainer() {
     `;
         smoothScrollDiv.insertAdjacentHTML('afterend', lightboxHTML);
 
-        console.log('Lightbox container added successfully');
+        // console.log('Lightbox container added successfully');
     } else {
         console.error('No div with class "smooth-scroll" found');
     }
