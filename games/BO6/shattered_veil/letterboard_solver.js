@@ -1,7 +1,7 @@
 const boards = [
     ["OSTUHJLD", "QPGAFR", "YZKWX", "NI", "ECVB", "M"],
     ["E", "BCDSTVWXZ", "KLMNPQR", "OUY", "FGHJ", "AI"],
-    ["AIO", "QX", "BCDEFGH", "S", "LMNPRTVW", "JKZ"],
+    ["AIOUY", "QX", "BCDEFGH", "S", "LMNPRTVW", "JKZ"],
     ["BCDEF", "XYZ", "GHILNO", "M", "JKQU", "APRSTVW"]
 ]
 
@@ -25,8 +25,11 @@ function solve_board_word() {
 
     for (let j = 0; j < word.length; j++) {
         for (let i = 0; i < board.length; i++) {
-            if (board[i].includes(word[j])) {
-                number_str += board[i].length;
+            let board_str = board[i].toUpperCase()
+            let letter = word[j].toUpperCase()
+            
+            if (board_str.includes(letter)) {
+                number_str += String(board[i].length);
                 break;
             }
         }
