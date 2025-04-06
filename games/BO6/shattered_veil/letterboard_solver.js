@@ -35,4 +35,8 @@ function solve_board_word() {
     output.innerHTML = number_str;
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("word").value = "default";
+    document.getElementById("board").value = "default";
+});
 
