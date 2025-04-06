@@ -1,7 +1,8 @@
 const boards = [
     ["OSTUHJLD", "QPGAFR", "YZKWX", "NI", "ECVB", "M"],
     ["E", "BCDSTVWXZ", "KLMNPQR", "OUY", "FGHJ", "AI"],
-    ["AIO", "QX", "BCDEFGH", "S", "LMNPRTVW", "JKZ"]
+    ["AIO", "QX", "BCDEFGH", "S", "LMNPRTVW", "JKZ"],
+    ["BCDEF", "XYZ", "GHILNO", "M", "JKQU", "APRSTVW"]
 ]
 
 const words = ["WORM", "MOTH", "CRAB", "YETI"]
