@@ -35,7 +35,11 @@ function solve_board_word() {
         }
     }
 
-    output.innerHTML = number_str;
+    if (number_str.length !== 4){
+        output.innerHTML = `Unable to calculate number, number is not 4 digits (tell Mark on discord the board and word)`
+    } else {
+        output.innerHTML = number_str;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
