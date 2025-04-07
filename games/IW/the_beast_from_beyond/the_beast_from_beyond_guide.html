@@ -11,13 +11,6 @@
     <base target="_blank">
 </head>
 
-<script>
-    window.location.href = "/zombiesGuidesPublic/unfinished.html";
-    setInterval(() => {
-        window.location.href = "/zombiesGuidesPublic/unfinished.html";
-    }, 1000); // Redirect every 5 seconds
-</script>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
 <script>
@@ -59,17 +52,17 @@
     
     <div class="content-container" data-section-ind="Map Progression" id="power">
         <h2>Power/Activate N31L</h2>
-        <ol class="step-content">
+        <ol>
             <li>In the big main room (Ops Center), drop down the <a href="pictures/power/hole.webp">hole in the middle of the room</a>.</li>
             <li>At the end of the hallway, <a href="pictures/power/head.webp">N31L's head</a> will be sitting on the floor.</li>
             <li>Bring the head back to the spawn room, and interact with the <a href="pictures/power/slot.webp">slot on the wall</a> near the door.</li>
-            <li>This will turn the power on, as well as replace the Cryptids with Zombies to return the map to “normal.”</li>
+            <li>This will turn the power on, as well as replace the Cryptids with Zombies to return the map to "normal."</li>
         </ol>
     </div>
     
     <div class="content-container" id="pap">
         <h2>Pack-a-Punch</h2>
-        <ol class="step-content">
+        <ol>
             <li>Turn on the <a href="#power">Power</a>.</li>
             <li>You need to collect three pieces of scrap metal to build a bridge. Picking up a piece will spawn three Cryptids. Part locations:</li>
             <ul>
@@ -90,7 +83,7 @@
         </ol>
         
         <p class="step-group-title" id="double_pap">Double Pack-a-Punch</p>
-        <ol class="step-content">
+        <ol>
             <li>Shoot open the <a href="pictures/double_pap/fuse_box.webp">power box on the wall</a> near the Proteus wallbuy, outside the Cargo Bay. Pick up the <a href="pictures/double_pap/fuse_box_open.webp">fuses inside</a>.</li>
             <li>Travel to the Theatre. Place the fuses on the <a href="pictures/double_pap/sasquatch.webp">hand of the Sasquatch cardboard cutout</a> in the hallway, between the main theatre room and the lobby area.</li>
             <li>Go to the concession stand in the Theatre, and pick up the <a href="pictures/double_pap/film_reel.webp">Film Reel</a> on the right side.</li>
@@ -105,7 +98,7 @@
     
     <div class="content-container" id="theatre">
         <h2>Accessing the Theatre</h2>
-        <ol class="step-content">
+        <ol>
             <li>To access the theatre, you need to go to the Cargo Bay and interact with the <a href="pictures/theatre/button.webp">button on the wall</a> on the upper catwalk. A turret will come into the room and fire at the wall on the far side of the room.</li>
             <li>This will activate a <a href="pictures/theatre/portal_cargo.webp">portal to the theatre</a> on the other side of the Cargo Bay.</li>
             <li>Once in the Theatre, two other portals can be activated to go between the Theatre and the main map. To activate a portal, interact with the symbol on the ground in front of it. Portal locations:</li>
@@ -118,9 +111,9 @@
     
     <div class="content-container" data-section-ind="Weapons and Buildables" id="venom_x">
         <h2>Venom-X</h2>
-        <p class="weapon-desc">The Venom-X is a projectile weapon that shoots eggs that either explode after time or triggered by the player. CHANGE ME</p>
+        <p class="weapon-desc">The Venom-X is a projectile weapon that shoots eggs that either explode after time or exploded manually by the player. The exploded egg leaves a cloud of gas that damages enemies inside. Killing Cryptids has a chance to drop an egg that can be picked up to partially refill ammo.</p>
         
-        <ol class="step-content">
+        <ol>
             <li>Bring a Phantom (big blue Cryptid) to the <a href="pictures/venom_x/water_trap.webp">Electric Water Trap</a> between Spawn and the Medical Bay. Activate the Trap while the Phantom is in the water.</li>
             <ul>
                 <li>It doesn't have to die, just be damaged by it.</li>
@@ -135,15 +128,15 @@
                         <li>At the top, we have some variable declarations:</li>
                         <ul>
                             <li>C = List of available colours (Red, Green, Blue, Black, Yellow, and White)</li>
-                            <li>W = List of the number of each colour ([“red”, “green”, “green”] would be [1, 2, 0, 0, 0, 0])</li>
-                            <li>S = Number of different colours ([“red”, “green”, “green”] would be 2)</li>
+                            <li>W = List of the number of each colour (["red", "green", "green"] would be [1, 2, 0, 0, 0, 0])</li>
+                            <li>S = Number of different colours (["red", "green", "green"] would be 2)</li>
                             <li>B = List of the buttons</li>
                             <li>X = Number of buttons</li>
                         </ul>
-                        <li>So based on your X (the number of buttons) look at that box on the image. Let's say we have [“red”, “blue”, “black”, “green”], so X = 4.</li>
-                        <li>We start with c1 in the X=4 box. This condition is sum(y) > 1 && S >= 2, which means “The number of yellow buttons greater than 1 and S greater than or equal to 2”. If this is true, we take the part after the “?”; if it's false, then we take the part after the “:”.</li>
-                        <li>Since in our case c1 is false, we go to c2. c2 is BL(w) && sum(b) = 0, which translates to “Is the last button white and are there 0 blue buttons”. Both conditions are false so we go to c3.</li>
-                        <li>c3 is sum(bl) > 1 meaning “The number of black buttons is greater than 1”. This is false so we go to c4.</li>
+                        <li>So based on your X (the number of buttons) look at that box on the image. Let's say we have ["red", "blue", "black", "green"], so X = 4.</li>
+                        <li>We start with c1 in the X=4 box. This condition is sum(y) > 1 && S >= 2, which means "The number of yellow buttons greater than 1 and S greater than or equal to 2". If this is true, we take the part after the "?"; if it's false, then we take the part after the ":".</li>
+                        <li>Since in our case c1 is false, we go to c2. c2 is BL(w) && sum(b) = 0, which translates to "Is the last button white and are there 0 blue buttons". Both conditions are false so we go to c3.</li>
+                        <li>c3 is sum(bl) > 1 meaning "The number of black buttons is greater than 1". This is false so we go to c4.</li>
                         <li>c4 is B3 which means press button 3.</li>
                     </ol>
                 </div>
@@ -172,15 +165,15 @@
             <ul>
                 <li>If you press the wrong button, you will hear an error sound, the box will close, and a Phantom will spawn. End the current round and the box will reopen with a new set of buttons.</li>
             </ul>
-            <li>In the same room, there is a <a href="pictures/">“Containment Chamber”</a> which you must trap a Zombie inside. To trap a Zombie, you must interact with the <a href="pictures/">panel left of the Magic Wheel</a> while the Zombie is in the <a href="pictures/">circle on the floor</a>. If done correctly, the Zombie will be trapped in the chamber, and a 300-second (5 minutes) timer will start counting down, which can be seen on the <a href="pictures/">top of the chamber</a>.</li>
-            <li>While a Zombie is in the chamber, go to the room above Bombstoppers and interact with the <a href="pictures/">middle console</a> to “bypass SuperUser privileges.” This will activate the <a href="pictures/">consoles on either side of the middle one</a>.</li>
+            <li>In the same room, there is a <a href="pictures/venom_x/containment_chamber.webp">"Containment Chamber"</a> which you must trap a Zombie inside. To trap a Zombie, you must interact with the <a href="pictures/venom_x/containment_activate.webp">panel left of the Magic Wheel</a> while the Zombie is in the <a href="pictures/venom_x/containment_circle.webp">circle on the floor</a>. If done correctly, the Zombie will be trapped in the chamber, and a 300-second (5 minutes) timer will start counting down, which can be seen on the <a href="pictures/venom_x/containment_time.webp">top of the chamber</a>.</li>
+            <li>While a Zombie is in the chamber, go to the room above Bombstoppers and interact with the <a href="pictures/venom_x/middle_console.webp">middle console</a> to "bypass SuperUser privileges." This will activate the <a href="pictures/venom_x/maze_screen.webp">consoles on either side of the middle one</a>.</li>
             <li>The two consoles will now show a yellow square, red square, and blue diamond on the top screen. Your goal is the move the red square to the blue diamond while avoiding the invisible walls. Use this image or the interactive solver below to know the path to take.</li>
             <ul>
                 <li>Failing any of the mazes will kill the Zombie in the chamber, and spawn a Phantom. You can retry on the next round with a new Zombie in the chamber.</li>
             </ul>
-            <li>To move the red square, place your crosshair in the middle of the top screen, and use the D-Pad (PC players see below for how to set your keybinds to work) to move the red square. The square can only be moved about once per second, so wait between “movement inputs”.</li>
+            <li>To move the red square, place your crosshair in the middle of the top screen, and use the D-Pad (PC players see below for how to set your keybinds to work) to move the red square. The square can only be moved about once per second, so wait between "movement inputs".</li>
             <ul>
-                <li>PC Players: In Controls Options -> Actions, set “Use Souvenir” to Left Arrow, “Toggle Kung-Fu Mode” to Right Arrow, “Next Card” to Up Arrow, and “Previous Card” to Down Arrow. With these binds, you can move the square with the arrow keys like you would with a D-Pad.</li>
+                <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can move the square with the arrow keys like you would with a D-Pad.</li>
             </ul>
             
             <div class="solver-with-button" data-bool-quick-link="false">
@@ -205,19 +198,20 @@
                 </div>
             </div>
             
-            <li>Once you've completed four mazes total (three on one and one on the other), a door left of the Box from before will open, and you can pick up the Venom-X.</li>
+            <li>Once you've completed four mazes total (three on one and one on the other), a
+                <a href="pictures/venom_x/venom_x_pickup.webp">door left of the Box from before</a> will open, and you can pick up the Venom-X.</li>
             <ul>
-                <li>You can now kill the Zombie in the chamber (if you plan to upgrade the Venom-X, then keep it alive while you do the first few steps of the Venom-Y).</li>
+                <li>You can now kill the Zombie in the containment chamber (but, if you plan to upgrade the Venom-X, keep it alive while you do the first few steps of the Venom-Y).</li>
             </ul>
-            <li>To use the Venom-X, shoot a Cryptid “egg” onto the floor or a wall with the normal shoot button (R2 or Left Click). This egg will detonate after a couple of seconds, or it can be manually detonated with the aim button (L2 or Right Click).</li>
+            <li>To use the Venom-X, shoot a Cryptid "egg" onto the floor or a wall with the normal shoot button (R2 or Left Click). This egg will detonate after a couple of seconds, or it can be manually detonated with the aim button (L2 or Right Click).</li>
         </ol>
         
         <p class="step-group-title" id="venom_y">Venom-Y</p>
-        <p class="weapon-desc">CHANGE ME</p>
+        <p class="weapon-desc">The Venom-Y will still shoot an egg, but the egg will explode into gas that freezes and kills Zombies. The gas lasts about 5 seconds. The gas does not affect larger cryptids (Phantoms, Rhinos, etc.), but the initial explosion does.</p>
         <ol>
             <li>Obtain the <a href="#venom_x">Venom-X</a>.</li>
             <li>Optional but highly recommended: Disable Voice Volume in the settings. This will help you hear the following morse code messages without your character spewing some garbage voice lines over it.</li>
-            <li>Interact with the <a href="pictures/">terminal right of Bang Bangs</a>. It will play one of the two Morse code messages (morse code is a series of long <span class="morse-code">-</span> (dash) and short <span class="morse-code">.</span> (period) beeps which, when combined, equal letters; see <a href="../../common_images/morse_code.webp">this image</a> or <a href="https://morsecodetranslator.com/">this website</a> for Morse code letter translations). Possible Morse code sequences:</li>
+            <li>Interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">terminal right of Bang Bangs</a>. It will play one of the two Morse code messages (morse code is a series of long <span class="morse-code">-</span> (dash) and short <span class="morse-code">.</span> (period) beeps which, when combined, equal letters; see <a href="../../common_images/morse_code.webp">this image</a> or <a href="https://morsecodetranslator.com/">this website</a> for Morse code letter translations). Possible Morse code sequences:</li>
             <ul>
                 <li>Archer: <span class="morse-code">.- .-. -.-. .... . .-.</span></li>
                 <li>Cross: <span class="morse-code">-.-. .-. --- ... ...</span></li>
@@ -226,16 +220,17 @@
             <li>Once you have your key, select it below to continue.</li>
             
             <label for="venom-y-key-selector"><b>Select your Key:</b></label>
-            <select id="venom-y-key-selector" name="venom-y-key" style="margin-top: 12px; margin-bottom: 12px" onchange="toggleKeyText(this.value, this.name)">
+            <select id="venom-y-key-selector" name="venom-y-key" style="margin-top: 12px; margin-bottom: 12px" onchange="toggleKeyText(this.value)">
                 <option value="default" disabled selected>Select a Key</option>
                 <option value="archer">ARCHER</option>
                 <option value="cross">CROSS</option>
             </select>
             
             <div id="venom-y-main-container" style="display: none">
-                <li>Interact with the <a href="pictures/">terminal at the bottom of the stairs</a> near Bang Bangs. This will play a long morse code message. The message will start with the following code (based on the key from the previous step). After this opening code, you will need to listen to one of the options below. This will tell you a number you'll need later.</li>
+                <li>Interact with the <a href="pictures/venom_x/venom_y/code_terminal.webp">terminal at the bottom of the stairs</a> near Bang Bangs. This will play a long morse code message. The message will start with the following code (based on the key from the previous step). After this opening code, you will need to listen to one of the options below. This will tell you a number you'll need later.</li>
                 <ul>
                     <li>The message this terminal produces is encrypted with a Vigenere Cypher using the key obtained from the first terminal. The solver below will automatically decrypt your message with the correct code, so just enter the Morse code as is. You can also use <a href="https://www.cs.du.edu/~snarayan/crypt/vigenere.html">this website</a> to decrypt the code.</li>
+                    <li>I recommend following along with the "<span class="key_input">KEY</span> - Message Start" below while the Morse Code is playing, to help you follow the code, then "lock-in" to listen for the number below. As you're listening, enter the morse into the solver below, it should auto translate the number.</li>
                     <li>Numbers in Morse code:</li>
                     <ul>
                         <div id="venom-y-archer">
@@ -303,7 +298,7 @@
                     </div>
                 </div>
                 
-                <li>Once you have your number, go to the control room above Bombstoppers, and input a Morse code sequence on the <a href="pictures/">panel at the top of the stairs</a>, based on your number from the previous step. The button on the <b>left</b> will input a short beep (<span class="morse-code">.</span>), and the <b>right</b> will input a long beep (<span class="morse-code">-</span>). Code based on number:
+                <li>Once you have your number, go to the control room above Bombstoppers, and input a Morse code sequence on the <a href="pictures/venom_x/venom_y/morse_input_panel.webp">panel at the top of the stairs</a>, based on your number from the previous step. The button on the <b>left</b> will input a short beep (<span class="morse-code">.</span>), and the <b>right</b> will input a long beep (<span class="morse-code">-</span>). If you input the code wrong, end the round to try again; you will hear an error sound. Code based on number:
                 </li>
                 <ul>
                     <li>Fifteen: <span class="morse-code">..-. .. ..-. - . . -. .- .-.</span> (Morse code translates to FIFTEENAR)</li>
@@ -312,23 +307,24 @@
                     </li>
                     <li>Thirty: <span class="morse-code">- .... .. .-. - -.--</span></li>
                 </ul>
-                <li>Once you input the correct number, you will need to kill that number of Cryptids with the Venom-X. Your progress can be checked on the bottom right of the scoreboard menu.</li>
+                <li>There is <span style="color: red">no indication</span> that you entered the Morse Code correctly, you have to assume you did it correctly and start the next step. If you can't progress the next step, then you need to reenter the code.</li>
+                <li>Once you input the correct number, you will need to kill that number of Cryptids with the Venom-X. Your progress can be checked on the bottom right of the scoreboard menu. Every time the PAP portal "times-out" after you leave it, three cryptids or a Phantom will spawn. You can do this as many times as needed in a round every 1:30 minutes when the PAP portal reactivates.</li>
                 <li>Once you get the required number of kills, the Venom-X can be pack-a-punched for $5000 into the Venom-Y.</li>
             </div>
         </ol>
         
         <p class="step-group-title" id="venom_z">Venom-Z</p>
-        <p class="weapon-desc">CHANGE ME</p>
+        <p class="weapon-desc">The Venom-Z is the same as the Venom-Y, but the gas cloud lasts longer, and it has more ammo.</p>
         <ol>
             <li>Unlock <a href="#double_pap">Double Pack-a-Punch</a> and obtain the <a href="#venom_y">Venom-Y</a>.</li>
-            <li>You must now “flip” the key you had in the Venom-Y quest. So if you had “ARCHER,” your new key is “CROSS” and vice versa. </li>
+            <li>You must now "flip" the key you had in the Venom-Y quest. So if you had "ARCHER," your new key is "CROSS" and vice versa. </li>
             <ul>
-                <li>You can interact with the <a href="pictures/">console that gave you the key</a> in the Venom-Y quest to check your new one.</li>
+                <li>You can interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">console that gave you the key</a> in the Venom-Y quest to check your new one.</li>
             </ul>
             <li>With your new Key, repeat <strong>Steps 4-6</strong> from the <a href="#venom_y">Venom-Y</a> quest. These steps are the exact same except the key and the number from the Morse code gives you will change. You can reuse the solver as well, just make sure to change the selected key in the dropdown.</li>
             
             <li>Once you input the correct number into the Morse code panel, you will need to kill that number of non-standard Zombies (Any Cryptid type, Ninjas, and Clowns) with the Venom-Y. Your progress can be checked on the scoreboard menu. This time, however, your progress on the scoreboard will stop at 50%.</li>
-            <li>Once you get to 50%, interact with this <a href="pictures/">machine near the Magic Wheel in the outside area</a>, until “195#” is shown on screen. This will spawn “Ghosts” around you that will float around you.</li>
+            <li>Once you get to 50%, interact with this <a href="pictures/message_sent/console.webp">machine near the Magic Wheel in the outside area</a>, until "195#" is shown on screen. This will spawn "Ghosts" around you that will float around you.</li>
             <li>You must run to the Pack-a-Punch portal, and while standing near it, shoot the number of ghosts (with any weapon) that the Morse code told you to. All the ghosts need to be shot in one round.</li>
             <li>Once you get 100% on the scoreboard, the Venom-Y can be pack-a-punched for $10000 into the Venom-Z.</li>
         </ol>
@@ -337,95 +333,182 @@
     
     <!-- Main Easter Egg -->
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
-        <h2>‘The End?' Main Quest</h2>
-        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
-        <ol class="step-content">
-            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
-            <li>Activate Power.</li>
-            <li>There are four Floppy Disks you need to collect around the map. These Floppy Disks can be collected in any order, each has a different symbol on it, and only one can be held at a time. Locations/collection methods:</li>
-            <li>Floppy Disk 1</li>
-            <li>Unlock Pack-a-Punch.</li>
-            <li>This floppy disk is dropped by the first Phantom (big blue Cryptid) you kill. One will always spawn the first time you leave the PAP Projector room.</li>
-            <li>Make sure to kill the Phantom near N31L to save you time later.</li>
-            <li>Floppy Disk 2</li>
-            <li>Unlock Pack-a-Punch.</li>
-            <li>This floppy disk is always sitting in the snow at the base of a pillar, left of the PAP Portal.</li>
-            <li>Floppy Disk 3</li>
-            <li>Obtain the Entangler weapon from Skull 2 of the Skull Breaker side quest.</li>
-            <li>In the hallway with the Proteus wallbuy, there will be a fence blocking a red room, under/near some stairs.</li>
-            <li>The vent on the floor at the end of the room will occasionally emit smoke and the Floppy Disk will be sitting on the floor in front of the vent. Using the Entangler, grab the Floppy Disk, and shoot it at the vent while the smoke is visable.</li>
-            <li>If you miss or shoot at the wrong time, the Disk will respawn on the floor, and you can retry.</li>
-            <li>If done correctly, the Floppy Disk will be sucked up and not respawn on the floor. It will be spit out of one of the vents near the floor around the hallway or Spawn.</li>
-            <li>Spawn - Left of the Magic Wheel</li>
-            <li>Cafeteria - Left of the Freezer, around the corner</li>
-            <li>Hallway - Right of the Cargo Bay door</li>
-            <li>Hallway - Across the hall from the previous location</li>
-            <li>Hallway - Right of the Fence where the Floppy Disk was</li>
-            <li>Hallway - At the top of the stairs</li>
-            <li>Hallway - Close to the door to the Ops Center</li>
-            <li>The Floppy Disk will stay in this location for the remainder of the game.</li>
-            <li>Floppy Disk 4</li>
-            <li>Obtain the Entangler weapon from Skull 2 of the Skull Breaker side quest.</li>
-            <li>Using the Entangler, grab a Space Helmet in the Hallway between the outside and the Cargo Bay.</li>
-            <li>Carry it over to the Medical Bay, where there is a door blocked by a force field. You need to shoot the helmet through the force field at the active monitor, above the microscope, to break it and disable the force field.</li>
-            <li>If you miss, grab another helmet from the hallway or spawn area, and try again.</li>
-            <li>The Floppy Disk can be picked on from the table left of the broken monitor.</li>
-            <li>Once you have access to all four Floppy Disks, you must insert them into N31L in the correct order based on the symbols on them. Use this image or the solver below to find the correct order. There are four slots in front of N31L that the disks can be placed in.</li>
-            <li>To use the image, find the row with all your disk symbols, then order your disks in that row's order from left to right.</li>
-            <li>If done correctly, your scoreboard HUD will flash yellow, then red, and N31L will turn “evil.” While evil, N31L will randomly close doors (this can kill you but will most of the time just close in front of you), which you can open for free by interacting with them, and he will randomly activate traps around the map.</li>
-            <li>In the Theatre, use the Entangler to grab the button on the wall behind the Brute cardboard cutout. Take it to the Consession area, and shoot it into one of the Beast From Beyond posters.</li>
-            <li>Go to the force field room in the Medical Bay. Prone in front of the table with the Floppy Disk on it, and interact with the button under the table.</li>
-            <li>In the room with the dead cryptid, a panel with 16 handles inside will open. Note down all the handles that are currently horizontal.</li>
-            <li>Now interact with all the handles you noted down. As you interact with the handles, some will spin, make sure you interact with the ones that were initially horizontal, even if they are now vertical.</li>
-            <li>If you get to the end and some are still horizontal, flip the horizontal ones. Repeat until they are all vertical.</li>
+        <h2>'The End?' Main Quest</h2>
+        <p class="stats">Stats (Solo): Difficulty - 7/10 (4/10 Dir. Cut), Est Completion Time - 45 Mins to 1 Hr (20 Mins to 35 Mins Dir. Cut)</p>
+        <ol>
+            <p class="step-group-title" id="main_ee_step1">Collect 4 Floppy Disks</p>
+            <li>Activate <a href="#power">Power</a>.</li>
+            <li>There are four Floppy Disks you need to collect around the map. These Floppy Disks can be collected in any order, each has a different symbol on it, and only one can be held at a time. When held, the symbol will appear on the bottom left of the screen, above your points. Locations/collection methods:</li>
+            <ul>
+                <li>Floppy Disk 1</li>
+                <ol>
+                    <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+                    <li>This floppy disk is dropped by the first Phantom (big blue Cryptid) you kill. One will always spawn the first time you leave the PAP Projector room.</li>
+                    <ul>
+                        <li>Make sure to kill the Phantom near N31L to save you time later.</li>
+                    </ul>
+                </ol>
+                <li>Floppy Disk 2</li>
+                <ol>
+                    <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+                    <li>This floppy disk is always <a href="pictures/main_ee/floppy_pap.webp">sitting in the snow</a> at the base of a pillar, left of the PAP Portal.</li>
+                </ol>
+                <li>Floppy Disk 3</li>
+                <ol>
+                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker">Skull Breaker side quest</a>.</li>
+                    <li>In the hallway with the Proteus wallbuy, there will be a <a href="pictures/main_ee/red_room_fence.webp">fence blocking a red room</a>, under/near some stairs.</li>
+                    <li>The <a href="pictures/main_ee/vent.webp">vent on the floor at the end of the room</a> will occasionally
+                        <a href="pictures/main_ee/vent_smoke.webp">emit smoke</a>, and the Floppy Disk will be <a href="pictures/main_ee/red_room_floppy.webp">sitting on the floor</a> in front of the vent. Using the Entangler, grab the Floppy Disk, and shoot it at the vent while the smoke is visible.</li>
+                    <ul>
+                        <li>If you miss or shoot at the wrong time, the Disk will respawn on the floor, and you can retry.</li>
+                    </ul>
+                    <li>If done correctly, the Floppy Disk will be sucked up and not respawn on the floor. It will be spit out of one of the vents near the floor around the hallway or Spawn.</li>
+                    <ul>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_spawn.webp">Spawn - Left of the Magic Wheel</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_cafe.webp">Cafeteria - Left of the Freezer, around the corner</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_cargo.webp">Hallway - Right of the Cargo Bay door</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_cargo_2.webp">Hallway - Across the hall from the previous location</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_red_room.webp">Hallway - Right of the Fence where the Floppy Disk was</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_stairs.webp">Hallway - At the top of the stairs</a></li>
+                        <li><a href="pictures/main_ee/floppy_red_room/floppy_vent_ops.webp">Hallway - Close to the door to the Ops Center</a></li>
+                    </ul>
+                    <li>The Floppy Disk will stay in this location for the remainder of the game.</li>
+                </ol>
+                <li>Floppy Disk 4</li>
+                <ol>
+                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker">Skull Breaker side quest</a>.</li>
+                    <li>Using the Entangler, grab a <a href="pictures/main_ee/space_helmet.webp">Space Helmet</a> in the Hallway between the outside and the Cargo Bay.</li>
+                    <li>Carry it over to the Medical Bay, where there is a <a href="pictures/main_ee/force_field_door.webp">door blocked by a force field</a>. You need to shoot the helmet through the force field at the <a href="pictures/main_ee/force_field_monitor.webp">active monitor, above the microscope</a>, to break it and disable the force field.</li>
+                    <ul>
+                        <li>If you miss, grab another helmet from the hallway or spawn area, and try again.</li>
+                    </ul>
+                    <li>The Floppy Disk can be picked on from the <a href="pictures/main_ee/floppy_force_field.webp">table left of the broken monitor</a>.</li>
+                </ol>
+            </ul>
+            
+            <p class="step-group-title" id="main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</p>
+            <li>Once you have access to all four Floppy Disks, you must insert them into slots in front of N31L in the correct order based on the symbols on them. Use <a href="pictures/main_ee/floppy_cheat.webp">this image</a> or the solver below to find the correct order. There are four slots in front of N31L that the disks can be placed in. To use the image, find the row with all your disk symbols, then order your disks in that row's order from left to right.</li>
+            
+            <div class="solver-with-button" data-bool-quick-link="false">
+                <button class="square-button">Click to show the Floppy Disk Solver</button>
+                <div class="solver-container" style="max-width: 500px; display: none">
+            
+                    <h2>Beast Main Quest Floppy Disk Puzzle</h2>
+                    
+                    <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
+                    
+                    <div class="solver-output">
+                        <p><span id="floppy_solver_code"></span></p>
+                        <div id="floppy_result"></div>
+                    </div>
+                    
+                    <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
+                </div>
+            </div>
+            
+            <li>If done correctly, your scoreboard HUD will flash yellow, then red, and N31L will turn "evil." While evil, N31L will randomly close doors (this can kill you but will most of the time just close in front of you), which you can open for free by interacting with them, and he will randomly activate traps around the map.</li>
+            <li>In the Theatre, use the Entangler to grab the <a href="pictures/main_ee/button_theatre.webp">button on the wall</a> behind the Brute cardboard cutout. Take it to the Concession area, and shoot it into one of the <a href="pictures/main_ee/beast_poster.webp">Beast From Beyond posters</a>.</li>
+            <ul>
+                <li>If you drop the button or otherwise fail, the button will respawn on the wall immediately.</li>
+            </ul>
+            <li>Go to the force field room in the Medical Bay. Prone in front of the desk with the Floppy Disk on it, and interact with the <a href="pictures/main_ee/button_med_bay.webp">button under the desk</a>.</li>
+            <li>In the room with the dead cryptid, a <a href="pictures/main_ee/handles.webp">panel with 16 handles</a> inside will open. Note down all the handles that are currently <strong>horizontal</strong>.</li>
+            <li>Now interact with all the handles you noted down. As you interact with the handles, some will spin, make sure you only interact with the ones that were initially horizontal, even if they are now vertical.</li>
+            <ul>
+                <li>If you get to the end and some are still horizontal, flip the horizontal ones. Repeat until they are all vertical.</li>
+            </ul>
             <li>Once all the handles are vertical, N31L will be hacked (not evil anymore).</li>
-            <li>N31L will only be hacked for CHANGE ME before returning to evil.</li>
-            <li>You need to grab N31L with the Entangler, bring him to the Projector Room, and shoot him at this computer to “install” him. The problem with this is that once you pick up N31L all the doors around the map will close which you can't open, and Zombies will start spawning. The only way to open them is to go where N31L is looking as you're carrying him, which will take you on a long tour of the map.</li>
-            <li>This can and should be skipped one of two ways:</li>
-            <li>Option 1 (Recommended): Before you pick up N31L, shoot the Entangler at a N31L TV, switch weapons (while shooting), and then switch back to the Entangler. This allows you to open doors while carrying N31L.</li>
-            <li>Option 2 (Not as Recommended): Carry N31L like normal, but when you get to a locked door, spin around in front of it to (maybe) make it open.</li>
-            <li>This works because N31L is coded to open the doors he is looking at. So when you spin, he doesn't spin as fast as you, so you can kind of force him to look at a door.</li>
-            <li>Once N31L is in the computer and you're boss fight ready, you can interact with it to start the Boss Fight.</li>
+            <ul>
+                <li>N31L will only be hacked for about 5 minutes before returning to evil. When he becomes evil again, you can hack him with the handles in the medical bay immediately.</li>
+            </ul>
+            <li>You need to grab N31L with the Entangler, bring him to the Projector Room, and shoot him at the <a href="pictures/main_ee/neil_computer_pap.webp">computer right of the projector</a> to "install" him. The problem with this is that once you pick up N31L, all the doors around the map will close, and you can't open, and Zombies will start spawning. The only way to open them is to go where N31L is looking as you're carrying him, which will take you on a long tour of the map.</li>
+            <ul>
+                <li>This can and should be skipped one of two ways:</li>
+                <ul>
+                    <li>Option 1 (Recommended): Before you pick up N31L, shoot the Entangler at a N31L TV, switch weapons (while shooting), and then switch back to the Entangler. This allows you to open doors while carrying N31L. <a href="https://youtu.be/ed0xAyO3giA">Video Example (YouTube)</a>.</li>
+                    <li>Option 2 (Not as Recommended): Carry N31L like normal, but when you get to a locked door, spin around in front of it to (maybe) make it open.</li>
+                    <ul>
+                        <li>This works because N31L is coded to open the doors he is looking at. So when you spin, he doesn't spin as fast as you, so you can kind of force him to look at a door.</li>
+                    </ul>
+                </ul>
+            </ul>
+            
+            <p class="warning">Warning: Point of No Return. Once you interact with N31L, you will be put into the Boss Fight.</p>
+            
+            <li>Once N31L is installed, and you're ready for the boss fight, you can interact with it to start the Boss Fight.</li>
+            
+            <p class="step-group-title" id="main_ee_step3">Cryptid Boss Fight</p>
+            <li>After interacting with N31L, you will be teleported to a different Cargo Bay. A Laser Cannon will come into the room, and start targeting one of the crates.</li>
+            <li>In one of the open crates, there is a <a href="pictures/main_ee/ammo_crate.webp">yellow, glowing box</a>. Interacting with this box will refill your currently held weapon's ammo for free. Refilling ammo can be done unlimitedly, so make sure to use it when you need it.</li>
+            <li>The cannon will shoot the crate open, spawning a Rhino Cryptid. After a couple of seconds (whether you kill the Rhino or not), the cannon will shoot open another crate, spawning another Rhino. This will repeat for four total Rhinos.</li>
+            <li>After a couple of seconds, the portals on one side of the room will activate, spawning normal Cryptids and Phantoms.</li>
+            <li>After about a minute, the Cryptids will stop spawning, the portals will deactivate and barriers blocking the other parts of the arena will lower, unlocking the entire arena.</li>
+            <li>The portals on the other side of the room will activate, spawning normal Cryptids and Phantoms.</li>
+            <ul>
+                <li>I recommend (for most of the remainder of the boss fight) to camp inside the <a href="pictures/main_ee/sloped_crate.webp">sloped crate with a roof</a>. The Cryptids won't be able to get behind you, so you only need to worry about them coming from the bottom.</li>
+            </ul>
+            <li>After about a minute, all the portals will activate, and Cryptids, Phantoms, and an occasional Rhino will start spawning from them. The laser cannon will also start targeting you. The cannon can't shoot through things, so stand inside the sloped container mentioned earlier.</li>
+            <li>After about 45 seconds, three monitors around the arena will turn on. You will need to quickly interact with all three monitors to turn off the portals. If you take too long, a monitor (and the portals near it) will reactivate.</li>
+            <ul>
+                <li>I recommend (if you're camping in the crate) that you deactivate the monitors in the following order:</li>
+                <ol>
+                    <li><a href="pictures/main_ee/console_1.webp">In the corner, behind and to the left of the Ammo Crate</a></li>
+                    <li><a href="pictures/main_ee/console_2.webp">In the corner, behind and to the right of the Ammo Crate</a></li>
+                    <li><a href="pictures/main_ee/console_3.webp">At the bottom of the sloped crate</a></li>
+                </ol>
+            </ul>
+            <li>Once you deactivate all portals, Cryptids will stop spawning, and the laser will start firing erratically. It will eventually blow open a crate across from the ammo crate, revealing a computer with 99 on the front.</li>
+            <li>It will begin counting down from 99 (it takes about 2:30 mins to count down, not 99 seconds). During this time, Cryptids, Phantoms and Rhinos will begin spawning from the portals.</li>
+            <li>After the countdown reaches 0, the screen will display a string of jumbled characters and the computer will start sparking. Interact with it to despawn all Cryptids.</li>
+            <li>The lights will go dim, and the laser will target a <a href="pictures/main_ee/mammoth_crate.webp">crate above the Ammo Crate</a>. After a couple of seconds, it will shoot it open, revealing two Mammoths (Blue Rhinos).</li>
+            <ul>
+                <li>These Mammoths can be insta-killed, using the Ego Trip F&F card, and either the Mauler LMG with the Sentinal variant or the EBR-800 Sniper with the Bomber variant. See <a href="https://youtu.be/o9IU7jnKD9s?t=495">this video</a> by <a href="https://www.youtube.com/@Decezy_">Decezy</a> for an example of this being done. If you don't kill them instantly (like in the video), keep shooting them in the mouth, they should die before the card runs out.</li>
+            </ul>
+            <li>These Mammoths are absolute bullet sponges, and will occasionally, when damaged, leave blue fire on the ground. This blue fire does a lot of damage and doesn't despawn, so make sure you think about where you're shooting the mammoths, so the fire doesn't block a doorway or choke point.</li>
+            <li>The Mammoths will occasionally charge at you, which will always red-screen you even with Tuff 'Nuff.</li>
+            <li>About every 30-60 seconds, the portals will activate, and about 3-5 Cryptids will spawn.</li>
+            <li>Once both Mammoths are dead, the final cutscene will play. After the cutscene, you will be teleported back to the main map. There is no Soul Key or Talisman for you to pick up. If you complete the quest in Director's Cut mode, you will be given the <a href="pictures/beast_dc.gif">Director's Cut V</a> animated calling card.</li>
+            <li>If you completed the Quest without Director's Cut, I recommend you don't keep playing. The map breaks after completing the Quest with rounds ending early, Cryptids spawn effects appear, but the Cryptid itself doesn't spawn, Pack-a-Punch becomes completely inaccessible, etc.</li>
         </ol>
     </div>
     
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
-        <h2>‘Scattered Lies' Song</h2>
-        <ol class="step-content">
+        <h2>'Scattered Lies' Song</h2>
+        <ol>
             <li>Unlock <a href="#pap">Pack-a-Punch</a> and <a href="#theatre">Access the Theatre</a>.</li>
             <li>Find and shoot fifteen astronaut plush toys around the map. Locations:</li>
             <p class="sub-sub-step" data-bool-quick-link="false">Main Map</p>
             <ul>
-                <li><a href="pictures/">Flooded Room - Under the stairs to the spawn room</a></li>
-                <li><a href="pictures/">Ops Center - At the bottom of the Pit, near Tuff ‘Nuff</a></li>
-                <li><a href="pictures/">Ops Center - Under the staircase left of Bombstoppers</a></li>
-                <li><a href="pictures/">Flooded Room - Inside the barrier near N31L's head</a></li>
-                <li><a href="pictures/">Outside Area - Behind the Change Chews perk machine</a></li>
-                <li><a href="pictures/">Outside Area - Window above the Acid Trap</a></li>
-                <li><a href="pictures/">Outside Area - On top of the Glacier left of the PAP Portal</a></li>
-                <li><a href="pictures/">Outside Area - Behind the PAP Portal across the chasm, beside a rock</a></li>
-                <li><a href="pictures/">Proteus Hallway - In a corner in the Red Hallway</a></li>
-                <li><a href="pictures/">Proteus Hallway - Below a floor grate in the hallway to the outside, close to the spawn barrier</a></li>
-                <li><a href="pictures/">Cargo Bay - When standing by the portal, top-left of Cargo Room Ceiling</a></li>
+                <li><a href="pictures/song_ee/astro_flooded.webp">Flooded Room - Under the stairs to the spawn room</a> --- <a href="pictures/song_ee/astro_flooded_fullbright.webp">In full bright lighting</a></li>
+                <li><a href="pictures/song_ee/astro_bomb.webp">Ops Center - Under the staircase left of Bombstoppers</a></li>
+                <li><a href="pictures/song_ee/astro_pit.webp">Ops Center - At the bottom of the Pit, near Tuff 'Nuff</a></li>
+                <li><a href="pictures/song_ee/astro_n31l_head.webp">Flooded Room - Inside the left of the barrier near N31L's head (jump to see)</a></li>
+                <li><a href="pictures/song_ee/astro_chews.webp">Outside Area - Behind the Change Chews perk machine</a></li>
+                <li><a href="pictures/song_ee/astro_above_acid_zoomed.webp">Outside Area - Window above the Acid Trap (stand on bridge near PAP portal)</a> --- <a href="pictures/song_ee/astro_above_acid.webp">Zoomed-Out</a></li>
+                <li><a href="pictures/song_ee/astro_glacier.webp">Outside Area - On top of the Glacier left of the PAP Portal</a></li>
+                <li><a href="pictures/song_ee/astro_behind_pap_zoomed.webp">Outside Area - Behind the PAP Portal across the chasm, beside a rock</a> --- <a href="pictures/song_ee/astro_behind_pap.webp">Zoomed-Out</a></li>
+                <li><a href="pictures/song_ee/astro_floor_grate.webp">Proteus Hallway - Below a floor grate in the hallway to the outside, in front of the zombie spawn farthest from outside</a></li>
+                <li><a href="pictures/song_ee/astro_red_room.webp">Proteus Hallway - In the red room, shoot from grate above</a> --- <a href="pictures/song_ee/astro_red_room_fullbright.webp">In full bright lighting</a></li>
+                <li><a href="pictures/song_ee/astro_cargo_zoomed.webp">Cargo Bay - When standing by the portal, top-left of Cargo Room Ceiling</a> --- <a href="pictures/song_ee/astro_cargo.webp">Zoomed-Out</a></li>
             </ul>
             
             <p class="sub-sub-step" data-bool-quick-link="false">Theatre</p>
             <ul>
-                <li><a href="pictures/">Side Alley - In the Zombie spawn, near the portal in the Racin' Stripes alley</a></li>
-                <li><a href="pictures/">Street - In the ticket booth in front of the Theatre</a></li>
-                <li><a href="pictures/">Bathroom - In a Garbage Can</a></li>
-                <li><a href="pictures/">Street - On a fire escape, left of the Magic Wheel, across the street</a></li>
+                <li><a href="pictures/song_ee/astro_racin.webp">Side Alley - In the Zombie spawn, right of the Racin' Stripes machine</a></li>
+                <li><a href="pictures/song_ee/astro_bathroom.webp">Bathroom - In a Garbage Can</a></li>
+                <li><a href="pictures/song_ee/astro_ticket.webp">Street - In the ticket booth in front of the Theatre (jump to see)</a></li>
+                <li><a href="pictures/song_ee/astro_fire_escape_zoomed.webp">Street - On a fire escape at the top of a building, left of the Magic Wheel, across the street</a> --- <a href="pictures/song_ee/astro_fire_escape.webp">Zoomed-Out</a></li>
             </ul>
-            <li>Once you shoot all fifteen astronauts, the song will start playing CHANGE ME.</li>
+            <li>Once you shoot all fifteen astronauts, your character will do a fist pump, you will be given 2000 xp, and the song will start playing INSIDE the Theatre and Facility (not outside).</li>
         </ol>
     </div>
     
     <div class="content-container" id="lobby_music">
         <h2>Additional Lobby Music</h2>
         
-        <ol class="step-content">
-            <li>Unlock Director's Cut mode (See the <a href="/zombiesGuidesPublic/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#directors_cut">Director's Cut</a> section of The Beast From Beyond guide for more information).</li>
+        <ol>
+            <li>Unlock Director's Cut mode (See the <a href="#directors_cut">Director's Cut</a> section for more information).</li>
             
             <li>While in Director's Cut mode, and on Scene 1, <a href="#power">activate N31L</a> and make your way to the Arcade in the Theatre. Interact with the <a href="pictures/lobby_music/shooting_gallery.webp">Octonian Hunter shooting gallery</a>. The White Talisman mask will drop down from the ceiling (like the UFO in the actual game) and move across the top of the shooting gallery. Shoot the Mask to unlock the lobby music.</li>
             <ul>
@@ -438,7 +521,7 @@
         <h2>Skull Breaker</h2>
         <p class="weapon-desc">Skull Breaker is an arcade game where players must make groups of skulls by firing cubes at them, then blowing them up by firing nukes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up & Atoms in Solo), and your Fate & Fortune cards will charge faster for the remainder of the game.</p>
         
-        <ol class="step-content">
+        <ol>
             <li>You can check your current progress by looking at the <a href="pictures/skull_breaker/skull_breaker_machine.webp">Skull Breaker Arcade Cabinet</a> in the Arcade in the Theatre.</li>
             
             <p class="step-group-title">Skull 1/6 - Skull in a Power Box</p>
@@ -460,7 +543,7 @@
             </ul>
             <li>Once all players are on different Xs, a lockdown will activate where all players must stay on their X (now a green circle) until the <a href="pictures/skull_breaker/skull_2/skull_middle_room.webp">skull in the middle of the Cargo Bay</a> reaches the top of the beam. Zombies will start infinitely spawning.</li>
             <ul>
-                <li>These spawning Zombies will only spawn in the Cargo Bay, so the player on the top level doesn't need to check “behind” them for spawns from the hallway.</li>
+                <li>These spawning Zombies will only spawn in the Cargo Bay, so the player on the top level doesn't need to check "behind" them for spawns from the hallway.</li>
                 <li>If a player leaves their circle, the skull will disappear, and you can retry the next round.</li>
             </ul>
             <li>Once the Skull reaches the top, it will <a href="pictures/skull_breaker/skull_2/skull_moved.webp">move somewhere</a> in the Cargo Bay. You must quickly run and jump into it to collect it.</li>
@@ -509,7 +592,7 @@
                 <li><a href="pictures/skull_breaker/skull_5/medbay_cryptid.webp">Medical Bay - On the floor under the dead Cryptid table, on the head side of the table</a></li>
                 <li><a href="pictures/skull_breaker/skull_5/medbay_scale.webp">Medical Bay - On a scale on a counter below the broken monitor in the forcefield room</a></li>
                 <ul>
-                    <li>Using the Entangler, grab a <a href="pictures/main_ee/space_helmet.webp">Space Helmet</a> in the Proteus Hallway or spawn area. You need to shoot the helmet through the force field at the <a href="pictures/skull_breaker/">active monitor above the microscope</a> to break it and disable the force field.</li>
+                    <li>Using the Entangler, grab a <a href="pictures/main_ee/space_helmet.webp">Space Helmet</a> in the Proteus Hallway or spawn area. You need to shoot the helmet through the force field at the <a href="pictures/main_ee/force_field_monitor.webp">active monitor above the microscope</a> to break it and disable the force field.</li>
                     <li>If you miss, grab another helmet from the hallway or spawn area, and try again.</li>
                 </ul>
                 <li><a href="pictures/skull_breaker/skull_5/spawn_flooded_room_barrier.webp">Spawn/Flooded Room - Below the Zombie spawn on the stairs</a></li>
@@ -529,7 +612,7 @@
             <li>Once all Queens are placed correctly, confetti will fly from the board and the completion sound will play.</li>
             
             <p class="step-group-title" id="side_ee_step6">Skull 6/6 - Arcade Cheat Code</p>
-            <li>There are three pieces of paper around the map, each with a couple of arrows. The order of the pieces can be determined by the rips on the sides. The beginning and end pieces have flat, even edges on one side, while the middle piece is uneven on both sides. Piece them together by seeing which rips “fit” together to form the full paper with the code. Here is a <a href="pictures/skull_breaker/skull_6/example_explain.webp">helper image</a> if you're confused. Paper locations:</li>
+            <li>There are three pieces of paper around the map, each with a couple of arrows. The order of the pieces can be determined by the rips on the sides. The beginning and end pieces have flat, even edges on one side, while the middle piece is uneven on both sides. Piece them together by seeing which rips "fit" together to form the full paper with the code. Here is a <a href="pictures/skull_breaker/skull_6/example_explain.webp">helper image</a> if you're confused. Paper locations:</li>
             <ul>
                 <p class="sub-sub-step" data-bool-quick-link="false">Main Map</p>
                 <li><a href="pictures/skull_breaker/skull_6/cafe_freezer.webp">Cafeteria - Left of the Freezer Trap on a counter beside a tray</a></li>
@@ -543,7 +626,7 @@
             </ul>
             <li>Go to the <a href="pictures/skull_breaker/skull_breaker_machine.webp">Skull Breaker arcade machine</a> in the Arcade of the Theatre. Input the code into the machine by aiming (ADS) at it and inputting the code with the D-Pad or arrow keys (PC players see below for how to set your keybinds). If you don't hear the completion sound, flip the combined papers upside down.</li>
             <ul>
-                <li>PC Players: In Controls Options -> Actions, set “Use Souvenir” to Left Arrow, “Toggle Kung-Fu Mode” to Right Arrow, “Next Card” to Up Arrow, and “Previous Card” to Down Arrow. With these binds, you can use the arrow keys like you would a D-Pad.</li>
+                <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can use the arrow keys like you would a D-Pad.</li>
             </ul>
             
             <p class="step-group-title" id="side_ee_step7">The Skull Breaker Mini-Game</p>
@@ -551,7 +634,7 @@
             <li>Using the Entangler (your gun), grab a coloured cube floating around and shoot it at a skull to change its colour. If two skulls are the same colour, and beside/diagonal to each other, they will connect and form a group.</li>
             <li>Once you make a group of any size, you can then grab one of the nukes floating around, and fire it at the group of the same colour to destroy the group.</li>
             <ul>
-                <li>Destroying a group of 10 will get you the “Super Duper Combo” achievement.</li>
+                <li>Destroying a group of 10 will get you the "Super Duper Combo" achievement.</li>
             </ul>
             <li>If you hit a group with the wrong colour nuke, all the skulls in the group will turn red and escape. Hitting any of the escaping skulls with a red nuke will destroy them all.</li>
             <ul>
@@ -563,25 +646,60 @@
     
     <div class="content-container" id="message_sent">
         <h2>Message Sent (Achievement)</h2>
-        <ol class="step-content">
+        <ol>
             <li>Obtain the Entangler weapon from <a href="#skull_breaker">Skull 2</a> of the Skull Breaker side quest.</li>
-            <li>Interact with the <a href="pictures/message_sent/console.webp">console in the snowy outside area</a>, near the Magic Wheel location, until it shows “197#.” This will spawn a <a href="pictures/message_sent/vortex.webp">vortex left of the console</a>.</li>
+            <li>Interact with the <a href="pictures/message_sent/console.webp">console in the snowy outside area</a>, near the Magic Wheel location, until it shows "197#." This will spawn a <a href="pictures/message_sent/vortex.webp">vortex left of the console</a>.</li>
             <li>Go to the street in front of the Theatre. Grab the <a href="pictures/message_sent/turnstile.webp">Turnstile</a> with the Entangler from the back left side of the dumpster with the KBS Longbow wallbuy on the front.</li>
             <li>Walk the Turnstile back to the vortex in the outside area, then shoot it into the vortex.</li>
             <ul>
                 <li>If the vortex is gone by the time you get back, interact with the console until the 197# text and vortex appear again.</li>
             </ul>
-            <li>After a couple of seconds, the vortex will disappear, and you will rewarded with the “Message Sent” Trophy/Achievement.</li>
+            <li>After a couple of seconds, the vortex will disappear, and you will rewarded with the "Message Sent" Trophy/Achievement.</li>
         </ol>
     </div>
     
     <div class="content-container" data-section-ind="Director's Cut/Bonuses" id="directors_cut">
         <h2>Director's Cut</h2>
-        <ol class="step-content">
-            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
-            <li>CHANGE ME</li>
-            <li>CHANGE ME</li>
-        </ol>
+        <ul>
+            <p class="step-group-title" id="what_is_dir_cut">What is Director's Cut</p>
+            <li>While in Director's Cut mode, you will spawn with:</li>
+            <ul>
+                <li>25,000 Points</li>
+                <li>All available perks on the map permanently (you keep them when you down; except Up & Atoms on solo)</li>
+                <li>Six Up & Atom uses on Solo or instantly return from the Afterlife Arcade in Co-op</li>
+                <li>All weapons in the Magic Wheel are pack-a-punched once</li>
+                <li>All wonder weapons are also in the Magic Wheel, Paped where applicable</li>
+                <li>The Double PAP fuses are automatically in the Projector</li>
+                <li>Unlimited F&F Card Refills</li>
+                <li>F&F Cards charge faster</li>
+                <li>The Smiley on Rave and the Katana on Shaolin can be purchased by all players in the match, regardless of quest completion</li>
+            </ul>
+        </ul>
+        
+        <ul>
+            <p class="step-group-title" id="how_to_unlock_dir_cut">How to Unlock Director's Cut</p>
+            <li>Director's Cut (DC) is an unlockable mode that requires you to complete all five Main Quest (<a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">ZiS - Sooooul Key</a>, <a href="/games/IW/rave_in_the_redwoods/rave_in_the_redwoods_guide.html#main_ee">RitR - Locksmith</a>, <a href="/games/IW/shaolin_shuffle/shaolin_shuffle_guide.html#main_ee">SS - Pest Control</a>, <a href="/games/IW/attack_of_the_radioactive_thing/attack_of_the_radioactive_thing_guide.html#main_ee">AotRT - Soul-Less</a>, and <a href="#main_ee">TBFB - The End?</a>). Then interact with the Soul Jar in the Projector room of any map.</li>
+            <li>This will allow you to toggle Director's Cut mode on the pre-game lobby screen.</li>
+        </ul>
+        
+        <ul>
+            <p class="step-group-title" id="what_you_can_do">What you can do with Director's Cut</p>
+            <li>While in Director's Cut (DC for short), there are Talisman Masks you can shoot to unlock additional lobby music. See the Additional Lobby Music sections for each of the maps for more info.</li>
+            <li>Upon completion of all the Quest again in DC, you will be given a Talisman to pick up. Upon collection of the Talisman, you will be rewarded with a special animated calling card based on the map.</li>
+            <li>Once you collect four (not including Beast) Talismans, the next time you complete the Beast Main Quest, you will be put into the Mephistopheles Boss Fight. This is the final, and most challenging boss in this game (see the Mephistopheles Boss Fight section for how to beat him).</li>
+            <li>Once you beat Mephistopheles, you will be rewarded with the animated calling card of Mephistopheles called "<a href="pictures/meph_dc.gif">Demon Slayer</a>" and an animated camouflage titled "Director's Cut Camouflage." As well as the ability to play as Willard Wyler on Spaceland (see the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#wyler_code">Play as Willard Wyler</a> section of the Spaceland guide for more information).</li>
+        </ul>
+        
+        <ul>
+            <p class="step-group-title" id="meph_fight">Mephistopheles Boss Fight</p>
+            <li>The Mephistopheles (Meph for short) boss fight is very complicated, and I feel I can't effectively explain it with in the website's format. See <a href="https://youtu.be/MRLTyFwOb8M?t=40">this video</a> (skip to <a href="https://youtu.be/MRLTyFwOb8M?t=271">4:31</a> to skip loadout tips) by <a href="https://www.youtube.com/@steviewacky3945">Steviewacky</a> for how to beat the fight (he kinda yaps a bit, so I recommend you play the video at least 1.25x or 1.5x speed).</li>
+            <li>Tips for completion:</li>
+            <ul>
+                <li>ALWAYS, ALWAYS, ALWAYS pay attention to Meph. All the attacks have specific animations that indicate the coming attack. The only exception to this is the Wall spawning/Zombie spawning animation, which share the "raises both arms" animation. I always assume this is the wall attack, and get out of the way.</li>
+                <li>Prioritize safety over completion. There is no downside to taking your time and being safe. It will probably save you time when you consider the reset time (redoing the Beast Quest). Don't try to be the hero, and die standing on the talisman circle; just run, be safe, and try again.</li>
+                <li>Practice in the Boss Battles mode. The worst part of the Meph fight is the long reset time when you die. This can be mitigated by playing in the Boss Battles mode in the lobby menu. You won't get the rewards, but you will be able to quickly retry the fight after dying.</li>
+            </ul>
+        </ul>
     </div>
 </div>
 

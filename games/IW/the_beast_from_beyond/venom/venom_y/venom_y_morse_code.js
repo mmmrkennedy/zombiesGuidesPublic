@@ -20,10 +20,9 @@ const keyTextSpan = document.getElementById('morse_key');
 const decodedTextSpan = document.getElementById('morse_decoded_text');
 const decryptedTextSpan = document.getElementById('morse_decrypted_text');
 const killNumberSpan = document.getElementById('morse_kill_number');
-const manualKeyInput = document.getElementById('morse_code_key_select');
 const morseInput = document.getElementById('morse_input');
 const morseCodeInputError = document.getElementById('morse-code-input-error');
-const venomXKeySelector = document.getElementById('venom-x-key-selector');
+const venomXKeySelector = document.getElementById('venom-y-key-selector');
 
 // Function to encode text to Morse code
 function encodeMorse(text) {
@@ -184,6 +183,8 @@ function process_morse_code() {
     decryptedTextSpan.innerText = 'N/A (Invalid message)';
     killNumberSpan.innerText = 'N/A (Invalid message)';
 
+    console.log(`Code Length: ${code.length}`);
+    
     if (code.length === 0){
         return;
     }

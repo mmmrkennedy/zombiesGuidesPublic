@@ -2,8 +2,17 @@ const venom_y_main_container = document.getElementById("venom-y-main-container")
 const venom_y_archer = document.getElementById("venom-y-archer");
 const venom_y_cross = document.getElementById("venom-y-cross");
 const venom_y_key_selector = document.getElementById('venom-y-key-selector');
+const key_span = document.getElementsByClassName('key_input');
 
-function toggleKeyText(selectedValue, name) {
+function toggleKeyText(selectedValue) {
+    for (let i = 0; i < key_span.length; i++) {
+        if (name === undefined) {
+            key_span[i].textContent = "KEY";
+        } else {
+            key_span[i].textContent = selectedValue.toUpperCase();
+        }
+    }
+    
     // Add additional logic here based on the selected value
     if (selectedValue !== "default") {
         venom_y_main_container.style.display = "block";

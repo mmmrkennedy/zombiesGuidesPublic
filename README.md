@@ -9,16 +9,13 @@ The plan is to also include solvers for steps that require them (such as Attack 
 
 ## Roadmap
 Next:
-- The Beast From Beyond (IW)
+- The Final Reich (WW2)
 
 Finished:
 - All Of CW (Except Outbreak)
 - All Of VG
 - All Of BO4
-- Zombies in Spaceland (IW)
-- Rave in the Redwoods (IW)
-- Shaolin Shuffle (IW)
-- Attack of the Radioactive Thing (IW)
+- All of IW
 - Outbreak (AW)
 - Infection (AW)
 
