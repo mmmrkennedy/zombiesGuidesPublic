@@ -960,7 +960,7 @@ document.addEventListener("DOMContentLoaded", function() {
     try {
         let page = getCurrentPage();
 
-        // console.log(`Quick links page name: ${page}`);
+        console.log(`Quick links page name: ${page}`);
 
         if (page === "index.html") {
             return;
