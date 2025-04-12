@@ -249,209 +249,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /*
 =======================================
-TUTORIAL BOX
-=======================================
- */
-
-function addTutorialBox() {
-    const page = window.location.pathname.split("/").pop();
-
-    if (page === "index.html") {
-        return;
-    }
-
-    const smoothScrollDiv = document.querySelector('div.smooth-scroll');
-
-    if (!smoothScrollDiv) {
-        console.error("SmoothScrollDiv is missing, unable to generate Tutorial Box");
-        return;
-    }
-
-    if (smoothScrollDiv) {
-        const tutorialHTML = `
-    <div class="tutorial-overlay" id="tutorialOverlay">
-            <div class="tutorial-popup">
-                <div class="tutorial-header">
-                    <h2 id="tutorialTitle">Welcome to Zombies Easter Egg Guides!</h2>
-                    <div class="tutorial-page-indicator">
-                        <span id="currentPage">1</span>/<span id="totalPages">4</span>
-                    </div>
-                </div>
-
-                <!-- Tutorial Pages Container -->
-                <div class="tutorial-pages-container">
-                    <!-- Page 1 -->
-                    <div class="tutorial-page" data-page="1">
-                        <p>Welcome. Since it's your first time here, here's a quick walkthrough.</p>
-                        <p>Our guides offer step-by-step instructions for completing Easter Eggs in various Call of Duty Zombies games.</p>
-                    </div>
-
-                    <!-- Page 2 -->
-                    <div class="tutorial-page" data-page="2">
-                        <a href="/games/IW/zombies_in_spaceland/pictures/main_ee/alien_example.webp" style="display: none;" data-caption="Example Image 1">Arrow Keyed IMG 1</a>
-                        <p>Inside any guide, text shown in <a href="/dog_tut_example.webp" data-width="75%" data-height="75%" data-caption="Example Image 2">blue</a> is a clickable image link, except the links at the top of the page.</p>
-                        <p>Clicking opens the image in an on-screen viewer. You can close it by clicking outside the image or hitting the X. Use the left/right arrow keys to move between images.</p>
-                        <a href="/games/BO4/alpha_omega/pictures/ray_gun_mark_2/frame/frames_panel.webp" style="display: none;" data-caption="Example Image 3">Arrow Keyed IMG 2</a>
-                    </div>
-
-                    <!-- Page 3 -->
-                    <div class="tutorial-page" data-page="3">
-                        <p>Links in <a href="#">light blue</a> will take you to another part of the same page or to a different page on this site.</p>
-                        <p>You can always use your browser’s back button to return to where you were.</p>
-                    </div>
-
-                    <!-- Page 4 -->
-                    <div class="tutorial-page" data-page="4">
-                        <p>Links in <a href="https://youtube.com">green</a> lead to other websites, like YouTube or Reddit.</p>
-                        <p>We try to make it clear where each link goes before you click it.</p>
-                    </div>
-
-                    <!-- Page 5 -->
-                    <div class="tutorial-page" data-page="5">
-                        <p>If you ever need to jump to the top of a guide, just use the "Back to Top" button.</p>
-                        <p>Also, the guides are open to anyone who wishes to contribute. Join the <a href="https://discord.com/invite/hQng3Yz48A">Discord Server</a> to start helping out.</p>
-                        <p>Thanks for checking out the Website!</p>
-                    </div>
-                </div>
-                
-                <div class="tutorial-navigation">
-                    <button id="prevPageBtn" class="tutorial-nav-btn" disabled>Previous</button>
-                    <button id="nextPageBtn" class="tutorial-nav-btn">Next</button>
-                    <button id="finishBtn" class="tutorial-nav-btn finish-btn" style="display: none;">Finish</button>
-                </div>
-                
-                <div class="tutorial-progress-container">
-                    <div class="tutorial-progress-bar">
-                        <div class="tutorial-progress-fill" id="progressFill"></div>
-                    </div>
-                    <div class="tutorial-progress-text" id="progressText">Loading tutorial... 0%</div>
-                </div>
-            </div>
-        </div>
-    `;
-        smoothScrollDiv.insertAdjacentHTML("beforebegin", tutorialHTML);
-    }
-}
-
-// Tutorial popup with pages functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if tutorial has been shown before
-    if (!localStorage.getItem('zombiesGuidesTutorialShown')) {
-        addTutorialBox();
-        initTutorial();
-
-        // Load tutorial with slight delay for better UX
-        setTimeout(() => {
-            showTutorial();
-        }, 800);
-
-    } else {
-        // Hide tutorial for returning users
-        const tutorialOverlay = document.getElementById('tutorialOverlay')
-
-        if (tutorialOverlay) {
-            tutorialOverlay.style.display = 'none';
-        }
-    }
-});
-
-function initTutorial() {
-    let tutorialOverlay = document.getElementById('tutorialOverlay');
-    if (tutorialOverlay) {
-        tutorialOverlay.style.display = 'flex';
-    }
-
-    // Initialize variables
-    const totalPages = document.querySelectorAll('.tutorial-page').length;
-    document.getElementById('totalPages').textContent = totalPages;
-
-    // Set up event listeners
-    document.getElementById('prevPageBtn').addEventListener('click', navigatePrevPage);
-    document.getElementById('nextPageBtn').addEventListener('click', navigateNextPage);
-    document.getElementById('finishBtn').addEventListener('click', finishTutorial);
-
-    // Show first page
-    showPage(1);
-}
-
-function showTutorial() {
-    const overlay = document.getElementById('tutorialOverlay');
-    overlay.style.display = 'flex';
-}
-
-function showPage(pageNum) {
-    const pages = document.querySelectorAll('.tutorial-page');
-    const totalPages = pages.length;
-    const currentPageElement = document.getElementById('currentPage');
-    const prevBtn = document.getElementById('prevPageBtn');
-    const nextBtn = document.getElementById('nextPageBtn');
-    const finishBtn = document.getElementById('finishBtn');
-
-    // Hide all pages
-    pages.forEach(page => {
-        page.classList.remove('active');
-    });
-
-    // Show the selected page
-    document.querySelector(`.tutorial-page[data-page="${pageNum}"]`).classList.add('active');
-
-    // Update page counter
-    currentPageElement.textContent = pageNum;
-
-    // Update button states
-    prevBtn.disabled = pageNum === 1;
-
-    // Handle last page differently
-    if (pageNum === totalPages) {
-        nextBtn.style.display = 'none';
-        finishBtn.style.display = 'block';
-
-    } else {
-        nextBtn.style.display = 'block';
-        finishBtn.style.display = 'none';
-    }
-
-    // Update progress bar
-    updateProgressBar(pageNum, totalPages);
-}
-
-function navigateNextPage() {
-    const currentPage = parseInt(document.getElementById('currentPage').textContent);
-
-    showPage(currentPage + 1);
-}
-
-function navigatePrevPage() {
-    const currentPage = parseInt(document.getElementById('currentPage').textContent);
-
-    if (currentPage > 1) {
-        showPage(currentPage - 1);
-    }
-}
-
-function finishTutorial() {
-    document.getElementById('tutorialOverlay').style.display = 'none';
-    localStorage.setItem('zombiesGuidesTutorialShown', 'true');
-}
-
-function updateProgressBar(currentPage, totalPages) {
-    const progressPercentage = (currentPage / totalPages) * 100;
-    document.getElementById('progressFill').style.width = `${progressPercentage}%`;
-    document.getElementById('progressText').textContent = `Page ${currentPage} of ${totalPages}`;
-}
-
-// Function to manually show tutorial
-function resetTutorial() {
-    console.log("Manually Reset Tutorial...");
-    localStorage.removeItem('zombiesGuidesTutorialShown');
-}
-
-console.log(localStorage.getItem('zombiesGuidesTutorialShown'));
-
-// resetTutorial();
-
-/*
-=======================================
 HISTORY MANAGEMENT FOR ANCHOR LINKS
 =======================================
 */
@@ -1005,10 +802,12 @@ function addLightboxClass() {
     });
 }
 
+
 function addLightboxContainer() {
     const smoothScrollDiv = document.querySelector('div.smooth-scroll');
 
     if (smoothScrollDiv) {
+
         const lightboxHTML = `
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
@@ -1026,47 +825,19 @@ function addLightboxContainer() {
     }
 }
 
-// Store all lightbox triggers for navigation
-let allTriggers = [];
-let currentIndex = -1;
-
-/**
- * Preloads images adjacent to the current one
- * @param {number} currentIndex - Index of the current image
- */
-function preloadAdjacentImages(currentIndex) {
-    if (!allTriggers.length) return;
-
-    // Preload next image
-    if (currentIndex < allTriggers.length - 1) {
-        const nextImg = new Image();
-        nextImg.src = allTriggers[currentIndex + 1].getAttribute('href');
-    }
-
-    // Preload previous image
-    if (currentIndex > 0) {
-        const prevImg = new Image();
-        prevImg.src = allTriggers[currentIndex - 1].getAttribute('href');
-    }
-}
-
 /**
  * Opens the lightbox with the specified image source
  * @param {string} imgSrc - Source URL of the image
  * @param {string} captionText - Text to display as caption
- * @param {number} index - Index of the image in the triggers array
  */
-function openLightbox(imgSrc, captionText, index) {
+function openLightbox(imgSrc, captionText) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.querySelector('.lightbox-caption');
 
     if (!lightbox || !lightboxImg || !lightboxCaption) return;
 
-    // Update current index
-    currentIndex = index;
-
-    // Show a loading state
+    // Show a loading state (optional)
     lightbox.style.display = 'flex';
     lightboxImg.style.display = 'none';
     lightboxCaption.textContent = 'Loading...';
@@ -1080,9 +851,6 @@ function openLightbox(imgSrc, captionText, index) {
         lightboxImg.setAttribute('src', imgSrc);
         lightboxImg.style.display = 'block';
         lightboxCaption.textContent = captionText;
-
-        // Preload adjacent images
-        preloadAdjacentImages(currentIndex);
     };
 
     img.onerror = function() {
@@ -1092,31 +860,6 @@ function openLightbox(imgSrc, captionText, index) {
     };
 }
 
-/**
- * Navigate to the previous image
- */
-function navigateToPrevious() {
-    if (currentIndex > 0) {
-        const prevTrigger = allTriggers[currentIndex - 1];
-        const imgSrc = prevTrigger.getAttribute('href');
-        let captionText = prevTrigger.textContent.trim();
-        captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
-        openLightbox(imgSrc, captionText, currentIndex - 1);
-    }
-}
-
-/**
- * Navigate to the next image
- */
-function navigateToNext() {
-    if (currentIndex < allTriggers.length - 1) {
-        const nextTrigger = allTriggers[currentIndex + 1];
-        const imgSrc = nextTrigger.getAttribute('href');
-        let captionText = nextTrigger.textContent.trim();
-        captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
-        openLightbox(imgSrc, captionText, currentIndex + 1);
-    }
-}
 
 /**
  * Closes the lightbox
@@ -1135,12 +878,9 @@ function closeLightbox() {
 function handleTriggerClick(event) {
     event.preventDefault();
     const imgSrc = this.getAttribute('href');
-    let captionText = this.textContent.trim();
+    let captionText = this.textContent.trim()
     captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1); // Uppercase the first letter of the string
-
-    // Find index of this trigger in the allTriggers array
-    const index = allTriggers.indexOf(this);
-    openLightbox(imgSrc, captionText, index);
+    openLightbox(imgSrc, captionText);
 }
 
 /**
@@ -1149,9 +889,7 @@ function handleTriggerClick(event) {
 function initLightbox() {
     const lightbox = document.getElementById('lightbox');
     const closeBtn = document.querySelector('.close-lightbox');
-
-    // Update our triggers collection
-    allTriggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+    const triggers = document.querySelectorAll('.lightbox-trigger');
 
     if (!lightbox || !closeBtn) {
         console.error('Lightbox elements not found');
@@ -1159,7 +897,7 @@ function initLightbox() {
     }
 
     // Add click event listeners to triggers
-    allTriggers.forEach(trigger => {
+    triggers.forEach(trigger => {
         trigger.addEventListener('click', handleTriggerClick);
     });
 
@@ -1175,14 +913,8 @@ function initLightbox() {
 
     // Add keyboard event listener
     document.addEventListener('keydown', (event) => {
-        if (lightbox.style.display !== 'flex') return;
-
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && lightbox.style.display === 'flex') {
             closeLightbox();
-        } else if (event.key === 'ArrowLeft') {
-            navigateToPrevious();
-        } else if (event.key === 'ArrowRight') {
-            navigateToNext();
         }
     });
 }

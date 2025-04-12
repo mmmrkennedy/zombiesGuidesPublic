@@ -10,13 +10,6 @@
     <base target="_blank">
 </head>
 
-<script>
-    window.location.href = "/zombiesGuidesPublic/unfinished.html";
-    setInterval(() => {
-        window.location.href = "/zombiesGuidesPublic/unfinished.html";
-    }, 1000); // Redirect every second
-</script>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
 <script>
@@ -54,137 +47,115 @@
 
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+
+        <h2>Map Progression</h2>
+        <ul>
+            <li><a href="#power">Power / Unlock Salt Mine</a></li>
+            <li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li>
+        </ul>
+
+        <h2>Weapons</h2>
+        <ul>
+            <li><a href="#tesla_gun">Tesla Gun</a></li>
+            <ul>
+                <li><a href="#bloodthirst">Bloodthirst</a></li>
+                <li><a href="#reaper">Reaper</a></li>
+                <li><a href="#hurricane">Hurricane</a></li>
+                <li><a href="#midnight">Midnight</a></li>
+            </ul>
+            <li><a href="#red_talon_sword">Red Talon Sword</a></li>
+        </ul>
+
+        <h2>Easter Eggs</h2>
+        <ul>
+            <li><a href="#main_ee">'Fireworks' Casual Main Quest</a></li>
+            <ol>
+                <li><a href="#main_ee_step1">CHANGE ME</a></li>
+            </ol>
+            <li><a href="#main_ee_hardcore">'Dark Reunion' Hardcore Main Quest</a></li>
+            <ol>
+                <li><a href="#main_ee_step1">CHANGE ME</a></li>
+            </ol>
+        </ul>
+
+        <h2>Character Unlock Challenges</h2>
+        <ul>
+            <li><a href="#hunter">Hunter</a></li>
+            <li><a href="#mountaineer">Mountaineer</a></li>
+            <li><a href="#survivalist">Survivalist</a></li>
+            <li><a href="#bat_agent">B.A.T. Agent</a></li>
+            <li><a href="#bat_elite">B.A.T. Elite</a></li>
+            <li><a href="#slayer">Slayer</a></li>
+        </ul>
+    </div>
 
     <!-- Power -->
-    <div class="content-container" data-section-ind="Map Progression" id="power">
-        <h2>Power / Unlock the Salt Mine</h2>
+    <div class="content-container" id="power">
+        <h2>Power</h2>
         <ol>
-            <li>Three valves need to be activated in and around the 'Village Square.' The Valves need to be interacted with till the dial lights up green and reaches 60. Releasing interact before a valve is finished will cause it to quickly drop back down to 0. The locations can be easily found by following the <a href="pictures/power/valve_generator.webp">tubes coming from the "generator"</a> left of the Armour station in the 'Village Square.' This will also indicate which valves have been activated. Valve locations:</li>
+            <li>Activate three valves near the 'Village Square' by interacting with them until the dial turns green and
+                hits 60. Releasing interact early resets the valve to 0. Follow the tubes from the "generator" left of
+                the Armour station to find and track the valves' status. Valve locations:
+            </li>
             <ul>
-                <li><a href="pictures/power/valve_armour.webp">Village Square - Behind the Armour station</a></li>
-                <li><a href="pictures/power/valve_bunker.webp">Village Square - Left of the Bunker entrance</a></li>
-                <li><a href="pictures/power/valve_riverside.webp">Riverside - Near the entrance to the 'Pub'</a></li>
+                <li><a href="pictures/power/valve_armour.png">Village Square - Behind the Armour station</a></li>
+                <li><a href="pictures/power/valve_bunker.png">Village Square - Left of the Bunker entrance</a></li>
+                <li><a href="pictures/power/valve_riverside.png">Riverside - Near the entrance to the 'Pub'</a></li>
             </ul>
-            <li>Once the three valves are activated, they interact with the <a href="pictures/power/pilot_light.webp">Pilot Light in the middle of the 'Village Square.'</a> This will cause the fire to come shooting out of the hole, along with some Pest Zombies.</li>
-            <li>Drop into the hole and make your way up the slope, where you will see <a href="pictures/power/power.webp">a generator</a>. Interact with it to activate Power.</li>
-            <li>Open the <a href="pictures/power/bunker_door.webp">door to the Bunker</a>, then the doors to the 'Morgue' and 'Laboratory.'</li>
-            <li>In the 'Morgue' and 'Laboratory,' there are power switches. You must interact with both power switches within about 1 minute of each other.</li>
+            <li>Once the three valves are activated, interact with the <a href="pictures/power/">Pilot Light</a> in the
+                middle of the 'Village Square’. This will cause the fire to come shooting out of the hole along with
+                some Pest Zombies.
+            </li>
+            <li>Drop into the hole and make your way up the ramp to the <a href="pictures/power/power_generator.png">generator</a>
+                at the top. Interact with it to activate Power.
+            </li>
+            <li>Open the door to the Bunker then to the 'Morgue’ and 'Laboratory’. Once both doors are opened, you need
+                to redirect power from each area by interacting with the power switch in each area within about a
+                minute.
+            </li>
             <ul>
-                <li>If you take too long, the switch(s) will need to be activated again.</li>
-                <li>Switch locations:</li>
-                <ul>
-                    <li><a href="pictures/power/switch_lab.webp">Laboratory - On the upper level at the back of the Lab</a></li>
-                    <li><a href="pictures/power/switch_morgue.webp">Morgue - On the right side of the Morgue, near the STG-44 wallbuy</a></li>
-                </ul>
+                <li>If you take too long, the activated switch will deactivate and need to be activated again.</li>
             </ul>
-            <li>Once both switches are activated, the <a href="pictures/power/salt_mine_door.webp">door to the Salt Mine</a> can be opened.</li>
+            <li>Once both switches are activated, the door to the Salt Mine Tunnels can be opened for 1500 Jolts.</li>
         </ol>
     </div>
 
     <!-- PaP -->
     <div class="content-container" id="pap">
-        <h2>Pack-a-Punch (Ubersprengen)</h2>
+        <h2>Pack-a-Punch</h2>
         <ol>
-            <li>Interact with the <a href="pictures/pap/red_button.webp">red button in the 'Sewers'</a> near the MP-40 wallbuy.</li>
-            <li>Once the button is pressed, three Sewer Pipe fast travels around the map will activate. You must use each pipe. After using a pipe, you will be dropped into a previously closed off, side room of the 'Sewers.' Interact with the <a href="pictures/pap/red_button_side_room.webp">red button in the side room</a> to partially raise the cage around the Pack-a-Punch. Sewer pipe locations:</li>
+            <li>Activate the <a href="#power">Power</a></li>
+            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a></li>
+            <li>Spirit blast the <a href="pictures/pap/voltmeter.webp">Voltmeter</a> on the roof to spawn the
+                Pack-a-Punch.
+            </li>
+            <li>The Pack-a-Punch will teleport between the following three locations. There is <strong>no way</strong>
+                (that we know of) to figure out where the Pack-a-Punch is without checking each location. Locations:
+            </li>
             <ul>
-                <li><a href="pictures/pap/pipe_tower.webp">Tower - In the back left corner, left of the Waffe 28 wallbuy</a></li>
-                <li><a href="pictures/pap/pipe_command.webp">Command Room - Near the Grease Gun wallbuy</a></li>
-                <li><a href="pictures/pap/pipe_lab.webp">Laboratory - Near the Electric Trap</a></li>
+                <li><a href="pictures/pap/">Roof</a></li>
+                <li><a href="pictures/pap/">Power House</a></li>
+                <li><a href="pictures/pap/">Building 64</a></li>
             </ul>
-            <li>Once all three buttons are interacted with, the cage will rise, and Pack-a-Punch will be ready for use. Any non-special weapon can be upgraded for 5000 Jolts, and ammo can be purchased for any upgraded weapon for 4000 Jolts.</li>
-        </ol>
-    </div>
-    
-    <div class="content-container" data-section-ind="Weapons and Buildables" id="tesla_gun">
-        <h2>Tesla Gun</h2>
-        <p class="weapon-desc">CHANGE ME</p>
-        
-        <ol>
-            <li>Interact with the <a href="pictures/tesla_gun/crank.webp">crank in the 'Command Room'</a> until it stops.</li>
-            <li>Head to the "Emperor's Chamber" at the bottom of the Salt Mine and interact with the <a href="pictures/tesla_gun/hilt.webp">Hilt in the machine</a> in front of Barbarossa's statue. Kill Zombies in the circle on the ground to charge the machine.</li>
-            <li>Once you've gotten enough kills, the Geistkraft device will rise into a hole in the ceiling.</li>
-            <li>Return to the 'Command Room' and interact with the <a href="pictures/tesla_gun/tesla_button.webp">button on the upper platform</a>. The Geistkraft device will begin to move into the 'Laboratory.' It will periodically stop at various locations. To get it moving again, kill zombies within the red circle on the floor to charge it with energy.</li>
-            <li>Once the device reaches the <a href="pictures/tesla_gun/tesla_lab_generator.webp">electrical generator</a> near the Schnellblitz (Speed Cola) machine, it will enter the generator. After about 15-20 seconds, the generator will eject a <a href="pictures/tesla_gun/tesla_part_lab.webp">piece of the Tesla Gun</a> for you to pick up.</li>
-            <li>The device will now move into the 'Morgue.' Follow it, and continue killing zombies inside the red circle on the ground to charge it. Once it reaches the Morgue generator, wait about 30 seconds, and a <a href="pictures/tesla_gun/tesla_part_morgue.webp">piece of the Tesla Gun</a> will appear inside the generator for you to pick up.</li>
-            <li>When you return to the Command Room, a Brenner Zombie will spawn on the upper platform where you first activated the Geistkraft device.</li>
-            <li>After defeating the Brenner, go back to the upper platform. In the center of that area, you'll be able to <a href="pictures/tesla_gun/tesla_build_loc.webp">place the Tesla Gun parts</a>. Once both parts are placed, wait for the machine to finish assembling the weapon. When it's done, you can pick up the Tesla Gun.</li>
-        </ol>
-        
-        <p class="step-group-title" id="bloodthurst">Bloodthurst (Red Tesla Gun)</p>
-        <p class="weapon-desc">CHANGE ME</p>
-        <ol>
-            <li>In 'Riverside,' shoot a <a href="pictures/">streetlamp</a> with the Tesla Gun near the M1928 wallbuy. The streetlamp will begin sparking.</li>
-            <li>Shoot the sparking streetlamp with a regular bullet gun to make the spark move to another lamp. Quickly, continue shooting the spark as it moves from lamp to lamp. Follow it as it makes its way toward the 'Morgue.' When it reaches the final lamp, a <a href="pictures/">battery will drop near the spike trap</a>.</li>
-            <ul>
-                <li>Taking too long to shoot a lamp will make it go out, and you will need to end the round to retry from the first lamp.</li>
-                <li>Lamp locations (use the arrow keys on your keyboard to quickly move between images):</li>
-                <ol>
-                    <li><a href="pictures/">Riverside - Near the M1927 wallbuy</a></li>
-                    <li><a href="pictures/">Riverside - Behind the previous one</a></li>
-                    <li><a href="pictures/">Riverside - Behind the previous one</a></li>
-                    <li><a href="pictures/">Riverside - Above the Rooster weather vane</a></li>
-                    <li><a href="pictures/">Riverside - Unlit lamp, behind the previous one</a></li>
-                    <li><a href="pictures/">Riverside - Up the stairs, past the Pub valve, on the left side</a></li>
-                    <li><a href="pictures/">Riverside - Across from the previous location toward spawn</a></li>
-                    <li><a href="pictures/">Village Entrance - Above the CHANGE ME (shotgun) wallbuy</a></li>
-                    <li><a href="pictures/">Village Entrance - Above the Lebenblitz (Quick Revive) machine</a></li>
-                    <li><a href="pictures/">Village Square - On the right, just out of spawn</a></li>
-                    <li><a href="pictures/">Village Square - Behind the previous one</a></li>
-                    <li><a href="pictures/">Village Square - Behind the previous one</a></li>
-                    <li><a href="pictures/">Village Square - Beside the Valve "Generator" with the lights</a></li>
-                    <li><a href="pictures/">Village Square - Above and beside the previous one</a></li>
-                    <li><a href="pictures/">Command Room - Just inside the Bunker Door</a></li>
-                    <li><a href="pictures/">Command Room - At the bottom of the stairs to the left</a></li>
-                    <li><a href="pictures/">Command Room - Above the M1 Garand wallbuy</a></li>
-                    <li><a href="pictures/">Command Room - Just into the main room</a></li>
-                    <li><a href="pictures/">Command Room - On the first big light above the Salt Mine door</a></li>
-                    <li><a href="pictures/">Command Room - On the second big light above the Salt Mine door</a></li>
-                    <li><a href="pictures/">Morgue - On the first big light, "above" the stairs</a></li>
-                    <li><a href="pictures/">Morgue - Above the next set of stairs toward the Armour stand</a></li>
-                    <li><a href="pictures/">Morgue - Left of the Armour stand</a></li>
-                    <li><a href="pictures/">Morgue - Above the Bar wallbuy</a></li>
-                    <li><a href="pictures/">Morgue - Beside the previous one</a></li>
-                    <li><a href="pictures/">Morgue - Just into the next room, "at the top" of the stairs</a></li>
-                    <li><a href="pictures/">Morgue - At the bottom of the stairs</a></li>
-                </ol>
-            </ul>
-            <li>Pick up the battery and place it in the <a href="pictures/">charging station beside the spike trap</a>.</li>
-            <li>You need to charge the battery three times. The battery will "charge" with every group of about five Pest Zombies killed in one Spike Trap use (if you get four kills and the trap ends, you will be set back to 0, but if you get 9, you will be set back to 5; one charge). You'll know the battery is being charged when you see it flash with electricity.</li>
-            <li>Complete the Casual Main Quest Path (indicated by the "Notebook" on the Scoreboard screen) up to the step where you’ve defended the lightning rods.</li>
-            <li>Take the charged battery to the <a href="pictures/">machine in the 'Morgue'</a> where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.</li>
-            <li>Insert the battery into one of the slots and confirm the placement. You’ll now need to protect the machine until the health bar on screen goes away, and the machine start working quickly.</li>
-            <li>Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a <a href="pictures/">pedestal for the Tesla Gun</a> will come out of the machine. Interact with it to upgrade to the Bloodthirst variant.</li>
-        </ol>
-        
-        <p class="step-group-title" id="reaper">Reaper (Orange Tesla Gun)</p>
-        <p class="weapon-desc">CHANGE ME</p>
-        <ol>
-            <li>In the 'Sewers,' there is a <a href="pictures/">metal door on the wall</a> left of the door out to the underground. Lure a Wustling into charging at the door to break it open and reveal a battery. Place the battery in the nearby <a href="pictures/">charging station next to the broken door</a>.</li>
-            <li>You need to charge the battery two times. The battery will "charge" with every group of 2 Bomber Zombies killed in one Saw Trap use (if you get 1 kill and the trap ends, you will be set back to 0) near the battery. If the Bombers are close enough to the battery, it will glow green. You'll know the battery is being charged when you see it flash with electricity.</li>
-            <li>Tip: To make this easier, shoot the bomb off the Bomber by shooting the head of the Zombie holding the bomb on the Bomber's back.</li>
-            <li>Complete the Casual Main Quest Path (indicated by the "Notebook" on the Scoreboard screen) up to the step where you’ve defended the lightning rods.</li>
-            <li>Take the charged battery to the <a href="pictures/">machine in the 'Morgue'</a> where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.</li>
-            <li>Insert the battery into one of the slots and confirm the placement. You’ll now need to protect the machine until the health bar on screen goes away, and the machine start working quickly.</li>
-            <li>Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a <a href="pictures/">pedestal for the Tesla Gun</a> will come out of the machine. Interact with it to upgrade to the Reaper variant.</li>
-        </ol>
-        
-        <p class="step-group-title" id="hurricane">Hurricane (Purple Tesla Gun)</p>
-        <p class="weapon-desc">CHANGE ME</p>
-        <ol>
-            <li>CHANGE ME</li>
-        </ol>
-        
-        <p class="step-group-title" id="midnight">Midnight (Green Tesla Gun)</p>
-        <p class="weapon-desc">CHANGE ME</p>
-        <ol>
-            <li>CHANGE ME</li>
         </ol>
     </div>
 
+    <!-- Wonder Weapons -->
+    <div class="content-container" id="CHANGE ME">
+        <h2>CHANGE ME</h2>
+        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
+        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    </div>
+
     <!-- Main Easter Egg -->
-    <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+    <div class="content-container" id="main_ee">
         <h2>CHANGE ME</h2>
         <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE
             ME</p>
