@@ -238,12 +238,16 @@ function isMobile() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    if (hasTouchScreen() || isMobile()) {
-        document.getElementById('mobileContent').style.display = 'block';
-        document.getElementById('nonMobileContent').style.display = 'none';
-    } else {
-        document.getElementById('mobileContent').style.display = 'none';
-        document.getElementById('nonMobileContent').style.display = 'block';
+    try {
+        if (hasTouchScreen() || isMobile()) {
+            document.getElementById('mobileContent').style.display = 'block';
+            document.getElementById('nonMobileContent').style.display = 'none';
+        } else {
+            document.getElementById('mobileContent').style.display = 'none';
+            document.getElementById('nonMobileContent').style.display = 'block';
+        }
+    } catch (e) {
+        console.error(e);
     }
 });
 
@@ -546,21 +550,26 @@ ADD LINK TO PAGE CLASS TO A TAGS
 =======================================
  */
 document.addEventListener("DOMContentLoaded", function() {
-    // Select all <a> tags in the document that are not inside .content-container-top
-    const links = document.querySelectorAll("a:not(.content-container-top a)");
-
-    // Loop through each <a> tag
-    links.forEach(function(link) {
-        let link_href = link.getAttribute("href");
-
-        if (link_href.includes("#")) {
-            link.classList.add("link-to-page");
-        }
-
-        if (link_href.includes("youtu.be") || link_href.includes("youtube") || link_href.includes(".com") || link_href.includes("http")) {
-            link.classList.add("youtube-link");
-        }
-    });
+    try {
+        // Select all <a> tags in the document that are not inside .content-container-top
+        const links = document.querySelectorAll("a:not(.content-container-top a)");
+    
+        // Loop through each <a> tag
+        links.forEach(function(link) {
+            let link_href = link.getAttribute("href");
+    
+            if (link_href.includes("#")) {
+                link.classList.add("link-to-page");
+            }
+    
+            if (link_href.includes("youtu.be") || link_href.includes("youtube") || link_href.includes(".com") || link_href.includes("http")) {
+                link.classList.add("youtube-link");
+            }
+        });
+    
+    } catch (e) {
+        console.error(e);
+    }
 });
 
 /*
@@ -570,32 +579,36 @@ AUTO GENERATE THE QUICK ACCESS TAGS
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-    // JavaScript to toggle the 'active' class
-    const solver_button_divs = document.getElementsByClassName('solver-with-button');
-
-    if (!solver_button_divs) {
-        return;
-    }
-
-    for (let i = 0; i < solver_button_divs.length; i++) {
-        let solver_button_div = solver_button_divs[i];
-
-        // Get the button inside the parent div
-        const toggle_button = solver_button_div.querySelector('.square-button');
-
-        // Get the solverContainer div inside the parent div
-        const nested_container = solver_button_div.querySelector('div');
-
-        toggle_button.addEventListener('click', () => {
-            // Toggle the 'active' class
-            toggle_button.classList.toggle('active');
-
-            if (toggle_button.classList.contains('active')) {
-                nested_container.style.display = 'block';
-            } else {
-                nested_container.style.display = 'none';
-            }
-        });
+    try {
+        // JavaScript to toggle the 'active' class
+        const solver_button_divs = document.getElementsByClassName('solver-with-button');
+    
+        if (!solver_button_divs) {
+            return;
+        }
+    
+        for (let i = 0; i < solver_button_divs.length; i++) {
+            let solver_button_div = solver_button_divs[i];
+    
+            // Get the button inside the parent div
+            const toggle_button = solver_button_div.querySelector('.square-button');
+    
+            // Get the solverContainer div inside the parent div
+            const nested_container = solver_button_div.querySelector('div');
+    
+            toggle_button.addEventListener('click', () => {
+                // Toggle the 'active' class
+                toggle_button.classList.toggle('active');
+    
+                if (toggle_button.classList.contains('active')) {
+                    nested_container.style.display = 'block';
+                } else {
+                    nested_container.style.display = 'none';
+                }
+            });
+        }
+    } catch (e) {
+        console.error(e);
     }
 });
 
@@ -840,7 +853,7 @@ function getTagIndentLevelsFromHTML() {
 }
 
 function generate_quick_links(parentElement, result) {
-    // console.log(result);
+    console.log(result);
 
     if (!result || result.length === 0) {
         console.error("Result array is empty or undefined.");
@@ -944,32 +957,36 @@ function generate_quick_links(parentElement, result) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    let path = window.location.pathname;
-    let page = path.split("/").pop();
+    try {
+        let path = window.location.pathname;
+        let page = path.split("/").pop();
 
-    if (page === "index.html") {
-        return;
-    }
-
-    // Target the parent element where you want to append the elements
-    let parentElement = document.getElementsByClassName("content-container-top")[0];
-
-    if (parentElement === undefined) {
-        const smoothScrollElement = document.getElementsByClassName("smooth-scroll")[0];
-        parentElement = document.createElement("div");
-        parentElement.classList.add("content-container-top");
-        // Check if the smoothScrollElement has any child elements
-        if (smoothScrollElement.firstChild) {
-            // Insert the parentElement at the top, before the first child
-            smoothScrollElement.insertBefore(parentElement, smoothScrollElement.firstChild);
-        } else {
-            // If there are no child elements, just append it as usual
-            smoothScrollElement.appendChild(parentElement);
+        if (page === "index.html") {
+            return;
         }
-    }
 
-    if (generate_font_box(parentElement)){
-        generate_quick_links(parentElement, getTagIndentLevelsFromHTML());
+        // Target the parent element where you want to append the elements
+        let parentElement = document.getElementsByClassName("content-container-top")[0];
+
+        if (parentElement === undefined) {
+            const smoothScrollElement = document.getElementsByClassName("smooth-scroll")[0];
+            parentElement = document.createElement("div");
+            parentElement.classList.add("content-container-top");
+            // Check if the smoothScrollElement has any child elements
+            if (smoothScrollElement.firstChild) {
+                // Insert the parentElement at the top, before the first child
+                smoothScrollElement.insertBefore(parentElement, smoothScrollElement.firstChild);
+            } else {
+                // If there are no child elements, just append it as usual
+                smoothScrollElement.appendChild(parentElement);
+            }
+        }
+
+        if (generate_font_box(parentElement)) {
+            generate_quick_links(parentElement, getTagIndentLevelsFromHTML());
+        }
+    } catch (e) {
+        console.error(e);
     }
 })
 
