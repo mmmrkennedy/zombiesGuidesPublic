@@ -20,17 +20,13 @@ function changeThemeColour(){
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    changeThemeColour();
-});
-
 /*
 =======================================
 PRELOAD IMAGES AND VIDEOS
 =======================================
 */
 
-document.addEventListener('DOMContentLoaded', () => {
+function preloadImages() {
     // Preload Images if enabled in localStorage
     if (localStorage.getItem('preload') === 'true') {
         const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
@@ -41,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             new Image().src = anchor.href;
         });
     }
-});
+}
 
 
 /*
@@ -82,7 +78,8 @@ window.addEventListener('storage', function(event) {
 USING DEFAULT FONTS
 =======================================
 */
-document.addEventListener('DOMContentLoaded', function() {
+
+function setDefaultFonts() {
     let path = window.location.pathname;
     let page = path.split("/").pop();
 
@@ -113,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             smoothScroll.classList.remove('verdana');
         }
     }
-});
+}
 
 /*
 =======================================
@@ -143,7 +140,7 @@ function scrollToTop() {
     window.history.pushState(null, null, '#');
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function scrollToAnchors() {
     document.addEventListener('click', function (event) {
         if (event.target.tagName === 'A') {
             const href = event.target.getAttribute('href');
@@ -154,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-});
+}
 
 function scrollToElement(elementId, offset) {
     const element = document.getElementById(elementId);
@@ -236,8 +233,7 @@ function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
+function touchScreenInit() {
     try {
         if (hasTouchScreen() || isMobile()) {
             document.getElementById('mobileContent').style.display = 'block';
@@ -247,9 +243,9 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('nonMobileContent').style.display = 'block';
         }
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
-});
+}
 
 /*
 =======================================
@@ -267,7 +263,7 @@ function addTutorialBox() {
     const smoothScrollDiv = document.querySelector('div.smooth-scroll');
 
     if (!smoothScrollDiv) {
-        console.error("SmoothScrollDiv is missing, unable to generate Tutorial Box");
+        console.log("SmoothScrollDiv is missing, unable to generate Tutorial Box");
         return;
     }
 
@@ -337,8 +333,7 @@ function addTutorialBox() {
     }
 }
 
-// Tutorial popup with pages functionality
-document.addEventListener('DOMContentLoaded', function() {
+function tutorialPopupInit() {
     // Check if tutorial has been shown before
     if (!localStorage.getItem('zombiesGuidesTutorialShown')) {
         addTutorialBox();
@@ -357,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tutorialOverlay.style.display = 'none';
         }
     }
-});
+}
 
 function initTutorial() {
     let tutorialOverlay = document.getElementById('tutorialOverlay');
@@ -507,7 +502,8 @@ document.addEventListener('DOMContentLoaded', function () {
 INCOMPLETE PATH FOR A TAGS
 =======================================
  */
-window.addEventListener("DOMContentLoaded", function () {
+
+function incompleteATagInit() {
     const allATags = document.querySelectorAll('a');
 
     allATags.forEach(function (tag) {
@@ -542,35 +538,37 @@ window.addEventListener("DOMContentLoaded", function () {
             });
          */
     });
-});
+}
+
 
 /*
 =======================================
 ADD LINK TO PAGE CLASS TO A TAGS
 =======================================
  */
-document.addEventListener("DOMContentLoaded", function() {
+
+function colourCodeAnchors() {
     try {
         // Select all <a> tags in the document that are not inside .content-container-top
         const links = document.querySelectorAll("a:not(.content-container-top a)");
-    
+
         // Loop through each <a> tag
         links.forEach(function(link) {
             let link_href = link.getAttribute("href");
-    
+
             if (link_href.includes("#")) {
                 link.classList.add("link-to-page");
             }
-    
+
             if (link_href.includes("youtu.be") || link_href.includes("youtube") || link_href.includes(".com") || link_href.includes("http")) {
                 link.classList.add("youtube-link");
             }
         });
-    
+
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
-});
+}
 
 /*
 =======================================
@@ -578,28 +576,28 @@ AUTO GENERATE THE QUICK ACCESS TAGS
 =======================================
  */
 
-document.addEventListener("DOMContentLoaded", function () {
+function generateQuickLinksInit() {
     try {
         // JavaScript to toggle the 'active' class
         const solver_button_divs = document.getElementsByClassName('solver-with-button');
-    
+
         if (!solver_button_divs) {
             return;
         }
-    
+
         for (let i = 0; i < solver_button_divs.length; i++) {
             let solver_button_div = solver_button_divs[i];
-    
+
             // Get the button inside the parent div
             const toggle_button = solver_button_div.querySelector('.square-button');
-    
+
             // Get the solverContainer div inside the parent div
             const nested_container = solver_button_div.querySelector('div');
-    
+
             toggle_button.addEventListener('click', () => {
                 // Toggle the 'active' class
                 toggle_button.classList.toggle('active');
-    
+
                 if (toggle_button.classList.contains('active')) {
                     nested_container.style.display = 'block';
                 } else {
@@ -608,9 +606,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
-});
+}
 
 
 /*
@@ -694,7 +692,7 @@ function getTagIndentLevelsFromHTML() {
     const rootElement = document.querySelector(".smooth-scroll");
 
     if (!rootElement) {
-        console.error("No <div class='smooth-scroll'> found in the document.");
+        console.log("No <div class='smooth-scroll'> found in the document.");
         return [];
     }
 
@@ -784,7 +782,7 @@ function getTagIndentLevelsFromHTML() {
             }
 
             if (!found_element) {
-                console.error("Error finding element for line: ", trimmedLine.trim());
+                console.log("Error finding element for line: ", trimmedLine.trim());
                 return;
             }
 
@@ -856,7 +854,7 @@ function generate_quick_links(parentElement, result) {
     console.log(result);
 
     if (!result || result.length === 0) {
-        console.error("Result array is empty or undefined.");
+        console.log("Result array is empty or undefined.");
         return;
     }
 
@@ -936,7 +934,7 @@ function generate_quick_links(parentElement, result) {
                 listStack.push(newNestedList); // Push the new <ul> onto the stack
                 currentIndentLevel = indentLevel;
             } else {
-                console.error("Cannot create nested list. Missing parent <li>.");
+                console.log("Cannot create nested list. Missing parent <li>.");
             }
         } else if (indentLevel < currentIndentLevel) {
             // Pop lists from the stack until the current level matches the indentLevel
@@ -950,7 +948,7 @@ function generate_quick_links(parentElement, result) {
         if (listStack.length > 0) {
             listStack[listStack.length - 1].appendChild(listItem);
         } else {
-            console.error("List stack is empty. Cannot append <li>.");
+            console.log("List stack is empty. Cannot append <li>.");
         }
     }
 }
@@ -986,7 +984,7 @@ document.addEventListener("DOMContentLoaded", function() {
             generate_quick_links(parentElement, getTagIndentLevelsFromHTML());
         }
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
 })
 
@@ -1039,7 +1037,7 @@ function addLightboxContainer() {
 
         // console.log('Lightbox container added successfully');
     } else {
-        console.error('No div with class "smooth-scroll" found');
+        console.log('No div with class "smooth-scroll" found');
     }
 }
 
@@ -1171,7 +1169,7 @@ function initLightbox() {
     allTriggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
 
     if (!lightbox || !closeBtn) {
-        console.error('Lightbox elements not found');
+        console.log('Lightbox elements not found');
         return;
     }
 
@@ -1259,4 +1257,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".webp"]').forEach(aTag => {
         observer.observe(aTag);
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    changeThemeColour();
+    touchScreenInit();
+    preloadImages();
+    setDefaultFonts();
+    scrollToAnchors();
+    tutorialPopupInit();
+    colourCodeAnchors();
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+    incompleteATagInit();
 });
