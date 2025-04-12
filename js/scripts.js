@@ -1,5 +1,12 @@
 // console.log("Loaded Scripts")
 
+
+function getCurrentPage() {
+    let path = window.location.pathname.split("/").pop();
+    console.log(path);
+    return path;
+}
+
 /*
 =======================================
 LIGHT AND DARK MODE FUNCTIONALITIES
@@ -79,9 +86,9 @@ USING DEFAULT FONTS
 =======================================
 */
 
+
 function setDefaultFonts() {
-    let path = window.location.pathname;
-    let page = path.split("/").pop();
+    let page = getCurrentPage();
 
     if (page !== "index.html") {
         let savedFont = localStorage.getItem('fontSelector');
@@ -178,8 +185,7 @@ function font_loader_init() {
     }
 
     const smoothScroll = document.querySelector('.smooth-scroll');
-    let path = window.location.pathname;
-    let page = path.split("/").pop();
+    let page = getCurrentPage();
 
     if (page !== "index.html") {
         fontSelector.addEventListener('change', () => {
@@ -254,7 +260,7 @@ TUTORIAL BOX
  */
 
 function addTutorialBox() {
-    const page = window.location.pathname.split("/").pop();
+    const page = getCurrentPage();
 
     if (page === "index.html") {
         return;
@@ -575,46 +581,38 @@ AUTO GENERATE THE QUICK ACCESS TAGS
 =======================================
  */
 
-function generateQuickLinksInit() {
-    try {
-        // JavaScript to toggle the 'active' class
-        const solver_button_divs = document.getElementsByClassName('solver-with-button');
+document.addEventListener('DOMContentLoaded', function () {
+    // JavaScript to toggle the 'active' class
+    const solver_button_divs = document.getElementsByClassName('solver-with-button');
 
-        if (!solver_button_divs) {
-            return;
-        }
-
-        for (let i = 0; i < solver_button_divs.length; i++) {
-            let solver_button_div = solver_button_divs[i];
-
-            // Get the button inside the parent div
-            const toggle_button = solver_button_div.querySelector('.square-button');
-
-            // Get the solverContainer div inside the parent div
-            const nested_container = solver_button_div.querySelector('div');
-
-            toggle_button.addEventListener('click', () => {
-                // Toggle the 'active' class
-                toggle_button.classList.toggle('active');
-
-                if (toggle_button.classList.contains('active')) {
-                    nested_container.style.display = 'block';
-                } else {
-                    nested_container.style.display = 'none';
-                }
-            });
-        }
-    } catch (e) {
-        console.log(e);
+    if (!solver_button_divs) {
+        return;
     }
-}
+
+    for (let i = 0; i < solver_button_divs.length; i++) {
+        let solver_button_div = solver_button_divs[i];
+
+        // Get the button inside the parent div
+        const toggle_button = solver_button_div.querySelector('.square-button');
+
+        // Get the solverContainer div inside the parent div
+        const nested_container = solver_button_div.querySelector('div');
+
+        toggle_button.addEventListener('click', () => {
+            // Toggle the 'active' class
+            toggle_button.classList.toggle('active');
+
+            if (toggle_button.classList.contains('active')) {
+                nested_container.style.display = 'block';
+            } else {
+                nested_container.style.display = 'none';
+            }
+        });
+    }
+
+});
 
 
-/*
-=======================================
-AUTO GENERATE THE QUICK ACCESS TAGS
-=======================================
- */
 function isElementEmpty(element) {
     // Loop through all child nodes of the element
     for (let child of element.childNodes) {
@@ -850,7 +848,7 @@ function getTagIndentLevelsFromHTML() {
 }
 
 function generate_quick_links(parentElement, result) {
-    console.log(result);
+    // console.log(result);
 
     if (!result || result.length === 0) {
         console.log("Result array is empty or undefined.");
@@ -906,13 +904,12 @@ function generate_quick_links(parentElement, result) {
         let element_id = element.id;
 
         if (element_id === "") {
-            let x = result[item_index - 1];
-            console.log(x);
-            if (!x) {
-                continue;
+            try {
+                element_id = result[item_index - 1].element.id;
+            } catch (e) {
+                console.error(e);
             }
 
-            element_id = result.element.id;
         }
 
         link.href = `#${element_id}`;
@@ -961,11 +958,11 @@ function generate_quick_links(parentElement, result) {
 
 document.addEventListener("DOMContentLoaded", function() {
     try {
-        let page = window.location.pathname.split("/").pop();
+        let page = getCurrentPage();
 
-        console.log(`Quick links page name: ${page}`);
+        // console.log(`Quick links page name: ${page}`);
 
-        if (page === "index.html" || "index.html" in page) {
+        if (page === "index.html") {
             return;
         }
 
@@ -1210,6 +1207,7 @@ function initLightbox() {
 
 // Single DOMContentLoaded event listener that handles everything in the right order
 document.addEventListener('DOMContentLoaded', () => {
+    console.log()
     addLightboxContainer(); // First add the container to the DOM
     addLightboxClass(); // Then add classes to the appropriate anchor tags
     initLightbox(); // Finally initialize the lightbox functionality
