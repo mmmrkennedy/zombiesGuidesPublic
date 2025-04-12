@@ -445,8 +445,7 @@ function resetTutorial() {
     localStorage.removeItem('zombiesGuidesTutorialShown');
 }
 
-console.log(localStorage.getItem('zombiesGuidesTutorialShown'));
-
+// console.log(localStorage.getItem('zombiesGuidesTutorialShown'));
 // resetTutorial();
 
 /*
@@ -907,7 +906,13 @@ function generate_quick_links(parentElement, result) {
         let element_id = element.id;
 
         if (element_id === "") {
-            element_id = result[item_index - 1].element.id;
+            let x = result[item_index - 1];
+            console.log(x);
+            if (!x) {
+                continue;
+            }
+
+            element_id = result.element.id;
         }
 
         link.href = `#${element_id}`;
@@ -956,10 +961,11 @@ function generate_quick_links(parentElement, result) {
 
 document.addEventListener("DOMContentLoaded", function() {
     try {
-        let path = window.location.pathname;
-        let page = path.split("/").pop();
+        let page = window.location.pathname.split("/").pop();
 
-        if (page === "index.html") {
+        console.log(`Quick links page name: ${page}`);
+
+        if (page === "index.html" || "index.html" in page) {
             return;
         }
 
