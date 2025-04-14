@@ -908,6 +908,7 @@ function generate_quick_links(parentElement, result) {
                 element_id = result[item_index - 1].element.id;
             } catch (e) {
                 console.error(e);
+                continue;
             }
 
         }
