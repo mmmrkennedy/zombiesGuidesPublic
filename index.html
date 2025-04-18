@@ -12,12 +12,22 @@
     <meta property="og:description" content="A website compiling accurate and up-to-date information on all COD: Zombies Main Easter Eggs and most Side Easter Eggs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/mmmrkennedy/zombiesGuidesPublic">
-    <meta property="og:image" content="https://github.com/mmmrkennedy/zombiesGuidesPublic/SEO_img.png">
+    <meta property="og:image" content="https://github.com/mmmrkennedy/zombiesGuidesPublic/SEO_img.webp">
 
     <title>Zombies Easter Eggs & Quests Guides</title>
     <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
 </head>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        if (currentPath.endsWith('zombiesGuidesPublic/')) {
+            window.location.href = window.location.origin + currentPath + 'index.html';
+        }
+    });
+</script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
@@ -243,6 +253,6 @@
     </div>
 </div>
 
-<script type="module" src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
 </body>
 </html>

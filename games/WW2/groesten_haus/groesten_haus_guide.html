@@ -47,17 +47,10 @@
 
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-    </div>
+    <div class="content-container-top"></div>
 
-    <!-- Main Easter Egg -->
-    <div class="content-container" id="mystery_box">
+    <!-- Mystery Box -->
+    <div class="content-container" data-section-ind="Map Progression / Easter Eggs" id="mystery_box">
         <h2>Mystery Box Room</h2>
         <ul>
             <li>Shoot ten lanterns around the map. When a lantern is shot correctly, it will very faintly <a
@@ -98,6 +91,38 @@
                 <li>All weapons from the Mystery Box will be Pack-A-Punched.</li>
             </ol>
         </ul>
+    </div>
+    
+    <div class="content-container" data-section-ind="Unlockable Characters" id="charcters">
+        <h2>Unlockable Characters</h2>
+        
+        <p class="weapon-desc">Characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
+        
+        <!-- Bloodraven Mountaineer Table -->
+        <p class="step-group-title" id="hunter">Bloodraven Mountaineer (Home Ward) --- <a href="pictures/charcters/bloodraven_mountaineer.webp">Character Model</a></p>
+        <p></p>
+        <table>
+            <tr>
+                <th>Challenge Hint Text</th>
+                <th>Challenge</th>
+                <th>Strategy / Notes</th>
+            </tr>
+            <tr>
+                <td><i>And stay out!</i></td>
+                <td>Survive 30 waves without going down.</td>
+                <td>Unlock the <a href="#pap_box">Pack-a-Punched Mystery Box</a>.</td>
+            </tr>
+            <tr>
+                <td><i>Tag world champion.</i></td>
+                <td>Survive 20 waves without getting hit.</td>
+                <td>Co-op recommended. At the beginning of the match, you can camp at the Combat Shotgun wallbuy. If another player gets hit, you can still complete the challenge. You have to reach wave 20 without getting hit, not complete any 20 waves without getting hit.</td>
+            </tr>
+            <tr>
+                <td><i>If you can't take the heat...</i></td>
+                <td>Kill the Brenner that spawns on Wave 50.</td>
+                <td>Unlock the <a href="#pap_box">Pack-a-Punched Mystery Box</a>.</td>
+            </tr>
+        </table>
     </div>
 </div>
 

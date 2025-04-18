@@ -1,18 +1,13 @@
-str = """In the hole in the roof to the left of the Wunderfizz
-
-On a fence post in the farthest window of Spawn
-
-On the pond, in the left window barrier of Spawn
-
-On the end of the tank’s barrel, in the window next to Mule Kick
-
-On the top floor, on top of a power line post
-
-On top of a truck, in the farthest right window of the Spawn room
-
-Next to a power generator on the top floor, visible through a window
-
-In the hole in the ceiling on the bottom floor"""
+str = """Randomly (you might have to be on Round 6) around the map, Dr. Straub (a man in a lab coat) will spawn in one of the locations. He will probably just stand there, but he could do other actions. You can shoot him to get the "Lurking Around" Trophy/Achievement. Potential spawn locations:
+Village Entrance/Square - In the Zombie spawn, left of the door out of spawn
+Village Square - In a second floor window above the Armour stand
+Laboratory - In the Zombie spawn, behind Electric Cherry
+Laboratory - Right of Speed Cola, where the bodies are hanging
+Morgue - In the area behind the power switch
+Morgue - In the Zombie spawn, right of the BAR wallbuy (Unconfirmed)
+Morgue - In the "white" room, right of the Armour stand (Unconfirmed)
+Morgue - Behind the metal gate in the Spike trap room
+"""
 
 arr = str.split('\n')
 
