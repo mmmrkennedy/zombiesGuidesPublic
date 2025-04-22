@@ -18,9 +18,7 @@ Finished:
 - All of IW
 - Outbreak (AW)
 - Infection (AW)
-- Nacht der Untoten
-- Verrückt
-- Shi No Numa
+- All Of WAW
 
 In Limbo (I don't wanna):
 - Outbreak (CW)
