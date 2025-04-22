@@ -9,7 +9,7 @@ The plan is to also include solvers for steps that require them (such as Attack 
 
 ## Roadmap
 Next:
-- The Final Reich (WW2)
+- The Darkest Shore
 
 Finished:
 - All Of CW (Except Outbreak)
@@ -19,6 +19,7 @@ Finished:
 - Outbreak (AW)
 - Infection (AW)
 - All Of WAW
+- The Final Reich (WW2)
 
 In Limbo (I don't wanna):
 - Outbreak (CW)
