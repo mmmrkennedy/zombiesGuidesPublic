@@ -49,7 +49,8 @@
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <div class="solver-container">
+        <div class="content-container">
+            <div class="solver-container">
             <h2>Select Which Wall</h2>
             <div>
                 <button id="wall1" class="solver-button" onclick="setActiveButton('wall1')">Wall 1</button>
@@ -63,9 +64,7 @@
                 <button class="aligned-button solver-button" id="statueA" onclick="change_directions(0)">↑</button>
                 <button class="aligned-button solver-button" id="statueB" onclick="change_directions(1)">↑</button>
                 <button class="aligned-button solver-button" id="statueC" onclick="change_directions(2)">↑</button>
-                <button class="aligned-button solver-button" id="statueD" style="display:none;"
-                        onclick="change_directions(3)">↑
-                </button>
+                <button class="aligned-button solver-button" id="statueD" style="display:none;" onclick="change_directions(3)">↑</button>
             </div>
             <div class="aligned-labels">
                 <span class="aligned-label">A</span>
@@ -79,10 +78,53 @@
                 <p><span id="result"></span></p>
             </div>
         </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="solver-container" style="min-width: 400px; width: auto;">
+                <h2>Hangman Word Solver</h2>
+                
+                <div>
+                    <label for="revealed-letters">Correct Letters:</label>
+                    <input type="text" id="revealed-letters" oninput="suggestLetter()" placeholder="All the correct letters in order (e.g. WND, DMN)" class="solver" style="width: 350px;">
+                </div>
+                
+                <div>
+                    <label for="guessed-letters">Incorrect Letters:</label>
+                    <input type="text" id="guessed-letters" oninput="suggestLetter()" placeholder="Any wrong letters (e.g. ZUQI)" class="solver" style="width: 350px;">
+                </div>
+                
+                <!-- <button id="suggest-button" onclick="suggestLetter()" class="solver-button">Suggest Next Letter</button> -->
+                
+                <div class="solver-output" id="suggestion-output" style="display: none;">
+                    <div id="suggestion-message"></div>
+                    <div id="letter-suggestion" style="font-size: 48px; font-weight: bold; text-align: center; margin: 10px 0;"></div>
+                </div>
+                
+                <div class="solver-output">
+                    <h3>Possible Words:</h3>
+                    <ul id="word-list" style="text-align: left; padding-left: 20px;"></ul>
+                </div>
+                
+                <div class="solver-output" style="display: none;">
+                    <h3>Reference Words:</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>DAMNATION: Nuke</li>
+                        <li>REAPER: Insta-Kill</li>
+                        <li>GEISTKRAFT: Full Charge</li>
+                        <li>FAMISHED: Max Ammo</li>
+                        <li>GLUTTONY: Double Jolts</li>
+                        <li>WONDER: Tesla Gun & Ripsaw</li>
+                        <li>THEJACKBOX: Jack-in-the-Boxes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="throne_statue_solver.js"></script>
+<script src="statue_solver/throne_statue_solver.js"></script>
+<script src="hangman_solver/hangman.js"></script>
 <script src="/zombiesGuidesPublic/js/scripts.js"></script>
 </body>
 </html>

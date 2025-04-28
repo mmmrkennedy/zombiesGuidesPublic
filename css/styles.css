@@ -461,7 +461,6 @@ th, td {
     letter-spacing: 0.1em;
 }
 
-
 /* Lightbox styling */
 .lightbox {
     display: none;
@@ -482,12 +481,13 @@ th, td {
     max-height: 90%;
 }
 
-.lightbox-content img {
+.lightbox-content img, .lightbox-content video {
     max-width: 100%;
     max-height: 90vh;
     display: block;
     border: 3px solid white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
 }
 
 .close-lightbox {
@@ -519,6 +519,7 @@ th, td {
     border-radius: 4px;
     font-size: 16px;
     max-width: calc(100% - 20px); /* Prevents overflow */
+    min-width: fit-content;
 }
 
 .close-lightbox:hover {

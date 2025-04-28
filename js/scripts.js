@@ -42,9 +42,7 @@ function setTitle() {
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         });
 
-        const titleCase = titleCaseWords.join(' ');
-
-        document.title = titleCase;
+        document.title = titleCaseWords.join(' ');
     }
 
     if (titleText.toLowerCase() === "change me") {
@@ -412,8 +410,7 @@ function initTutorial() {
     }
 
     // Initialize variables
-    const totalPages = document.querySelectorAll('.tutorial-page').length;
-    document.getElementById('totalPages').textContent = totalPages;
+    document.getElementById('totalPages').textContent = String(document.querySelectorAll('.tutorial-page').length);
 
     // Set up event listeners
     document.getElementById('prevPageBtn').addEventListener('click', navigatePrevPage);
@@ -572,8 +569,6 @@ function incompleteATagInit() {
 
         if (!(hrefValue.includes(".webp") || hrefValue.includes(".html") || hrefValue.includes(".webm") || hrefValue.includes(".gif"))) {
             tag.classList.add('wrong_file_type');
-            return;
-
         }
 
         /*
@@ -626,316 +621,234 @@ AUTO GENERATE THE QUICK ACCESS TAGS
 =======================================
  */
 
-document.addEventListener('DOMContentLoaded', function () {
-    // JavaScript to toggle the 'active' class
+function setupSolverButtons() {
     const solver_button_divs = document.getElementsByClassName('solver-with-button');
 
-    if (!solver_button_divs) {
-        return;
-    }
+    if (!solver_button_divs) return;
 
-    for (let i = 0; i < solver_button_divs.length; i++) {
-        let solver_button_div = solver_button_divs[i];
-
-        // Get the button inside the parent div
+    for (const solver_button_div of solver_button_divs) {
         const toggle_button = solver_button_div.querySelector('.square-button');
-
-        // Get the solverContainer div inside the parent div
         const nested_container = solver_button_div.querySelector('div');
 
-        toggle_button.addEventListener('click', () => {
-            // Toggle the 'active' class
-            toggle_button.classList.toggle('active');
+        if (!toggle_button || !nested_container) continue;
 
-            if (toggle_button.classList.contains('active')) {
-                nested_container.style.display = 'block';
-            } else {
-                nested_container.style.display = 'none';
-            }
+        toggle_button.addEventListener('click', () => {
+            toggle_button.classList.toggle('active');
+            nested_container.style.display = toggle_button.classList.contains('active') ? 'block' : 'none';
         });
     }
-
-});
-
+}
 
 function isElementEmpty(element) {
-    // Loop through all child nodes of the element
-    for (let child of element.childNodes) {
-        // If the child is not a comment and has meaningful content, return false
+    for (const child of element.childNodes) {
         if (child.nodeType !== Node.COMMENT_NODE && child.nodeType !== Node.DOCUMENT_TYPE_NODE) {
-            if (child.nodeType === Node.ELEMENT_NODE || (child.nodeType === Node.TEXT_NODE && child.nodeValue.trim() !== '')) {
+            if (child.nodeType === Node.ELEMENT_NODE ||
+                (child.nodeType === Node.TEXT_NODE && child.nodeValue.trim() !== '')) {
                 return false;
             }
         }
     }
-    // If no non-comment or meaningful content is found, the element is empty
     return true;
 }
 
-function generate_font_box(parentElement){
+function generateFontBox(parentElement) {
     if (!isElementEmpty(parentElement)) {
         font_loader_init();
         return false;
     }
 
-    // console.log("Auto generating font box/quick links...");
-
-    // Create the label element
-    const label = document.createElement("label");
-    label.setAttribute("for", "fontSelector");
-    label.textContent = "Select a Font:";
-
-    // Create the select element
-    const select = document.createElement("select");
-    select.id = "fontSelector";
-
-    // Create the options for the select dropdown
-    const options = [
+    const fontOptions = [
         { value: "Arial", text: "Arial" },
         { value: "Verdana", text: "Verdana (Higher Readability)" },
         { value: "OpenDyslexic", text: "OpenDyslexic" }
     ];
 
-    options.forEach(optionData => {
-        const option = document.createElement("option");
-        option.value = optionData.value;
-        option.textContent = optionData.text;
-        select.appendChild(option);
+    // Create elements
+    const label = document.createElement("label");
+    label.setAttribute("for", "fontSelector");
+    label.textContent = "Select a Font:";
+
+    const select = document.createElement("select");
+    select.id = "fontSelector";
+
+    // Add options to select
+    fontOptions.forEach(option => {
+        const optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.textContent = option.text;
+        select.appendChild(optionElement);
     });
 
-    // Append the label and select to the parent element
-    parentElement.appendChild(document.createTextNode("\n")); // Add a line break before the label
+    // Append elements with line breaks
+    parentElement.appendChild(document.createTextNode("\n"));
     parentElement.appendChild(label);
-    parentElement.appendChild(document.createTextNode("\n")); // Add a line break before the select
+    parentElement.appendChild(document.createTextNode("\n"));
     parentElement.appendChild(select);
-    parentElement.appendChild(document.createTextNode("\n")); // Add a line break after the select
+    parentElement.appendChild(document.createTextNode("\n"));
 
     font_loader_init();
-
     return true;
 }
 
-function calculateIndentLevel(line) {
-    /**
-     * Calculate the indentation level of a line based on leading spaces.
-     * Tabs are assumed to be 4 spaces.
-     */
-    const spaces = line.replace(/\t/g, "    "); // Replace tabs with 4 spaces
-    const leadingSpaces = spaces.length - spaces.trimStart().length;
-    return Math.floor(leadingSpaces / 4); // Assuming 4 spaces per indent
-}
+function initializeQuickLinks() {
+    try {
+        const page = getCurrentPage();
 
-function getTagIndentLevelsFromHTML() {
-    /**
-     * Reads the HTML of the current document and extracts an indexable list of
-     * <div> and <p> tags with their corresponding indent levels and HTML elements.
-     * Ensures there are no gaps greater than 1 in indent levels for <p> tags.
-     */
-    const rootElement = document.querySelector(".smooth-scroll");
+        if (page === "index.html") return;
 
-    if (!rootElement) {
-        console.log("No <div class='smooth-scroll'> found in the document.");
-        return [];
-    }
+        // Find or create the container
+        let parentElement = document.querySelector(".content-container-top");
 
-    // Classes to check for in <p> tags
-    const allowedClasses = ["step-group-title", "upgrade-title", "sub-sub-step"];
-    const disallowedClasses = ["content-container-top", "weapon-desc", "warning", "stats", "solver-container", "solver-output", "solver-symbol-select"];
+        if (!parentElement) {
+            const smoothScrollElement = document.querySelector(".smooth-scroll");
+            if (!smoothScrollElement) return;
 
-    // Get the innerHTML of the root element and split it into lines
-    const html_lines_no_comments = rootElement.innerHTML.replace(/<!--[\s\S]*?-->/g, '');
-    const htmlLines = html_lines_no_comments.split("\n");
-    const result = [];
-    let lastAdjustedIndentLevel = null; // Track the last adjusted indent level for <p> tags
-    let lastAdjustedRawIndentLevel = null; // Track the raw indent level of the last adjusted <p> tag
+            parentElement = document.createElement("div");
+            parentElement.classList.add("content-container-top");
 
-    htmlLines.forEach((line) => {
-        const trimmedLine = line.trim();
-
-        const hasDisallowedClass = disallowedClasses.some((cls) => trimmedLine.includes(cls));
-        if (hasDisallowedClass) {
-            return;
+            if (smoothScrollElement.firstChild) {
+                smoothScrollElement.insertBefore(parentElement, smoothScrollElement.firstChild);
+            } else {
+                smoothScrollElement.appendChild(parentElement);
+            }
         }
 
-        // Check if the line is a <div> or <p> tag
-        if (trimmedLine.startsWith("<div") || trimmedLine.startsWith("<p")) {
-            // Calculate the raw indent level
-            const rawIndentLevel = calculateIndentLevel(line) - 1;
-            let indentLevel = rawIndentLevel;
-            let elements = [];
-
-            if (trimmedLine.includes("data-bool-quick-link=\"false\"")){
-                return;
-            }
-
-            // Create a temporary container to extract the actual DOM element
-            if (trimmedLine.startsWith("<div")) {
-                elements = document.querySelectorAll("div.smooth-scroll div");
-            } else if (trimmedLine.startsWith("<p")) {
-                elements = document.querySelectorAll("div.smooth-scroll p");
-            }
-
-            // Extract the class value from the string
-            const extractAttributesFromStr = (trimmedLine) => {
-                const classMatch = trimmedLine.match(/class="([^"]*)"/); // Match the class attribute
-                const idMatch = trimmedLine.match(/id="([^"]*)"/); // Match the id attribute
-
-                return {
-                    class: classMatch ? classMatch[1] : "", // Return the class value or null
-                    id: idMatch ? idMatch[1] : "" // Return the id value or ""
-                };
-            };
-
-            // Extracted class value from the string
-            const { class: strClass, id: strId } = extractAttributesFromStr(trimmedLine);
-
-            if (strClass === "" && strId === "") {
-                return;
-            }
-
-            if (trimmedLine.startsWith("<p")) {
-                // Skip processing <p> tags without allowed classes
-                if (!allowedClasses.some((cls) => strClass.includes(cls))) {
-                    return; // Skip this <p> tag
-                }
-            } else if (trimmedLine.startsWith("<div")) {
-                if (strClass.length === 0) {
-                    return;
-                }
-            }
-
-            let found_element = undefined;
-
-            for (let i = 0; i < elements.length; i++) {
-                const el = elements[i]; // Access the current element
-
-                if (strId === el.id && el.classList.contains(strClass)) {
-                    if (trimmedLine.includes("<p")) {
-                        const decoded_line = new DOMParser().parseFromString(trimmedLine, "text/html").body.textContent;
-                        if (trimmedLine.includes(el.innerText) || (decoded_line.includes(el.innerText) || el.innerText.includes(decoded_line))) {
-                            found_element = el;
-                            break;
-                        }
-                    } else {
-                        found_element = el;
-                        break;
-                    }
-                }
-            }
-
-            if (!found_element) {
-                console.log("Error finding element for line: ", trimmedLine.trim());
-                return;
-            }
-
-            if (trimmedLine.startsWith("<p")) {
-                // Skip processing <p> tags without allowed classes
-                const hasAllowedClass = allowedClasses.some((cls) => strClass.includes(cls));
-                if (!hasAllowedClass) {
-                    return; // Skip this <p> tag
-                }
-
-                // Adjust <p> tag indent level if needed
-                if (lastAdjustedIndentLevel !== null && rawIndentLevel === lastAdjustedRawIndentLevel) {
-                    indentLevel = lastAdjustedIndentLevel;
-                } else if (result.length > 0) {
-                    const previousIndentLevel = result[result.length - 1].indentLevel;
-                    if (indentLevel > previousIndentLevel + 1) {
-                        indentLevel = previousIndentLevel + 1;
-                        lastAdjustedIndentLevel = indentLevel;
-                        lastAdjustedRawIndentLevel = rawIndentLevel;
-                    }
-                }
-            } else {
-                // Reset adjustment tracking for <div> tags
-                lastAdjustedIndentLevel = null;
-                lastAdjustedRawIndentLevel = null;
-            }
-
-            if (found_element.dataset.boolQuickLink === "false") {
-                return;
-            }
-
-            if (found_element.classList.contains("sub-sub-step")) {
-                indentLevel++;
-            }
-
-            const tagName = trimmedLine.match(/^<(\w+)/)?.[1]; // Extract the tag name
-
-            if (found_element.dataset.customQuickLink) {
-                const custom_els = found_element.dataset.customQuickLink.split(";");
-                for (let i = 0; i < custom_els.length; i++) {
-                    result.push({
-                        tagName,
-                        rawIndentLevel, // Store the original unedited indent level
-                        indentLevel, // Store the adjusted indent level
-                        element: found_element,
-                        line,
-                        custom_name: custom_els[i]
-                    });
-                }
-
-            } else {
-                if (!strClass.includes("content-container-top")) {
-                    result.push({
-                        tagName,
-                        rawIndentLevel, // Store the original unedited indent level
-                        indentLevel, // Store the adjusted indent level
-                        element: found_element,
-                        line
-                    });
-                }
-            }
+        // Generate font box and quick links
+        if (generateFontBox(parentElement)) {
+            const elementsData = getQuickLinkElements();
+            generateQuickLinks(parentElement, elementsData);
         }
-    });
-
-    return result;
+    } catch (e) {
+        console.error("Error initializing quick links:", e);
+    }
 }
 
-function generate_quick_links(parentElement, result) {
-    // console.log(result);
-
-    if (!result || result.length === 0) {
-        console.log("Result array is empty or undefined.");
-        return;
+function shouldExcludeElement(element) {
+    // Check if the element itself or any of its ancestors is a solver-container
+    let current = element;
+    while (current) {
+        if (current.classList &&
+            (current.classList.contains('solver-container') ||
+                current.classList.contains('stats') ||
+                current.classList.contains('weapon-desc') ||
+                current.classList.contains('warning') ||
+                current.classList.contains('solver-output') ||
+                current.classList.contains('solver-symbol-select') ||
+                current.classList.contains('aligned-buttons') ||
+                current.classList.contains('aligned-label'))) {
+            return true;
+        }
+        current = current.parentElement;
     }
 
-    let currentList = null; // The current <ul>
-    let listStack = []; // Stack to manage nested lists
+    return element.dataset && element.dataset.boolQuickLink === "false";
+}
+
+// Helper function to get just the title text from an element
+function getElementTitle(element) {
+    // If there's a custom title specified, use that
+    if (element.dataset.customTitle) {
+        return element.dataset.customTitle;
+    }
+
+    if (element.children.length !== 0) {
+        return element.children[0].innerHTML;
+
+    } else {
+        return element.textContent;
+
+    }
+}
+
+function getQuickLinkElements() {
+    const results = [];
+
+    // Get all div.content-container elements with data-section-ind
+    // const containers = document.querySelectorAll("div.content-container[data-section-ind]");
+    const containers = document.querySelectorAll("div.content-container");
+
+    for (const container of containers) {
+        // Skip if this container should be excluded
+        if (shouldExcludeElement(container)) continue;
+
+        // console.log(container.dataset.sectionInd)
+
+        // Add the container itself as a section header
+        results.push({
+            element: container,
+            indentLevel: 0,
+            isSectionHeader: container.dataset.sectionInd !== undefined
+        });
+
+        // Find all step-group-title paragraphs in this container
+        const titles = container.querySelectorAll("p.step-group-title, p.upgrade-title, p.sub-sub-step");
+
+        // for (const title of titles) {
+        for (const [title_counter, title] of titles.entries()) {
+
+            // Skip if inside or related to solver-container
+            if (shouldExcludeElement(title)) {
+                continue;
+            }
+
+            // Determine indent level
+            let indentLevel = 1; // Default is one level deeper than container
+
+            // Add extra indent for sub-sub-step
+            if (title.classList.contains("sub-sub-step") && title_counter !== 0) {
+                indentLevel = 2;
+            }
+
+            // Handle custom quick links if present
+            if (title.dataset.customQuickLink) {
+                const customLinks = title.dataset.customQuickLink.split(";");
+                title.id = customLinks[0];
+                for (const customName of customLinks) {
+                    results.push({
+                        element: title,
+                        indentLevel,
+                        custom_name: customName
+                    });
+                }
+            } else {
+                results.push({
+                    element: title,
+                    indentLevel
+                });
+            }
+        }
+    }
+
+    return results;
+}
+
+function generateQuickLinks(parentElement, elements) {
+    if (!elements || elements.length === 0) return;
+
+    let currentList = null;
+    let listStack = [];
     let currentIndentLevel = 0;
 
-    for (let item_index = 0; item_index < result.length; item_index++) {
-        let item = result[item_index];
+    for (let i = 0; i < elements.length; i++) {
+        const item = elements[i];
+        const { element, indentLevel, isSectionHeader } = item;
 
-        if (item.element.classList.contains("content-container-top")) {
-            continue;
-        }
-
-        const { element, indentLevel } = item;
-        let isSectionHeader = false;
-
-        if (element.dataset.sectionInd) {
-            isSectionHeader = true;
-        }
-
-        if (!element || indentLevel === undefined) {
-            continue; // Skip invalid items
-        }
+        if (!element || indentLevel === undefined) continue;
 
         if (isSectionHeader) {
-            // Create an <h2> for the section header
+            // Create section header
             const sectionHeader = document.createElement("h2");
             sectionHeader.innerText = element.dataset.sectionInd;
             parentElement.appendChild(sectionHeader);
 
-            // Create a new <ul> for this section and reset the stack
+            // Create new list for this section
             currentList = document.createElement("ul");
             parentElement.appendChild(currentList);
             listStack = [currentList];
             currentIndentLevel = 0;
         }
 
-        // If no currentList exists (e.g., first item is not a section header), create a root <ul>
+        // Create root list if needed
         if (!currentList) {
             currentList = document.createElement("ul");
             parentElement.appendChild(currentList);
@@ -943,112 +856,76 @@ function generate_quick_links(parentElement, result) {
             currentIndentLevel = 0;
         }
 
-        // Create a new <li> and <a> for the current element
+        // Create list item and link
         const listItem = document.createElement("li");
         const link = document.createElement("a");
-        let element_id = element.id;
 
-        if (element_id === "") {
-            try {
-                element_id = result[item_index - 1].element.id;
-            } catch (e) {
-                console.error(e);
-                continue;
-            }
-
+        // Get element ID, fallback to previous element's ID if empty
+        let elementId = element.id;
+        if (elementId === "" && i > 0) {
+            elementId = elements[i - 1].element.id || "";
         }
 
-        link.href = `#${element_id}`;
+        if (elementId === "") continue; // Skip if no valid ID
 
-        if (item.custom_name){
+        link.href = `#${elementId}`;
+
+        // Set link text - using the improved title extraction
+        if (item.custom_name) {
             link.innerText = item.custom_name;
         } else {
-            link.innerText =
-                element.firstElementChild?.innerText.trim() ||
-                element.innerText.trim() ||
-                "Untitled";
+            link.innerText = getElementTitle(element);
         }
 
         listItem.appendChild(link);
 
-        // Handle nesting based on indentLevel
+        // Handle nesting
         if (indentLevel > currentIndentLevel) {
-            // Create a new nested <ul> and append it to the last <li>
-            const newNestedList = document.createElement("ul");
-            const lastListItem = listStack[listStack.length - 1].lastElementChild;
+            // Need to create nested lists to reach the desired indent level
+            while (currentIndentLevel < indentLevel) {
+                const newList = document.createElement("ul");
 
-            if (lastListItem) {
-                lastListItem.appendChild(newNestedList);
-                listStack.push(newNestedList); // Push the new <ul> onto the stack
-                currentIndentLevel = indentLevel;
-            } else {
-                console.log("Cannot create nested list. Missing parent <li>.");
+                if (listStack[listStack.length - 1].lastElementChild) {
+                    listStack[listStack.length - 1].lastElementChild.appendChild(newList);
+                } else {
+                    // If there's no last element, create a dummy item
+                    const dummyItem = document.createElement("li");
+                    dummyItem.textContent = "Untitled";
+                    listStack[listStack.length - 1].appendChild(dummyItem);
+                    dummyItem.appendChild(newList);
+                }
+
+                listStack.push(newList);
+                currentIndentLevel++;
             }
         } else if (indentLevel < currentIndentLevel) {
-            // Pop lists from the stack until the current level matches the indentLevel
+            // Go back up the nesting levels
             while (listStack.length > 1 && currentIndentLevel > indentLevel) {
                 listStack.pop();
                 currentIndentLevel--;
             }
         }
 
-        // Append the current <li> to the current <ul>
+        // Add list item to current list
         if (listStack.length > 0) {
             listStack[listStack.length - 1].appendChild(listItem);
-        } else {
-            console.log("List stack is empty. Cannot append <li>.");
         }
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    try {
-        let page = getCurrentPage();
-
-        console.log(`Quick links page name: ${page}`);
-
-        if (page === "index.html") {
-            return;
-        }
-
-        // Target the parent element where you want to append the elements
-        let parentElement = document.getElementsByClassName("content-container-top")[0];
-
-        if (parentElement === undefined) {
-            const smoothScrollElement = document.getElementsByClassName("smooth-scroll")[0];
-            parentElement = document.createElement("div");
-            parentElement.classList.add("content-container-top");
-            // Check if the smoothScrollElement has any child elements
-            if (smoothScrollElement.firstChild) {
-                // Insert the parentElement at the top, before the first child
-                smoothScrollElement.insertBefore(parentElement, smoothScrollElement.firstChild);
-            } else {
-                // If there are no child elements, just append it as usual
-                smoothScrollElement.appendChild(parentElement);
-            }
-        }
-
-        if (generate_font_box(parentElement)) {
-            generate_quick_links(parentElement, getTagIndentLevelsFromHTML());
-        }
-    } catch (e) {
-        console.log(e);
-    }
-})
-
-
 /*
 =======================================
-LIGHTBOX FOR IMAGES
+LIGHTBOX FOR IMAGES AND VIDEOS
 =======================================
  */
 function addLightboxClass() {
     // Get all anchor tags on the page
     const anchorTags = document.querySelectorAll('a');
 
-    // Common image file extensions
+    // Common media file extensions
     const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.svg'];
+    const videoExtensions = ['.webm', '.mp4', '.ogg'];
+    const mediaExtensions = [...imageExtensions, ...videoExtensions];
 
     // Loop through all anchor tags
     anchorTags.forEach(anchor => {
@@ -1057,14 +934,21 @@ function addLightboxClass() {
         // Skip if no href attribute or null
         if (!href) return;
 
-        // Check if the href ends with any image extension (case insensitive)
-        const endsWithImageExt = imageExtensions.some(ext =>
+        // Check if the href ends with any media extension (case insensitive)
+        const endsWithMediaExt = mediaExtensions.some(ext =>
             href.toLowerCase().endsWith(ext)
         );
 
-        // Add the class if it's an image link
-        if (endsWithImageExt) {
+        // Add the class if it's a media link
+        if (endsWithMediaExt) {
             anchor.classList.add('lightbox-trigger');
+
+            // Store the media type as a data attribute
+            if (videoExtensions.some(ext => href.toLowerCase().endsWith(ext))) {
+                anchor.dataset.mediaType = 'video';
+            } else {
+                anchor.dataset.mediaType = 'image';
+            }
         }
     });
 }
@@ -1079,6 +963,9 @@ function addLightboxContainer() {
         <div class="lightbox-content">
             <div class="lightbox-caption"></div>
             <img id="lightbox-img" src="" alt="Enlarged image">
+            <video id="lightbox-video" controls loop style="display: none; max-height: 80vh; object-fit: contain;">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
     `;
@@ -1095,37 +982,49 @@ let allTriggers = [];
 let currentIndex = -1;
 
 /**
- * Preloads images adjacent to the current one
- * @param {number} currentIndex - Index of the current image
+ * Preloads media adjacent to the current one
+ * @param {number} currentIndex - Index of the current media item
  */
-function preloadAdjacentImages(currentIndex) {
+function preloadAdjacentMedia(currentIndex) {
     if (!allTriggers.length) return;
 
-    // Preload next image
+    // Preload next media (only preload images, not videos)
     if (currentIndex < allTriggers.length - 1) {
-        const nextImg = new Image();
-        nextImg.src = allTriggers[currentIndex + 1].getAttribute('href');
+        const nextTrigger = allTriggers[currentIndex + 1];
+        const mediaType = nextTrigger.dataset.mediaType;
+
+        if (mediaType === 'image') {
+            const nextImg = new Image();
+            nextImg.src = nextTrigger.getAttribute('href');
+        }
     }
 
-    // Preload previous image
+    // Preload previous media (only preload images, not videos)
     if (currentIndex > 0) {
-        const prevImg = new Image();
-        prevImg.src = allTriggers[currentIndex - 1].getAttribute('href');
+        const prevTrigger = allTriggers[currentIndex - 1];
+        const mediaType = prevTrigger.dataset.mediaType;
+
+        if (mediaType === 'image') {
+            const prevImg = new Image();
+            prevImg.src = prevTrigger.getAttribute('href');
+        }
     }
 }
 
 /**
- * Opens the lightbox with the specified image source
- * @param {string} imgSrc - Source URL of the image
+ * Opens the lightbox with the specified media source
+ * @param {string} mediaSrc - Source URL of the media
  * @param {string} captionText - Text to display as caption
- * @param {number} index - Index of the image in the triggers array
+ * @param {number} index - Index of the media in the triggers array
+ * @param {string} mediaType - Type of media ('image' or 'video')
  */
-function openLightbox(imgSrc, captionText, index) {
+function openLightbox(mediaSrc, captionText, index, mediaType) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxVideo = document.getElementById('lightbox-video');
     const lightboxCaption = document.querySelector('.lightbox-caption');
 
-    if (!lightbox || !lightboxImg || !lightboxCaption) return;
+    if (!lightbox || !lightboxImg || !lightboxVideo || !lightboxCaption) return;
 
     // Update current index
     currentIndex = index;
@@ -1133,60 +1032,95 @@ function openLightbox(imgSrc, captionText, index) {
     // Show a loading state
     lightbox.style.display = 'flex';
     lightboxImg.style.display = 'none';
+    lightboxVideo.style.display = 'none';
     lightboxCaption.textContent = 'Loading...';
 
-    // Create a new image to load in the background
-    const img = new Image();
-    img.src = imgSrc;
+    if (mediaType === 'image') {
+        // Create a new image to load in the background
+        const img = new Image();
+        img.src = mediaSrc;
 
-    img.onload = function() {
-        // Set the source and display the image
-        lightboxImg.setAttribute('src', imgSrc);
-        lightboxImg.style.display = 'block';
+        img.onload = function() {
+            // Set the source and display the image
+            lightboxImg.setAttribute('src', mediaSrc);
+            lightboxImg.style.display = 'block';
+            lightboxCaption.textContent = captionText;
+
+            // Preload adjacent media
+            preloadAdjacentMedia(currentIndex);
+        };
+
+        img.onerror = function() {
+            // Handle error case
+            lightboxCaption.textContent = 'Error loading image';
+            lightboxImg.style.display = 'none';
+        };
+    } else if (mediaType === 'video') {
+        // Handle video content
+        lightboxVideo.setAttribute('src', mediaSrc);
+        lightboxVideo.style.display = 'block';
         lightboxCaption.textContent = captionText;
 
-        // Preload adjacent images
-        preloadAdjacentImages(currentIndex);
-    };
+        // Set up event listeners for video loading
+        lightboxVideo.onloadeddata = function() {
+            // Video is loaded and can be played
+            lightboxCaption.textContent = captionText;
+        };
 
-    img.onerror = function() {
-        // Handle error case
-        lightboxCaption.textContent = 'Error loading image';
-        lightboxImg.style.display = 'none';
-    };
+        lightboxVideo.onerror = function() {
+            // Handle error case
+            lightboxCaption.textContent = 'Error loading video';
+            lightboxVideo.style.display = 'none';
+        };
+
+        // Start playing the video
+        lightboxVideo.play().catch(e => {
+            console.log('Auto-play prevented:', e);
+            // This is expected on many browsers due to autoplay policies
+        });
+    }
 }
 
 /**
- * Navigate to the previous image
+ * Navigate to the previous media
  */
 function navigateToPrevious() {
     if (currentIndex > 0) {
         const prevTrigger = allTriggers[currentIndex - 1];
-        const imgSrc = prevTrigger.getAttribute('href');
+        const mediaSrc = prevTrigger.getAttribute('href');
         let captionText = prevTrigger.textContent.trim();
         captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
-        openLightbox(imgSrc, captionText, currentIndex - 1);
+        const mediaType = prevTrigger.dataset.mediaType;
+        openLightbox(mediaSrc, captionText, currentIndex - 1, mediaType);
     }
 }
 
 /**
- * Navigate to the next image
+ * Navigate to the next media
  */
 function navigateToNext() {
     if (currentIndex < allTriggers.length - 1) {
         const nextTrigger = allTriggers[currentIndex + 1];
-        const imgSrc = nextTrigger.getAttribute('href');
+        const mediaSrc = nextTrigger.getAttribute('href');
         let captionText = nextTrigger.textContent.trim();
         captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
-        openLightbox(imgSrc, captionText, currentIndex + 1);
+        const mediaType = nextTrigger.dataset.mediaType;
+        openLightbox(mediaSrc, captionText, currentIndex + 1, mediaType);
     }
 }
 
 /**
- * Closes the lightbox
+ * Closes the lightbox and stops any playing videos
  */
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
+    const lightboxVideo = document.getElementById('lightbox-video');
+
+    if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
+    }
+
     if (lightbox) {
         lightbox.style.display = 'none';
     }
@@ -1198,13 +1132,14 @@ function closeLightbox() {
  */
 function handleTriggerClick(event) {
     event.preventDefault();
-    const imgSrc = this.getAttribute('href');
+    const mediaSrc = this.getAttribute('href');
     let captionText = this.textContent.trim();
     captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1); // Uppercase the first letter of the string
+    const mediaType = this.dataset.mediaType || 'image'; // Default to image if not specified
 
     // Find index of this trigger in the allTriggers array
     const index = allTriggers.indexOf(this);
-    openLightbox(imgSrc, captionText, index);
+    openLightbox(mediaSrc, captionText, index, mediaType);
 }
 
 /**
@@ -1250,14 +1185,6 @@ function initLightbox() {
         }
     });
 }
-
-// Single DOMContentLoaded event listener that handles everything in the right order
-document.addEventListener('DOMContentLoaded', () => {
-    console.log()
-    addLightboxContainer(); // First add the container to the DOM
-    addLightboxClass(); // Then add classes to the appropriate anchor tags
-    initLightbox(); // Finally initialize the lightbox functionality
-});
 
 
 /*
@@ -1319,6 +1246,16 @@ document.addEventListener("DOMContentLoaded", function() {
     tutorialPopupInit();
     colourCodeAnchors();
     setTitle();
+    setupSolverButtons();
+
+    let start = performance.now();
+    initializeQuickLinks();
+    let end = performance.now();
+    console.log(`initializeQuickLinks took ${end - start} milliseconds`);
+
+    addLightboxContainer(); // First add the container to the DOM
+    addLightboxClass(); // Then add classes to the appropriate anchor tags
+    initLightbox(); // Finally initialize the lightbox functionality
 });
 
 window.addEventListener("DOMContentLoaded", function () {

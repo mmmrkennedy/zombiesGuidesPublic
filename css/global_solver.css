@@ -19,6 +19,7 @@ body.solver-body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow-wrap: break-word; /* Breaks long words if necessary */
     word-wrap: break-word; /* Ensures compatibility for word breaking */
+    margin: 12px 0;
 }
 
 .solver-container.left {
@@ -41,7 +42,7 @@ body.solver-body {
 .solver-container select.solver {
     width: fit-content;
     min-width: 50px; /* Ensures usability */
-    max-width: 150px; /* Restricts width */
+    /* max-width: 150px;  Restricts width */
     margin: 0; /* Remove default margins */
 }
 
