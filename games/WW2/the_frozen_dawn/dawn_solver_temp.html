@@ -49,32 +49,11 @@
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <div class="solver-container">
-            <h3>Block Positions (click to change)</h3>
-            <p>Up = Facing Away, Down = Facing Front</p>
-
-            <div class="aligned-buttons vertical">
-                <button class="aligned-button square solver-button" id="blockA" onclick="change_directions(0)">↑
-                </button>
-                <button class="aligned-button square solver-button" id="blockB" onclick="change_directions(1)">↑
-                </button>
-                <button class="aligned-button square solver-button" id="blockC" onclick="change_directions(2)">↑
-                </button>
-                <button class="aligned-button square solver-button" id="blockD" onclick="change_directions(3)">↑
-                </button>
-            </div>
-
-
-            <button class="solver-button" id="solve" onclick="main()">Solve!</button>
-
-            <div class="solver-output">
-                <p><span id="result"></span></p>
-            </div>
-        </div>
+        <div class="solver-insert" data-solver-html-path="/zombiesGuidesPublic/games/WW2/the_frozen_dawn/lightning_puzzle_solver/lightning_puzzle_template.html"></div>
     </div>
 </div>
 
-<script src="lightning_puzzle_solver/dawn_lightning_solver.js"></script>
 <script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="lightning_puzzle_solver/dawn_lightning_solver.js"></script>
 </body>
 </html>

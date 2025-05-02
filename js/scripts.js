@@ -1236,6 +1236,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+async function includeSolverComponent() {
+    const solverInserts = document.querySelectorAll('.solver-insert');
+
+    // Use Promise.all to load all inserts simultaneously
+    await Promise.all(Array.from(solverInserts).map(async (insert) => {
+        try {
+            const response = await fetch(insert.dataset.solverHtmlPath);
+            if (!response.ok) throw new Error(`Failed to fetch ${insert.dataset.solverHtmlPath}`);
+
+            const html = await response.text();
+            insert.innerHTML = html;
+        } catch (error) {
+            console.error(`Error loading solver component at ${insert.dataset.solverHtmlPath}:`, error);
+            insert.innerHTML = `<p class="error">Failed to load solver component</p>`;
+        }
+    }));
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     changeThemeColour();
@@ -1256,6 +1274,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addLightboxContainer(); // First add the container to the DOM
     addLightboxClass(); // Then add classes to the appropriate anchor tags
     initLightbox(); // Finally initialize the lightbox functionality
+    includeSolverComponent();
 });
 
 window.addEventListener("DOMContentLoaded", function () {
