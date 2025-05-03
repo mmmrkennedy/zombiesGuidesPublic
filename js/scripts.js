@@ -2,13 +2,15 @@
 
 
 function getCurrentPage() {
-    let path = window.location.pathname.split("/").pop();
-    console.log(path);
-    return path;
+    return window.location.pathname.split("/").pop();
 }
 
 
 function setTitle() {
+    if (getCurrentPage() === "index.html") {
+        return;
+    }
+    
     let titleElement = document.getElementsByClassName("title-text")[0];
     let titleText = titleElement.innerHTML;
 
@@ -1238,11 +1240,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function includeSolverComponent() {
     const solverInserts = document.querySelectorAll('.solver-insert');
-
+    let event_names = [];
+    
     // Use Promise.all to load all inserts simultaneously
     await Promise.all(Array.from(solverInserts).map(async (insert) => {
         try {
             const response = await fetch(insert.dataset.solverHtmlPath);
+            event_names.push(insert.dataset.solverHtmlPath.split("/").pop().replace(/\.html$/, ''));
             if (!response.ok) throw new Error(`Failed to fetch ${insert.dataset.solverHtmlPath}`);
 
             const html = await response.text();
@@ -1252,6 +1256,10 @@ async function includeSolverComponent() {
             insert.innerHTML = `<p class="error">Failed to load solver component</p>`;
         }
     }));
+
+    for (const eventName of event_names) {
+        document.dispatchEvent(new CustomEvent(eventName));
+    }
 }
 
 

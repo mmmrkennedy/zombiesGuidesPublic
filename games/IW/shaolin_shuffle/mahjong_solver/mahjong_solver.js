@@ -1,31 +1,41 @@
-const selectedTiles = [];
-const tileSelection = document.getElementById('tileSelection');
-const result = document.getElementById('result');
-const resultTiles = document.getElementById('resultTiles');
-let tile_count = [0, 0, 0, 0, 0];
+let selectedTiles;
+let tileSelection;
+let result;
+let resultTiles;
+let tile_count;
 
-// Add click event to each tile
-tileSelection.addEventListener('click', (event) => {
-    const tile = event.target;
-    if (tile.tagName === 'IMG' && selectedTiles.length < 14) {
-        const tileValue = parseInt(tile.getAttribute('data-value'));
-        const tileSrc = tile.getAttribute('data-src');
+document.addEventListener('mahjong_solver_template', function() {
+    console.log("mahjong_solver_template called")
 
-        // Add tile to the selected list and display in the result
-        selectedTiles.push({ value: tileValue, src: tileSrc });
-        tile_count[tileValue - 1] += 1;
-        updateResult();
+    selectedTiles = [];
+    tileSelection = document.getElementById('tileSelection');
+    result = document.getElementById('result');
+    resultTiles = document.getElementById('resultTiles');
+    tile_count = [0, 0, 0, 0, 0];
 
-        // Disable further tile selection if 14 tiles are selected
-        if (selectedTiles.length === 14) {
-            disableTiles();
-            calculateHand();
-        } else {
-            if (tile_count[tileValue - 1] >= 4) {
-                disableTile(tileValue);
+    // Add click event to each tile
+    tileSelection.addEventListener('click', (event) => {
+        const tile = event.target;
+        if (tile.tagName === 'IMG' && selectedTiles.length < 14) {
+            const tileValue = parseInt(tile.getAttribute('data-value'));
+            const tileSrc = tile.getAttribute('data-src');
+
+            // Add tile to the selected list and display in the result
+            selectedTiles.push({value: tileValue, src: tileSrc});
+            tile_count[tileValue - 1] += 1;
+            updateResult();
+
+            // Disable further tile selection if 14 tiles are selected
+            if (selectedTiles.length === 14) {
+                disableTiles();
+                calculateHand();
+            } else {
+                if (tile_count[tileValue - 1] >= 4) {
+                    disableTile(tileValue);
+                }
             }
         }
-    }
+    });
 });
 
 // Update the result with the selected tiles as images

@@ -103,7 +103,7 @@ function generate_letter_img(possible_letters) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("shaolin_ee_word_solver_template", function () {
     // Select the <ul> element by its ID
     const wordList = document.getElementById("word_list");
 
@@ -113,9 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         listItem.textContent = word; // Set the text content to the word
         wordList.appendChild(listItem); // Append the <li> to the <ul>
     });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    
     // JavaScript to toggle the 'active' class
     const filter_button = document.getElementById('word_filter_button');
 

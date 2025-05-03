@@ -49,42 +49,12 @@
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <div class="solver-container left">
-            <h2>Input Word and Board</h2>
-            
-            <label for="word">
-                <span>Select your word:</span>
-            </label>
-            <select id="word" class="spacing" onchange="solve_board_word()">
-                <option value="default" selected disabled>Select your word</option>
-                <option value="CRAB">CRAB</option>
-                <option value="MOTH">MOTH</option>
-                <option value="WORM">WORM</option>
-                <option value="YETI">YETI</option>
-            </select>
-            
-            <br>
-            
-            <label for="board">
-                <span>Select the letter(s) on the bottom right of the Board:</span>
-            </label>
-            <select id="board" class="spacing" onchange="solve_board_word()">
-                <option value="default" selected disabled>Select your letter(s)</option>
-                <option value="board_1">M</option>
-                <option value="board_2">AI</option>
-                <option value="board_3">JKZ</option>
-                <option value="board_4">APRSTVW</option>
-            </select>
-            
-            <div class="solver-output" id="codeOutput">
-                <p>Code: <span id="solver_code">N/A</span></p>
-            </div>
-        </div>
+        <div class="solver-insert" data-solver-html-path="/zombiesGuidesPublic/games/BO6/shattered_veil/letterboard_solver/letterboard_solver_template.html"></div>
     </div>
 </div>
 
 <h2 class="bottom-padding"></h2>
 <script src="/zombiesGuidesPublic/js/scripts.js"></script>
-<script src="letterboard_solver.js"></script>
+<script src="letterboard_solver/letterboard_solver.js"></script>
 </body>
 </html>

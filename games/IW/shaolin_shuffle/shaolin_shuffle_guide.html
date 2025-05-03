@@ -374,8 +374,8 @@
                     <li><a href="pictures/main_ee/brain/letter/letter_white_table.webp">On a white table, left of the KBS Longbow wallbuy</a></li>
                 </ul>
             </ul>
-
-            <div id="word_filter_top_box" data-bool-quick-link="false" class="button-activated-div">
+            
+            <div id="word_filter_top_box" data-bool-quick-link="false" class="solver-with-button">
                 <button id="word_filter_button" class="square-button">Click to show possible words/word solver</button>
 
                 <div id="word_filter" data-bool-quick-link="false" class="button-activated-div border" style="display: none">
@@ -536,32 +536,8 @@
 
             <div class="solver-with-button" data-bool-quick-link="false">
                 <button class="square-button">Click to show Mahjong Tile Solver</button>
-                <div class="solver-container" style="display: none">
-                    <h2>Mahjong Tile Solver</h2>
-
-                    <div>
-                        <label>Select Tiles (1 Dot to 5 Dot):</label>
-                        <div class="solver-symbol-select" id="tileSelection">
-                            <img src="solvers_and_scripts/mahjong_solver/dot_1.webp" alt="1 Dot" data-value="1"
-                                 data-src="solvers_and_scripts/mahjong_solver/dot_1.webp" class="shaolin">
-                            <img src="solvers_and_scripts/mahjong_solver/dot_2.webp" alt="2 Dot" data-value="2"
-                                 data-src="solvers_and_scripts/mahjong_solver/dot_2.webp" class="shaolin">
-                            <img src="solvers_and_scripts/mahjong_solver/dot_3.webp" alt="3 Dot" data-value="3"
-                                 data-src="solvers_and_scripts/mahjong_solver/dot_3.webp" class="shaolin">
-                            <img src="solvers_and_scripts/mahjong_solver/dot_4.webp" alt="4 Dot" data-value="4"
-                                 data-src="solvers_and_scripts/mahjong_solver/dot_4.webp" class="shaolin">
-                            <img src="solvers_and_scripts/mahjong_solver/dot_5.webp" alt="5 Dot" data-value="5"
-                                 data-src="solvers_and_scripts/mahjong_solver/dot_5.webp" class="shaolin">
-                        </div>
-                    </div>
-
-                    <button class="solver-button" onclick="resetSelection()">Reset</button>
-
-                    <div class="solver-output" id="output">
-                        <p id="result"></p>
-                        <div id="resultTiles"></div>
-                    </div>
-                </div>
+                
+                <div class="solver-insert" data-solver-html-path="/zombiesGuidesPublic/games/IW/shaolin_shuffle/mahjong_solver/mahjong_solver_template.html"></div>
             </div>
 
             <li>Once the tiles are placed correctly, fireworks will shoot from behind the tiles and the completion sound will play.</li>
@@ -786,8 +762,8 @@
 
 <h2 class="bottom-padding"></h2>
 <script src="/zombiesGuidesPublic/js/scripts.js"></script>
-<script src="solvers_and_scripts/mahjong_solver/mahjong_solver.js"></script>
-<script src="solvers_and_scripts/timezone_conversion.js"></script>
-<script src="solvers_and_scripts/word_solver.js"></script>
+<script src="mahjong_solver/mahjong_solver.js"></script>
+<script src="timezone_conversion.js"></script>
+<script src="main_ee_word_solver/word_solver.js"></script>
 </body>
 </html>
