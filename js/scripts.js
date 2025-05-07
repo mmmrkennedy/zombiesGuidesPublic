@@ -171,7 +171,16 @@ NAVIGATION UTILITIES
 */
 
 function navigateToIndex() {
-    window.location.href = "/zombiesGuidesPublic/index.html";
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
+
+    if (isLocalEnvironment) {
+        window.location.href = "/ZombiesGuidesHolder/zombiesGuidesPublic/index.html";
+
+    } else {
+        window.location.href = "/zombiesGuidesPublic/index.html";
+    }
 }
 
 function navigateToSettings() {

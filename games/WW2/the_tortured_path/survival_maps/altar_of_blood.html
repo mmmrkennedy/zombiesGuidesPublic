@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Browser Tab Title (don't include "guide", just map name) -->
+    <title>CHANGE ME</title>
+    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <base target="_blank">
+</head>
+
+<script>
+    // Check if we're on localhost or a local environment
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+                              window.location.hostname === "127.0.0.1" ||
+                              window.location.hostname.includes(".local");
+    
+    // Only redirect if we're not in a local environment
+    if (!isLocalEnvironment) {
+        window.location.href = "/zombiesGuidesPublic/unfinished.html";
+        setInterval(() => {
+            window.location.href = "/zombiesGuidesPublic/unfinished.html";
+        }, 1000); // Redirect every second
+    }
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
+
+</script>
+
+<body>
+<!-- Mobile devices content -->
+<div id="mobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+</div>
+
+<!-- Non-mobile devices content -->
+<div id="nonMobileContent">
+    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+</div>
+
+<!-- Title at the top of the page, INCLUDE "guide"-->
+<h2 class="title-text">CHANGE ME</h2>
+<div class="top_buttons_background_box"></div>
+
+<div class="smooth-scroll">
+    <!-- Legend to other parts -->
+    <div class="content-container-top">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+
+        <h2>Weapons</h2>
+        <ul>
+            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <ol>
+                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
+                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
+            </ol>
+        </ul>
+
+        <h2>Easter Eggs</h2>
+        <ul>
+            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+            <ol>
+                <li><a href="#main_ee_step1">CHANGE ME</a></li>
+                <li><a href="#main_ee_step2">CHANGE ME</a></li>
+                <li><a href="#main_ee_step3">CHANGE ME</a></li>
+                <li><a href="#main_ee_step4">CHANGE ME</a></li>
+                <li><a href="#main_ee_step5">CHANGE ME</a></li>
+            </ol>
+        </ul>
+    </div>
+
+    <!-- Wonder Weapons -->
+    <div class="content-container" id="CHANGE ME">
+        <h2>CHANGE ME</h2>
+        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
+        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    </div>
+
+    <!-- Main Easter Egg -->
+    <div class="content-container" id="main_ee">
+        <h2>CHANGE ME</h2>
+        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est Completion Time - CHANGE ME, RNG Rating - CHANGE
+            ME</p>
+        <ol>
+            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
+            <li>CHANGE ME</li>
+            <li>CHANGE ME</li>
+        </ol>
+    </div>
+</div>
+
+<h2 class="bottom-padding"></h2>
+<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+</body>
+</html>
