@@ -18,7 +18,7 @@ const mazeSolutionCoordinates = [
 
 function findSolPath(startCoords, endCoords) {
     const solution = mazeSolutionCoordinates.find(
-        ({ start, end }) =>
+        ({start, end}) =>
             JSON.stringify(start) === JSON.stringify(startCoords) &&
             JSON.stringify(end) === JSON.stringify(endCoords)
     );

@@ -31,15 +31,15 @@ function process_arr(button_arr) {
 
         if (button_arr[i] === "blue") {
             blue_count++;
-        } else if (button_arr[i] === "red"){
+        } else if (button_arr[i] === "red") {
             red_count++;
-        } else if (button_arr[i] === "green"){
+        } else if (button_arr[i] === "green") {
             green_count++;
-        } else if (button_arr[i] === "yellow"){
+        } else if (button_arr[i] === "yellow") {
             yellow_count++;
-        } else if (button_arr[i] === "black"){
+        } else if (button_arr[i] === "black") {
             black_count++;
-        } else if (button_arr[i] === "white"){
+        } else if (button_arr[i] === "white") {
             white_count++;
         }
     }
@@ -64,7 +64,7 @@ function BL(arr, colour) {
     return index + 1;
 }
 
-function is_any_even(arr){
+function is_any_even(arr) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] % 2 === 0 && arr[i] !== 0) {
             return true;
@@ -158,7 +158,6 @@ function venom_box_calc(button_arr) {
         // c4, W1
         console.log("x = 5, c4");
         return "Press Button #1";
-
 
 
     } else if (X === 6) {

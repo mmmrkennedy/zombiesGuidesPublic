@@ -179,6 +179,7 @@ p.boss-fight-phases {
     font-weight: bold;
     font-size: 100%;
     line-height: 1.75;
+    color: #bdb968;
 }
 
 p.step-group-title, p.archon-special, p.sub-sub-step {

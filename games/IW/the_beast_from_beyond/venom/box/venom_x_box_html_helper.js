@@ -62,6 +62,6 @@ function add_colour_selectors() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     add_colour_selectors()
 });

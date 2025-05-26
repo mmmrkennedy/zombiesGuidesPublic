@@ -76,7 +76,7 @@ function solveCipher(targetWord, swingsetLetters) {
     // Validate input
     if (swingsetLetters.length !== 4) {
         return "Error: Swingset letters must be exactly 4 characters.";
-    } else if (hasDuplicates(swingsetLetters)){
+    } else if (hasDuplicates(swingsetLetters)) {
         return "Error: Swingset letters can't be the same.";
     }
 

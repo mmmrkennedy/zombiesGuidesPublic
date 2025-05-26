@@ -34,47 +34,45 @@
         <div class="content-container">
             <div class="solver-container">
                 <h2>Venom-X Box Solver</h2>
-                
-                <label for="venom-x-box-button-selector">Select the number of buttons:</label>
-                <select id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
-                    <option value="3">3 Buttons</option>
-                    <option value="4">4 Buttons</option>
-                    <option value="5">5 Buttons</option>
-                    <option value="6">6 Buttons</option>
-                </select>
-                
+
+                <label for="venom-x-box-button-selector">Select the number of buttons:</label> <select id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
+                <option value="3">3 Buttons</option>
+                <option value="4">4 Buttons</option>
+                <option value="5">5 Buttons</option>
+                <option value="6">6 Buttons</option>
+            </select>
+
                 <div id="venom-x-box-buttons"></div>
-                
+
                 <p id="venom-x-box-result"></p>
-            
+
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="solver-container">
                 <h2>Venom-X Maze Solver</h2>
-                
+
                 <div id="maze-container">
                     <div class="venom-board" id="board"></div>
                     <p id="venom-maze-error"></p>
-                    
+
                     <div class="draggable-container">
-                        <img src="/zombiesGuidesPublic/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start">
-                        <img src="/zombiesGuidesPublic/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end">
+                        <img src="/zombiesGuidesPublic/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start"> <img src="/zombiesGuidesPublic/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end">
                     </div>
                 </div>
-                
+
                 <div id="maze_img_container" style="display: none"></div>
-                
+
                 <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
                 <button class="solver-button" onclick="resetMaze()">Reset All</button>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="solver-container left">
                 <h2>Beast Venom-Y/Z Morse Code Solver</h2>
-                
+
                 <div class="solver-symbol-select" id="morse_input_div">
                     <ul>
                         <p style="font-weight: bold; margin-left: -20px" data-bool-quick-link="false">How to use</p>
@@ -84,17 +82,13 @@
                         <li>Keep entering the code until the solver gives you the extracted number.</li>
                         <li>If you want to decrypt a code without either Cross' or Archer's starting code, enter the Key.</li>
                     </ul>
-                    <label for="morse_input">Enter your Morse Code:</label>
-                    <input type="text" id="morse_input" name="morse_input" class="spacing" oninput="process_morse_code(this.value)">
-                    <br>
-                    <label for="morse_code_key_select">Enter your Key (Optional):</label>
-                    <select id="morse_code_key_select" name="morse_code_key_select" class="spacing">
-                        <option value="no_key">No Key</option>
-                        <option value="archer">ARCHER</option>
-                        <option value="cross">CROSS</option>
-                    </select>
+                    <label for="morse_input">Enter your Morse Code:</label> <input type="text" id="morse_input" name="morse_input" class="spacing" oninput="process_morse_code(this.value)"> <br> <label for="morse_code_key_select">Enter your Key (Optional):</label> <select id="morse_code_key_select" name="morse_code_key_select" class="spacing">
+                    <option value="no_key">No Key</option>
+                    <option value="archer">ARCHER</option>
+                    <option value="cross">CROSS</option>
+                </select>
                 </div>
-                
+
                 <div class="solver-output">
                     <p><span id="solver_code"></span></p>
                     <div id="morse_result">
@@ -106,29 +100,29 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="solver-container">
                 <h2>Beast Main Quest Floppy Disk Puzzle</h2>
-                
+
                 <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
-                
+
                 <div class="solver-output">
                     <p><span id="floppy_solver_code"></span></p>
                     <div id="floppy_result"></div>
                 </div>
-                
+
                 <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="solver-container">
                 <h2>GnS Skull 5 Solver</h2>
                 <p id="queens-explain">Click a square to move the Queen.</p>
-                
+
                 <div class="chessboard" id="chessboard"></div>
-                
+
                 <button id="solve-button-queens" class="solver-button" onclick="solve_eight_queens()">Solve</button>
                 <button class="solver-button" onclick="reset_eight_queens()">Reset All</button>
             </div>

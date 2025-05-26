@@ -18,7 +18,7 @@ let solutions_queens = [];
 
 function create2DArray(coords, size = 8) {
     // Initialize an 8x8 2D array with false values
-    const array = Array.from({ length: size }, () => Array(size).fill(false));
+    const array = Array.from({length: size}, () => Array(size).fill(false));
 
     // Mark the positions given in coords as true
     coords.forEach(([x, y]) => {
@@ -37,7 +37,7 @@ function create_all_solution_arrays() {
 
 function rotate2DArrayToRight(array) {
     const size = array.length;
-    const rotated = Array.from({ length: size }, () => Array(size).fill(false));
+    const rotated = Array.from({length: size}, () => Array(size).fill(false));
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -50,7 +50,7 @@ function rotate2DArrayToRight(array) {
 
 function flip2DArray(array, direction) {
     const size = array.length;
-    const flipped = Array.from({ length: size }, () => Array(size).fill(false));
+    const flipped = Array.from({length: size}, () => Array(size).fill(false));
 
     if (direction === 'horizontal') {
         for (let i = 0; i < size; i++) {

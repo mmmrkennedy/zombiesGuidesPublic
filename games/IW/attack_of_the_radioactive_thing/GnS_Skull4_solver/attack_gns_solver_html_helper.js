@@ -41,7 +41,7 @@ function resetAllButtons() {
     wordElement.value = "default";
 }
 
-function generate_all_letter_images(){
+function generate_all_letter_images() {
     const id_names = ['symbol_1', 'symbol_2', 'symbol_3', 'symbol_4'];
 
     for (let i = 0; i < id_names.length; i += 1) {

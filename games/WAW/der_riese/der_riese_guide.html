@@ -63,7 +63,7 @@
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top"></div>
-    
+
     <div class="content-container" data-section-ind="Map Progression" id="pap">
         <h2>Pack-a-Punch</h2>
         <ol>
@@ -82,13 +82,13 @@
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
         <h2>Paradoxical Prologue (Fly Trap) Main Quest / Annihilator Special Weapon (WAW, BO1, BO3)</h2>
 
-        <p class="stats">Stats (Solo): Difficulty - 1/10, Est Completion Time - 5 to 20 Mins</p>
+        <p class="stats">Stats (Solo): Difficulty - 1/10, Est. Completion Time - 5 to 20 Mins</p>
         <ol>
             <li>Unlock <a href="#pap">Pack-a-Punch</a> and get a bullet-based paped weapon.</li>
             <li>Shoot the <a href="pictures/main_ee/panel.webp">control panel</a> (<a href="pictures/main_ee/panel_zoomed_out.webp">zoomed-out view</a>) out the Zombie spawn on the right of the map (when facing right of PAP) with the paped weapon. Multiple items should start flying around it, then fly into the air.</li>
             <li>Three of these items will spawn around the map which you must damage (shoot, melee, grenade, etc). The locations are different for WAW/BO1 and BO3. Locations:</li>
         </ol>
-        
+
         <ol start="4">
             <p class="weapon-desc">WAW/BO1</p>
             <ul>
@@ -98,7 +98,7 @@
             </ul>
             <li>As items are shot, Samantha Maxis will speak to you. Upon shooting the last one, she will scream at you. There is no reward for completing this on this version.</li>
         </ol>
-        
+
         <ol start="4">
             <p class="weapon-desc">BO3</p>
             <ul>
@@ -109,7 +109,7 @@
             <li>Once all three items are shot, Maxis will speak, and after some dialogue, the Annihilator Special Weapon will appear in the <a href="pictures/main_ee/annihilator.webp">furnace</a> in the room "below" teleporter B.</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="song_ee">
         <h2>'Beauty of Annihilation' Song (WAW, BO1, BO3)</h2>
         <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542638516">here</a>.</p>
@@ -123,7 +123,7 @@
             <li>Once all three jars are interacted with, the song will start.</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="new_perk">
         <h2>New Perk Machine / Deadshot or Stamin-Up (BO3)</h2>
         <ol>
@@ -146,7 +146,7 @@
     }
 
     // When the page loads
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Get the version parameter
         var version = getUrlParameter('version');
         const title_text = document.querySelector('.title-text');
@@ -156,7 +156,7 @@
         if (version === 'original' || version === '') {
             // Show/hide or modify elements for original version
             text = "Der Riese Guide";
-            
+
         } else if (version === 'remake') {
             // Show/hide or modify elements for remake version
             text = "The Giant Guide";

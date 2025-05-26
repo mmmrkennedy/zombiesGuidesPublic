@@ -49,7 +49,7 @@
 <div class="smooth-scroll">
     <!-- Legend to other parts -->
     <div class="content-container-top"></div>
-    
+
     <div class="content-container" data-section-ind="Map Progression" id="power">
         <h2>Power/Activate N31L</h2>
         <ol>
@@ -59,7 +59,7 @@
             <li>This will turn the power on, as well as replace the Cryptids with Zombies to return the map to "normal."</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="pap">
         <h2>Pack-a-Punch</h2>
         <ol>
@@ -81,7 +81,7 @@
             </ul>
             <li>After being forcefully teleported back, the teleporter will go on cooldown for about one minute. After a minute, the teleporter will reactivate.</li>
         </ol>
-        
+
         <p class="step-group-title" id="double_pap">Double Pack-a-Punch</p>
         <ol>
             <li>Shoot open the <a href="pictures/double_pap/fuse_box.webp">power box on the wall</a> near the Proteus wallbuy, outside the Cargo Bay. Pick up the <a href="pictures/double_pap/fuse_box_open.webp">fuses inside</a>.</li>
@@ -95,7 +95,7 @@
             <li>The Alien Fuses will only be activated for the remainder of the CURRENT game.</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="theatre">
         <h2>Accessing the Theatre</h2>
         <ol>
@@ -108,11 +108,11 @@
             </ul>
         </ol>
     </div>
-    
+
     <div class="content-container" data-section-ind="Weapons and Buildables" id="venom_x">
         <h2>Venom-X</h2>
         <p class="weapon-desc">The Venom-X is a projectile weapon that shoots eggs that either explode after time or exploded manually by the player. The exploded egg leaves a cloud of gas that damages enemies inside. Killing Cryptids has a chance to drop an egg that can be picked up to partially refill ammo.</p>
-        
+
         <ol>
             <li>Bring a Phantom (big blue Cryptid) to the <a href="pictures/venom_x/water_trap.webp">Electric Water Trap</a> between Spawn and the Medical Bay. Activate the Trap while the Phantom is in the water.</li>
             <ul>
@@ -120,7 +120,7 @@
                 <li>The first time you go to Pack-a-Punch every game will spawn a Phantom.</li>
             </ul>
             <li>In the Ops Center (big main room), a <a href="pictures/venom_x/buttons.webp">box on the wall at the bottom of the stairs</a> near Bang Bangs will be open. There will be between 3-6 coloured buttons inside. Using <a href="venom/pictures/venom_x_button_info.webp">this image</a> (see explanation below) or the solver below, you will need to interact with the correct button.</li>
-            
+
             <div class="solver-with-button" data-bool-quick-link="false">
                 <button class="square-button">Click to show the image explanation</button>
                 <div class="solver-container" style="text-align: left; display: none">
@@ -141,26 +141,25 @@
                     </ol>
                 </div>
             </div>
-            
+
             <div class="solver-with-button" data-bool-quick-link="false">
                 <button class="square-button">Click to show the button solver</button>
                 <div class="solver-container" style="text-align: left; display: none; width: fit-content">
                     <h2>Venom-X Box Solver</h2>
-                    
-                    <label for="venom-x-box-button-selector">Select the number of buttons:</label>
-                    <select id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
-                        <option value="3">3 Buttons</option>
-                        <option value="4">4 Buttons</option>
-                        <option value="5">5 Buttons</option>
-                        <option value="6">6 Buttons</option>
-                    </select>
-                    
+
+                    <label for="venom-x-box-button-selector">Select the number of buttons:</label> <select id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
+                    <option value="3">3 Buttons</option>
+                    <option value="4">4 Buttons</option>
+                    <option value="5">5 Buttons</option>
+                    <option value="6">6 Buttons</option>
+                </select>
+
                     <div id="venom-x-box-buttons"></div>
-                    
+
                     <p id="venom-x-box-result"></p>
                 </div>
             </div>
-            
+
             <li>If you press the right button, you will hear a success sound, and the box will close.</li>
             <ul>
                 <li>If you press the wrong button, you will hear an error sound, the box will close, and a Phantom will spawn. End the current round and the box will reopen with a new set of buttons.</li>
@@ -175,37 +174,35 @@
             <ul>
                 <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can move the square with the arrow keys like you would with a D-Pad.</li>
             </ul>
-            
+
             <div class="solver-with-button" data-bool-quick-link="false">
                 <button class="square-button">Click to show the Maze Path Finder</button>
                 <div class="solver-container" style="text-align: left; display: none; width: fit-content">
                     <h2>Venom-X Maze Solver</h2>
-                    
+
                     <div id="maze-container">
                         <div class="venom-board" id="board" data-bool-quick-link="false"></div>
                         <p id="venom-maze-error"></p>
-                        
+
                         <div class="draggable-container" data-bool-quick-link="false">
-                            <img src="venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start">
-                            <img src="venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end">
+                            <img src="venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start"> <img src="venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end">
                         </div>
                     </div>
-                    
+
                     <div id="maze_img_container" style="display: none" data-bool-quick-link="false"></div>
-                    
+
                     <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
                     <button class="solver-button" onclick="resetMaze()">Reset All</button>
                 </div>
             </div>
-            
-            <li>Once you've completed four mazes total (three on one and one on the other), a
-                <a href="pictures/venom_x/venom_x_pickup.webp">door left of the Box from before</a> will open, and you can pick up the Venom-X.</li>
+
+            <li>Once you've completed four mazes total (three on one and one on the other), a <a href="pictures/venom_x/venom_x_pickup.webp">door left of the Box from before</a> will open, and you can pick up the Venom-X.</li>
             <ul>
                 <li>You can now kill the Zombie in the containment chamber (but, if you plan to upgrade the Venom-X, keep it alive while you do the first few steps of the Venom-Y).</li>
             </ul>
             <li>To use the Venom-X, shoot a Cryptid "egg" onto the floor or a wall with the normal shoot button (R2 or Left Click). This egg will detonate after a couple of seconds, or it can be manually detonated with the aim button (L2 or Right Click).</li>
         </ol>
-        
+
         <p class="step-group-title" id="venom_y">Venom-Y</p>
         <p class="weapon-desc">The Venom-Y will still shoot an egg, but the egg will explode into gas that freezes and kills Zombies. The gas lasts about 5 seconds. The gas does not affect larger cryptids (Phantoms, Rhinos, etc.), but the initial explosion does.</p>
         <ol>
@@ -216,16 +213,15 @@
                 <li>Archer: <span class="morse-code">.- .-. -.-. .... . .-.</span></li>
                 <li>Cross: <span class="morse-code">-.-. .-. --- ... ...</span></li>
             </ul>
-            
+
             <li>Once you have your key, select it below to continue.</li>
-            
-            <label for="venom-y-key-selector"><b>Select your Key:</b></label>
-            <select id="venom-y-key-selector" name="venom-y-key" style="margin-top: 12px; margin-bottom: 12px" onchange="toggleKeyText(this.value)">
-                <option value="default" disabled selected>Select a Key</option>
-                <option value="archer">ARCHER</option>
-                <option value="cross">CROSS</option>
-            </select>
-            
+
+            <label for="venom-y-key-selector"><b>Select your Key:</b></label> <select id="venom-y-key-selector" name="venom-y-key" style="margin-top: 12px; margin-bottom: 12px" onchange="toggleKeyText(this.value)">
+            <option value="default" disabled selected>Select a Key</option>
+            <option value="archer">ARCHER</option>
+            <option value="cross">CROSS</option>
+        </select>
+
             <div id="venom-y-main-container" style="display: none">
                 <li>Interact with the <a href="pictures/venom_x/venom_y/code_terminal.webp">terminal at the bottom of the stairs</a> near Bang Bangs. This will play a long morse code message. The message will start with the following code (based on the key from the previous step). After this opening code, you will need to listen to one of the options below. This will tell you a number you'll need later.</li>
                 <ul>
@@ -267,12 +263,12 @@
                         </div>
                     </ul>
                 </ul>
-                
+
                 <div class="solver-with-button" data-bool-quick-link="false">
                     <button class="square-button">Click to show the Morse Code Solver</button>
                     <div class="solver-container" style="text-align: left; display: none; width: fit-content">
                         <h2>Beast Venom-Y/Z Morse Code Solver</h2>
-                        
+
                         <div class="solver-symbol-select" id="morse_input_div">
                             <ul>
                                 <p style="font-weight: bold; margin-left: -20px" data-bool-quick-link="false">How to use</p>
@@ -281,11 +277,9 @@
                                 <li>Continue entering code until the solver extracts the number.</li>
                                 <li>To decrypt a number without Cross' or Archer's starting code, manually enter the Key (the starting code determines the key automatically).</li>
                             </ul>
-                            <label for="morse_input">Enter your Morse Code:</label>
-                            <input type="text" id="morse_input" name="morse_input" class="spacing" style="width: fit-content" oninput="process_morse_code()">
-                            <span style="color: red" id="morse-code-input-error"></span>
+                            <label for="morse_input">Enter your Morse Code:</label> <input type="text" id="morse_input" name="morse_input" class="spacing" style="width: fit-content" oninput="process_morse_code()"> <span style="color: red" id="morse-code-input-error"></span>
                         </div>
-                        
+
                         <div class="solver-output">
                             <p><span id="solver_code"></span></p>
                             <div id="morse_result">
@@ -297,14 +291,12 @@
                         </div>
                     </div>
                 </div>
-                
-                <li>Once you have your number, go to the control room above Bombstoppers, and input a Morse code sequence on the <a href="pictures/venom_x/venom_y/morse_input_panel.webp">panel at the top of the stairs</a>, based on your number from the previous step. The button on the <b>left</b> will input a short beep (<span class="morse-code">.</span>), and the <b>right</b> will input a long beep (<span class="morse-code">-</span>). If you input the code wrong, end the round to try again; you will hear an error sound. Code based on number:
-                </li>
+
+                <li>Once you have your number, go to the control room above Bombstoppers, and input a Morse code sequence on the <a href="pictures/venom_x/venom_y/morse_input_panel.webp">panel at the top of the stairs</a>, based on your number from the previous step. The button on the <b>left</b> will input a short beep (<span class="morse-code">.</span>), and the <b>right</b> will input a long beep (<span class="morse-code">-</span>). If you input the code wrong, end the round to try again; you will hear an error sound. Code based on number: </li>
                 <ul>
                     <li>Fifteen: <span class="morse-code">..-. .. ..-. - . . -. .- .-.</span> (Morse code translates to FIFTEENAR)</li>
                     <li>Eighteen: <span class="morse-code">. .. --. .... - . . -.</span></li>
-                    <li>Twenty or Twenty-Five: Enter twenty (<span class="morse-code">- .-- . -. - -.--</span>) and if you don't hear a completion sound, enter five (<span class="morse-code">..-. .. ...- .</span>)
-                    </li>
+                    <li>Twenty or Twenty-Five: Enter twenty (<span class="morse-code">- .-- . -. - -.--</span>) and if you don't hear a completion sound, enter five (<span class="morse-code">..-. .. ...- .</span>) </li>
                     <li>Thirty: <span class="morse-code">- .... .. .-. - -.--</span></li>
                 </ul>
                 <li>There is <span style="color: red">no indication</span> that you entered the Morse Code correctly, you have to assume you did it correctly and start the next step. If you can't progress the next step, then you need to reenter the code.</li>
@@ -312,7 +304,7 @@
                 <li>Once you get the required number of kills, the Venom-X can be pack-a-punched for $5000 into the Venom-Y.</li>
             </div>
         </ol>
-        
+
         <p class="step-group-title" id="venom_z">Venom-Z</p>
         <p class="weapon-desc">The Venom-Z is the same as the Venom-Y, but the gas cloud lasts longer, and it has more ammo.</p>
         <ol>
@@ -322,19 +314,19 @@
                 <li>You can interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">console that gave you the key</a> in the Venom-Y quest to check your new one.</li>
             </ul>
             <li>With your new Key, repeat <strong>Steps 4-6</strong> from the <a href="#venom_y">Venom-Y</a> quest. These steps are the exact same except the key and the number from the Morse code gives you will change. You can reuse the solver as well, just make sure to change the selected key in the dropdown.</li>
-            
+
             <li>Once you input the correct number into the Morse code panel, you will need to kill that number of non-standard Zombies (Any Cryptid type, Ninjas, and Clowns) with the Venom-Y. Your progress can be checked on the scoreboard menu. This time, however, your progress on the scoreboard will stop at 50%.</li>
             <li>Once you get to 50%, interact with this <a href="pictures/message_sent/console.webp">machine near the Magic Wheel in the outside area</a>, until "195#" is shown on screen. This will spawn "Ghosts" around you that will float around you.</li>
             <li>You must run to the Pack-a-Punch portal, and while standing near it, shoot the number of ghosts (with any weapon) that the Morse code told you to. All the ghosts need to be shot in one round.</li>
             <li>Once you get 100% on the scoreboard, the Venom-Y can be pack-a-punched for $10000 into the Venom-Z.</li>
         </ol>
     </div>
-    
-    
+
+
     <!-- Main Easter Egg -->
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
         <h2>'The End?' Main Quest</h2>
-        <p class="stats">Stats (Solo): Difficulty - 7/10 (4/10 Dir. Cut), Est Completion Time - 45 Mins to 1 Hr (20 Mins to 35 Mins Dir. Cut)</p>
+        <p class="stats">Stats (Solo): Difficulty - 7/10 (4/10 Dir. Cut), Est. Completion Time - 45 Mins to 1 Hr (20 Mins to 35 Mins Dir. Cut)</p>
         <ol>
             <p class="step-group-title" id="main_ee_step1">Collect 4 Floppy Disks</p>
             <li>Activate <a href="#power">Power</a>.</li>
@@ -357,8 +349,7 @@
                 <ol>
                     <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker">Skull Breaker side quest</a>.</li>
                     <li>In the hallway with the Proteus wallbuy, there will be a <a href="pictures/main_ee/red_room_fence.webp">fence blocking a red room</a>, under/near some stairs.</li>
-                    <li>The <a href="pictures/main_ee/vent.webp">vent on the floor at the end of the room</a> will occasionally
-                        <a href="pictures/main_ee/vent_smoke.webp">emit smoke</a>, and the Floppy Disk will be <a href="pictures/main_ee/red_room_floppy.webp">sitting on the floor</a> in front of the vent. Using the Entangler, grab the Floppy Disk, and shoot it at the vent while the smoke is visible.</li>
+                    <li>The <a href="pictures/main_ee/vent.webp">vent on the floor at the end of the room</a> will occasionally <a href="pictures/main_ee/vent_smoke.webp">emit smoke</a>, and the Floppy Disk will be <a href="pictures/main_ee/red_room_floppy.webp">sitting on the floor</a> in front of the vent. Using the Entangler, grab the Floppy Disk, and shoot it at the vent while the smoke is visible.</li>
                     <ul>
                         <li>If you miss or shoot at the wrong time, the Disk will respawn on the floor, and you can retry.</li>
                     </ul>
@@ -385,27 +376,27 @@
                     <li>The Floppy Disk can be picked on from the <a href="pictures/main_ee/floppy_force_field.webp">table left of the broken monitor</a>.</li>
                 </ol>
             </ul>
-            
+
             <p class="step-group-title" id="main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</p>
             <li>Once you have access to all four Floppy Disks, you must insert them into slots in front of N31L in the correct order based on the symbols on them. Use <a href="pictures/main_ee/floppy_cheat.webp">this image</a> or the solver below to find the correct order. There are four slots in front of N31L that the disks can be placed in. To use the image, find the row with all your disk symbols, then order your disks in that row's order from left to right.</li>
-            
+
             <div class="solver-with-button" data-bool-quick-link="false">
                 <button class="square-button">Click to show the Floppy Disk Solver</button>
                 <div class="solver-container" style="max-width: 500px; display: none">
-            
+
                     <h2>Beast Main Quest Floppy Disk Puzzle</h2>
-                    
+
                     <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
-                    
+
                     <div class="solver-output">
                         <p><span id="floppy_solver_code"></span></p>
                         <div id="floppy_result"></div>
                     </div>
-                    
+
                     <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
                 </div>
             </div>
-            
+
             <li>If done correctly, your scoreboard HUD will flash yellow, then red, and N31L will turn "evil." While evil, N31L will randomly close doors (this can kill you but will most of the time just close in front of you), which you can open for free by interacting with them, and he will randomly activate traps around the map.</li>
             <li>In the Theatre, use the Entangler to grab the <a href="pictures/main_ee/button_theatre.webp">button on the wall</a> behind the Brute cardboard cutout. Take it to the Concession area, and shoot it into one of the <a href="pictures/main_ee/beast_poster.webp">Beast From Beyond posters</a>.</li>
             <ul>
@@ -432,11 +423,11 @@
                     </ul>
                 </ul>
             </ul>
-            
+
             <p class="warning">Warning: Point of No Return. Once you interact with N31L, you will be put into the Boss Fight.</p>
-            
+
             <li>Once N31L is installed, and you're ready for the boss fight, you can interact with it to start the Boss Fight.</li>
-            
+
             <p class="step-group-title" id="main_ee_step3">Cryptid Boss Fight</p>
             <li>After interacting with N31L, you will be teleported to a different Cargo Bay. A Laser Cannon will come into the room, and start targeting one of the crates.</li>
             <li>In one of the open crates, there is a <a href="pictures/main_ee/ammo_crate.webp">yellow, glowing box</a>. Interacting with this box will refill your currently held weapon's ammo for free. Refilling ammo can be done unlimitedly, so make sure to use it when you need it.</li>
@@ -471,7 +462,7 @@
             <li>If you completed the Quest without Director's Cut, I recommend you don't keep playing. The map breaks after completing the Quest with rounds ending early, Cryptids spawn effects appear, but the Cryptid itself doesn't spawn, Pack-a-Punch becomes completely inaccessible, etc.</li>
         </ol>
     </div>
-    
+
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
         <h2>'Scattered Lies' Song</h2>
@@ -493,7 +484,7 @@
                 <li><a href="pictures/song_ee/astro_red_room.webp">Proteus Hallway - In the red room, shoot from grate above</a> --- <a href="pictures/song_ee/astro_red_room_fullbright.webp">In full bright lighting</a></li>
                 <li><a href="pictures/song_ee/astro_cargo_zoomed.webp">Cargo Bay - When standing by the portal, top-left of Cargo Room Ceiling</a> --- <a href="pictures/song_ee/astro_cargo.webp">Zoomed-Out</a></li>
             </ul>
-            
+
             <p class="sub-sub-step" data-bool-quick-link="false">Theatre</p>
             <ul>
                 <li><a href="pictures/song_ee/astro_racin.webp">Side Alley - In the Zombie spawn, right of the Racin' Stripes machine</a></li>
@@ -504,27 +495,27 @@
             <li>Once you shoot all fifteen astronauts, your character will do a fist pump, you will be given 2000 xp, and the song will start playing INSIDE the Theatre and Facility (not outside).</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="lobby_music">
         <h2>Additional Lobby Music</h2>
-        
+
         <ol>
             <li>Unlock Director's Cut mode (See the <a href="#directors_cut">Director's Cut</a> section for more information).</li>
-            
+
             <li>While in Director's Cut mode, and on Scene 1, <a href="#power">activate N31L</a> and make your way to the Arcade in the Theatre. Interact with the <a href="pictures/lobby_music/shooting_gallery.webp">Octonian Hunter shooting gallery</a>. The White Talisman mask will drop down from the ceiling (like the UFO in the actual game) and move across the top of the shooting gallery. Shoot the Mask to unlock the lobby music.</li>
             <ul>
                 <li>This can only be attempted once per game, and you will need to restart if you don't shoot the mask.</li>
             </ul>
         </ol>
     </div>
-    
+
     <div class="content-container" id="skull_breaker">
         <h2>Skull Breaker</h2>
         <p class="weapon-desc">Skull Breaker is an arcade game where players must make groups of skulls by firing cubes at them, then blowing them up by firing nukes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up & Atoms in Solo), and your Fate & Fortune cards will charge faster for the remainder of the game.</p>
-        
+
         <ol>
             <li>You can check your current progress by looking at the <a href="pictures/skull_breaker/skull_breaker_machine.webp">Skull Breaker Arcade Cabinet</a> in the Arcade in the Theatre.</li>
-            
+
             <p class="step-group-title">Skull 1/6 - Skull in a Power Box</p>
             <li>A power box will spawn in one of the following locations. Using a grenade (or the OSA's under-barrel grenade launcher), blow up the <a href="pictures/skull_breaker/skull_1/box_cargo.webp">power box</a> to open it, revealing a <a href="pictures/skull_breaker/skull_1/skull.webp">Skull</a>. Shoot the skull once it appears to play the completion sound. Power Box locations:</li>
             <ul>
@@ -532,8 +523,8 @@
                 <li><a href="pictures/skull_breaker/skull_1/box_ops.webp">Ops Center - Above Bombstoppers</a></li>
                 <li><a href="pictures/skull_breaker/skull_1/box_cargo.webp">Cargo Bay - Above the stairs beside the P-LAW wallbuy</a></li>
             </ul>
-            
-            
+
+
             <p class="step-group-title" id="side_ee_step2">Skull 2/6 - Entangler Defence</p>
             <li>Around the Cargo Bay, there are four <a href="pictures/skull_breaker/skull_2/red_x_upper.webp">red Xs on the floor</a>. All players need to stand on a different X to start a lockdown event. X Locations:</li>
             <ul>
@@ -552,8 +543,8 @@
                 <li>It will despawn after a few seconds so be quick. If you don't collect the Skull, you can retry the lockdown next round.</li>
             </ul>
             <li>Collecting the Skull will play the completion sound and spawn the Entangler in the middle of the Cargo Bay. The <a href="pictures/skull_breaker/skull_2/entangler.webp">Entangler</a> is the weapon used in the Ghost and Skulls mini-games and has a dedicated weapon slot.</li>
-            
-            
+
+
             <p class="step-group-title" id="side_ee_step3">Skull 3/6 - Odd-symbol Out</p>
             <li>Four symbols will spawn around the map. Using <a href="pictures/skull_breaker/skull_3/quick_ref_image.webp">this cheat sheet</a>, ADS at the symbol that is in a different row from the other three. Symbol locations:</li>
             <ul>
@@ -570,7 +561,7 @@
             <ul>
                 <li>If you look at the wrong symbol, an error sound will play, and you can retry on the next round with a new set of symbols in different locations.</li>
             </ul>
-            
+
             <p class="step-group-title" id="side_ee_step4">Skull 4/6 - Follow the Skull's Path</p>
             <li>Go to the walkway with Bang Bangs in the Ops Center, then drop down to the Spawn. There will be a <a href="pictures/skull_breaker/skull_4/red_x.webp">red X</a> where you drop, and stand on it to make a <a href="pictures/skull_breaker/skull_4/skull.webp">skull spawn in front of you</a>. This Skull will either be pink or green, which indicates the colour of the path you must follow.</li>
             <li>Walk to the skull to collect it. This will spawn coloured symbols on the floor in front of you. Walk (don't sprint) from one coloured symbol to the next, and follow the path till you reach the Skull.</li>
@@ -578,7 +569,7 @@
                 <li>The game will often try to trick you and swap the colours of the next set of symbols, so be careful.</li>
                 <li>Taking too long (indicated by the blue bar on the screen) or walking on the wrong symbol will fail the step, and you can retry the next round.</li>
             </ul>
-            
+
             <p class="step-group-title" id="side_ee_step5">Skull 5/6 - 8-Queens Puzzle</p>
             <li>On a <a href="pictures/skull_breaker/skull_5/chessboard.webp">table in the Cafeteria, there is a chessboard</a> with one Queen on it. You must find and place 7 other Queens on the board so that none of them are attacking another (called the 8-Queens Puzzle). Use the solver below to solve this puzzle for you. You can only hold one Queen at a time. Queen locations:</li>
             <ul>
@@ -599,19 +590,19 @@
                 <li><a href="pictures/skull_breaker/skull_5/spawn_flooded_room_barrier.webp">Spawn/Flooded Room - Below the Zombie spawn on the stairs</a></li>
                 <li><a href="pictures/skull_breaker/skull_5/spawn_ladder.webp">Spawn - Up the ladder across from Up & Atoms</a></li>
             </ul>
-            
+
             <div class="solver-container">
                 <h2>GnS Skull 5 Solver</h2>
                 <p id="queens-explain">Click a square to move the Queen.</p>
-                
+
                 <div class="chessboard" id="chessboard" data-bool-quick-link="false"></div>
-                
+
                 <button id="solve-button-queens" class="solver-button" onclick="solve_eight_queens()">Solve</button>
                 <button class="solver-button" onclick="reset_eight_queens()">Reset All</button>
             </div>
-            
+
             <li>Once all Queens are placed correctly, confetti will fly from the board and the completion sound will play.</li>
-            
+
             <p class="step-group-title" id="side_ee_step6">Skull 6/6 - Arcade Cheat Code</p>
             <li>There are three pieces of paper around the map, each with a couple of arrows. The order of the pieces can be determined by the rips on the sides. The beginning and end pieces have flat, even edges on one side, while the middle piece is uneven on both sides. Piece them together by seeing which rips "fit" together to form the full paper with the code. Here is a <a href="pictures/skull_breaker/skull_6/example_explain.webp">helper image</a> if you're confused. Paper locations:</li>
             <ul>
@@ -620,7 +611,7 @@
                 <li><a href="pictures/skull_breaker/skull_6/medbay_six_green_monitors.webp">Medical Bay - On the counter, under the six green monitors on the wall</a> --- <a href="pictures/skull_breaker/skull_6/medbay_six_green_monitors_zoomed_out.webp">Zoomed-out view</a></li>
                 <li><a href="pictures/skull_breaker/skull_6/medbay_floppy.webp">Medical Bay - In the forcefield room, right of the Floppy Disk</a></li>
                 <li><a href="pictures/skull_breaker/skull_6/proj_room_toolbox.webp">Projector Room - On the red toolbox, left of the portal</a></li>
-                
+
                 <p class="sub-sub-step" data-bool-quick-link="false">Theatre</p>
                 <li><a href="pictures/skull_breaker/skull_6/theatre_bathroom_sink.webp">Bathroom - In the sink right of a blood stain on the wall</a></li>
                 <li><a href="pictures/skull_breaker/skull_6/theatre_concession.webp">Lobby - On the concession stand, in front of the popcorn machine</a></li>
@@ -629,7 +620,7 @@
             <ul>
                 <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can use the arrow keys like you would a D-Pad.</li>
             </ul>
-            
+
             <p class="step-group-title" id="side_ee_step7">The Skull Breaker Mini-Game</p>
             <li>The game consists of three rounds, with each round requiring you to destroy all the skulls before they make it to the end. In this version, you have to form groups of the same colour skulls, then destroy all connected skulls with the same colour nuke.</li>
             <li>Using the Entangler (your gun), grab a coloured cube floating around and shoot it at a skull to change its colour. If two skulls are the same colour, and beside/diagonal to each other, they will connect and form a group.</li>
@@ -644,7 +635,7 @@
             <li>Once all three rounds are completed, you will be teleported back to the Arcade, with all perks permanently (except Up & Atoms in Solo), and your Fate & Fortune cards will charge faster for the remainder of the game.</li>
         </ol>
     </div>
-    
+
     <div class="content-container" id="message_sent">
         <h2>Message Sent (Achievement)</h2>
         <ol>
@@ -658,7 +649,7 @@
             <li>After a couple of seconds, the vortex will disappear, and you will rewarded with the "Message Sent" Trophy/Achievement.</li>
         </ol>
     </div>
-    
+
     <div class="content-container" data-section-ind="Director's Cut/Bonuses" id="directors_cut">
         <h2>Director's Cut</h2>
         <ul>
@@ -676,13 +667,13 @@
                 <li>The Smiley on Rave and the Katana on Shaolin can be purchased by all players in the match, regardless of quest completion</li>
             </ul>
         </ul>
-        
+
         <ul>
             <p class="step-group-title" id="how_to_unlock_dir_cut">How to Unlock Director's Cut</p>
             <li>Director's Cut (DC) is an unlockable mode that requires you to complete all five Main Quest (<a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">ZiS - Sooooul Key</a>, <a href="/games/IW/rave_in_the_redwoods/rave_in_the_redwoods_guide.html#main_ee">RitR - Locksmith</a>, <a href="/games/IW/shaolin_shuffle/shaolin_shuffle_guide.html#main_ee">SS - Pest Control</a>, <a href="/games/IW/attack_of_the_radioactive_thing/attack_of_the_radioactive_thing_guide.html#main_ee">AotRT - Soul-Less</a>, and <a href="#main_ee">TBFB - The End?</a>). Then interact with the Soul Jar in the Projector room of any map.</li>
             <li>This will allow you to toggle Director's Cut mode on the pre-game lobby screen.</li>
         </ul>
-        
+
         <ul>
             <p class="step-group-title" id="what_you_can_do">What you can do with Director's Cut</p>
             <li>While in Director's Cut (DC for short), there are Talisman Masks you can shoot to unlock additional lobby music. See the Additional Lobby Music sections for each of the maps for more info.</li>
@@ -690,7 +681,7 @@
             <li>Once you collect four (not including Beast) Talismans, the next time you complete the Beast Main Quest, you will be put into the Mephistopheles Boss Fight. This is the final, and most challenging boss in this game (see the Mephistopheles Boss Fight section for how to beat him).</li>
             <li>Once you beat Mephistopheles, you will be rewarded with the animated calling card of Mephistopheles called "<a href="pictures/meph_dc.gif">Demon Slayer</a>" and an animated camouflage titled "Director's Cut Camouflage." As well as the ability to play as Willard Wyler on Spaceland (see the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#wyler_code">Play as Willard Wyler</a> section of the Spaceland guide for more information).</li>
         </ul>
-        
+
         <ul>
             <p class="step-group-title" id="meph_fight">Mephistopheles Boss Fight</p>
             <li>The Mephistopheles (Meph for short) boss fight is very complicated, and I feel I can't effectively explain it with in the website's format. See <a href="https://youtu.be/MRLTyFwOb8M?t=40">this video</a> (skip to <a href="https://youtu.be/MRLTyFwOb8M?t=271">4:31</a> to skip loadout tips) by <a href="https://www.youtube.com/@steviewacky3945">Steviewacky</a> for how to beat the fight (he kinda yaps a bit, so I recommend you play the video at least 1.25x or 1.5x speed).</li>
@@ -700,7 +691,7 @@
                 <li>Prioritize safety over completion. There is no downside to taking your time and being safe. It will probably save you time when you consider the reset time (redoing the Beast Quest). Don't try to be the hero, and die standing on the talisman circle; just run, be safe, and try again.</li>
                 <li>Practice in the Boss Battles mode. The worst part of the Meph fight is the long reset time when you die. This can be mitigated by playing in the Boss Battles mode in the lobby menu. You won't get the rewards, but you will be able to quickly retry the fight after dying.</li>
             </ul>
-            <li>Link to the <a href="https://youtu.be/WSIeqTZ5KYM">song (YouTube)</a> that plays during the fight.</li>
+            <li>Link to the <a href="https://youtu.be/WSIeqTZ5KYM?t=0">song (YouTube)</a> that plays during the fight.</li>
         </ul>
     </div>
 </div>

@@ -6,7 +6,7 @@ function toggleSolver() {
     solverContent.style.display = solverContent.style.display === "none" ? "block" : "none";
 }
 
-const selectedSymbols = { X: null, Y: null, Z: null };
+const selectedSymbols = {X: null, Y: null, Z: null};
 
 function selectSymbol(type, value, element) {
     // Toggle selection
@@ -64,7 +64,7 @@ function updateDisabledSymbols(letter, value, element_selected) {
 }
 
 function calculateFormulas() {
-    const { X, Y, Z } = selectedSymbols;
+    const {X, Y, Z} = selectedSymbols;
 
     if (X !== null && Y !== null && Z !== null) {
         // Calculate each formula

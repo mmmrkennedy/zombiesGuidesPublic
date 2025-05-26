@@ -113,7 +113,7 @@ document.addEventListener("shaolin_ee_word_solver_template", function () {
         listItem.textContent = word; // Set the text content to the word
         wordList.appendChild(listItem); // Append the <li> to the <ul>
     });
-    
+
     // JavaScript to toggle the 'active' class
     const filter_button = document.getElementById('word_filter_button');
 
@@ -132,7 +132,7 @@ document.addEventListener("shaolin_ee_word_solver_template", function () {
         input_item.value = "";
         filterWordsByPrefix("");
 
-        if (imgContainer){
+        if (imgContainer) {
             imgContainer.innerHTML = "";
         }
 

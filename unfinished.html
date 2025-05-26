@@ -8,10 +8,22 @@
     <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
 </head>
-<body style="margin-left: 10px">
+<body style="margin-left: 15px">
 <h1>Sorry, this page is not ready yet!</h1>
 <p>Please check back later.</p>
-<a href="/zombiesGuidesPublic/index.html">Return to Home</a>
+<a id="return_home" href="/zombiesGuidesPublic/index.html">Return to Home</a>
 </body>
+
+<script>
+    // Check if we're on localhost or a local environment
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
+
+    // Only redirect if we're not in a local environment
+    if (isLocalEnvironment) {
+        document.getElementById("return_home").href = `/ZombiesGuidesHolder/zombiesGuidesPublic/index.html`;
+    }
+</script>
 
 </html>

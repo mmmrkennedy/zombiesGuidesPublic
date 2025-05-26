@@ -75,7 +75,7 @@ function solvePuzzle(puzzleId) {
     // Validate input directions
     for (let i = 0; i < currentDirections.length; i++) {
         // console.log(`currentOffsets[i]: ${currentOffsets[i]}, currentDirections[i]: ${currentDirections[i]}`)
-        
+
         // If the spin amount is 2, and the statue is facing left or right (it can never face front)
         if (currentOffsets[i] === 2 && (currentDirections[i] === 1 || currentDirections[i] === 3)) {
             isValid = false;
@@ -144,16 +144,16 @@ function solvePuzzle(puzzleId) {
                 neededRotations1 = get_num_needed_rotations(currentDirections[1], currentOffsets[1]);
             }
         }
-        
+
         if (turnsC > 0) result += `Turn statue C ${turnsC}x\n`;
 
         let turnsB = 0;
 
         let neededRotations2 = get_num_needed_rotations(currentDirections[2], currentOffsets[2]);
         let neededRotations3 = get_num_needed_rotations(currentDirections[3], currentOffsets[3]);
-        
+
         while (neededRotations2 !== neededRotations3) {
-            if ((neededRotations2 !== neededRotations3) && 
+            if ((neededRotations2 !== neededRotations3) &&
                 ((currentOffsets[2] === 2 && (neededRotations3 % 2) === neededRotations2) ||
                     (currentOffsets[3] === 2 && (neededRotations2 % 2) === neededRotations3))) {
                 break;
@@ -165,7 +165,7 @@ function solvePuzzle(puzzleId) {
             }
         }
         if (turnsB > 0) result += `Turn statue B ${turnsB}x\n`;
-        
+
         let turnsA = 0;
         while (currentDirections[0] !== 2 || currentDirections[1] !== 2) {
             adjustStatueAndNeighbors4(0); // Adjust statue A
@@ -202,7 +202,7 @@ function setActiveButton(activeId) {
     // Set the clicked button as active
     document.getElementById(activeId).classList.add('active');
 
-    if (getActiveWallButton().id !== "wall1"){
+    if (getActiveWallButton().id !== "wall1") {
         d_span.style.display = "block";
         d_button.style.display = "block";
     } else {
@@ -216,7 +216,7 @@ function getActiveWallButton() {
     return document.querySelector('#wall1.active, #wall2.active, #wall3.active, #wall4.active');
 }
 
-function reset_all_directions(saved_dirs){
+function reset_all_directions(saved_dirs) {
     const buttons = document.querySelectorAll('#statueA, #statueB, #statueC, #statueD');
 
     for (let i = 0; i < buttons.length; i++) {
@@ -259,7 +259,7 @@ function main() {
 
     result = solvePuzzle(puzzleID);
 
-    if (result.length === 0){
+    if (result.length === 0) {
         result = "Puzzle already solved!"
     }
 
@@ -268,7 +268,7 @@ function main() {
     reset_all_directions(save_directions);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("wall1").classList.add('active');
     reset_all_directions([2, 2, 2, 2])
 });

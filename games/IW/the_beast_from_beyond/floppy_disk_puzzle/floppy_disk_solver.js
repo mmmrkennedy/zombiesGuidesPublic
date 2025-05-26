@@ -115,6 +115,6 @@ function generateSymbolGrid() {
 }
 
 // Call the function to generate the grid
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     generateSymbolGrid();
 });

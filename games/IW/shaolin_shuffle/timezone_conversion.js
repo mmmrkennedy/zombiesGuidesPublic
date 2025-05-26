@@ -1,6 +1,6 @@
 function getEquivalentTimesInTimezone(timezone = undefined) {
     let isDST = isESTInDST();
-    
+
     // Create a Date object for 12 AM EST
     const dateAt12AM = new Date();
     dateAt12AM.setUTCHours(5 - isDST, 0, 0, 0); // 12 AM EST is UTC-5
@@ -10,7 +10,7 @@ function getEquivalentTimesInTimezone(timezone = undefined) {
     dateAt1AM.setUTCHours(6 - isDST, 0, 0, 0); // 1 AM EST is UTC-5
 
     // Format the times to the specified timezone or user's local timezone
-    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+    const options = {hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short'};
     if (timezone) {
         options.timeZone = timezone;
     }
@@ -46,7 +46,7 @@ function isESTInDST() {
     return Number(timeZoneName.includes("EDT"));
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let userLocalTimes = getEquivalentTimesInTimezone();
 
     const timezone_element = document.getElementById("timezone_conversion")

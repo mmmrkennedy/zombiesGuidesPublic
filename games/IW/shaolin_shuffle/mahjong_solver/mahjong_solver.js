@@ -4,7 +4,7 @@ let result;
 let resultTiles;
 let tile_count;
 
-document.addEventListener('mahjong_solver_template', function() {
+document.addEventListener('mahjong_solver_template', function () {
     console.log("mahjong_solver_template called")
 
     selectedTiles = [];
@@ -63,7 +63,7 @@ function disableTiles() {
 
 function disableTile(tileValue) {
     document.querySelectorAll('.solver-symbol-select img').forEach(img => {
-        if (parseInt(img.getAttribute('data-value')) === tileValue){
+        if (parseInt(img.getAttribute('data-value')) === tileValue) {
             img.classList.add('disabled');
             img.style.pointerEvents = 'none';
         }

@@ -1,4 +1,4 @@
-function main_logic(greenValve, pinkValue){
+function main_logic(greenValve, pinkValue) {
     const lookup_table = {
         "department_store": {
             "supply_depot": [1, undefined, 2, 3, 1, 1],
@@ -74,7 +74,7 @@ function format_list_as_str(list_of_correct_vals) {
             loc_name = "Dragon Command"
         }
 
-        if (list_of_correct_vals[i] > 3){
+        if (list_of_correct_vals[i] > 3) {
             console.log("ERROR: Value for %s is greater than 3 (%s)", loc_name, list_of_correct_vals[i]);
         }
 
@@ -91,7 +91,7 @@ function main() {
 
     let result = "";
 
-    if (greenValve === "default" || pinkValve === "default"){
+    if (greenValve === "default" || pinkValve === "default") {
         resultElement.innerHTML = "Select the Locations of the Green Light and Pink Cylinder";
         return 0;
 
@@ -108,7 +108,7 @@ function main() {
     resultElement.innerHTML = result.replace(/\n/g, "<br>");
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("greenValve").value = "default";
     document.getElementById("pinkValve").value = "default";
 });

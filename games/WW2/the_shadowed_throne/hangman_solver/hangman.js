@@ -146,19 +146,19 @@ function suggestLetter() {
 }
 
 // Initialize the page
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('revealed-letters').value = "";
     document.getElementById('guessed-letters').value = "";
     suggestLetter();  // Used to load list of words on init
-    
+
     // Add Enter key support for both input fields
-    document.getElementById('revealed-letters').addEventListener('keyup', function(event) {
+    document.getElementById('revealed-letters').addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
             suggestLetter();
         }
     });
 
-    document.getElementById('guessed-letters').addEventListener('keyup', function(event) {
+    document.getElementById('guessed-letters').addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
             suggestLetter();
         }

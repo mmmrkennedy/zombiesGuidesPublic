@@ -46,7 +46,7 @@ function decodeMorse(morseCode) {
         }
     }
 
-     // Combine words into the full message
+    // Combine words into the full message
     return words.map(word => {
         const letters = word.split(' '); // Split word into letters
         const translatedLetters = letters.map(letter => morseToText[letter]); // Translate each letter
@@ -116,7 +116,7 @@ function encryptVigenere(plaintext, key) {
 const cross_morse = encodeMorse("CROSS");
 const archer_morse = encodeMorse("ARCHER");
 
-function get_key(code){
+function get_key(code) {
     // Returns the key (if it could be determined), and a bool indicating if the input is JUST the key
 
     if (cross_morse.startsWith(code) || code.startsWith(cross_morse)) { // If the input is the key
@@ -170,7 +170,7 @@ function is_valid_morse_code(code) {
 function process_morse_code() {
     let code = morseInput.value.trim();
 
-    if (!is_valid_morse_code(code)){
+    if (!is_valid_morse_code(code)) {
         morseCodeInputError.innerText = "Error: Code can only contain \"-\",\".\", or \"space\"";
         return;
     } else {
@@ -184,8 +184,8 @@ function process_morse_code() {
     killNumberSpan.innerText = 'N/A (Invalid message)';
 
     console.log(`Code Length: ${code.length}`);
-    
-    if (code.length === 0){
+
+    if (code.length === 0) {
         return;
     }
 
@@ -201,7 +201,7 @@ function process_morse_code() {
         return;
     }
 
-    if (key === ""){
+    if (key === "") {
         key = venomXKeySelector.value.toUpperCase();
     }
 
@@ -231,7 +231,7 @@ function process_morse_code() {
     killNumberSpan.innerText = extractedNumber;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     keyTextSpan.innerText = 'N/A (Invalid message)';
     decodedTextSpan.innerText = 'N/A (Invalid message)';
     decryptedTextSpan.innerText = 'N/A (Invalid message)';

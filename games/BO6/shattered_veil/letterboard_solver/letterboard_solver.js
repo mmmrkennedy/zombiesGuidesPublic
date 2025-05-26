@@ -27,7 +27,7 @@ function solve_board_word() {
         for (let i = 0; i < board.length; i++) {
             let board_str = board[i].toUpperCase()
             let letter = word[j].toUpperCase()
-            
+
             if (board_str.includes(letter)) {
                 number_str += String(board[i].length);
                 break;
@@ -35,7 +35,7 @@ function solve_board_word() {
         }
     }
 
-    if (number_str.length !== 4){
+    if (number_str.length !== 4) {
         output.innerHTML = `Unable to calculate number, number is not 4 digits (tell Mark on discord the board and word)`
     } else {
         output.innerHTML = number_str;

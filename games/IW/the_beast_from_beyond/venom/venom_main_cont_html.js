@@ -12,7 +12,7 @@ function toggleKeyText(selectedValue) {
             key_span[i].textContent = selectedValue.toUpperCase();
         }
     }
-    
+
     // Add additional logic here based on the selected value
     if (selectedValue !== "default") {
         venom_y_main_container.style.display = "block";
@@ -30,7 +30,7 @@ function toggleKeyText(selectedValue) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     venom_y_key_selector.value = "default";
     toggleKeyText("default", undefined);
 });

@@ -97,7 +97,7 @@ function getLetter(insectNum, racingNum) {
     }
 }
 
-function get_tv_option_with_o_num(oNum, mNum, lowerBound){
+function get_tv_option_with_o_num(oNum, mNum, lowerBound) {
     const possibleFinalNums = [lowerBound - 1, lowerBound + 1, lowerBound + 3];
     const options = ["Top Colour", "Middle Colour", "Bottom Colour"];
 
@@ -106,7 +106,7 @@ function get_tv_option_with_o_num(oNum, mNum, lowerBound){
     return options[possibleFinalNums.indexOf(real_tv_number)]
 }
 
-function calc_chem_nums(o_num, letter, chemical){
+function calc_chem_nums(o_num, letter, chemical) {
     const columns = "ABCDEFGHIJKL";
     const ingredient_data = {
         "Racing Fuel": [5, 6, 6, 6, 6, 8, 11, 13, 14, 14, 14, 16],
@@ -170,39 +170,39 @@ function calc_chem_nums(o_num, letter, chemical){
 
     if (chemical === "chem_1") {
         formulas = [
-            { name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters'] },
-            { name: "Formula 2", ingredients: ['Vodka', 'Pennies'] },
-            { name: "Formula 3", ingredients: ['Detergent', 'Acetaldehyde', 'Formaldehyde'] },
-            { name: "Formula 4", ingredients: ['Nail Polish Remover', 'Sludge'] }
+            {name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters']},
+            {name: "Formula 2", ingredients: ['Vodka', 'Pennies']},
+            {name: "Formula 3", ingredients: ['Detergent', 'Acetaldehyde', 'Formaldehyde']},
+            {name: "Formula 4", ingredients: ['Nail Polish Remover', 'Sludge']}
         ];
 
     } else if (chemical === "chem_2") {
         formulas = [
-            { name: "Formula 1", ingredients: ['Motor Oil', 'Wheel Cleaner', 'Insect Repellent'] },
-            { name: "Formula 2", ingredients: ['Phenol', 'Drain Opener'] },
-            { name: "Formula 3", ingredients: ['Phenolsulfonic Acid', 'Detergent'] }
+            {name: "Formula 1", ingredients: ['Motor Oil', 'Wheel Cleaner', 'Insect Repellent']},
+            {name: "Formula 2", ingredients: ['Phenol', 'Drain Opener']},
+            {name: "Formula 3", ingredients: ['Phenolsulfonic Acid', 'Detergent']}
         ];
 
     } else if (chemical === "chem_3") {
         formulas = [
-            { name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters'] },
-            { name: "Formula 2", ingredients: ['Glass Cleaner', 'Formaldehyde'] },
-            { name: "Formula 3", ingredients: ['Vinegar', 'Plant Food', 'Detergent', 'Hexamine'] }
+            {name: "Formula 1", ingredients: ['Racing Fuel', 'Quarters']},
+            {name: "Formula 2", ingredients: ['Glass Cleaner', 'Formaldehyde']},
+            {name: "Formula 3", ingredients: ['Vinegar', 'Plant Food', 'Detergent', 'Hexamine']}
         ];
 
     } else if (chemical === "chem_4") {
         formulas = [
-            { name: "Formula 1", ingredients: ['Paint', 'Detergent', 'Drain Opener'] },
-            { name: "Formula 2", ingredients: ['Baking Soda', 'Vinegar', 'Detergent', 'Methylbenzene'] },
-            { name: "Formula 3", ingredients: ['Racing Fuel', 'Dinitro'] }
+            {name: "Formula 1", ingredients: ['Paint', 'Detergent', 'Drain Opener']},
+            {name: "Formula 2", ingredients: ['Baking Soda', 'Vinegar', 'Detergent', 'Methylbenzene']},
+            {name: "Formula 3", ingredients: ['Racing Fuel', 'Dinitro']}
         ];
 
     } else if (chemical === "chem_5") {
         formulas = [
-            { name: "Formula 1", ingredients: ['Fat', 'Vodka'] },
-            { name: "Formula 2", ingredients: ['Detergent', 'Drain Opener'] },
-            { name: "Formula 3", ingredients: ['Ice', 'Glycerol', 'Mixed Acid Solution'] },
-            { name: "Formula 4", ingredients: ['Mixed Acid Solution', 'Baking Soda'] }
+            {name: "Formula 1", ingredients: ['Fat', 'Vodka']},
+            {name: "Formula 2", ingredients: ['Detergent', 'Drain Opener']},
+            {name: "Formula 3", ingredients: ['Ice', 'Glycerol', 'Mixed Acid Solution']},
+            {name: "Formula 4", ingredients: ['Mixed Acid Solution', 'Baking Soda']}
         ];
 
     } else {
@@ -210,7 +210,7 @@ function calc_chem_nums(o_num, letter, chemical){
     }
 
     // Calculate results dynamically
-    formulas.forEach(({ name, ingredients }) => {
+    formulas.forEach(({name, ingredients}) => {
         let formula_result = 0; // Initialize the result
         const linked_ingredients = ingredients.map(ing => {
             formula_result += ingredient_data[ing][index]; // Add each ingredient's value
@@ -236,7 +236,7 @@ function format_result(oNum, colour_option) {
     return oNum + "\n" + colour_option;
 }
 
-function noHandHolding(){
+function noHandHolding() {
     const insectContainer = document.getElementById("insectContainer");
     const racingFuelContainer = document.getElementById("racingFuelContainer");
     const finalChemContainer = document.getElementById("finalChemContainer");
@@ -293,7 +293,7 @@ function main() {
 
     if (oNumElement.value.length !== 0) {
         o_num = Number(oNumElement.value)
-        if (oNumNumbers.includes(o_num)){
+        if (oNumNumbers.includes(o_num)) {
             colour_option_tv = get_tv_option_with_o_num(o_num, mNumElement, lowerBoundElement)
         } else {
             result += `Enter one of the possible correct O Numbers: ${o_num}.\n`;
@@ -312,21 +312,21 @@ function main() {
         insect_num_needed = true;
     }
 
-    if (String(o_num).includes("or")){
+    if (String(o_num).includes("or")) {
         result += "Please enter the correct O Number (The correct one couldn't be determined due to there being multiple potential 'correct' options based on the given info). O Number options listed below.\n\n"
         oNumContainerElement.style.display = "block";
         step3_text.style.display = "block";
         valid_o_num = false;
     }
 
-    if (letter === "Invalid Racing Num"){
+    if (letter === "Invalid Racing Num") {
         result += "Unable to calculate result only using the Insect Repellent Number, please enter the Racing Fuel Number and try again.\n";
         racingFuelContainer.style.display = "block";
         step3_text.style.display = "block";
         racing_num_needed = true;
     }
 
-    if (finalChemElement === "default"){
+    if (finalChemElement === "default") {
         result += "Enter the final chemical.\n\n"
         finalChemContainer.style.display = "block";
     } else if (step2_text.style.display === "block") {
@@ -371,6 +371,6 @@ function resetAll() {
     oNumContainerElement.style.display = "none";
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("finalChem").value = "default";
 });

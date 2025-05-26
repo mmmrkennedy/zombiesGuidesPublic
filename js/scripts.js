@@ -763,7 +763,7 @@ function getElementTitle(element) {
     }
 
     if (element.children.length !== 0) {
-        return element.children[0].innerHTML;
+        return element.children[0].innerText;
 
     } else {
         return element.textContent;

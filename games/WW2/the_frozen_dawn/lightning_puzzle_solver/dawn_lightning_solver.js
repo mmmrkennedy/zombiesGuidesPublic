@@ -85,7 +85,7 @@ function solve() {
         }
     });
 
-    if (results.length === 0){
+    if (results.length === 0) {
         results.push(`Puzzle is already solved!`);
     }
 
