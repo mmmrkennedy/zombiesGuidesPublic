@@ -9,7 +9,7 @@ The plan is to also include solvers for steps that require them (such as Attack 
 
 ## Roadmap
 Next:
-- Tortured Path Survival Maps OR The Frozen Dawn (WW2)
+- Shadows of Evil (BO3)
 
 Finished:
 - All Of CW (Except Outbreak)
@@ -19,10 +19,7 @@ Finished:
 - Outbreak (AW)
 - Infection (AW)
 - All Of WAW
-- The Final Reich (WW2)
-- The Darkest Shore (WW2)
-- The Shadowed Throne (WW2)
-- The Tortured Path (WW2)
+- All of WW2
 
 In Limbo (I don't wanna):
 - Outbreak (CW)

@@ -11,7 +11,7 @@ def find_html_and_pictures_folder(directory):
     for root, dirs, files in os.walk(directory):
         # Look for HTML file in the directory
         for file in files:
-            if file.lower().endswith('.html'):
+            if file.lower().endswith('guide.html'):
                 html_file_path = os.path.join(root, file)
                 break  # Assuming only one HTML file
 
