@@ -170,6 +170,8 @@ NAVIGATION UTILITIES
 =======================================
 */
 
+const BASE_PATH = window.location.origin + "/";
+
 function navigateToIndex() {
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -179,12 +181,21 @@ function navigateToIndex() {
         window.location.href = "/ZombiesGuidesHolder/zombiesGuidesPublic/index.html";
 
     } else {
-        window.location.href = "../index.html";
+        window.location.href = BASE_PATH + "/index.html";
     }
 }
 
 function navigateToSettings() {
-    window.open("../settings/settings.html", "_blank");
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
+
+    if (isLocalEnvironment) {
+        window.open("/ZombiesGuidesHolder/zombiesGuidesPublic/settings/settings.html", "_blank");
+
+    } else {
+        window.open(BASE_PATH  + "settings/settings.html", "_blank");
+    }
 }
 
 /*
