@@ -136,15 +136,15 @@
     // Function to get URL parameters
     function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
     // When the page loads
     document.addEventListener('DOMContentLoaded', function () {
         // Get the version parameter
-        var version = getUrlParameter('version');
+        const version = getUrlParameter('version');
         const title_text = document.querySelector('.title-text');
         let text;
 
