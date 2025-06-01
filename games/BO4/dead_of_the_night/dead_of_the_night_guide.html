@@ -6,122 +6,61 @@
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Dead of the Night Guide</title>
     <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Dead of the Night Guide</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Dead of the Night Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--        <label for="fontSelector">Select a Font:</label>-->
-        <!--        <select id="fontSelector">-->
-        <!--            <option value="Arial">Arial</option>-->
-        <!--            <option value="Verdana">Verdana (Higher Readability)</option>-->
-        <!--            <option value="OpenDyslexic">OpenDyslexic</option>-->
-        <!--        </select>-->
-
-        <!--        &lt;!&ndash; Reddit: https://www.reddit.com/r/CODZombies/wiki/dead-of-the-night/ &ndash;&gt;-->
-        <!--        &lt;!&ndash; Glitch's Guides: https://www.youtube.com/playlist?list=PL4E26NYcwnPY23ekFH0PdiRldPnzsUxms &ndash;&gt;-->
-        <!--        &lt;!&ndash; Infinite Ammo: https://youtu.be/3lkFA50tgj0 &ndash;&gt;-->
-
-        <!--        <h2>Map Progression</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#perk_statues">Perk Statues</a></li>-->
-        <!--            <li><a href="#pap">Pack-a-Punch</a></li>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Weapons and Buildables</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#alistairs_folly">Alistair's Folly</a></li>-->
-        <!--            <ul>-->
-        <!--                <li><a href="#chaos_theory">Chaos Theory</a></li>-->
-        <!--                <li><a href="#alistairs_annihilator">Alistair's Annihilator</a></li>-->
-        <!--            </ul>-->
-        <!--            <li><a href="#ballistic_shield">Ballistic Shield</a></li>-->
-        <!--            <li><a href="#savage_impaler">Savage Impaler</a></li>-->
-        <!--            <li><a href="#silver_bullets">Silver Bullets</a></li>-->
-        <!--            <li><a href="#stake_knife">Stake Knife</a></li>-->
-        <!--            <li><a href="#fire_traps">Fire Traps</a></li>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Easter Eggs</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#main_ee">'Trial by Ordeal' Main Quest</a></li>-->
-        <!--            <div id="substeps1">-->
-        <!--                <ol>-->
-        <!--                    <li><a href="#main_ee">Prerequisites</a></li>-->
-        <!--                    <li><a href="#main_ee_step1">Telescope Quest Line</a></li>-->
-        <!--                    <ol>-->
-        <!--                        <li><a href="#main_ee_step1">Leo - Activating the Telescope Quest</a></li>-->
-        <!--                        <li><a href="#main_ee_step1">Virgo - Shooting the Lightning Rod</a></li>-->
-        <!--                        <li><a href="#main_ee_step1_libra">Libra - Melting Atlas's Head Off</a></li>-->
-        <!--                        <li><a href="#main_ee_step1_scorpio">Scorpio - Activating the Telescope</a></li>-->
-        <!--                    </ol>-->
-        <!--                    <li><a href="#main_ee_step2">Effigy Quest Line</a></li>-->
-        <!--                    <ol>-->
-        <!--                        <li><a href="#main_ee_step2">Sagittarius - Activating the Effigy Quest</a></li>-->
-        <!--                        <li><a href="#main_ee_step2_cap">Capricorn - Collecting Branches</a></li>-->
-        <!--                        <li><a href="#main_ee_step2_aqua">Aquarius - Entering Ghost Mode</a></li>-->
-        <!--                        <li><a href="#main_ee_step2_pisces">Pisces - Activating the Lockdown</a></li>-->
-        <!--                    </ol>-->
-        <!--                    <li><a href="#main_ee_step3">Knight Quest Line</a></li>-->
-        <!--                    <ol>-->
-        <!--                        <li><a href="#main_ee_step3">Aries - Activating the Armour Quest</a></li>-->
-        <!--                        <li><a href="#main_ee_step3_taurus">Taurus - Collecting the Gems</a></li>-->
-        <!--                        <li><a href="#main_ee_step3_gemini">Gemini - Bring the Gems to the Forest</a></li>-->
-        <!--                        <li><a href="#main_ee_step3_cancer">Cancer - Activating the Lockdown</a></li>-->
-        <!--                    </ol>-->
-        <!--                    <li><a href="#main_ee_step4">Boss Fight</a></li>-->
-        <!--                </ol>-->
-        <!--            </div>-->
-        <!--            <li><a href="#song_ee">'Mystery' Song</a></li>-->
-        <!--            <li><a href="#hidden_rooms">Hidden Rooms / Various Free Items</a></li>-->
-        <!--            <li><a href="#jump_scare">Jump Scare</a></li>-->
-        <!--            <li><a href="#infinite_ammo">Infinite Ammo (Images Incomplete)</a></li>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Gauntlet Challenges</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#gauntlet">Super Blood Wolf Moon</a></li>-->
-        <!--        </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="perk_statues">
@@ -1082,6 +1021,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

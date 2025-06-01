@@ -193,12 +193,23 @@ SCROLL FUNCTIONS
 =======================================
 */
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
-    window.history.pushState(null, null, '#');
+function scrollToTop(fromPopstate = false) {
+    console.log('scrollToTop called:', { fromPopstate });
+
+    const contentWindow = document.querySelector('.content-window');
+    if (contentWindow) {
+        console.log('Scrolling to top');
+        contentWindow.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+
+        // Only add to history if this wasn't triggered by popstate
+        if (!fromPopstate) {
+            console.log('Adding to history: #');
+            window.history.pushState({ anchor: null }, null, '#');
+        }
+    }
 }
 
 function scrollToAnchors() {
@@ -206,25 +217,94 @@ function scrollToAnchors() {
         if (event.target.tagName === 'A') {
             const href = event.target.getAttribute('href');
             if (href && href.startsWith('#')) {
+                console.log('Anchor link clicked:', href);
                 event.preventDefault();
                 const elementId = href.substring(1);
-                scrollToElement(elementId, 105);
+                scrollToElement(elementId, 105); // This will add to history
             }
         }
     });
 }
 
-function scrollToElement(elementId, offset) {
+function scrollToElement(elementId, offset, fromPopstate = false) {
+    console.log('scrollToElement called:', { elementId, offset, fromPopstate });
+
     const element = document.getElementById(elementId);
-    if (element) {
+    const contentWindow = document.querySelector('.content-window');
+    if (element && contentWindow) {
         const elementPosition = element.getBoundingClientRect().top;
-        const targetY = elementPosition + window.scrollY - offset;
-        window.scrollTo({
+        const contentWindowScrollTop = contentWindow.scrollTop;
+        const targetY = elementPosition + contentWindowScrollTop - offset;
+
+        console.log('Scrolling to:', { elementId, targetY });
+
+        contentWindow.scrollTo({
             top: targetY,
             behavior: 'smooth'
         });
+
+        // Only add to history if this wasn't triggered by popstate (back/forward button)
+        if (!fromPopstate) {
+            console.log('Adding to history:', '#' + elementId);
+            window.history.pushState({ anchor: elementId }, null, '#' + elementId);
+        }
     }
 }
+
+
+/*
+=======================================
+HISTORY MANAGEMENT FOR ANCHOR LINKS
+=======================================
+*/
+
+// document.addEventListener('click', function(event) {
+//     let target = event.target;
+//     if (target.tagName.toLowerCase() === 'a' && target.hash) {
+//         window.history.pushState({hash: target.hash}, '', target.hash);
+//     }
+// });
+//
+// window.addEventListener('popstate', function(event) {
+//     if (event.state && event.state.hash) {
+//         window.location.hash = event.state.hash;
+//     }
+// });
+
+
+// Handle popstate events (back/forward button)
+window.addEventListener('popstate', function(event) {
+    console.log('Popstate event triggered:', {
+        hash: window.location.hash,
+        state: event.state,
+        historyLength: window.history.length
+    });
+
+    const hash = window.location.hash;
+    if (hash && hash.length > 1) {
+        // Remove the # and scroll to the element
+        const elementId = hash.substring(1);
+        console.log('Navigating to anchor from popstate:', elementId);
+        scrollToElement(elementId, 105, true); // true indicates this is from popstate
+    } else {
+        // No hash, scroll to top
+        console.log('Navigating to top from popstate');
+        scrollToTop(true); // true indicates this is from popstate
+    }
+});
+
+function clearHashAndScrollTop() {
+    // Clear hash from URL and scroll to top
+    if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.href.split('#')[0]);
+    }
+
+    const contentWindow = document.querySelector('.content-window');
+    if (contentWindow) {
+        contentWindow.scrollTo({ top: 0, behavior: 'auto' });
+    }
+}
+
 
 /*
 =======================================
@@ -506,25 +586,6 @@ function resetTutorial() {
 
 // console.log(localStorage.getItem('zombiesGuidesTutorialShown'));
 // resetTutorial();
-
-/*
-=======================================
-HISTORY MANAGEMENT FOR ANCHOR LINKS
-=======================================
-*/
-
-document.addEventListener('click', function(event) {
-    let target = event.target;
-    if (target.tagName.toLowerCase() === 'a' && target.hash) {
-        window.history.pushState({hash: target.hash}, '', target.hash);
-    }
-});
-
-window.addEventListener('popstate', function(event) {
-    if (event.state && event.state.hash) {
-        window.location.hash = event.state.hash;
-    }
-});
 
 
 /*
@@ -965,9 +1026,9 @@ function addLightboxClass() {
 }
 
 function addLightboxContainer() {
-    const smoothScrollDiv = document.querySelector('div.smooth-scroll');
+    const body = document.querySelector('body');
 
-    if (smoothScrollDiv) {
+    if (body) {
         const lightboxHTML = `
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
@@ -980,11 +1041,11 @@ function addLightboxContainer() {
         </div>
     </div>
     `;
-        smoothScrollDiv.insertAdjacentHTML('afterend', lightboxHTML);
+        body.insertAdjacentHTML('beforeend', lightboxHTML);
 
         // console.log('Lightbox container added successfully');
     } else {
-        console.log('No div with class "smooth-scroll" found');
+        console.log('No body element found');
     }
 }
 
@@ -1273,6 +1334,7 @@ async function includeSolverComponent() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    clearHashAndScrollTop();
     changeThemeColour();
     touchScreenInit();
     preloadImages();

@@ -10,75 +10,55 @@
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Firebase Z Guide</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Firebase Z Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--    <label for="fontSelector">Select a Font:</label>-->
-        <!--    <select id="fontSelector">-->
-        <!--            <option value="Arial">Arial</option>-->
-        <!--            <option value="Verdana">Verdana (Higher Readability)</option>-->
-        <!--            <option value="OpenDyslexic">OpenDyslexic</option>-->
-        <!--        </select>-->
-
-        <!--    <h2>Weapons</h2>-->
-        <!--    <ul>-->
-        <!--      <li><a href="#raik84">RAI K-84</a></li>-->
-        <!--    </ul>-->
-
-        <!--    <h2>Easter Eggs</h2>-->
-        <!--    <ul>-->
-        <!--      <li><a href="#main_ee">'Maxis Potential' Main Quest</a></li>-->
-        <!--      <div id="substeps1">-->
-        <!--        <ol>-->
-        <!--          <li><a href="#main_ee_step1">Prerequisites</a></li>-->
-        <!--          <li><a href="#main_ee_step2">Creating the Serum</a></li>-->
-        <!--          <li><a href="#main_ee_step3">Collect the Mimic's Memories</a></li>-->
-        <!--          <li><a href="#main_ee_step4">Stabilize the Breach</a></li>-->
-        <!--          <li><a href="#main_ee_step5">Orda Boss Fight</a></li>-->
-        <!--        </ol>-->
-        <!--      </div>-->
-        <!--      <li><a href="#song_ee">'Lost' Song</a></li>-->
-        <!--      <li><a href="#loot_ee">Bunny Rabbit / Free Loot</a></li>-->
-        <!--      <li><a href="#free_perk">Free Juggernog</a></li>-->
-        <!--      <li><a href="#monkeybomb_upgrade">Upgraded Monkey Bombs</a></li>-->
-        <!--      <li><a href="#free_jump_pads">Free Jump Pads</a></li>-->
-        <!--    </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <div class="content-container" data-section-ind="Weapons" id="raik84">
         <h2>RAI K-84</h2>
@@ -290,6 +270,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

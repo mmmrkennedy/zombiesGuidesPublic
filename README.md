@@ -12,13 +12,13 @@ Next:
 - Shadows of Evil (BO3)
 
 Finished:
-- All Of CW (Except Outbreak)
-- All Of VG
-- All Of BO4
-- All of IW
+- All Of Black Ops Cold War (Except Outbreak)
+- All Of Vanguard
+- All Of Black Ops 4
+- All of Infinite Warfare
 - Outbreak (AW)
 - Infection (AW)
-- All Of WAW
+- All Of World at War
 - All of WW2
 
 In Limbo (I don't wanna):
@@ -26,7 +26,7 @@ In Limbo (I don't wanna):
 
 Planned:
 - Black Ops 3
-- The rest of AW
+- The rest of Advanced Warfare
 
 If you have any suggestions or feedback, or you'd even like to contribute, join the Discord (https://discord.com/invite/hQng3Yz48A).
 

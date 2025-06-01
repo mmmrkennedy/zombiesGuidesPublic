@@ -5,124 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Zombies in Spaceland Guide</title>
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon/favicon.ico">
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Zombies in Spaceland Guide</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Zombies in Spaceland Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--<label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-
-        <h2>Map Progression</h2>
-        <ul>
-            <li><a href="#power">Power</a></li>
-            <li><a href="#pap">Pack-a-Punch</a></li>
-            <ul>
-                <li><a href="#double_pap">Double Pack-a-Punch</a></li>
-            </ul>
-            <li><a href="#n31l">N31L</a></li>
-            <ul>
-                <li><a href="#kitt">KITT (N31L Upgrade)</a></li>
-            </ul>
-            <li><a href="#tickets">Tickets</a></li>
-            <ul>
-                <li><a href="#rewards">Ticket Rewards</a></li>
-                <li><a href="#arcade_games">List of Arcade Games</a></li>
-            </ul>
-        </ul>
-
-        <h2>Weapons and Buildables</h2>
-        <ul>
-            <li><a href="#coins">Souvenir Coins/Stations (Craftable Scorestreaks)</a></li>
-            <li><a href="#headcutter">'Weapon of Rock' Wonder Weapons</a></li>
-            <ul>
-                <li><a href="#headcutter">Head-Cutter</a></li>
-                <li><a href="#facemelter">Face-Melter</a></li>
-                <li><a href="#dischord">Dischord</a></li>
-                <li><a href="#shredder">Shredder</a></li>
-            </ul>
-            <li><a href="#elemental_upgrades">Arcane Core Elemental Upgrades</a></li>
-            <ul>
-                <li><a href="#elemental_upgrades">Electricity (Blue)</a></li>
-                <li><a href="#elemental_upgrades">Laser (Green)</a></li>
-                <li><a href="#elemental_upgrades">Wind (Yellow)</a></li>
-                <li><a href="#elemental_upgrades">Fire (Orange)</a></li>
-                <li><a href="#arcane_xquisite">X-QUISITE (Purple)</a></li>
-            </ul>
-
-        </ul>
-
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#main_ee">'Sooooul Key' Main Quest</a></li>
-            <div id="substeps1">
-                <ol>
-                    <li><a href="#main_ee">Prerequisites</a></li>
-                    <li><a href="#main_ee_step2">Craft the SETI-COM</a></li>
-                    <li><a href="#main_ee_step3">Defend the SETI-COM</a></li>
-                    <li><a href="#main_ee_step4">UFO and Alien Boss Fight</a></li>
-                    <li><a href="#main_ee_step5">Destroying the UFO</a></li>
-                </ol>
-            </div>
-            <li><a href="#mw1_song">'MW1 Theme - The Spaceland Mix' Song</a></li>
-            <li><a href="#mw2_song">'MW2 Theme - Radical 80s Remix' Song</a></li>
-            <li><a href="#lobby_music">Additional Lobby Music</a></li>
-            <li><a href="#ghosts_and_skulls">Ghosts 'N Skulls</a></li>
-            <ol>
-                <li><a href="#ghosts_and_skulls">Skull 1/6 - Balloons</a></li>
-                <li><a href="#side_ee_step2">Skull 2/6 - Skulls around the map</a></li>
-                <li><a href="#side_ee_step3">Skull 3/6 - Disco Floor</a></li>
-                <li><a href="#side_ee_step4">Skull 4/6 - Arcade Games</a></li>
-                <li><a href="#side_ee_step5">Skull 5/6 - Main Quest</a></li>
-                <li><a href="#side_ee_step6">Skull 6/6 - Brute Laser</a></li>
-                <li><a href="#side_ee_step7">The Ghost N' Skulls Mini-Game</a></li>
-            </ol>
-            <li><a href="#hasselhoff_code">Play as David Hasselhoff</a></li>
-            <li><a href="#wyler_code">Play as Willard Wyler</a></li>
-        </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -934,6 +870,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

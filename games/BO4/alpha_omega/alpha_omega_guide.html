@@ -10,118 +10,55 @@
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Alpha Omega Guide</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Alpha Omega Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--<label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-
-        &lt;!&ndash; Reddit Text Guide: https://www.reddit.com/r/CODZombies/wiki/alpha-omega/ &ndash;&gt;
-        &lt;!&ndash; Glitch's YT Playlist: https://www.youtube.com/playlist?list=PL4E26NYcwnPZ6o4J0IYeiN6NiCpXdajEI &ndash;&gt;
-        &lt;!&ndash; 2023 Compilation: https://youtu.be/k423piuqfIk?list=PLoAcAwjKzmgzzNcmCihXgxG5TbYy3v1yi &ndash;&gt;
-
-        <h2>Map Progression</h2>
-        <ul>
-            <li><a href="#power">Power</a></li>
-            <li><a href="#pap">Pack-a-Punch</a></li>
-        </ul>
-
-        <h2>Weapons and Buildables</h2>
-        <ul>
-            <li><a href="#ray_gun_mark_2">Ray Gun Mark II</a></li>
-            <ul>
-                <li><a href="#assembly_kit">Assembly Kit</a></li>
-                <li><a href="#ray_gun_mark_2_frame">Ray Gun Mark II Frame</a></li>
-                <ul>
-                    <li><a href="#ray_gun_mark_2_v">Ray Gun Mark II-V (Electric Beam/Yellow)</a></li>
-                    <li><a href="#ray_gun_mark_2_x">Ray Gun Mark II-X (Full-Auto/Blue)</a></li>
-                    <li><a href="#ray_gun_mark_2_y">Ray Gun Mark II-Y (Explosive/Orange)</a></li>
-                    <li><a href="#ray_gun_mark_2_z">Ray Gun Mark II-Z (Shotgun/Purple)</a></li>
-                </ul>
-            </ul>
-            <li><a href="#riot_shield">Riot Shield</a></li>
-            <li><a href="#telepads">Telepads</a></li>
-            <li><a href="#sergeant_adam">Sergeant A.D.A.M.</a></li>
-        </ul>
-
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#main_ee">'Electromagnetic Awakening Party' Main Quest</a></li>
-            <div id="substeps1">
-                <ol>
-                    <li><a href="#main_ee_step1">Contain the Gas Leak</a></li>
-                    <li><a href="#main_ee_step2">Test the Emergency Broadcast System</a></li>
-                    <li><a href="#main_ee_step3">Pursue all Avenues of Science and Invention</a></li>
-                    <li><a href="#main_ee_step4">Preserve the Integrity of Our Mission</a></li>
-                    <li><a href="#main_ee_step5">Prevail over the Impossible to Open New Worlds</a></li>
-                    <li><a href="#main_ee_step6">Protect the Values of the American Dream</a></li>
-                    <li><a href="#main_ee_step7">Prepare for Tomorrow and Humanity's Future</a></li>
-                    <li><a href="#main_ee_step8">Overwhelm our Enemies with Shock and Awe</a></li>
-                    <ul>
-                        <li><a href="#main_ee_step9">Avogadro Boss Fight</a></li>
-                    </ul>
-                    <li><a href="#main_ee_step10">To Preserve the Future, Empower the Past</a></li>
-                </ol>
-            </div>
-            <li><a href="#song_ee">'I Am The Well' Song</a></li>
-            <li><a href="#jump_scare">Pernell/Avogadro Jump Scare</a></li>
-            <li><a href="#jump_scare_2">Mannequin Jump Scare</a></li>
-            <li><a href="#tedd">Interact with TEDD</a></li>
-            <li><a href="#insanity_mode">Insanity Mode / Teleport to Round 200</a></li>
-            <li><a href="#free_self_revive">Love Story / Free Self-Revive</a></li>
-            <li><a href="#free_perk">Free Bonus Perk</a></li>
-            <li><a href="#rushmore_codes">Rushmore Secret Codes</a></li>
-        </ul>
-
-        <h2>Miscellaneous</h2>
-        <ul>
-            <li><a href="#mannequin">All Mannequin Locations</a></li>
-        </ul>
-
-        <h2>Gauntlet Challenges</h2>
-        <ul>
-            <li><a href="#gauntlet">Duck and Cover</a></li>
-        </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -1037,6 +974,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

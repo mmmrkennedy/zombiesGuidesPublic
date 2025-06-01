@@ -4,69 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outbreak Guide</title>
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon/favicon.ico">
     <base>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Outbreak Guide (Partially Unfinished)</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Outbreak Guide (Partially Unfinished)</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--<label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-        
-        <h2>Weapons</h2>
-        <ul>
-            <li><a href="#wonderweapons">Wonder Weapons</a></li>
-        </ul>
-        
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#main_quest_ravenov">'Ravenov Implications' Main Quest</a></li>
-            <li><a href="#main_quest_operation">'Operation Excision' Main Quest</a></li>
-            <li><a href="#the_pact">'The Pact' Super Easter Egg</a></li>
-        </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="wonderweapons">
@@ -366,6 +357,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

@@ -5,109 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Voyage of Despair Guide</title>
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon/favicon.ico">
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
-</div>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Voyage of Despair Guide</h2>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Voyage of Despair Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <!--        <label for="fontSelector">Select a Font:</label>-->
-        <!--        <select id="fontSelector">-->
-        <!--            <option value="Arial">Arial</option>-->
-        <!--            <option value="Verdana">Verdana (Higher Readability)</option>-->
-        <!--            <option value="OpenDyslexic">OpenDyslexic</option>-->
-        <!--        </select>-->
-
-        <!--        &lt;!&ndash; https://www.youtube.com/playlist?list=PL4E26NYcwnPbxeMbTqGytBnwjGF1Q8MtG &ndash;&gt;-->
-        <!--        &lt;!&ndash; https://www.reddit.com/r/CODZombies/wiki/voyage-of-despair/ &ndash;&gt;-->
-
-        <!--        <h2>Map Progression</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#pap">Pack-a-Punch</a></li>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Weapons and Buildables</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#kraken">Kraken</a></li>-->
-        <!--            <ul>-->
-        <!--                <li><a href="#kraken_variant">Elemental Variants</a></li>-->
-        <!--            </ul>-->
-        <!--            <li><a href="#ballistic_shield">Ballistic Shield</a></li>-->
-        <!--            <ul>-->
-        <!--                <li><a href="#svalinn_guard">Svalinn Guard</a></li>-->
-        <!--            </ul>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Easter Eggs</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#main_ee">'Abandon Ship' Main Quest</a></li>-->
-        <!--            <div id="substeps1">-->
-        <!--                <ol>-->
-        <!--                    <li><a href="#main_ee_step1">The Sentinel Artifact is yours for the Taking</a></li>-->
-        <!--                    <li><a href="#main_ee_step2">For the Elements are Four and Must be Attuned</a></li>-->
-        <!--                    <li><a href="#main_ee_step3">To Change the Agents of Change is to Change Everything</a></li>-->
-        <!--                    <li><a href="#main_ee_step4">Within the Chain of Phases all is Conceived</a></li>-->
-        <!--                    <li><a href="#main_ee_step5">Before the Flame your Hubris is Devoured</a></li>-->
-        <!--                    <li><a href="#main_ee_step6">When the Planets are Revealed, the Essence is Received</a></li>-->
-        <!--                    <li><a href="#main_ee_step7">Where Light Shines Not the Path Leads Inward</a></li>-->
-        <!--                    <li><a href="#main_ee_step8">Unto the Nest its Malice Unravels</a></li>-->
-        <!--                    <li><a href="#main_ee_step9">Behold the Eye of Malice and Despair (Boss Fight)</a></li>-->
-        <!--                </ol>-->
-        <!--            </div>-->
-        <!--            <li><a href="#song_ee">'Drowning' Song</a></li>-->
-        <!--            <li><a href="#freekraken_freehomunculus">Free Kraken and Homunculus</a></li>-->
-        <!--            <li><a href="#lowgravity_zombies">Low-Gravity Zombies</a></li>-->
-        <!--            <li><a href="#special_weapon_firesale">Special Weapon Fire Sale</a></li>-->
-        <!--            <li><a href="#pap_special">Pack-a-Punch Valves / Buy PAP Ammo for Any Standard Gun</a></li>-->
-        <!--            <li><a href="#free_perk">Free Perk</a></li>-->
-        <!--            <li><a href="#bowie_knife_upgrade">Upgraded Bowie Knife</a></li>-->
-        <!--            <li><a href="#hourglass">Hourglass / Free Fast Travel</a></li>-->
-        <!--            <li><a href="#ride_flyingcar">Ride Flying Car Around Map</a></li>-->
-        <!--        </ul>-->
-
-        <!--        <h2>Gauntlet Challenges</h2>-->
-        <!--        <ul>-->
-        <!--            <li><a href="#gauntlet">Unsinkable</a></li>-->
-        <!--            <li><a href="#gauntlet_hard">Unsinkable (Hard)</a></li>-->
-        <!--        </ul>-->
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
+</div>
+
+<div class="smooth-scroll content-window">
+    <!-- Legend to other parts -->
+    <div class="content-container-top"></div>
 
     <!-- PaP -->
     <div class="content-container" data-section-ind="Map Progression" id="pap">
@@ -980,6 +931,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>

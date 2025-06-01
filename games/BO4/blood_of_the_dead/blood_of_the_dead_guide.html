@@ -5,124 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Blood of the Dead Guide</title>
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon/favicon.ico">
     <base target="_blank">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
+<!-- Google Analytics -->
 <script>
-    window.dataLayer = window.dataLayer || [];
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
 
-    function gtag() {
-        dataLayer.push(arguments);
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-
 </script>
 
 <body>
-<!-- Mobile devices content -->
-<div id="mobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+<div class="top_buttons_background_box">
+    <!-- Title at the top of the page, INCLUDE "guide"-->
+    <h2 class="title-text">Blood of the Dead Guide</h2>
+
+    <!-- Mobile devices content -->
+    <div id="mobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+    </div>
+
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent">
+        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+    </div>
 </div>
 
-<!-- Non-mobile devices content -->
-<div id="nonMobileContent">
-    <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-    <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
-</div>
-
-<!-- Title at the top of the page, INCLUDE "guide"-->
-<h2 class="title-text">Blood of the Dead Guide</h2>
-<div class="top_buttons_background_box"></div>
-
-<div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <!--  <div class="content-container-top">-->
-    <!--    <label for="fontSelector">Select a Font:</label>-->
-    <!--    <select id="fontSelector">-->
-    <!--            <option value="Arial">Arial</option>-->
-    <!--            <option value="Verdana">Verdana (Higher Readability)</option>-->
-    <!--            <option value="OpenDyslexic">OpenDyslexic</option>-->
-    <!--        </select>-->
-
-    <!--    &lt;!&ndash; Reddit Text Guide: https://www.reddit.com/r/CODZombies/wiki/blood-of-the-dead/ &ndash;&gt;-->
-    <!--    &lt;!&ndash; Glitch's YT Playlist: https://www.youtube.com/playlist?list=PL4E26NYcwnPbsKJACMTHyXJjPrZpiWVhd &ndash;&gt;-->
-    <!--    &lt;!&ndash; 2023 Compilation: https://www.youtube.com/watch?v=dXCTIfao15M &ndash;&gt;-->
-    <!--    &lt;!&ndash; 2023 Guide: https://youtu.be/rlyD8YHtYgg &ndash;&gt;-->
-
-    <!--    <h2>Map Progression</h2>-->
-    <!--    <ul>-->
-    <!--      <li><a href="#power">Power</a></li>-->
-    <!--      <li><a href="#pap">Pack-a-Punch</a></li>-->
-    <!--    </ul>-->
-
-    <!--    <h2>Weapons and Buildables</h2>-->
-    <!--    <ul>-->
-    <!--      <li><a href="#blundergat">Blundergat</a></li>-->
-    <!--      <ul>-->
-    <!--        <li><a href="#acidgat">Acidgat</a></li>-->
-    <!--        <li><a href="#magmagat">Magmagat</a></li>-->
-    <!--      </ul>-->
-    <!--      <li><a href="#hells_retriever">Hell's Retriever</a></li>-->
-    <!--      <ul>-->
-    <!--        <li><a href="#hells_redeemer">Hell's Redeemer</a></li>-->
-    <!--      </ul>-->
-    <!--      <li><a href="#spoon">Spoon</a></li>-->
-    <!--      <ul>-->
-    <!--        <li><a href="#golden_spork">Golden Spork</a></li>-->
-    <!--        <li><a href="#golden_scalpel">Golden Scalpel</a></li>-->
-    <!--        <li><a href="#golden_sporknife">Golden Sporknife</a></li>-->
-    <!--      </ul>-->
-    <!--      <li><a href="#spectral_shield">Spectral Shield</a></li>-->
-    <!--      <ul>-->
-    <!--        <li><a href="#attuned_spectral_shield">Attuned Spectral Shield</a></li>-->
-    <!--      </ul>-->
-    <!--    </ul>-->
-
-    <!--    <h2>Easter Eggs</h2>-->
-    <!--    <ul>-->
-    <!--      <li><a href="#main_ee">'Most Escape Alive' Main Quest</a></li>-->
-    <!--      <div id="substeps1">-->
-    <!--        <ol>-->
-    <!--          <li><a href="#main_ee_step1">Unleash the Spirits</a></li>-->
-    <!--          <li><a href="#main_ee_step2">Shock and Denial</a></li>-->
-    <!--          <li><a href="#main_ee_step3">Pain and Guilt</a></li>-->
-    <!--          <li><a href="#main_ee_step4">Anger and Bargaining</a></li>-->
-    <!--          <ul>-->
-    <!--            <li><a href="#docks_challenge">Docks Challenge</a></li>-->
-    <!--            <li><a href="#showers_challenge">Showers Challenge</a></li>-->
-    <!--            <li><a href="#michigan_avenue_challenge">Michigan Avenue Challenge</a></li>-->
-    <!--            <li><a href="#power_house_challenge">Power House Challenge</a></li>-->
-    <!--            <li><a href="#new_industries_challenge">New Industries Challenge</a></li>-->
-    <!--          </ul>-->
-    <!--          <li><a href="#main_ee_step5">Reflection and Loneliness</a></li>-->
-    <!--          <li><a href="#main_ee_step6">The Upward Turn</a></li>-->
-    <!--          <li><a href="#main_ee_step7">Reconstruction/Boss Fight</a></li>-->
-    <!--          <li><a href="#main_ee_step8">Acceptance</a></li>-->
-    <!--        </ol>-->
-    <!--      </div>-->
-    <!--      <li><a href="#song_ee">'Where Are We Going' Song</a></li>-->
-    <!--      <li><a href="#song_ee2">'Mob of the Dead Showers Lockdown Theme' Song</a></li>-->
-    <!--      <li><a href="#free_monkey_bomb">Free Monkey Bombs</a></li>-->
-    <!--      <li><a href="#shadowman_jumpscare">Shadowman Jumpscare</a></li>-->
-    <!--      <li><a href="#free_max_shield_charge">Free Max shield Charge</a></li>-->
-    <!--    </ul>-->
-
-    <!--    <h2>Gauntlet Challenges</h2>-->
-    <!--    <ul>-->
-    <!--      <li><a href="#gauntlet">Hellcatraz</a></li>-->
-    <!--    </ul>-->
-    <!--  </div>-->
+<div class="smooth-scroll content-window">
+    <div class="content-container-top"></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -130,7 +65,7 @@
         <ul>
             <li>There are two power switches, one for the West Side of the island (Spawn) and one for the East Side of the island (Prison/Docks). Locations: </li>
             <ul>
-                <li>West Side: <a href="pictures/power/power_powerhouse.webp">Power House - Near the Brew Perk</a></li>
+                <li>West Side: <a href="pictures/power/power_powerhouse.webp">Power House - Near the Brew Perk</a>.</li>
                 <li>East Side: <a href="pictures/power/power_building64.webp">Building 64 - In the side room</a>. There are three switches in the room, any random two of which are always on. Only the third needs to be flipped. Activating this power switch will always spawn the Warden. </li>
             </ul>
         </ul>
@@ -140,8 +75,8 @@
     <div class="content-container" id="pap">
         <h2>Pack-a-Punch</h2>
         <ol>
-            <li>Activate the <a href="#power">Power</a></li>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a></li>
+            <li>Activate the <a href="#power">Power</a>.</li>
+            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
             <li>Spirit blast the <a href="pictures/pap/voltmeter.webp">Voltmeter</a> on the roof to spawn the Pack-a-Punch. </li>
             <li>The Pack-a-Punch will teleport between the following three locations. There is <strong>no way</strong> (that we know of) to figure out where the Pack-a-Punch is without checking each location. Locations: </li>
             <ul>
@@ -187,7 +122,7 @@
         <ol>
             <p class="upgrade-title" id="magmagat">Magmagat</p>
             <p class="weapon-desc">The Magmagat is an upgraded Blundergat that launches a lava ball. When this ball sticks to a Zombie, it explodes, killing it. If shot at the ground, the ball remains for a few seconds, attracting Zombies and continuously damaging those nearby. The ball does minimal damage to the player when standing on it (~1-2 health/sec).</p>
-            <li>Obtain the <a href="#blundergat">Blundergat</a></li>
+            <li>Obtain the <a href="#blundergat">Blundergat</a>.</li>
             <li>Place the Blundergat in the <a href="pictures/blundergat/magmagat/fireplace.webp">Fireplace</a> in the 'Warden's House.' </li>
             <li>You must stay in the 'Warden's House' until the essence has been deposited or the Blundergat will disappear. While in the 'Warden's House,' kill Zombies and pick up the <a href="pictures/blundergat/magmagat/blue_essence.webp">Blue Essence</a> they drop. Once enough essence has been collected, Zombies will no longer drop any. </li>
             <li>Deposit the essence into the Fireplace to convert the Blundergat into the Tempered Blundergat. You must pick it up within 30 seconds, or it will disappear. The Tempered Blundergat cools over time, reverting to the Blundergat. Touching <a href="pictures/blundergat/magmagat/bluebarrel_example.webp">Blue Flaming Barrels</a> resets the cooling timer. Travel from 'Warden's House' to 'New Industries' without it going out; fast travelling will extinguish it. If it goes out, reignite it at the fireplace. There are five barrels on the path from 'Warden's House' to 'New Industries': </li>
@@ -197,7 +132,7 @@
                 <li><a href="pictures/blundergat/magmagat/bluebarrel_timessquare.webp">Cell Block Entrance</a></li>
                 <li><a href="pictures/blundergat/magmagat/bluebarrel_recreationyard.webp">Recreation Yard</a></li>
                 <li><a href="pictures/blundergat/magmagat/bluebarrel_westground1.webp">West Grounds (Beside 'Catwalk' Entrance)</a></li>
-                <li><a href="pictures/blundergat/magmagat/bluebarrel_westground2.webp">West Grounds (Outside 'New Industries)</a></li>
+                <li><a href="pictures/blundergat/magmagat/bluebarrel_westground2.webp">West Grounds (Outside 'New Industries')</a></li>
             </ul>
             <li>In the 'New Industries,' place the Tempered Blundergat in the <a href="pictures/blundergat/magmagat/press.webp">press</a>. After being pressed, the Magmagat will become available for pickup. </li>
             <li>After the Magmagat has been crafted, anyone in the game can place a Blundergat in the press to get the Magmagat without having to do the previous steps. </li>
@@ -207,7 +142,7 @@
     <div class="content-container" id="hells_retriever">
         <h2>Hell's Retriever</h2>
         <ol>
-            <li>Activate the <a href="#power">Power</a></li>
+            <li>Activate the <a href="#power">Power</a>.</li>
             <li>Feed three Hellhounds with Zombies by killing Zombies near them. Only one Zombie can be fed to a Hellhound at a time, so wait for the Hound to finish chewing before killing another Zombie. Three Hellhound locations: </li>
             <ul>
                 <li><a href="pictures/hells_retriever/hellhound_newindustries.webp">New Industries - Left of the GKS wallbuy</a></li>
@@ -638,7 +573,7 @@
         <h2>'Where Are We Going (2018 Edition)' Song</h2>
         <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542635676">here</a>.</p>
         <ol>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a></li>
+            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
             <li>In the 'Citadel Tunnels,' spirit blast the <a href="pictures/spoon/number_pad.webp">Number Pad</a> to activate it. </li>
             <li>Enter "115" to start the song.</li>
         </ol>
@@ -867,6 +802,6 @@
 </div>
 
 <h2 class="bottom-padding"></h2>
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../../js/scripts.js"></script>
 </body>
 </html>
