@@ -1,5 +1,8 @@
 // console.log("Loaded Scripts")
 
+const BASE_PATH = window.location.origin + "/";
+console.log(BASE_PATH);
+
 
 function getCurrentPage() {
     return window.location.pathname.split("/").pop();
@@ -169,8 +172,6 @@ function setDefaultFonts() {
 NAVIGATION UTILITIES
 =======================================
 */
-
-const BASE_PATH = window.location.origin + "/";
 
 function navigateToIndex() {
     const isLocalEnvironment = window.location.hostname === "localhost" ||
