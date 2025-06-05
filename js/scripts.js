@@ -3,8 +3,15 @@
 const BASE_PATH = window.location.origin + "/";
 console.log(BASE_PATH);
 
-if (BASE_PATH.includes("github.io/")) {
-    window.location.replace("https://mmmrkennedy.com/" + window.location.pathname.slice(1));
+const oldBasePath = "/zombiesGuidesPublic/";
+const fullPath = window.location.pathname;
+
+if (fullPath.startsWith(oldBasePath) || BASE_PATH.includes("github.io/")) {
+    const newPath = fullPath.slice(oldBasePath.length); // Remove the old base
+    const newUrl = `https://mmmrkennedy.com/${newPath.replace('.html', '')}`; // Remove .html if needed
+
+    // Redirect (replace() avoids adding to history)
+    window.location.replace(newUrl);
 }
 
 
@@ -14,7 +21,8 @@ function getCurrentPage() {
 
 
 function setTitle() {
-    if (getCurrentPage() === "index.html") {
+    const currentPage = getCurrentPage();
+    if (currentPage === "index.html" || currentPage === "") {
         return;
     }
     
