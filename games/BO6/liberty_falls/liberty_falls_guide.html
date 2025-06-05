@@ -58,45 +58,10 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label> <select id="fontSelector">
-        <option value="Arial">Arial</option>
-        <option value="Verdana">Verdana (Higher Readability)</option>
-        <option value="OpenDyslexic">OpenDyslexic</option>
-    </select>
-
-        <h2>Weapons</h2>
-        <ul>
-            <li><a href="#jet_gun">Jet Gun (Thrustodyne M23)</a></li>
-        </ul>
-
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#main_ee">'Bye-Bye, Dark Aether' Main Quest</a></li>
-            <ol>
-                <li><a href="#main_ee_step1">Building the L.T.G.</a></li>
-                <li><a href="#main_ee_step2">Canister #1</a></li>
-                <li><a href="#main_ee_step3">Aether Projectors</a></li>
-                <li><a href="#main_ee_step4">Canister #2</a></li>
-                <li><a href="#main_ee_step5">Boss Fight</a></li>
-            </ol>
-            <li><a href="#mister_peek_bowling">Mister Peek Bowling Mini-game (Free Loot/Gun and Dark Ops Calling Card)</a></li>
-            <li><a href="#song_ee">"Destroy Something Beautiful" Song</a></li>
-            <li><a href="#opening_bank_vault">Opening the Bank Vault (Free Loot)</a></li>
-            <li><a href="#mr_peeks_car">Mr. Peeks Car (Free Gun)</a></li>
-            <li><a href="#vending_machine">Vending Machine (Free Loot/Weapon)</a></li>
-            <li><a href="#aetherella_trap">Play as the Aetherella Trap</a></li>
-            <li><a href="#deadshot_sharpshooter">Deadshot Sharpshooter (Free Deadshot Perk)</a></li>
-            <li><a href="#raining_zombies">Raining Zombies (Free Loot)</a></li>
-            <li><a href="#red_orb">Red Orb (Free Loot/Fire Sale Power-up)</a></li>
-            <li><a href="#free_powerups">Free Power-ups</a></li>
-            <li><a href="#dancing_zombies">Dancing Zombies</a></li>
-            <li><a href="#pool_table">Pool Table (Free 100 Points)</a></li>
-        </ul>
-    </div>
+    <div class="content-container-top"></div>
 
     <!-- Wonder Weapons -->
-    <div class="content-container" id="jet_gun">
+    <div class="content-container" data-section-ind="Weapons" id="jet_gun">
         <h2>Jet Gun (Thrustodyne M23)</h2>
         <p class="weapon-desc">The Jet Gun is available from the mystery box, through the completion of S.A.M. trials, and via the following quest:</p>
         <ol>
@@ -137,7 +102,7 @@
     </div>
 
     <!-- Main Easter Egg -->
-    <div class="content-container" id="main_ee">
+    <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
         <h2>'Bye-Bye, Dark Aether' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - 2/10, Est. Completion Time - 30 to 45 Mins</p>
         <ol>
@@ -171,17 +136,36 @@
 
             <p class="step-group-title" id="main_ee_step3">Aether Projectors</p>
             <li>Pick up a <a href="pictures/main_ee/strauss_counter_pickup.webp">Strauss Counter</a> from the front-left side of the SDG. It may take a couple of seconds to spawn due to a conversation. </li>
-            <li>There are three Aether Projectors around the map that need to be set to the correct colour using the Strauss Counter (see below). When near a projector, pull out the counter and look at the colour it is displaying. Based on this colour, you will need to set the projector to a <strong>different colour</strong> by interacting with it to change the <a href="pictures/main_ee/proj_light_on_top.webp">light on the top</a>. </li>
+            <li>There are three Aether Projectors around the map that need to be set to the correct colour using the Strauss Counter (see below). When near a projector, pull out the counter and look at the colour it is displaying. Based on this colour, you will need to set the projector to a <strong>different colour</strong> by interacting with it to change the <a href="pictures/main_ee/proj_light_on_top.webp">light on the top</a>. Projector locations:</li>
             <ul>
-                <li>Strauss to Projector colour map: <span style="color: red">Red</span> = <span style="color: green">Green</span>, <span style="color: green">Green</span> = <span style="color: red">Red</span>, and <span style="color: #c9c902">Yellow</span> = <span style="color: #c9c902">Yellow</span>. </li>
-                <li>Projector locations:</li>
-                <ul>
-                    <li><a href="pictures/main_ee/proj_yard.webp">Groundskeeper’s Yard - Right of the stairs down to the street</a></li>
-                    <li><a href="pictures/main_ee/proj_lanes.webp">Hilltop Stairs - On the grass beside the stairs</a>
-                    </li>
-                    <li><a href="pictures/main_ee/proj_yummy.webp">Yummy Freeze Rooftop - Drop down from the door, left of the arsenal machine on "The Alamo" roof</a></li>
-                </ul>
+                <li><a href="pictures/main_ee/proj_yard.webp">Groundskeeper’s Yard - Right of the stairs down to the street</a></li>
+                <li><a href="pictures/main_ee/proj_lanes.webp">Hilltop Stairs - On the grass beside the stairs</a>
+                </li>
+                <li><a href="pictures/main_ee/proj_yummy.webp">Yummy Freeze Rooftop - Drop down from the door, left of the arsenal machine on "The Alamo" roof</a></li>
             </ul>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Strauss Counter Colour</th>
+                    <th>Colour on Projector</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th><span style="color: red">Red</span></th>
+                    <th><span style="color: green">Green</span></th>
+                </tr>
+                <tr>
+                    <th><span style="color: green">Green</span></th>
+                    <th><span style="color: red">Red</span></th>
+                </tr>
+                <tr>
+                    <th><span style="color: #c9c902">Yellow</span></th>
+                    <th><span style="color: #c9c902">Yellow</span></th>
+                </tr>
+                </tbody>
+            </table>
             <li>Once all three are set correctly, the projectors will move to face spawn and shoot a beam of energy. Once all three are set correctly, the projectors will move to face spawn and shoot a beam of energy. After a few seconds, the canister will come out of the top of <a href="pictures/main_ee/canister_spawn.webp">this device</a> on 'East Main Street'. Interact with it to pick up the canister. </li>
 
             <p class="step-group-title" id="main_ee_step4">Canister #2</p>
