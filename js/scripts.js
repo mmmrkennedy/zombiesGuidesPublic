@@ -3,6 +3,10 @@
 const BASE_PATH = window.location.origin + "/";
 console.log(BASE_PATH);
 
+if (BASE_PATH.includes("github.io/")) {
+    window.location.replace("https://mmmrkennedy.com/" + window.location.pathname.slice(1));
+}
+
 
 function getCurrentPage() {
     return window.location.pathname.split("/").pop();
