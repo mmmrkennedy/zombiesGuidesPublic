@@ -19,14 +19,6 @@
     <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
 </head>
 
-
-<script>
-    const currentPath = window.location.pathname;
-    if (currentPath.endsWith('zombiesGuidesPublic/')) {
-        window.location.href = window.location.origin + currentPath + 'index.html';
-    }
-</script>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL"></script>
 <script>
@@ -43,24 +35,24 @@
 </script>
 
 <body>
+<div class="top_buttons_background_box">
+    <h1 class="centered">Call of Duty Zombies Easter Eggs & Quests Guides</h1>
 
-<button class="toggle-button index-bottom-right" onclick="navigateToSettings()">Settings</button>
-<button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    <button class="toggle-button bottom-right-up" onclick="navigateToSettings()">Settings</button>
+    <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
 
-<h1 class="centered">Call of Duty Zombies Easter Eggs & Quests Guides</h1>
+    <div id="nonMobileContent" style="display: none"></div>
+
+    <div id="mobileContent" style="display: none">
+        <h4>This website is not especially designed to work on mobile devices. It will work, but pictures might take long to load or text might go off the screen. Just be warned.</h4>
+    </div>
+</div>
 
 <div class="smooth-scroll content-window">
     <div class="content-container">
-        <div id="nonMobileContent" style="display: none"></div>
-
-        <div id="mobileContent" style="display: none">
-            <h4>This website is not especially designed to work on mobile devices. It will work, but pictures might take long to load or text might go off the screen. Just be warned.</h4>
-        </div>
-
         <div id="discord_link">
             <h4>This Website is open-source, and we welcome any contributors in the <a href="https://discord.com/invite/hQng3Yz48A">Discord Server</a>.</h4>
         </div>
-
 
         <h2>Black Ops 6</h2>
         <ul>

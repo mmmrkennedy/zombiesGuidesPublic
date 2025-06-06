@@ -3,15 +3,19 @@
 const BASE_PATH = window.location.origin + "/";
 console.log(BASE_PATH);
 
-const oldBasePath = "/zombiesGuidesPublic/";
-const fullPath = window.location.pathname;
+function redirect_to_new_link() {
+    const oldBasePath = "/zombiesGuidesPublic/";
+    const fullPath = window.location.pathname;
 
-if (fullPath.startsWith(oldBasePath) || BASE_PATH.includes("github.io/")) {
-    const newPath = fullPath.slice(oldBasePath.length); // Remove the old base
-    const newUrl = `https://mmmrkennedy.com/${newPath.replace('.html', '')}`; // Remove .html if needed
+    if (fullPath.startsWith(oldBasePath) || BASE_PATH.includes("github.io/")) {
+        const newPath = fullPath.slice(oldBasePath.length);
+        const newUrl = `https://mmmrkennedy.com/${newPath.replace('.html', '')}`;
 
-    // Redirect (replace() avoids adding to history)
-    window.location.replace(newUrl);
+        window.location.replace(newUrl);
+        return true;
+    }
+
+    return false;
 }
 
 
@@ -452,10 +456,10 @@ function addTutorialBox() {
 
                     <!-- Page 2 -->
                     <div class="tutorial-page" data-page="2">
-                        <a href="../games/IW/zombies_in_spaceland/pictures/main_ee/alien_example.webp" style="display: none;" data-caption="Example Image 1">Arrow Keyed IMG 1</a>
-                        <p>Inside any guide, text shown in <a href="../dog_tut_example.webp" data-width="75%" data-height="75%" data-caption="Example Image 2">blue</a> is a clickable image link, except the links at the top of the page.</p>
+                        <a href="/games/IW/zombies_in_spaceland/pictures/main_ee/alien_example.webp" style="display: none;" data-caption="Example Image 1">Arrow Keyed IMG 1</a>
+                        <p>Inside any guide, text shown in <a href="/dog_tut_example.webp" data-width="75%" data-height="75%" data-caption="Example Image 2">blue</a> is a clickable image link, except the links at the top of the page.</p>
                         <p>Clicking opens the image in an on-screen viewer. You can close it by clicking outside the image or hitting the X. Use the left/right arrow keys to move between images.</p>
-                        <a href="../games/BO4/alpha_omega/pictures/ray_gun_mark_2/frame/frames_panel.webp" style="display: none;" data-caption="Example Image 3">Arrow Keyed IMG 2</a>
+                        <a href="/games/BO4/alpha_omega/pictures/ray_gun_mark_2/frame/frames_panel.webp" style="display: none;" data-caption="Example Image 3">Arrow Keyed IMG 2</a>
                     </div>
 
                     <!-- Page 3 -->
@@ -1356,30 +1360,52 @@ async function includeSolverComponent() {
     }
 }
 
+function setContentWindowPosition() {
+    const topBox = document.querySelector('.top_buttons_background_box');
+    const contentWindow = document.querySelector('.content-window');
+
+    if (topBox && contentWindow) {
+        const topBoxHeight = topBox.offsetHeight;
+
+        // Set the content window to start right after the top box
+        contentWindow.style.top = topBoxHeight + 'px';
+        contentWindow.style.height = `calc(100vh - ${topBoxHeight}px)`;
+
+        console.log(`Content window positioned at ${topBoxHeight}px`);
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
-    clearHashAndScrollTop();
-    changeThemeColour();
-    touchScreenInit();
-    preloadImages();
-    setDefaultFonts();
-    scrollToAnchors();
-    tutorialPopupInit();
-    colourCodeAnchors();
-    setTitle();
-    setupSolverButtons();
+    const was_redirected = redirect_to_new_link();
 
-    let start = performance.now();
-    initializeQuickLinks();
-    let end = performance.now();
-    console.log(`initializeQuickLinks took ${end - start} milliseconds`);
+    if (!was_redirected) {
+        setContentWindowPosition();
+        clearHashAndScrollTop();
+        changeThemeColour();
+        touchScreenInit();
+        preloadImages();
+        setDefaultFonts();
+        scrollToAnchors();
+        tutorialPopupInit();
+        colourCodeAnchors();
+        setTitle();
+        setupSolverButtons();
 
-    addLightboxContainer(); // First add the container to the DOM
-    addLightboxClass(); // Then add classes to the appropriate anchor tags
-    initLightbox(); // Finally initialize the lightbox functionality
-    includeSolverComponent();
+        let start = performance.now();
+        initializeQuickLinks();
+        let end = performance.now();
+        console.log(`initializeQuickLinks took ${end - start} milliseconds`);
+
+        addLightboxContainer(); // First add the container to the DOM
+        addLightboxClass(); // Then add classes to the appropriate anchor tags
+        initLightbox(); // Finally initialize the lightbox functionality
+        includeSolverComponent();
+    }
 });
 
 window.addEventListener("DOMContentLoaded", function () {
     incompleteATagInit();
 });
+
+window.addEventListener('resize', setContentWindowPosition);
