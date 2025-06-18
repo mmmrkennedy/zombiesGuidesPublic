@@ -98,3 +98,4 @@ easter_egg_help
 /Gemfile.lock
 /_site/
 !SEO_img.png
+/python_utilities/blackjack.py

@@ -77,11 +77,6 @@ LIGHT AND DARK MODE FUNCTIONALITIES
 =======================================
 */
 
-function toggleLightMode() {
-    const body = document.body;
-    body.classList.toggle('light-mode');
-}
-
 function changeThemeColour(){
     const savedColorMode = localStorage.getItem('colourMode');
     if(savedColorMode === 'light') {
@@ -286,37 +281,23 @@ HISTORY MANAGEMENT FOR ANCHOR LINKS
 =======================================
 */
 
-// document.addEventListener('click', function(event) {
-//     let target = event.target;
-//     if (target.tagName.toLowerCase() === 'a' && target.hash) {
-//         window.history.pushState({hash: target.hash}, '', target.hash);
-//     }
-// });
-//
-// window.addEventListener('popstate', function(event) {
-//     if (event.state && event.state.hash) {
-//         window.location.hash = event.state.hash;
-//     }
-// });
-
-
 // Handle popstate events (back/forward button)
 window.addEventListener('popstate', function(event) {
-    console.log('Popstate event triggered:', {
+    /* console.log('Popstate event triggered:', {
         hash: window.location.hash,
         state: event.state,
         historyLength: window.history.length
-    });
+    }); */
 
     const hash = window.location.hash;
     if (hash && hash.length > 1) {
         // Remove the # and scroll to the element
         const elementId = hash.substring(1);
-        console.log('Navigating to anchor from popstate:', elementId);
+        // console.log('Navigating to anchor from popstate:', elementId);
         scrollToElement(elementId, 105, true); // true indicates this is from popstate
     } else {
         // No hash, scroll to top
-        console.log('Navigating to top from popstate');
+        // console.log('Navigating to top from popstate');
         scrollToTop(true); // true indicates this is from popstate
     }
 });

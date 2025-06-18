@@ -10,19 +10,13 @@ body {
     max-width: 100%;
 }
 
-/* Light Mode */
-.light-mode a {
-    color: blue;
+a {
+    color: cornflowerblue;
+    text-decoration: none;
 }
 
 a.link-to-page {
     color: #359fad;
-    text-decoration: underline;
-    font-style: italic;
-}
-
-.light-mode a.link-to-page {
-    color: #9d2268;
     text-decoration: underline;
     font-style: italic;
 }
@@ -33,36 +27,14 @@ a.youtube-link {
     font-style: italic;
 }
 
-.light-mode a.youtube-link {
-    color: #62163d;
-    text-decoration: underline;
-    font-style: italic;
-}
-
 .bird-highlight-orange {
-    color: #d4b365;
+    /* color: #d4b365; */
+    color: orange;
 }
 
 .bird-highlight-green {
-    color: #6bc343;
-}
-
-.light-mode .bird-highlight-orange {
-    color: #a97b00;
-}
-
-.light-mode .bird-highlight-green {
-    color: #34a400;
-}
-
-.light-mode {
-    background-color: #f2f2f2;
-    color: #000;
-}
-
-a {
-    color: #6185e8;
-    text-decoration: none;
+    /* color: #6bc343; */
+    color: lawngreen;
 }
 
 .incomplete-path {
@@ -118,23 +90,19 @@ a {
 .content-container-top,
 .content-container {
     text-align: left;
-    margin: 10px 15px 0 20px;
+    margin: 15px 15px 10px 20px;
     position: relative;
     inline-size: auto;
     overflow-wrap: break-word;
+    border-bottom: 2px solid grey;
 }
 
 .content-container-top {
     border-bottom: 4px solid grey;
-    padding-bottom: 10px;
+    margin-top: 20px;
 }
 
-.content-container {
-    border-bottom: 2px solid grey;
-    padding-bottom: 10px;
-}
-
-p.warning {
+p.warning, p.boss-fight-phases {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 0;
@@ -145,16 +113,10 @@ p.warning {
 }
 
 p.boss-fight-phases {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 0;
-    font-weight: bold;
-    font-size: 100%;
-    line-height: 1.75;
     color: #bdb968;
 }
 
-p.step-group-title, p.archon-special, p.sub-sub-step {
+p.step-group-title, p.sub-sub-step, p.song-link {
     margin-top: 13px;
     margin-bottom: 10px;
     margin-right: 0;
@@ -164,18 +126,11 @@ p.step-group-title, p.archon-special, p.sub-sub-step {
 }
 
 p.song-link {
-    margin-top: 13px;
-    margin-bottom: 10px;
-    margin-right: 0;
-    font-weight: bold;
-    font-size: 110%;
+    color: inherit;
 }
 
 p.upgrade-title {
-    margin-top: 13px;
-    margin-bottom: 10px;
-    margin-right: 0;
-    margin-left: -40px;
+    margin: 13px 0 10px -40px;
     font-weight: bold;
     font-size: 21px;
 }
@@ -186,56 +141,23 @@ p.sub-sub-step {
     line-height: 1.75;
 }
 
-p.archon-special {
-    margin-top: 17px;
-    margin-bottom: 17px;
-    font-size: 115%;
-}
-
-p.version_text {
-    font-size: 60%;
-    position: absolute;
-    top: -20px;
-    right: 13px;
-}
-
-p.version_text {
-    font-size: 60%;
-    position: absolute;
-    top: -10px;
-    right: 13px;
-}
-
-p.li-spacing {
-    margin-top: 7px;
-    margin-right: 0;
-    margin-bottom: 7px;
-    margin-left: 0;
+p.li-spacing, p.weapon-desc {
+    margin: 7px 0;
 }
 
 p.weapon-desc {
-    margin-top: 7px;
-    margin-right: 0;
-    margin-bottom: 7px;
-    margin-left: 0;
     font-weight: bold;
 }
 
 details.spacing {
-    margin-top: 15px;
-    margin-right: 0;
-    margin-bottom: 15px;
-    margin-left: 0;
+    margin: 15px 0;
     border: #6bc343 solid 2px;
     display: inline-block;
     padding: 0.2em;
 }
 
 input.spacing {
-    margin-right: 0;
-    margin-bottom: 15px;
-    margin-left: 0;
-    margin-top: 10px;
+    margin: 10px 0 15px;
 }
 
 p.stats {
@@ -249,27 +171,16 @@ caption.table-title {
     margin-bottom: 10px;
 }
 
-.upgrades {
-    margin-top: 20px;
-}
-
 li {
     margin-top: 2px;
     margin-bottom: 5px;
-}
-
-.in-line-p {
-    margin-top: 10px;
-    margin-right: 0;
-    margin-bottom: 10px;
-    margin-left: 0;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.title-text{
+.title-text, .title-sub-text {
     margin-top: 0;
     position: fixed;
     top: 20px;
@@ -278,21 +189,8 @@ a:hover {
     z-index: 2;
 }
 
-.title-sub-text{
-    margin-top: 0;
-    position: fixed;
+.title-sub-text {
     top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.bottom-padding {
-    padding-bottom: 0;
-}
-
-h1.centered {
-    text-align: center;
 }
 
 /* Top Buttons Background */
@@ -304,10 +202,7 @@ h1.centered {
     height: 89px;
     z-index: 1000;
     background-color: #151515;
-}
-
-.light-mode .top_buttons_background_box {
-    background-color: #f2f2f2;
+    border-bottom: 3px solid gray;
 }
 
 
@@ -367,17 +262,6 @@ th, td {
     border: 1px solid #ddd;
 }
 
-.light-mode th, .light-mode td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #000;
-}
-
-/* Gauntlet class to remove width limit */
-.gauntlet table {
-    width: auto; /* Removing the width limit */
-}
-
 .square-button {
     padding: 10px 20px;
     border: none;
@@ -417,18 +301,18 @@ th, td {
 
 #venom-x-box-buttons {
     display: flex;
-    flex-direction: column; /* Ensure rows stack vertically */
-    align-items: flex-start; /* Align items to the left */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .venom-row {
     display: flex;
-    align-items: center; /* Vertically align label and select */
-    margin-bottom: 10px; /* Add spacing between rows */
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .venom-row label {
-    margin-right: 10px; /* Add spacing between label and select */
+    margin-right: 10px;
 }
 
 #venom-x-box-button-selector {
@@ -511,7 +395,7 @@ th, td {
     opacity: 1;
 }
 
-/* Thumbnail styling (unchanged) */
+/* Thumbnail styling */
 .thumbnail {
     cursor: pointer;
     border: 1px solid #ddd;
@@ -527,16 +411,16 @@ th, td {
 
 
 .tutorial-overlay {
- position: fixed;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background-color: rgba(0, 0, 0, 0.8);
- display: flex;
- align-items: center;
- justify-content: center;
- z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .tutorial-popup {
@@ -666,58 +550,4 @@ th, td {
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
-}
-
-/* Light mode styles */
-.light-mode .tutorial-overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.light-mode .tutorial-popup {
-    background-color: #f2f2f2;
-    color: #000;
-    border-color: #ddd;
-}
-
-.light-mode .tutorial-header {
-    border-bottom-color: #ddd;
-}
-
-.light-mode .tutorial-header h2 {
-    color: #a97b00;
-}
-
-.light-mode .tutorial-page-indicator {
-    color: #34a400;
-    background-color: #e5e5e5;
-}
-
-.light-mode .tutorial-nav-btn {
-    background-color: #ddd;
-    color: #444;
-}
-
-.light-mode .tutorial-nav-btn:not(:disabled):hover {
-    background-color: #ccc;
-}
-
-.light-mode .finish-btn {
-    background-color: #34a400;
-    color: #fff;
-}
-
-.light-mode .finish-btn:hover {
-    background-color: #2e9400 !important;
-}
-
-.light-mode .tutorial-progress-bar {
-    background-color: #ddd;
-}
-
-.light-mode .tutorial-progress-fill {
-    background-color: #9d2268;
-}
-
-.light-mode .tutorial-progress-text {
-    color: #34a400;
 }
