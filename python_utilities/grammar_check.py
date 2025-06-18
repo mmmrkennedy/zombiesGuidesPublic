@@ -8,7 +8,7 @@ def extract_text_from_html(html_file):
         soup = BeautifulSoup(f.read(), 'html.parser')
         return soup.get_text()
 
-def check_grammar(text, language='en-GB'):
+def check_grammar(text, language='en-CA'):
     """Send text to LanguageTool API and return suggestions."""
     # Split text into chunks if too long (LanguageTool has limits)
     max_length = 20000  # Conservative limit
@@ -123,8 +123,9 @@ if __name__ == "__main__":
         ignore_rules = {
             'EN_DASH',
             'HYPHEN_TO_EN',
-            'MORFOLOGIK_RULE_EN_GB',
-            'WHITESPACE_RULE'  # Often too noisy
+            'MORFOLOGIK_RULE_EN_CA',
+            'WHITESPACE_RULE',
+            'ARROWS'
         }
 
         print_suggestions(grammar_result, ignore_rules)
