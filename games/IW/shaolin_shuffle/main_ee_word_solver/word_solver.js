@@ -103,17 +103,7 @@ function generate_letter_img(possible_letters) {
 }
 
 
-document.addEventListener("shaolin_ee_word_solver_template", function () {
-    // Select the <ul> element by its ID
-    const wordList = document.getElementById("word_list");
-
-    // Loop through the words array and create <li> elements for each word
-    words.forEach(word => {
-        const listItem = document.createElement("li"); // Create an <li> element
-        listItem.textContent = word; // Set the text content to the word
-        wordList.appendChild(listItem); // Append the <li> to the <ul>
-    });
-
+document.addEventListener("DOMContentLoaded", function () {
     // JavaScript to toggle the 'active' class
     const filter_button = document.getElementById('word_filter_button');
 
@@ -121,14 +111,14 @@ document.addEventListener("shaolin_ee_word_solver_template", function () {
         return;
     }
 
-
     // Get the div
     const filter_div = document.getElementById('word_filter');
     const input_item = filter_div.querySelector('input');
 
+    filter_button.classList.remove('active');
+    filter_div.style.display = 'none';
+
     filter_button.addEventListener('click', () => {
-        // Toggle the 'active' class
-        filter_button.classList.toggle('active');
         input_item.value = "";
         filterWordsByPrefix("");
 

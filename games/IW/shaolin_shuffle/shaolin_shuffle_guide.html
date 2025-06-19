@@ -62,7 +62,7 @@
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
-        <h2>Power</h2>
+        <h2 class="section-title">Power</h2>
         <ul>
             <li>There are a total of four Power Switches on the map, each activating power for its corresponding area. Locations: </li>
             <ul>
@@ -76,7 +76,7 @@
 
     <!-- PaP -->
     <div class="content-container" id="pap">
-        <h2>Pack-a-Punch</h2>
+        <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
             <li>To access Pack-a-Punch, you must collect three different items - Flyer, Coin, and Film Reel:</li>
             <ul>
@@ -110,7 +110,7 @@
             <li>After being forcefully teleported back, the teleporter will go on cooldown for about one minute. After a minute, the teleporter will reactivate.</li>
         </ol>
 
-        <p class="step-group-title" id="double_pap">Double Pack-a-Punch</p>
+        <p class="upgrade-title" id="double_pap">Double Pack-a-Punch</p>
         <ol>
             <li>Obtain a <a href="#chi_fast_travel">Chi Ability and open the Fast Travel from the Racin' Stripes rooftop to the Main Street</a>.</li>
             <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="content-container" id="chi_fast_travel">
-        <h2>Chi Abilities/Fast Travel Portals</h2>
+        <h2 class="section-title">Chi Abilities/Fast Travel Portals</h2>
         <ul>
             <li>The Chi Abilities are melee abilities that can be used once per round*. They can be upgraded by completing kill challenges. Once you pick your ability (see below), picking up any <a href="pictures/chi_fast_travel/gourd.webp">Gourd</a> around the map will recharge your chi ability.</li>
             <ul>
@@ -139,8 +139,11 @@
                 <li>Chi upgrade progress is not shared between fighting styles, so upgrading one style to max level will not upgrade others.</li>
                 <li>Upgrade progress is saved if you switch styles, so if you switch to something, then switch back, you won't lose progress.</li>
             </ul>
+        </ul>
 
-            <p class="sub-sub-step">Fast Travel Doors/Torii Gates</p>
+
+        <p class="step-group-title">Fast Travel Doors/Torii Gates</p>
+        <ul>
             <li>The Chi can also be used to unlock Fast Travel Portals and open Torii gates around the map. These doors/gates can be opened by meleeing/throwing a shuriken to break them. The fast travel doors must be opened in pairs to activate them.</li>
             <li>Fast Travel Door Locations:</li>
             <ul>
@@ -158,7 +161,7 @@
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons and Buildables" id="katana">
-        <h2>'Kirisute Gomen' Katana</h2>
+        <h2 class="section-title">'Kirisute Gomen' Katana</h2>
         <p class="weapon-desc">The Katana can be Pack-a-Punched and doesn't require an Easter Egg to do so.</p>
         <ol>
             <li>Complete the <a href="#main_ee">Main Quest</a> at least once in any game.</li>
@@ -167,7 +170,7 @@
     </div>
 
     <div class="content-container" id="mahjong_scorestreaks">
-        <h2>Mahjong Tiles (Craftable Scorestreaks/Equipment)</h2>
+        <h2 class="section-title">Mahjong Tiles (Craftable Scorestreaks/Equipment)</h2>
         <ul>
             <li>Around the map, there are tables with Mahjong tiles with Scorestreaks/Equipment on them. To get the scorestreaks, find the three missing Mahjong tiles and bring them back to the table. When all three tiles are returned, the scorestreak will appear for you to pick up. The scorestreak will respawn two rounds after being picked up. You can only carry one tile at a time.</li>
             <ul>
@@ -227,7 +230,7 @@
     </div>
 
     <div class="content-container" id="nunchucks">
-        <h2>Nunchakus/Character Bios</h2>
+        <h2 class="section-title">Nunchakus/Character Bios</h2>
         <p class="weapon-desc">The Nunchucks can be Pack-a-Punched and doesn't require an Easter Egg to do so.</p>
         <ol>
             <li>Activate the <a href="#chi_fast_travel">two sets of fast travel portals and open all Torii gates</a>.</li>
@@ -257,7 +260,7 @@
 
     <!-- Main Easter Egg -->
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
-        <h2>'Pest Control' Main Quest</h2>
+        <h2 class="section-title">'Pest Control' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - 6/10 (4/10 Dir. Cut), Est. Completion Time - 1 Hr to 1:30 Hr (40 Mins to 1:10 Hr Dir. Cut)</p>
         <ol>
             <p class="step-group-title">The Eye</p>
@@ -342,14 +345,86 @@
             <div id="word_filter_top_box" data-bool-quick-link="false" class="solver-with-button">
                 <button id="word_filter_button" class="square-button">Click to show possible words/word solver</button>
 
-                <div id="word_filter" data-bool-quick-link="false" class="button-activated-div border" style="display: none">
-                    <label for="word_filter_text">Enter what letters you have of your word so far: </label> <input id="word_filter_text" type="text" oninput="filterWordsByPrefix(this.value)">
+                <div class="button-activated-div border" style="display: none" data-bool-quick-link="false" id="word_filter">
+                    <label for="word_filter_text">Enter what letters you have of your word so far: </label> <input id="word_filter_text" oninput="filterWordsByPrefix(this.value)" type="text">
                     <p class="sub-sub-step" data-bool-quick-link="false">List of possible letters to finish the word: </p>
-                    <p style="text-indent: 20px;" id="possible_letters"></p>
+                    <p id="possible_letters" style="text-indent: 20px;">No valid words to find letters for.</p>
                     <div id="word_filter_imgs"></div>
 
-                    <p class="sub-sub-step" data-bool-quick-link="false">List of possible words: </p>
-                    <ul id="word_list"></ul>
+                    <p class="sub-sub-step" data-bool-quick-link="false">List of possible words:</p>
+                    <ul id="word_list">
+                        <li>ACTORS</li>
+                        <li>AFTERLIFE</li>
+                        <li>ANCESTOR</li>
+                        <li>ARCADE</li>
+                        <li>ARTHUR</li>
+                        <li>AUDITION</li>
+                        <li>BASEMENT</li>
+                        <li>BEVERLYHILLS</li>
+                        <li>BLACKCAT</li>
+                        <li>BOAT</li>
+                        <li>BREEDER</li>
+                        <li>BROADWAY</li>
+                        <li>BRUTE</li>
+                        <li>BUMPERCARS</li>
+                        <li>CHARMS</li>
+                        <li>COMICBOOKS</li>
+                        <li>CRANE</li>
+                        <li>CRYPTID</li>
+                        <li>DANCE</li>
+                        <li>DAVIDARCHER</li>
+                        <li>DEATH</li>
+                        <li>DIRECTOR</li>
+                        <li>DISCO</li>
+                        <li>DRAGON</li>
+                        <li>DRCROSS</li>
+                        <li>FAIRIES</li>
+                        <li>FORGEFREEZE</li>
+                        <li>GEYSER</li>
+                        <li>GHETTO</li>
+                        <li>HARPOON</li>
+                        <li>HIVES</li>
+                        <li>INFERNO</li>
+                        <li>KATANA</li>
+                        <li>KEVINSMITH</li>
+                        <li>KRAKEN</li>
+                        <li>KUNGFU</li>
+                        <li>LOSANGELES</li>
+                        <li>MCINTOSH</li>
+                        <li>MEMORIES</li>
+                        <li>MEPHISTOPHELES</li>
+                        <li>NEWYORK</li>
+                        <li>NIGHTFALL</li>
+                        <li>NUNCHUCKS</li>
+                        <li>OBELISK</li>
+                        <li>OCTONIAN</li>
+                        <li>PAMGRIER</li>
+                        <li>PINKCAT</li>
+                        <li>PUNKS</li>
+                        <li>RATKING</li>
+                        <li>REALITYTV</li>
+                        <li>REDWOODS</li>
+                        <li>ROLLERCOASTER</li>
+                        <li>ROLLERSKATES</li>
+                        <li>SAMANTHA</li>
+                        <li>SHAOLIN</li>
+                        <li>SHIELD</li>
+                        <li>SHUFFLE</li>
+                        <li>SLASHER</li>
+                        <li>SIXTYMILLION</li>
+                        <li>SLASHER</li>
+                        <li>SLIDE</li>
+                        <li>SNAKE</li>
+                        <li>SPACELAND</li>
+                        <li>STAFF</li>
+                        <li>SUBWAY</li>
+                        <li>TIGER</li>
+                        <li>TREES</li>
+                        <li>WEREWOLFPOETS</li>
+                        <li>WINONAWYLER</li>
+                        <li>YETIEYES</li>
+                        <li>ZAPPER</li>
+                    </ul>
                 </div>
             </div>
 
@@ -401,7 +476,7 @@
 
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
-        <h2>'Cats on the Boulevard' Song</h2>
+        <h2 class="section-title">'Cats on the Boulevard' Song</h2>
         <p class="song-link">Link to song on <a href="https://youtu.be/CN1GgpV9U5k">YouTube</a>.</p>
         <ul>
             <li>There are seven hidden radios scattered around the map that you need to interact with. Once you interact with the seventh radio, the song will start playing. Radio locations: </li>
@@ -428,7 +503,7 @@
     </div>
 
     <div class="content-container" id="lobby_music">
-        <h2>Additional Lobby Music</h2>
+        <h2 class="section-title">Additional Lobby Music</h2>
 
         <ol>
             <li>Unlock Director's Cut mode (See the <a href="/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#directors_cut">Director's Cut</a> section of The Beast From Beyond guide for more information).</li>
@@ -439,7 +514,7 @@
 
     <!-- Ghosts 'N Skulls -->
     <div class="content-container" id="skullbuster">
-        <h2>Skullbuster</h2>
+        <h2 class="section-title">Skullbuster</h2>
         <p class="weapon-desc">Skullbuster is an arcade game where players must clear skulls by firing cubes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except for Up 'N Atoms in solo games), and all weapons in the Mystery Wheel will be pack-a-punched for the remainder of the game.</p>
 
         <ol>
@@ -539,7 +614,7 @@
     </div>
 
     <div class="content-container" id="trolltastic">
-        <h2>Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</h2>
+        <h2 class="section-title">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</h2>
         <ol>
             <li>You must find a radio that mentions the "eccentric billionaire David Savage" when interacted with. The radio locations are the same ones used in the <a href="#song_ee">Hidden Song Easter Egg</a>.</li>
             <li>Once you have found the specific radio, head to the roof of the Inferno Disco and look directly at the <a href="pictures/trolltastic/savage_ind_clock.webp">Savage Industries clock</a>. When done correctly, a Wyler Language cipher will appear on the clock.</li>
@@ -579,7 +654,7 @@
     </div>
 
     <div class="content-container" id="phone_codes">
-        <h2>Phone Secret Numbers</h2>
+        <h2 class="section-title">Phone Secret Numbers</h2>
         <p>The following numbers can be dialled at any of the <a href="pictures/skullbuster/skull_6/payphone.webp">interactable payphones</a> around either subway station.</p>
         <table>
             <thead>
@@ -672,7 +747,7 @@
 
     <!-- Play as Pam Grier -->
     <div class="content-container" id="grier_code">
-        <h2>Play as Pam Grier</h2>
+        <h2 class="section-title">Play as Pam Grier</h2>
         <ol>
             <li>Complete the <a href="#main_ee">Main Quest</a> at least once in any game.</li>
             <li>In the pre-game lobby, select Shaolin Shuffle and enter the following code using the D-Pad or Arrow Keys: </li>

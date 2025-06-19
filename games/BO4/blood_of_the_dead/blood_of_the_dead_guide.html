@@ -35,6 +35,16 @@
     }
 </script>
 
+<style>
+    .bird-highlight-orange {
+        color: orange;
+    }
+
+    .bird-highlight-green {
+        color: lawngreen;
+    }
+</style>
+
 <body>
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
@@ -61,7 +71,7 @@
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
-        <h2>Power</h2>
+        <h2 class="section-title">Power</h2>
         <ul>
             <li>There are two power switches, one for the West Side of the island (Spawn) and one for the East Side of the island (Prison/Docks). Locations: </li>
             <ul>
@@ -73,7 +83,7 @@
 
     <!-- PaP -->
     <div class="content-container" id="pap">
-        <h2>Pack-a-Punch</h2>
+        <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
             <li>Activate the <a href="#power">Power</a>.</li>
             <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
@@ -89,9 +99,8 @@
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons and Buildables" id="blundergat">
-        <h2>Blundergat</h2>
-        <p class="weapon-desc">The Blundergat is a shotgun with four barrels that all fire all at once, using only one bullet per shot. The Blundergat can be Pack-a-Punched and does not require an Easter Egg to do so. Also, the Blundergat can be converted into the <a href="#acidgat">Acidgat</a> or <a href="#magmagat">Magmagat</a>.</p>
-        <p class="weapon-desc">The Blundergat is available through the mystery box and via the following quest: </p>
+        <h2 class="section-title">Blundergat</h2>
+        <p class="weapon-desc">The Blundergat is a shotgun with four barrels that all fire all at once, using only one bullet per shot. The Blundergat can be Pack-a-Punched and does not require an Easter Egg to do so. Also, the Blundergat can be converted into the <a href="#acidgat">Acidgat</a> or <a href="#magmagat">Magmagat</a>. The Blundergat is available through the mystery box and via the following quest: </p>
         <ol>
             <li>Obtain the <a href="#hells_retriever">Hell's Retriever</a>.</li>
             <li>Around the map, five Skulls need to be collected with the Hell's Retriever. The Skulls can only be seen through the shield (The shield is not required to pick up the skulls, only to see them).</li>
@@ -104,8 +113,9 @@
             </ul>
             <li>Navigate to the 'Warden's Office' and pick up the <a href="pictures/blundergat/blundergat_wardensoffice.webp">Blundergat</a> from the table.</li>
         </ol>
+
+        <p class="upgrade-title" id="acidgat">Acidgat</p>
         <ol>
-            <p class="upgrade-title" id="acidgat">Acidgat</p>
             <p class="weapon-desc">The Acidgat is an upgraded version of the Blundergat that fires three acid bullets in a burst. These bullets stick to surfaces and enemies, exploding after a few seconds to damage both Zombies and the player. Additionally, they attract Zombies, luring them in until detonation.</p>
             <p class="warning">The Acidgat can do heavy damage to the player (~25-50 health for the whole burst) if they do not have PhD Slider, so standing near an acid bullet should be avoided whenever possible.</p>
             <li>Obtain the <a href="#blundergat">Blundergat</a>.</li>
@@ -117,14 +127,15 @@
                 <li>Acid Bottle: <a href="pictures/blundergat/acidgat/acid_bottle.webp">Infirmary - In the locked cabinet</a></li>
             </ul>
             <li>Craft the Acidgat Kit at the <a href="pictures/buildable_tables/transverse_tunnel.webp">Transverse Tunnel</a>, <a href="pictures/buildable_tables/cellblock3rdfloor.webp">Cell Block 3rd Floor</a> or <a href="pictures/buildable_tables/docks.webp">Docks</a>.</li>
-            <li>Place the Blundergat in the Kit and wait for it to finish to be able to pick up the Acidgat.</li>
+            <li>Place the Blundergat in the Kit. After a couple of seconds, the case will open, and you can pick up the Acidgat.</li>
         </ol>
+
+        <p class="upgrade-title" id="magmagat">Magmagat</p>
         <ol>
-            <p class="upgrade-title" id="magmagat">Magmagat</p>
             <p class="weapon-desc">The Magmagat is an upgraded Blundergat that launches a lava ball. When this ball sticks to a Zombie, it explodes, killing it. If shot at the ground, the ball remains for a few seconds, attracting Zombies and continuously damaging those nearby. The ball does minimal damage to the player when standing on it (~1-2 health/sec).</p>
             <li>Obtain the <a href="#blundergat">Blundergat</a>.</li>
             <li>Place the Blundergat in the <a href="pictures/blundergat/magmagat/fireplace.webp">Fireplace</a> in the 'Warden's House.' </li>
-            <li>You must stay in the 'Warden's House' until the essence has been deposited or the Blundergat will disappear. While in the 'Warden's House,' kill Zombies and pick up the <a href="pictures/blundergat/magmagat/blue_essence.webp">Blue Essence</a> they drop. Once enough essence has been collected, Zombies will no longer drop any.</li>
+            <li>You must stay in the 'Warden's House' until the essence has been deposited, or the Blundergat will disappear. While in the 'Warden's House,' kill Zombies and pick up the <a href="pictures/blundergat/magmagat/blue_essence.webp">Blue Essence</a> they drop. Once enough essence has been collected, Zombies will no longer drop any.</li>
             <li>Deposit the essence into the Fireplace to convert the Blundergat into the Tempered Blundergat. You must pick it up within 30 seconds, or it will disappear. The Tempered Blundergat cools over time, reverting to the Blundergat. Touching <a href="pictures/blundergat/magmagat/bluebarrel_example.webp">Blue Flaming Barrels</a> resets the cooling timer. Travel from 'Warden's House' to 'New Industries' without it going out; fast travelling will extinguish it. If it goes out, reignite it at the fireplace. There are five barrels on the path from 'Warden's House' to 'New Industries': </li>
             <ul>
                 <li><a href="pictures/blundergat/magmagat/bluebarrel_eagleplaza.webp">Eagle Plaza</a></li>
@@ -140,7 +151,7 @@
     </div>
 
     <div class="content-container" id="hells_retriever">
-        <h2>Hell's Retriever</h2>
+        <h2 class="section-title">Hell's Retriever</h2>
         <ol>
             <li>Activate the <a href="#power">Power</a>.</li>
             <li>Feed three Hellhounds with Zombies by killing Zombies near them. Only one Zombie can be fed to a Hellhound at a time, so wait for the Hound to finish chewing before killing another Zombie. Three Hellhound locations: </li>
@@ -151,8 +162,9 @@
             </ul>
             <li>Once all three Hellhounds have been fed, use the Fast Travel at either the <a href="pictures/hells_retriever/showers_fasttravel.webp">Showers</a> or <a href="pictures/hells_retriever/wardenshouse_fasttravel.webp">Warden's House</a>. During the Fast Travel, the <a href="pictures/hells_retriever/retriever_on_stone.webp">Hell's Retriever will be floating above a rock</a> for you to pick up as you fly by.</li>
         </ol>
+
+        <p class="upgrade-title" id="hells_redeemer">Hell's Redeemer</p>
         <ol>
-            <p class="upgrade-title" id="hells_redeemer">Hell's Redeemer</p>
             <li>Stand in one of these locations in the 'Recreation Yard' to make the <a href="pictures/hells_retriever/hells_redeemer/blue_hells_retriever.webp">Hell's Retriever glow blue</a> when thrown. Once enough Zombies have been killed with the Blue Hell's Retriever, a howl can be heard and the Hell's Retriever will no longer glow blue. Locations where the Retriever glows blue: </li>
             <ul>
                 <li><a href="pictures/hells_retriever/hells_redeemer/bluespot_slope.webp">Top of the Slope, near the end of the Catwalk</a></li>
@@ -188,17 +200,19 @@
     </div>
 
     <div class="content-container" id="spoon">
-        <h2>Spoon</h2>
+        <h2 class="section-title">Spoon</h2>
         <ol>
-            <p class="warning">Recommended: If you plan on getting the <a href="#golden_scalpel">Golden Scalpel</a> Upgrade, equip the Ethereal Razor (Modifier slot or not) and Timeslip (not as important) perks. If you plan to get the <a href="#golden_sporknife">Golden Sporknife</a>, equip the Sword Flay Elixir as it makes killing the Warden with melee a lot easier.</p>
+            <p class="warning">Recommended: If you plan on getting the <a href="#golden_scalpel">Golden Scalpel</a> Upgrade, equip the Ethereal Razor (Modifier slot or not) and Timeslip (not as important) perks. If you plan to get the <a href="#golden_sporknife">Golden Sporknife</a>, equip the Sword Flay Elixir, as it makes killing the Warden with melee a lot easier.</p>
             <li>Obtain the <a href="#spectral_shield">Spectral Shield</a> and <a href="#hells_retriever">Hell's Retriever</a>.</li>
-            <li>Navigate to the Warden's Office. On the pillars in the Office, <a href="pictures/spoon/number_on_pillars.webp">three numbers</a> can be seen using the shield's Vision. The numbers are ordered from close, middle then far.</li>
+            <li>Navigate to the Warden's Office. On the pillars in the Office, <a href="pictures/spoon/number_on_pillars.webp">three numbers</a> can be seen using the shield's vision. The numbers are ordered close, middle, far.</li>
             <li>In the 'Citadel Tunnels,' spirit blast the <a href="pictures/spoon/number_pad.webp">Number Pad</a> with the shield to activate it. Once activated, interact with each of the three panels to change them to the numbers seen in the Office. Once the correct numbers have been entered, the elevator in the middle of the spiral staircase will break and fall into the water.</li>
             <li>Spirit blast the <a href="pictures/spoon/docks_voltmeter.webp">Voltmeter</a> at the Docks to activate the crane. The Crane will raise a net from the water and move toward the docks. Once the net has <a href="pictures/spoon/net_above_docks.webp">stopped above the docks</a>, throw the Hell's Retriever at the net to cut off the arm of the skeleton, making it drop onto a <a href="pictures/spoon/box_no_spoon.webp">box</a>.</li>
             <li>You can pick up the <a href="pictures/spoon/spoon_on_box.webp">Spoon from the Skeleton's arm</a>.</li>
+            <li>You can pick up the <a href="pictures/spoon/spoon_on_box.webp">Spoon from the Skeleton's arm</a>.</li>
         </ol>
+
+        <p class="upgrade-title" id="golden_spork">Golden Spork</p>
         <ol>
-            <p class="upgrade-title" id="golden_spork">Golden Spork</p>
             <p class="weapon-desc">The Golden Spork can one-hit kill Zombies until round 34.</p>
             <li>Obtain the <a href="#acidgat">Acidgat</a> or <a href="#magmagat">Magmagat</a>.</li>
             <li>Place the <a href="#spoon">Spoon</a> in the <a href="pictures/spoon/golden_spork/tub_empty_infirmary.webp">Bathtub</a> in the 'Infirmary.' </li>
@@ -214,8 +228,9 @@
             <li>Once all four supports have been shot off, the Water Tower will buckle and fall over.</li>
             <li>Go to the <a href="pictures/spoon/golden_spork/open_area_catwalk.webp">open part of the Catwalk</a> and throw the Hell's Retriever at <a href="pictures/spoon/golden_spork/branch.webp">this branch</a> below the fallen Water Tower to collect the Golden Spork.</li>
         </ol>
+
+        <p class="upgrade-title" id="golden_scalpel">Golden Scalpel</p>
         <ol>
-            <p class="upgrade-title" id="golden_scalpel">Golden Scalpel</p>
             <p class="warning">Recommended: Equip the Ethereal Razor (Modifier slot or not) and Timeslip (Not as important) Perks</p>
             <li>Obtain the <a href="#hells_redeemer">Hell's Redeemer</a>.</li>
             <li>Once you have the Hell's Redeemer, kill 100 Zombies with the <a href="#golden_spork">Golden Spork</a> anywhere on the map. Once you get 100 kills, a sound will play and the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub will turn Dark Red</a>.</li>
@@ -241,14 +256,15 @@
             <li>Once all three rocks have been turned into gems, you must take the fast travel from the 'Cafeteria' to the 'Transverse Tunnel.' Once you exit the fast travel at the 'Transverse Tunnel,' quickly throw the Hell's Redeemer at a <a href="pictures/spoon/golden_scalpel/golden_nugget.webp">golden nugget</a> before the fast travel gate closes. If done correctly, the golden nugget should fly out <a href="pictures/spoon/golden_scalpel/golden_nugget_onground.webp">onto the ground</a> to be picked up.</li>
             <li>Place the gems in the <a href="pictures/blundergat/magmagat/press.webp">Magmagat Press</a>. After being pressed, the Golden Scalpel will become available for pickup.</li>
         </ol>
+
+        <p class="upgrade-title" id="golden_sporknife">Golden Sporknife</p>
         <ol>
-            <p class="upgrade-title" id="golden_sporknife">Golden Sporknife</p>
             <p class="weapon-desc">The Golden Sporknife can one-hit kill any enemy (including the Warden) on any round.</p>
             <li>Place the <a href="#golden_scalpel">Golden Scalpel</a> in the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub</a> in the 'New Industries' building. A Skeleton's Hand will take the Golden Scalpel.</li>
             <li>Wait for the Warden to spawn. Tip: You can spawn the Warden by entering "666" into the <a href="pictures/spoon/number_pad.webp">Number Pad</a> in the 'Citadel Tunnels' (this can only be done once per game).</li>
             <li>Kill the Warden by near <a href="pictures/spoon/golden_sporknife/sign_with_knife_and_cloth.webp">this sign with the Knife and piece of cloth</a> on the 'Catwalk.' You can shoot the Warden to weaken him, but the final blow has to come from a Melee Attack (The Path of Sorrows doesn't work).</li>
             <ul>
-                <li>Strategy: Bring the Warden to the correct location then shoot him in the head (with a bullet gun) until his helmet pops off. You can keep shooting him if you'd like, but it can be risky if you do too much damage and kill him. If you have it equipped, use the Sword Flay Elixir now and then try to keep strafing around the pole to keep it between you and the Warden. The extra range with Ethereal Razor lets you hit the Warden through the pole while not letting him hit you.</li>
+                <li>Strategy: Bring the Warden to the correct location, then shoot him in the head (with a bullet gun) until his helmet pops off. You can keep shooting him if you'd like, but it can be risky if you do too much damage and kill him. If you have it equipped, use the Sword Flay Elixir now and then try to keep strafing around the pole to keep it between you and the Warden. The extra range with Ethereal Razor lets you hit the Warden through the pole while not letting him hit you.</li>
             </ul>
             <li>If the Warden was killed correctly, the piece of cloth on the sign should <a href="pictures/spoon/golden_sporknife/sign_no_cloth.webp">disappear</a>.</li>
             <li>Return to the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub</a> and interact with it to get the Golden Sporknife.</li>
@@ -257,7 +273,7 @@
 
     <!-- Spectral Shield -->
     <div class="content-container" id="spectral_shield">
-        <h2>Spectral Shield</h2>
+        <h2 class="section-title">Spectral Shield</h2>
         <ol>
             <li>The Spectral Shield requires three parts to be built:</li>
             <ul>
@@ -282,8 +298,9 @@
             <li>To charge the shield, kill Zombies with the shield Key to collect their souls. Three souls are required per charge/spirit blast, and the Spectral Shield can hold two charges.</li>
             <li>Once per round, you can get a <a href="#free_max_shield_charge">free refill on the shield charges</a> by interacting with a sparking power box around the map.</li>
         </ol>
+
+        <p class="upgrade-title" id="attuned_spectral_shield">Attuned Spectral Shield</p>
         <ol>
-            <p class="upgrade-title" id="attuned_spectral_shield">Attuned Spectral Shield</p>
             <li>Obtain the <a href="#hells_retriever">Hell's Retriever</a>.</li>
             <li>Use the Mystery Box until the <a href="pictures/spectral_shield/attuned_spectral_shield/regular_lock.webp">Lock</a> appears (Lock appears when the box is moving).</li>
             <li>Use the Key from the Spectral Shield on the Lock until it turns <a href="pictures/spectral_shield/attuned_spectral_shield/blue_lock.webp">blue</a>.</li>
@@ -294,7 +311,7 @@
 
     <!-- Main Easter Egg -->
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
-        <h2>'Most Escape Alive' Main Quest</h2>
+        <h2 class="section-title">'Most Escape Alive' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - 8/10, Est. Completion Time - 1:45 Hr to 2:15 Hrs, RNG Rating - 1/5 (The Bird locations are random, but you don't have to burn rounds)</p>
         <table>
             <caption class="table-title">Recommended Loadout (Anything not listed is Player's Choice)</caption>
@@ -343,7 +360,7 @@
             <li>For the fullest/best experience, play as Richtofen. When you spawn in, if you interact with <a href="pictures/main_ee/samuels_cryo_pod.webp">Samuel's Cryo Pod</a> after the opening voice lines are finished you will hear Richtofen say, "Ahh, you have all remained safe for so long, my little popsicles...". For the remainder of the Easter Egg, Samuel and Richtofen will talk to each other about what is happening during the Easter Egg.</li>
 
             <p class="step-group-title" id="main_ee_step1">Unleash the Spirits</p>
-            <li>Activate <a href="#pap">Pack-a-Punch</a>. Note: Technically this is not required but... good luck if you try it.</li>
+            <li>Activate <a href="#pap">Pack-a-Punch</a>.</li>
 
             <p class="step-group-title" id="main_ee_step2">Shock and Denial</p>
             <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>, <a href="#hells_retriever">Hell's Retriever</a> and <a href="#spoon">Spoon</a>.</li>
@@ -453,7 +470,7 @@
 
                 <p class="step-group-title" id="main_ee_step4">Anger and Bargaining</p>
             <li>Look through the shield to see what numbers the book shows, and enter those numbers into the Number Pad in the 'Citadel Tunnels.' </li>
-            <li>The <a href="pictures/main_ee/anger_and_bargaining/lighthouse.webp">Lighthouse</a> near the 'Warden's House' will now be shining its light on a <a href="pictures/main_ee/anger_and_bargaining/red_orb_example.webp">Red Orb</a> which can only be seen with the shield. The red orb is in one of five locations and corresponds to a challenge the players must complete. Spirit Blast the orb to make it visible without the shield and to start the challenge.</li>
+            <li>The <a href="pictures/main_ee/anger_and_bargaining/lighthouse.webp">Lighthouse</a> near the 'Warden's House' will now be shining its light on a <a href="pictures/main_ee/anger_and_bargaining/red_orb_example.webp">Red Orb</a>, which can only be seen with the shield. The red orb is in one of five locations and corresponds to a challenge the players must complete. Spirit Blast the orb to make it visible without the shield and to start the challenge.</li>
             <li>Once a Challenge is complete, return to the Kronorium in the 'Warden's Ritual Room' for another set of numbers. Red Orb Locations: </li>
             <ul>
                 <li><a href="#docks_challenge">Docks</a> --- <a href="pictures/main_ee/anger_and_bargaining/docks_orb_loc.webp">Orb Location</a></li>
@@ -487,13 +504,13 @@
                 <li>In the 'Showers,' find and stand in a <a href="pictures/main_ee/anger_and_bargaining/showers_challenge/blue_circle.webp">blue circle</a>. While in the blue circle, kill Zombies to fill the Banjo.</li>
                 <li>If you are outside a circle for too long, you will start taking damage. If you start slowly taking damage while in a circle, return the Banjo to the Ghost, wait a few seconds, then pick it back up and try again.</li>
                 <li>Once you get enough kills quickly enough in a circle, a Banjo sound will play and the corners of the screen will turn red.</li>
-                <li>If the circle disappears with no sound, find another circle and get more kills. If there are no circles, return the Banjo to the Ghost. If when you give him the banjo, he does not start walking backward and disappear, take the Banjo back and get more kills.</li>
+                <li>If the circle disappears with no sound, find another circle and get more kills. If there are no circles, return the Banjo to the Ghost. He should start walking backward and disappear, otherwise take the Banjo back and get more kills.</li>
                 <li>When the Ghost disappears, a <a href="pictures/main_ee/anger_and_bargaining/showers_challenge/red_stone.webp">Red Stone</a> will drop where the Ghost was for you to pick up.</li>
             </ol>
 
             <p class="sub-sub-step" id="michigan_avenue_challenge">Michigan Avenue Challenge - 4/5 Difficulty</p>
             <ol>
-                <li>Kill a Zombie in the 'Cafeteria' to spawn a <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_challenge/ghost_cafeteria.webp">Ghost</a>. Spirit blast the Ghost to start the escort. This will lock down some doorways creating a linear path to the <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_orb.webp">Michigan Avenue Orb</a>.</li>
+                <li>Kill a Zombie in the 'Cafeteria' to spawn a <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_challenge/ghost_cafeteria.webp">Ghost</a>. Spirit blast the Ghost to start the escort. This will lock down some doorways, creating a linear path to the <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_orb.webp">Michigan Avenue Orb</a>.</li>
                 <li>All players must defend the Ghost from infinitely spawning Zombies as he makes his way to the <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_orb.webp">'Michigan Avenue' Orb</a>. Starting in the 'Cafeteria,' the Ghost needs to be escorted to 'D-Block,' followed by the 'Library,' then to the 'Cell Block 2nd Floor,' and finally to the 'Michigan Avenue' Orb. As the Ghost takes damage, he will become red. If the Ghost receives too much damage, it will disappear, and you can try the escort again in the next round.</li>
                 <li>Once the Ghost reaches 'Cell Block 2nd Floor,' the Warden will spawn.</li>
                 <li>Once the Ghost enters the Orb, a <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_challenge/red_stone.webp">Red Stone</a> will drop from the Ghost.</li>
@@ -516,7 +533,7 @@
                 <li>On each of the panels, there's a <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/panel_symbol_example.webp">symbol on a sticky note</a>. Using <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/cheat_sheet.webp">this cheatsheet</a>, note which symbols were on the lit panels (only the numbered symbols are used for now).</li>
                 <li>Grab the <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/punch_card.webp">Punch Card</a> from the shelf in between the doorways to the 'China Alley.' </li>
                 <li>In the 'Model Industries' building (spawn), place the Punch Card into <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/punch_card_machine.webp">this machine</a>.</li>
-                <li>Six <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/monitor_example.webp">monitors</a> in the room will turn on each showing one of the symbols from the panels.</li>
+                <li>Six <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/monitor_example.webp">monitors</a> in the room will turn on, each showing one of the symbols from the panels.</li>
                 <li>For each of your symbols, interact with the monitor displaying that symbol. The symbol will change to <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/cheat_sheet.webp">one of the lettered symbols</a>, note down which ones.</li>
                 <li>Once you have your new symbols, go back to the Ghost in the 'Power House' where he will be trying and failing to pull levers. Each lever has a <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/lever_symbol_example.webp">note beside it</a> that has <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/cheat_sheet.webp">one of the lettered symbols</a> on it.</li>
                 <li>You must get the Ghost to pull the levers corresponding to your symbols. To make the Ghost able to pull a lever, spirit blast him with the shield <strong>as he is grabbing at the correct lever, not before (like old guides say)</strong>. If done correctly, he will stop grabbing at it, then after a few seconds, he will grab it and <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/lever_down.webp">turn it down</a>. Repeat for the other two symbols. After the third lever is pulled, a <a href="pictures/main_ee/anger_and_bargaining/power_house_challenge/red_stone.webp">Red Stone</a> will drop from the Ghost.</li>
@@ -524,8 +541,8 @@
 
             <p class="sub-sub-step" id="new_industries_challenge">New Industries Challenge - 5/5 Difficulty (4/5 with the Undead Man Walking elixir)</p>
             <ol>
-                <li>Obtain the <a href="#attuned_spectral_shield">Attuned Spectral Shield</a> with 3-4 Charges. Technically, the upgraded shield is not required but without it, it's a lot harder. You can get a <a href="#free_max_shield_charge">free full refill for the shield</a> once per round.</li>
-                <li>Kill a Zombie in <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/d_block.webp">'D-Block'</a> to spawn a Ghost which can only be seen with the shield.</li>
+                <li>Obtain the <a href="#attuned_spectral_shield">Attuned Spectral Shield</a> with 3-4 Charges. Technically, the upgraded shield is not required, but without it, it's a lot harder. You can get a <a href="#free_max_shield_charge">free full refill for the shield</a> once per round.</li>
+                <li>Kill a Zombie in <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/d_block.webp">'D-Block'</a> to spawn a Ghost, which can only be seen with the shield.</li>
                 <ul>
                     <li>If you do not have the Undead Man Walking elixir, pull out your Specialist Weapon near a Zombie to spawn the Ghost without ending the round.</li>
                     <li>If do have Undead Man Walking, only activate it once the zombies start getting close to you on the next round, as the escort through the prison is the hardest part, and using Undead Man Walking makes it easier.</li>
@@ -535,25 +552,25 @@
                     <li>To inflict damage on the Ghost, first, use a spirit blast to make it visible without the shield. Once visible, damage it using the Key from the shield. Keep in mind that the Ghost can only be harmed when it is visible. If it turns invisible, use another spirit blast to reveal it again. Note that the Ghost remains visible for approximately 15 seconds after being hit with a spirit blast before becoming invisible again.</li>
                     <li>In some spots, you can stand in front of the Ghost to stop him from moving even if he's invisible to buy you some time to get another shield charge.</li>
                 </ul>
-                <li>As you do damage with the Key, he will slowly turn red. Once you do enough damage, <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/red_ghost_far.webp">his arms will kind of go out</a> (almost like a t-pose), you will no longer be able to damage him, and he will no longer turn invisible.</li>
-                <li>Once you do enough damage, run to the <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/mog_12_wallbuy.webp">MOG 12 wallbuy</a> and wait till the Ghost is close to it. Once he's beside the wallbuy, run to the <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/spin_trap.webp">Spin Trap</a> and activate it. If the Ghost is damaged enough, he will walk into the trap, die, and drop a <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/red_stone.webp">Red Stone</a> for you to pick up.</li>
+                <li>As you do damage with the Key, he will slowly turn red. Once you do enough damage, <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/red_ghost_far.webp">his arms will go out</a> (almost like a t-pose), you will no longer be able to damage him, and he will no longer turn invisible.</li>
+                <li>Run to the <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/mog_12_wallbuy.webp">MOG 12 wallbuy</a> and wait till the Ghost is close to it. Once he's beside the wallbuy, run to the <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/spin_trap.webp">Spin Trap</a> and activate it. If the Ghost is damaged enough, he will walk into the trap, die, and drop a <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/red_stone.webp">Red Stone</a> for you to pick up.</li>
             </ol>
 
-            <li>Once all five challenges have been completed and all stones have been picked up, place them on the <a href="pictures/main_ee/shock_and_denial/map_on_wall.webp">map on the wall</a> in 'Richtofen's Laboratory.' </li>
+            <li>Once all five challenges have been completed, and all stones have been picked up, place them on the <a href="pictures/main_ee/shock_and_denial/map_on_wall.webp">map on the wall</a> in 'Richtofen's Laboratory.' </li>
 
             <p class="step-group-title" id="main_ee_step5">Reflection and Loneliness</p>
             <li>Return to the 'Warden's Ritual Room' and interact with the electric chair to place the <a href="pictures/main_ee/reflection_and_loneliness/summoning_key_in_chest.webp">Summoning Key in the corpse's chest cavity</a>.</li>
             <li>After some cutscenes, you will be freed from the cells and be able to grab your equipment from the <a href="pictures/main_ee/reflection_and_loneliness/bag.webp">Bag</a> at the top of the stairs.</li>
             <li>Follow the Seagull to the 'West Grounds' where a larger version of the Warden will spawn blocking the entrance to the 'Model Industries' building.</li>
-            <li>After a short cutscene, the Warden will be taken away by Ghosts and a <a href="pictures/main_ee/reflection_and_loneliness/final_red_stone.webp">Red Stone</a> will drop.</li>
+            <li>After a short cutscene, the Warden will be taken away by ghosts and a <a href="pictures/main_ee/reflection_and_loneliness/final_red_stone.webp">Red Stone</a> will drop.</li>
             <li>Place the Red Stone on the <a href="pictures/main_ee/shock_and_denial/map_on_wall.webp">map on the wall</a> in 'Richtofen's Laboratory' to reveal a Cryo-pod and secret staircase to the right of the pod.</li>
 
             <p class="step-group-title" id="main_ee_step6">The Upward Turn</p>
             <p class="warning">Warning: Point of No Return. Once the Metal Door is interacted with, the Boss Fight will start.</p>
             <li>At the top of the stairs, there will be a <a href="pictures/main_ee/reflection_and_loneliness/metal_door.webp">Metal Door</a>. All players must interact with the door to start the Boss Fight.</li>
 
-            <p class="step-group-title" id="main_ee_step7">Reconstruction/Boss Fight</p>
-            <li>The door will open and all players will be put into the boss fight arena. The Warden will shake off the Ghosts and teleport away.</li>
+            <p class="step-group-title" id="main_ee_step7">Reconstruction (Boss Fight)</p>
+            <li>The door will open, and all players will be put into the boss fight arena. The Warden will shake off the Ghosts and teleport away.</li>
             <li>Zombies, Hellhounds and Wardens will begin to spawn. You must get at least one shield charge from these enemies. Kill all the enemies that spawn.</li>
             <li>Once all the enemies are dead, the larger Warden will spawn somewhere in the arena with a red cylinder around him and three <a href="pictures/main_ee/reconstruction/boss_fight_red_orb.webp">red orbs</a> above him.</li>
             <li>You must quickly run into the cylinder, and shoot and destroy the orbs. Standing outside the cylinder will cause you to take damage.</li>
@@ -570,7 +587,7 @@
 
     <!-- Song -->
     <div class="content-container" id="song_ee">
-        <h2>'Where Are We Going (2018 Edition)' Song</h2>
+        <h2 class="section-title">'Where Are We Going (2018 Edition)' Song</h2>
         <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542635676">here</a>.</p>
         <ol>
             <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
@@ -581,7 +598,7 @@
 
     <!-- Song 2 -->
     <div class="content-container" id="song_ee2">
-        <h2>Mob of the Dead Showers Lockdown Theme</h2>
+        <h2 class="section-title">Mob of the Dead Showers Lockdown Theme</h2>
         <ol>
             <li>Shoot <a href="pictures/song_ee2/dryer.webp">this part</a> of the Dryer in the 'Showers' to turn it on. After a few seconds, it will turn off. Turn it on two more times.</li>
             <li>If done correctly, the Dryer will make an alarm sound and the song will begin.</li>
@@ -590,7 +607,7 @@
 
     <!-- Free Monkey Bombs -->
     <div class="content-container" id="free_monkey_bomb">
-        <h2>Free Monkey Bombs</h2>
+        <h2 class="section-title">Free Monkey Bombs</h2>
         <ol>
             <p class="warning">This can only be completed once per game</p>
             <li>Obtain a Level 2 Special Weapon.</li>
@@ -602,7 +619,7 @@
 
     <!-- Shadowman Jumpscare -->
     <div class="content-container" id="shadowman_jumpscare">
-        <h2>Shadowman Jumpscare</h2>
+        <h2 class="section-title">Shadowman Jumpscare</h2>
         <ol>
             <li>Obtain a Sniper Rifle with a scope. There are no sniper wallbuys, the only way to get a sniper is from the Mystery Box.</li>
             <li>Navigate to the 'Recreation Yard' and aim at <a href="pictures/shadowman_jumpscare/this_window.webp">this window</a>.</li>
@@ -611,7 +628,7 @@
 
     <!-- Free Max shield Charge -->
     <div class="content-container" id="free_max_shield_charge">
-        <h2>Free Max Shield Charge</h2>
+        <h2 class="section-title">Free Max Shield Charge</h2>
         <ul>
             <li>Each round, one of the following <a href="pictures/free_max_shield_charge/power_box_spark.webp">power boxes</a> will start sparking. Interacting with the box with the shield out will completely refill all charges.</li>
             <ul>
@@ -632,7 +649,7 @@
     </div>
 
     <div class="content-container" data-section-ind="Gauntlet Challenges" id="gauntlet">
-        <h2>'Hellcatraz' Gauntlet Challenges</h2>
+        <h2 class="section-title">'Hellcatraz' Gauntlet Challenges</h2>
         <table>
             <thead>
             <tr>

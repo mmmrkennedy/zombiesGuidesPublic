@@ -1,0 +1,142 @@
+
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.tutorial-popup {
+    background-color: #151515;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    padding: 24px;
+    max-width: 550px;
+    width: 90%;
+    color: #c0bfbf;
+}
+
+.tutorial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.tutorial-header h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    color: #d4b365;
+}
+
+.tutorial-page-indicator {
+    font-size: 14px;
+    color: #6bc343;
+    background-color: #252525;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.tutorial-pages-container {
+    min-height: 180px;
+    margin-bottom: 20px;
+}
+
+.tutorial-page {
+    display: none;
+    animation: fadein 0.5s;
+}
+
+.tutorial-page.active {
+    display: block;
+}
+
+.tutorial-page p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.tutorial-page ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.tutorial-page li {
+    margin-bottom: 8px;
+}
+
+.tutorial-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tutorial-nav-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333333;
+    color: #c0bfbf;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.tutorial-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tutorial-nav-btn:not(:disabled):hover {
+    background-color: #444;
+}
+
+.finish-btn {
+    background-color: #6bc343;
+    color: #151515;
+    font-weight: bold;
+}
+
+.finish-btn:hover {
+    background-color: #5db138 !important;
+}
+
+.tutorial-progress-container {
+    margin-top: 15px;
+}
+
+.tutorial-progress-bar {
+    height: 6px;
+    background-color: #333;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.tutorial-progress-fill {
+    height: 100%;
+    width: 0; /* Updated by JS */
+    background-color: #6185e8;
+    transition: width 0.3s ease;
+}
+
+.tutorial-progress-text {
+    text-align: center;
+    font-size: 12px;
+    color: #6bc343;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

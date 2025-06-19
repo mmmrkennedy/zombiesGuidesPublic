@@ -1,17 +1,26 @@
+import re
+
 import requests
 from bs4 import BeautifulSoup
 import time
 
 def extract_text_from_html(html_file):
-    """Extract plain text from HTML file."""
+    """Extract plain text from HTML elements with 'content-window' class."""
     with open(html_file, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
-        return soup.get_text()
+
+        # Find the element with class 'content-window'
+        content_window = soup.find(class_='content-window')
+
+        if content_window:
+            return content_window.get_text()
+        else:
+            return "No element with class 'content-window' found"
 
 def check_grammar(text, language='en-CA'):
     """Send text to LanguageTool API and return suggestions."""
     # Split text into chunks if too long (LanguageTool has limits)
-    max_length = 20000  # Conservative limit
+    max_length = 20000  # limit
     if len(text) > max_length:
         print(f"Text is {len(text)} characters. Truncating to {max_length} characters.")
         text = text[:max_length]
@@ -82,12 +91,37 @@ def print_suggestions(result, ignore_rules=None):
         print("-" * 30)
 
 def process_text_in_chunks(text, chunk_size=15000):
-    """Process large text in smaller chunks."""
+    """Process large text in smaller chunks, breaking at newlines when possible."""
     chunks = []
-    for i in range(0, len(text), chunk_size):
-        chunk = text[i:i + chunk_size]
-        chunks.append(chunk)
+    start = 0
+
+    while start < len(text):
+        # Calculate the end position for this chunk
+        end = start + chunk_size
+
+        # If we're at the end of the text, take the rest
+        if end >= len(text):
+            chunks.append(text[start:])
+            break
+
+        # Look for the last newline before the chunk_size limit
+        chunk_end = text.rfind('\n', start, end)
+
+        # If no newline found, fall back to splitting at chunk_size
+        if chunk_end == -1 or chunk_end <= start:
+            chunk_end = end
+        else:
+            # Include the newline in the current chunk
+            chunk_end += 1
+
+        chunks.append(text[start:chunk_end])
+        start = chunk_end
+
     return chunks
+
+def replace_multiple_newlines(text):
+    """Replace any number of consecutive newlines with a single newline"""
+    return re.sub(r'\n+', '\n', text)
 
 # Example usage
 if __name__ == "__main__":
@@ -98,6 +132,7 @@ if __name__ == "__main__":
         text = extract_text_from_html(html_file)
 
         # Clean up text (remove excessive whitespace)
+        text = replace_multiple_newlines(text)
         text = ' '.join(text.split())
 
         print(f"Text length: {len(text)} characters")

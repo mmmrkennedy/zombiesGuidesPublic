@@ -1,7 +1,7 @@
 // console.log("Loaded Scripts")
 
 const BASE_PATH = window.location.origin + "/";
-console.log(BASE_PATH);
+// console.log(BASE_PATH);
 
 function redirect_to_new_link() {
     const oldBasePath = "/zombiesGuidesPublic/";
@@ -405,9 +405,9 @@ TUTORIAL BOX
 function addTutorialBox() {
     const page = getCurrentPage();
 
-    if (page === "index.html") {
+    /* if (page === "index.html") {
         return;
-    }
+    } */
 
     const smoothScrollDiv = document.querySelector('div.smooth-scroll');
 
@@ -482,9 +482,36 @@ function addTutorialBox() {
     }
 }
 
+function loadTutorialCSS() {
+    // Check if CSS is already loaded to avoid duplicates
+    if (document.querySelector('#tutorial-css')) {
+        return;
+    }
+
+    fetch('/ZombiesGuidesHolder/css/tutorial_box.css')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load CSS: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(cssString => {
+            const styleElement = document.createElement('style');
+            styleElement.id = 'tutorial-css'; // Add ID to track if already loaded
+            styleElement.textContent = cssString;
+            document.head.appendChild(styleElement);
+        })
+        .catch(error => {
+            console.error('Error loading tutorial CSS:', error);
+            // You might want to still show the tutorial without styling
+            // or handle this error based on your needs
+        });
+}
+
 function tutorialPopupInit() {
     // Check if tutorial has been shown before
     if (!localStorage.getItem('zombiesGuidesTutorialShown')) {
+        loadTutorialCSS();
         addTutorialBox();
         initTutorial();
 
@@ -878,6 +905,10 @@ function getQuickLinkElements() {
             // Add extra indent for sub-sub-step
             if (title.classList.contains("sub-sub-step") && title_counter !== 0) {
                 indentLevel = 2;
+            }
+
+            if (title.dataset.customIndent) {
+                indentLevel = Number(title.dataset.customIndent);
             }
 
             // Handle custom quick links if present

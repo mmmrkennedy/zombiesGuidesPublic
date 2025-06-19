@@ -64,8 +64,87 @@
             <div class="solver-insert" data-solver-html-path="/games/IW/shaolin_shuffle/mahjong_solver/mahjong_solver_template.html"></div>
         </div>
 
-        <div class="content-container">
-            <div class="solver-insert" data-solver-html-path="/games/IW/shaolin_shuffle/main_ee_word_solver/shaolin_ee_word_solver_template.html"></div>
+        <h2>Main Quest Word Solver</h2>
+        <div class="button-activated-div border" data-bool-quick-link="false" id="word_filter">
+            <label for="word_filter_text">Enter what letters you have of your word so far: </label> <input id="word_filter_text" oninput="filterWordsByPrefix(this.value)" type="text">
+            <p class="sub-sub-step" data-bool-quick-link="false">List of possible letters to finish the word: </p>
+            <p id="possible_letters" style="text-indent: 20px;">No valid words to find letters for.</p>
+            <div id="word_filter_imgs"></div>
+
+            <p class="sub-sub-step" data-bool-quick-link="false">List of possible words:</p>
+            <ul id="word_list">
+                <li>ACTORS</li>
+                <li>AFTERLIFE</li>
+                <li>ANCESTOR</li>
+                <li>ARCADE</li>
+                <li>ARTHUR</li>
+                <li>AUDITION</li>
+                <li>BASEMENT</li>
+                <li>BEVERLYHILLS</li>
+                <li>BLACKCAT</li>
+                <li>BOAT</li>
+                <li>BREEDER</li>
+                <li>BROADWAY</li>
+                <li>BRUTE</li>
+                <li>BUMPERCARS</li>
+                <li>CHARMS</li>
+                <li>COMICBOOKS</li>
+                <li>CRANE</li>
+                <li>CRYPTID</li>
+                <li>DANCE</li>
+                <li>DAVIDARCHER</li>
+                <li>DEATH</li>
+                <li>DIRECTOR</li>
+                <li>DISCO</li>
+                <li>DRAGON</li>
+                <li>DRCROSS</li>
+                <li>FAIRIES</li>
+                <li>FORGEFREEZE</li>
+                <li>GEYSER</li>
+                <li>GHETTO</li>
+                <li>HARPOON</li>
+                <li>HIVES</li>
+                <li>INFERNO</li>
+                <li>KATANA</li>
+                <li>KEVINSMITH</li>
+                <li>KRAKEN</li>
+                <li>KUNGFU</li>
+                <li>LOSANGELES</li>
+                <li>MCINTOSH</li>
+                <li>MEMORIES</li>
+                <li>MEPHISTOPHELES</li>
+                <li>NEWYORK</li>
+                <li>NIGHTFALL</li>
+                <li>NUNCHUCKS</li>
+                <li>OBELISK</li>
+                <li>OCTONIAN</li>
+                <li>PAMGRIER</li>
+                <li>PINKCAT</li>
+                <li>PUNKS</li>
+                <li>RATKING</li>
+                <li>REALITYTV</li>
+                <li>REDWOODS</li>
+                <li>ROLLERCOASTER</li>
+                <li>ROLLERSKATES</li>
+                <li>SAMANTHA</li>
+                <li>SHAOLIN</li>
+                <li>SHIELD</li>
+                <li>SHUFFLE</li>
+                <li>SLASHER</li>
+                <li>SIXTYMILLION</li>
+                <li>SLASHER</li>
+                <li>SLIDE</li>
+                <li>SNAKE</li>
+                <li>SPACELAND</li>
+                <li>STAFF</li>
+                <li>SUBWAY</li>
+                <li>TIGER</li>
+                <li>TREES</li>
+                <li>WEREWOLFPOETS</li>
+                <li>WINONAWYLER</li>
+                <li>YETIEYES</li>
+                <li>ZAPPER</li>
+            </ul>
         </div>
     </div>
 </div>
