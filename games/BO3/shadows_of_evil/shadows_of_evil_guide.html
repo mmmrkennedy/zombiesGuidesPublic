@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>CHANGE ME</title>
+    <title>Shadows of Evil Guide</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
@@ -12,7 +12,7 @@
 
 <script>
     // Check if we're on localhost or a local environment
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
+    let isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
         window.location.hostname.includes(".local");
 
@@ -27,7 +27,7 @@
 
 <!-- Google Analytics -->
 <script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
+    let isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
         window.location.hostname.includes(".local");
 
@@ -53,7 +53,7 @@
 <body>
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">CHANGE ME</h2>
+    <h2 class="title-text">Shadows of Evil Guide</h2>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -73,50 +73,397 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label> <select id="fontSelector">
-        <option value="Arial">Arial</option>
-        <option value="Verdana">Verdana (Higher Readability)</option>
-        <option value="OpenDyslexic">OpenDyslexic</option>
-    </select>
-
-        <h2>Weapons</h2>
-        <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
-                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
-            </ol>
-        </ul>
-
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#main_ee_step1">CHANGE ME</a></li>
-                <li><a href="#main_ee_step2">CHANGE ME</a></li>
-                <li><a href="#main_ee_step3">CHANGE ME</a></li>
-                <li><a href="#main_ee_step4">CHANGE ME</a></li>
-                <li><a href="#main_ee_step5">CHANGE ME</a></li>
-            </ol>
-        </ul>
-    </div>
+    <div class="content-container-top"></div>
 
     <!-- Wonder Weapons -->
-    <div class="content-container" id="CHANGE ME">
-        <h2>CHANGE ME</h2>
-        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
-        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
+    <div class="content-container" data-section-ind="Map Progression" id="power">
+        <h2 class="section-title">Power</h2>
+        <ul>
+            <li>There are no normal power switches, so anything that requires power (like perk machines) will have a <a href="pictures/power/fuse_box.png">fuse box</a> beside it that a player needs to shock while they're in Beast Mode. This will turn the Perk Machine on for the remainder of the game.</li>
+            <li>In addition to the Perk Machine fuse boxes, there are five fuse boxes, about one per district, that open doors/stairs that can't otherwise be purchased.</li>
+
+            <li>Spawn/Junction</li>
+            <ol>
+                <li>Enter Beast Mode and grapple up to the <a href="pictures/pap/pap_nero/fire_escape.png">fire escape above the door out of Spawn</a>. Follow the staircase up, it'll take you to Nero's Room.</li>
+                <li>Once inside Nero's room, follow the path until you reach a <a href="pictures/pap/pap_nero/nero_fuse_box.png">fuse box outside</a>. Electrocute the fuse box to open the staircase from Spawn up to Nero's room.</li>
+            </ol>
+
+            <li>Canals District</li>
+            <ol>
+                <li>Enter Beast Mode and grapple up to the <a href="pictures/power/canals_bridge.png">bridge roughly in the middle of the district</a>.</li>
+                <li>Take the bridge toward the entrance of the district (not toward the stairs up). You should see a <a href="pictures/power/canals_fuse.png">fuse box down a flight of stairs</a>. Electrocute the fuse box to open the staircase.</li>
+            </ol>
+
+            <li>Waterfront District</li>
+            <ol>
+                <li>Enter Beast Mode and grapple up to the <a href="pictures/power/waterfront_grapple.png">bridge</a> right at the entrance to the district.</li>
+                <li>Take the bridge toward the entrance of the district (not toward the inside). Electrocute the <a href="pictures/power/waterfront_fuse.png">fuse box</a> to open the staircase.</li>
+            </ol>
+
+            <li>Footlight District</li>
+            <ol>
+                <li>Enter Beast Mode and grapple up to the <a href="pictures/pap/pap_jessica/grapple.png">upper level near the entrance of the district</a>.</li>
+                <li>You should see a <a href="pictures/power/footlight_fuse.png">fuse box down a flight of stairs</a>. Electrocute the fuse box to open the staircase.</li>
+            </ol>
+
+            <li>Underground/Junction</li>
+            <ul>
+                <li>In the Underground, enter Beast Mode and run up the <a href="pictures/power/underground_stairs.png">stairs</a>. Electrocute the <a href="pictures/power/underground_fuse.png">fuse box</a> to open the door.</li>
+            </ul>
+        </ul>
     </div>
 
-    <!-- Main Easter Egg -->
-    <div class="content-container" id="main_ee">
-        <h2>CHANGE ME</h2>
-        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+    <div class="content-container" id="perk_machines">
+        <h2 class="section-title">Perk Machines</h2>
+        
+        <ul>
+            <li>There are six perks on the map, three of which will change locations every game. Juggernog, Speed Cola, and Double Tap can rotate spawning in the Canals, Waterfront, or Footlight districts.</li>
+            <li>Check the colour of the <a href="pictures/perk_machines/broken_bottle.png">broken bottle at the district entrance</a> in the Junction to see which one spawned where. Red for Juggernog, Green for Speed Cola, and Orange for Double Tap.</li>
+        </ul>
+    </div>
+    
+    <div class="content-container" id="pap">
+        <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
-            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
-            <li>CHANGE ME</li>
-            <li>CHANGE ME</li>
+            <li>To access Pack-a-Punch, you need to complete four rituals, in any order, then a fifth and final ritual. Each of the first four rituals is related to a character and district (any player can do any ritual, not just the player it's related to).</li>
+            <li>Before you can start any of the rituals, you'll need the Summoning Key. To get it, enter Beast Mode, and melee the <a href="pictures/pap/summoning_key_crate.png">crate on the back of the truck</a>, left of the RK5 wallbuy, in Spawn. Once open, you can pick up the <a href="pictures/pap/summoning_key.png">Summoning Key</a> from the crate.</li>
+            <li>How to complete each district's ritual:</li>
+            <ul>
+                <p class="step-group-title" id="pap_nero">Nero Blackstone - Junction/Spawn</p>
+                <ol>
+                    <li>Enter Beast Mode and electrocute the <a href="pictures/pap/pap_nero/crane_fuse.png">crane's fuse box</a> in the middle of the Junction.</li>
+                    <li>While (still) in Beast Mode, grapple up to Nero's room through the <a href="pictures/pap/pap_nero/fire_escape.png">fire escape above the door out of Spawn</a>.</li>
+                    <li>Once inside Nero's room, follow the path until you reach a <a href="pictures/pap/pap_nero/nero_fuse_box.png">fuse box outside</a>. Electrocute the fuse box to open the staircase from the Spawn up to Nero's room. You can now exit Beast Mode.</li>
+                    <li>Once the fuse box is shocked, the Crane will move, dropping a <a href="pictures/pap/pap_nero/lawyers_pen.png">box with the Lawyer's Pen inside</a>. Pick up the Pen; Two keepers will spawn.</li>
+                    <li>Go up to Nero's room and place the Pen on the <a href="pictures/pap/pap_nero/ritual_table.png">ritual table</a>.</li>
+                    <li>Interact with the table to start the ritual. During the ritual, you'll be locked inside Nero's room, and Keepers will start spawning. Survive until the ritual is over.</li>
+                    <ul>
+                        <li>In Co-op, it'll take longer based on the number of players in the game not participating.</li>
+                        <li>Players can't enter mid-ritual, so make sure to wait for everyone before you start.</li>
+                    </ul>
+                    <li>Once the ritual is finished, a short animation will play above the table, followed by a <a href="pictures/pap/pap_nero/gateworm_nero.png">Gateworm</a> spawning for you to pick up. If this is the second or fourth ritual completed, a Margwa will spawn.</li>
+                </ol>
+                
+                <p class="step-group-title" id="pap_jack">Jack Vincent - Canals District</p>
+                <ol>
+                    <li>Enter Beast Mode and shock the <a href="pictures/pap/pap_jack/ethereal_wall.png">fuse box through the "ethereal" wall</a> at the end of the Canals (part farthest from Spawn).</li>
+                    <li>While (still) in Beast Mode, melee the <a href="pictures/pap/pap_jack/badge_box.png">box in the wall beside the Rift Portal</a> in the "middle" of the Canals.</li>
+                    <li>Grapple up to the <a href="pictures/pap/pap_jack/ruby_grapple.png">top of the 'Ruby Rabbit Nightclub'</a> at the "back" of the Canals. Run down the stairs and shock the <a href="pictures/pap/pap_jack/ruby_fuse.png">fuse box</a> to open the stairs. You can now exit Beast Mode.</li>
+                    <li>Pick up the <a href="pictures/pap/pap_jack/badge_pickup.png">Detective's Badge from the broken box</a> in the Canals; Two keepers will spawn.</li>
+                    <li>Go to the top of the 'Ruby Rabbit Nightclub' and place the Detective's Badge on the <a href="pictures/pap/pap_jack/ritual_table.png">ritual table</a>.</li>
+                    <li>Interact with the table to start the ritual. During the ritual, you'll be locked inside the room, and Keepers will start spawning. Survive until the ritual is over.</li>
+                    <ul>
+                        <li>In Co-op, it'll take longer based on the number of players in the game not participating.</li>
+                        <li>Players can't enter mid-ritual, so make sure to wait for everyone before you start.</li>
+                    </ul>
+                    <li>Once the ritual is finished, a short animation will play above the table, followed by a <a href="pictures/pap/pap_jack/gateworm.png">Gateworm</a> spawning for you to pick up. If this is the second or fourth ritual completed, a Margwa will spawn.</li>
+                </ol>
+
+                <p class="step-group-title" id="pap_floyd">Floyd Campbell - Waterfront District</p>
+                <ol>
+                    <li>Enter Beast Mode, grapple up to the <a href="pictures/pap/pap_floyd/grapple.png">fire escape above the Mystery Box location</a> in the middle of the district and melee the box.</li>
+                    <li><a href="pictures/pap/pap_floyd/jump_down.png">Jump down (to the area toward the water)</a>, run down to the front of the Boxing Gym and melee the <a href="pictures/pap/pap_floyd/gym_door.png">door</a> open. You can now exit Beast Mode.</li>
+                    <li>Pick up the <a href="pictures/pap/pap_floyd/belt.png">Championship Belt from the fallen box</a>; Two keepers will spawn.</li>
+                    <li>Go to the 'Boxing Gym,' and place the Championship Belt on the <a href="pictures/pap/pap_floyd/ritual_table.png">ritual table</a> in the middle of the Boxing Ring.</li>
+                    <li>Interact with the table to start the ritual. During the ritual, you'll be locked inside the room, and Keepers will start spawning. Survive until the ritual is over.</li>
+                    <ul>
+                        <li>In Co-op, it'll take longer based on the number of players in the game not participating.</li>
+                        <li>Players can't enter mid-ritual, so make sure to wait for everyone before you start.</li>
+                    </ul>
+                    <li>Once the ritual is finished, a short animation will play above the table, followed by a <a href="pictures/pap/pap_floyd/gateworm.png">Gateworm</a> spawning for you to pick up. If this is the second or fourth ritual completed, a Margwa will spawn.</li>
+                </ol>
+
+                <p class="step-group-title" id="pap_jessica">Jessica Rose - Footlight District</p>
+                <ol>
+                    <li>Enter Beast Mode and grapple up to the <a href="pictures/pap/pap_jessica/grapple.png">upper level near the entrance of the district</a>.</li>
+                    <li>Using the <a href="pictures/pap/pap_jessica/ramp.png">ramp left of the Mystery Box location</a>, jump the <a href="pictures/pap/pap_jessica/ledge.png">ledge</a> with the Box on it. Melee the <a href="pictures/pap/pap_jessica/box.png">box</a>.</li>
+                    <li>Jump back across and run up the <a href="pictures/pap/pap_jessica/stairs.png">stairs right of the Mystery Box location</a>. Grapple over to the <a href="pictures/pap/pap_jessica/black_lace_grapple.png">'Black Lace Burlesque'</a> and shock the <a href="pictures/pap/pap_jessica/black_lace_fuse_box.png">fuse box on the back of the sign</a>. You can now exit Beast Mode.</li>
+                    <li>Pick up the <a href="pictures/pap/pap_jessica/toupee.png">Producer's Toupee from the fallen box</a>; Two keepers will spawn.</li>
+                    <li>Go to the 'Black Lace Burlesque' and place the Producer's Toupee on the <a href="pictures/pap/pap_jessica/ritual_table.png">ritual table</a> in the middle of the stage.</li>
+                    <li>Interact with the table to start the ritual. During the ritual, you'll be locked inside the room, and Keepers will start spawning. Survive until the ritual is over.</li>
+                    <ul>
+                        <li>In Co-op, it'll take longer based on the number of players in the game not participating.</li>
+                        <li>Players can't enter mid-ritual, so make sure to wait for everyone before you start.</li>
+                    </ul>
+                    <li>Once the ritual is finished, a short animation will play above the table, followed by a <a href="pictures/pap/pap_jessica/gateworm.png">Gateworm</a> spawning for you to pick up. If this is the second or fourth ritual completed, a Margwa will spawn.</li>
+                </ol>
+            </ul>
+
+            <p class="step-group-title" id="pap_final_ritual">Final Ritual</p>
+            <li>Once you have completed all four rituals and you have all four Gateworms, go down to the Subway Station (called the Underground) using one of the <a href="#rift_portals">Rift Portals</a>.</li>
+            <ul>
+                <li>The first time you enter the Underground, four Keepers will spawn.</li>
+            </ul>
+            <li>Go up to the wall with the <a href="pictures/pap/glowing_symbols.png">glowing symbols</a>; it should dissolve, revealing a large ritual room.</li>
+            <li>Place a Gateworm in each of the four <a href="pictures/pap/gateworm_pedistals.png">pedestals (follow blue beams in picture)</a> around the room.</li>
+            <ul>
+                <li>There are two near the walls on the side of the room you entered from. Placing these Gateworms will repair the <a href="pictures/pap/wallrun_wall.png">walls near them</a>. You can wallrun on these walls (sprint and jump at them) to get to the other side.</li>
+                <li>The other two pedestals are on the <a href="pictures/pap/bridge.png">bridge in the middle of the room</a>, on the "other" side of the room (the side you need to wallrun to). Placing these will repair the bridge to the other side (there will be a short gap at the end that you need to jump).</li>
+            </ul>
+            <li>Once you've placed all four gateworms, interact with the <a href="pictures/pap/ritual_table.png">ritual table</a> by the entrance to the room to start the final ritual. You'll be locked in the room, with Keepers spawning.</li>
+            <li>Once the ritual is complete, a Margwa will spawn, and Pack-a-Punch will become available as a <a href="pictures/pap/pap.png">blue rift on the far side of the room</a>.</li>
+        </ol>
+    </div>
+
+    <div class="content-container" id="beast_mode">
+        <h2 class="section-title">Beast Mode</h2>
+        <ul>
+            <li>Beast Mode is a special timed mode you can enter (similar to Afterlife in BO2's Mob of the Dead) that allows you to do actions (open doors, power perks, etc.) that you can't do otherwise.</li>
+            <li>You can enter Beast Mode by interacting with any <a href="pictures/beast_mode/beast_mode_chalice.png">flaming chalice around the map</a>. Once a chalice is used (by any player), it will remain inactive for the remainder of the round, indicated by a <a href="pictures/beast_mode/red_chalice.png">dull, red glow</a>.</li>
+            <li>You can enter Beast Mode once per round (or three per round on Solo). If the Beast icon, on the bottom-left of the HUD, is lit up <a href="pictures/beast_mode/beast_mode_icon_blue.png">blue</a>, then you can enter Beast Mode. The icon will be <a href="pictures/beast_mode/red_beast_icon.png">red</a> if you have no Beast Mode "charges" left. You will get a Beast Mode charge back at the start of each round (only one per round on solo also).</li>
+            <li>Beast Mode lasts 25 seconds, but meleeing (whether you hit something or not) will drain 3% of you Beast "time." Once it's over, you'll be brought back to the Chalice you entered. Unlike Afterlife, letting the timer run out will not down you in, but just return you to normal.</li>
+            <li>While in Beast Mode, enemies will ignore you, and you run a lot faster. You can power fuse boxes with the shock attack, destroy special doors and crates by meleeing them, grapple up to otherwise inaccessible places, shock and melee Zombies, and revive teammates. Reviving a teammate in Beast Mode will instantly return you to normal.</li>
+        </ul>
+    </div>
+
+    <div class="content-container" id="fumigator_pods">
+        <h2 class="section-title">Fumigator / Pods</h2>
+        <ul>
+            <li>Around the map, there are <a href="pictures/fumigator_pods/green_pod.png">Apothicon (Harvest) Pods</a> that will give you a variety of loot items (like guns, power-ups, etc.) when opened. Every couple of rounds (if not opened), the Pods will grow larger and change colour, from <a href="pictures/fumigator_pods/green_pod.png">Green</a> to <a href="pictures/fumigator_pods/red_pod.png">Red</a>, then to <a href="pictures/fumigator_pods/purple_pod.png">Purple</a>. The colour indicates the quality of the reward you can get. Pods will regrow to Green a couple of rounds after being opened.</li>
+            <li>To open a Pod, you'll need to find a Fumigator. Each player will need their own Fumigator to open pods. Once you have a Fumigator, interact with a Pod to open it. Only one Fumigator will spawn per district. Fumigator locations:</li>
+            <ul>
+                <li>Spawn:</li>
+                <ul>
+                    <li><a href="pictures/fumigator_pods/spawn_beast.png">On the box to the right of the Beast Mode chalice</a></li>
+                    <li><a href="pictures/fumigator_pods/spawn_quick.png">On the back of the truck in front of Quick Revive</a></li>
+                    <li><a href="pictures/fumigator_pods/spawn_metal.png">In a metal window grate, left of the stairs to Nero's Room</a></li>
+                </ul>
+                <li>Junction:</li>
+                <ul>
+                    <li><a href="pictures/fumigator_pods/junction_canals.png">On a fruit stand left of the Canals entrance</a></li>
+                    <li><a href="pictures/fumigator_pods/junction_chair.png">On the chair in front of the Zombie spawn, left of the Stamin-Up machine</a></li>
+                    <li><a href="pictures/fumigator_pods/junction_krm.png">On a crate in the middle of the area, in front of the KRM-262 wallbuy</a></li>
+                    <li><a href="pictures/fumigator_pods/junction_footlight.png">On a box in front of the shop, left of the door to the Footlight district</a></li>
+                </ul>
+                <li>Canals District</li>
+                <ul>
+                    <li><a href="pictures/fumigator_pods/canals_beast.png">On a box beside the Beast Mode chalice, just right of the Canals entrance from the Junction</a></li>
+                    <li><a href="pictures/fumigator_pods/canals_gobblegum.png">On a box to the right of the Gobblegum machine, on the left side of the Canals (when coming from the Junction)</a></li>
+
+                </ul>
+                <li>Waterfront District</li>
+                <ul>
+                    <li><a href="pictures/fumigator_pods/waterfront_rubble.png">On the floor in some rubble, almost immediately on your left after entering from the Junction</a></li>
+                    <li><a href="pictures/fumigator_pods/waterfront_gobblegum.png">On a box left of the Gobblegum machine, in the center of the district</a></li>
+                    <li><a href="pictures/fumigator_pods/waterfront_stairs.png">On a box at the top of the powered stairs, at the front of the district</a></li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="content-container" id="rift_portals">
+        <h2 class="section-title">Rift (Fast Travel) Portals</h2>
+        <ul>
+            <li>There are three <a href="pictures/rift_portals/rift.png">Rift Portals</a> in each of the three districts that take you to/from the Underground. These portals are hidden behind <a href="pictures/rift_portals/door_example.png">doors that can only be opened while in Beast Mode</a>. Once the door is open, you can interact with the Portal to activate it; this will also activate its underground counterpart.</li>
+            <table>
+                <caption>Door/Rift locations</caption>
+                <thead>
+                <tr>
+                    <th>Door/Activate Location</th>
+                    <th>Underground Counterpart</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><a href="pictures/rift_portals/canals_rift.png">Canals - In the Canal, near the Mystery Box location</a></td>
+                    <td><a href="pictures/rift_portals/rift_canals.png">Beside the Widow's Wine Perk Machine</a></td>
+                </tr>
+                <tr>
+                    <td><a href="pictures/rift_portals/waterfront_door.png">Waterfront - Down an alley, right of the Mystery Box location in the middle of the district</a></td>
+                    <td><a href="pictures/rift_portals/rift_waterfront.png">Up the stairs from Widow's Wine</a></td>
+                </tr>
+                <tr>
+                    <td><a href="pictures/rift_portals/footlight_door.png">Footlight - Near where the Toupee box falls during the Pack-a-Punch quest</a></td>
+                    <td><a href="pictures/rift_portals/rift_footlight.png">On the opposite side of the room from Widow's Wine</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </ul>
+    </div>
+
+    <div class="content-container" data-section-ind="Weapons and Buildables" id="apothicon_servant">
+        <h2 class="section-title">Apothicon Servant</h2>
+        <p class="weapon-desc">The Apothicon Servant fires a purple vortex that sucks in nearby Zombies, instantly killing them regardless of the round. After a few seconds, the vortex explodes, damaging any Zombies still in the area. The Apothicon Servant can't be Pack-a-Punched or upgraded.</p>
+        <ol>
+            <li>The Apothicon Servant required three parts to be built:</li>
+            <ul>
+                <li><a href="pictures/apothicon_servant/margwa_heart.png">Margwa Heart - Dropped from the first Margwa killed</a></li>
+                <li>Xenomatter - Starting on round 13, when you kill a Parasite or Meatball enemy, they have a 10% chance to drop the <a href="pictures/apothicon_servant/xenomatter.png">Xenomatter</a>.</li>
+                <li><a href="pictures/apothicon_servant/tentacle.png">Margwa Tentacle - Open Purple Harvest Pods until you get the Tentacle</a> --- See the <a href="#fumigator_pods">Fumigator / Pods</a> section for how to open Pods</li>
+            </ul>
+            <li>Once you have all three parts, the Apothicon Servant can be crafted at the Crafting Table in the <a href="pictures/buildable_tables/waterfront.png">Waterfront (behind the Gym)</a>, <a href="pictures/buildable_tables/canals.png">Canals (in front of the Ruby Rabbit)</a>, or <a href="pictures/buildable_tables/footlight.png">Footlight ("below" the train station)</a> districts.</li>
+        </ol>
+    </div>
+
+    <div class="content-container" id="apothicon_sword">
+        <h2 class="section-title">Apothicon Sword Special Weapon</h2>
+        <ol>
+            <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>You need to find three symbols (one in each district) around the map that can only be seen while riding the Train. There are 9 possible symbols, and they'll be different every game. The descriptions below are all from the perspective of coming from that district station. All the symbols are about eye-level, so you won't have to look up or down to see them. Symbol locations:</li>
+            <ul>
+                <li><a href="pictures/apothicon_sword/symbol_canals.png">Canals - On the left side of the Train, in a circular window</a></li>
+                <li><a href="pictures/apothicon_sword/symbol_waterfront.png">Waterfront - On the right side of the Train, in a warehouse window</a></li>
+                <li><a href="pictures/apothicon_sword/symbol_footlight.png">Footlight - On the left side of the Train, in an apartment window</a></li>
+            </ul>
+            <li>Once you have all three symbols, go to the Underground. Enter Beast Mode and shock the symbols on the <a href="pictures/apothicon_sword/wall_with_symbols.png">wall, left of the Gobblegum machine</a>.</li>
+            <ul>
+                <li>If you shock the wrong symbols, they'll all disappear and you can retry on the next round.</li>
+            </ul>
+            <li>Once the correct symbols are shocked, the wall will dissolve away revealing a <a href="pictures/apothicon_sword/stone_structure.png">stone structure</a> holding the Swords and Eggs.</li>
+            <li>Pick up an egg from the structure. Each player has their own egg and must complete the following steps independently to get a Sword.</li>
+            <li>In each of the Districts (and the Underground), there will be a <a href="pictures/apothicon_sword/wooden_box_underground.png">tall, wooden box</a> that can be broken open with a melee while in Beast Mode. Inside the boxes, there'll be an <a href="pictures/apothicon_sword/apothicon_statue.png">Apothicon Statue</a>. Place the Egg on a statue (in any order) and kill about 12 Zombies near it to charge the Egg. Once charged, the Egg will make a sound and stop collecting Souls. Pick up the Egg and charge it at any of the other statues. Statue/Box locations:</li>
+            <ul>
+                <li><a href="pictures/apothicon_sword/wooden_box_underground.png">Underground - In front of the Egg pickup location</a></li>
+                <li><a href="pictures/apothicon_sword/wooden_box_canals.png">Canals - Behind the 'Ruby Rabbit Nightclub,' at the back of the District</a></li>
+                <li><a href="pictures/apothicon_sword/wooden_box_waterfront.png">Waterfront - In the destroyed building, at the front of the District</a> (See the <a href="#power">Power</a> section for how to open the stairs to the building)</li>
+                <li><a href="pictures/apothicon_sword/wooden_box_footlight.png">Footlight - In the covered area by the Vesper wallbuy, at the front of the District</a></li>
+            </ul>
+            <li>Once you have a charged Egg, place it in a Sword in the Stone structure in the Underground. After a couple of seconds, you can pick up the Sword.</li>
+            <li>The Apothicon Sword has two attacks, the primary attack swings the sword and the secondary attack slams the sword into the ground creating an electric burst around the Player, stunning Zombies.</li>
+        </ol>
+
+        <p class="upgrade-title" id="keeper_sword">Keeper Sword Upgrade</p>
+        <ol>
+            <li>Obtain the <a href="#apothicon_sword">Apothicon Sword</a>.</li>
+            <li>Based on your character, you need to go to the Ritual Table (used in the Pack-a-Punch quest) and pick up a new Egg from the <a href="pictures/apothicon_sword/keeper_sword/ghost_keeper.png">"Ghost" Keeper</a> on the Table. Character and their locations:</li>
+            <ul>
+                <li><a href="pictures/apothicon_sword/keeper_sword/nero.png">Nero Blackstone</a> - Spawn/Junction</li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/jack.png">Jack Vincent</a> - Canals</li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/floyd.png">Floyd Campbell</a> - Waterfront</li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/jessica.png">Jessica Rose</a> - Footlight</li>
+            </ul>
+            <li>Once you have your new egg, place it on any of the symbols drawn on the ground in the Districts. This will spawn one Margwa (or two on a ritual that's not the first); the Margwa will only go after the player who spawned it. Kill the Margwa(s) to charge the Egg.</li>
+            <ul>
+                <li>Only one Ritual (for each player) can be done per round. Whether you fail or succeed, you have to wait one round to do another Ritual.</li>
+            </ul>
+
+            <p><strong>Symbol locations:</strong></p>
+            <ul>
+                <li><a href="pictures/apothicon_sword/keeper_sword/symbol_junction.png">Junction - Near where the Lawyer's Box falls during the Pack-a-Punch quest</a></li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/symbol_canals.png">Canals - In front of the entrance to the 'Ruby Rabbit Nightclub'</a></li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/symbol_waterfront.png">Waterfront - In front of the 'Boxing Gym'</a></li>
+                <li><a href="pictures/apothicon_sword/keeper_sword/symbol_footlight.png">Footlight - In front of the 'Black Lace Burlesque'</a></li>
+            </ul>
+            <li>Once you've completed all four Rituals successfully, return to the Ghost Keeper and interact with it to give it your Sword. After a couple of seconds, you can pick up the Upgraded Sword.</li>
+            <li>The Sword's primary attack stays the same, but the secondary attack is changed to a downward slice that spawns a floating sword that attacks nearby enemies. Doing the secondary attack while the floating sword is out will recall it back to you. The Sword can be put away while the floating sword is active, and it will continue to attack enemies until you run out of Special Weapon charge.</li>
+            <p class="warning">Using the floating sword ability in the Pack-a-Punch room WILL crash your game</p>
+        </ol>
+    </div>
+
+    <div class="content-container" id="rocket_shield">
+        <h2 class="section-title">Rocket Shield</h2>
+        <ol>
+            <li>The Rocket Shield requires three parts to be built. There is one part in each of the three Districts:</li>
+            <ul>
+                <li>Window - Footlight (Open the <a href="#power">power staircase</a> at the front of the District)</li>
+                <ul>
+                    <li><a href="pictures/rocket_shield/window_bench.png">Footlight - On a bench across the Perk Machine</a></li>
+                    <li><a href="pictures/rocket_shield/window_perk.png">Footlight - Leaning against a fence, left of the Perk Machine</a></li>
+                    <li><a href="pictures/rocket_shield/window_chair.png">Footlight - On a "chair" in stairs room, right of the Mystery Box location</a></li>
+                </ul>
+                <li>Base - Canals (Open the <a href="#power">power staircase</a> at the front of the District)</li>
+                <ul>
+                    <li><a href="pictures/rocket_shield/base_stairs.png">Canals - Leaning against a wall left of the pod, in the room with the Lion Head Statues</a></li>
+                    <li><a href="pictures/rocket_shield/base_bridge.png">Canals - On the elevated bridge leading to the Perk Machine room</a></li>
+                    <li><a href="pictures/rocket_shield/base_window.png">Canals - Leaning against a window in the Perk Machine room</a></li>
+                </ul>
+                <li>Rockets - Waterfront (Open the <a href="#power">power staircase</a> at the front of the District)</li>
+                <ul>
+                    <li><a href="pictures/rocket_shield/rocket_stairs.png">Waterfront - At the top of the powered stairs</a></li>
+                    <li><a href="pictures/rocket_shield/rocket_window.png">Waterfront - Inside the Perk Machine room, under the window across from the Beast Mode chalice</a></li>
+                    <li><a href="pictures/rocket_shield/rockets_door.png">Waterfront - In the room with the tall, wooden box, left of the door to the outside</a></li>
+                </ul>
+            </ul>
+            <li>Once you have all three parts, the Rocket Shield can be crafted at the Crafting Table in the <a href="pictures/buildable_tables/waterfront.png">Waterfront (behind the Gym)</a>, <a href="pictures/buildable_tables/canals.png">Canals (in front of the Ruby Rabbit)</a>, or <a href="pictures/buildable_tables/footlight.png">Footlight ("below" the train station)</a> districts.</li>
+        </ol>
+
+        <p class="upgrade-title" id="goddard_apparatus">Goddard Apparatus Shield Upgrade</p>
+        <ol>
+            <li>Obtain the <a href="#rocket_shield">Rocket Shield</a>.</li>
+            <li>Charge through at least 10 Zombies with the Rocket Shield's boost attack. Doing so correctly will play a bowling strike sound. Repeat this 12 times in a row.</li>
+            <ul>
+                <li>Failing to get 10 kills in one charge resets your progress, requiring all 12 sets to be done again.</li>
+            </ul>
+            <li>Once you get the 12th set of kills, CHANGE ME.</li>
+            <li>The Shield now has more health than the normal Rocket Shield, and has one extra (total four) rocket charge.</li>
+        </ol>
+    </div>
+
+    <div class="content-container" id="civil_protector">
+        <h2 class="section-title">Civil Protector</h2>
+        <ol>
+            <li>You need to find three fuses around the map, one in each of the three Districts:</li>
+            <ul>
+                <li>Footlight District</li>
+                <ul>
+                    <li><a href="pictures/civil_protector/footlight_hvk.png">Footlight - In a corner between the crafting table and the HVK-30 wallbuy, near the Train Station</a></li>
+                    <li><a href="pictures/civil_protector/footlight_bridge.png">Footlight - On a pillar on the Bridge, left of the crafting table</a></li>
+                    <li><a href="pictures/civil_protector/footlight_barrel.png">Footlight - In a cloth-covered barrel, up the stairs on the Perk Machine side of the Bridge</a></li>
+                </ul>
+                <li>Canals District</li>
+                <ul>
+                    <li><a href="pictures/civil_protector/canals_kn44.png">Canals - On the Bridge near the Train Station, across from the KN-44 wallbuy</a></li>
+                    <li><a href="pictures/civil_protector/canals_bridge.png">Canals - On a fruit cart in the middle of the same bridge</a></li>
+                    <li><a href="pictures/civil_protector/canals_perk.png">Canals - On a box on the Perk Machine room side of the bridge</a></li>
+                </ul>
+                <li>Waterfront District</li>
+                <ul>
+                    <li><a href="pictures/civil_protector/waterfront_box.png">Waterfront - On a box left of the Mystery Box location near the Train Station</a></li>
+                    <li><a href="pictures/civil_protector/waterfront_railing.png">Waterfront - On the railing across from the Mystery Box location near the Train Station</a></li>
+                    <li><a href="pictures/civil_protector/waterfront_barrel.png">Waterfront - On a barrel near the Beast Mode chalice, across the bridge with the M8A7 wallbuy on the other side</a></li>
+                </ul>
+            </ul>
+            <li>Once you have all three fuses, go to the Underground area (see the <a href="#rift_portals">Rift Portals</a> section for how to access), and place the fuses in the <a href="pictures/civil_protector/fuse_box.png">fuse box</a> right of the Rift to the Footlight District.</li>
+        </ol>
+    </div>
+
+
+    <!-- Main Easter Egg -->
+    <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+        <h2>'Apocalypse Averted' Main Quest</h2>
+        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+        <p class="warning">To complete this Main Quest, you need to have four players in your game. If you don't have four players, you can still complete the Boss Fight, but the final sequence (and therefore the final cutscene) won't start.</p>
+        <ol>
+            <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+            <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>Every player needs to obtain an <a href="#keeper_sword">Upgraded Sword</a>.</li>
+
+            <p class="step-group-title" id="main_ee_step2">Flag Defence</p>
+            <li>Once every player has an Upgraded Sword, go to Nero's room and interact with the <a href="pictures/main_ee/book.png">open book on the floor</a> in front of the bookshelf. It should begin floating.</li>
+            <li>This will cause a <a href="pictures/main_ee/flag.png">Flag to fall from the ceiling</a> near the Widow's Wine Perk Machine in the Underground.</li>
+            <ul>
+                <li>Picking up this flag will start a defence objective, so make sure you have Max Ammo and Pack-a-Punched weapons.</li>
+            </ul>
+            <li>When you pick up the flag, all enemies will despawn, and only Meatballs and Parasites will spawn. You need to defend the flag at two locations (indicated by <a href="pictures/main_ee/junction_stamin.png">lightning on the ground</a>) per district, then bring the flag to the <a href="pictures/main_ee/">Ghost Keeper at that district's ritual table</a>. When you place the flag at a defence location, the Meatballs will start going after the flag. Kill them before they reach the flag—if it takes too much damage, it breaks and you'll have to end the round to retry. While you're defending the flag, the Shadowman will occasionally spawn in the air around the flag; shoot him to make him disappear. Failing to shoot him in time will cause him to spawn a lot of parasites. Defence locations:</li>
+            <ul>
+                <li>Junction</li>
+                <ul>
+                    <li><a href="pictures/main_ee/junction_stamin.png">In front of the entrance to the Footlight district</a></li>
+                    <li><a href="pictures/main_ee/junction_spawn.png">In front of the Gobblegum machine</a></li>
+                </ul>
+                <li>Footlight</li>
+                <ul>
+                    <li><a href="pictures/main_ee/footlight_entrance.png">In front of the Vesper wallbuy, at the front of the district</a></li>
+                    <li><a href="pictures/main_ee/footlight_kn44.png">In front of the KN-44 wallbuy, on the street in front of the 'Black Lace Burlesque'</a></li>
+                </ul>
+                <li>Waterfront</li>
+                <ul>
+                    <li><a href="pictures/main_ee/waterfront_stairs.png">Right at the entrance of the district from the Junction</a></li>
+                    <li><a href="pictures/main_ee/waterfront_mystery_box.png">Near the bottom of the stairs from the Train Station</a></li>
+                </ul>
+                <li>Canals</li>
+                <ul>
+                    <li><a href="pictures/main_ee/canals_entrance.png">Right at the entrance of the district from the Junction</a></li>
+                    <li><a href="pictures/main_ee/canals_rabbit.png">Across the canal from 'Ruby Rabbit Nightclub'</a></li>
+                </ul>
+            </ul>
+            <li>After 30 seconds, the flag will make a sound and start <a href="pictures/main_ee/">pulsing red</a>; you can now pick it up and bring it to the next location.</li>
+            <ul>
+                <li>A Max Ammo will spawn above the flag when you pick it up, so make sure to grab it.</li>
+                <li>Successfully defending a location will make it permanently completed, meaning if you fail the next defence and the flag is destroyed, you don't need to repeat the completed defence again.</li>
+            </ul>
+            <li>Once you've given the Flag to one district's Keeper, you'll need to end the current round to respawn the flag to do another district.</li>
+            <li>Once all four Keepers have been given flags, they will spawn beside the Gateworm pedestals in the Pack-a-Punch room. Each player must interact with a Keeper to give it their upgraded Sword.</li>
         </ol>
     </div>
 </div>

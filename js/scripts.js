@@ -79,7 +79,7 @@ LIGHT AND DARK MODE FUNCTIONALITIES
 
 function changeThemeColour(){
     const savedColorMode = localStorage.getItem('colourMode');
-    if(savedColorMode === 'light') {
+    if (savedColorMode === 'light') {
         document.body.classList.add('light-mode');
     } else {
         document.body.classList.remove('light-mode');
@@ -149,33 +149,66 @@ USING DEFAULT FONTS
 function setDefaultFonts() {
     let page = getCurrentPage();
 
-    if (page !== "index.html") {
-        let savedFont = localStorage.getItem('fontSelector');
+    if (page === "index.html") {
+        return;
+    }
 
-        // First Load protection, so the user has a populated font selection box the first time they load the page
-        if (savedFont == null) {
-            savedFont = "Verdana";
-        }
+    let savedFont = localStorage.getItem('fontSelector');
 
-        const smoothScroll = document.querySelector('.smooth-scroll');
-        let fontSelector = document.getElementById('fontSelector');
-        if (fontSelector == null){
-            return
-        }
+    if (savedFont == null) {
+        savedFont = "Verdana";
+    }
 
-        fontSelector.value = savedFont;
+    const smoothScroll = document.querySelector('.smooth-scroll');
 
-        if (savedFont === 'OpenDyslexic') {
-            smoothScroll.classList.remove('verdana');
-            smoothScroll.classList.add('open-dyslexic');
-        } else if (savedFont === 'Verdana') {
-            smoothScroll.classList.remove('open-dyslexic');
-            smoothScroll.classList.add('verdana');
-        } else if (savedFont === 'Arial') {
-            smoothScroll.classList.remove('open-dyslexic');
-            smoothScroll.classList.remove('verdana');
+    function waitForFontSelector() {
+        const fontSelector = document.getElementById('fontSelector');
+        if (fontSelector) {
+            fontSelector.value = savedFont;
+
+            if (savedFont === 'OpenDyslexic') {
+                smoothScroll.classList.remove('verdana');
+                smoothScroll.classList.add('open-dyslexic');
+            } else if (savedFont === 'Verdana') {
+                smoothScroll.classList.remove('open-dyslexic');
+                smoothScroll.classList.add('verdana');
+            } else if (savedFont === 'Arial') {
+                smoothScroll.classList.remove('open-dyslexic');
+                smoothScroll.classList.remove('verdana');
+            }
+        } else {
+            setTimeout(waitForFontSelector, 100); // Check again in 100ms
         }
     }
+
+    waitForFontSelector();
+}
+
+function font_loader_init() {
+    const fontSelector = document.getElementById('fontSelector');
+    if (fontSelector == null){
+        return;
+    }
+
+    const smoothScroll = document.querySelector('.smooth-scroll');
+
+    if (getCurrentPage() === "index.html") {
+        return;
+    }
+
+    fontSelector.addEventListener('change', () => {
+        const selectedFont = fontSelector.value;
+        if (selectedFont === 'OpenDyslexic') {
+            smoothScroll.classList.remove('verdana');
+            smoothScroll.classList.add('open-dyslexic');
+        } else if (selectedFont === 'Verdana') {
+            smoothScroll.classList.remove('open-dyslexic');
+            smoothScroll.classList.add('verdana');
+        } else if (selectedFont === 'Arial') {
+            smoothScroll.classList.remove('open-dyslexic');
+            smoothScroll.classList.remove('verdana');
+        }
+    });
 }
 
 /*
@@ -217,11 +250,11 @@ SCROLL FUNCTIONS
 */
 
 function scrollToTop(fromPopstate = false) {
-    console.log('scrollToTop called:', { fromPopstate });
+    // console.log('scrollToTop called:', { fromPopstate });
 
     const contentWindow = document.querySelector('.content-window');
     if (contentWindow) {
-        console.log('Scrolling to top');
+        // console.log('Scrolling to top');
         contentWindow.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -229,7 +262,7 @@ function scrollToTop(fromPopstate = false) {
 
         // Only add to history if this wasn't triggered by popstate
         if (!fromPopstate) {
-            console.log('Adding to history: #');
+            // console.log('Adding to history: #');
             window.history.pushState({ anchor: null }, null, '#');
         }
     }
@@ -240,7 +273,7 @@ function scrollToAnchors() {
         if (event.target.tagName === 'A') {
             const href = event.target.getAttribute('href');
             if (href && href.startsWith('#')) {
-                console.log('Anchor link clicked:', href);
+                // console.log('Anchor link clicked:', href);
                 event.preventDefault();
                 const elementId = href.substring(1);
                 scrollToElement(elementId, 105); // This will add to history
@@ -250,7 +283,7 @@ function scrollToAnchors() {
 }
 
 function scrollToElement(elementId, offset, fromPopstate = false) {
-    console.log('scrollToElement called:', { elementId, offset, fromPopstate });
+    // console.log('scrollToElement called:', { elementId, offset, fromPopstate });
 
     const element = document.getElementById(elementId);
     const contentWindow = document.querySelector('.content-window');
@@ -259,7 +292,7 @@ function scrollToElement(elementId, offset, fromPopstate = false) {
         const contentWindowScrollTop = contentWindow.scrollTop;
         const targetY = elementPosition + contentWindowScrollTop - offset;
 
-        console.log('Scrolling to:', { elementId, targetY });
+        // console.log('Scrolling to:', { elementId, targetY });
 
         contentWindow.scrollTo({
             top: targetY,
@@ -268,7 +301,7 @@ function scrollToElement(elementId, offset, fromPopstate = false) {
 
         // Only add to history if this wasn't triggered by popstate (back/forward button)
         if (!fromPopstate) {
-            console.log('Adding to history:', '#' + elementId);
+            // console.log('Adding to history:', '#' + elementId);
             window.history.pushState({ anchor: elementId }, null, '#' + elementId);
         }
     }
@@ -311,39 +344,6 @@ function clearHashAndScrollTop() {
     const contentWindow = document.querySelector('.content-window');
     if (contentWindow) {
         contentWindow.scrollTo({ top: 0, behavior: 'auto' });
-    }
-}
-
-
-/*
-=======================================
-FONT SELECTOR FUNCTIONALITIES
-=======================================
-*/
-
-function font_loader_init() {
-    const fontSelector = document.getElementById('fontSelector');
-    if (fontSelector == null){
-        return;
-    }
-
-    const smoothScroll = document.querySelector('.smooth-scroll');
-    let page = getCurrentPage();
-
-    if (page !== "index.html") {
-        fontSelector.addEventListener('change', () => {
-            const selectedFont = fontSelector.value;
-            if (selectedFont === 'OpenDyslexic') {
-                smoothScroll.classList.remove('verdana');
-                smoothScroll.classList.add('open-dyslexic');
-            } else if (selectedFont === 'Verdana') {
-                smoothScroll.classList.remove('open-dyslexic');
-                smoothScroll.classList.add('verdana');
-            } else if (selectedFont === 'Arial') {
-                smoothScroll.classList.remove('open-dyslexic');
-                smoothScroll.classList.remove('verdana');
-            }
-        });
     }
 }
 
@@ -403,11 +403,13 @@ TUTORIAL BOX
  */
 
 function addTutorialBox() {
+    /*
     const page = getCurrentPage();
 
-    /* if (page === "index.html") {
+    if (page === "index.html") {
         return;
-    } */
+    }
+    */
 
     const smoothScrollDiv = document.querySelector('div.smooth-scroll');
 
@@ -824,7 +826,11 @@ function initializeQuickLinks() {
         // Generate font box and quick links
         if (generateFontBox(parentElement)) {
             const elementsData = getQuickLinkElements();
+
+            let start = performance.now();
             generateQuickLinks(parentElement, elementsData);
+            let end = performance.now();
+            console.log(`Time to generateQuickLinks ${end - start} ms`)
         }
     } catch (e) {
         console.error("Error initializing quick links:", e);
@@ -941,6 +947,9 @@ function generateQuickLinks(parentElement, elements) {
     let listStack = [];
     let currentIndentLevel = 0;
 
+    // Create fragment at the beginning
+    const fragment = document.createDocumentFragment();
+
     for (let i = 0; i < elements.length; i++) {
         const item = elements[i];
         const { element, indentLevel, isSectionHeader } = item;
@@ -948,22 +957,19 @@ function generateQuickLinks(parentElement, elements) {
         if (!element || indentLevel === undefined) continue;
 
         if (isSectionHeader) {
-            // Create section header
             const sectionHeader = document.createElement("h2");
             sectionHeader.innerText = element.dataset.sectionInd;
-            parentElement.appendChild(sectionHeader);
+            fragment.appendChild(sectionHeader); // Append to fragment
 
-            // Create new list for this section
             currentList = document.createElement("ul");
-            parentElement.appendChild(currentList);
+            fragment.appendChild(currentList); // Append to fragment
             listStack = [currentList];
             currentIndentLevel = 0;
         }
 
-        // Create root list if needed
         if (!currentList) {
             currentList = document.createElement("ul");
-            parentElement.appendChild(currentList);
+            fragment.appendChild(currentList); // Append to fragment
             listStack = [currentList];
             currentIndentLevel = 0;
         }
@@ -974,15 +980,14 @@ function generateQuickLinks(parentElement, elements) {
 
         // Get element ID, fallback to previous element's ID if empty
         let elementId = element.id;
-        if (elementId === "" && i > 0) {
-            elementId = elements[i - 1].element.id || "";
+
+        if (elementId === "") {
+            console.log(`Element Quick Link (at screen top) with text **${element.innerText}** skipped, no ID given`);
+            continue; // Skip if no valid ID
         }
 
-        if (elementId === "") continue; // Skip if no valid ID
-
         link.href = `#${elementId}`;
-
-        // Set link text - using the improved title extraction
+        
         if (item.custom_name) {
             link.innerText = item.custom_name;
         } else {
@@ -1023,6 +1028,8 @@ function generateQuickLinks(parentElement, elements) {
             listStack[listStack.length - 1].appendChild(listItem);
         }
     }
+
+    parentElement.appendChild(fragment);
 }
 
 /*
@@ -1383,7 +1390,7 @@ function setContentWindowPosition() {
         contentWindow.style.top = topBoxHeight + 'px';
         contentWindow.style.height = `calc(100vh - ${topBoxHeight}px)`;
 
-        console.log(`Content window positioned at ${topBoxHeight}px`);
+        // console.log(`Content window positioned at ${topBoxHeight}px`);
     }
 }
 
@@ -1403,15 +1410,10 @@ document.addEventListener("DOMContentLoaded", function() {
         colourCodeAnchors();
         setTitle();
         setupSolverButtons();
-
-        let start = performance.now();
         initializeQuickLinks();
-        let end = performance.now();
-        console.log(`initializeQuickLinks took ${end - start} milliseconds`);
-
-        addLightboxContainer(); // First add the container to the DOM
-        addLightboxClass(); // Then add classes to the appropriate anchor tags
-        initLightbox(); // Finally initialize the lightbox functionality
+        addLightboxContainer();
+        addLightboxClass();
+        initLightbox();
         includeSolverComponent();
     }
 });
