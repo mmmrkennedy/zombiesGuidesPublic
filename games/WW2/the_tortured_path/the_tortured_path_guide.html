@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,11 +56,18 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li><ul><li><a href="#pap_map_1">Into the Storm (Map 1)</a></li><li><a href="#pap_map_2">Across the Depths (Map 2)</a></li><li><a href="#pap_map_3">Beneath The Ice (Map 3)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'I Have the Power' Main Quest</a></li><ul><li><a href="#main_ee_step1">Into The Storm (Map 1)</a></li><li><a href="#main_ee_step2">Across the Depths (Map 2)</a></li><li><a href="#main_ee_step3">Beneath The Ice (Map 3)</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#darkened_path">The Darkened Path / Sanguine Skull Weapon Charm</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Cavalier (Storm Chaser)">Cavalier (Storm Chaser)</a></li><li><a href="#Lady Death (Crew Captain)">Lady Death (Crew Captain)</a></li><li><a href="#Iron Tiger (Archaeological Dig)">Iron Tiger (Archaeological Dig)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <div class="content-container" data-section-ind="Map Progression" id="pap">
         <h2 class="section-title">Pack-a-Punch (Ubersprengen)</h2>
-        <p class="step-group-title">Into the Storm (Map 1)</p>
+        <p class="step-group-title" id="pap_map_1">Into the Storm (Map 1)</p>
         <ol>
             <li>Behind the Windmill, there's a <a href="pictures/pap/map_1/battery_1.webp">battery with a green light on top</a>. Kill 10 Zombies next to it to power it. Once it's powered, it'll stop taking energy from Zombies, and the green light will go out.</li>
             <li>On Wave 4, there will be <a href="pictures/pap/map_1/battery_2.webp">another battery in the Wine Cellar</a> of the intact house. Once it's filled, it'll stop taking in energy from Zombies.</li>
@@ -331,9 +336,9 @@
         <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges. The challenges will not explicitly say what to do (due to data mining issues at launch), so the challenges are the Community's "best guess" of what to do.</p>
 
         <!-- Cavalier Table -->
-        <p class="step-group-title" data-custom-quick-link="Cavalier (Storm Chaser)">Cavalier (Storm Chaser) --- <a href="pictures/characters/cavalier.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Cavalier (Storm Chaser)" id="Cavalier (Storm Chaser)">Cavalier (Storm Chaser) --- <a href="pictures/characters/cavalier.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -363,12 +368,12 @@
                 <td>In chapter 1, kill the Raketenbrenner within 45 seconds or less.</td>
                 <td class="strategy">Use the Frontline special ability, with the Vicious mod and the 9mm Sap pistol.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Lady Death Table -->
-        <p class="step-group-title" data-custom-quick-link="Lady Death (Crew Captain)">Lady Death (Crew Captain) --- <a href="pictures/characters/lady_death.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Lady Death (Crew Captain)" id="Lady Death (Crew Captain)">Lady Death (Crew Captain) --- <a href="pictures/characters/lady_death.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -398,12 +403,12 @@
                 <td>In chapter 2, kill the Stadtjäger within 15 minutes of starting the game.</td>
                 <td class="strategy">N/A</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Iron Tiger Table -->
-        <p class="step-group-title" data-custom-quick-link="Iron Tiger (Archaeological Dig)">Iron Tiger (Archaeological Dig) --- <a href="pictures/characters/iron_tiger.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Iron Tiger (Archaeological Dig)" id="Iron Tiger (Archaeological Dig)">Iron Tiger (Archaeological Dig) --- <a href="pictures/characters/iron_tiger.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -432,12 +437,12 @@
                 <td><i>Repaired the sword on the clock.</i></td>
                 <td>In chapter 3, repair the Sword in under 20 minutes (maybe less time in Co-op).</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Wicht Warden -->
-        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -467,12 +472,12 @@
                 <td>Complete the Main Quest on The Frozen Dawn</td>
                 <td class="strategy">See the <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee">Main Quest</a> section of The Frozen Dawn Guide for how to complete it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
             </tr>
@@ -480,11 +485,12 @@
                 <td>Reach Level 1000 in the Zombie Mode</td>
                 <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
-        </table>
+        </tbody></table>
     </div>
 </div>
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

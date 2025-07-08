@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase Z Guide</title>
@@ -8,9 +6,6 @@
     <!--suppress HtmlUnknownTarget -->
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#raik84">RAI K-84</a></li><ul><li><a href="#side_quest_step_1">Barrel Assembly</a></li><li><a href="#side_quest_step_2">Charged Power Cell</a></li><li><a href="#side_quest_step_3">Aetherium Converter</a></li><li><a href="#side_quest_step_4">Crafting the Weapon</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Maxis Potential' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Creating the Serum</a></li><li><a href="#main_ee_step3">Collect the Mimic's Memories</a></li><li><a href="#main_ee_step4">Stabilize the Breach</a></li><li><a href="#main_ee_step5">Orda Boss Fight</a></li></ul><li><a href="#song_ee">'Lost' Song</a></li><li><a href="#loot_ee">Bunny Rabbit / Free Loot</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#monkeybomb_upgrade">Upgraded Monkey Bombs</a></li><li><a href="#free_jump_pads">Free Jump Pads</a></li></ul></div>
 
     <div class="content-container" data-section-ind="Weapons" id="raik84">
         <h2 class="section-title">RAI K-84</h2>
@@ -68,7 +73,7 @@
             <li>Go to the 'Scorched Defense' and interact with the <a href="pictures/raik84/tank_body.webp">corpse by the tank</a> to get the eye.</li>
             <li>Once you have the eye, the following parts (Barrel Assembly, Charged Power Cell, Aetherium Converter) can be obtained in any order/simultaneously.</li>
 
-            <p class="step-group-title">Barrel Assembly</p>
+            <p class="step-group-title" id="side_quest_step_1">Barrel Assembly</p>
             <li>Go back to the 'Weapon Lab' and interact with the <a href="pictures/raik84/scanner.webp">Retina Scanner</a> to open the drawer below the computer. Pick up the key from the drawer.</li>
             <li>In 'Barracks 1' and 'Barracks 2,' there are lockers that, when opened, may spawn a mimic.</li>
             <li>If a Mimic does spawn, kill it and check if it dropped the Barrel Assembly. If it doesn't drop the Barrel Assembly, keep opening lockers and killing mimics till it drops.</li>
@@ -269,5 +274,5 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+</body></html>

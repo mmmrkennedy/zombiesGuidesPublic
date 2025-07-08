@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -9,9 +7,6 @@
     <link rel="stylesheet" type="text/css" href="/css/global_solver.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -34,7 +29,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -43,7 +41,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -59,7 +57,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#teleporters">Teleporters</a></li><li><a href="#traps">Repairable Traps</a></li><li><a href="#ingredients">Ingredients</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#mad_upgrade">M.A.D. Wonder Weapon Upgrade</a></li><li><a href="#craftable_scorestreaks">Craftable Scorestreaks</a></li><li><a href="#elvira_upgrade">Elvira Melee Upgrade</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Soul-Less' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unlocking the Garage</a></li><li><a href="#main_ee_step2">Preparing for the Chemistry Step</a></li><ul><li><a href="#main_ee_step2_sub1">Building the Nuke</a></li><li><a href="#main_ee_step2_sub2">Opening the Safe</a></li></ul><li><a href="#main_ee_step3">The Chemistry Step</a></li><ul><li><a href="#main_ee_step4">The Intended Way (Not Recommended)</a></li><li><a href="#main_ee_step5">The Solver Way (Recommended)</a></li></ul><li><a href="#main_ee_step6">The Crog-Zilla Boss Fight</a></li></ul><li><a href="#song_ee">'Brachyura Boogie' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_hop">Skull Hop</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Shoot 5 Skulls</a></li><li><a href="#side_ee_step2">Skull 2/6 - Radiation Container</a></li><li><a href="#side_ee_step3">Skull 3/6 - Pool Trap Kills</a></li><li><a href="#side_ee_step4">Skull 4/6 - Word Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Wyler Portraits</a></li><li><a href="#side_ee_step6">Skull 6/6 - Shoot the machine with the M.A.D.</a></li><li><a href="#side_ee_step7">The Skull Hop Mini-Game</a></li></ul><li><a href="#message_rerouted">Message Rerouted (Secret Animated Calling Card)</a></li><li><a href="#make_em_squeal">Make 'Em Squeal (Secret Calling Card)</a></li><li><a href="#wyler_diary">Willard Wyler's Recordings (Dear Diary Achievement)</a></li><li><a href="#elvira_code">Play as Elvira</a></li></ul></div>
 
     <div class="content-container" data-section-ind="Map Progression" id="power">
         <h2 class="section-title">Power</h2>
@@ -225,7 +230,7 @@
             </tr>
             <tr>
                 <td>Insect Repellent</td>
-                <td><a href="pictures/ingredients/insect.webp">Spawn - In the hallway to the right of Up & Atoms, on a table</a></td>
+                <td><a href="pictures/ingredients/insect.webp">Spawn - In the hallway to the right of Up &amp; Atoms, on a table</a></td>
                 <td>Spawn</td>
             </tr>
             <tr>
@@ -341,7 +346,7 @@
         <h2 class="section-title">'Soul-Less' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - 5/10 (4/10 Dir. Cut), Est. Completion Time - 50 mins to 1:20 Hr (30 Mins to 1 Hr Dir. Cut)</p>
         <ol>
-            <p class="step-group-title">Unlocking the Garage</p>
+            <p class="step-group-title" id="main_ee_step1">Unlocking the Garage</p>
             <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
             <li>Note: Steps 3 and 4 can be done at the same time.</li>
             <li>You need to collect six body parts (Two arms, two legs, a torso, and a head) of a Zombie, which are scattered around the map. Each part can be collected at any time, in any order.</li>
@@ -388,7 +393,7 @@
                 <li>Broken Mirror Piece - Obtain the <a href="pictures/crowbar.webp">Crowbar</a> from the maintenance room of the Motel. Go to the RV Park bathroom, and melee the <a href="pictures/main_ee/unbroken_mirror.webp">unbroken mirror</a>. A <a href="pictures/main_ee/broken_mirror.webp">piece of the mirror will fall into the sink</a> below for you to pick up.</li>
                 <li>Car Side Mirror - Obtain the <a href="pictures/crowbar.webp">Crowbar</a> from the maintenance room of the Motel. On the main street, melee the <a href="pictures/main_ee/car_mirror.webp">right side mirror of the white car with a roof</a>. The <a href="pictures/main_ee/car_mirror_ground.webp">mirror will fall to the ground</a> for you to pick up.</li>
             </ul>
-            <li>Once you have all six body parts and the three pieces of glass, go to the spawn room (room with Up & Atoms) and place the body parts on the <a href="pictures/main_ee/upright_bed.webp">upright bed</a> right of the tunnel out of the room. Then place the broken mirror on the <a href="pictures/main_ee/pill_bottles.webp">table with the pill bottles</a> left of the body. Place Elvira's Mirror on the <a href="pictures/main_ee/crates_zm_spawn.webp">crates, right of the Zombie spawn</a>, right of the body. Place the Car Mirror on the <a href="pictures/main_ee/large_crate.webp">large crate</a>, across from/to the right of Up & Atoms.</li>
+            <li>Once you have all six body parts and the three pieces of glass, go to the spawn room (room with Up &amp; Atoms) and place the body parts on the <a href="pictures/main_ee/upright_bed.webp">upright bed</a> right of the tunnel out of the room. Then place the broken mirror on the <a href="pictures/main_ee/pill_bottles.webp">table with the pill bottles</a> left of the body. Place Elvira's Mirror on the <a href="pictures/main_ee/crates_zm_spawn.webp">crates, right of the Zombie spawn</a>, right of the body. Place the Car Mirror on the <a href="pictures/main_ee/large_crate.webp">large crate</a>, across from/to the right of Up &amp; Atoms.</li>
             <li>Pick up the <a href="pictures/main_ee/punch_card.webp">punch card</a> on the desk in the backroom of the Ice Cream Parlour.</li>
             <li>Interact with the <a href="pictures/main_ee/machine_in_spawn.webp">machine in spawn</a> (right of the car mirror) to give it the punch card.</li>
             <li>Interact with the machine again to begin inputting numbers. To input a number, you must press the interact button (or left click on PC) when that number's light is lit up (the numbers are 0-9, so the first light on the left is 0). Your goal is to find your combination of the numbers 3, 4, 5, 6, and 8. The numbers can be in any order, but they don't repeat.</li>
@@ -451,7 +456,7 @@
                         <li>Keep changing the colour and look at the O number locations until you find one that is "O = #" in Red, Green, and Blue. That is your O Number for the game. You can change the colour back to Full Colour for now.</li>
                         <li>Once you have both your O and N numbers, multiply them together, then go to the TV Station. On the <a href="pictures/main_ee/elvira_tv.webp">TV beside Elvira, there will be numbers and colours</a>. Compare your new number to the numbers on the TV to get your colour. Take note of this colour as it will be needed later.</li>
                         <ul>
-                            <li>Example: Your number is 106 and the TV says, "< 107 Green, 107 - 109 Blue, > 109 Red", your colour would be Green because it's less than 107.</li>
+                            <li>Example: Your number is 106 and the TV says, "&lt; 107 Green, 107 - 109 Blue, &gt; 109 Red", your colour would be Green because it's less than 107.</li>
                         </ul>
                         <li>Wait till round 10; Zombies will start to drop a <a href="pictures/main_ee/battery.webp">battery</a>. Pick up a battery and bring it to one of the two radios below. Radio locations:</li>
                         <ul>
@@ -514,7 +519,7 @@
                 <div style="border: 1px solid dimgray; display: none">
                     <ol start="20">
                         <li>Go to the Motel Office and note down the <a href="pictures/main_ee/m_number.webp">"M Number"</a> found on the wall right of the window.</li>
-                        <li>On the <a href="pictures/main_ee/elvira_tv.webp">TV beside Elvira in the TV Station</a>, there will be numbers and colours; note down which number is on the top of the TV (should be the "< ##" one).</li>
+                        <li>On the <a href="pictures/main_ee/elvira_tv.webp">TV beside Elvira in the TV Station</a>, there will be numbers and colours; note down which number is on the top of the TV (should be the "&lt; ##" one).</li>
                         <li>Now enter your M number and the TV number into the solver below. It should return your O Number and a colour option on the TV.</li>
                         <ul>
                             <li>If you get an option for the O Number (like "9 or 11"), see Steps 21-23 in <a href="#main_ee_step2_sub1">The Intended Way Section</a> for how to determine the right O Number.</li>
@@ -551,7 +556,7 @@
                             </div>
 
                             <div>
-                                <label for="lowerBound">Enter the Top Number on TV (< ##): </label> <input type="number" id="lowerBound" class="solver">
+                                <label for="lowerBound">Enter the Top Number on TV (&lt; ##): </label> <input type="number" id="lowerBound" class="solver">
                             </div>
 
                             <p id="step2_text" class="sub-sub-step" data-bool-quick-link="false" style="display: none">Step 2</p>
@@ -561,7 +566,7 @@
 
                             <div id="finalChemContainer" style="display: none;">
                                 <label for="finalChem"> <span>Select Final Chemical:</span> </label> <select id="finalChem" class="spacing">
-                                <option value="default" disabled>Select Chemical</option>
+                                <option value="default" disabled="">Select Chemical</option>
                                 <option value="chem_1">3,4-di-nitroxy-methyl-propane</option>
                                 <option value="chem_2">1,3,5 tera-nitro-phenol</option>
                                 <option value="chem_3">Octa-hydro-2,5-nitro-3,4,7-para-zokine</option>
@@ -671,14 +676,14 @@
 
     <div class="content-container" id="skull_hop">
         <h2 class="section-title">Skull Hop</h2>
-        <p class="weapon-desc">Skull Hop is an arcade game where players must clear skulls by firing cubes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up & Atoms in Solo), and unlimited F&F card refills for the remainder of the game.</p>
+        <p class="weapon-desc">Skull Hop is an arcade game where players must clear skulls by firing cubes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up &amp; Atoms in Solo), and unlimited F&amp;F card refills for the remainder of the game.</p>
 
         <ol>
-            <li>There is a <strong>progression-stopping bug</strong> where if you die/lose during the Skull Hop mini-game, you will not be allowed to retry. To avoid this, you will need to use the Skull Hacker F&F Card after you complete Skull 5. After using the card, enter the mini-game, and lose on purpose (by falling off three times). Once you're kicked out, you should be able to retry and lose as many times as you want, like normal.</li>
+            <li>There is a <strong>progression-stopping bug</strong> where if you die/lose during the Skull Hop mini-game, you will not be allowed to retry. To avoid this, you will need to use the Skull Hacker F&amp;F Card after you complete Skull 5. After using the card, enter the mini-game, and lose on purpose (by falling off three times). Once you're kicked out, you should be able to retry and lose as many times as you want, like normal.</li>
             <li>Before you start, make sure your TF-141 sniper rifle is either using the default or variable zoom scope, since you need to shoot some things far away and the TF-141 has a wallbuy in the Motel area.</li>
             <li>You can check your current progress by looking at the <a href="pictures/skull_hop/skull_hop_machine.webp">Skull Hop Arcade Cabinet</a> in the backroom of the Ice Cream Parlour.</li>
 
-            <p class="step-group-title">Skull 1/6 - Shoot 5 Skulls</p>
+            <p class="step-group-title" id="side_ee_step1">Skull 1/6 - Shoot 5 Skulls</p>
             <li>Around the map, there are five <a href="pictures/skull_hop/skull_1/skull_example.webp">Skulls</a> that you need to shoot. Once shot, the skull will disappear.</li>
             <ul>
                 <li>Buy the TF-141 from the <a href="pictures/skull_hop/skull_1/tf_141_wallbuy.webp">wallbuy in the Motel pool area</a>. Any sniper will work but the TF-141 is the most easily accessible.</li>
@@ -734,7 +739,7 @@
 
                     <div>
                         <label for="word"> <span>Select your word:</span> </label> <select id="word" class="spacing">
-                        <option value="default" disabled>Select your word</option>
+                        <option value="default" disabled="">Select your word</option>
                         <option value="word_1">Aldehydes</option>
                         <option value="word_2">Allomer</option>
                         <option value="word_3">Benzene</option>
@@ -859,7 +864,7 @@
             <p class="step-group-title" id="side_ee_step6">Skull 6/6 - Shoot the machine with the M.A.D.</p>
             <li>Shoot the <a href="pictures/skull_hop/skull_hop_machine.webp">Skull Hop machine</a> with a charged upgraded M.A.D. shot. The M.A.D. can only be obtained from the Magic Wheel. See <a href="#mad_upgrade">here</a> how to upgrade it (you only need the crank upgrade).</li>
             <ul>
-                <li>There is a <strong>progression-stopping bug</strong> where if you die/lose during the Skull Hop mini-game, you will not be allowed to retry. To avoid this, you will need to use the Skull Hacker F&F Card after you complete Skull 5. After using the card, enter the mini-game, and lose on purpose (by falling off three times). Once you're kicked out, you should be able to retry and lose as many times as you want, like normal.</li>
+                <li>There is a <strong>progression-stopping bug</strong> where if you die/lose during the Skull Hop mini-game, you will not be allowed to retry. To avoid this, you will need to use the Skull Hacker F&amp;F Card after you complete Skull 5. After using the card, enter the mini-game, and lose on purpose (by falling off three times). Once you're kicked out, you should be able to retry and lose as many times as you want, like normal.</li>
             </ul>
 
 
@@ -868,7 +873,7 @@
             <li> Using the Entangler (your gun), grab a cube floating around and shoot it at a skull while the colour bars are the same as the platform you're standing on to destroy it.</li>
             <li>When the colour bars start flashing, it means the colour is about to change, so stop shooting cubes and wait to see what colour it changes to, then go to that platform.</li>
             <li>If you hit a skull with the wrong colour cube or fall off a platform, a skull will turn red and start flying to the vortex behind you. You can shoot a red cube at this skull before it makes it to the end to stop it from escaping. If it makes it to the vortex, you will get a strike. If you get three strikes, the game will end, and you will have to shoot the machine with the MAD again.</li>
-            <li>Once all three rounds are completed, you will be teleported back to the Ice Cream Parlour, with all perks permanently (except Up & Atoms in Solo), and unlimited F&F card refills for the remainder of the game.</li>
+            <li>Once all three rounds are completed, you will be teleported back to the Ice Cream Parlour, with all perks permanently (except Up &amp; Atoms in Solo), and unlimited F&amp;F card refills for the remainder of the game.</li>
         </ol>
     </div>
 
@@ -928,5 +933,6 @@
 <script src="GnS_Skull4_solver/attack_gns_solver_html_helper.js"></script>
 <script src="chems_solver/attack_chem_solver.js"></script>
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

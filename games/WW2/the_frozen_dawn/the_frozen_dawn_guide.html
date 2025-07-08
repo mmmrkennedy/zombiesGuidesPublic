@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -9,10 +7,6 @@
     <link rel="stylesheet" type="text/css" href="/css/global_solver.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -35,7 +29,11 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -44,7 +42,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -60,7 +58,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#thule">Accessing Thule</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen) / Thulian Transport Fast Travel</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#scythe">Thulian Scythe</a></li><ul><li><a href="#upgraded_scythe">Fang of An'heist (Upgraded Scythe)</a></li></ul><li><a href="#hammer">Thulian Hammer</a></li><ul><li><a href="#upgraded_hammer">Fist of Tal'rek (Upgraded Hammer)</a></li></ul><li><a href="#shield">Thulian Shield</a></li><ul><li><a href="#upgraded_shield">Roar of Sang'Ket (Upgraded Shield)</a></li></ul><li><a href="#flail">Broken Flail</a></li><ul><li><a href="#upgraded_flail">Talon of Lu'roth (Upgraded Flail)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Kingfall' Main Quest</a></li><ul><li><a href="#main_ee_step1">Upgraded Raven Lord Wonder Weapons</a></li><li><a href="#main_ee_step2">God King Boss Fight</a></li></ul><li><a href="#raven_claw">'Raven's Claw' Special Pistol</a></li><li><a href="#the_classic">'The Classic' PPSh-41</a></li><li><a href="#the_vintage">'The Vintage' MG42</a></li><li><a href="#perkaholic">Dark Room Perkaholic</a></li><li><a href="#zombie_possession">Zombie Possession (10k Jolts, Free Perk, and Character Challenge)</a></li><li><a href="#free_double_jolts">Free Double Jolts &amp; Funderbuss (Upgraded Blunderbuss)</a></li><li><a href="#rocket_deflect">Thulian Tower Rocket Deflect</a></li><li><a href="#grenade_rain">Grenade Rain</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Shadowguard (Shadow Hunter)">Shadowguard (Shadow Hunter)</a></li><li><a href="#Wayfarer (Wayward Rider)">Wayfarer (Wayward Rider)</a></li><li><a href="#Deathbringer (Desert Assassin)">Deathbringer (Desert Assassin)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <div class="content-container" data-section-ind="Map Progression" id="thule">
         <h2 class="section-title">Accessing Thule</h2>
@@ -415,7 +420,7 @@
     </div>
 
     <div class="content-container" id="free_double_jolts">
-        <h2 class="section-title">Free Double Jolts & Funderbuss (Upgraded Blunderbuss)</h2>
+        <h2 class="section-title">Free Double Jolts &amp; Funderbuss (Upgraded Blunderbuss)</h2>
         <ol start="0">
             <li>Have a Frag Grenade, Semtex, C4, or Throwing Knife equipped to your loadout.</li>
             <li>Obtain the <a href="#scythe">Scythe</a>.</li>
@@ -481,9 +486,9 @@
         <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges. The challenges will not explicitly say what to do (due to data mining issues at launch), so the challenges are the Community's "best guess" of what to do.</p>
 
         <!-- Shadowguard Table -->
-        <p class="step-group-title" data-custom-quick-link="Shadowguard (Shadow Hunter)">Shadowguard (Shadow Hunter) --- <a href="pictures/characters/shadow_guard.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Shadowguard (Shadow Hunter)" id="Shadowguard (Shadow Hunter)">Shadowguard (Shadow Hunter) --- <a href="pictures/characters/shadow_guard.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -512,12 +517,12 @@
                 <td>Survive the God King's Phase 2 wipe attack and Phase 4 Fire attack with the Scythe's "Cheat Death" ability</td>
                 <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get to the Boss Fight.<br>Kill a fully charged, red-glowing Corpse Eater with the Upgraded Scythe before the Boss Fight to activate the Scythe's "Cheat Death" ability (the gem should glow). During phase 2 of the Boss Fight, take lethal damage from the red wipe attack (you should survive and the gem should turn off). Get another charge from a Corpse Eater, then during phase 4, get hit by the fire.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Wayfarer Table -->
-        <p class="step-group-title" data-custom-quick-link="Wayfarer (Wayward Rider)">Wayfarer (Wayward Rider) --- <a href="pictures/characters/wayfarer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Wayfarer (Wayward Rider)" id="Wayfarer (Wayward Rider)">Wayfarer (Wayward Rider) --- <a href="pictures/characters/wayfarer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -547,12 +552,12 @@
                 <td>Complete all the Raven trials (final part of Raven Weapon Upgrades) in one game</td>
                 <td class="strategy">You don't need to do all the steps, just the final challenge/trial.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Deathbringer Table -->
-        <p class="step-group-title" data-custom-quick-link="Deathbringer (Desert Assassin)">Deathbringer (Desert Assassin) --- <a href="pictures/characters/death_bringer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Deathbringer (Desert Assassin)" id="Deathbringer (Desert Assassin)">Deathbringer (Desert Assassin) --- <a href="pictures/characters/death_bringer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -582,12 +587,12 @@
                 <td>Complete the Dark Room Perkaholic side quest</td>
                 <td class="strategy">See the <a href="#perkaholic">Dark Room Perkaholic</a> section for how to do it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Wicht Warden -->
-        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -617,12 +622,12 @@
                 <td>Complete the Main Quest on The Frozen Dawn</td>
                 <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to complete it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
             </tr>
@@ -630,12 +635,13 @@
                 <td>Reach Level 1000 in the Zombie Mode</td>
                 <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
-        </table>
+        </tbody></table>
     </div>
 </div>
 
 
 <script src="/js/scripts.js"></script>
 <script src="lightning_puzzle_solver/dawn_lightning_solver.js"></script>
-</body>
-</html>
+
+
+</body></html>

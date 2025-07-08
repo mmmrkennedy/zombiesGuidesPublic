@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
     
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
         <!-- Legend to other parts -->
-        <div class="content-container-top"></div>
+        <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li><li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li><li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li><li><a href="#free_points">Free Points</a></li></ul><h2>Misc.</h2><ul><li><a href="#dig_spots">Dig Spots</a></li></ul></div>
 
         <!-- Wonder Weapons -->
         <div class="content-container" data-section-ind="Weapons" id="decimator_shield">
@@ -161,7 +166,7 @@
         <!-- Dig Spots -->
         <div class="content-container" data-section-ind="Misc." id="dig_spots">
             <h2 class="section-title">Dig Spots</h2>
-            <p>Similar to Origins (BO2 & BO3), there are Dig Spots around the map that contain various items like loot, weapons, etc.</p>
+            <p>Similar to Origins (BO2 &amp; BO3), there are Dig Spots around the map that contain various items like loot, weapons, etc.</p>
             <ul>
                 <li>The shovel can be picked up from one of the following locations:</li>
                 <ul>
@@ -182,5 +187,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

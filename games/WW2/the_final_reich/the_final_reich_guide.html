@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power / Unlock the Salt Mine</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#tesla_gun">Tesla Gun</a></li><ul><li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li><li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li><li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li><li><a href="#midnight">Midnight (Green Tesla Gun)</a></li></ul><li><a href="#red_talon_sword">Red Talon Sword</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li><ul><li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li><li><a href="#main_ee_casual_step5">THE HILT</a></li><li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li></ul><li><a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a></li><ul><li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li><li><a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li><li><a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a></li><li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li><li><a href="#main_ee_hardcore_step8">THE HILT</a></li><li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li><li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li><li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li><li><a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a></li><li><a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a></li><li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li><li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -456,9 +461,9 @@
         <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
 
         <!-- Hunter Table -->
-        <p class="step-group-title" data-custom-quick-link="Hunter (On the Hunt)">Hunter (On the Hunt) --- <a href="pictures/characters/hunter.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Hunter (On the Hunt)" id="Hunter (On the Hunt)">Hunter (On the Hunt) --- <a href="pictures/characters/hunter.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -468,12 +473,12 @@
                 <td>All parts (A to E) are obtained randomly by killing Treasure Zombies.</td>
                 <td><a href="pictures/characters/treasure_zombie.webp">Treasure Zombies</a> are non-hostile Bomber Zombies that carry red bombs and drop Jolts. They can only start spawning once you open the <a href="#power">Salt Mine Door</a> (and maybe the Tower door as well), then every 1 hr and 15 mins after one spawns. You can know when a Treasure Zombie spawns when you see random jolts drops across the map. There is no (known) way to get the parts to drop, they seem entirely random.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Mountaineer Table -->
-        <p class="step-group-title" data-custom-quick-link="Mountaineer (Roughing it)" id="mountaineer">Mountaineer (Roughing it) --- <a href="pictures/characters/mountaineer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Mountaineer (Roughing it)" id="Mountaineer (Roughing it)">Mountaineer (Roughing it) --- <a href="pictures/characters/mountaineer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -503,12 +508,12 @@
                 <td>Survive Wave 25 without unlocking the secret room in the Prologue.</td>
                 <td class="strategy"><a href="https://youtu.be/UryNkOLEYYM">Video Guide (YouTube)</a> by <a href="https://www.youtube.com/@acomega.">AC OMEGA</a></td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Survivalist Table -->
-        <p class="step-group-title" data-custom-quick-link="Survivalist (Survival Guide)" id="survivalist">Survivalist (Survival Guide) --- <a href="pictures/characters/survivalist.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Survivalist (Survival Guide)" id="Survivalist (Survival Guide)">Survivalist (Survival Guide) --- <a href="pictures/characters/survivalist.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -538,12 +543,12 @@
                 <td>Survive Wave 30 with only weapons from two Mystery Box uses per player in The Final Reich. Starting weapons are allowed but can’t be upgraded.</td>
                 <td class="strategy">It doesn't matter when you hit the box, and you can use box consumables (e.g. Jack-in-the-Box guaranteed)</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- BAT Agent Table -->
-        <p class="step-group-title" data-custom-quick-link="B.A.T. Agent (On Assignment)" id="bat_agent">B.A.T. Agent (On Assignment) --- <a href="pictures/characters/bat_agent.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="B.A.T. Agent (On Assignment)" id="B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment) --- <a href="pictures/characters/bat_agent.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -573,12 +578,12 @@
                 <td>Assemble the Tesla Gun by Wave 6 in The Final Reich.</td>
                 <td class="strategy">How to <a href="#tesla_gun">Craft the Tesla Gun</a>.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- BAT Elite Table -->
-        <p class="step-group-title" data-custom-quick-link="B.A.T. Elite (Off Record)" id="bat_elite">B.A.T. Elite (Off Record) --- <a href="pictures/characters/bat_elite.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="B.A.T. Elite (Off Record)" id="B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record) --- <a href="pictures/characters/bat_elite.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -608,12 +613,12 @@
                 <td>Save Klaus without any player using Special Abilities, Mods, or Consumables.</td>
                 <td class="strategy">Make you don't equip/unequip any mods. You can't unequip the Special Ability, so you have to focus on not using it. Do not use self-revives if you go down. Geistschild (Armour) is allowed.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Slayer Table -->
-        <p class="step-group-title" data-custom-quick-link="Slayer (Big Game)" id="slayer">Slayer (Big Game) --- <a href="pictures/characters/slayer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Slayer (Big Game)" id="Slayer (Big Game)">Slayer (Big Game) --- <a href="pictures/characters/slayer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -643,12 +648,12 @@
                 <td>Defeat the Panzermörder without any player using Special Abilities, Mods, or Consumables.</td>
                 <td class="strategy">Make you don't equip/unequip any mods. You can't unequip the Special Ability, so you have to focus on not using it. Do not use self-revives if you go down. Geistschild (Armour) is allowed.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Wicht Warden -->
-        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -678,12 +683,12 @@
                 <td>Complete the Main Quest on The Frozen Dawn</td>
                 <td class="strategy">See the <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee">Main Quest</a> section of The Frozen Dawn Guide for how to complete it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
             </tr>
@@ -691,11 +696,12 @@
                 <td>Reach Level 1000 in the Zombie Mode</td>
                 <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
-        </table>
+        </tbody></table>
     </div>
 </div>
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

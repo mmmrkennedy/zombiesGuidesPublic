@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression / Easter Eggs</h2><ul><li><a href="#mystery_box">Mystery Box Room</a></li><ul><li><a href="#pap_box">Pack-A-Punched Weapons from Mystery Box</a></li></ul></ul><h2>Unlockable Characters</h2><ul><li><a href="#charcters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Mystery Box -->
     <div class="content-container" data-section-ind="Map Progression / Easter Eggs" id="mystery_box">
@@ -97,10 +102,10 @@
         <p class="weapon-desc">Characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
 
         <!-- Bloodraven Mountaineer Table -->
-        <p class="step-group-title" data-custom-quick-link="Bloodraven Mountaineer (Home Ward)" id="hunter">Bloodraven Mountaineer (Home Ward) --- <a href="pictures/charcters/bloodraven_mountaineer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Bloodraven Mountaineer (Home Ward)" id="Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward) --- <a href="pictures/charcters/bloodraven_mountaineer.webp">Character Model</a></p>
         <p></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -120,12 +125,12 @@
                 <td>Kill the Brenner that spawns on Wave 50.</td>
                 <td>Unlock the <a href="#pap_box">Pack-a-Punched Mystery Box</a>.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
             </tr>
@@ -133,11 +138,12 @@
                 <td>Reach Level 1000 in the Zombie Mode</td>
                 <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
-        </table>
+        </tbody></table>
     </div>
 </div>
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#golden_pap">Golden Pack-a-Punch</a></li></ul><li><a href="#flinger_repairs">Flinger Repairs</a></li><li><a href="#challenge_totems">Challenge Totems</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#thundergun">Thundergun</a></li><li><a href="#tundragun">Tundragun</a></li><li><a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a></li><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#samanthas_music_box">Samantha's Music Box</a></li><li><a href="#dynamite_bomb">Dynamite Bomb</a></li><li><a href="#heat_pack">Heat Pack</a></li><li><a href="#zipline_handle">Zipline Handle</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Salvation Lies Above' Main Quest</a></li><ul><li><a href="#main_ee_step1">Ascend from Darkness</a></li><li><a href="#main_ee_step2">Knowledge is Power</a></li><li><a href="#main_ee_step3">Acquire the Vessel</a></li><li><a href="#main_ee_step4">Tame that which is Bonded</a></li><li><a href="#main_ee_step5">Knowledge Itself is for the Taking</a></li><li><a href="#main_ee_step6">Tame that which is Merged</a></li><li><a href="#main_ee_step7">Empower Through the Machines of the Angels</a></li><li><a href="#main_ee_step8">Tame that which is Powered</a></li><li><a href="#main_ee_step9">Salvation Lies Above</a></li><li><a href="#main_ee_step10">The Infinite / Boss Fight</a></li></ul><li><a href="#song_ee">'A Light from the Shore' Song</a></li><li><a href="#song_ee_2">'Reflections' Song</a></li><li><a href="#yellow_snowballs">Yellow Snowballs</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#dont_freeze">'Don't Freeze' Mode / Teleport to Round 200</a></li><li><a href="#margwa_jumpscare">Margwa Jumpscare</a></li><li><a href="#hermit_jumpscare">The Hermit Jumpscare</a></li><li><a href="#free_points">George Romero Tribute / Free 500 Points</a></li><li><a href="#the_secret">'The Secret' Easter Egg/Achievement</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'An Ice Day in Hell' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Map Progression -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -502,7 +507,7 @@
             <ul>
                 <li>While the Seal is crossing the zipline, try to use the zipline when the Seal is about halfway there to avoid spending too much time outside the bubble on either side.</li>
                 <li>While moving through the Facility, the Seal will often try to "fake you out" with the direction it is going (it will start moving one way before going the other way).</li>
-                <li>The path it takes in the Facility is: <strong>'Facility Entrance' => 'Security Lobby' => 'Decontamination' => right-side walkway in 'Upper Catwalk' => 'Human Infusion'</strong></li>
+                <li>The path it takes in the Facility is: <strong>'Facility Entrance' =&gt; 'Security Lobby' =&gt; 'Decontamination' =&gt; right-side walkway in 'Upper Catwalk' =&gt; 'Human Infusion'</strong></li>
             </ul>
             <li>While you are charging the Seal, the protection bubble will slowly get smaller, so charge the Seal as fast as possible.</li>
             <li>Once the Seal is charged for the final time, Zombies will stop spawning and some dialogue will begin. Wait for the dialogue to be over, pick up the Seal, and give it to the Hermit in the Lighthouse. Take the zipline from the 'Lighthouse Station' to the 'Sun Deck' and watch the Lighthouse.</li>
@@ -835,5 +840,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

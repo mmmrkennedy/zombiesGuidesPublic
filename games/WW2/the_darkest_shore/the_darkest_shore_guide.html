@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li><li><a href="#fog">Fog on the Island / Meuchler Info</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ripsaw">Ripsaw</a></li><ul><li><a href="#ranged_ripsaw">Ranged Ripsaw Upgrade</a></li><li><a href="#rip_saw_upgrade">R.I.P. Saw Upgrade (Pack-a-Punch Ripsaw)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Making History' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Corpse Gate</a></li><li><a href="#main_ee_step3">Unlocking Nerthus' Secret Room</a></li><li><a href="#main_ee_step4">Ritual Sacrifices</a></li><ul><li><a href="#main_ee_step4_meuchler">Meuchler Sacrifice Ritual</a></li><li><a href="#main_ee_step4_wustling">Wustling Sacrifice Ritual</a></li><li><a href="#main_ee_step4_pest">Pest Sacrifice Ritual</a></li></ul><li><a href="#main_ee_step5">Bomber Escort and Destroying Ships</a></li><li><a href="#main_ee_step6">Meistermeuchler Boss Fight</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#hi_beam">"HI" Beam / Free Single Jolt</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Still Lurking" Trophy/Achievement)</a></li><li><a href="#jack_box_boss_fight">Single Use Upgraded Jack-in-the-Box in the Boss Fight</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Hunter">Bloodraven Hunter</a></li><li><a href="#Deathraven Hunter (Living the Dream)">Deathraven Hunter (Living the Dream)</a></li><li><a href="#The Hunter from Seville (Stock Broker)">The Hunter from Seville (Stock Broker)</a></li><li><a href="#Deathraven Mountaineer (Keep Moving)">Deathraven Mountaineer (Keep Moving)</a></li><li><a href="#The Mountaineer from Ruskeala (Barbarossa)">The Mountaineer from Ruskeala (Barbarossa)</a></li><li><a href="#Bloodraven Survivalist (In Charge)">Bloodraven Survivalist (In Charge)</a></li><li><a href="#Deathraven Survivalist (Sol Ace)">Deathraven Survivalist (Sol Ace)</a></li><li><a href="#The Survivalist from Hanoi (The Hunter)">The Survivalist from Hanoi (The Hunter)</a></li><li><a href="#Bloodraven Slayer (V.I.B.)">Bloodraven Slayer (V.I.B.)</a></li><li><a href="#Deathraven Slayer (Tools of the Trade)">Deathraven Slayer (Tools of the Trade)</a></li><li><a href="#The Slayer from Casablanca (Banker)">The Slayer from Casablanca (Banker)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -203,10 +208,10 @@
                         <li><a href="pictures/main_ee/son_rocks/bluffs_svt_40.webp">Bluffs - Above the SVT-40 wallbuy</a></li>
                         <li><a href="pictures/main_ee/son_rocks/bluffs_waffe_28.webp">Bluffs - Above the Waffe 28 wallbuy, near Electric Cherry</a> --- <a href="pictures/main_ee/son_rocks/bluffs_waffe_28_zoomed.webp">Zoomed-In View</a></li>
                         <li><a href="pictures/main_ee/son_rocks/bunker_3_door_to_bluffs.webp">Bunker 3 - Above the doorway to the 'Bluffs'</a>
-                        <li><a href="pictures/main_ee/son_rocks/bunker_3_above_stairs.webp">Bunker 3 - Above the stairs the first set of stairs to Pack-a-Punch</a></li>
+                        </li><li><a href="pictures/main_ee/son_rocks/bunker_3_above_stairs.webp">Bunker 3 - Above the stairs the first set of stairs to Pack-a-Punch</a></li>
                         <li><a href="pictures/main_ee/son_rocks/bunker_3_pap.webp">Bunker 3 - Above the stairs down beside Pack-a-Punch</a></li>
                         <li><a href="pictures/main_ee/son_rocks/bunkers_door_to_bluffs.webp">Bunkers - Above doorway to the 'Bluffs'</a>
-                    </ul>
+                    </li></ul>
                 </ul>
             </ul>
             <li>Once all three sons are in the door, it will open, revealing three Meuchlers "praying" in front of a statue of Nerthus. You can either kill them or leave (which will completely despawn them if the map isn't foggy at the time).</li>
@@ -419,9 +424,9 @@
         <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges. Starting with this map (and continuing for all the other maps), The challenges will not explicitly say what to do (due to data mining issues at launch), so the challenges are the Community's "best guess" of what to do.</p>
 
         <!-- Bloodraven Hunter Table -->
-        <p class="step-group-title" data-custom-quick-link="Bloodraven Hunter">Bloodraven Hunter (Antique Collector) --- <a href="pictures/characters/bloodraven_hunter.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Bloodraven Hunter" id="Bloodraven Hunter">Bloodraven Hunter (Antique Collector) --- <a href="pictures/characters/bloodraven_hunter.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -439,12 +444,12 @@
                 <td><i>Why steal this?</i></td>
                 <td>Obtain Zombie Hunter Part C from a Treasure Zombie.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Deathraven Hunter Table -->
-        <p class="step-group-title" data-custom-quick-link="Deathraven Hunter (Living the Dream)">Deathraven Hunter (Living the Dream) --- <a href="pictures/characters/deathraven_hunter.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Deathraven Hunter (Living the Dream)" id="Deathraven Hunter (Living the Dream)">Deathraven Hunter (Living the Dream) --- <a href="pictures/characters/deathraven_hunter.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -464,12 +469,12 @@
                 <td>Survive 20 waves without sprinting.</td>
                 <td class="strategy">Camp in front of the Pack-a-Punch</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- The Hunter from Seville Table -->
-        <p class="step-group-title" data-custom-quick-link="The Hunter from Seville (Stock Broker)">The Hunter from Seville (Stock Broker) --- <a href="pictures/characters/the_hunter_seville.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="The Hunter from Seville (Stock Broker)" id="The Hunter from Seville (Stock Broker)">The Hunter from Seville (Stock Broker) --- <a href="pictures/characters/the_hunter_seville.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -488,12 +493,12 @@
                 <td>Beat the Main Quest having more than 30k.</td>
                 <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to beat it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Deathraven Mountaineer Table -->
-        <p class="step-group-title" data-custom-quick-link="Deathraven Mountaineer (Keep Moving)">Deathraven Mountaineer (Keep Moving) --- <a href="pictures/characters/deathraven_mountaineer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Deathraven Mountaineer (Keep Moving)" id="Deathraven Mountaineer (Keep Moving)">Deathraven Mountaineer (Keep Moving) --- <a href="pictures/characters/deathraven_mountaineer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -511,12 +516,12 @@
                 <td><i>Take a deep breath.</i></td>
                 <td>Get 10 headshots in a row during U-Boat Pens lockdown (fire step).</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- The Mountaineer from Ruskeala Table -->
-        <p class="step-group-title" data-custom-quick-link="The Mountaineer from Ruskeala (Barbarossa)">The Mountaineer from Ruskeala (Barbarossa) --- <a href="pictures/characters/ruskeala.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="The Mountaineer from Ruskeala (Barbarossa)" id="The Mountaineer from Ruskeala (Barbarossa)">The Mountaineer from Ruskeala (Barbarossa) --- <a href="pictures/characters/ruskeala.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -536,12 +541,12 @@
                 <td>Obtain the Pommel without getting kills with the Ripsaw weapon.</td>
                 <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get the Pommel.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Bloodraven Survivalist Table -->
-        <p class="step-group-title" data-custom-quick-link="Bloodraven Survivalist (In Charge)">Bloodraven Survivalist (In Charge) --- <a href="pictures/characters/bloodraven_survivalist.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Bloodraven Survivalist (In Charge)" id="Bloodraven Survivalist (In Charge)">Bloodraven Survivalist (In Charge) --- <a href="pictures/characters/bloodraven_survivalist.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -559,12 +564,12 @@
                 <td><i>Bright lights and pain.</i></td>
                 <td>Complete the Boss Fight without any players being stunned by the Red Meistermeuchler.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Deathraven Survivalist Table -->
-        <p class="step-group-title" data-custom-quick-link="Deathraven Survivalist (Sol Ace)">Deathraven Survivalist (Sol Ace) --- <a href="pictures/characters/deathraven_survivalist.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Deathraven Survivalist (Sol Ace)" id="Deathraven Survivalist (Sol Ace)">Deathraven Survivalist (Sol Ace) --- <a href="pictures/characters/deathraven_survivalist.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -582,12 +587,12 @@
                 <td><i>Sweeping for gold.</i></td>
                 <td>Complete the Wave 0 Beach Rush while crouched.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- The Survivalist from Hanoi Table -->
-        <p class="step-group-title" data-custom-quick-link="The Survivalist from Hanoi (The Hunter)">The Survivalist from Hanoi (The Hunter) --- <a href="pictures/characters/hanoi.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="The Survivalist from Hanoi (The Hunter)" id="The Survivalist from Hanoi (The Hunter)">The Survivalist from Hanoi (The Hunter) --- <a href="pictures/characters/hanoi.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -607,12 +612,12 @@
                 <td>Survive four consecutive waves using only traps.</td>
                 <td class="strategy">The trap you can get to the fastest is the Propeller trap in the 'U-Boat Pens.' You can build points quickly by grouping the Zombies up then using Shellshock and the Fiery Burst mod.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Bloodraven Slayer Table -->
-        <p class="step-group-title" data-custom-quick-link="Bloodraven Slayer (V.I.B.)">Bloodraven Slayer (V.I.B.) --- <a href="pictures/characters/bloodraven_slayer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Bloodraven Slayer (V.I.B.)" id="Bloodraven Slayer (V.I.B.)">Bloodraven Slayer (V.I.B.) --- <a href="pictures/characters/bloodraven_slayer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -632,12 +637,12 @@
                 <td>Get 10 bomber headshots in a row while riding the minecart.</td>
                 <td class="strategy">N/A</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Deathraven Slayer Table -->
-        <p class="step-group-title" data-custom-quick-link="Deathraven Slayer (Tools of the Trade)">Deathraven Slayer (Tools of the Trade) --- <a href="pictures/characters/deathraven_slayer.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Deathraven Slayer (Tools of the Trade)" id="Deathraven Slayer (Tools of the Trade)">Deathraven Slayer (Tools of the Trade) --- <a href="pictures/characters/deathraven_slayer.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -657,12 +662,12 @@
                 <td>Survive five waves only using the Pommel.</td>
                 <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get the Pommel.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- The Slayer from Casablanca Table -->
-        <p class="step-group-title" data-custom-quick-link="The Slayer from Casablanca (Banker)">The Slayer from Casablanca (Banker) --- <a href="pictures/characters/casablanca.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="The Slayer from Casablanca (Banker)" id="The Slayer from Casablanca (Banker)">The Slayer from Casablanca (Banker) --- <a href="pictures/characters/casablanca.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -682,12 +687,12 @@
                 <td>Reach Wave 40 spending under 10k jolts.</td>
                 <td class="strategy">Train in the 'U-Boat Pens' getting kills with the un-upgraded Ripsaw</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Wicht Warden -->
-        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded) --- <a href="/games/WW2/wicht_warden.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge Hint Text / Riddle</th>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
@@ -717,12 +722,12 @@
                 <td>Complete the Main Quest on The Frozen Dawn</td>
                 <td class="strategy">See the <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee">Main Quest</a> section of The Frozen Dawn Guide for how to complete it.</td>
             </tr>
-        </table>
+        </tbody></table>
 
         <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
+        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
         <table>
-            <tr>
+            <tbody><tr>
                 <th>Challenge</th>
                 <th>Strategy / Notes</th>
             </tr>
@@ -730,11 +735,12 @@
                 <td>Reach Level 1000 in the Zombie Mode</td>
                 <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
-        </table>
+        </tbody></table>
     </div>
 </div>
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

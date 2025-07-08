@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outbreak Guide</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base>
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -32,7 +27,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -41,7 +39,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -57,7 +55,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#wonderweapons">Wonder Weapons</a></li><ul><li><a href="#electrobolt">Electrobolt</a></li><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo">Cryo-Emitter</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_quest_ravenov">'Ravenov Implications' Main Quest</a></li><ul><li><a href="#main_quest_ravenov_step1">Obtain the Beacon Listening Device</a></li><li><a href="#main_quest_ravenov_step2">Obtain the Microfilm</a></li><li><a href="#main_quest_ravenov_step3">Finding and using the Launch Keys</a></li><ul><li><a href="#main_quest_ravenov_step3.1">Silo A: Monkey &amp; Essence Trap</a></li><li><a href="#main_quest_ravenov_step3.2">Silo B: Aetherium Canister &amp; Jellyfish</a></li><li><a href="#main_quest_ravenov_step3.3">Silo C: Mimics</a></li></ul><li><a href="#main_quest_ravenov_step4">Legion Boss Fight</a></li></ul><li><a href="#main_quest_operation">'Operation Excision' Main Quest </a></li><ul><li><a href="#main_quest_operation_step1">Obtain the Beacon Listening Device</a></li><li><a href="#main_quest_operation_step2">Assemble Modified Rover</a></li><li><a href="#main_quest_operation_step3">Rover Escort / Orda Boss Fight</a></li></ul><li><a href="#the_pact">'The Pact' Super Easter Egg (Spawn w/ upgraded weapon rarity) </a></li></ul></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="wonderweapons">
@@ -66,7 +71,7 @@
         <p>There are no Easter Eggs to get these for free. You can get the D.I.E. Elemental Upgrades from specific location which are shown below.</p>
 
         <ul>
-            <p class="step-group-title">Electrobolt</p>
+            <p class="step-group-title" id="electrobolt">Electrobolt</p>
             <li>The Electrobolt upgrade is on the <a href="pictures/die/electro_box.webp">large array</a> on the <a href="pictures/die/electro_box_map.webp">right (when viewed on the map)</a> in the Duga region.</li>
             <p class="step-group-title" id="nova_5">Nova-5</p>
             <li>The Nova-5 Upgrade is found on a <a href="pictures/die/nova_box.webp">Silo</a> at the train loading area located near the <a href="pictures/die/nova_box_map.webp">western border of Golova</a>.</li>
@@ -269,13 +274,13 @@
             <p class="step-group-title" id="main_quest_ravenov_step3">Finding and using the Launch Keys</p>
             <li>You must now find three launch keys. They're each tied to a series of steps and are located in Silo A, B and C respectively.</li>
 
-            <p class="sub-sub-step" id="main_quest_ravenov_step3.1">Silo A: Monkey & Essence Trap</p>
+            <p class="sub-sub-step" id="main_quest_ravenov_step3.1">Silo A: Monkey &amp; Essence Trap</p>
             <li>On the bottom floor of Missile Silo A is a <a href="pictures/main_quest_ravenov/launch_keys/dead_end_tunnel.webp">dead-end tunnel</a> which contains an Essence Trap, collect it to replace your Tactical Equipment slot. (It is the same as the traps found in the Firebase Z Easter Egg)</li>
             <li>There will be an <a href="pictures/main_quest_ravenov/launch_keys/aether_monkey_vents.webp">Aether Monkey in one of the vents</a> along the walls of Silo A. You must slowly approach the vent the Monkey is in until it vanishes.</li>
             <li>Once it's gone, throw the Trap near the vent and then run away from the trap. Once you're far enough, the Monkey will teleport onto the trap, activate it to attempt to capture the Monkey.</li>
             <li>The Monkey will escape, but it will leave a key on the trap, interact with it to pick up the key.</li>
 
-            <p class="sub-sub-step" id="main_quest_ravenov_step3.2">Silo B: Aetherium Canister & Jellyfish</p>
+            <p class="sub-sub-step" id="main_quest_ravenov_step3.2">Silo B: Aetherium Canister &amp; Jellyfish</p>
             <li>Interact with the <a href="pictures/main_quest_ravenov/launch_keys/aetherium_harvesting_unit.webp">Aetherium Harvesting Unit</a> on the bottom floor of Missile Silo B.</li>
             <li>Next, locate and shoot the <a href="pictures/main_quest_ravenov/launch_keys/aetherium_crystals.webp">Aetherium Crystals</a>, which line the walls of the silo to drop Aetherium Crystal Chunks.</li>
             <li>Once 20 chunks have been collected (shared inventory among all players), return to and interact with the Aetherium Harvesting Unit to deposit the Aetherium Crystal Chunks.</li>
@@ -396,5 +401,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li><li><a href="#challenge_banners">Challenge Banners</a></li><li><a href="#crowd_affinity">Crowd Affinity</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#death_of_orion">Death of Orion</a></li><li><a href="#brazen_bull">Brazen Bull Shield</a></li><ul><li><a href="#iron_bull">Iron Bull Shield Upgrade</a></li></ul><li><a href="#acid_trap">Acid Trap</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Venerated Warrior' Main Quest</a></li><ul><li><a href="#main_ee_step1">Blood will Flow</a></li><li><a href="#main_ee_step2">Purge the Blight</a></li><li><a href="#main_ee_step3">Answer the Dawn</a></li><li><a href="#main_ee_step4">Summon the Storm</a></li><li><a href="#main_ee_step5">Channel the Flood</a></li><li><a href="#main_ee_step6">Fury &amp; Wrath Elephant Boss Fight</a></li></ul><li><a href="#song_ee">'Mad Hatter' Song</a></li><li><a href="#free_perk">Odin Viking / Free Perk</a></li><li><a href="#fire_immune">Fire and Trap Immunity</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Veni, Vidi, Zombie!' Gauntlet Challenges</a></li></ul></div>
 
     <!-- PaP -->
     <div class="content-container" data-section-ind="Map Progression" id="pap">
@@ -247,10 +252,10 @@
             </ul>
             <li>The Acid Trap can be built at any of the following locations:</li>
             <ul>
-                <li><a href="pictures/acid_trap/ra_trapbuild.webp">Between 'Arena' & 'Ra Tower: Entrance'</a></li>
-                <li><a href="pictures/acid_trap/danu_trapbuild.webp">Between 'Arena' & 'Danu Tower: Entrance'</a></li>
-                <li><a href="pictures/acid_trap/odin_trapbuild.webp">Staircase between 'Odin Tower: Entrance' & 'Odin Altar Room'</a></li>
-                <li><a href="pictures/acid_trap/zeus_trapbuild.webp">Staircase between 'Zeus Tower: Entrance' & 'Zeus Altar Room'</a></li>
+                <li><a href="pictures/acid_trap/ra_trapbuild.webp">Between 'Arena' &amp; 'Ra Tower: Entrance'</a></li>
+                <li><a href="pictures/acid_trap/danu_trapbuild.webp">Between 'Arena' &amp; 'Danu Tower: Entrance'</a></li>
+                <li><a href="pictures/acid_trap/odin_trapbuild.webp">Staircase between 'Odin Tower: Entrance' &amp; 'Odin Altar Room'</a></li>
+                <li><a href="pictures/acid_trap/zeus_trapbuild.webp">Staircase between 'Zeus Tower: Entrance' &amp; 'Zeus Altar Room'</a></li>
             </ul>
         </ol>
     </div>
@@ -375,7 +380,7 @@
             <p class="warning">Warning: Point of No Return. Once the portal is interacted with, the Boss Fight will start.</p>
             <li>In the 'Arena,' a <a href="pictures/main_ee/boss_fight/bossfight_portal.webp">portal</a> will spawn on the other side of the gate opposite the gate the player entered from at the beginning of the game.</li>
 
-            <p class="step-group-title" id="main_ee_step6">Fury & Wrath Elephant Boss Fight</p>
+            <p class="step-group-title" id="main_ee_step6">Fury &amp; Wrath Elephant Boss Fight</p>
             <li>Once the players enter the portal, they will be teleported to the Boss Fight Arena. The players must survive waves of Tigers and Gladiators.</li>
             <li>Max Ammo drops are common, they drop from killing any enemy and don't despawn from timing out.</li>
             <li>Once all Tigers and Gladiators are defeated, the elephant Fury will come out of the left side gate. Fury has a few attacks, it will charge and stomp, it will swing its tusks around, and it will just stomp if a player gets too close. The gladiators riding on Fury's back can throw spears at the player.</li>
@@ -603,5 +608,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

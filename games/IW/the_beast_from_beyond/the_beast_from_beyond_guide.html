@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -9,9 +7,6 @@
     <link rel="stylesheet" type="text/css" href="/css/global_solver.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -34,7 +29,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -43,7 +41,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -59,7 +57,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power/Activate N31L</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#theatre">Accessing the Theatre</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#venom_x">Venom-X</a></li><ul><li><a href="#venom_y">Venom-Y</a></li><li><a href="#venom_z">Venom-Z</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'The End?' Main Quest</a></li><ul><li><a href="#main_ee_step1">Collect 4 Floppy Disks</a></li><li><a href="#main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</a></li><li><a href="#main_ee_step3">Cryptid Boss Fight</a></li></ul><li><a href="#song_ee">'Scattered Lies' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_breaker">Skull Breaker</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Skull in a Power Box</a></li><li><a href="#side_ee_step2">Skull 2/6 - Entangler Defence</a></li><li><a href="#side_ee_step3">Skull 3/6 - Odd-symbol Out</a></li><li><a href="#side_ee_step4">Skull 4/6 - Follow the Skull's Path</a></li><li><a href="#side_ee_step5">Skull 5/6 - 8-Queens Puzzle</a></li><li><a href="#side_ee_step6">Skull 6/6 - Arcade Cheat Code</a></li><li><a href="#side_ee_step7">The Skull Breaker Mini-Game</a></li></ul><li><a href="#message_sent">Message Sent (Achievement)</a></li></ul><h2>Director's Cut/Bonuses</h2><ul><li><a href="#directors_cut">Director's Cut</a></li><ul><li><a href="#what_is_dir_cut">What is Director's Cut</a></li><li><a href="#how_to_unlock_dir_cut">How to Unlock Director's Cut</a></li><li><a href="#what_you_can_do">What you can do with Director's Cut</a></li><li><a href="#meph_fight">Mephistopheles Boss Fight</a></li></ul></ul></div>
 
     <div class="content-container" data-section-ind="Map Progression" id="power">
         <h2 class="section-title">Power/Activate N31L</h2>
@@ -145,9 +150,9 @@
                             <li>X = Number of buttons</li>
                         </ul>
                         <li>So based on your X (the number of buttons) look at that box on the image. Let's say we have ["red", "blue", "black", "green"], so X = 4.</li>
-                        <li>We start with c1 in the X=4 box. This condition is sum(y) > 1 && S >= 2, which means "The number of yellow buttons greater than 1 and S greater than or equal to 2". If this is true, we take the part after the "?"; if it's false, then we take the part after the ":".</li>
-                        <li>Since in our case c1 is false, we go to c2. c2 is BL(w) && sum(b) = 0, which translates to "Is the last button white and are there 0 blue buttons". Both conditions are false so we go to c3.</li>
-                        <li>c3 is sum(bl) > 1 meaning "The number of black buttons is greater than 1". This is false so we go to c4.</li>
+                        <li>We start with c1 in the X=4 box. This condition is sum(y) &gt; 1 &amp;&amp; S &gt;= 2, which means "The number of yellow buttons greater than 1 and S greater than or equal to 2". If this is true, we take the part after the "?"; if it's false, then we take the part after the ":".</li>
+                        <li>Since in our case c1 is false, we go to c2. c2 is BL(w) &amp;&amp; sum(b) = 0, which translates to "Is the last button white and are there 0 blue buttons". Both conditions are false so we go to c3.</li>
+                        <li>c3 is sum(bl) &gt; 1 meaning "The number of black buttons is greater than 1". This is false so we go to c4.</li>
                         <li>c4 is B3 which means press button 3.</li>
                     </ol>
                 </div>
@@ -183,7 +188,7 @@
             </ul>
             <li>To move the red square, place your crosshair in the middle of the top screen, and use the D-Pad (PC players see below for how to set your keybinds to work) to move the red square. The square can only be moved about once per second, so wait between "movement inputs".</li>
             <ul>
-                <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can move the square with the arrow keys like you would with a D-Pad.</li>
+                <li>PC Players: In Controls Options -&gt; Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can move the square with the arrow keys like you would with a D-Pad.</li>
             </ul>
 
             <div class="solver-with-button" data-bool-quick-link="false">
@@ -228,7 +233,7 @@
             <li>Once you have your key, select it below to continue.</li>
 
             <label for="venom-y-key-selector"><b>Select your Key:</b></label> <select id="venom-y-key-selector" name="venom-y-key" style="margin-top: 12px; margin-bottom: 12px" onchange="toggleKeyText(this.value)">
-            <option value="default" disabled selected>Select a Key</option>
+            <option value="default" disabled="" selected="">Select a Key</option>
             <option value="archer">ARCHER</option>
             <option value="cross">CROSS</option>
         </select>
@@ -464,7 +469,7 @@
             <li>After the countdown reaches 0, the screen will display a string of jumbled characters and the computer will start sparking. Interact with it to despawn all Cryptids.</li>
             <li>The lights will go dim, and the laser will target a <a href="pictures/main_ee/mammoth_crate.webp">crate above the Ammo Crate</a>. After a couple of seconds, it will shoot it open, revealing two Mammoths (Blue Rhinos).</li>
             <ul>
-                <li>These Mammoths can be insta-killed, using the Ego Trip F&F card, and either the Mauler LMG with the Sentinal variant or the EBR-800 Sniper with the Bomber variant. See <a href="https://youtu.be/o9IU7jnKD9s?t=495">this video</a> by <a href="https://www.youtube.com/@Decezy_">Decezy</a> for an example of this being done. If you don't kill them instantly (like in the video), keep shooting them in the mouth, they should die before the card runs out.</li>
+                <li>These Mammoths can be insta-killed, using the Ego Trip F&amp;F card, and either the Mauler LMG with the Sentinal variant or the EBR-800 Sniper with the Bomber variant. See <a href="https://youtu.be/o9IU7jnKD9s?t=495">this video</a> by <a href="https://www.youtube.com/@Decezy_">Decezy</a> for an example of this being done. If you don't kill them instantly (like in the video), keep shooting them in the mouth, they should die before the card runs out.</li>
             </ul>
             <li>These Mammoths are absolute bullet sponges, and will occasionally, when damaged, leave blue fire on the ground. This blue fire does a lot of damage and doesn't despawn, so make sure you think about where you're shooting the mammoths, so the fire doesn't block a doorway or choke point.</li>
             <li>The Mammoths will occasionally charge at you, which will always red-screen you even with Tuff 'Nuff.</li>
@@ -522,19 +527,18 @@
 
     <div class="content-container" id="skull_breaker">
         <h2 class="section-title">Skull Breaker</h2>
-        <p class="weapon-desc">Skull Breaker is an arcade game where players must make groups of skulls by firing cubes at them, then blowing them up by firing nukes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up & Atoms in Solo), and your Fate & Fortune cards will charge faster for the remainder of the game.</p>
+        <p class="weapon-desc">Skull Breaker is an arcade game where players must make groups of skulls by firing cubes at them, then blowing them up by firing nukes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except Up &amp; Atoms in Solo), and your Fate &amp; Fortune cards will charge faster for the remainder of the game.</p>
 
         <ol>
             <li>You can check your current progress by looking at the <a href="pictures/skull_breaker/skull_breaker_machine.webp">Skull Breaker Arcade Cabinet</a> in the Arcade in the Theatre.</li>
 
-            <p class="step-group-title">Skull 1/6 - Skull in a Power Box</p>
+            <p class="step-group-title" id="side_ee_step1">Skull 1/6 - Skull in a Power Box</p>
             <li>A power box will spawn in one of the following locations. Using a grenade (or the OSA's under-barrel grenade launcher), blow up the <a href="pictures/skull_breaker/skull_1/box_cargo.webp">power box</a> to open it, revealing a <a href="pictures/skull_breaker/skull_1/skull.webp">Skull</a>. Shoot the skull once it appears to play the completion sound. Power Box locations:</li>
             <ul>
                 <li><a href="pictures/skull_breaker/skull_1/box_medical.webp">Flooded Room - Above the stairs to the Medical Bay</a></li>
                 <li><a href="pictures/skull_breaker/skull_1/box_ops.webp">Ops Center - Above Bombstoppers</a></li>
                 <li><a href="pictures/skull_breaker/skull_1/box_cargo.webp">Cargo Bay - Above the stairs beside the P-LAW wallbuy</a></li>
             </ul>
-
 
             <p class="step-group-title" id="side_ee_step2">Skull 2/6 - Entangler Defence</p>
             <li>Around the Cargo Bay, there are four <a href="pictures/skull_breaker/skull_2/red_x_upper.webp">red Xs on the floor</a>. All players need to stand on a different X to start a lockdown event. X Locations:</li>
@@ -599,7 +603,7 @@
                     <li>If you miss, grab another helmet from the hallway or spawn area, and try again.</li>
                 </ul>
                 <li><a href="pictures/skull_breaker/skull_5/spawn_flooded_room_barrier.webp">Spawn/Flooded Room - Below the Zombie spawn on the stairs</a></li>
-                <li><a href="pictures/skull_breaker/skull_5/spawn_ladder.webp">Spawn - Up the ladder across from Up & Atoms</a></li>
+                <li><a href="pictures/skull_breaker/skull_5/spawn_ladder.webp">Spawn - Up the ladder across from Up &amp; Atoms</a></li>
             </ul>
 
             <div class="solver-container">
@@ -629,7 +633,7 @@
             </ul>
             <li>Go to the <a href="pictures/skull_breaker/skull_breaker_machine.webp">Skull Breaker arcade machine</a> in the Arcade of the Theatre. Input the code into the machine by aiming (ADS) at it and inputting the code with the D-Pad or arrow keys (PC players see below for how to set your keybinds). If you don't hear the completion sound, flip the combined papers upside down.</li>
             <ul>
-                <li>PC Players: In Controls Options -> Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can use the arrow keys like you would a D-Pad.</li>
+                <li>PC Players: In Controls Options -&gt; Actions, set "Use Souvenir" to Left Arrow, "Toggle Kung-Fu Mode" to Right Arrow, "Next Card" to Up Arrow, and "Previous Card" to Down Arrow. With these binds, you can use the arrow keys like you would a D-Pad.</li>
             </ul>
 
             <p class="step-group-title" id="side_ee_step7">The Skull Breaker Mini-Game</p>
@@ -643,7 +647,7 @@
             <ul>
                 <li>If you fail, you can retry immediately with the same code.</li>
             </ul>
-            <li>Once all three rounds are completed, you will be teleported back to the Arcade, with all perks permanently (except Up & Atoms in Solo), and your Fate & Fortune cards will charge faster for the remainder of the game.</li>
+            <li>Once all three rounds are completed, you will be teleported back to the Arcade, with all perks permanently (except Up &amp; Atoms in Solo), and your Fate &amp; Fortune cards will charge faster for the remainder of the game.</li>
         </ol>
     </div>
 
@@ -668,13 +672,13 @@
             <li>While in Director's Cut mode, you will spawn with:</li>
             <ul>
                 <li>25,000 Points</li>
-                <li>All available perks on the map permanently (you keep them when you down; except Up & Atoms on solo)</li>
-                <li>Six Up & Atom uses on Solo or instantly return from the Afterlife Arcade in Co-op</li>
+                <li>All available perks on the map permanently (you keep them when you down; except Up &amp; Atoms on solo)</li>
+                <li>Six Up &amp; Atom uses on Solo or instantly return from the Afterlife Arcade in Co-op</li>
                 <li>All weapons in the Magic Wheel are pack-a-punched once</li>
                 <li>All wonder weapons are also in the Magic Wheel, Paped where applicable</li>
                 <li>The Double PAP fuses are automatically in the Projector</li>
-                <li>Unlimited F&F Card Refills</li>
-                <li>F&F Cards charge faster</li>
+                <li>Unlimited F&amp;F Card Refills</li>
+                <li>F&amp;F Cards charge faster</li>
                 <li>The Smiley on Rave and the Katana on Shaolin can be purchased by all players in the match, regardless of quest completion</li>
             </ul>
         </ul>
@@ -718,5 +722,6 @@
 <script src="venom/venom_maze/maze.js"></script>
 <script src="venom/venom_y/venom_y_morse_code.js"></script>
 <script src="floppy_disk_puzzle/floppy_disk_solver.js"></script>
-</body>
-</html>
+
+
+</body></html>

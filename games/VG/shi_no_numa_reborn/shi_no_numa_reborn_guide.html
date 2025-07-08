@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -43,7 +41,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -59,7 +57,14 @@
 
 <div class="smooth-scroll content-window">
         <!-- Legend to other parts -->
-        <div class="content-container-top"></div>
+        <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#wunderwaffe">Wunderwaffe DG-2</a></li><ul><li><a href="#wunderwaffe_step1">Weapon Barrel and First Vacuum Tube</a></li><li><a href="#wunderwaffe_step2">Second Vacuum Tube</a></li><li><a href="#wunderwaffe_step3">Third Vacuum Tube</a></li><li><a href="#wunderwaffe_step4">Crafting the Wunderwaffe DG-2</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><ul><li><a href="#main_ee_step1">The Monolith &amp; The Ceremony</a></li><li><a href="#main_ee_step2">Repairing The Mirror</a></li><li><a href="#main_ee_step3">Echo Boss Fight</a></li></ul><li><a href="#rampage_inducer">Rampage Inducer</a></li><li><a href="#bunny">Aether Bunny / Free Fire Sale</a></li><li><a href="#song_ee">'Samantha's Sorrow' Song and Free Max Ammo</a></li><li><a href="#song_ee2">'The One (Instrumental)' Song</a></li></ul></div>
 
         <!-- Wonder Weapons -->
         <div class="content-container" data-section-ind="Weapons" id="wunderwaffe">
@@ -96,7 +101,7 @@
             <p class="stats">Stats (Solo): Difficulty - 3/10, Est. Completion Time - 25 to 40 Mins</p>
             <ol>
                 <p>Note: The <a href="#wunderwaffe">Wunderwaffe DG-2</a> is required for the Easter Egg, but not until Step 9</p>
-                <p class="step-group-title" id="main_ee_step1">The Monolith & The Ceremony</p>
+                <p class="step-group-title" id="main_ee_step1">The Monolith &amp; The Ceremony</p>
                 <li>Navigate to 'Doctor's Quarter's Exterior' to find the <a href="pictures/main_ee/monolith_vines.webp">Monolith</a> covered in vines.</li>
                 <li>Explode three Boom Schreiers next to the Monolith to clear the vines.</li>
                 <li>Collect three Cypher Wheel parts:</li>
@@ -227,5 +232,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

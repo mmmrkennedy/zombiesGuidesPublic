@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <link href="/favicon/favicon.ico" rel="icon" type="image/x-icon">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ray_gun_mark_2">Ray Gun Mark II</a></li><ul><li><a href="#assembly_kit">Assembly Kit</a></li><li><a href="#ray_gun_mark_2_frame">Ray Gun Mark II Frame</a></li><li><a href="#ray_gun_mark_2_v">Ray Gun Mark II-V (Electric Beam/Yellow)</a></li><li><a href="#ray_gun_mark_2_x">Ray Gun Mark II-X (Full-Auto/Blue)</a></li><li><a href="#ray_gun_mark_2_y">Ray Gun Mark II-Y (Explosive/Orange)</a></li><li><a href="#ray_gun_mark_2_z">Ray Gun Mark II-Z (Shotgun/Purple)</a></li></ul><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#telepads">Telepads</a></li><li><a href="#sergeant_adam">Sergeant A.D.A.M.</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Electromagnetic Awakening Party' Main Quest</a></li><ul><li><a href="#main_ee_step1">Contain the Gas Leak</a></li><li><a href="#main_ee_step2">Test the Emergency Broadcast System</a></li><li><a href="#main_ee_step3">Pursue all Avenues of Science and Invention</a></li><li><a href="#main_ee_step4">Preserve the Integrity of Our Mission</a></li><li><a href="#main_ee_step5">Prevail over the Impossible to Open New Worlds</a></li><li><a href="#main_ee_step6">Protect the Values of the American Dream</a></li><li><a href="#main_ee_step7">Prepare for Tomorrow and Humanity's Future</a></li><li><a href="#main_ee_step8">Overwhelm our Enemies with Shock and Awe</a></li><li><a href="#main_ee_step9">Avogadro Boss Fight</a></li><li><a href="#main_ee_step10">To Preserve the Future, Empower the Past</a></li></ul><li><a href="#song_ee">'I Am The Well' Song</a></li><li><a href="#jump_scare">Pernell/Avogadro Jump Scare</a></li><li><a href="#jump_scare_2">Mannequin Jump Scare</a></li><li><a href="#tedd">Interact with TEDD</a></li><li><a href="#insanity_mode">Insanity Mode / Teleport to Round 200</a></li><li><a href="#free_self_revive">Love Story / Free Self-Revive</a></li><li><a href="#free_perk">Extra Perk</a></li></ul><h2>Miscellaneous</h2><ul><li><a href="#mannequin">All Mannequin Locations</a></li><li><a href="#rushmore_codes">Rushmore Secret Codes</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Duck and Cover' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -182,7 +187,7 @@
                 <li><a href="pictures/ray_gun_mark_2/variant_y/pile_yellow_house.webp">Yellow House Backyard - Near the backdoor</a></li>
             </ul>
             <li>Craft the <a href="#telepads">Telepads</a>
-            <li>Somewhere around the map, a <a href="pictures/ray_gun_mark_2/variant_y/yellow_orb.webp">Yellow Orb</a> will be floating above a teleporter pad. Place a telepad on the teleporter pad and shoot the yellow orb to make it move to another telepad.</li>
+            </li><li>Somewhere around the map, a <a href="pictures/ray_gun_mark_2/variant_y/yellow_orb.webp">Yellow Orb</a> will be floating above a teleporter pad. Place a telepad on the teleporter pad and shoot the yellow orb to make it move to another telepad.</li>
             <li>Once you find the Yellow Orb again, place the telepad below it and shoot the orb to make it teleport again. This time you must teleport with the orb, if done correctly, the orb can be seen while teleporting.</li>
             <li>The orb will now make its way to the <a href="pictures/ray_gun_mark_2/variant_y/orb_storage.webp">'Storage' area</a> where the ammo canister can be placed, revealing an orange circle.</li>
             <li>While standing in the circle, kill zombies to charge the canister. Once the canister is charged, the circle will disappear and the canister can be picked up. If you leave the circle for too long, it will disappear, and you will have to get all the kills again.</li>
@@ -438,7 +443,7 @@
         <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713269283">here</a>.</p>
         <ol>
             <li>Input the number "7664" into Rushmore.
-        </ol>
+        </li></ol>
         <p><strong>OR</strong></p>
         <ol>
             <li>Interact with three mannequin heads around the map. Mannequin Heads Locations:</li>
@@ -951,5 +956,5 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+</body></html>

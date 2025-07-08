@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#jet_gun">Jet Gun (Thrustodyne M23)</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Bye-Bye, Dark Aether' Main Quest</a></li><ul><li><a href="#main_ee_step1">Building the L.T.G.</a></li><li><a href="#main_ee_step2">Canister #1</a></li><li><a href="#main_ee_step3">Aether Projectors</a></li><li><a href="#main_ee_step4">Canister #2</a></li><li><a href="#main_ee_step5">Boss Fight</a></li></ul><li><a href="#song_ee">"Destroy Something Beautiful" Song</a></li><li><a href="#mister_peeks_bowling">Mister Peek Bowling Mini-game (Free Loot/Gun and Dark Ops Calling Card)</a></li><li><a href="#aetherella_trap">Play as the Aetherella Trap</a></li><li><a href="#deadshot_sharpshooter">Deadshot Sharpshooter (Free Deadshot Perk)</a></li><li><a href="#opening_bank_vault">Opening the Bank Vault (Free Loot)</a></li><li><a href="#mr_peeks_car">Mr. Peeks Car (Free Gun)</a></li><li><a href="#vending_machine">Vending Machine (Free Loot/Weapon)</a></li><li><a href="#raining_zombies">Raining Zombies (Free Aether Tool and Loot)</a></li><li><a href="#red_orb">Red Orb (Free Loot/Fire Sale Power-up)</a></li><li><a href="#gravedigger">Gravedigger (Free Loot)</a></li><li><a href="#free_powerups">Free Power-ups</a></li><li><a href="#dancing_zombies">Dancing Zombies</a></li><li><a href="#pool_table">Pool Table (Free 100 Points)</a></li></ul></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="jet_gun">
@@ -204,7 +209,7 @@
         <ol>
             <li>There are five pairs of Bowling Shoes you must shoot. Shoe locations:</li>
             <ul>
-                <li><a href="pictures/mister_peeks_bowling/shoes_pump_and_pay.webp">Pump & Pay - On the cashier desk, inside a barrier</a></li>
+                <li><a href="pictures/mister_peeks_bowling/shoes_pump_and_pay.webp">Pump &amp; Pay - On the cashier desk, inside a barrier</a></li>
                 <li><a href="pictures/mister_peeks_bowling/shoes_franks.webp">Riverside - On a shelf inside the "Frank's Hardware" store right of the Arsenal machine</a></li>
                 <li><a href="pictures/mister_peeks_bowling/shoes_ak47.webp">Hill Street - Under a chair inside the house up the stairs from the AK-74 wallbuy</a></li>
                 <li><a href="pictures/mister_peeks_bowling/shoes_cemetary.webp">Cemetery - Hanging from a tree outside the barrier, right of the Armour wallbuy</a></li>
@@ -263,7 +268,7 @@
             <li>There are three numbers on sticky notes around the map. Each sticky note will indicate the order the number is in by having underscores in place of the other numbers. Example: If the sticky note says, "__ __ 26", this means 26 is the last number in the order. Sticky Note locations: </li>
             <ul>
                 <li><a href="pictures/opening_bank_vault/liberty_lanes.webp">Liberty Lanes - On the concession counter. Shoot the object covering the note to reveal it.</a></li>
-                <li><a href="pictures/opening_bank_vault/bank.webp">Savings & Loan - On top of the front desk, on the side closest to the Vault</a></li>
+                <li><a href="pictures/opening_bank_vault/bank.webp">Savings &amp; Loan - On top of the front desk, on the side closest to the Vault</a></li>
                 <li><a href="pictures/opening_bank_vault/comics.webp">Olly's Comics - Under the counter left of the Cash Register</a></li>
             </ul>
             <li>Once you have the three numbers, interact with the <a href="pictures/opening_bank_vault/vault.webp">Bank Vault</a> to enter the numbers. If the numbers were entered correctly, the vault will open, and you'll be able to enter. On your first entrance, you will be awarded with 500 points.</li>
@@ -370,5 +375,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

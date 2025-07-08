@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -43,7 +41,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -59,14 +57,21 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Easter Eggs</h2><ul><li><a href="#main_ee">'MEAT IS MURDER' Main Quest</a></li><ul><li><a href="#main_ee_step1">Seasoning the Pan</a></li><li><a href="#main_ee_step2">Making the Burger</a></li><li><a href="#main_ee_step3">Charging Bubby</a></li><li><a href="#main_ee_step4">Launching the Rocket</a></li></ul><li><a href="#song_ee">'Toccata and Fugue in D minor' song</a></li></ul></div>
 
     <!-- Main Easter Egg -->
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
         <h2 class="section-title">'MEAT IS MURDER' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - 3/10, Est. Completion Time - 30 to 45 Mins, RNG Rating - 3/5 (Magnetron in the Box)</p>
         <ol>
-            <p class="step-group-title">Seasoning the Pan</p>
+            <p class="step-group-title" id="main_ee_step1">Seasoning the Pan</p>
             <li>Obtain the Exo Suit in the Sewers.</li>
             <li>After obtaining an Exo Suit, return to Spawn. Climb up to the highest crate and look for a golden frying pan on the cracked rooftop. Use an Exo Boost jump to reach and grab the <a href="pictures/main_ee/golden_pan.webp">Golden Frying Pan</a>.</li>
             <li>Head back down to the Sewers and look for four <a href="pictures/main_ee/valve_example.webp">orange valves on four connected pipes</a>. These valves will spawn randomly on any of the following locations. Once you find a valve, interact with it to let out some steam.</li>
@@ -180,5 +185,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

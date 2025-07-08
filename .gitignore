@@ -99,3 +99,4 @@ easter_egg_help
 /_site/
 !SEO_img.png
 /python_utilities/blackjack.py
+/node_modules

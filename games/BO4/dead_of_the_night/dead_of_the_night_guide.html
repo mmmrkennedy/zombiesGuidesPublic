@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -10,9 +8,6 @@
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -35,7 +30,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -44,7 +42,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -60,7 +58,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#perk_statues">Perk Statues</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#alistairs_folly">Alistair's Folly</a></li><ul><li><a href="#chaos_theory">Chaos Theory</a></li><li><a href="#alistairs_annihilator">Alistair's Annihilator</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><li><a href="#savage_impaler">Savage Impaler</a></li><li><a href="#silver_bullets">Silver Bullets</a></li><li><a href="#stake_knife">Stake Knife</a></li><li><a href="#fire_traps">Fire Traps</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Trial by Ordeal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Leo - Telescope Quest line</a></li><ul><li><a href="#main_ee_step1_virgo">Virgo - Lightning Rod</a></li><li><a href="#main_ee_step1_libra">Libra - Colour Beam Puzzle</a></li><li><a href="#main_ee_step1_scorpio">Scorpio - Zodiac Scratches</a></li></ul><li><a href="#main_ee_step2">Sagittarius - Effigy Quest line</a></li><ul><li><a href="#main_ee_step2_cap">Capricorn - Collecting Branches</a></li><li><a href="#main_ee_step2_aqua">Aquarius - Entering Ghost Mode</a></li><li><a href="#main_ee_step2_pisces">Pisces - Activating the Lockdown</a></li></ul><li><a href="#main_ee_step3">Aries - Knight Quest line</a></li><ul><li><a href="#main_ee_step3_taurus">Taurus - Collect Fireplace Gems</a></li><li><a href="#main_ee_step3_gemini">Gemini - Bring Haunted Gems to the Forest</a></li><li><a href="#main_ee_step3_cancer">Cancer - Activate the Lockdown</a></li></ul><li><a href="#main_ee_step4">Werewolf Boss Fight</a></li></ul><li><a href="#song_ee">'Mystery' Song</a></li><li><a href="#hidden_rooms">Hidden Rooms / Various Free Items</a></li><ul><li><a href="#billiards_room">Billiards Room</a></li><li><a href="#wine_cellar">Wine Cellar</a></li><li><a href="#balcony">East/West Balcony</a></li></ul><li><a href="#jump_scare">Jump Scare</a></li><li><a href="#infinite_ammo">Infinite Ammo (Images Incomplete)</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Super Blood Wolf Moon' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="perk_statues">
@@ -159,7 +164,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Paper/"Alistair's Will & Testament"</td>
+                        <td>Paper/"Alistair's Will &amp; Testament"</td>
                         <td><a href="pictures/pap/paper.webp">On a shelf in the 'Study'</a></td>
                         <td rowspan="7">Interact with the object/painting to spawn a <a href="pictures/pap/ghost.webp">Ghost</a>. Follow the Ghost until it reveals a <a href="pictures/pap/ghost_tuning_fork.webp">Tuning Fork</a>.
                         </td>
@@ -793,7 +798,7 @@
                 <li><a href="pictures/infinite_ammo/gramo_master_bedroom.webp">Master Bedroom</a></li>
                 <li><a href="pictures/infinite_ammo/gramo_dining_room.webp">Dining Room</a></li>
                 <li><a href="pictures/infinite_ammo/gramo_library.webp">Library</a></li>
-                <li><a href="pictures/infinite_ammo/gramo_west_balcony.webp">Behind the bookshelf from the <a href="#hidden_rooms">East/West Balcony Hidden Room</a></a></li>
+                <li><a href="pictures/infinite_ammo/gramo_west_balcony.webp">Behind the bookshelf from the </a><a href="#hidden_rooms">East/West Balcony Hidden Room</a></li>
             </ol>
             <li>Obtain a <a href="#pap">Pack-a-Punched</a> M1897 Trebuchet. It can be purchased from the <a href="pictures/infinite_ammo/">wallbuy in the 'Library'</a>.</li>
             <li>There are six vases around the mansion (each linked to one of the doors from Step 1) that need to be broken.</li>
@@ -836,7 +841,7 @@
                 <li><strong>If you play the record at the gramophones in the wrong order, you have to start a new game to retry.</strong></li>
                 <li>Gramophone Locations:</li>
                 <ol>
-                    <li><a href="pictures/infinite_ammo/gramo_west_gallery.webp">Behind the bookshelf from the <a href="#hidden_rooms">East/West Balcony Hidden Room</a></a></li>
+                    <li><a href="pictures/infinite_ammo/gramo_west_gallery.webp">Behind the bookshelf from the </a><a href="#hidden_rooms">East/West Balcony Hidden Room</a></li>
                     <li><a href="pictures/infinite_ammo/gramo_library.webp">Library</a></li>
                     <li><a href="pictures/infinite_ammo/gramo_dining_room.webp">Dining Room</a></li>
                     <li><a href="pictures/infinite_ammo/gramo_master_bedroom.webp">Master Bedroom</a></li>
@@ -1021,5 +1026,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

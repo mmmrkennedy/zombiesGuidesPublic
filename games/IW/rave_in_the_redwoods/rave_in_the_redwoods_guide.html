@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
         <!-- Legend to other parts -->
-        <div class="content-container-top"></div>
+        <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#rave_mode">Rave Mode</a></li><li><a href="#challenges">Bear Lake Camp Challenges</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#totems_and_gems">Totems &amp; Gems (Craftable Scorestreaks)</a></li><li><a href="#vlad">'Vlad' Crossbow Wonder Weapons</a></li><ul><li><a href="#Whirlwind EF-5 (Wind)">Whirlwind EF-5 (Wind)</a></li><li><a href="#Whirlwind EF-5 (Wind)">Trap-o-Matic</a></li><li><a href="#Whirlwind EF-5 (Wind)">Acid Rain</a></li><li><a href="#Whirlwind EF-5 (Wind)">Ben Franklin (Lightning)</a></li></ul><li><a href="#smiley">'Smiley' Chainsaw Wonder Weapon</a></li><li><a href="#charms">Charms</a></li><ul><li><a href="#binoculars">Binoculars (Co-op Ability) --- Electric Cherry between players</a></li><li><a href="#shovel">Shovel (Co-op Ability) --- Explosive Revive</a></li><li><a href="#arrowhead">Arrowhead --- Auto-aim to Head</a></li><li><a href="#ring">Ring --- Melee damage regens health</a></li><li><a href="#bird_mask">Bird Mask --- Auto reload stowed weapons</a></li><li><a href="#8_ball">8 Ball --- Sliding does damage</a></li><li><a href="#fish">Fish --- Sprint faster over time</a></li><li><a href="#frog">Frog --- Sprint in water</a></li><li><a href="#pacifier">Pacifier --- Damages Zombies that hit you</a></li><li><a href="#boots">Boots --- Explosive Headshots</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Locksmith' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Photo #1 Challenge</a></li><li><a href="#main_ee_step3">Photo #2 Challenge</a></li><li><a href="#main_ee_step4">Skull Challenge</a></li><li><a href="#main_ee_step5">Super Slasher Boss Fight</a></li></ul><li><a href="#song_ee">'Puppet Strings' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#ghosts_and_skulls_2">Ghosts 'N Skulls 2</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Trap Kills</a></li><li><a href="#side_ee_step2">Skull 2/6 - Rave Mode Symbols</a></li><li><a href="#side_ee_step3">Skull 3/6 - Knife Throwing Game</a></li><li><a href="#side_ee_step4">Skull 4/6 - Spell SKULL with Symbols</a></li><li><a href="#side_ee_step5">Skull 5/6 - Boat Shooting Gallery</a></li><li><a href="#side_ee_step6">Skull 6/6 - Ben Franklin Bow</a></li><li><a href="#side_ee_step7">The Ghost N' Skulls 2 Mini-Game</a></li></ul><li><a href="#smith_code">Play as Kevin Smith</a></li><li><a href="#free_max_ammo">Free Max Ammo</a></li></ul></div>
 
         <!-- Power -->
         <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -112,7 +117,7 @@
                 <ul>
                     <li>Players can "share" a Rave Mode Pouch by standing near the player with the Pouch when that player activates Rave Mode.</li>
                 </ul>
-                <li>By default, Rave Mode lasts for one minute, but killing Zombies will shorten the duration by a couple of seconds. Taking Damage, buying things, activating F&F Cards, and reviving other players doesn’t affect the duration.</li>
+                <li>By default, Rave Mode lasts for one minute, but killing Zombies will shorten the duration by a couple of seconds. Taking Damage, buying things, activating F&amp;F Cards, and reviving other players doesn’t affect the duration.</li>
                 <li>Rave Mode can be extended by interacting with <a href="pictures/rave_mode/fairies.webp">Fairies</a> around the map. Each group of Fairies you interact with will extend the duration of Rave Mode by about 30 seconds. Once a group of Fairies is interacted with, it will disappear for the remainder of the current Rave Mode.</li>
                 <li>Players will earn double points while in Rave Mode, making it a good early-game way to make points.</li>
                 <li>While in Rave Mode, you can find <a href="pictures/rave_mode/door_owl_camp.webp">doors made of sticks</a> that can only be seen and bought in Rave Mode. Outside Rave Mode, these doors will be wooden railings or walls.</li>
@@ -163,7 +168,7 @@
                     <tr>
                         <td>Thunderbird</td>
                         <td>Kill 25 Crawlers</td>
-                        <td><a href="pictures/challenges/bird_challenge.webp">Outside the Bait & Tackle Shop</a></td>
+                        <td><a href="pictures/challenges/bird_challenge.webp">Outside the Bait &amp; Tackle Shop</a></td>
                         <td>Armageddon</td>
                     </tr>
                     <tr>
@@ -181,7 +186,7 @@
 
         <!-- Souvenir Coins -->
         <div class="content-container" data-section-ind="Weapons and Buildables" id="totems_and_gems">
-            <h2 class="section-title">Totems & Gems (Craftable Scorestreaks)</h2>
+            <h2 class="section-title">Totems &amp; Gems (Craftable Scorestreaks)</h2>
             <ul>
                 <li>Five Totems around the map can be used to craft Scorestreaks.</li>
                 <ul>
@@ -313,7 +318,7 @@
             Acid Rain
             Ben Franklin (Lightning)-->
 
-            <p class="upgrade-title" data-custom-quick-link="Whirlwind EF-5 (Wind);Trap-o-Matic;Acid Rain;Ben Franklin (Lightning)" id="whirlwind">Vlad Upgrade Variants</p>
+            <p class="upgrade-title" data-custom-quick-link="Whirlwind EF-5 (Wind);Trap-o-Matic;Acid Rain;Ben Franklin (Lightning)" id="Whirlwind EF-5 (Wind)">Vlad Upgrade Variants</p>
             <p class="weapon-desc">The Whirlwind EF-5 will fire a projectile that will blow back any Zombies caught in its area (very similar to the Thundergun). The Trap-o-Matic will make the crossbow akimbo, and if two (or more) bolts are fired close enough together on the ground, a laser will connect them, killing any Zombie that walks through it. The Acid Rain will rain acid on the area around where the bolt lands for a couple of seconds. The Ben Franklin will cause a bolt of lightning to strike where the bolt lands; the bolt of lightning is small and will only kill a few Zombies.</p>
             <p class="warning">There are four upgrades with each of them roughly sharing the same steps to get, except for Step 6. Also, the Vlad is not required until Step 5.</p>
             <ol>
@@ -348,7 +353,7 @@
                 <ul>
                     <li>Deer:</li>
                     <ul>
-                        <li><a href="pictures/vlad/upgrades/deer_beach.webp">Beach - left of the F&F Card Machine</a></li>
+                        <li><a href="pictures/vlad/upgrades/deer_beach.webp">Beach - left of the F&amp;F Card Machine</a></li>
                         <li><a href="pictures/vlad/upgrades/deer_docks.webp">Docks - Right where the wood deck starts going towards the Mess Hall</a></li>
                     </ul>
                     <li>Eagle:</li>
@@ -405,12 +410,12 @@
                     <li><a href="pictures/charms/binoculars/pickup_beer.webp">Rave Area - On a bunch of Beer Boxes</a></li>
                 </ul>
                 <li>Once you have the Binoculars, place them on the <a href="pictures/charms/binoculars/bench_bait_tackle.webp">Bench</a> outside the Bait and Tackle building (on the wooden deck on the beach).</li>
-                <li>Eight <a href="pictures/charms/binoculars/eyeball_example.webp">eyeballs</a> will spawn (locations below) that you must shoot to cause them to disappear. The eyeballs can be seen from anywhere but can only be shot while standing in the <a href="pictures/charms/binoculars/gazebo.webp">Gazebo</a> (that has the F&F Card Machine inside) near the bench. It's recommended to buy the KBS Longbow from the wallbuy in the Gazebo because some eyes spawn far away and could be hard to shoot without a sniper. Eye locations: </li>
+                <li>Eight <a href="pictures/charms/binoculars/eyeball_example.webp">eyeballs</a> will spawn (locations below) that you must shoot to cause them to disappear. The eyeballs can be seen from anywhere but can only be shot while standing in the <a href="pictures/charms/binoculars/gazebo.webp">Gazebo</a> (that has the F&amp;F Card Machine inside) near the bench. It's recommended to buy the KBS Longbow from the wallbuy in the Gazebo because some eyes spawn far away and could be hard to shoot without a sniper. Eye locations: </li>
                 <ul>
-                    <li><a href="pictures/charms/binoculars/fnf_picnic.webp">Behind the F&F Card Machine - In the Picnic Table area</a></li>
-                    <li><a href="pictures/charms/binoculars/fnf_lake.webp">Behind the F&F Card Machine - On the other side of the lake, on a rock</a> --- <a href="pictures/charms/binoculars/fnf_lake_zoomed.webp">Zoomed-in view</a></li>
+                    <li><a href="pictures/charms/binoculars/fnf_picnic.webp">Behind the F&amp;F Card Machine - In the Picnic Table area</a></li>
+                    <li><a href="pictures/charms/binoculars/fnf_lake.webp">Behind the F&amp;F Card Machine - On the other side of the lake, on a rock</a> --- <a href="pictures/charms/binoculars/fnf_lake_zoomed.webp">Zoomed-in view</a></li>
                     <li><a href="pictures/charms/binoculars/totem_poles.webp">Turtle Island - On the top of each of the four Totem Poles</a>
-                    <li><a href="pictures/charms/binoculars/attic_window.webp">Turtle Island - In the attic window</a></li>
+                    </li><li><a href="pictures/charms/binoculars/attic_window.webp">Turtle Island - In the attic window</a></li>
                     <li><a href="pictures/charms/binoculars/slappy_taffy.webp">Behind Slappy Taffy - On top of the Trail Blazers building</a> --- <a href="pictures/charms/binoculars/slappy_taffy_zoomed.webp">Zoomed-in view</a></li>
                 </ul>
                 <li>Once all eight eyeballs have been shot, the Binoculars can be equipped from the bench.</li>
@@ -531,7 +536,7 @@
                     <li><a href="pictures/charms/boots/boots_beer.webp">Thunderbird Amphitheater - In a dark corner near a pile of beer boxes</a></li>
                 </ul>
                 <li>Place the Boots on the <a href="pictures/charms/boots/boots_footprint_1.webp">red footprints</a> in the <a href="pictures/charms/boots/boots_cabin.webp">Cabin connecting Camp Owl and Wolf</a>. Follow the red footsteps to the window (walk back and forth over the footprints to get it to move quickly).</li>
-                <li>Go to the Bear Lodge and follow the newly spawned <a href="pictures/charms/boots/boots_footprint_2.webp">red footsteps</a> near the doorway out to Up & Atoms.</li>
+                <li>Go to the Bear Lodge and follow the newly spawned <a href="pictures/charms/boots/boots_footprint_2.webp">red footsteps</a> near the doorway out to Up &amp; Atoms.</li>
                 <li>Go to the docks, and follow the <a href="pictures/charms/boots/boots_footprint_3.webp">footsteps</a> beside the Reaver wallbuy.</li>
                 <li>Once you've followed all the footprints, return to the Cabin in the Owl/Wolf Camp, and pick up the Boots from the floor to equip them.</li>
             </ol>
@@ -635,13 +640,13 @@
 
         <!-- Ghosts 'N Skulls -->
         <div class="content-container" id="ghosts_and_skulls_2">
-            <h2 class="section-title">Ghosts 'N Skulls 2 </h2>
+            <h2 class="section-title">Ghosts 'N Skulls 2</h2>
             <p class="weapon-desc">Ghosts 'N Skulls 2 is an arcade game where players must clear skulls by firing ghosts at them. To unlock the machine, they need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except for Up 'N Atoms in solo games), and allows you to get six revives on solo instead of the standard three or infinite Afterlife Arcade visits on Co-op.</p>
 
             <ol>
                 <li>You can check your current progress by looking at the <a href="pictures/ghost_and_skulls_2/ghost_n_skull_2_machine.webp">Ghost N' Skulls 2 Arcade Cabinet</a> on the Upper Floor of the Bear Lodge.</li>
 
-                <p class="step-group-title">Skull 1/6 - Trap Kills</p>
+                <p class="step-group-title" id="side_ee_step1">Skull 1/6 - Trap Kills</p>
                 <li>You need to achieve a certain number of kills using specific traps, in the order below. All kills must be in a single use of the trap. If you get more or less than the required number of kills, you need to retry that trap (instead of retrying from Trap 1).</li>
                 <ul>
                     <li>A website like <a href="https://www.zombacus.com/zombiecalculator">Zombacus</a> can be used to calculate the number of Zombies each round. This makes it easier to know how many Zombies you need to kill to be left with the number you need to kill with the trap. When using the website, Infinite Warfare is considered to have a "Normal" spawn system. The website doesn't factor in special rounds (like the Bigfoot rounds), so the numbers on those rounds will not be correct.</li>
@@ -716,7 +721,7 @@
                 <li>The game consists of three rounds, with each round requiring you to destroy all the skulls before they make it to the end (similar to Space Invaders). This one is different (compared to GNS 1) because the Skulls are now different colours. Using the Entangler (your gun), grab a coloured ghost floating around and shoot it at the same coloured skull to destroy it.</li>
                 <li>If you hit a Skull with the wrong colour ghost, the Skull will turn red and, after a few seconds, attempt to escape by flying to the vortex at the back of the arena. You can attempt to break this skull by shooting a red ghost at it while it is escaping. If three skulls escape in one round, the game will end, and you will have to shoot the Ben Franklin at the machine to try again.</li>
                 <li>Starting on round 2 and continuing on round 3, the Skulls will flip around, hiding their colour. On round 2, they will flip back around, but on round 3, they will not flip back. You will have to either remember which skulls are what colour or take a screenshot/picture. Despite there being a couple of different patterns for each round (meaning you might have the same pattern as a guide or a previous run), the colour of each skull <i>seems</i> to be random.</li>
-                <li>Once all three rounds are completed, you will be teleported back to the Bear Lodge, with all perks permanently (except Up & Atoms in Solo), and an additional three revives on solo or infinite Afterlife Arcade visits on Co-op.</li>
+                <li>Once all three rounds are completed, you will be teleported back to the Bear Lodge, with all perks permanently (except Up &amp; Atoms in Solo), and an additional three revives on solo or infinite Afterlife Arcade visits on Co-op.</li>
             </ol>
         </div>
 
@@ -758,5 +763,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

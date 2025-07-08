@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,9 +28,7 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
-
-<style>
+</script><style>
     .bird-highlight-orange {
         color: orange;
     }
@@ -43,7 +36,12 @@
     .bird-highlight-green {
         color: lawngreen;
     }
-</style>
+</style></head>
+
+<!-- Google Analytics -->
+
+
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -52,7 +50,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -67,7 +65,14 @@
 </div>
 
 <div class="smooth-scroll content-window">
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#blundergat">Blundergat</a></li><ul><li><a href="#acidgat">Acidgat</a></li><li><a href="#magmagat">Magmagat</a></li></ul><li><a href="#hells_retriever">Hell's Retriever</a></li><ul><li><a href="#hells_redeemer">Hell's Redeemer</a></li></ul><li><a href="#spoon">Spoon</a></li><ul><li><a href="#golden_spork">Golden Spork</a></li><li><a href="#golden_scalpel">Golden Scalpel</a></li><li><a href="#golden_sporknife">Golden Sporknife</a></li></ul><li><a href="#spectral_shield">Spectral Shield</a></li><ul><li><a href="#attuned_spectral_shield">Attuned Spectral Shield</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Most Escape Alive' Main Quest</a></li><ul><li><a href="#main_ee_step0">Before you Start</a></li><li><a href="#main_ee_step1">Unleash the Spirits</a></li><li><a href="#main_ee_step2">Shock and Denial</a></li><li><a href="#main_ee_step3">Pain and Guilt</a></li><li><a href="#main_ee_step4">Anger and Bargaining</a></li><ul><li><a href="#docks_challenge">Docks Challenge - 2/5 Difficulty</a></li><li><a href="#showers_challenge">Showers Challenge - 1/5 Difficulty</a></li><li><a href="#michigan_avenue_challenge">Michigan Avenue Challenge - 4/5 Difficulty</a></li><li><a href="#power_house_challenge">Power House Challenge - 3/5 Difficulty</a></li><li><a href="#new_industries_challenge">New Industries Challenge - 5/5 Difficulty (4/5 with the Undead Man Walking elixir)</a></li></ul><li><a href="#main_ee_step5">Reflection and Loneliness</a></li><li><a href="#main_ee_step6">The Upward Turn</a></li><li><a href="#main_ee_step7">Reconstruction (Boss Fight)</a></li><li><a href="#main_ee_step8">Acceptance</a></li></ul><li><a href="#song_ee">'Where Are We Going (2018 Edition)' Song</a></li><li><a href="#song_ee2">Mob of the Dead Showers Lockdown Theme</a></li><li><a href="#free_monkey_bomb">Free Monkey Bombs</a></li><li><a href="#shadowman_jumpscare">Shadowman Jumpscare</a></li><li><a href="#free_max_shield_charge">Free Max Shield Charge</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Hellcatraz' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -192,7 +197,7 @@
             <li>Wait for a Dog Round. During the Dog Round, a <a href="pictures/hells_retriever/hells_redeemer/ghostdog.webp">Ghost Dog</a> can be found walking around, which can only be seen using the Spectral Shield. Once found, Spirit Blast the Ghost Dog with the shield to make it disappear.</li>
             <ul>
                 <li>The Ghost Dog can literally be/go anywhere, so make sure to check everything from Spawn to the Docks.
-                <li>The Ghost Dog can get stuck on <a href="pictures/hells_retriever/hells_redeemer/stairs_stuck_dog.webp">the stairs leading up to 'Cell Block 3rd Floor'</a> so check there if you really cannot find it.</li>
+                </li><li>The Ghost Dog can get stuck on <a href="pictures/hells_retriever/hells_redeemer/stairs_stuck_dog.webp">the stairs leading up to 'Cell Block 3rd Floor'</a> so check there if you really cannot find it.</li>
                 <li>If you throw your Retriever at the blue symbol on a Dog Round, you will have to wait for the next Dog Round for the Ghost Dog to spawn.</li>
             </ul>
             <li>Use the Fast Travel at either the <a href="pictures/hells_retriever/showers_fasttravel.webp">Showers</a> or <a href="pictures/hells_retriever/wardenshouse_fasttravel.webp">Warden's House</a> to pick up the <a href="pictures/hells_retriever/hells_redeemer/redeemer_pickup.webp">Hell's Redeemer</a> from the same location as the Hell's Retriever.</li>
@@ -469,7 +474,7 @@
             <li>Return to the 'Warden's Ritual Room' and place the Kronorium on the corpse in the chair. The pages should begin flipping; interact with them to make them stop.
 
                 <p class="step-group-title" id="main_ee_step4">Anger and Bargaining</p>
-            <li>Look through the shield to see what numbers the book shows, and enter those numbers into the Number Pad in the 'Citadel Tunnels.' </li>
+            </li><li>Look through the shield to see what numbers the book shows, and enter those numbers into the Number Pad in the 'Citadel Tunnels.' </li>
             <li>The <a href="pictures/main_ee/anger_and_bargaining/lighthouse.webp">Lighthouse</a> near the 'Warden's House' will now be shining its light on a <a href="pictures/main_ee/anger_and_bargaining/red_orb_example.webp">Red Orb</a>, which can only be seen with the shield. The red orb is in one of five locations and corresponds to a challenge the players must complete. Spirit Blast the orb to make it visible without the shield and to start the challenge.</li>
             <li>Once a Challenge is complete, return to the Kronorium in the 'Warden's Ritual Room' for another set of numbers. Red Orb Locations: </li>
             <ul>
@@ -820,5 +825,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -33,7 +28,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -42,7 +40,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -58,7 +56,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#n31l">N31L</a></li><ul><li><a href="#kitt">KITT (N31L Upgrade)</a></li></ul><li><a href="#tickets">Tickets</a></li><ul><li><a href="#rewards">Ticket Rewards</a></li><li><a href="#arcade_games">List of Arcade Games</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#coins">Souvenir Coins/Stations (Craftable Scorestreaks)</a></li><li><a href="#weapons_of_rock">'Weapon of Rock' Wonder Weapons</a></li><ul><li><a href="#headcutter">Head-Cutter</a></li><li><a href="#facemelter">Face-Melter</a></li><li><a href="#dischord">Dischord</a></li><li><a href="#shredder">Shredder</a></li></ul><li><a href="#elemental_upgrades">Arcane Core Elemental Upgrades</a></li><ul><li><a href="#arcane_xquisite">X-QUISITE (Purple)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Sooooul Key' Main Quest</a></li><ul><li><a href="#main_ee_step2">Crafting the SETI-COM</a></li><li><a href="#main_ee_step3">Defending the SETI-COM</a></li><li><a href="#main_ee_step4">UFO and Alien Boss Fight</a></li><li><a href="#main_ee_step5">Destroying the UFO</a></li></ul><li><a href="#mw1_song">'MW1 Theme - The Spaceland Mix' Song</a></li><li><a href="#mw2_song">'MW2 Theme - Radical 80s Remix' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#ghosts_and_skulls">Ghosts 'N Skulls</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Balloons</a></li><li><a href="#side_ee_step2">Skull 2/6 - Skulls around the Map</a></li><li><a href="#side_ee_step3">Skull 3/6- Disco Floor</a></li><li><a href="#side_ee_step4">Skull 4/6 - Arcade Games</a></li><li><a href="#side_ee_step5">Skull 5/6 - Main Quest</a></li><li><a href="#side_ee_step6">Skull 6/6 - Brute Laser</a></li><li><a href="#side_ee_step7">The Ghost N' Skulls Mini-Game</a></li></ul><li><a href="#hasselhoff_code">Play as David Hasselhoff</a></li><li><a href="#wyler_code">Play as Willard Wyler</a></li><li><a href="#willards_test">Willard's Test (Secret Animated Calling Card)</a></li></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -314,11 +319,11 @@
         </ul>
     </div>
 
-    <div class="content-container" id="headcutter">
+    <div class="content-container" id="weapons_of_rock">
         <h2 class="section-title">'Weapon of Rock' Wonder Weapons</h2>
         <p class="weapon-desc">The Weapons of Rock are craftable pistols that fire semi-auto energy bullets with each weapon having a different effect on the Zombies. The Weapons of Rock can only be Pack-a-Punched using the <a href="#double_pap">Upgraded Pack-a-Punch machine</a>.</p>
 
-        <p class="step-group-title">Head-Cutter</p>
+        <p class="step-group-title" id="headcutter">Head-Cutter</p>
         <p class="weapon-desc">The Head-Cutter will cause a Zombie's head to explode, dealing splash damage to all nearby Zombies.</p>
         <ol>
             <li>The Head-Cutter requires three parts to be built - Battery, Yeti Plush, and Yellow Crystal:</li>
@@ -511,7 +516,7 @@
                 <li>Umbrella:</li>
                 <ul>
                     <li><a href="pictures/main_ee/seti_com/umbrella_cosmic.webp">Cosmic Way - On a bench, at the bottom of the Hyper Slopes slides</a></li>
-                    <li><a href="pictures/main_ee/seti_com/umbrella_journey.webp">Journey Into Space - Right of the trap activation box near the Fate & Fortune Dealer machine</a></li>
+                    <li><a href="pictures/main_ee/seti_com/umbrella_journey.webp">Journey Into Space - Right of the trap activation box near the Fate &amp; Fortune Dealer machine</a></li>
                     <li><a href="pictures/main_ee/seti_com/umbrella_polar.webp">Polar Peak - On the gift shop counter-top</a></li>
                 </ul>
             </ul>
@@ -596,7 +601,7 @@
         <ol>
             <li>Around the map, there are nine <a href="pictures/mw1_song/employee_of_the_month_example.webp">Employee of the Month</a> boards, three of which will have a <a href="pictures/mw1_song/teddy_bear_example.webp">Teddy Bear in place of the August picture</a>. You must find and shoot the three Teddy Bears to start the song. Board Locations: </li>
             <ul>
-                <li><a href="pictures/mw1_song/spawn.webp">Spawn - In the room behind the Up & Atoms perk</a></li>
+                <li><a href="pictures/mw1_song/spawn.webp">Spawn - In the room behind the Up &amp; Atoms perk</a></li>
                 <li><a href="pictures/mw1_song/astrocade_cryptid_attack.webp">Astrocade - Inside the barrier, right of the Cryptid Attack arcade game</a></li>
                 <li><a href="pictures/mw1_song/astrocade_alley.webp">Behind the Astrocade - Inside the barrier, left of the Karma-45 wallbuy</a></li>
                 <li><a href="pictures/mw1_song/underground_racin.webp">Underground - In the room with the Racin' Stripes perk</a></li>
@@ -728,7 +733,7 @@
             <li>You can check your current progress by looking at the <a href="pictures/ghost_and_skulls/ghost_and_skulls_machine.webp">Ghost N' Skulls Arcade Cabinet</a> on the Upper Floor of the Astrocade between the Black Hole and Cryptid Attack arcade machines.</li>
             <li><strong>Warning: </strong>You will need to complete the entire <a href="#main_ee">Main Quest</a> to get <a href="#side_ee_step5">Skull 5</a>.</li>
 
-            <p class="step-group-title">Skull 1/6 - Balloons</p>
+            <p class="step-group-title" id="side_ee_step1">Skull 1/6 - Balloons</p>
             <li>Pop all the <a href="pictures/ghost_and_skulls/skull_1/balloons.webp">balloons</a> above the Hailstorm wallbuy in Spawn. Once all the balloons are popped, you will hear a completion sound.</li>
 
             <p class="step-group-title" id="side_ee_step2">Skull 2/6 - Skulls around the Map</p>
@@ -807,7 +812,7 @@
             <p class="step-group-title" id="side_ee_step7">The Ghost N' Skulls Mini-Game</p>
             <li>The game consists of three rounds, with each round requiring you to destroy all the skulls before they make it to the end (similar to Space Invaders). Using the Entangler (your gun), grab a ghost floating around and shoot it at the skull to destroy it.</li>
             <li>Occasionally, a Skull will turn red and, after a few seconds, attempt to escape by flying to the vortex at the back of the arena. If three skulls escape in one round, the game will end, and you will have to get the Brute to laser the machine again to try again.</li>
-            <li>Once all three rounds are completed, you will be teleported back to the Astrocade, with all perks permanently (except Up & Atoms in Solo).</li>
+            <li>Once all three rounds are completed, you will be teleported back to the Astrocade, with all perks permanently (except Up &amp; Atoms in Solo).</li>
         </ol>
     </div>
 
@@ -871,5 +876,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>

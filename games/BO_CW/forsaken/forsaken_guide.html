@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forsaken Guide</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
-<!-- Google Analytics -->
 <script>
     const isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -32,7 +27,10 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+<!-- Google Analytics -->
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -41,7 +39,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -57,7 +55,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+            <label for="fontSelector">Select a Font:</label>
+            <select id="fontSelector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana (Higher Readability)</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+            </select>
+        <h2>Weapons</h2><ul><li><a href="#chrysalax">Chrysalax Savager</a></li><ul><li><a href="#chrysalax_step1">Tempered Crystal Heart</a></li><li><a href="#chrysalax_step2">Energetic Geode</a></li><li><a href="#chrysalax_step3">Polymorphic Crystal Core</a></li><li><a href="#chrysalax_step4">Crafting the Chrysalax</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Pyrrhic Victory' Main Easter Egg Quest</a></li><ul><li><a href="#main_ee_step2">Obtain and Fill the Fuel Tank</a></li><li><a href="#main_ee_step3">Obtain the Monitoring Device</a></li><li><a href="#main_ee_step4">Obtain the Housing Unit</a></li><li><a href="#main_ee_step5">Assemble and Escort the Aetherium Neutralizer</a></li><li><a href="#main_ee_step6">Forsaken Boss Fight</a></li></ul><li><a href="#song_ee">'Samantha's Ballad' Song</a></li><li><a href="#free_ray_gun">Pizza Delivery / Potential Free Ray Gun</a></li><li><a href="#perkaholic">Free Perkaholic (All Perks for Free)</a></li><li><a href="#grand_prix">Anytown Grand Prix / Free Points</a></li><li><a href="#pistol_upgrade">Free Pistol Rarity Upgrade</a></li><li><a href="#sniper_upgrade">Free Sniper Rarity Upgrade</a></li><li><a href="#smg_upgrade">Free SMG Rarity Upgrade</a></li><li><a href="#free_token">Free Arcade Token</a></li></ul></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="chrysalax">
@@ -286,5 +291,6 @@
 
 
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>
