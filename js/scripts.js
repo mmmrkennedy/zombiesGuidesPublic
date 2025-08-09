@@ -891,7 +891,8 @@ function getQuickLinkElements() {
         results.push({
             element: container,
             indentLevel: 0,
-            isSectionHeader: container.dataset.sectionInd !== undefined
+            isSectionHeader: container.dataset.sectionInd !== undefined,
+            sectionHeaderLevel: container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
         });
 
         // Find all step-group-title paragraphs in this container
@@ -952,14 +953,22 @@ function generateQuickLinks(parentElement, elements) {
 
     for (let i = 0; i < elements.length; i++) {
         const item = elements[i];
-        const { element, indentLevel, isSectionHeader } = item;
+        const { element, indentLevel, isSectionHeader, sectionHeaderLevel } = item;
 
         if (!element || indentLevel === undefined) continue;
 
         if (isSectionHeader) {
-            const sectionHeader = document.createElement("h2");
-            sectionHeader.innerText = element.dataset.sectionInd;
-            fragment.appendChild(sectionHeader); // Append to fragment
+            if (sectionHeaderLevel === 0) {
+                const sectionHeader = document.createElement("h2");
+                sectionHeader.innerText = element.dataset.sectionInd;
+                fragment.appendChild(sectionHeader); // Append to fragment
+
+            } else {
+                const sectionHeader = document.createElement("h4");
+                sectionHeader.classList.add("sub-header");
+                sectionHeader.innerText = element.dataset.sectionInd;
+                fragment.appendChild(sectionHeader); // Append to fragment
+            }
 
             currentList = document.createElement("ul");
             fragment.appendChild(currentList); // Append to fragment

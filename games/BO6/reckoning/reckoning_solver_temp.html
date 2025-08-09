@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Browser Tab Title (don't include "guide", just map name) -->
+    <title>Reckoning Solver</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/global_solver.css" rel="stylesheet">
+    <link href="/favicon/favicon.ico" rel="icon" type="image/x-icon">
+    <base target="_blank">
+</head>
+
+<!-- Google Analytics -->
+<script>
+    const isLocalEnvironment = window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.includes(".local");
+
+    if (!isLocalEnvironment) {
+        // Load gtag script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+        document.head.appendChild(script);
+
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-EVBLWE1MJL', { 'anonymize_ip': true });
+    }
+</script>
+
+<body>
+    <div class="top_buttons_background_box">
+        <!-- Title at the top of the page, INCLUDE "guide"-->
+        <h2 class="title-text">Shaolin Shuffle Solvers</h2>
+
+        <!-- Mobile devices content -->
+        <div id="mobileContent">
+            <button class="toggle-button top-left" onclick="navigateToIndex()"><-< /button>
+                    <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+                    <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+            </button>
+        </div>
+
+        <!-- Non-mobile devices content -->
+        <div id="nonMobileContent">
+            <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+            <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
+            <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        </div>
+    </div>
+
+    <div class="smooth-scroll content-window">
+        <!-- Legend to other parts -->
+        <div class="content-container-top">
+            <div class="content-container">
+                <div class="solver-insert"
+                    data-solver-html-path="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.html"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+
+</html>

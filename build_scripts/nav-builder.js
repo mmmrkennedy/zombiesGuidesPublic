@@ -45,7 +45,8 @@ class NavBuilder {
             results.push({
                 element: container,
                 indentLevel: 0,
-                isSectionHeader: container.dataset.sectionInd !== undefined
+                isSectionHeader: container.dataset.sectionInd !== undefined,
+                sectionHeaderLevel: container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
             });
 
             const titles = container.querySelectorAll("p.step-group-title, p.upgrade-title, p.sub-sub-step");
@@ -92,7 +93,7 @@ class NavBuilder {
 
         for (let i = 0; i < elements.length; i++) {
             const item = elements[i];
-            const { element, indentLevel, isSectionHeader } = item;
+            const { element, indentLevel, isSectionHeader, sectionHeaderLevel } = item;
 
             if (!element || indentLevel === undefined) continue;
 
@@ -103,7 +104,12 @@ class NavBuilder {
                     listStack.pop();
                 }
 
-                html += `<h2>${element.dataset.sectionInd}</h2>`;
+                if (sectionHeaderLevel === 0) {
+                    html += `<h2>${element.dataset.sectionInd}</h2>`;
+                } else {
+                    html += `<h4 class="sub-header">${element.dataset.sectionInd}</h4>`;
+                }
+
                 html += '<ul>';
                 listStack = [true];
                 currentIndentLevel = 0;

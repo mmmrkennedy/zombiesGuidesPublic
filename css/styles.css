@@ -150,6 +150,11 @@ h2.section-title {
     width: fit-content; /* Can expand beyond standard width if needed */
 }
 
+h4.sub-header {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
 /* Upgrade Title - Gradient blend between green and yellow */
 p.upgrade-title {
     margin: 13px 0 10px;

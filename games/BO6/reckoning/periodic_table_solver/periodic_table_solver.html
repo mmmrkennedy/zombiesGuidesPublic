@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table Element Finder</title>
+    <link rel="stylesheet" href="../../../../css/global_solver.css">
+</head>
+
+<body class="solver-body">
+
+    <div class="solver-container">
+        <h3>Periodic Table Element Finder</h3>
+        <p>Enter 1-2 letters to find matching periodic table elements. Input can be forwards or backwards (e.g., "fc" =
+            "Cf" = Californium).</p>
+
+        <div>
+            <label for="element-input">Element Symbol (1-2 letters):</label>
+            <input type="text" id="element-input" class="solver" placeholder="e.g., H, He, Li..." maxlength="2">
+        </div>
+
+        <button class="solver-button" id="reset" onclick="resetSolver()">Clear</button>
+
+        <div class="solver-output">
+            <h4>Matching Elements:</h4>
+            <div id="results-container">
+                <p id="result">Enter a symbol to find matching elements...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="periodic_table_solver.js"></script>
+
+</body>
+
+</html>
+
+<style>
+    /* Override container width to make it smaller */
+    .solver-container {
+        max-width: 400px !important;
+        width: 100%;
+    }
+
+    /* Custom styles for element cards */
+    .match-section {
+        margin-bottom: 20px;
+    }
+
+    .match-section h5 {
+        margin-bottom: 10px;
+        color: #4a9eff;
+        border-bottom: 1px solid #666;
+        padding-bottom: 5px;
+    }
+
+    .element-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 4px;
+        border-left: 4px solid #51cf66;
+        background-color: #1a4d1a;
+    }
+
+    .element-symbol {
+        font-weight: bold;
+        font-size: 18px;
+        min-width: 40px;
+    }
+
+    .element-name {
+        flex-grow: 1;
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .element-number {
+        font-size: 14px;
+        color: #aaa;
+        font-style: italic;
+    }
+
+    .reversed-indicator {
+        font-size: 12px;
+        color: #ffd43b;
+        font-style: italic;
+        margin-left: 10px;
+    }
+</style>
