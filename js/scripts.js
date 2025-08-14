@@ -1,8 +1,11 @@
-// console.log("Loaded Scripts")
+
 
 const BASE_PATH = window.location.origin + "/";
-// console.log(BASE_PATH);
 
+
+/**
+ * Redirects users from old GitHub Pages URLs to the new domain
+ */
 function redirect_to_new_link() {
     const oldBasePath = "/zombiesGuidesPublic/";
     const fullPath = window.location.pathname;
@@ -19,17 +22,23 @@ function redirect_to_new_link() {
 }
 
 
+/**
+ * Gets the current page filename from the URL
+ */
 function getCurrentPage() {
     return window.location.pathname.split("/").pop();
 }
 
 
+/**
+ * Sets the page title based on filename if title is "change me"
+ */
 function setTitle() {
     const currentPage = getCurrentPage();
     if (currentPage === "index.html" || currentPage === "") {
         return;
     }
-    
+
     let titleElement = document.getElementsByClassName("title-text")[0];
     let titleText = titleElement.innerHTML;
 
@@ -77,7 +86,7 @@ LIGHT AND DARK MODE FUNCTIONALITIES
 =======================================
 */
 
-function changeThemeColour(){
+function changeThemeColour() {
     const savedColorMode = localStorage.getItem('colourMode');
     if (savedColorMode === 'light') {
         document.body.classList.add('light-mode');
@@ -112,10 +121,10 @@ STORAGE EVENT LISTENERS
 =======================================
 */
 
-window.addEventListener('storage', function(event) {
-    switch(event.key) {
+window.addEventListener('storage', function (event) {
+    switch (event.key) {
         case 'preload':
-            if(localStorage.getItem("preload") === 'true') {
+            if (localStorage.getItem("preload") === 'true') {
                 window.location.reload();
             }
             break;
@@ -124,7 +133,7 @@ window.addEventListener('storage', function(event) {
             break;
         case 'substeps':
             substeps((localStorage.getItem("substeps") === 'true'));
-            if(localStorage.getItem("substeps") === 'true') {
+            if (localStorage.getItem("substeps") === 'true') {
                 window.location.href = window.location.href.split("#")[0];
             }
             break;
@@ -186,7 +195,7 @@ function setDefaultFonts() {
 
 function font_loader_init() {
     const fontSelector = document.getElementById('fontSelector');
-    if (fontSelector == null){
+    if (fontSelector == null) {
         return;
     }
 
@@ -239,7 +248,7 @@ function navigateToSettings() {
         window.open("/ZombiesGuidesHolder/zombiesGuidesPublic/settings/settings.html", "_blank");
 
     } else {
-        window.open(BASE_PATH  + "settings/settings.html", "_blank");
+        window.open(BASE_PATH + "settings/settings.html", "_blank");
     }
 }
 
@@ -250,11 +259,11 @@ SCROLL FUNCTIONS
 */
 
 function scrollToTop(fromPopstate = false) {
-    // console.log('scrollToTop called:', { fromPopstate });
+
 
     const contentWindow = document.querySelector('.content-window');
     if (contentWindow) {
-        // console.log('Scrolling to top');
+
         contentWindow.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -262,7 +271,7 @@ function scrollToTop(fromPopstate = false) {
 
         // Only add to history if this wasn't triggered by popstate
         if (!fromPopstate) {
-            // console.log('Adding to history: #');
+
             window.history.pushState({ anchor: null }, null, '#');
         }
     }
@@ -315,7 +324,7 @@ HISTORY MANAGEMENT FOR ANCHOR LINKS
 */
 
 // Handle popstate events (back/forward button)
-window.addEventListener('popstate', function(event) {
+window.addEventListener('popstate', function (event) {
     /* console.log('Popstate event triggered:', {
         hash: window.location.hash,
         state: event.state,
@@ -640,8 +649,8 @@ function substeps(check) {
     }
 
     let i = 1;
-    while(true) {
-        try{
+    while (true) {
+        try {
             document.getElementById('substeps' + i).style.display = displayStyle;
         } catch (e) {
             break;
@@ -708,7 +717,7 @@ function colourCodeAnchors() {
         const links = document.querySelectorAll("a:not(.content-container-top a)");
 
         // Loop through each <a> tag
-        links.forEach(function(link) {
+        links.forEach(function (link) {
             let link_href = link.getAttribute("href");
 
             if (link_href.includes("#")) {
@@ -996,7 +1005,7 @@ function generateQuickLinks(parentElement, elements) {
         }
 
         link.href = `#${elementId}`;
-        
+
         if (item.custom_name) {
             link.innerText = item.custom_name;
         } else {
@@ -1168,7 +1177,7 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
         const img = new Image();
         img.src = mediaSrc;
 
-        img.onload = function() {
+        img.onload = function () {
             // Set the source and display the image
             lightboxImg.setAttribute('src', mediaSrc);
             lightboxImg.style.display = 'block';
@@ -1178,7 +1187,7 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
             preloadAdjacentMedia(currentIndex);
         };
 
-        img.onerror = function() {
+        img.onerror = function () {
             // Handle error case
             lightboxCaption.textContent = 'Error loading image';
             lightboxImg.style.display = 'none';
@@ -1190,12 +1199,12 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
         lightboxCaption.textContent = captionText;
 
         // Set up event listeners for video loading
-        lightboxVideo.onloadeddata = function() {
+        lightboxVideo.onloadeddata = function () {
             // Video is loaded and can be played
             lightboxCaption.textContent = captionText;
         };
 
-        lightboxVideo.onerror = function() {
+        lightboxVideo.onerror = function () {
             // Handle error case
             lightboxCaption.textContent = 'Error loading video';
             lightboxVideo.style.display = 'none';
@@ -1320,7 +1329,7 @@ function initLightbox() {
 LAZY LOAD IMAGES
 =======================================
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Cache for loaded images
     const imageCache = new Map();
 
@@ -1367,7 +1376,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function includeSolverComponent() {
     const solverInserts = document.querySelectorAll('.solver-insert');
     let event_names = [];
-    
+
     // Use Promise.all to load all inserts simultaneously
     await Promise.all(Array.from(solverInserts).map(async (insert) => {
         try {
@@ -1404,7 +1413,7 @@ function setContentWindowPosition() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const was_redirected = redirect_to_new_link();
 
     if (!was_redirected) {

@@ -153,16 +153,28 @@ function findElements() {
         matches.forEach(element => {
             const symbolLower = element.symbol.toLowerCase();
             const isReversed = symbolLower === inputReversed && symbolLower !== inputLower;
+            
+            let element_number = element.number;
+            
+            if (element_number < 10){
+                element_number = "00" + element_number;
+            } else if (element_number < 100){
+                element_number = "0" + element_number;
+            }
 
             html += `<div class="element-card">
                 <span class="element-symbol">${element.symbol}</span>
                 <span class="element-name">${element.name}</span>
-                <span class="element-number">#${element.number}</span>
+                <span class="element-number">#${element_number}</span>
                 ${isReversed ? '<span class="reversed-indicator">(reversed)</span>' : ''}
             </div>`;
         });
     } else {
-        html = '<p id="result">No elements found matching "' + inputValue + '" or "' + inputValue.split('').reverse().join('') + '"</p>';
+        if(inputValue.length === 1){
+            html = '<p id="result">No elements found matching "' + inputValue + '"</p>';
+        } else {
+            html = '<p id="result">No elements found matching "' + inputValue + '" or "' + inputValue.split('').reverse().join('') + '"</p>';
+        }
     }
 
     resultsContainer.innerHTML = html;

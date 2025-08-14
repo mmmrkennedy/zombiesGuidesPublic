@@ -12,8 +12,8 @@
 
     <div class="solver-container">
         <h3>Periodic Table Element Finder</h3>
-        <p>Enter 1-2 letters to find matching periodic table elements. Input can be forwards or backwards (e.g., "fc" =
-            "Cf" = Californium).</p>
+        <p>Enter 1-2 letters to find matching periodic table elements.</p>
+        <p>Input can be forwards or backwards (e.g., "fc" = "Cf" = Californium).</p>
 
         <div>
             <label for="element-input">Element Symbol (1-2 letters):</label>
@@ -23,9 +23,8 @@
         <button class="solver-button" id="reset" onclick="resetSolver()">Clear</button>
 
         <div class="solver-output">
-            <h4>Matching Elements:</h4>
             <div id="results-container">
-                <p id="result">Enter a symbol to find matching elements...</p>
+                <p id="result"></p>
             </div>
         </div>
     </div>
@@ -79,9 +78,8 @@
     }
 
     .element-number {
-        font-size: 14px;
+        font-size: 16px;
         color: #aaa;
-        font-style: italic;
     }
 
     .reversed-indicator {
