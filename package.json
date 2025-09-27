@@ -1,0 +1,31 @@
+{
+  "name": "zombies-guides",
+  "version": "1.0.0",
+  "description": "Zombies Guides website with automated build system",
+  "scripts": {
+    "build": "node build-tools/build-all.js",
+    "build:verbose": "node build-tools/build-all.js --verbose",
+    "build:nav": "node build-tools/build-all.js --nav-only",
+    "nav": "node build-tools/nav-builder-improved.js",
+    "nav:verbose": "node build-tools/nav-builder-improved.js --verbose",
+    "nav:dry": "node build-tools/nav-builder-improved.js --dry-run",
+    "dev": "python -m http.server 8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "zombies",
+    "guides",
+    "gaming",
+    "static-site",
+    "build-tools"
+  ],
+  "author": "mmmrkennedy",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^22.1.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "homepage": "https://mmmrkennedy.com"
+}

@@ -3,169 +3,10 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
+const QuickLinksUtils = require('../js/quick-links-utils.js');
 
 class NavBuilder {
-    shouldExcludeElement(element) {
-        let current = element;
-        while (current) {
-            if (current.classList &&
-                (current.classList.contains('solver-container') ||
-                    current.classList.contains('stats') ||
-                    current.classList.contains('weapon-desc') ||
-                    current.classList.contains('warning') ||
-                    current.classList.contains('solver-output') ||
-                    current.classList.contains('solver-symbol-select') ||
-                    current.classList.contains('aligned-buttons') ||
-                    current.classList.contains('aligned-label'))) {
-                return true;
-            }
-            current = current.parentElement;
-        }
-        return element.dataset && element.dataset.boolQuickLink === "false";
-    }
-
-    getElementTitle(element) {
-        if (element.dataset.customTitle) {
-            return element.dataset.customTitle;
-        }
-        if (element.children.length !== 0) {
-            return element.children[0].textContent;
-        } else {
-            return element.textContent;
-        }
-    }
-
-    getQuickLinkElements(document) {
-        const results = [];
-        const containers = document.querySelectorAll("div.content-container");
-
-        for (const container of containers) {
-            if (this.shouldExcludeElement(container)) continue;
-
-            results.push({
-                element: container,
-                indentLevel: 0,
-                isSectionHeader: container.dataset.sectionInd !== undefined,
-                sectionHeaderLevel: container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
-            });
-
-            const titles = container.querySelectorAll("p.step-group-title, p.upgrade-title, p.sub-sub-step");
-
-            for (const [title_counter, title] of titles.entries()) {
-                if (this.shouldExcludeElement(title)) continue;
-
-                let indentLevel = 1;
-                if (title.classList.contains("sub-sub-step") && title_counter !== 0) {
-                    indentLevel = 2;
-                }
-                if (title.dataset.customIndent) {
-                    indentLevel = Number(title.dataset.customIndent);
-                }
-
-                if (title.dataset.customQuickLink) {
-                    const customLinks = title.dataset.customQuickLink.split(";");
-                    title.id = customLinks[0];
-                    for (const customName of customLinks) {
-                        results.push({
-                            element: title,
-                            indentLevel,
-                            custom_name: customName
-                        });
-                    }
-                } else {
-                    results.push({
-                        element: title,
-                        indentLevel
-                    });
-                }
-            }
-        }
-
-        return results;
-    }
-
-    generateNavHTML(elements) {
-        if (!elements || elements.length === 0) return '';
-
-        let html = '';
-        let currentIndentLevel = 0;
-        let listStack = [];
-
-        for (let i = 0; i < elements.length; i++) {
-            const item = elements[i];
-            const { element, indentLevel, isSectionHeader, sectionHeaderLevel } = item;
-
-            if (!element || indentLevel === undefined) continue;
-
-            if (isSectionHeader) {
-                // Close any open lists
-                while (listStack.length > 0) {
-                    html += '</ul>';
-                    listStack.pop();
-                }
-
-                if (sectionHeaderLevel === 0) {
-                    html += `<h2>${element.dataset.sectionInd}</h2>`;
-                } else {
-                    html += `<h4 class="sub-header">${element.dataset.sectionInd}</h4>`;
-                }
-
-                html += '<ul>';
-                listStack = [true];
-                currentIndentLevel = 0;
-            }
-
-            if (listStack.length === 0) {
-                html += '<ul>';
-                listStack = [true];
-                currentIndentLevel = 0;
-            }
-
-            const elementId = element.id;
-            if (elementId === "") {
-                console.log(`Element Quick Link with text **${element.textContent}** skipped, no ID given`);
-                continue;
-            }
-
-            const linkText = item.custom_name || this.getElementTitle(element);
-
-            // Handle nesting
-            if (indentLevel > currentIndentLevel) {
-                while (currentIndentLevel < indentLevel) {
-                    html += '<ul>';
-                    listStack.push(true);
-                    currentIndentLevel++;
-                }
-            } else if (indentLevel < currentIndentLevel) {
-                while (listStack.length > 1 && currentIndentLevel > indentLevel) {
-                    html += '</ul>';
-                    listStack.pop();
-                    currentIndentLevel--;
-                }
-            }
-
-            html += `<li><a href="#${elementId}">${linkText}</a></li>`;
-        }
-
-        // Close remaining lists
-        while (listStack.length > 0) {
-            html += '</ul>';
-            listStack.pop();
-        }
-
-        return html;
-    }
-
-    generateFontBoxHTML() {
-        return `
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        `;
-    }
+    // All utility functions moved to quick-links-utils.js
 
     processFile(filePath) {
         console.log(`Processing ${path.basename(filePath)}...`);
@@ -174,23 +15,11 @@ class NavBuilder {
         const dom = new JSDOM(content);
         const document = dom.window.document;
 
-        // Find or create the container
-        let parentElement = document.querySelector(".content-container-top");
-        const smoothScrollElement = document.querySelector(".smooth-scroll");
-
-        if (!parentElement && smoothScrollElement) {
-            parentElement = document.createElement("div");
-            parentElement.classList.add("content-container-top");
-
-            if (smoothScrollElement.firstChild) {
-                smoothScrollElement.insertBefore(parentElement, smoothScrollElement.firstChild);
-            } else {
-                smoothScrollElement.appendChild(parentElement);
-            }
-        }
+        // Find the hamburger menu container
+        let parentElement = document.getElementById("hamburgerMenuLinks");
 
         if (!parentElement) {
-            console.log('  No suitable container found, skipping');
+            console.log('  Hamburger menu container not found, skipping');
             return false;
         }
 
@@ -198,11 +27,12 @@ class NavBuilder {
         parentElement.innerHTML = '';
 
         // Generate font box
-        parentElement.innerHTML = this.generateFontBoxHTML();
+        parentElement.innerHTML = QuickLinksUtils.generateFontBoxHTML();
 
         // Generate navigation
-        const elementsData = this.getQuickLinkElements(document);
-        const navHTML = this.generateNavHTML(elementsData);
+        const elementsData = QuickLinksUtils.getQuickLinkElements(document);
+        const isHamburgerMenu = parentElement.id === "hamburgerMenuLinks";
+        const navHTML = QuickLinksUtils.generateNavHTML(elementsData, isHamburgerMenu);
 
         if (navHTML) {
             parentElement.innerHTML += navHTML;

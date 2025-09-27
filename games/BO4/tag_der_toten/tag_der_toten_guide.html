@@ -37,6 +37,10 @@
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Tag der Toten Guide</h2>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -54,16 +58,34 @@
     </div>
 </div>
 
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#golden_pap">Golden Pack-a-Punch</a></li></ul><li><a href="#flinger_repairs">Flinger Repairs</a></li><li><a href="#challenge_totems">Challenge Totems</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#thundergun">Thundergun</a></li><li><a href="#tundragun">Tundragun</a></li><li><a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a></li><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#samanthas_music_box">Samantha's Music Box</a></li><li><a href="#dynamite_bomb">Dynamite Bomb</a></li><li><a href="#heat_pack">Heat Pack</a></li><li><a href="#zipline_handle">Zipline Handle</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Salvation Lies Above' Main Quest</a></li><ul><li><a href="#main_ee_step1">Ascend from Darkness</a></li><li><a href="#main_ee_step2">Knowledge is Power</a></li><li><a href="#main_ee_step3">Acquire the Vessel</a></li><li><a href="#main_ee_step4">Tame that which is Bonded</a></li><li><a href="#main_ee_step5">Knowledge Itself is for the Taking</a></li><li><a href="#main_ee_step6">Tame that which is Merged</a></li><li><a href="#main_ee_step7">Empower Through the Machines of the Angels</a></li><li><a href="#main_ee_step8">Tame that which is Powered</a></li><li><a href="#main_ee_step9">Salvation Lies Above</a></li><li><a href="#main_ee_step10">The Infinite / Boss Fight</a></li></ul><li><a href="#song_ee">'A Light from the Shore' Song</a></li><li><a href="#song_ee_2">'Reflections' Song</a></li><li><a href="#yellow_snowballs">Yellow Snowballs</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#dont_freeze">'Don't Freeze' Mode / Teleport to Round 200</a></li><li><a href="#margwa_jumpscare">Margwa Jumpscare</a></li><li><a href="#hermit_jumpscare">The Hermit Jumpscare</a></li><li><a href="#free_points">George Romero Tribute / Free 500 Points</a></li><li><a href="#the_secret">'The Secret' Easter Egg/Achievement</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'An Ice Day in Hell' Gauntlet Challenges</a></li></ul></div>
+    </div>
+</div>
+
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#golden_pap">Golden Pack-a-Punch</a></li></ul><li><a href="#flinger_repairs">Flinger Repairs</a></li><li><a href="#challenge_totems">Challenge Totems</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#thundergun">Thundergun</a></li><li><a href="#tundragun">Tundragun</a></li><li><a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a></li><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#samanthas_music_box">Samantha's Music Box</a></li><li><a href="#dynamite_bomb">Dynamite Bomb</a></li><li><a href="#heat_pack">Heat Pack</a></li><li><a href="#zipline_handle">Zipline Handle</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Salvation Lies Above' Main Quest</a></li><ul><li><a href="#main_ee_step1">Ascend from Darkness</a></li><li><a href="#main_ee_step2">Knowledge is Power</a></li><li><a href="#main_ee_step3">Acquire the Vessel</a></li><li><a href="#main_ee_step4">Tame that which is Bonded</a></li><li><a href="#main_ee_step5">Knowledge Itself is for the Taking</a></li><li><a href="#main_ee_step6">Tame that which is Merged</a></li><li><a href="#main_ee_step7">Empower Through the Machines of the Angels</a></li><li><a href="#main_ee_step8">Tame that which is Powered</a></li><li><a href="#main_ee_step9">Salvation Lies Above</a></li><li><a href="#main_ee_step10">The Infinite / Boss Fight</a></li></ul><li><a href="#song_ee">'A Light from the Shore' Song</a></li><li><a href="#song_ee_2">'Reflections' Song</a></li><li><a href="#yellow_snowballs">Yellow Snowballs</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#dont_freeze">'Don't Freeze' Mode / Teleport to Round 200</a></li><li><a href="#margwa_jumpscare">Margwa Jumpscare</a></li><li><a href="#hermit_jumpscare">The Hermit Jumpscare</a></li><li><a href="#free_points">George Romero Tribute / Free 500 Points</a></li><li><a href="#the_secret">'The Secret' Easter Egg/Achievement</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'An Ice Day in Hell' Gauntlet Challenges</a></li></ul></div>
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#golden_pap">Golden Pack-a-Punch</a></li></ul><li><a href="#flinger_repairs">Flinger Repairs</a></li><li><a href="#challenge_totems">Challenge Totems</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#thundergun">Thundergun</a></li><li><a href="#tundragun">Tundragun</a></li><li><a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a></li><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#samanthas_music_box">Samantha's Music Box</a></li><li><a href="#dynamite_bomb">Dynamite Bomb</a></li><li><a href="#heat_pack">Heat Pack</a></li><li><a href="#zipline_handle">Zipline Handle</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Salvation Lies Above' Main Quest</a></li><ul><li><a href="#main_ee_step1">Ascend from Darkness</a></li><li><a href="#main_ee_step2">Knowledge is Power</a></li><li><a href="#main_ee_step3">Acquire the Vessel</a></li><li><a href="#main_ee_step4">Tame that which is Bonded</a></li><li><a href="#main_ee_step5">Knowledge Itself is for the Taking</a></li><li><a href="#main_ee_step6">Tame that which is Merged</a></li><li><a href="#main_ee_step7">Empower Through the Machines of the Angels</a></li><li><a href="#main_ee_step8">Tame that which is Powered</a></li><li><a href="#main_ee_step9">Salvation Lies Above</a></li><li><a href="#main_ee_step10">The Infinite / Boss Fight</a></li></ul><li><a href="#song_ee">'A Light from the Shore' Song</a></li><li><a href="#song_ee_2">'Reflections' Song</a></li><li><a href="#yellow_snowballs">Yellow Snowballs</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#dont_freeze">'Don't Freeze' Mode / Teleport to Round 200</a></li><li><a href="#margwa_jumpscare">Margwa Jumpscare</a></li><li><a href="#hermit_jumpscare">The Hermit Jumpscare</a></li><li><a href="#free_points">George Romero Tribute / Free 500 Points</a></li><li><a href="#the_secret">'The Secret' Easter Egg/Achievement</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'An Ice Day in Hell' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Map Progression -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -839,6 +861,34 @@
 </div>
 
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
 
 

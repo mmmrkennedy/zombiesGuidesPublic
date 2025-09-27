@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.A.M. Files Solver</title>
+    <link rel="stylesheet" href="../../../../css/global_solver.css">
+</head>
+
+<body class="solver-body">
+
+    <div class="solver-container">
+        <h3>S.A.M. Files Solver</h3>
+        <p>Select 4 S.A.M. Files to get the file number combination.</p>
+
+        <div>
+            <label for="file1">File 1:</label>
+            <select id="file1" class="solver">
+                <option value="">Select file...</option>
+                <option value="1">Notso's Collar (1)</option>
+                <option value="2">Katana (2)</option>
+                <option value="3">Scarf (3)</option>
+                <option value="4">Wristwatch (4)</option>
+                <option value="5">Combat Goggles (5)</option>
+                <option value="6">BND Badge (6)</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="file2">File 2:</label>
+            <select id="file2" class="solver">
+                <option value="">Select file...</option>
+                <option value="1">Notso's Collar (1)</option>
+                <option value="2">Katana (2)</option>
+                <option value="3">Scarf (3)</option>
+                <option value="4">Wristwatch (4)</option>
+                <option value="5">Combat Goggles (5)</option>
+                <option value="6">BND Badge (6)</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="file3">File 3:</label>
+            <select id="file3" class="solver">
+                <option value="">Select file...</option>
+                <option value="1">Notso's Collar (1)</option>
+                <option value="2">Katana (2)</option>
+                <option value="3">Scarf (3)</option>
+                <option value="4">Wristwatch (4)</option>
+                <option value="5">Combat Goggles (5)</option>
+                <option value="6">BND Badge (6)</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="file4">File 4:</label>
+            <select id="file4" class="solver">
+                <option value="">Select file...</option>
+                <option value="1">Notso's Collar (1)</option>
+                <option value="2">Katana (2)</option>
+                <option value="3">Scarf (3)</option>
+                <option value="4">Wristwatch (4)</option>
+                <option value="5">Combat Goggles (5)</option>
+                <option value="6">BND Badge (6)</option>
+            </select>
+        </div>
+
+        <button class="solver-button" id="maxis-reset" onclick="resetMaxisSolver()">Clear</button>
+
+        <div class="solver-output">
+            <div id="maxis-results-container">
+                <p id="maxis-result"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="maxis_items_solver.js"></script>
+
+</body>
+
+</html>
+
+<style>
+    /* Override container width to make it larger for dropdowns */
+    .solver-container {
+        max-width: 500px !important;
+        width: 100%;
+    }
+
+    /* Style the select dropdowns to match global_solver.css */
+    .solver-container select.solver {
+        width: 100%;
+        max-width: 300px;
+        padding: 8px;
+        background-color: #444;
+        color: white;
+        border: 1px solid #666;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .solver-container select.solver:focus {
+        outline: none;
+        border-color: #51cf66;
+    }
+
+    .solver-container select.solver option {
+        background-color: #444;
+        color: white;
+    }
+
+    /* Style the result output */
+    #maxis-result {
+        font-size: 18px;
+        font-weight: bold;
+        color: #51cf66;
+        text-align: center;
+        padding: 10px;
+        background-color: #1a4d1a;
+        border-radius: 4px;
+        border: 1px solid #51cf66;
+    }
+</style>

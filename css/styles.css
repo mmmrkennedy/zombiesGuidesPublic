@@ -1,20 +1,54 @@
+/* 
+=======================================
+ZOMBIES GUIDES STYLESHEET
+=======================================
+Consolidated CSS with improved organization and CSS custom properties
+*/
+
+/* 
+=======================================
+BASE STYLES
+=======================================
+*/
+
+/* Root variables for consistent theming */
+:root {
+    --primary-bg: #151515;
+    --primary-text: #c0bfbf;
+    --accent-blue: cornflowerblue;
+    --accent-green: #6bc343;
+    --accent-yellow: #c9c449;
+    --warning-red: #ef4444;
+    --warning-text: #fca5a5;
+    --border-gray: #ddd;
+    --button-bg: #333333;
+    --button-hover: #555;
+}
+
+/* Base body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     position: relative;
-    background-color: #151515;
-    color: #c0bfbf;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
     line-height: 1.75;
     overflow: hidden;
     max-width: 100%;
 }
 
+/* Base link styles */
 a {
-    color: cornflowerblue;
+    color: var(--accent-blue);
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+/* Link type variations */
 a.link-to-page {
     color: #359fad;
     text-decoration: underline;
@@ -27,6 +61,7 @@ a.youtube-link {
     font-style: italic;
 }
 
+/* Link validation states */
 .incomplete-path {
     color: red;
 }
@@ -39,240 +74,122 @@ a.youtube-link {
     color: yellow;
 }
 
+/* Utility classes */
 .main-line {
     border-top: 3px solid gray;
     margin: 20px 15px;
 }
 
-.toggle-button {
-    position: fixed;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #333333;
-    color: #fff;
-    border-radius: 5px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    z-index: 2;
+/* 
+=======================================
+FONT DEFINITIONS
+=======================================
+*/
 
-    top: var(--btn-top, auto);
-    right: var(--btn-right, auto);
-    bottom: var(--btn-bottom, auto);
-    left: var(--btn-left, auto);
+/* OpenDyslexic Font */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.toggle-button:hover {
-    background-color: #555;
-    opacity: 1;
-}
-
-.top-left { --btn-top: 20px; --btn-left: 20px; }
-.top-left-down { --btn-top: 70px; --btn-left: 20px; }
-.top-right { --btn-top: 20px; --btn-right: 20px; }
-.top-right-down { --btn-top: 70px; --btn-right: 20px; }
-.bottom-left { --btn-bottom: 20px; --btn-left: 20px; }
-.bottom-right { --btn-bottom: 20px; --btn-right: 20px; }
-.bottom-right-up { --btn-bottom: 70px; --btn-right: 20px; }
-
-/* Overall Content Formating */
-.content-container-top,
-.content-container {
-    text-align: left;
-    margin: 15px 15px 10px 20px;
-    position: relative;
-    inline-size: auto;
-    overflow-wrap: break-word;
-    border-bottom: 2px solid grey;
-}
-
-.content-container-top {
-    border-bottom: 4px solid grey;
-    margin-top: 20px;
-}
-
-p.warning, p.boss-fight-phases {
-    padding: 0.5rem;
-    margin: 1rem 0;
-    min-width: 150px;
-    width: fit-content;
-}
-
-p.warning {
-    border: 1px solid #ef4444;  /* Direct value instead of var(#ef4444) */
-    border-radius: 4px;
-    color: #fca5a5;
-    background: rgba(239, 68, 68, 0.1);
-}
-
-p.warning::before {
-    content: "⚠️ ";
-}
-
-p.boss-fight-phases {
-    color: #bdb968;
-    background-color: rgba(140, 137, 65, 0.08); /* Subtle background tint */
-    border-left: 4px solid #9a9b52; /* Accent border */
-    min-width: 75px;
-    width: fit-content;
-}
-
-/* Enhanced Step Group Titles with Background and Border */
-p.step-group-title, p.sub-sub-step {
-    margin-top: 13px;
-    margin-bottom: 10px;
-    margin-right: 0;
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic-Bold.woff2') format('woff2');
     font-weight: bold;
-    font-size: 115%;
-    color: #c9c449;
-    padding: 5px 8px; /* Added padding for background */
-    background-color: rgba(201, 196, 73, 0.1); /* Subtle background tint */
-    border-left: 4px solid #c9c449; /* Accent border */
-    border-radius: 0 4px 4px 0; /* Rounded corners on right side */
-    min-width: 150px; /* Standard width they all go to */
-    width: fit-content; /* Can expand beyond standard width if needed */
+    font-style: normal;
 }
 
-
-/* Section Title Styling */
-h2.section-title {
-    font-weight: bold;
-    font-size: 130%; /* Larger than step titles to show hierarchy */
-    color: #6bc343; /* Green accent color from your theme */
-    margin: 20px 0 15px 0;
-    padding: 8px 11px;
-    background-color: rgba(107, 195, 67, 0.1); /* Subtle green background tint */
-    border-left: 5px solid #6bc343; /* Thicker green accent border */
-    border-radius: 0 6px 6px 0; /* Slightly more rounded than step titles */
-    line-height: 1.75;
-    min-width: 350px; /* Standard width for section titles (larger than step titles) */
-    width: fit-content; /* Can expand beyond standard width if needed */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
 }
 
-h4.sub-header {
-    margin-top: -5px;
-    margin-bottom: -5px;
-}
-
-/* Upgrade Title - Gradient blend between green and yellow */
-p.upgrade-title {
-    margin: 13px 0 10px;
-    font-weight: bold;
-    font-size: 105%;
-    color: #8bb846; /* Blend color for text */
-    padding: 6px 9px; /* Padding between section and step sizes */
-    background: linear-gradient(to bottom, rgba(107, 195, 67, 0.15), rgba(201, 196, 73, 0.15)); /* Gradient from green to yellow */
-    border-left: 4.5px solid;
-    border-image: linear-gradient(to bottom, #6bc343, #c9c449) 1; /* Gradient border from green to yellow */
-    border-radius: 0 5px 5px 0; /* Border radius between section and step */
-    min-width: 250px; /* Width between section (350px) and step (150px) titles */
-    width: fit-content; /* Can expand beyond standard width if needed */
-}
-
-p.sub-sub-step {
-    font-size: 105%;
-    line-height: 1.75;
-}
-
-li {
-    margin-top: 2px;
-    margin-bottom: 5px;
-}
-
-p.li-spacing, p.weapon-desc {
-    margin: 7px 0;
-}
-
-p.weapon-desc {
-    font-weight: bold;
-}
-
-details.spacing {
-    margin: 15px 0;
-    border-left: #6bc343 solid 2px;
-    background-color: rgba(107, 195, 67, 0.1);
-    display: inline-block;
-    padding: 0.2em;
-}
-
-input.spacing {
-    margin: 10px 0 15px;
-}
-
-p.stats, p.song-link {
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic-BoldItalic.woff2') format('woff2');
     font-weight: bold;
     font-style: italic;
 }
 
-table caption {
-    font-weight: bold;
-    font-size: 110%;
-    color: #c9c449; /* Matches your step-group-title color */
-    margin-bottom: 15px;
-    text-align: left;
-    padding: 8px 10px;
-    background-color: rgba(201, 196, 73, 0.1); /* Subtle background tint */
-    border-left: 4px solid #c9c449; /* Accent border to match your theme */
-    border-radius: 0 4px 4px 0;
-    caption-side: top;
-    line-height: 1.75; /* Matches your body line-height */
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.title-text, .title-sub-text {
-    margin-top: 0;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.title-sub-text {
-    top: 50px;
-}
-
-/* Top Buttons Background */
-.top_buttons_background_box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 89px;
-    z-index: 1000;
-    background-color: #151515;
-    border-bottom: 3px solid gray;
-}
-
-
-/* Font Things */
 @font-face {
     font-family: 'OpenDyslexic';
-    src: url('/zombiesGuidesPublic/font/OpenDyslexic-Regular.woff2') format('woff2');
+    src: url('../font/OpenDyslexicAlta-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexicAlta-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexicAlta-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexicAlta-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexicMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-variant-ligatures: none;
+}
+
+/* Verdana Font */
+@font-face {
+    font-family: 'Verdana';
+    src: url('../font/verdana.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Verdana';
-    src: url('/zombiesGuidesPublic/font/verdana.woff2') format('woff2');
-    font-weight: normal;
+    src: url('../font/verdana-bold.woff2') format('woff2');
+    font-weight: bold;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Verdana';
+    src: url('../font/verdana-bold-italic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* 
+=======================================
+LAYOUT STYLES
+=======================================
+*/
+
+/* Content window */
 .content-window {
     position: fixed;
     left: 0;
     width: 100%;
     height: calc(100vh - 20px);
     overflow-y: auto;
-    background-color: #151515;
+    background-color: var(--primary-bg);
 }
 
+/* Smooth scroll containers */
 .smooth-scroll, .smooth-scroll.open-dyslexic {
     font-family: Arial, sans-serif;
     padding-right: 20px;
@@ -291,57 +208,16 @@ a:hover {
     font-family: 'Verdana', sans-serif;
 }
 
-
-/* Default table styles */
-table {
-    margin: 20px 30px 20px 10px;
-    border-collapse: collapse;
-    width: auto; /* Default width limit for all tables */
+/* Mobile content visibility */
+#nonMobileContent {
+    display: none;
 }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+#mobileContent {
+    display: none;
 }
 
-.square-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    font-size: 12px;
-    cursor: pointer;
-    border-radius: 0; /* This makes the corners squared */
-    text-transform: uppercase; /* Optional for uppercase text */
-    margin-bottom: 5px;
-}
-
-.square-button.active {
-    background-color: #fff;
-    color: #000;
-}
-
-.square-button:hover {
-    opacity: 0.8;
-}
-
-.button-activated-div {
-    max-width: 850px;
-    margin: 10px;
-    padding: 10px;
-}
-
-.button-activated-div.border {
-    border: 5px dashed red;
-}
-
-.solver-with-button {
-    min-width: 850px;
-    width: fit-content;
-    margin: 20px
-}
-
+/* Specialized components */
 #venom-x-box-buttons {
     display: flex;
     flex-direction: column;
@@ -369,7 +245,442 @@ th, td {
     letter-spacing: 0.1em;
 }
 
-/* Lightbox styling */
+/* 
+=======================================
+UI COMPONENTS
+=======================================
+*/
+
+/* Toggle Buttons */
+.toggle-button {
+    position: fixed;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--button-bg);
+    color: #fff;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+
+    top: var(--btn-top, auto);
+    right: var(--btn-right, auto);
+    bottom: var(--btn-bottom, auto);
+    left: var(--btn-left, auto);
+}
+
+.toggle-button:hover {
+    background-color: var(--button-hover);
+    opacity: 1;
+}
+
+/* Button positioning utilities */
+.top-left { --btn-top: 20px; --btn-left: 20px; }
+.top-left-down { --btn-top: 70px; --btn-left: 20px; }
+.top-right { --btn-top: 20px; --btn-right: 20px; }
+.top-right-down { --btn-top: 70px; --btn-right: 20px; }
+.bottom-left { --btn-bottom: 20px; --btn-left: 20px; }
+.bottom-right { --btn-bottom: 20px; --btn-right: 20px; }
+.bottom-right-up { --btn-bottom: 70px; --btn-right: 20px; }
+
+/* Square Buttons */
+.square-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.square-button.active {
+    background-color: #fff;
+    color: #000;
+}
+
+.square-button:hover {
+    opacity: 0.8;
+}
+
+/* Button-activated containers */
+.button-activated-div {
+    max-width: 850px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.button-activated-div.border {
+    border: 5px dashed red;
+}
+
+.solver-with-button {
+    min-width: 850px;
+    width: fit-content;
+    margin: 20px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu-toggle {
+    position: fixed;
+    top: 25px;
+    left: 120px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.hamburger-menu-toggle svg {
+    fill: #fff;
+    transition: fill 0.3s ease;
+}
+
+.hamburger-menu-toggle:hover svg {
+    fill: #c0bfbf;
+}
+
+/* Hamburger Menu Overlay */
+.hamburger-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hamburger-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hamburger-menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100%;
+    background-color: var(--primary-bg);
+    border-right: 3px solid gray;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.hamburger-menu-overlay.active .hamburger-menu-content {
+    transform: translateX(0);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.hamburger-menu-overlay:not(.active) .hamburger-menu-content {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid gray;
+    background-color: #333333;
+}
+
+.hamburger-menu-header h3 {
+    margin: 0;
+    color: var(--primary-text);
+    font-size: 18px;
+}
+
+.hamburger-menu-close {
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-menu-close:hover {
+    color: #fff;
+}
+
+.hamburger-menu-links {
+    padding: 20px;
+}
+
+.hamburger-menu-links h4 {
+    color: var(--accent-green);
+    margin: 20px 0 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--accent-green);
+    padding-bottom: 5px;
+}
+
+.hamburger-menu-links h4:first-child {
+    margin-top: 0;
+}
+
+.hamburger-menu-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.hamburger-menu-links ul ul {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.hamburger-menu-links ul ul ul {
+    margin-left: 20px;
+}
+
+.hamburger-menu-links li {
+    margin: 5px 0;
+}
+
+.hamburger-menu-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+
+.hamburger-menu-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hamburger-menu-content {
+        width: 100%;
+    }
+    
+    .hamburger-menu-toggle {
+        left: 100px;
+    }
+}
+
+/* 
+=======================================
+CONTENT STYLES
+=======================================
+*/
+
+/* Content containers */
+.content-container-top,
+.content-container {
+    text-align: left;
+    margin: 15px 15px 10px 20px;
+    position: relative;
+    inline-size: auto;
+    overflow-wrap: break-word;
+    border-bottom: 2px solid grey;
+}
+
+.content-container-top {
+    border-bottom: 4px solid grey;
+    margin-top: 20px;
+}
+
+/* Warning and info boxes */
+p.warning, p.boss-fight-phases {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    min-width: 150px;
+    width: fit-content;
+}
+
+p.warning {
+    border: 1px solid var(--warning-red);
+    border-radius: 4px;
+    color: var(--warning-text);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+p.warning::before {
+    content: "⚠️ ";
+}
+
+p.boss-fight-phases {
+    color: #bdb968;
+    background-color: rgba(140, 137, 65, 0.08);
+    border-left: 4px solid #9a9b52;
+    min-width: 75px;
+    width: fit-content;
+}
+
+/* Step group titles */
+p.step-group-title, p.sub-sub-step {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 115%;
+    color: var(--accent-yellow);
+    padding: 5px 8px;
+    background-color: rgba(201, 196, 73, 0.1);
+    border-left: 4px solid var(--accent-yellow);
+    border-radius: 0 4px 4px 0;
+    min-width: 150px;
+    width: fit-content;
+}
+
+/* Section titles */
+h2.section-title {
+    font-weight: bold;
+    font-size: 130%;
+    color: var(--accent-green);
+    margin: 20px 0 15px 0;
+    padding: 8px 11px;
+    background-color: rgba(107, 195, 67, 0.1);
+    border-left: 5px solid var(--accent-green);
+    border-radius: 0 6px 6px 0;
+    line-height: 1.75;
+    min-width: 350px;
+    width: fit-content;
+}
+
+h4.sub-header {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+/* Upgrade titles */
+p.upgrade-title {
+    margin: 13px 0 10px;
+    font-weight: bold;
+    font-size: 105%;
+    color: #8bb846;
+    padding: 6px 9px;
+    background: linear-gradient(to bottom, rgba(107, 195, 67, 0.15), rgba(201, 196, 73, 0.15));
+    border-left: 4.5px solid;
+    border-image: linear-gradient(to bottom, var(--accent-green), var(--accent-yellow)) 1;
+    border-radius: 0 5px 5px 0;
+    min-width: 250px;
+    width: fit-content;
+}
+
+p.sub-sub-step {
+    font-size: 105%;
+    line-height: 1.75;
+}
+
+/* List styles */
+li {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+p.li-spacing, p.weapon-desc {
+    margin: 7px 0;
+}
+
+p.weapon-desc {
+    font-weight: bold;
+}
+
+/* Details and inputs */
+details.spacing {
+    margin: 15px 0;
+    border-left: var(--accent-green) solid 2px;
+    background-color: rgba(107, 195, 67, 0.1);
+    display: inline-block;
+    padding: 0.2em;
+}
+
+input.spacing {
+    margin: 10px 0 15px;
+}
+
+p.stats, p.song-link {
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Tables */
+table {
+    margin: 20px 30px 20px 10px;
+    border-collapse: collapse;
+    width: auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid var(--border-gray);
+}
+
+table caption {
+    font-weight: bold;
+    font-size: 110%;
+    color: var(--accent-yellow);
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 8px 10px;
+    background-color: rgba(201, 196, 73, 0.1);
+    border-left: 4px solid var(--accent-yellow);
+    border-radius: 0 4px 4px 0;
+    caption-side: top;
+    line-height: 1.75;
+}
+
+/* Title elements */
+.title-text, .title-sub-text {
+    margin-top: 0;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.title-sub-text {
+    top: 50px;
+}
+
+/* Top buttons background */
+.top_buttons_background_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 89px;
+    z-index: 1000;
+    background-color: var(--primary-bg);
+    border-bottom: 3px solid gray;
+}
+
+/* 
+=======================================
+LIGHTBOX STYLES
+=======================================
+*/
+
+/* Lightbox overlay */
 .lightbox {
     display: none;
     position: fixed;
@@ -383,6 +694,7 @@ th, td {
     align-items: center;
 }
 
+/* Lightbox content */
 .lightbox-content {
     max-width: 90%;
 }
@@ -395,6 +707,7 @@ th, td {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
+/* Close button */
 .close-lightbox {
     position: absolute;
     top: 20px;
@@ -404,20 +717,25 @@ th, td {
     background-color: yellowgreen;
     cursor: pointer;
     opacity: 0.8;
-    display: flex;          /* Added to center the × */
-    justify-content: center; /* Added to center the × */
-    align-items: center;    /* Added to center the × */
-    width: 40px;            /* Set specific width */
-    height: 40px;           /* Set specific height */
-    border-radius: 4px;     /* Optional: rounded corners */
-    line-height: 1;         /* Help with vertical alignment */
-    text-align: center;     /* Help with horizontal alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    line-height: 1;
+    text-align: center;
 }
 
+.close-lightbox:hover {
+    opacity: 1;
+}
+
+/* Lightbox caption */
 .lightbox-caption {
     position: relative;
-    top: -5px; /* Positioned relative to lightbox-content */
-    left: 0; /* Positioned relative to lightbox-content */
+    top: -5px;
+    left: 0;
     color: black;
     background-color: yellowgreen;
     padding: 5px 10px;
@@ -425,9 +743,3 @@ th, td {
     font-size: 16px;
     width: fit-content;
 }
-
-.close-lightbox:hover {
-    opacity: 1;
-}
-
-

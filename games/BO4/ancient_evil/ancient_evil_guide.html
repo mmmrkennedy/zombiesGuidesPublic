@@ -38,6 +38,11 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Ancient Evil Guide</h2>
 
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
+
     <!-- Mobile devices content -->
     <div id="mobileContent">
         <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
@@ -54,17 +59,25 @@
     </div>
 </div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li><li><a href="#tributes">Tributes (Trials)</a></li><ul><li><a href="#eternal_flame">Eternal Flame</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apollos_will">Apollo's Will</a></li><li><a href="#god_hand_weapon">God Hand Wonder Weapons</a></li><ul><li><a href="#dormant_hand">Dormant Hand Locations</a></li><li><a href="#hand_of_charon">Fallen Hand of Charon</a></li><ul><li><a href="#redeemed_hand_of_charon">Redeemed Hand of Charon</a></li></ul><li><a href="#hand_of_ouranos">Fallen Hand of Ouranos</a></li><ul><li><a href="#redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</a></li></ul><li><a href="#hand_of_hemera">Fallen Hand of Hemera</a></li><ul><li><a href="#redeemed_hand_of_hemera">Redeemed Hand of Hemera</a></li></ul><li><a href="#hand_of_gaia">Fallen Hand of Gaia</a></li><ul><li><a href="#redeemed_hand_of_gaia">Redeemed Hand of Gaia</a></li></ul><li><a href="#exalted_hands">Exalted Hands Upgrade</a></li></ul><li><a href="#pegasus_strike">Pegasus Strike</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Greek Tragedy' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unleash the Eagles</a></li><li><a href="#main_ee_step2">Ignite the Beacons</a></li><li><a href="#main_ee_step3">Look the Dead in the Eye</a></li><li><a href="#main_ee_step4">Align the Citizens</a></li><li><a href="#main_ee_step5">Scepter and Sundial</a></li><li><a href="#main_ee_step6">Hit Your Marks</a></li><li><a href="#main_ee_step7">Cleanse the Center</a></li><li><a href="#main_ee_step8">Pegasus/Perseus Boss Fight</a></li></ul><li><a href="#song_ee">'Stormbound' Song</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Labours of Hercules' Gauntlet Challenges</a></li></ul></div>
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li><li><a href="#tributes">Tributes (Trials)</a></li><ul><li><a href="#eternal_flame">Eternal Flame</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apollos_will">Apollo's Will</a></li><li><a href="#god_hand_weapon">God Hand Wonder Weapons</a></li><ul><li><a href="#dormant_hand">Dormant Hand Locations</a></li><li><a href="#hand_of_charon">Fallen Hand of Charon</a></li><ul><li><a href="#redeemed_hand_of_charon">Redeemed Hand of Charon</a></li></ul><li><a href="#hand_of_ouranos">Fallen Hand of Ouranos</a></li><ul><li><a href="#redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</a></li></ul><li><a href="#hand_of_hemera">Fallen Hand of Hemera</a></li><ul><li><a href="#redeemed_hand_of_hemera">Redeemed Hand of Hemera</a></li></ul><li><a href="#hand_of_gaia">Fallen Hand of Gaia</a></li><ul><li><a href="#redeemed_hand_of_gaia">Redeemed Hand of Gaia</a></li></ul><li><a href="#exalted_hands">Exalted Hands Upgrade</a></li></ul><li><a href="#pegasus_strike">Pegasus Strike</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Greek Tragedy' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unleash the Eagles</a></li><li><a href="#main_ee_step2">Ignite the Beacons</a></li><li><a href="#main_ee_step3">Look the Dead in the Eye</a></li><li><a href="#main_ee_step4">Align the Citizens</a></li><li><a href="#main_ee_step5">Scepter and Sundial</a></li><li><a href="#main_ee_step6">Hit Your Marks</a></li><li><a href="#main_ee_step7">Cleanse the Center</a></li><li><a href="#main_ee_step8">Pegasus/Perseus Boss Fight</a></li></ul><li><a href="#song_ee">'Stormbound' Song</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Labours of Hercules' Gauntlet Challenges</a></li></ul></div>
+    </div>
+</div>
 
+<div class="smooth-scroll content-window">
     <!-- PaP -->
     <div class="content-container" data-section-ind="Map Progression" id="pap">
         <h2 class="section-title">Pack-a-Punch</h2>
@@ -775,6 +788,34 @@
 
 </div>
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
 
 

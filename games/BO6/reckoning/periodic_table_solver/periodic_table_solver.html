@@ -17,7 +17,7 @@
 
         <div>
             <label for="element-input">Element Symbol (1-2 letters):</label>
-            <input type="text" id="element-input" class="solver" placeholder="e.g., H, He, Li..." maxlength="2">
+            <input type="text" id="element-input" class="solver" placeholder="e.g., H, He, Li..." maxlength="2" onchange="findElements()" oninput="findElements()">
         </div>
 
         <button class="solver-button" id="reset" onclick="resetSolver()">Clear</button>

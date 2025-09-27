@@ -5,25 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>CHANGE ME</title>
-    <link rel="stylesheet" type="text/css" href="/zombiesGuidesPublic/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/zombiesGuidesPublic/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
     <base target="_blank">
 </head>
 
-<script>
-    // Check if we're on localhost or a local environment
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-                              window.location.hostname === "127.0.0.1" ||
-                              window.location.hostname.includes(".local");
-    
-    // Only redirect if we're not in a local environment
-    if (!isLocalEnvironment) {
-        window.location.href = "/zombiesGuidesPublic/unfinished.html";
-        setInterval(() => {
-            window.location.href = "/zombiesGuidesPublic/unfinished.html";
-        }, 1000); // Redirect every second
-    }
-</script>
 
 <!-- Google tag (gtag.js) -->
 <script>
@@ -55,6 +41,11 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">CHANGE ME</h2>
 
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
+
     <!-- Mobile devices content -->
     <div id="mobileContent">
         <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
@@ -71,9 +62,20 @@
     </div>
 </div>
 
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">&times;</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+            <!-- Font selector and quick links will be generated here by build tools -->
+        </div>
+    </div>
+</div>
+
 <div class="smooth-scroll">
-    <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
     
     <!-- Wonder Weapons -->
     <div class="content-container" id="CHANGE ME">
@@ -96,6 +98,6 @@
 </div>
 
 
-<script src="/zombiesGuidesPublic/js/scripts.js"></script>
+<script src="../../js/scripts.js"></script>
 </body>
 </html>

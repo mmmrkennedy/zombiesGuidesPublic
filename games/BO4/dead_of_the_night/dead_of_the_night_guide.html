@@ -39,6 +39,10 @@
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Dead of the Night Guide</h2>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -56,16 +60,34 @@
     </div>
 </div>
 
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#perk_statues">Perk Statues</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#alistairs_folly">Alistair's Folly</a></li><ul><li><a href="#chaos_theory">Chaos Theory</a></li><li><a href="#alistairs_annihilator">Alistair's Annihilator</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><li><a href="#savage_impaler">Savage Impaler</a></li><li><a href="#silver_bullets">Silver Bullets</a></li><li><a href="#stake_knife">Stake Knife</a></li><li><a href="#fire_traps">Fire Traps</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Trial by Ordeal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Leo - Telescope Quest line</a></li><ul><li><a href="#main_ee_step1_virgo">Virgo - Lightning Rod</a></li><li><a href="#main_ee_step1_libra">Libra - Colour Beam Puzzle</a></li><li><a href="#main_ee_step1_scorpio">Scorpio - Zodiac Scratches</a></li></ul><li><a href="#main_ee_step2">Sagittarius - Effigy Quest line</a></li><ul><li><a href="#main_ee_step2_cap">Capricorn - Collecting Branches</a></li><li><a href="#main_ee_step2_aqua">Aquarius - Entering Ghost Mode</a></li><li><a href="#main_ee_step2_pisces">Pisces - Activating the Lockdown</a></li></ul><li><a href="#main_ee_step3">Aries - Knight Quest line</a></li><ul><li><a href="#main_ee_step3_taurus">Taurus - Collect Fireplace Gems</a></li><li><a href="#main_ee_step3_gemini">Gemini - Bring Haunted Gems to the Forest</a></li><li><a href="#main_ee_step3_cancer">Cancer - Activate the Lockdown</a></li></ul><li><a href="#main_ee_step4">Werewolf Boss Fight</a></li></ul><li><a href="#song_ee">'Mystery' Song</a></li><li><a href="#hidden_rooms">Hidden Rooms / Various Free Items</a></li><ul><li><a href="#billiards_room">Billiards Room</a></li><li><a href="#wine_cellar">Wine Cellar</a></li><li><a href="#balcony">East/West Balcony</a></li></ul><li><a href="#jump_scare">Jump Scare</a></li><li><a href="#infinite_ammo">Infinite Ammo (Images Incomplete)</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Super Blood Wolf Moon' Gauntlet Challenges</a></li></ul></div>
+    </div>
+</div>
+
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        <h2>Map Progression</h2><ul><li><a href="#perk_statues">Perk Statues</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#alistairs_folly">Alistair's Folly</a></li><ul><li><a href="#chaos_theory">Chaos Theory</a></li><li><a href="#alistairs_annihilator">Alistair's Annihilator</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><li><a href="#savage_impaler">Savage Impaler</a></li><li><a href="#silver_bullets">Silver Bullets</a></li><li><a href="#stake_knife">Stake Knife</a></li><li><a href="#fire_traps">Fire Traps</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Trial by Ordeal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Leo - Telescope Quest line</a></li><ul><li><a href="#main_ee_step1_virgo">Virgo - Lightning Rod</a></li><li><a href="#main_ee_step1_libra">Libra - Colour Beam Puzzle</a></li><li><a href="#main_ee_step1_scorpio">Scorpio - Zodiac Scratches</a></li></ul><li><a href="#main_ee_step2">Sagittarius - Effigy Quest line</a></li><ul><li><a href="#main_ee_step2_cap">Capricorn - Collecting Branches</a></li><li><a href="#main_ee_step2_aqua">Aquarius - Entering Ghost Mode</a></li><li><a href="#main_ee_step2_pisces">Pisces - Activating the Lockdown</a></li></ul><li><a href="#main_ee_step3">Aries - Knight Quest line</a></li><ul><li><a href="#main_ee_step3_taurus">Taurus - Collect Fireplace Gems</a></li><li><a href="#main_ee_step3_gemini">Gemini - Bring Haunted Gems to the Forest</a></li><li><a href="#main_ee_step3_cancer">Cancer - Activate the Lockdown</a></li></ul><li><a href="#main_ee_step4">Werewolf Boss Fight</a></li></ul><li><a href="#song_ee">'Mystery' Song</a></li><li><a href="#hidden_rooms">Hidden Rooms / Various Free Items</a></li><ul><li><a href="#billiards_room">Billiards Room</a></li><li><a href="#wine_cellar">Wine Cellar</a></li><li><a href="#balcony">East/West Balcony</a></li></ul><li><a href="#jump_scare">Jump Scare</a></li><li><a href="#infinite_ammo">Infinite Ammo (Images Incomplete)</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Super Blood Wolf Moon' Gauntlet Challenges</a></li></ul></div>
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#perk_statues">Perk Statues</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#alistairs_folly">Alistair's Folly</a></li><ul><li><a href="#chaos_theory">Chaos Theory</a></li><li><a href="#alistairs_annihilator">Alistair's Annihilator</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><li><a href="#savage_impaler">Savage Impaler</a></li><li><a href="#silver_bullets">Silver Bullets</a></li><li><a href="#stake_knife">Stake Knife</a></li><li><a href="#fire_traps">Fire Traps</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Trial by Ordeal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Leo - Telescope Quest line</a></li><ul><li><a href="#main_ee_step1_virgo">Virgo - Lightning Rod</a></li><li><a href="#main_ee_step1_libra">Libra - Colour Beam Puzzle</a></li><li><a href="#main_ee_step1_scorpio">Scorpio - Zodiac Scratches</a></li></ul><li><a href="#main_ee_step2">Sagittarius - Effigy Quest line</a></li><ul><li><a href="#main_ee_step2_cap">Capricorn - Collecting Branches</a></li><li><a href="#main_ee_step2_aqua">Aquarius - Entering Ghost Mode</a></li><li><a href="#main_ee_step2_pisces">Pisces - Activating the Lockdown</a></li></ul><li><a href="#main_ee_step3">Aries - Knight Quest line</a></li><ul><li><a href="#main_ee_step3_taurus">Taurus - Collect Fireplace Gems</a></li><li><a href="#main_ee_step3_gemini">Gemini - Bring Haunted Gems to the Forest</a></li><li><a href="#main_ee_step3_cancer">Cancer - Activate the Lockdown</a></li></ul><li><a href="#main_ee_step4">Werewolf Boss Fight</a></li></ul><li><a href="#song_ee">'Mystery' Song</a></li><li><a href="#hidden_rooms">Hidden Rooms / Various Free Items</a></li><ul><li><a href="#billiards_room">Billiards Room</a></li><li><a href="#wine_cellar">Wine Cellar</a></li><li><a href="#balcony">East/West Balcony</a></li></ul><li><a href="#jump_scare">Jump Scare</a></li><li><a href="#infinite_ammo">Infinite Ammo (Images Incomplete)</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Super Blood Wolf Moon' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="perk_statues">
@@ -1025,6 +1047,34 @@
 </div>
 
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
 
 

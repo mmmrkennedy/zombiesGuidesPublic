@@ -36,6 +36,10 @@
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Die Maschine Guide</h2>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -53,16 +57,34 @@
     </div>
 </div>
 
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Weapons</h2><ul><li><a href="#die_shockwave">D.I.E. Shockwave</a></li><ul><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo_emitter">Cryo Emitter</a></li><li><a href="#elecrobolt">Elecrobolt</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Seal the Deal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li><li><a href="#main_ee_step3">Creating Orlov</a></li><li><a href="#main_ee_step4">Boss Fight</a></li></ul><li><a href="#song_ee">'Alone' Song</a></li><li><a href="#free_jug">Coffin Dance / Free Jug</a></li><li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li><li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li><li><a href="#free_essence">Free 1,500 Essence</a></li><li><a href="#orda_ee">See Orda Walking Outside the Map</a></li></ul></div>
+    </div>
+</div>
+
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        <h2>Weapons</h2><ul><li><a href="#die_shockwave">D.I.E. Shockwave</a></li><ul><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo_emitter">Cryo Emitter</a></li><li><a href="#elecrobolt">Elecrobolt</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Seal the Deal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li><li><a href="#main_ee_step3">Creating Orlov</a></li><li><a href="#main_ee_step4">Boss Fight</a></li></ul><li><a href="#song_ee">'Alone' Song</a></li><li><a href="#free_jug">Coffin Dance / Free Jug</a></li><li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li><li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li><li><a href="#free_essence">Free 1,500 Essence</a></li><li><a href="#orda_ee">See Orda Walking Outside the Map</a></li></ul></div>
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Weapons</h2><ul><li><a href="#die_shockwave">D.I.E. Shockwave</a></li><ul><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo_emitter">Cryo Emitter</a></li><li><a href="#elecrobolt">Elecrobolt</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Seal the Deal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li><li><a href="#main_ee_step3">Creating Orlov</a></li><li><a href="#main_ee_step4">Boss Fight</a></li></ul><li><a href="#song_ee">'Alone' Song</a></li><li><a href="#free_jug">Coffin Dance / Free Jug</a></li><li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li><li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li><li><a href="#free_essence">Free 1,500 Essence</a></li><li><a href="#orda_ee">See Orda Walking Outside the Map</a></li></ul></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="die_shockwave">
@@ -280,6 +302,34 @@
 
 
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
 
 </body></html>

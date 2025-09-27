@@ -37,6 +37,10 @@
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Final Reich Guide</h2>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -54,16 +58,34 @@
     </div>
 </div>
 
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#power">Power / Unlock the Salt Mine</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#tesla_gun">Tesla Gun</a></li><ul><li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li><li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li><li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li><li><a href="#midnight">Midnight (Green Tesla Gun)</a></li></ul><li><a href="#red_talon_sword">Red Talon Sword</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li><ul><li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li><li><a href="#main_ee_casual_step5">THE HILT</a></li><li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li></ul><li><a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a></li><ul><li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li><li><a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li><li><a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a></li><li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li><li><a href="#main_ee_hardcore_step8">THE HILT</a></li><li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li><li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li><li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li><li><a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a></li><li><a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a></li><li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li><li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+    </div>
+</div>
+
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-            <label for="fontSelector">Select a Font:</label>
-            <select id="fontSelector">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana (Higher Readability)</option>
-                <option value="OpenDyslexic">OpenDyslexic</option>
-            </select>
-        <h2>Map Progression</h2><ul><li><a href="#power">Power / Unlock the Salt Mine</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#tesla_gun">Tesla Gun</a></li><ul><li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li><li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li><li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li><li><a href="#midnight">Midnight (Green Tesla Gun)</a></li></ul><li><a href="#red_talon_sword">Red Talon Sword</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li><ul><li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li><li><a href="#main_ee_casual_step5">THE HILT</a></li><li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li></ul><li><a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a></li><ul><li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li><li><a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li><li><a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a></li><li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li><li><a href="#main_ee_hardcore_step8">THE HILT</a></li><li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li><li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li><li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li><li><a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a></li><li><a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a></li><li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li><li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#power">Power / Unlock the Salt Mine</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#tesla_gun">Tesla Gun</a></li><ul><li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li><li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li><li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li><li><a href="#midnight">Midnight (Green Tesla Gun)</a></li></ul><li><a href="#red_talon_sword">Red Talon Sword</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li><ul><li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li><li><a href="#main_ee_casual_step5">THE HILT</a></li><li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li></ul><li><a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a></li><ul><li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li><li><a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li><li><a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a></li><li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li><li><a href="#main_ee_hardcore_step8">THE HILT</a></li><li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li><li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li><li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li><li><a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a></li><li><a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a></li><li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li><li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Power -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -701,6 +723,34 @@
 </div>
 
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
 
 

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
@@ -8,8 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-</head>
-
 <script>
     let isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
@@ -22,9 +18,7 @@
             window.location.href = "/unfinished.html";
         }, 1000); // Redirect every second
     }
-</script>
-
-<script>
+</script><script>
     let isLocalEnvironment = window.location.hostname === "localhost" ||
         window.location.hostname === "127.0.0.1" ||
         window.location.hostname.includes(".local");
@@ -46,7 +40,11 @@
         gtag('js', new Date());
         gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
     }
-</script>
+</script></head>
+
+
+
+
 
 <body>
 <div class="top_buttons_background_box">
@@ -55,7 +53,7 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
         <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
@@ -71,7 +69,14 @@
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
-    <div class="content-container-top"></div>
+    <div class="content-container-top">
+        <label for="fontSelector">Select a Font:</label>
+        <select id="fontSelector">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana (Higher Readability)</option>
+            <option value="OpenDyslexic">OpenDyslexic</option>
+        </select>
+    <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#perk_machines">Perk Machines</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#pap_nero">Nero Blackstone - Junction/Spawn</a></li><li><a href="#pap_jack">Jack Vincent - Canals District</a></li><li><a href="#pap_floyd">Floyd Campbell - Waterfront District</a></li><li><a href="#pap_jessica">Jessica Rose - Footlight District</a></li><li><a href="#pap_final_ritual">Final Ritual</a></li></ul><li><a href="#beast_mode">Beast Mode</a></li><li><a href="#fumigator_pods">Fumigator / Pods</a></li><li><a href="#rift_portals">Rift (Fast Travel) Portals</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apothicon_servant">Apothicon Servant</a></li><li><a href="#apothicon_sword">Apothicon Sword Special Weapon</a></li><ul><li><a href="#keeper_sword">Keeper Sword Upgrade</a></li></ul><li><a href="#civil_protector">Civil Protector</a></li><li><a href="#rocket_shield">Rocket Shield</a></li><ul><li><a href="#goddard_apparatus">Goddard Apparatus Shield Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Apocalypse Averted' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Flag Defence</a></li><li><a href="#main_ee_step3">Shadowman Boss Fight</a></li><li><a href="#main_ee_step4">Destroy the Giant Gateworm (4-Player Only)</a></li></ul></ul><h4 class="sub-header">Songs</h4><ul><li><a href="#snakeskin_boots_song">'Snakeskin Boots' Song</a></li><li><a href="#cold_hard_cash_song">'Cold Hard Cash' Song</a></li></ul><h4 class="sub-header">Player / Equipment Upgrades</h4><ul><li><a href="#margwa_mask">'Margwa Mask' Equipable Helmet</a></li><li><a href="#upgraded_lil_arnies">Upgraded Lil' Arnies</a></li><li><a href="#upgraded_trip_mines">Upgraded Trip Mines</a></li></ul><h4 class="sub-header">Useful Easter Eggs</h4><ul><li><a href="#free_gobblegum">Free Mega Gobblegum</a></li><li><a href="#laundry_ticket">'Sal's Laundry Ticket' Free 500 Points</a></li></ul><h4 class="sub-header">Misc. Easter Eggs</h4><ul><li><a href="#black_and_white_filter">Noire Mode (Black and White Visual Filter)</a></li><li><a href="#jumpscare">Zombie Richtofen Jump Scare</a></li><li><a href="#motd_plane_flyover">Mob of the Dead Plane Map Fly-Over</a></li><li><a href="#shadowman_round_skip">Shadowman Round Skip (Skip to Rounds 5, 10, or 15)</a></li></ul></div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -524,7 +529,7 @@
             <ul>
                 <li>Waterfront:</li>
                 <ol>
-                    <li><a href="pictures/margwa_mask/">Left Side - On the "Morg City Gas & Electric" sign above the M8A7 wallbuy</a></li>
+                    <li><a href="pictures/margwa_mask/">Left Side - On the "Morg City Gas &amp; Electric" sign above the M8A7 wallbuy</a></li>
                     <li><a href="pictures/margwa_mask/">Left Side - On the side of the building where the box with the Championship Belt (used in the PAP quest) was</a></li>
                 </ol>
                 <li>Footlight</li>
@@ -663,6 +668,35 @@
 </div>
 
 
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js"></script>
+<script src="/js/core/storage-utils.js"></script>
+
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js"></script>
+<script src="/js/navigation/nav-utils.js"></script>
+
+<!-- UI Components -->
+<script src="/js/ui/font-manager.js"></script>
+<script src="/js/ui/tutorial-system.js"></script>
+<script src="/js/ui/lightbox.js"></script>
+
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js"></script>
+<script src="/js/content/quick-links.js"></script>
+
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js"></script>
+<script src="/js/device/media-preloader.js"></script>
+
+<!-- Features -->
+<script src="/js/features/substeps.js"></script>
+
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js"></script>
+
+<!-- Main scripts -->
 <script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+</body></html>
