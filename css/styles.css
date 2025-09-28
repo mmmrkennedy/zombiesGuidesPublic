@@ -80,97 +80,15 @@ a.youtube-link {
     margin: 20px 15px;
 }
 
-/* 
-=======================================
-FONT DEFINITIONS
-=======================================
-*/
-
-/* OpenDyslexic Font */
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexic-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+.disabled {
+    pointer-events: none;
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
 }
 
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexic-Bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexic-Italic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexic-BoldItalic.woff2') format('woff2');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexicAlta-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexicAlta-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexicAlta-Italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexicAlta-BoldItalic.woff2') format('woff2');
-    font-weight: 700;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    src: url('../font/OpenDyslexicMono-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-variant-ligatures: none;
-}
-
-/* Verdana Font */
-@font-face {
-    font-family: 'Verdana';
-    src: url('../font/verdana.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Verdana';
-    src: url('../font/verdana-bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Verdana';
-    src: url('../font/verdana-bold-italic.woff2') format('woff2');
-    font-weight: bold;
-    font-style: italic;
+.page-title {
+    text-align: center;
 }
 
 /* 
@@ -187,25 +105,6 @@ LAYOUT STYLES
     height: calc(100vh - 20px);
     overflow-y: auto;
     background-color: var(--primary-bg);
-}
-
-/* Smooth scroll containers */
-.smooth-scroll, .smooth-scroll.open-dyslexic {
-    font-family: Arial, sans-serif;
-    padding-right: 20px;
-}
-
-.smooth-scroll.open-dyslexic {
-    font-family: 'OpenDyslexic', sans-serif;
-}
-
-.smooth-scroll, .smooth-scroll.verdana {
-    font-family: Arial, sans-serif;
-    padding-right: 20px;
-}
-
-.smooth-scroll.verdana {
-    font-family: 'Verdana', sans-serif;
 }
 
 /* Mobile content visibility */
@@ -547,6 +446,28 @@ p.step-group-title, p.sub-sub-step {
     border-radius: 0 4px 4px 0;
     min-width: 150px;
     width: fit-content;
+}
+
+.dummy-li {
+    list-style: none;
+    counter-increment: list-item 0;
+}
+
+.p-style {
+    display: block;
+    margin: 16px 0;
+}
+
+.p-style > ul,
+.p-style > ol {
+    margin-top: 7px;
+}
+
+.hamburger-icon {
+    pointer-events: none;
+    display: inherit;
+    width: 100%;
+    height: 100%;
 }
 
 /* Section titles */

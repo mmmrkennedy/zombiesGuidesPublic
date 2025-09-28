@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Alpha Omega Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ray_gun_mark_2">Ray Gun Mark II</a></li><ul><li><a href="#assembly_kit">Assembly Kit</a></li><li><a href="#ray_gun_mark_2_frame">Ray Gun Mark II Frame</a></li><li><a href="#ray_gun_mark_2_v">Ray Gun Mark II-V (Electric Beam/Yellow)</a></li><li><a href="#ray_gun_mark_2_x">Ray Gun Mark II-X (Full-Auto/Blue)</a></li><li><a href="#ray_gun_mark_2_y">Ray Gun Mark II-Y (Explosive/Orange)</a></li><li><a href="#ray_gun_mark_2_z">Ray Gun Mark II-Z (Shotgun/Purple)</a></li></ul><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#telepads">Telepads</a></li><li><a href="#sergeant_adam">Sergeant A.D.A.M.</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Electromagnetic Awakening Party' Main Quest</a></li><ul><li><a href="#main_ee_step1">Contain the Gas Leak</a></li><li><a href="#main_ee_step2">Test the Emergency Broadcast System</a></li><li><a href="#main_ee_step3">Pursue all Avenues of Science and Invention</a></li><li><a href="#main_ee_step4">Preserve the Integrity of Our Mission</a></li><li><a href="#main_ee_step5">Prevail over the Impossible to Open New Worlds</a></li><li><a href="#main_ee_step6">Protect the Values of the American Dream</a></li><li><a href="#main_ee_step7">Prepare for Tomorrow and Humanity's Future</a></li><li><a href="#main_ee_step8">Overwhelm our Enemies with Shock and Awe</a></li><li><a href="#main_ee_step9">Avogadro Boss Fight</a></li><li><a href="#main_ee_step10">To Preserve the Future, Empower the Past</a></li></ul><li><a href="#song_ee">'I Am The Well' Song</a></li><li><a href="#jump_scare">Pernell/Avogadro Jump Scare</a></li><li><a href="#jump_scare_2">Mannequin Jump Scare</a></li><li><a href="#tedd">Interact with TEDD</a></li><li><a href="#insanity_mode">Insanity Mode / Teleport to Round 200</a></li><li><a href="#free_self_revive">Love Story / Free Self-Revive</a></li><li><a href="#free_perk">Extra Perk</a></li></ul><h2>Miscellaneous</h2><ul><li><a href="#mannequin">All Mannequin Locations</a></li><li><a href="#rushmore_codes">Rushmore Secret Codes</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Duck and Cover' Gauntlet Challenges</a></li></ul></div>
     </div>
 </div>
@@ -79,12 +74,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ray_gun_mark_2">Ray Gun Mark II</a></li><ul><li><a href="#assembly_kit">Assembly Kit</a></li><li><a href="#ray_gun_mark_2_frame">Ray Gun Mark II Frame</a></li><li><a href="#ray_gun_mark_2_v">Ray Gun Mark II-V (Electric Beam/Yellow)</a></li><li><a href="#ray_gun_mark_2_x">Ray Gun Mark II-X (Full-Auto/Blue)</a></li><li><a href="#ray_gun_mark_2_y">Ray Gun Mark II-Y (Explosive/Orange)</a></li><li><a href="#ray_gun_mark_2_z">Ray Gun Mark II-Z (Shotgun/Purple)</a></li></ul><li><a href="#riot_shield">Riot Shield</a></li><li><a href="#telepads">Telepads</a></li><li><a href="#sergeant_adam">Sergeant A.D.A.M.</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Electromagnetic Awakening Party' Main Quest</a></li><ul><li><a href="#main_ee_step1">Contain the Gas Leak</a></li><li><a href="#main_ee_step2">Test the Emergency Broadcast System</a></li><li><a href="#main_ee_step3">Pursue all Avenues of Science and Invention</a></li><li><a href="#main_ee_step4">Preserve the Integrity of Our Mission</a></li><li><a href="#main_ee_step5">Prevail over the Impossible to Open New Worlds</a></li><li><a href="#main_ee_step6">Protect the Values of the American Dream</a></li><li><a href="#main_ee_step7">Prepare for Tomorrow and Humanity's Future</a></li><li><a href="#main_ee_step8">Overwhelm our Enemies with Shock and Awe</a></li><li><a href="#main_ee_step9">Avogadro Boss Fight</a></li><li><a href="#main_ee_step10">To Preserve the Future, Empower the Past</a></li></ul><li><a href="#song_ee">'I Am The Well' Song</a></li><li><a href="#jump_scare">Pernell/Avogadro Jump Scare</a></li><li><a href="#jump_scare_2">Mannequin Jump Scare</a></li><li><a href="#tedd">Interact with TEDD</a></li><li><a href="#insanity_mode">Insanity Mode / Teleport to Round 200</a></li><li><a href="#free_self_revive">Love Story / Free Self-Revive</a></li><li><a href="#free_perk">Extra Perk</a></li></ul><h2>Miscellaneous</h2><ul><li><a href="#mannequin">All Mannequin Locations</a></li><li><a href="#rushmore_codes">Rushmore Secret Codes</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Duck and Cover' Gauntlet Challenges</a></li></ul></div>
 
     <!-- Power -->
@@ -986,7 +976,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

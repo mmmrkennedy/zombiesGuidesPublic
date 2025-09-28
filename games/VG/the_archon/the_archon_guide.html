@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Archon Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Trial of Mindfulness</a></li><li><a href="#main_ee_step3">Trial of Resilience</a></li><li><a href="#main_ee_step4">Trial of Sacrifice</a></li><li><a href="#main_ee_step5">Boss Fight</a></li></ul><li><a href="#rampage_inducer">Rampage Inducer</a></li><li><a href="#bunny">Mister Peeks / Free Ray Gun</a></li><li><a href="#song_ee">'Vanishing Shore' Song</a></li></ul></div>
     </div>
 </div>
@@ -79,13 +74,8 @@
 <div class="smooth-scroll content-window">
         <!-- Legend to other parts -->
         <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-    <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Trial of Mindfulness</a></li><li><a href="#main_ee_step3">Trial of Resilience</a></li><li><a href="#main_ee_step4">Trial of Sacrifice</a></li><li><a href="#main_ee_step5">Boss Fight</a></li></ul><li><a href="#rampage_inducer">Rampage Inducer</a></li><li><a href="#bunny">Mister Peeks / Free Ray Gun</a></li><li><a href="#song_ee">'Vanishing Shore' Song</a></li></ul></div>
+            <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Trial of Mindfulness</a></li><li><a href="#main_ee_step3">Trial of Resilience</a></li><li><a href="#main_ee_step4">Trial of Sacrifice</a></li><li><a href="#main_ee_step5">Boss Fight</a></li></ul><li><a href="#rampage_inducer">Rampage Inducer</a></li><li><a href="#bunny">Mister Peeks / Free Ray Gun</a></li><li><a href="#song_ee">'Vanishing Shore' Song</a></li></ul>
+        </div>
 
         <!-- Wonder Weapons -->
         <div class="content-container" data-section-ind="Weapons" id="decimator_shield">
@@ -104,13 +94,14 @@
             <p class="warning" style="color: inherit">The green filter can be removed via Colourblind settings. Go to Graphics - Color Customization. Set the Color Filter to '3,' the Color Filter Target to 'World' and the Color Filter Intensity to '100.'</p>
 
             <ol>
-                <table>
+                <li class="dummy-li">
+                    <table>
                     <caption>Recommended Loadout</caption>
                     <thead>
                     <tr>
-                        <th>Weapon</th>
-                        <th>Attachment Type</th>
-                        <th>Recommended Item</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Attachment Type</th>
+                        <th scope="col">Recommended Item</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -148,21 +139,25 @@
                     </tbody>
                 </table>
 
-                <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+                    <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+                </li>
                 <li>Build Pack-a-Punch.</li>
                 <li>Place the relic on the <a href="pictures/main_ee/stone_mirror.webp">stone</a> in front of Pack-a-Punch to start a cutscene.</li>
                 <li>Once the cutscene is finished, interact with the <a href="pictures/main_ee/portal_darkaether.webp">portal near the relic</a> to teleport to the Dark Aether.</li>
                 <li>After surviving in the Dark Aether for a few minutes, all players will be downed and returned to the Eastern Desert.</li>
-                <li>Obtain a Shovel from one of the following locations:</li>
-                <ul>
-                    <li><a href="pictures/main_ee/shovel_derailment.webp">Derailment</a></li>
-                    <li><a href="pictures/main_ee/shovel_bazaar.webp">Bazaar</a></li>
-                    <li><a href="pictures/main_ee/shovel_debrisfield.webp">Debris Field</a></li>
-                    <li><a href="pictures/main_ee/shovel_tents.webp">Tents</a></li>
-                </ul>
+                <li>Obtain a Shovel from one of the following locations:
+                    <ul>
+                        <li><a href="pictures/main_ee/shovel_derailment.webp">Derailment</a></li>
+                        <li><a href="pictures/main_ee/shovel_bazaar.webp">Bazaar</a></li>
+                        <li><a href="pictures/main_ee/shovel_debrisfield.webp">Debris Field</a></li>
+                        <li><a href="pictures/main_ee/shovel_tents.webp">Tents</a></li>
+                    </ul>
+                </li>
                 <li>The player must now complete three trials, <a href="#main_ee_step2">Trial of Mindfulness</a>, <a href="#main_ee_step3">Trial of Resilience</a> and <a href="#main_ee_step4">Trial of Sacrifice</a>. These trials can be completed at any time in any order.</li>
 
-                <p class="step-group-title" id="main_ee_step2">Trial of Mindfulness</p>
+                <li class="dummy-li">
+                    <p class="step-group-title" id="main_ee_step2">Trial of Mindfulness</p>
+                </li>
                 <li>Dig around the <a href="pictures/main_ee/mindfulness_obelisk.webp">Obelisk</a> in 'Merchant Road' to find a <a href="pictures/main_ee/mindfulness_redorb.webp">red orb</a>.</li>
                 <li>Interact with the Red Orb to make it show <a href="pictures/main_ee/midfulness_symbol.webp">symbols</a>. You must stand on the runes that match the same order and symbols that appeared on the wall. <strong>Bug: If the player is not able to interact with the orb to start the symbols, they have to go down and get revived to allow them to interact with the orb.</strong></li>
                 <li>If done correctly, the player will be required to survive a timed challenge.</li>
@@ -172,38 +167,46 @@
                 <li>The player must capture runes without killing zombies. If failed, the Trial can be attempted next round.</li>
                 <li>Once completed, the player will be given bonus points and full armour power-ups.</li>
 
-                <p class="step-group-title" id="main_ee_step3">Trial of Resilience</p>
-                <li>Navigate to the 'Debris Field' and shoot one of the three Dark Aether Crystals outside the playable area until one spawns an orb, which will move to a <a href="pictures/main_ee/resilience_redorb.webp">wall near the Decimator Shield</a>.</li>
-                <ul>
-                    <li><a href="pictures/main_ee/resilience_crystal1.webp">Crystal 1</a></li>
-                    <li><a href="pictures/main_ee/resilience_crystal2.webp">Crystal 2</a></li>
-                    <li><a href="pictures/main_ee/resilience_crystal3.webp">Crystal 3</a></li>
-                </ul>
-                <li>The player must locate and return three cursed items to the orb. When these items are picked up, sprint will be disabled and the player will be given a challenge. Return the items to the orb without failing the challenge. The locations are: </li>
-                <ul>
-                    <li><a href="pictures/main_ee/resilience_cursedhat.webp">Cursed Officer's Hat, located in the Tents</a>.</li>
-                    <li><a href="pictures/main_ee/resilience_cursedskull.webp">Cursed Skull, located in the Bazaar on the second floor</a>.</li>
-                    <li><a href="pictures/main_ee/resilience_cursedfemur.webp">Cursed Femur, needs to be dug up in the Derailment</a>.</li>
-                </ul>
+                <li class="dummy-li">
+                    <p class="step-group-title" id="main_ee_step3">Trial of Resilience</p>
+                </li>
+                <li>Navigate to the 'Debris Field' and shoot one of the three Dark Aether Crystals outside the playable area until one spawns an orb, which will move to a <a href="pictures/main_ee/resilience_redorb.webp">wall near the Decimator Shield</a>.
+                    <ul>
+                        <li><a href="pictures/main_ee/resilience_crystal1.webp">Crystal 1</a></li>
+                        <li><a href="pictures/main_ee/resilience_crystal2.webp">Crystal 2</a></li>
+                        <li><a href="pictures/main_ee/resilience_crystal3.webp">Crystal 3</a></li>
+                    </ul>
+                </li>
+                <li>The player must locate and return three cursed items to the orb. When these items are picked up, sprint will be disabled and the player will be given a challenge. Return the items to the orb without failing the challenge. The locations are:
+                    <ul>
+                        <li><a href="pictures/main_ee/resilience_cursedhat.webp">Cursed Officer's Hat, located in the Tents</a>.</li>
+                        <li><a href="pictures/main_ee/resilience_cursedskull.webp">Cursed Skull, located in the Bazaar on the second floor</a>.</li>
+                        <li><a href="pictures/main_ee/resilience_cursedfemur.webp">Cursed Femur, needs to be dug up in the Derailment</a>.</li>
+                    </ul>
+                </li>
                 <li>Once all items are returned, the Decimator Shield will become available for pickup.</li>
                 <li>Interact with the <a href="pictures/main_ee/resilience_obelisk.webp">Obelisk</a> to start the Trial Of Resilience.</li>
                 <li>The player must destroy <a href="pictures/main_ee/resilience_syphoncore.webp">Syphoncores</a> using the Decimator Shield's special ability (Slam) and deliver Demon Blood to the <a href="pictures/main_ee/resilience_emptyfountain.webp">empty Demonic Fountain</a>. Demon Blood can be picked up from the destroyed syphoncores.</li>
-                <li>Three Syphoncores need to be destroyed:</li>
-                <ul>
-                    <li><a href="pictures/main_ee/syphoncore_shield.webp">Near the Decimator Shield</a></li>
-                    <li><a href="pictures/main_ee/syphoncore_quick.webp">Near Venomous Vigor (Quick Revive)</a></li>
-                    <li><a href="pictures/main_ee/syphoncore_jug.webp">Near Fiendish Fortitude (Juggernog)</a></li>
-                </ul>
+                <li>Three Syphoncores need to be destroyed:
+                    <ul>
+                        <li><a href="pictures/main_ee/syphoncore_shield.webp">Near the Decimator Shield</a></li>
+                        <li><a href="pictures/main_ee/syphoncore_quick.webp">Near Venomous Vigor (Quick Revive)</a></li>
+                        <li><a href="pictures/main_ee/syphoncore_jug.webp">Near Fiendish Fortitude (Juggernog)</a></li>
+                    </ul>
+                </li>
                 <li>Once the empty Demonic Fountain is filled, the player will be given bonus points, full armour, max ammo and full power drops.</li>
 
-                <p class="step-group-title" id="main_ee_step4">Trial of Sacrifice</p>
+                <li class="dummy-li">
+                    <p class="step-group-title" id="main_ee_step4">Trial of Sacrifice</p>
+                </li>
                 <li>Obtain three Molotov Cocktails from either the <a href="pictures/main_ee/molotovwallbuy.webp">wallbuy in Merchant Road West</a> or from one of the Workbenchs.</li>
-                <li>Navigate to 'Derailment' and using the Molotovs light three torches as fast as possible:</li>
-                <ul>
-                    <li><a href="pictures/main_ee/sacrifice_torch1.webp">Boxcar leading to Derailment</a></li>
-                    <li><a href="pictures/main_ee/sacrifice_torch2.webp">The right side of Derailment</a></li>
-                    <li><a href="pictures/main_ee/sacrifice_torch3.webp">Behind the second torch</a></li>
-                </ul>
+                <li>Navigate to 'Derailment' and using the Molotovs light three torches as fast as possible:
+                    <ul>
+                        <li><a href="pictures/main_ee/sacrifice_torch1.webp">Boxcar leading to Derailment</a></li>
+                        <li><a href="pictures/main_ee/sacrifice_torch2.webp">The right side of Derailment</a></li>
+                        <li><a href="pictures/main_ee/sacrifice_torch3.webp">Behind the second torch</a></li>
+                    </ul>
+                </li>
                 <li>If the torches are lit at the same time, a <a href="pictures/main_ee/sacrifice_redorb.webp">red orb</a> will spawn near the third torch.</li>
                 <li>The orb will request the player to sacrifice a Pack-a-Punched weapon (there is no way to get this weapon back). The best option is to either find a blue (PAP level 1) wallbuy or try to get a Pack-a-Punched weapon from the box and sacrifice that as it is cheaper than upgrading a weapon with the Pack-a-Punch Machine.</li>
                 <li>After sacrificing the weapon, you will lose all your armour and an Uberkrieger will spawn.</li>
@@ -214,19 +217,29 @@
                 <li>Several other Obelisks will spawn around the area. You must get six kills near each of the Obelisks while standing in the Ring of Fire.</li>
                 <li>Once an obelisk is charged, a <a href="pictures/main_ee/sacrifice_beamoflight.webp">beam of light</a> will connect it to the central obelisk.</li>
                 <li>Once all the obelisks are charged, bonus points, full armour, max ammo and full power drops will spawn.</li>
-                <p class="warning">Warning: Point of No Return. Once you interact with the portal, you will be put into the Boss Fight. The Decimator Shield is highly recommended to counter Kortifex's attack during the Boss Fight.</p>
+
+                <li class="dummy-li">
+                    <p class="warning">Warning: Point of No Return. Once you interact with the portal, you will be put into the Boss Fight. The Decimator Shield is highly recommended to counter Kortifex's attack during the Boss Fight.</p>
+                </li>
                 <li>Interact with the Portal near Pack-a-Punch to enter the Boss Fight.</li>
             </ol>
             <ol>
-                <p class="step-group-title" id="main_ee_step5">Boss Fight</p>
-                <p class="boss-fight-phases">Phase 1</p>
+                <li class="dummy-li">
+                    <p class="step-group-title" id="main_ee_step5">Boss Fight</p>
+                    <p class="boss-fight-phases">Phase 1</p>
+                </li>
                 <li>During the first phase, the player needs to shoot Kortifex's upper eye while evading enemies and Kortifex's attacks. Once Kortifex's eye is destroyed, the second phase will begin, and you'll be teleported to another area.</li>
-                <p class="boss-fight-phases">Phase 2</p>
+
+                <li class="dummy-li">
+                    <p class="boss-fight-phases">Phase 2</p>
+                </li>
                 <li>Shoot the <a href="pictures/main_ee/darkaethercrystals.webp">Dark Aether crystals</a> found on the ground around the area to spawn a <a href="pictures/main_ee/crystalshard.webp">red Crystal Shard</a>.</li>
                 <li>Throw the red Crystal Shards into the <a href="pictures/main_ee/purplepods.webp">Purple Pods</a> to convert it into <a href="pictures/main_ee/bluecrystalshard.webp">blue Corrupted Crystal Shards</a>. The conversion process takes about 20-30 seconds.</li>
                 <li>Throw the blue shard at one of the <a href="pictures/main_ee/pillarinsky.webp">floating pillars in the sky</a>. The pillar will crash into the Construct, disabling Kortifex's bubble shield allowing the player to shoot his two other eyes.</li>
                 <li>Once another one of Kortifex's eyes is destroyed, the third phase will begin and the player will be teleported to another area.</li>
-                <p class="boss-fight-phases">Phase 3</p>
+                <li class="dummy-li">
+                    <p class="boss-fight-phases">Phase 3</p>
+                </li>
                 <li>The third phase is identical to the second phase, except this time Kortifex can heal himself.</li>
                 <li>To stop Kortifex from healing, hit him with the floating pillars in the sky.</li>
                 <li>Once the final eye is destroyed, a short conversation will play and the players will be awarded the following rewards: the calling card "There Archon Be Only One" as well as the Wunderwaffe DG-2, five Sacrificial Hearts, and one tier upgrade for the perks the player had during the fight.</li>
@@ -237,16 +250,17 @@
         <div class="content-container" id="rampage_inducer">
             <h2 class="section-title">Rampage Inducer</h2>
             <ol>
-                <li>To activate the Rampage Inducer, the player needs to shoot five skulls hanging in the spawn room. The skulls have been shot successfully if their eyes glow red. The skulls must be shot in the following order: </li>
-                <ol>
-                    <li><a href="pictures/rampage_inducer/skull1.webp">Left from spawn location</a></li>
-                    <li><a href="pictures/rampage_inducer/skull2.webp">Straight ahead of the spawn location</a></li>
-                    <li><a href="pictures/rampage_inducer/skull3.webp">Right of spawn location, above the SVT wallbuy</a>
-                    </li>
-                    <li><a href="pictures/rampage_inducer/skull4.webp">The middle section of the Temple left of Skull 3</a>
-                    </li>
-                    <li><a href="pictures/rampage_inducer/skull5.webp">Above Pack-a-Punch</a></li>
-                </ol>
+                <li>To activate the Rampage Inducer, the player needs to shoot five skulls hanging in the spawn room. The skulls have been shot successfully if their eyes glow red. The skulls must be shot in the following order:
+                    <ol>
+                        <li><a href="pictures/rampage_inducer/skull1.webp">Left from spawn location</a></li>
+                        <li><a href="pictures/rampage_inducer/skull2.webp">Straight ahead of the spawn location</a></li>
+                        <li><a href="pictures/rampage_inducer/skull3.webp">Right of spawn location, above the SVT wallbuy</a>
+                        </li>
+                        <li><a href="pictures/rampage_inducer/skull4.webp">The middle section of the Temple left of Skull 3</a>
+                        </li>
+                        <li><a href="pictures/rampage_inducer/skull5.webp">Above Pack-a-Punch</a></li>
+                    </ol>
+                </li>
                 <li>If done correctly, a sound will play and the <a href="pictures/rampage_inducer/tablet.webp">rampage inducer tablet</a> will spawn.</li>
             </ol>
         </div>
@@ -282,7 +296,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

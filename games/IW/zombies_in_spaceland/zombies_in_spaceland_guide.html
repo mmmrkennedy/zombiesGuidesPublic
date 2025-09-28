@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Zombies in Spaceland Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#n31l">N31L</a></li><ul><li><a href="#kitt">KITT (N31L Upgrade)</a></li></ul><li><a href="#tickets">Tickets</a></li><ul><li><a href="#rewards">Ticket Rewards</a></li><li><a href="#arcade_games">List of Arcade Games</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#coins">Souvenir Coins/Stations (Craftable Scorestreaks)</a></li><li><a href="#weapons_of_rock">'Weapon of Rock' Wonder Weapons</a></li><ul><li><a href="#headcutter">Head-Cutter</a></li><li><a href="#facemelter">Face-Melter</a></li><li><a href="#dischord">Dischord</a></li><li><a href="#shredder">Shredder</a></li></ul><li><a href="#elemental_upgrades">Arcane Core Elemental Upgrades</a></li><ul><li><a href="#arcane_xquisite">X-QUISITE (Purple)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Sooooul Key' Main Quest</a></li><ul><li><a href="#main_ee_step2">Crafting the SETI-COM</a></li><li><a href="#main_ee_step3">Defending the SETI-COM</a></li><li><a href="#main_ee_step4">UFO and Alien Boss Fight</a></li><li><a href="#main_ee_step5">Destroying the UFO</a></li></ul><li><a href="#mw1_song">'MW1 Theme - The Spaceland Mix' Song</a></li><li><a href="#mw2_song">'MW2 Theme - Radical 80s Remix' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#ghosts_and_skulls">Ghosts 'N Skulls</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Balloons</a></li><li><a href="#side_ee_step2">Skull 2/6 - Skulls around the Map</a></li><li><a href="#side_ee_step3">Skull 3/6- Disco Floor</a></li><li><a href="#side_ee_step4">Skull 4/6 - Arcade Games</a></li><li><a href="#side_ee_step5">Skull 5/6 - Main Quest</a></li><li><a href="#side_ee_step6">Skull 6/6 - Brute Laser</a></li><li><a href="#side_ee_step7">The Ghost N' Skulls Mini-Game</a></li></ul><li><a href="#hasselhoff_code">Play as David Hasselhoff</a></li><li><a href="#wyler_code">Play as Willard Wyler</a></li><li><a href="#willards_test">Willard's Test (Secret Animated Calling Card)</a></li></ul></div>
     </div>
 </div>
@@ -79,12 +74,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#n31l">N31L</a></li><ul><li><a href="#kitt">KITT (N31L Upgrade)</a></li></ul><li><a href="#tickets">Tickets</a></li><ul><li><a href="#rewards">Ticket Rewards</a></li><li><a href="#arcade_games">List of Arcade Games</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#coins">Souvenir Coins/Stations (Craftable Scorestreaks)</a></li><li><a href="#weapons_of_rock">'Weapon of Rock' Wonder Weapons</a></li><ul><li><a href="#headcutter">Head-Cutter</a></li><li><a href="#facemelter">Face-Melter</a></li><li><a href="#dischord">Dischord</a></li><li><a href="#shredder">Shredder</a></li></ul><li><a href="#elemental_upgrades">Arcane Core Elemental Upgrades</a></li><ul><li><a href="#arcane_xquisite">X-QUISITE (Purple)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Sooooul Key' Main Quest</a></li><ul><li><a href="#main_ee_step2">Crafting the SETI-COM</a></li><li><a href="#main_ee_step3">Defending the SETI-COM</a></li><li><a href="#main_ee_step4">UFO and Alien Boss Fight</a></li><li><a href="#main_ee_step5">Destroying the UFO</a></li></ul><li><a href="#mw1_song">'MW1 Theme - The Spaceland Mix' Song</a></li><li><a href="#mw2_song">'MW2 Theme - Radical 80s Remix' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#ghosts_and_skulls">Ghosts 'N Skulls</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Balloons</a></li><li><a href="#side_ee_step2">Skull 2/6 - Skulls around the Map</a></li><li><a href="#side_ee_step3">Skull 3/6- Disco Floor</a></li><li><a href="#side_ee_step4">Skull 4/6 - Arcade Games</a></li><li><a href="#side_ee_step5">Skull 5/6 - Main Quest</a></li><li><a href="#side_ee_step6">Skull 6/6 - Brute Laser</a></li><li><a href="#side_ee_step7">The Ghost N' Skulls Mini-Game</a></li></ul><li><a href="#hasselhoff_code">Play as David Hasselhoff</a></li><li><a href="#wyler_code">Play as Willard Wyler</a></li><li><a href="#willards_test">Willard's Test (Secret Animated Calling Card)</a></li></ul></div>
 
     <!-- Power -->
@@ -888,10 +878,10 @@
 
         <ol>
             <li>Unlock Director's Cut mode (See the <a href="/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#directors_cut">Director's Cut</a> section of The Beast From Beyond guide for more information).</li>
-            <li>Complete the first four Main Quests again in Director’s Cut mode (not including Beast).</li>
+            <li>Complete the first four Main Quests again in Director's Cut mode (not including Beast).</li>
             <li>Complete The Beast From Beyond Quest. Upon completion, you will be put into the Mephistopheles boss fight (See the <a href="/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#meph_fight">Mephistopheles Boss Fight</a> section for how to beat him).</li>
             <li>After defeating Mephistopheles, complete the <a href="#main_ee">Main Quest</a> on Zombies in Spaceland while <a href="#wyler_code">Playing as Willard Wyler</a>.</li>
-            <li>Upon completion, the mode’s final cutscene will play, and you will unlock the <a href="pictures/willards_test/wyler_dc.gif">Willard's Test</a> animated calling card.</li>
+            <li>Upon completion, the mode's final cutscene will play, and you will unlock the <a href="pictures/willards_test/wyler_dc.gif">Willard's Test</a> animated calling card.</li>
         </ol>
     </div>
 </div>
@@ -906,7 +896,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

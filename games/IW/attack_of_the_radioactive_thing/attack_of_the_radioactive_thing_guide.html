@@ -39,23 +39,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Attack of the Radioactive Thing Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -64,15 +64,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#teleporters">Teleporters</a></li><li><a href="#traps">Repairable Traps</a></li><li><a href="#ingredients">Ingredients</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#mad_upgrade">M.A.D. Wonder Weapon Upgrade</a></li><li><a href="#craftable_scorestreaks">Craftable Scorestreaks</a></li><li><a href="#elvira_upgrade">Elvira Melee Upgrade</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Soul-Less' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unlocking the Garage</a></li><li><a href="#main_ee_step2">Preparing for the Chemistry Step</a></li><ul><li><a href="#main_ee_step2_sub1">Building the Nuke</a></li><li><a href="#main_ee_step2_sub2">Opening the Safe</a></li></ul><li><a href="#main_ee_step3">The Chemistry Step</a></li><ul><li><a href="#main_ee_step4">The Intended Way (Not Recommended)</a></li><li><a href="#main_ee_step5">The Solver Way (Recommended)</a></li></ul><li><a href="#main_ee_step6">The Crog-Zilla Boss Fight</a></li></ul><li><a href="#song_ee">'Brachyura Boogie' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_hop">Skull Hop</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Shoot 5 Skulls</a></li><li><a href="#side_ee_step2">Skull 2/6 - Radiation Container</a></li><li><a href="#side_ee_step3">Skull 3/6 - Pool Trap Kills</a></li><li><a href="#side_ee_step4">Skull 4/6 - Word Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Wyler Portraits</a></li><li><a href="#side_ee_step6">Skull 6/6 - Shoot the machine with the M.A.D.</a></li><li><a href="#side_ee_step7">The Skull Hop Mini-Game</a></li></ul><li><a href="#message_rerouted">Message Rerouted (Secret Animated Calling Card)</a></li><li><a href="#make_em_squeal">Make 'Em Squeal (Secret Calling Card)</a></li><li><a href="#wyler_diary">Willard Wyler's Recordings (Dear Diary Achievement)</a></li><li><a href="#elvira_code">Play as Elvira</a></li></ul></div>
     </div>
 </div>
@@ -80,12 +75,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#teleporters">Teleporters</a></li><li><a href="#traps">Repairable Traps</a></li><li><a href="#ingredients">Ingredients</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#mad_upgrade">M.A.D. Wonder Weapon Upgrade</a></li><li><a href="#craftable_scorestreaks">Craftable Scorestreaks</a></li><li><a href="#elvira_upgrade">Elvira Melee Upgrade</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Soul-Less' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unlocking the Garage</a></li><li><a href="#main_ee_step2">Preparing for the Chemistry Step</a></li><ul><li><a href="#main_ee_step2_sub1">Building the Nuke</a></li><li><a href="#main_ee_step2_sub2">Opening the Safe</a></li></ul><li><a href="#main_ee_step3">The Chemistry Step</a></li><ul><li><a href="#main_ee_step4">The Intended Way (Not Recommended)</a></li><li><a href="#main_ee_step5">The Solver Way (Recommended)</a></li></ul><li><a href="#main_ee_step6">The Crog-Zilla Boss Fight</a></li></ul><li><a href="#song_ee">'Brachyura Boogie' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_hop">Skull Hop</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Shoot 5 Skulls</a></li><li><a href="#side_ee_step2">Skull 2/6 - Radiation Container</a></li><li><a href="#side_ee_step3">Skull 3/6 - Pool Trap Kills</a></li><li><a href="#side_ee_step4">Skull 4/6 - Word Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Wyler Portraits</a></li><li><a href="#side_ee_step6">Skull 6/6 - Shoot the machine with the M.A.D.</a></li><li><a href="#side_ee_step7">The Skull Hop Mini-Game</a></li></ul><li><a href="#message_rerouted">Message Rerouted (Secret Animated Calling Card)</a></li><li><a href="#make_em_squeal">Make 'Em Squeal (Secret Calling Card)</a></li><li><a href="#wyler_diary">Willard Wyler's Recordings (Dear Diary Achievement)</a></li><li><a href="#elvira_code">Play as Elvira</a></li></ul></div>
 
     <div class="content-container" data-section-ind="Map Progression" id="power">
@@ -963,7 +953,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

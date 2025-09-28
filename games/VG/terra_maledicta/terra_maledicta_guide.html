@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Terra Maledicta Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li><li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li><li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li><li><a href="#free_points">Free Points</a></li></ul><h2>Misc.</h2><ul><li><a href="#dig_spots">Dig Spots</a></li></ul></div>
     </div>
 </div>
@@ -79,13 +74,7 @@
 <div class="smooth-scroll content-window">
         <!-- Legend to other parts -->
         <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-    <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li><li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li><li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li><li><a href="#free_points">Free Points</a></li></ul><h2>Misc.</h2><ul><li><a href="#dig_spots">Dig Spots</a></li></ul></div>
+        <h2>Weapons</h2><ul><li><a href="#decimator_shield">Decimator Shield</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">Main Easter Egg Quest</a></li><li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li><li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li><li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li><li><a href="#free_points">Free Points</a></li></ul><h2>Misc.</h2><ul><li><a href="#dig_spots">Dig Spots</a></li></ul></div>
 
         <!-- Wonder Weapons -->
         <div class="content-container" data-section-ind="Weapons" id="decimator_shield">
@@ -98,13 +87,14 @@
                 <li>Interact with the <a href="pictures/decimator_shield/speedcola_runestone.webp">rune stone</a> near Demonic Frenzy (Speed Cola) in the <a href="pictures/decimator_shield/tents.webp">Tents</a> area in the East Spring Area.</li>
                 <li>Wait for the conversation to finish and enter the <a href="pictures/decimator_shield/speedcola_portal.webp">Portal</a> that spawns behind the rune stone. <strong>Note: The conversation takes a full two minutes to finish.</strong></li>
                 <li>Complete the Augmentor objective.</li>
-                <li>After returning to the Eastern Desert, shoot and destroy four crystals located around the spawn area.</li>
-                <ul>
-                    <li><a href="pictures/decimator_shield/eastspring_crystal.webp">East Spring</a></li>
-                    <li><a href="pictures/decimator_shield/westspring_crystal.webp">West Spring</a></li>
-                    <li><a href="pictures/decimator_shield/spawn_crystal.webp">Temple (Above Spawn)</a></li>
-                    <li><a href="pictures/decimator_shield/shield_crystal.webp">Temple (Behind the Altar of Covenants, on the other side of the wall)</a></li>
-                </ul>
+                <li>After returning to the Eastern Desert, shoot and destroy four crystals located around the spawn area.
+                    <ul>
+                        <li><a href="pictures/decimator_shield/eastspring_crystal.webp">East Spring</a></li>
+                        <li><a href="pictures/decimator_shield/westspring_crystal.webp">West Spring</a></li>
+                        <li><a href="pictures/decimator_shield/spawn_crystal.webp">Temple (Above Spawn)</a></li>
+                        <li><a href="pictures/decimator_shield/shield_crystal.webp">Temple (Behind the Altar of Covenants, on the other side of the wall)</a></li>
+                    </ul>
+                </li>
                 <li>Return to the Shield to start another conversation. <strong>Note: The player can start a Portal Objective as soon as the conversation starts if they don't care to listen to it.</strong></li>
                 <li>Open <a href="pictures/decimator_shield/westspring_portal.webp">West Spring</a> by completing a Portal Objective.</li>
                 <li>Interact with the <a href="pictures/decimator_shield/deadshot_runestone.webp">rune stone</a> in the 'Bazaar' (Below Diabolical Damage/Deadshot) in the West Spring Area.</li>
@@ -123,13 +113,14 @@
                 <li>Open <a href="pictures/main_ee/debrisfield_portal.webp">Debris Field</a> by completing a Portal Objective.</li>
                 <li>Navigate to the Debris Field area and interact with the <a href="pictures/main_ee/debrisfield_runestone.webp">rune stone</a> near Venomous Vigor (Quick Revive). <strong>Note: This conversation takes <i>only</i> about one minute to finish.</strong></li>
                 <li>Enter the <a href="pictures/main_ee/voidportal.webp">Void Portal</a> near the rune stone.</li>
-                <li>While in the Void objective area, using the Decimator Shield's special ability (Slam), destroy four arms attached to various walls. The player can easily locate these arms by following the energy beams going from the <a href="pictures/main_ee/tomepage_inair.webp">Tome Page</a> to each of the arms.</li>
-                <ul>
-                    <li><a href="pictures/main_ee/arm_heights.webp">Stygian Heights</a></li>
-                    <li><a href="pictures/main_ee/arm_homesoil.webp">Vercanna's Home Soil</a></li>
-                    <li><a href="pictures/main_ee/arm_shatteredland.webp">The Shattered Land</a></li>
-                    <li><a href="pictures/main_ee/arm_isleofblight.webp">Isle of Blight</a></li>
-                </ul>
+                <li>While in the Void objective area, using the Decimator Shield's special ability (Slam), destroy four arms attached to various walls. The player can easily locate these arms by following the energy beams going from the <a href="pictures/main_ee/tomepage_inair.webp">Tome Page</a> to each of the arms.
+                    <ul>
+                        <li><a href="pictures/main_ee/arm_heights.webp">Stygian Heights</a></li>
+                        <li><a href="pictures/main_ee/arm_homesoil.webp">Vercanna's Home Soil</a></li>
+                        <li><a href="pictures/main_ee/arm_shatteredland.webp">The Shattered Land</a></li>
+                        <li><a href="pictures/main_ee/arm_isleofblight.webp">Isle of Blight</a></li>
+                    </ul>
+                </li>
                 <li>Once all four arms are destroyed, pick up the <a href="pictures/main_ee/tomepage_onground.webp">Tome Page</a> and interact with the portal to the right of the Tome Page.</li>
                 <li>Upon returning to the Eastern Desert, the player will be given 10,000 points and be presented with various loot items and four loot chests. This will unlock the Void portal for the remainder of the current match.</li>
             </ol>
@@ -190,19 +181,21 @@
             <h2 class="section-title">Dig Spots</h2>
             <p>Similar to Origins (BO2 &amp; BO3), there are Dig Spots around the map that contain various items like loot, weapons, etc.</p>
             <ul>
-                <li>The shovel can be picked up from one of the following locations:</li>
-                <ul>
-                    <li><a href="pictures/dig_spots/debrisfield_shovel.webp">Debris Field</a></li>
-                    <li><a href="pictures/dig_spots/marketstorage.webp">Market Storage</a></li>
-                    <li><a href="pictures/dig_spots/outpost.webp">Outpost Courtyard</a></li>
-                    <li><a href="pictures/dig_spots/derailment.webp">Derailment</a></li>
-                </ul>
-                <li>The dig spots also contain the items required to start the three side quests on the map:</li>
-                <ul>
-                    <li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li>
-                    <li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li>
-                    <li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li>
-                </ul>
+                <li>The shovel can be picked up from one of the following locations:
+                    <ul>
+                        <li><a href="pictures/dig_spots/debrisfield_shovel.webp">Debris Field</a></li>
+                        <li><a href="pictures/dig_spots/marketstorage.webp">Market Storage</a></li>
+                        <li><a href="pictures/dig_spots/outpost.webp">Outpost Courtyard</a></li>
+                        <li><a href="pictures/dig_spots/derailment.webp">Derailment</a></li>
+                    </ul>
+                </li>
+                <li>The dig spots also contain the items required to start the three side quests on the map:
+                    <ul>
+                        <li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li>
+                        <li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li>
+                        <li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -217,7 +210,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

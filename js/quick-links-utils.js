@@ -183,20 +183,6 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
     return html;
 }
 
-/**
- * Generates HTML string for font selector box
- * @returns {string} - HTML string for font selector
- */
-function generateFontBoxHTML() {
-    return `
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-    `;
-}
 
 // Export for Node.js environments
 if (typeof module !== 'undefined' && module.exports) {
@@ -204,8 +190,7 @@ if (typeof module !== 'undefined' && module.exports) {
         shouldExcludeElement,
         getElementTitle,
         getQuickLinkElements,
-        generateNavHTML,
-        generateFontBoxHTML
+        generateNavHTML
     };
 }
 
@@ -215,7 +200,6 @@ if (typeof window !== 'undefined') {
         shouldExcludeElement,
         getElementTitle,
         getQuickLinkElements,
-        generateNavHTML,
-        generateFontBoxHTML
+        generateNavHTML
     };
 }

@@ -53,29 +53,24 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#perk_machines">Perk Machines</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#pap_nero">Nero Blackstone - Junction/Spawn</a></li><li><a href="#pap_jack">Jack Vincent - Canals District</a></li><li><a href="#pap_floyd">Floyd Campbell - Waterfront District</a></li><li><a href="#pap_jessica">Jessica Rose - Footlight District</a></li><li><a href="#pap_final_ritual">Final Ritual</a></li></ul><li><a href="#beast_mode">Beast Mode</a></li><li><a href="#fumigator_pods">Fumigator / Pods</a></li><li><a href="#rift_portals">Rift (Fast Travel) Portals</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apothicon_servant">Apothicon Servant</a></li><li><a href="#apothicon_sword">Apothicon Sword Special Weapon</a></li><ul><li><a href="#keeper_sword">Keeper Sword Upgrade</a></li></ul><li><a href="#civil_protector">Civil Protector</a></li><li><a href="#rocket_shield">Rocket Shield</a></li><ul><li><a href="#goddard_apparatus">Goddard Apparatus Shield Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Apocalypse Averted' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Flag Defence</a></li><li><a href="#main_ee_step3">Shadowman Boss Fight</a></li><li><a href="#main_ee_step4">Destroy the Giant Gateworm (4-Player Only)</a></li></ul></ul><h4 class="sub-header">Songs</h4><ul><li><a href="#snakeskin_boots_song">'Snakeskin Boots' Song</a></li><li><a href="#cold_hard_cash_song">'Cold Hard Cash' Song</a></li></ul><h4 class="sub-header">Player / Equipment Upgrades</h4><ul><li><a href="#margwa_mask">'Margwa Mask' Equipable Helmet</a></li><li><a href="#upgraded_lil_arnies">Upgraded Lil' Arnies</a></li><li><a href="#upgraded_trip_mines">Upgraded Trip Mines</a></li></ul><h4 class="sub-header">Useful Easter Eggs</h4><ul><li><a href="#free_gobblegum">Free Mega Gobblegum</a></li><li><a href="#laundry_ticket">'Sal's Laundry Ticket' Free 500 Points</a></li></ul><h4 class="sub-header">Misc. Easter Eggs</h4><ul><li><a href="#black_and_white_filter">Noire Mode (Black and White Visual Filter)</a></li><li><a href="#jumpscare">Zombie Richtofen Jump Scare</a></li><li><a href="#motd_plane_flyover">Mob of the Dead Plane Map Fly-Over</a></li><li><a href="#shadowman_round_skip">Shadowman Round Skip (Skip to Rounds 5, 10, or 15)</a></li></ul></div>
 
     <!-- Wonder Weapons -->
@@ -424,62 +419,77 @@
     <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
         <h2 class="section-title">'Apocalypse Averted' Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
-        <p class="warning">To complete this Main Quest, you need to have four players in your game. If you don't have four players, you can still complete the Boss Fight, but the final sequence (and therefore the final cutscene) won't start.</p>
+        <p class="warning">To complete this Main Quest, you'll need four players. If you don't have four players, you can still complete the Boss Fight, but the final sequence (and the final cutscene) won't start.</p>
         <ol>
-            <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
+            </li>
+
             <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
             <li>Every player needs to obtain an <a href="#keeper_sword">Upgraded Sword</a>.</li>
 
-            <p class="step-group-title" id="main_ee_step2">Flag Defence</p>
+            <li class="dummy-li"><p class="step-group-title" id="main_ee_step2">Flag Defence</p></li>
             <li>Once every player has an Upgraded Sword, go to Nero's room and interact with the <a href="pictures/main_ee/book.webp">open book on the floor</a> in front of the bookshelf. It should begin floating.</li>
-            <li>This will cause a <a href="pictures/main_ee/flag.webp">Flag to fall from the ceiling</a> near the Widow's Wine Perk Machine in the Underground.</li>
-            <ul>
-                <li>Picking up this flag will start a defence objective, so make sure you have Max Ammo and Pack-a-Punched weapons.</li>
-            </ul>
-            <li>When you pick up the flag, all enemies will despawn, and only Meatballs and Parasites will spawn. You need to defend the flag at two locations (indicated by <a href="pictures/main_ee/junction_stamin.webp">lightning on the ground</a>) per district, then bring the flag to the <a href="pictures/main_ee/">Ghost Keeper at that district's Ritual Table</a>. When you place the flag at a defence location, the Meatballs will start going after the flag. Kill them before they reach the flag—if it takes too much damage, it breaks and you'll have to end the round to retry. While you're defending the flag, the Shadowman will occasionally spawn in the air around the flag; shoot him to make him disappear. Failing to shoot him in time will cause him to spawn a lot of parasites. Defence locations:</li>
-            <ul>
-                <li>Junction</li>
+            <li>This will cause a <a href="pictures/main_ee/flag.webp">Flag to fall from the ceiling</a> near the Widow's Wine Perk Machine in the Underground.
                 <ul>
-                    <li><a href="pictures/main_ee/junction_stamin.webp">In front of the entrance to the Footlight district</a></li>
-                    <li><a href="pictures/main_ee/junction_spawn.webp">In front of the Gobblegum machine</a></li>
+                    <li>Picking up this flag will start a defence objective, so make sure you have Max Ammo and Pack-a-Punched weapons.</li>
                 </ul>
-                <li>Footlight</li>
+            </li>
+            <li>When you pick up the flag, all enemies will despawn, and only Meatballs and Parasites will spawn. You need to defend the flag at two locations (indicated by <a href="pictures/main_ee/junction_stamin.webp">lightning on the ground</a>) per district, then bring the flag to the <a href="pictures/main_ee/">Ghost Keeper at that district's Ritual Table</a>. When you place the flag at a defence location, the Meatballs will start going after the flag. Kill them before they reach the flag—if it takes too much damage, it breaks, and you'll have to end the round to retry. While you're defending the flag, the Shadowman will occasionally spawn in the air around the flag; shoot him to make him disappear. Failing to shoot him in time will cause him to spawn a lot of parasites. Defence locations:
                 <ul>
-                    <li><a href="pictures/main_ee/footlight_entrance.webp">In front of the Vesper wallbuy, at the front of the district</a></li>
-                    <li><a href="pictures/main_ee/footlight_kn44.webp">In front of the KN-44 wallbuy, on the street in front of the 'Black Lace Burlesque'</a></li>
+                    <li>Junction
+                        <ul>
+                            <li><a href="pictures/main_ee/junction_stamin.webp">In front of the entrance to the Footlight district</a></li>
+                            <li><a href="pictures/main_ee/junction_spawn.webp">In front of the Gobblegum machine</a></li>
+                        </ul>
+                    </li>
+                    <li>Footlight
+                        <ul>
+                            <li><a href="pictures/main_ee/footlight_entrance.webp">In front of the Vesper wallbuy, at the front of the district</a></li>
+                            <li><a href="pictures/main_ee/footlight_kn44.webp">In front of the KN-44 wallbuy, on the street in front of the 'Black Lace Burlesque'</a></li>
+                        </ul>
+                    </li>
+                    <li>Waterfront
+                        <ul>
+                            <li><a href="pictures/main_ee/waterfront_stairs.webp">Right at the entrance of the district from the Junction</a></li>
+                            <li><a href="pictures/main_ee/waterfront_mystery_box.webp">Near the bottom of the stairs from the Train Station</a></li>
+                        </ul>
+                    </li>
+                    <li>Canals
+                        <ul>
+                            <li><a href="pictures/main_ee/canals_entrance.webp">Right at the entrance of the district from the Junction</a></li>
+                            <li><a href="pictures/main_ee/canals_rabbit.webp">Across the canal from 'Ruby Rabbit Nightclub'</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <li>Waterfront</li>
+            </li>
+            <li>After 30 seconds, the flag will make a sound and start <a href="pictures/main_ee/">pulsing red</a>; you can now pick it up and bring it to the next location.
                 <ul>
-                    <li><a href="pictures/main_ee/waterfront_stairs.webp">Right at the entrance of the district from the Junction</a></li>
-                    <li><a href="pictures/main_ee/waterfront_mystery_box.webp">Near the bottom of the stairs from the Train Station</a></li>
+                    <li>A Max Ammo will spawn above the flag when you pick it up, so make sure to grab it.</li>
+                    <li>Successfully defending a location will make it permanently completed, meaning if you fail the next defence and the flag is destroyed, you don't need to repeat the completed defence again.</li>
                 </ul>
-                <li>Canals</li>
-                <ul>
-                    <li><a href="pictures/main_ee/canals_entrance.webp">Right at the entrance of the district from the Junction</a></li>
-                    <li><a href="pictures/main_ee/canals_rabbit.webp">Across the canal from 'Ruby Rabbit Nightclub'</a></li>
-                </ul>
-            </ul>
-            <li>After 30 seconds, the flag will make a sound and start <a href="pictures/main_ee/">pulsing red</a>; you can now pick it up and bring it to the next location.</li>
-            <ul>
-                <li>A Max Ammo will spawn above the flag when you pick it up, so make sure to grab it.</li>
-                <li>Successfully defending a location will make it permanently completed, meaning if you fail the next defence and the flag is destroyed, you don't need to repeat the completed defence again.</li>
-            </ul>
+            </li>
             <li>Once you've given the Flag to one district's Keeper, you'll need to end the current round to respawn the flag to do another district.</li>
             <li>Once all four Keepers have been given flags, they will spawn beside the Gateworm pedestals in the Pack-a-Punch room. Each player must interact with a Keeper to give it their upgraded Sword.</li>
 
-            <p class="step-group-title" id="main_ee_step3">Shadowman Boss Fight</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step3">Shadowman Boss Fight</p>
+            </li>
             <li>Once the last keeper is given a Sword, the Boss Fight will start.</li>
             <li>The Shadowman will appear in the middle of the room with a shield around him. The Keepers will fire a beam at him, breaking the shield and stunning the Shadowman.</li>
             <li>While the Shadowman is stunned, quickly shoot him to make him teleport around the arena. Keep shooting him until he's above the <a href="pictures/main_ee/">Ritual Table near the entrance to the room.</a></li>
             <li>Once he's over the table, interact with it to capture the Shadowman in the Summoning Key.</li>
-            <li>If you take too long to get the Shadowman to the Ritual Table, he'll recover from the stun and teleport back to the middle of the room with the shield. Also, he'll spawn a Margwa.</li>
-            <li>You must interact with each Keeper to activate them, indicated by the CHANGE ME. Once activated, they'll break the Shadowman's shield, and you can try shooting him again.</li>
-            <ul>
-                <li>The Shadowman has an attack that can deactivate an activated Keeper, so you have to interact with them again to activate them. This attack is indicated by CHANGE ME and can be avoided by CHANGE ME.</li>
-            </ul>
+            <li>If you take too long to get the Shadowman to the Ritual Table, he'll recover from the stun and teleport back to the middle of the room with the shield. A Margwa will spawn.</li>
+            <li>You must activate each Keeper again. Once activated, they'll break the Shadowman's shield, and you can try shooting him again.
+                <ul>
+                    <li>The Shadowman has an attack that can deactivate all currently activated Keepers, making you have to activate them again. This attack is indicated by CHANGE ME and can be avoided by CHANGE ME.</li>
+                </ul>
+            </li>
             <li>Once you've captured the Shadowman in the Summoning Key, the boss fight will end. If you don't have four players in the game, the Main Quest will end here.</li>
 
-            <p class="step-group-title" id="main_ee_step4">Destroy the Giant Gateworm (4-Player Only)</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step4">Destroy the Giant Gateworm (4-Player Only)</p>
+            </li>
             <li>If you do have four players, a giant Gateworm will appear on top of the ritual table, where you captured the Shadowman, for a couple of seconds. After a couple of seconds, all players will be "corrupted" (indicated by the red mist on screen). You must find a white orb around the map and walk into it to temporarily clean the corruption (a white orb will always spawn on the ritual table), otherwise, failing to do so in time will down you. This corruption will comeback </li>
             <li>Zombies will no longer spawn, instead, purple-mouth Margwas will spawn. Killing one of these Margwas will activate a couple of Beast Mode chalices around the map.</li>
             <li>During this part of the Main Quest, Beast Mode will be infinite, but Margwas can still see and attack you. Taking damage in Beast Mode will take chunks off your Beast Mode meter; if it hits zero, you'll be removed from Beast Mode.</li>
@@ -491,12 +501,13 @@
     <div class="content-container" data-section-header-level="1" data-section-ind="Songs" id="snakeskin_boots_song">
         <h2 class="section-title">'Snakeskin Boots' Song</h2>
         <ol>
-            <li>There are three wooden clocks you need to interact with to start the song. Clock locations:</li>
-            <ul>
-                <li><a href="pictures/snakeskin_boots_song/clock_rabbit.webp">Canals - On the bottom floor of the 'Ruby Rabbit,' left of the entrance on a table</a></li>
-                <li><a href="pictures/snakeskin_boots_song/clock_train.webp">Footlight - In the train station, on a bench right of the Gobblegum machine</a></li>
-                <li><a href="pictures/snakeskin_boots_song/clock_gym.webp">Waterfront - In the 'Boxing Gym,' on the desk on the upper level</a></li>
-            </ul>
+            <li>There are three wooden clocks you need to interact with to start the song. Clock locations:
+                <ul>
+                    <li><a href="pictures/snakeskin_boots_song/clock_rabbit.webp">Canals - On the bottom floor of the 'Ruby Rabbit,' left of the entrance on a table</a></li>
+                    <li><a href="pictures/snakeskin_boots_song/clock_train.webp">Footlight - In the train station, on a bench right of the Gobblegum machine</a></li>
+                    <li><a href="pictures/snakeskin_boots_song/clock_gym.webp">Waterfront - In the 'Boxing Gym,' on the desk on the upper level</a></li>
+                </ul>
+            </li>
             <li>Once all three clocks are interacted with, the song will start.</li>
         </ol>
     </div>
@@ -504,12 +515,13 @@
     <div class="content-container" id="cold_hard_cash_song">
         <h2 class="section-title">'Cold Hard Cash' Song</h2>
         <ol>
-            <li>Pick up three pieces of stage equipment. Equipment locations:</li>
-            <ul>
-                <li><a href="pictures/cold_hard_cash_song/mic_stand.webp">Mic Stand: Nero's Room - Between the large saw, and knife throwing board</a></li>
-                <li><a href="pictures/cold_hard_cash_song/wire.webp">Wire: Canals - Under the stairs that lead down to the Canal; near the wall you can only see through in Beast Mode used in the PAP quest</a></li>
-                <li><a href="pictures/cold_hard_cash_song/mic.webp">Microphone: Underground - Left of the Bench near the Waterfront portal (the one on the upper level)</a></li>
-            </ul>
+            <li>Pick up three pieces of stage equipment. Equipment locations:
+                <ul>
+                    <li><a href="pictures/cold_hard_cash_song/mic_stand.webp">Mic Stand: Nero's Room - Between the large saw, and knife throwing board</a></li>
+                    <li><a href="pictures/cold_hard_cash_song/wire.webp">Wire: Canals - Under the stairs that lead down to the Canal; near the wall you can only see through in Beast Mode used in the PAP quest</a></li>
+                    <li><a href="pictures/cold_hard_cash_song/mic.webp">Microphone: Underground - Left of the Bench near the Waterfront portal (the one on the upper level)</a></li>
+                </ul>
+            </li>
             <li>Once you have three items, they will automatically be <a href="pictures/cold_hard_cash_song/mic_stand_stage.webp">placed on the stage</a>, in front of the Ritual Table in the 'Black Lace Burlesque' in the Footlight District. Interact with the stand to start the song.</li>
         </ol>
     </div>
@@ -518,46 +530,54 @@
         <h2 class="section-title">'Margwa Mask' Equipable Helmet</h2>
         <ol>
             <li>Kill six Margwas; three will spawn throughout the Pack-a-Punch quest, and seven can be spawned, per person, during the Sword upgrade quest.</li>
-            <li>Six <a href="pictures/margwa_mask/">Margwa Hearts</a> will spawn around the map that you can only shoot while on the train, while it's moving. You can shoot them with any weapon, but using an explosive weapon (like the Ray Gun or upgraded Bloodhound) makes it easier.</li>
-            <ul>
-                <li>You have to shoot all six hearts in only two train rides, or they'll all respawn. If the hearts respawn, you don't need to end the round to retry.</li>
-                <li>Since you only have two train rides, the optimal route is Waterfront to Footlight, then Footlight to Canals.</li>
-                <li>You can't shoot through the glass on the train; you need to shoot through an opening.</li>
-            </ul>
+            <li>Six <a href="pictures/margwa_mask/">Margwa Hearts</a> will spawn around the map that you can only shoot while on the train, while it's moving. You can shoot them with any weapon, but using an explosive weapon (like the Ray Gun or upgraded Bloodhound) makes it easier.
+                <ul>
+                    <li>You have to shoot all six hearts in only two train rides, or they'll all respawn. If the hearts respawn, you don't need to end the round to retry.</li>
+                    <li>Since you only have two train rides, the optimal route is Waterfront to Footlight, then Footlight to Canals.</li>
+                    <li>You can't shoot through the glass on the train; you need to shoot through an opening.</li>
+                </ul>
+            </li>
 
-            <p><strong>Heart locations (described as if you're coming from that district's station):</strong></p>
-            <ul>
-                <li>Waterfront:</li>
-                <ol>
-                    <li><a href="pictures/margwa_mask/">Left Side - On the "Morg City Gas &amp; Electric" sign above the M8A7 wallbuy</a></li>
-                    <li><a href="pictures/margwa_mask/">Left Side - On the side of the building where the box with the Championship Belt (used in the PAP quest) was</a></li>
-                </ol>
-                <li>Footlight</li>
-                <ol>
-                    <li><a href="pictures/margwa_mask/">Front - In the Footlight, on a "Coffee" sign, right by the turn in the track</a></li>
-                    <li><a href="pictures/margwa_mask/">Right Side - On a white "Theater" sign, just inside the district from the Junction</a></li>
-                </ol>
-                <li>Junction</li>
+            <li class="p-style"><strong>Heart locations (described as if you're coming from that district's station, if applicable):</strong>
                 <ul>
-                    <li><a href="pictures/margwa_mask/">On the "Devil-O-Donuts" sign, "above" the L-CAR 9 wallbuy</a></li>
+                    <li>Waterfront
+                        <ol>
+                            <li><a href="pictures/margwa_mask/">Left Side - On the "Morg City Gas &amp; Electric" sign above the M8A7 wallbuy</a></li>
+                            <li><a href="pictures/margwa_mask/">Left Side - On the side of the building where the box with the Championship Belt (used in the PAP quest) was</a></li>
+                        </ol>
+                    </li>
+                    <li>Footlight
+                        <ol>
+                            <li><a href="pictures/margwa_mask/">Front - In the Footlight, on a "Coffee" sign, right by the turn in the track</a></li>
+                            <li><a href="pictures/margwa_mask/">Right Side - On a white "Theater" sign, just inside the district from the Junction</a></li>
+                        </ol>
+                    </li>
+                    <li>Junction
+                        <ul>
+                            <li><a href="pictures/margwa_mask/">On the "Devil-O-Donuts" sign, "above" the L-CAR 9 wallbuy</a></li>
+                        </ul>
+                    </li>
+                    <li>Canals
+                        <ul>
+                            <li><a href="pictures/margwa_mask/">Left Side - On the "Y" on the large, main Ruby Rabbit sign</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <li>Canals</li>
-                <ul>
-                    <li><a href="pictures/margwa_mask/">Left Side - On the "Y" on the large, main Ruby Rabbit sign</a></li>
-                </ul>
-            </ul>
+            </li>
             <li>Upon shooting the last heart, a Margwa death sound will play, indicating success.</li>
-            <li>Based on the number of players, Margwa Masks will randomly spawn in Ritual Rooms, one per room. You won't be able to see the mask; instead, there will be a flash that will appear every couple of seconds. Interact with the flash to equip the Margwa Mask.</li>
-            <ul>
-                <li>When you pick it up, it won't appear on your player icon with your points, like in Gorod Krovi or Revelations, so either another player has to look at you to see it, or you have to look at your player's shadow to see if it's equipped.</li>
-                <li>Mask locations:</li>
+            <li>Based on the number of players, Margwa Masks will randomly spawn in Ritual Rooms, one per room. You won't be able to see the mask; instead, there will be a flash that will appear every couple of seconds. Interact with the flash to equip the Margwa Mask.
                 <ul>
-                    <li><a href="pictures/margwa_mask/">Nero's Room - On the table under the stairs</a></li>
-                    <li><a href="pictures/margwa_mask/">Ruby Rabbit - On the balcony above the Sword pedestal, on the top floor of the building</a></li>
-                    <li><a href="pictures/margwa_mask/">Boxing Gym - In front of the lockers in the change room at the back</a></li>
-                    <li><a href="pictures/margwa_mask/">Black Lace Burlesque - Left of the Zombie Spawn window behind the ritual table</a></li>
+                    <li>The Mask won't appear on your player icon with your points, like in Gorod Krovi or Revelations. You'll either need another player to look at you to see it, or look at your player's shadow to see if it's equipped.</li>
+                    <li>Mask locations:
+                        <ul>
+                            <li><a href="pictures/margwa_mask/">Nero's Room - On the table under the stairs</a></li>
+                            <li><a href="pictures/margwa_mask/">Ruby Rabbit - On the balcony above the Sword pedestal, on the top floor of the building</a></li>
+                            <li><a href="pictures/margwa_mask/">Boxing Gym - In front of the lockers in the change room at the back</a></li>
+                            <li><a href="pictures/margwa_mask/">Black Lace Burlesque - Left of the Zombie Spawn window behind the ritual table</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
+            </li>
             <li>With the Mask equipped, you take 25% less damage from the Margwa's Slam attack.</li>
         </ol>
     </div>
@@ -567,12 +587,13 @@
         <ol>
             <li>Obtain Lil' Arnies from the Mystery Box.</li>
             <li>Get 100 kills with the Lil' Arnies (kills from all player count together). There is no indication once you've gotten the required kills.</li>
-            <li>Throw a Lil' Arnie at each of the three following items around the map. If they're thrown in the right spot, the item will disappear. The item won't disappear if you haven't gotten the required kills. Item locations:</li>
-            <ul>
-                <li>Top Hat: <a href="pictures/upgraded_lil_arnies/arnie_nero.webp">Junction - On a Maniquinn head, in Nero's room, right of the large bookshelf</a></li>
-                <li>Cane: <a href="pictures/upgraded_lil_arnies/arnie_canals.webp">Canals - Leaning against a green couch on the bottom floor of the Ruby Rabbit, "below" the stairs</a></li>
-                <li>Bow Tie: <a href="pictures/upgraded_lil_arnies/arnie_waterfront.webp">Waterfront - On a shelf in the change room at the back of the Boxing Gym</a></li>
-            </ul>
+            <li>Throw a Lil' Arnie at each of the three following items around the map. If they're thrown in the right spot, the item will disappear. The item won't disappear if you haven't gotten the required kills. Item locations:
+                <ul>
+                    <li>Top Hat: <a href="pictures/upgraded_lil_arnies/arnie_nero.webp">Junction - On a Maniquinn head, in Nero's room, right of the large bookshelf</a></li>
+                    <li>Cane: <a href="pictures/upgraded_lil_arnies/arnie_canals.webp">Canals - Leaning against a green couch on the bottom floor of the Ruby Rabbit, "below" the stairs</a></li>
+                    <li>Bow Tie: <a href="pictures/upgraded_lil_arnies/arnie_waterfront.webp">Waterfront - On a shelf in the change room at the back of the Boxing Gym</a></li>
+                </ul>
+            </li>
             <li>Once you have collected all three items, throw a Lil' Arnie at the <a href="pictures/pap/jessica_footlight/ritual_table.webp">Ritual Table in the Footlight District</a>. After a short animation, you'll be given three upgraded Lil' Arnies.</li>
             <li>The upgraded Lil' Arnies are purple, they do (and take from Margwas) more damage, and they last longer. The upgrade it permanent, and every time you get a Max Ammo you'll get the upgraded version.</li>
         </ol>
@@ -582,28 +603,33 @@
         <h2 class="section-title">Upgraded Trip Mines</h2>
         <ol>
             <li>Purchase <a href="pictures/upgraded_trip_mines/trip_mines_buy.webp">Trip Mines</a> from the wallbuy on the outside of the Boxing Gym in the Waterfront District.</li>
-            <li>There are two upgrade paths, "<a href="pictures/upgraded_trip_mines/holly_cart.webp">Holly's Cream Cakes</a>" and "<a href="pictures/upgraded_trip_mines/devil_cart.webp">Devil-O-Donuts</a>." The only difference between the two paths is purely visual, with no effect on functionality. You can't switch sides once you've started.</li>
-            <ul>
-                <li>The idea of this easter egg is Good v. Evil, with you either helping the "Devil" or "Holly" (Holy).</li>
-            </ul>
-            <li>You need to damage 3 or 4 (depending on the path) of the "opponent's" carts with a Trip Mine explosion. When done correctly, you'll hear a sound related to the side you are "helping." Damaging a "Holly's" cart will play an evil Samantha laugh, and damaging a "Devil" cart will play a choir singing.</li>
-            <p class="warning">Damaging a cart for the side you're helping will PERMANENTLY lock you out of helping either side for the rest of the game.</p>
-            <ul>
-                <li>Holly's Cream Cakes Cart locations:</li>
+            <li>There are two upgrade paths, "<a href="pictures/upgraded_trip_mines/holly_cart.webp">Holly's Cream Cakes</a>" and "<a href="pictures/upgraded_trip_mines/devil_cart.webp">Devil-O-Donuts</a>." The only difference between the two paths is purely visual, with no effect on functionality. You can't switch sides once you've started.
                 <ul>
-                    <li><a href="pictures/upgraded_trip_mines/holly_junction.webp">Junction - Near Stamin-up</a></li>
-                    <li><a href="pictures/upgraded_trip_mines/holly_canals.webp">Canals District - In front of the "Peep Show" building, around the corner (to the right) of the Civil Protector wall panel</a></li>
-                    <li><a href="pictures/upgraded_trip_mines/holly_footlight.webp">Footlight District - In front of the random perk machine on the upper level</a></li>
+                    <li>The idea of this easter egg is Good v. Evil, with you either helping the "Devil" or "Holly" (Holy).</li>
                 </ul>
-                <li>Devil-O-Donuts Cart locations:</li>
+            </li>
+            <li>You need to damage 3 or 4 (depending on the path) of the "opponent's" carts with a Trip Mine explosion. When done correctly, you'll hear a sound related to the side you are "helping." Damaging a "Holly's" cart will play an evil Samantha laugh, and damaging a "Devil" cart will play choir singing.</li>
+            <li class="dummy-li">
+                <p class="warning">Damaging a cart for the other side, you're helping will PERMANENTLY lock you out of helping either side for the rest of the game.</p>
                 <ul>
-                    <li><a href="pictures/upgraded_trip_mines/devil_junction.webp">Junction - Near the Gobblegum machine</a></li>
-                    <li><a href="pictures/upgraded_trip_mines/devil_canals.webp">Canals District - Near the Gobblegum machine, about in the middle of the district</a></li>
-                    <li><a href="pictures/upgraded_trip_mines/devil_footlight.webp">Footlight district - Up the stairs and to the left from the perk machine area</a></li>
-                    <li><a href="pictures/upgraded_trip_mines/devil_waterfront.webp">Waterfront district - Near where the Championship Belt drops during the PAP quest</a></li>
+                    <li>Holly's Cream Cakes Cart locations:
+                        <ul>
+                            <li><a href="pictures/upgraded_trip_mines/holly_junction.webp">Junction - Near Stamin-up</a></li>
+                            <li><a href="pictures/upgraded_trip_mines/holly_canals.webp">Canals District - In front of the "Peep Show" building, around the corner (to the right) of the Civil Protector wall panel</a></li>
+                            <li><a href="pictures/upgraded_trip_mines/holly_footlight.webp">Footlight District - In front of the random perk machine on the upper level</a></li>
+                        </ul>
+                    </li>
+                    <li>Devil-O-Donuts Cart locations:
+                        <ul>
+                            <li><a href="pictures/upgraded_trip_mines/devil_junction.webp">Junction - Near the Gobblegum machine</a></li>
+                            <li><a href="pictures/upgraded_trip_mines/devil_canals.webp">Canals District - Near the Gobblegum machine, about in the middle of the district</a></li>
+                            <li><a href="pictures/upgraded_trip_mines/devil_footlight.webp">Footlight district - Up the stairs and to the left from the perk machine area</a></li>
+                            <li><a href="pictures/upgraded_trip_mines/devil_waterfront.webp">Waterfront district - Near where the Championship Belt drops during the PAP quest</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
-            <li>Once all opponent carts have been blown up, you'll be given two Trip Mines, and the Trip Mines will look like the chosen side's pastry when placed. The Trip Mine explosion will do more damage, have a larger range, and produce extra pastries that are purely visual.</li>
+            </li>
+            <li>Once all opponent carts have been blown up, you'll be given two Trip Mines. The Trip Mines will look like the chosen side's pastry when placed. The Trip Mine explosion will do more damage, have a larger range, and produce extra pastries that are purely visual.</li>
         </ol>
     </div>
 
@@ -632,7 +658,7 @@
         <p class="warning">The Noire Mode filter can't be deactivated once activated.</p>
         <ol>
             <li>Go to the Boxing Gym, in the Waterfront District. Go up the stairs in the back, and there should be a <a href="pictures/black_and_white_filter/pictures.webp">line of pictures</a> above the window overlooking the Boxing Ring.</li>
-            <li>Crouch in front of the <a href="pictures/black_and_white_filter/desk.webp">front right corner of the desk</a>. Hold the reload button an look at your feet. While holding the reload button, move your crosshair up in a straight line to <a href="pictures/black_and_white_filter/picture.webp">this picture</a> on the wall (the one left of the cypher picture). <a href="https://youtu.be/Wpf6wNJ-Bew">Video Example (Youtube)</a></li>
+            <li>Crouch in front of <a href="pictures/black_and_white_filter/desk.webp">the desk's front-right corner</a>. Hold the reload button and look at your feet. While holding the reload button, move your crosshair up in a straight line to <a href="pictures/black_and_white_filter/picture.webp">this picture</a> on the wall (the one left of the cypher picture). <a href="https://youtu.be/Wpf6wNJ-Bew">Video Example (Youtube)</a></li>
             <li>If done correctly, your screen should turn black and white.</li>
         </ol>
     </div>
@@ -657,10 +683,11 @@
     <div class="content-container" id="shadowman_round_skip">
         <h2 class="section-title">Shadowman Round Skip (Skip to Rounds 5, 10, or 15)</h2>
         <ol>
-            <li>At the start of the game, the Shadowman will be standing on the <a href="pictures/shadowman_round_skip/shadowman_spawn.webp">fire escape above the door to the 'Junction.'</a> Shoot the Shadowman until the round changes.</li>
-            <ul>
-                <li>If you don't do enough damage or no-one shoots the Shadowman for CHANGE ME seconds, he'll disappear, locking you out of this Easter Egg.</li>
-            </ul>
+            <li>At the start of the game, the Shadowman will be standing on the <a href="pictures/shadowman_round_skip/shadowman_spawn.webp">fire escape above the door to the 'Junction.'</a> Shoot the Shadowman until the round changes.
+                <ul>
+                    <li>If you don't do enough damage or no-one shoots the Shadowman for CHANGE ME seconds, he'll disappear, locking you out of this Easter Egg.</li>
+                </ul>
+            </li>
             <li>If you do enough damage, the round will jump up to 5, and all players will be given 1000 points.</li>
             <li>If you keep shooting the Shadowman, the round will jump to 10, and you'll be given 3000 points (4000 total). Keep going for round 15 and 7000 points (11,000 total).</li>
         </ol>
@@ -677,7 +704,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 
@@ -697,6 +723,58 @@
 
 <!-- Main scripts -->
 <script src="/js/scripts.js"></script>
+
+<script>
+    window.addEventListener('load', function() {
+        const p = document.getElementById('sample-p');
+        const li = document.getElementById('sample-li');
+
+        const pStyles = window.getComputedStyle(p);
+        const liStyles = window.getComputedStyle(li);
+
+        // Styles we want to match
+        const targetStyles = [
+            'display', 'margin', 'marginTop', 'marginBottom', 'marginLeft', 'marginRight',
+            'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight',
+            'listStyle', 'listStyleType', 'listStylePosition', 'listStyleImage',
+            'fontSize', 'fontWeight', 'lineHeight', 'color',
+            'textAlign', 'textIndent', 'whiteSpace'
+        ];
+
+        console.log('Style comparison (P vs LI):');
+        console.log('============================');
+
+        const needsOverride = [];
+        const alreadyMatches = [];
+
+        targetStyles.forEach(prop => {
+            const pValue = pStyles[prop];
+            const liValue = liStyles[prop];
+
+            if (pValue === liValue) {
+                alreadyMatches.push(prop);
+                console.log(`✓ ${prop}: ${pValue} (already matches)`);
+            } else {
+                needsOverride.push({prop, pValue, liValue});
+                console.log(`✗ ${prop}: P="${pValue}" vs LI="${liValue}" (needs override)`);
+            }
+        });
+
+        console.log('\n=== MINIMAL CSS NEEDED ===');
+        console.log('.p-style {');
+        needsOverride.forEach(({prop, pValue}) => {
+            // Convert camelCase to kebab-case for CSS
+            const cssProp = prop.replace(/([A-Z])/g, '-$1').toLowerCase();
+            console.log(`    ${cssProp}: ${pValue};`);
+        });
+        console.log('}');
+
+        console.log('\n=== SUMMARY ===');
+        console.log(`Already matching: ${alreadyMatches.length} properties`);
+        console.log(`Need override: ${needsOverride.length} properties`);
+        console.log(`Inherited properties:`, alreadyMatches);
+    });
+</script>
 
 
 </body></html>

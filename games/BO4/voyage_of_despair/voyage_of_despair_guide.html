@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Voyage of Despair Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#kraken">Kraken</a></li><ul><li><a href="#kraken_variant">Kraken Elemental Variants</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><ul><li><a href="#svalinn_guard">Svalinn Guard Shield Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Abandon Ship' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Sentinel Artifact is yours for the Taking</a></li><li><a href="#main_ee_step2">For the Elements are Four and Must be Attuned</a></li><li><a href="#main_ee_step3">To Change the Agents of Change is to Change Everything</a></li><li><a href="#main_ee_step4">Within the Chain of Phases all is Conceived</a></li><li><a href="#main_ee_step5">Before the Flame your Hubris is Devoured</a></li><li><a href="#main_ee_step6">When the Planets are Revealed, the Essence is Received</a></li><li><a href="#main_ee_step7">Where Light Shines Not the Path Leads Inward</a></li><li><a href="#main_ee_step8">Unto the Nest its Malice Unravels</a></li><li><a href="#main_ee_step9">Behold the Eye of Malice and Despair (Odin's Eye Boss Fight)</a></li></ul><li><a href="#song_ee">'Drowning' Song</a></li><li><a href="#freekraken_freehomunculus">Free Kraken and Homunculus</a></li><li><a href="#lowgravity_zombies">Low-Gravity Zombies</a></li><li><a href="#special_weapon_firesale">Special Weapon Fire Sale</a></li><li><a href="#pap_special">Pack-a-Punch Valves / Buy PAP Ammo for Any Standard Gun</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#bowie_knife_upgrade">Upgraded Bowie Knife</a></li><li><a href="#hourglass">Hourglass / Free Fast Travel</a></li><li><a href="#ride_flyingcar">Ride the Flying Car Around Map</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Unsinkable' Gauntlet Challenges</a></li><li><a href="#gauntlet_hard">'Unsinkable (Hard)' Gauntlet Challenges</a></li></ul></div>
     </div>
 </div>
@@ -79,12 +74,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#kraken">Kraken</a></li><ul><li><a href="#kraken_variant">Kraken Elemental Variants</a></li></ul><li><a href="#ballistic_shield">Ballistic Shield</a></li><ul><li><a href="#svalinn_guard">Svalinn Guard Shield Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Abandon Ship' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Sentinel Artifact is yours for the Taking</a></li><li><a href="#main_ee_step2">For the Elements are Four and Must be Attuned</a></li><li><a href="#main_ee_step3">To Change the Agents of Change is to Change Everything</a></li><li><a href="#main_ee_step4">Within the Chain of Phases all is Conceived</a></li><li><a href="#main_ee_step5">Before the Flame your Hubris is Devoured</a></li><li><a href="#main_ee_step6">When the Planets are Revealed, the Essence is Received</a></li><li><a href="#main_ee_step7">Where Light Shines Not the Path Leads Inward</a></li><li><a href="#main_ee_step8">Unto the Nest its Malice Unravels</a></li><li><a href="#main_ee_step9">Behold the Eye of Malice and Despair (Odin's Eye Boss Fight)</a></li></ul><li><a href="#song_ee">'Drowning' Song</a></li><li><a href="#freekraken_freehomunculus">Free Kraken and Homunculus</a></li><li><a href="#lowgravity_zombies">Low-Gravity Zombies</a></li><li><a href="#special_weapon_firesale">Special Weapon Fire Sale</a></li><li><a href="#pap_special">Pack-a-Punch Valves / Buy PAP Ammo for Any Standard Gun</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#bowie_knife_upgrade">Upgraded Bowie Knife</a></li><li><a href="#hourglass">Hourglass / Free Fast Travel</a></li><li><a href="#ride_flyingcar">Ride the Flying Car Around Map</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Unsinkable' Gauntlet Challenges</a></li><li><a href="#gauntlet_hard">'Unsinkable (Hard)' Gauntlet Challenges</a></li></ul></div>
 
     <!-- PaP -->
@@ -1019,7 +1009,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

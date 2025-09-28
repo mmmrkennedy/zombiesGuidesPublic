@@ -154,6 +154,228 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        // Cache for loaded HTML content and CSS
+        const htmlCache = new Map();
+        const cssCache = new Set(); // Track which CSS files we've loaded
+
+        // Set to track which links we've processed to avoid duplicates
+        const processedLinks = new Set();
+
+        // Check if IntersectionObserver is supported
+        if (!('IntersectionObserver' in window)) {
+            console.warn('IntersectionObserver not supported, skipping HTML/CSS lazy loading');
+            return;
+        }
+
+        // Options for the IntersectionObserver
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '100px', // load HTML 100px before they enter the viewport
+            threshold: 0.01 // trigger when at least 1% of the element is visible
+        };
+
+        // Callback for the IntersectionObserver
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const linkElement = entry.target;
+                    const htmlUrl = linkElement.getAttribute('href');
+
+                    if (!htmlUrl || processedLinks.has(htmlUrl)) {
+                        return;
+                    }
+
+                    // Mark as processed to avoid duplicate requests
+                    processedLinks.add(htmlUrl);
+
+                    // If HTML isn't in cache, load it and its CSS
+                    if (!htmlCache.has(htmlUrl)) {
+                        preloadHtmlAndCss(htmlUrl, htmlCache);
+                    }
+
+                    // Unobserve since we've processed it
+                    observer.unobserve(linkElement);
+                }
+            });
+        };
+
+        // Helper function to preload CSS file
+        function preloadCss(cssUrl) {
+            // Avoid loading the same CSS multiple times
+            if (cssCache.has(cssUrl)) {
+                return Promise.resolve();
+            }
+
+            return new Promise((resolve, reject) => {
+                // Check if CSS is already in the document
+                const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
+                if (existingLink) {
+                    cssCache.add(cssUrl);
+                    resolve();
+                    return;
+                }
+
+                // Create link element for preloading
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'style';
+                link.href = cssUrl;
+
+                link.onload = () => {
+                    // Convert preload to actual stylesheet
+                    link.rel = 'stylesheet';
+                    cssCache.add(cssUrl);
+                    console.log('CSS preloaded and applied:', cssUrl);
+                    resolve();
+                };
+
+                link.onerror = () => {
+                    console.warn('Failed to preload CSS:', cssUrl);
+                    reject(new Error(`Failed to load CSS: ${cssUrl}`));
+                };
+
+                // Add to document head
+                document.head.appendChild(link);
+            });
+        }
+
+        // Helper function to extract CSS links from HTML content
+        function extractCssLinks(htmlContent, baseUrl) {
+            const cssUrls = [];
+            const parser = new DOMParser();
+
+            try {
+                const doc = parser.parseFromString(htmlContent, 'text/html');
+                const linkElements = doc.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]');
+
+                linkElements.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href) {
+                        // Convert relative URLs to absolute based on the HTML file's location
+                        const cssUrl = new URL(href, baseUrl).href;
+                        cssUrls.push(cssUrl);
+                    }
+                });
+            } catch (error) {
+                console.warn('Failed to parse HTML for CSS extraction:', error);
+            }
+
+            return cssUrls;
+        }
+
+        // Helper function to preload HTML content and its CSS dependencies
+        function preloadHtmlAndCss(htmlUrl, cache) {
+            console.log('Preloading HTML and CSS for:', htmlUrl);
+
+            fetch(htmlUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    // Cache the HTML content
+                    cache.set(htmlUrl, html);
+                    console.log('HTML preloaded successfully:', htmlUrl);
+
+                    // Extract and preload CSS files
+                    const baseUrl = new URL(htmlUrl, window.location.origin);
+                    const cssUrls = extractCssLinks(html, baseUrl.href);
+
+                    // Preload all CSS files
+                    const cssPromises = cssUrls.map(cssUrl => {
+                        // Convert back to relative URL if it's on the same domain
+                        const relativeUrl = cssUrl.startsWith(window.location.origin)
+                            ? cssUrl.substring(window.location.origin.length)
+                            : cssUrl;
+                        return preloadCss(relativeUrl);
+                    });
+
+                    // Wait for all CSS to load
+                    return Promise.allSettled(cssPromises);
+                })
+                .then(cssResults => {
+                    const successfulCss = cssResults.filter(result => result.status === 'fulfilled').length;
+                    const failedCss = cssResults.filter(result => result.status === 'rejected').length;
+
+                    if (successfulCss > 0) {
+                        console.log(`CSS preloaded: ${successfulCss} successful, ${failedCss} failed for ${htmlUrl}`);
+                    }
+
+                    // Trigger custom event for tracking
+                    document.dispatchEvent(new CustomEvent('htmlAndCssPreloaded', {
+                        detail: {
+                            url: htmlUrl,
+                            cssCount: successfulCss,
+                            cssFailures: failedCss
+                        }
+                    }));
+                })
+                .catch(error => {
+                    console.error('Failed to preload HTML/CSS:', htmlUrl, error);
+                });
+        }
+
+        // Create the observer
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Target your existing links to HTML guide pages
+        const guideLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
+
+        if (guideLinks.length === 0) {
+            console.log('No HTML guide links found to observe');
+            return;
+        }
+
+        // Observe all guide links
+        guideLinks.forEach(link => {
+            // Skip external links and anchors
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                observer.observe(link);
+            }
+        });
+
+        console.log(`Observing ${guideLinks.length} guide links for HTML/CSS preloading`);
+
+        // Optional: Add methods to check cache status
+        window.isHtmlCached = function(url) {
+            return htmlCache.has(url);
+        };
+
+        window.getCachedHtml = function(url) {
+            return htmlCache.get(url);
+        };
+
+        window.isCssCached = function(url) {
+            return cssCache.has(url);
+        };
+
+    } catch (error) {
+        console.error('Error initializing HTML/CSS lazy loading:', error);
+    }
+});
+
+// Enhanced link clicking with cached content feedback
+document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href$=".html"]:not(.disabled)');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('#')) return;
+
+    // If we have cached HTML and CSS, the page should load very fast
+    if (window.isHtmlCached && window.isHtmlCached(href)) {
+        console.log('⚡ Fast load: Content preloaded for', href);
+        // Optional: Add visual feedback
+        link.style.opacity = '0.7';
+        setTimeout(() => link.style.opacity = '1', 100);
+    }
+});
+
 async function includeSolverComponent() {
     try {
         const solverInserts = document.querySelectorAll('.solver-insert');
@@ -266,7 +488,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: 'Theme Color', fn: () => window.StorageUtils?.changeThemeColour() },
             { name: 'Mobile Detection', fn: () => window.MobileDetection?.touchScreenInit() },
             { name: 'Media Preloader', fn: () => window.MediaPreloader?.preloadImages() },
-            { name: 'Font Manager', fn: () => window.FontManager?.setDefaultFonts() },
             { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },
             { name: 'Link Processor Colors', fn: () => window.LinkProcessor?.colourCodeAnchors() },

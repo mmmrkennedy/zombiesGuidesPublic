@@ -10,32 +10,32 @@
     <link href="/css/global_solver.css" rel="stylesheet">
     <link href="/favicon/favicon.ico" rel="icon" type="image/x-icon">
     <base target="_blank">
-</head>
 
-<!-- Google Analytics -->
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+    <!-- Google Analytics -->
+    <script>
+        const isLocalEnvironment = window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.hostname.includes(".local");
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+        if (!isLocalEnvironment) {
+            // Load gtag script dynamically
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+            document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+            // Initialize Google Analytics
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
         }
-
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script>
+    </script>
+</head>
 
 <body>
 <div class="top_buttons_background_box">
@@ -44,28 +44,24 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()"><-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label> <select id="fontSelector">
-        <option value="Arial">Arial</option>
-        <option value="Verdana">Verdana (Higher Readability)</option>
-        <option value="OpenDyslexic">OpenDyslexic</option>
-    </select>
+
 
         <h2>Weapons</h2>
         <ul>
@@ -74,14 +70,15 @@
 
         <h2>Easter Eggs</h2>
         <ul>
-            <li><a href="#main_ee">Main Quest</a></li>
-            <ul>
-                <li><a href="#main_ee_step1">Obtaining the Hard Drive</a></li>
-                <li><a href="#main_ee_step2">Nathan's Chamber</a></li>
-                <li><a href="#main_ee_step3">Communications & Node Connectors</a></li>
-                <li><a href="#main_ee_step4">Hacking Buoys & Defusing Bombs</a></li>
-                <li><a href="#main_ee_step5">Patient 13 Boss Fight</a></li>
-            </ul>
+            <li><a href="#main_ee">Main Quest</a>
+                <ul>
+                    <li><a href="#main_ee_step1">Obtaining the Hard Drive</a></li>
+                    <li><a href="#main_ee_step2">Nathan's Chamber</a></li>
+                    <li><a href="#main_ee_step3">Communications &amp; Node Connectors</a></li>
+                    <li><a href="#main_ee_step4">Hacking Buoys &amp; Defusing Bombs</a></li>
+                    <li><a href="#main_ee_step5">Patient 13 Boss Fight</a></li>
+                </ul>
+            </li>
             <li><a href="#song_ee">"Can You Hear Me (Come In)" Song</a></li>
             <li><a href="#mega_stuffy">Mega Stuffy</a></li>
             <li><a href="#void_cannon_meteor">Void Cannon Meteor</a></li>
@@ -116,51 +113,58 @@
         <ol>
             <li>Obtain a weapon with the Dead Wire ammo mod. Activate the Pack-a-Punch elevator and ride it either up or down; while riding, look across from the Pack-a-Punch to see a <a href="pictures/beamsmasher/window.png">window</a> with a <a href="pictures/beamsmasher/fuse_1.png">fuse box</a> inside. Shoot the fuse box with Dead Wire to electrify it.</li>
             <li>Once shot, the fuse box and wire connected to it should electrify. Follow the wire to the next <a href="pictures/beamsmasher/fuse_2.png">fuse box</a> (below the elevator door, on the left side of the Pack-a-Punch machine) and shoot it with Dead Wire.</li>
-            <li>There are three more fuse boxes that need to be shot in the following order:</li>
-            <ul>
-                <li><a href="pictures/beamsmasher/fuse_3.png">Inclined Lift - Behind the Pack-a-Punch machine when the elevator is at the top</a></li>
-                <li><a href="pictures/beamsmasher/fuse_4.png">Living Quarters - Above the AMP generator used to turn on power/Pack-a-Punch</a></li>
-                <li><a href="pictures/beamsmasher/fuse_5.png">Rec Yard - On the wall, outside the Jug room</a></li>
-            </ul>
+            <li>There are three more fuse boxes that need to be shot in the following order:
+                <ul>
+                    <li><a href="pictures/beamsmasher/fuse_3.png">Inclined Lift - Behind the Pack-a-Punch machine when the elevator is at the top</a></li>
+                    <li><a href="pictures/beamsmasher/fuse_4.png">Living Quarters - Above the AMP generator used to turn on power/Pack-a-Punch</a></li>
+                    <li><a href="pictures/beamsmasher/fuse_5.png">Rec Yard - On the wall, outside the Jug room</a></li>
+                </ul>
+            </li>
             <li>Once all fuse boxes have been shot, the <a href="pictures/beamsmasher/open_doors.png">door beside the last fuse box</a> will open to the 'Research Office.' Kill the <a href="pictures/beamsmasher/anya.png">zombie trapped under the fallen debris</a> in the room. It will drop the EMF Fob for you to pick up.</li>
             <li>In the 'Sea Tower,' you'll find a <a href="pictures/beamsmasher/briefcase.png">briefcase with a zombie hand</a> on the table right of the Elemental Pop perk machine. Interact with the briefcase to open it. Collect the <a href="pictures/beamsmasher/multiphasic_resonator.png">Multiphasic Resonator</a> inside (this will spawn about 10 Vermin enemies).</li>
             <li>Return to 'Research Office' and interact with the <a href="pictures/beamsmasher/computer.png">computer</a>, right of the crushed zombie, to place the Multiphasic Resonator.</li>
-            <li>You'll now need to get a code. You can either pay Peck 5000 points in the 'Guard Station' for the code (interact with the computer first), or you can find the code yourself (recommended). To find the code, you'll need to find three computers. Each computer will display a symbol when activated, and have a corresponding letter (X, Y, or Z) on the <a href="pictures/beamsmasher/symbol_and_letter.png">table beside it</a> (you don't have to remember the symbols or letters). Computer locations: </li>
-            <ul>
-                <li><a href="pictures/beamsmasher/laptop_docks.png">Docks - At the top of the stairs down to the docks, under the Sea Tower</a></li>
-                <li><a href="pictures/beamsmasher/laptop_comms.png">Communications - On the ledge, outside the Stamin-up room</a></li>
-                <li><a href="pictures/beamsmasher/laptop_storage.png">Storage Area - On the ledge, outside the Quick Revive room</a></li>
-            </ul>
+            <li>You'll now need to get a code. You can either pay Peck 5000 points in the 'Guard Station' for the code (interact with the computer first), or you can find the code yourself (recommended). To find the code, you'll need to find three computers. Each computer will display a symbol when activated, and have a corresponding letter (X, Y, or Z) on the <a href="pictures/beamsmasher/symbol_and_letter.png">table beside it</a> (you don't have to remember the symbols or letters). Computer locations:
+                <ul>
+                    <li><a href="pictures/beamsmasher/laptop_docks.png">Docks - At the top of the stairs down to the docks, under the Sea Tower</a></li>
+                    <li><a href="pictures/beamsmasher/laptop_comms.png">Communications - On the ledge, outside the Stamin-up room</a></li>
+                    <li><a href="pictures/beamsmasher/laptop_storage.png">Storage Area - On the ledge, outside the Quick Revive room</a></li>
+                </ul>
+            </li>
 
             <li>Once all three computers are activated, return to the 'Research Office,' and interact with the computer you placed the Multiphasic Resonator on. You should see <a href="pictures/beamsmasher/code_input.png">three sticky notes on the computer</a>, as well as the option to input three numbers.</li>
             <li>Use these symbols to determine the values for numbers 1-3. There are two ways to solve this:</li>
 
-            <p class="sub-sub-step">Manual Calculation (Not Recommended)</p>
-            <div class="solver-with-button" data-bool-quick-link="false">
-                <button class="square-button">Click to show MANUAL CALCULATION</button>
-                <div style="border: 1px solid dimgray; display: none">
-                    <p>Use the left whiteboard to convert your X, Y, and Z symbols to their corresponding numbers, then solve the equations on the whiteboards at the back of the room:</p>
-                    <ul>
-                        <li>Number 1 = 2(X) + 11 --- 2 times X, plus 11</li>
-                        <li>Number 2 = (2(Z) + Y) - 5 --- 2 times Z, plus Y, minus 5</li>
-                        <li>Number 3 = |(Y + Z) - X| --- Y plus Z, minus X, then absolute value (if negative, make it positive)</li>
-                    </ul>
+            <li class="dummy-li">
+                <p class="sub-sub-step">Manual Calculation (Not Recommended)</p>
+                <div class="solver-with-button" data-bool-quick-link="false">
+                    <button type="button" class="square-button">Click to show MANUAL CALCULATION</button>
+                    <div style="border: 1px solid dimgray; display: none">
+                        <p>Use the left whiteboard to convert your X, Y, and Z symbols to their corresponding numbers, then solve the equations on the whiteboards at the back of the room:</p>
+                        <ul>
+                            <li>Number 1 = 2(X) + 11 --- 2 times X, plus 11</li>
+                            <li>Number 2 = (2(Z) + Y) - 5 --- 2 times Z, plus Y, minus 5</li>
+                            <li>Number 3 = |(Y + Z) - X| --- Y plus Z, minus X, then absolute value (if negative, make it positive)</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </li>
 
-            <p class="sub-sub-step">Solver (Recommended)</p>
-            <div class="solver-with-button" data-bool-quick-link="false" style="max-width: 100px">
-                <button class="square-button">Click to show BEAMSMASHER SOLVER</button>
-                <div style="display: none">
-                    <div class="solver-insert" data-solver-html-path="/games/BO6/terminus/ww_math_solver/terminus_ww_solver_template.html"></div>
+            <li class="dummy-li">
+                <p class="sub-sub-step">Solver (Recommended)</p>
+                <div class="solver-with-button" data-bool-quick-link="false" style="max-width: 100px">
+                    <button type="button" class="square-button">Click to show BEAMSMASHER SOLVER</button>
+                    <div style="display: none">
+                        <div class="solver-insert" data-solver-html-path="/games/BO6/terminus/ww_math_solver/terminus_ww_solver_template.html"></div>
+                    </div>
                 </div>
-            </div>
+            </li>
 
             <li>After entering the correct code, wait 1-2 rounds for the computer to finish processing. A voice line about "Coordinates" will play, notifying you it's ready. Pick up the Multiphasic Resonator and go to Castle Rock Island (<a href="pictures/beamsmasher/orb_1_tac_map.png">map location</a>).</li>
-            <li>On 'Castle Rock Island,' you'll find a <a href="pictures/beamsmasher/blue_orb.png">blue orb</a>. Interact with it to place the Multiphasic Resonator below it. The orb will randomly electrify Zombies; killing an electric zombie will drop a small energy orb. Pick up the small orb and carry it into the main large orb.</li>
-            <ul>
-                <li>You can kill the Zombie while it's standing inside the large orb to avoid having to pick up the small orb.</li>
-            </ul>
+            <li>On 'Castle Rock Island,' you'll find a <a href="pictures/beamsmasher/blue_orb.png">blue orb</a>. Interact with it to place the Multiphasic Resonator below it. The orb will randomly electrify Zombies; killing an electric zombie will drop a small energy orb. Pick up the small orb and carry it into the main large orb.
+                <ul>
+                    <li>You can kill the Zombie while it's standing inside the large orb to avoid having to pick up the small orb.</li>
+                </ul>
+            </li>
             <li>After bringing two small orbs to the large orb, it will fly away, and you'll be able to pick the Multiphasic Resonator back up. Follow the orb as it travels to 'Crab Island' (<a href="pictures/beamsmasher/orb_2_tac_map.png">map location</a>). The orb will have turned <a href="pictures/beamsmasher/green_orb.png">green</a>.</li>
             <li>Repeat the same process on 'Crab Island' (place Multiphasic Resonator, fill large orb with two small orbs, pick up Multiphasic Resonator). The orb will then fly to 'Temple Island' (<a href="pictures/beamsmasher/orb_3_tac_map.png">map location</a>) where it is now <a href="pictures/beamsmasher/purple_orb.png">purple</a> and you'll need to repeat the process.</li>
             <li>After filling the purple orb, the Multiphasic Resonator will disappear, and the <a href="pictures/beamsmasher/amp_munition.png">AMP Munition canister</a> will spawn below the orb for you to pick up.</li>
@@ -173,35 +177,47 @@
         <h2 class="section-title">Main Quest</h2>
         <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME</p>
         <ol>
-            <p class="step-group-title" id="main_ee_step1">Obtaining the Hard Drive</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step1">Obtaining the Hard Drive</p>
+            </li>
             <li>Obtain a <a href="#beamsmasher">Beamsmasher</a> wonder weapon. Go to one of the 3 Tentacle traps around the map and shoot it with the Beamsmasher when it is activated. When the correct one is shot it will drop a Hard Drive. The correct trap is the one that is visibly damaged with a broken grate. </li>
 
-            <p class="step-group-title" id="main_ee_step2">Nathan's Chamber</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step2">Nathan's Chamber</p>
+            </li>
             <li>Take the Hard Drive to the Guard Station where Peck and Strauss are located and insert it into the slot under the window. You can then go down to the middle of the Bio Lab to reveal Nathan's chamber by interacting with the main window/keypad on it.</li>
-            <li>You need to find a 3-digit code around the map. Once you find the code you can use the keypad at Nathan's chamber to input it.</li>
-            <ul>
-                <li>Code 1 is found by going to the Interrogation Room and looking at the clock behind the barrier. The main hour hand of the clock is the first digit.</li>
-                <li>Code 2 is found by going to the Mess Hall/Kitchen area. There is a playing card on a corkboard. The number is whatever is on the playing card.</li>
-                <li>Code 3 is found by going to the Engineering room. In there a sign dictating how many days since incident is on the wall. The number on that sign is the digit you need.</li>
-            </ul>
+            <li>You need to find a 3-digit code around the map. Once you find the code, you can use the keypad at Nathan's chamber to input it.
+                <ul>
+                    <li>Code 1 is found by going to the Interrogation Room and looking at the clock behind the barrier. The main hour hand of the clock is the first digit.</li>
+                    <li>Code 2 is found by going to the Mess Hall/Kitchen area. There is a playing card on a corkboard. The number is whatever is on the playing card.</li>
+                    <li>Code 3 is found by going to the Engineering room. In there a sign dictating how many days since incident is on the wall. The number on that sign is the digit you need.</li>
+                </ul>
+            </li>
             <li>Once you input the code, the chamber is ready to open. All players in the game need to interact with the valves on the chamber and the bossfight with Nathan will begin. Nathan is an Amalgam and has the same weaknesses as other Amalgam (Dead Wire and Shadow Rift). Once he is defeated you will watch a cutscene.</li>
 
-            <p class="step-group-title" id="main_ee_step3">Communications & Node Connectors</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step3">Communications &amp; Node Connectors</p>
+            </li>
             <li>Jumping into the water next to Nathan's corpse, you can find a keycard. Next, head to the Communications room and interact with a computer that has a black screen and green text. Peck will tell you that the communications line has been cut, and that they require reconnecting with Node Connectors.</li>
-            <li>Go to the Shipwreck. Underneath the Shipwreck there is a ladder you can go up to find a room containing the Node Connectors. The room only opens once you have the aforementioned Keycard. Once you pick up a Node Connector you will have to complete a lockdown in that room. Once the lockdown is over, a Max Ammo will spawn. After this, take the Node Connectors to two of the following areas, where there will be a visible gap to install the connectors.</li>
-            <ul>
-                <li>Right side of Sea Cave</li>
-                <li>Underneath the Sea Tower at the Docks</li>
-                <li>Leftmost side of Crab Island</li>
-            </ul>
+            <li>Go to the Shipwreck. Underneath the Shipwreck there is a ladder you can go up to find a room containing the Node Connectors. The room only opens once you have the aforementioned Keycard. Once you pick up a Node Connector you will have to complete a lockdown in that room. Once the lockdown is over, a Max Ammo will spawn. After this, take the Node Connectors to two of the following areas, where there will be a visible gap to install the connectors.
+                <ul>
+                    <li>Right side of Sea Cave</li>
+                    <li>Underneath the Sea Tower at the Docks</li>
+                    <li>Leftmost side of Crab Island</li>
+                </ul>
+            </li>
             <li>Once both connectors are placed, head back to the Guard Station and grab the hacking device.</li>
 
-            <p class="step-group-title" id="main_ee_step4">Hacking Buoys & Defusing Bombs</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step4">Hacking Buoys &amp; Defusing Bombs</p>
+            </li>
             <li>In the water, there are 3 buoys you need to hack by going up to them by boat and interacting with them while having the hacking device in your inventory. You can use your map and see where a lot of red dots (Parasites) are and use that as a guide for where the buoys are. The hacking is on a timer so you must do all 3 in succession or else you will need to start over. The 3 buoys are located near the Docks, the Shipwreck, and Temple Island, and can be hacked in any order.</li>
             <li>3 bombs behind revealed doors will need to be defused in the Bio Lab immediately after hacking the 3 satellites. You have 5 minutes to defuse the bombs or else the entire island will explode, killing you. During this step an infinite amount of zombies will spawn. Manglers can spawn after defusing the first bomb, while Amalgams will spawn after defusing the second bomb.</li>
             <li>Once all the bombs are defused you can now interact with a door next to Melee Macchiato to initiate the Final Encounter.</li>
 
-            <p class="step-group-title" id="main_ee_step5">Patient 13 Boss Fight</p>
+            <li class="dummy-li">
+                <p class="step-group-title" id="main_ee_step5">Patient 13 Boss Fight</p>
+            </li>
             <li>The bossfight will begin with Patient 13 having weak spots on its shoulders. They are glowing red and damaging them will deal increased damage to Patient 13 (extra damage can be dealt to these spots using Napalm Burst ammo mod). These glowing spots will change position sporadically throughout the phase.</li>
             <li>When Patient 13 has taken enough damage, it will leave the area for a short while. You are required to survive the hordes of zombies and various tentacles shooting projectiles at you. Notably, some of the projectile attacks may leave behind a green acidic puddle on the ground, which will damage you if you stand in there. After surviving long enough, Patient 13 will return to the arena. A Max Ammo will spawn at this point allowing players to replenish.</li>
             <li>When Patient 13 comes back, it can be in one of two states. In one state, its arms will have weak points similar to the tentacles (extra damage can be dealt here using Dead Wire ammo mod). Once those have been damaged enough it will change to the other state, where its mouth will be a weak point (also weak to Cryofreeze ammo mod). The rest of Patient 13's body will be coated in armor, greatly reducing the amount of damage it will take when being damaged on areas besides its weak point. Once damaged enough, Patient 13 will leave once more, and you have to survive for some time before it returns for the third phase. Another Max Ammo will spawn to signal the beginning of the new phase.</li>
@@ -216,12 +232,13 @@
         <h2 class="section-title">"Can You Hear Me (Come In)" Song</h2>
         <p class="song-link">Link to song on streaming <a href="https://song.link/us/i/1775122029">here</a>.</p>
         <ol>
-            <li>Interact with three Mister Peeks Headphones around the map:</li>
-            <ul>
-                <li><a href="pictures/song_ee/peeks_engineering.png">Engineering - On a spool, left of the C9 wallbuy</a></li>
-                <li><a href="pictures/song_ee/peeks_mining.png">Mining Tunnels - On the blue barrel across from the PhD Flopper machine</a></li>
-                <li><a href="pictures/song_ee/peeks_bio_lab.png">Bio Lab (3rd Floor) - On the counter closest to the Zombie Spawn window, up the stairs from the Level 3 Armour Vest wallbuy</a></li>
-            </ul>
+            <li>Interact with three Mister Peeks Headphones around the map:
+                <ul>
+                    <li><a href="pictures/song_ee/peeks_engineering.png">Engineering - On a spool, left of the C9 wallbuy</a></li>
+                    <li><a href="pictures/song_ee/peeks_mining.png">Mining Tunnels - On the blue barrel across from the PhD Flopper machine</a></li>
+                    <li><a href="pictures/song_ee/peeks_bio_lab.png">Bio Lab (3rd Floor) - On the counter closest to the Zombie Spawn window, up the stairs from the Level 3 Armour Vest wallbuy</a></li>
+                </ul>
+            </li>
             <li>Once all three headphones are interacted with, the song will start.</li>
         </ol>
     </div>
@@ -230,15 +247,16 @@
     <div class="content-container" id="mega_stuffy">
         <h2 class="section-title">Mega Stuffy</h2>
         <ol>
-            <li>Collect 6 stuffed animals across the map:</li>
-            <ul>
-                <li>The unicorn is in a locker inside Communications next to Stamin-Up</li>
-                <li>The monkey is behind the right-side fence on the bridge between the Sea Tower and Engineering </li>
-                <li>The bear is under a table in the Bio Lab, near the crafting table</li>
-                <li>The elephant is in the Mining Tunnels in a corner</li>
-                <li>The duck is in the red bin next to the mystery box on the Shipwreck</li>
-                <li>The giraffe is behind a light on Crab Island, you may need to crouch to interact with it</li>
-            </ul>
+            <li>Collect 6 stuffed animals across the map:
+                <ul>
+                    <li>The unicorn is in a locker inside Communications next to Stamin-Up</li>
+                    <li>The monkey is behind the right-side fence on the bridge between the Sea Tower and Engineering </li>
+                    <li>The bear is under a table in the Bio Lab, near the crafting table</li>
+                    <li>The elephant is in the Mining Tunnels in a corner</li>
+                    <li>The duck is in the red bin next to the mystery box on the Shipwreck</li>
+                    <li>The giraffe is behind a light on Crab Island, you may need to crouch to interact with it</li>
+                </ul>
+            </li>
             <li>Once all 6 are collected, you can go to Living Quarters and interact with any plush on a bed. They will all fly to the middle of the room and become a "pet" that will revive you and shoot zombies. If you shoot the plushies instead of just interacting with them, they will appear tattered in the room. In turn, they will not give you extra rewards such as equipment and salvage when interacting with them.</li>
         </ol>
     </div>
@@ -294,14 +312,15 @@
         <ol>
             <li>Go to the Sea and look for a group of red fish. Use an explosive to kill the fish and collect it. </li>
             <li>Collect oil next to the stove in the Mess Hall.</li>
-            <li>Around the map there are various other items required to cook the fish. Certain items will cause different effects to occur when you use an Alternate-Ammo-Type (AAT).</li>
-            <ul>
-                <li>Can of Chili (Napalm Burst) - On a counter in the Mess Hall</li>
-                <li>Snowball (Cryofreeze) - On top of the fridge in the Living Quarters</li>
-                <li>Brain (Brain Rot) - Bio Lab on a medical table</li>
-                <li>Mushroom (Shadow Rift) - In a grass patch outside the Storage Area</li>
-                <li>Battery (Dead Wire) - Inside Engineering</li>
-            </ul>
+            <li>Around the map there are various other items required to cook the fish. Certain items will cause different effects to occur when you use an Alternate-Ammo-Type (AAT).
+                <ul>
+                    <li>Can of Chili (Napalm Burst) - On a counter in the Mess Hall</li>
+                    <li>Snowball (Cryofreeze) - On top of the fridge in the Living Quarters</li>
+                    <li>Brain (Brain Rot) - Bio Lab on a medical table</li>
+                    <li>Mushroom (Shadow Rift) - In a grass patch outside the Storage Area</li>
+                    <li>Battery (Dead Wire) - Inside Engineering</li>
+                </ul>
+            </li>
             <li>Go to the pans on the stove in the Mess Hall and place your ingredients into one of the pans. They should start to be cooked and be on fire.</li>
             <li>Progress a round and then interact with the pan. You should eat the fish and earn an achievement. (Note: Ensure to gather all the ingredients you want to use before placing them to avoid burning the ingredients in the pan)</li>
         </ol>
@@ -313,16 +332,17 @@
     <div class="content-container" data-section-header-level="1" data-section-ind="Free Loot Easter Eggs" id="free_powerups">
         <h2 class="section-title">Free Power-ups</h2>
         <ul>
-            <li>Around Terminus, there are statues of various power-ups available for you to shoot. Once they have been shot, the corresponding power-up will appear at your location. Locations as follows:</li>
-            <ul>
-                <li>Insta-Kill - Temple Island above a zombie spawn window on a wall</li>
-                <li>Bonus Points - In the top right-most window of the Shipwreck when looking at it from the front </li>
-                <li>Nuke - Inside a barrier on Crab Island</li>
-                <li>Full Power - Under the inaccessible Sea Tower. Can be hit from a raft, or from Sea Tower's balcony</li>
-                <li>Full Armor - [Location TBD]</li>
-                <li>Double Points - In the Bio Lab behind a shelf</li>
-                <li>Max Ammo - Throwing a grenade/shooting an explosive into a watch tower outside the spawn area </li>
-            </ul>
+            <li>Around Terminus, there are statues of various power-ups available for you to shoot. Once they have been shot, the corresponding power-up will appear at your location. Locations as follows:
+                <ul>
+                    <li>Insta-Kill - Temple Island above a zombie spawn window on a wall</li>
+                    <li>Bonus Points - In the top right-most window of the Shipwreck when looking at it from the front </li>
+                    <li>Nuke - Inside a barrier on Crab Island</li>
+                    <li>Full Power - Under the inaccessible Sea Tower. Can be hit from a raft, or from Sea Tower's balcony</li>
+                    <li>Full Armor - [Location TBD]</li>
+                    <li>Double Points - In the Bio Lab behind a shelf</li>
+                    <li>Max Ammo - Throwing a grenade/shooting an explosive into a watch tower outside the spawn area </li>
+                </ul>
+            </li>
         </ul>
     </div>
 
@@ -340,14 +360,16 @@
         <h2 class="section-title">Basketball Trickshot (Free 2000 Points)</h2>
         <ol>
             <li>Obtain a Pack-a-Punched Weapon.</li>
-            <li>Stand on <a href="pictures/basketball_trickshot/box.png">this box</a> outside the 'Living Quarters,' and shoot the <a href="pictures/basketball_trickshot/ball.png">basketball on the roof</a> of the 'Living Quarters' (you'll get a hitmarker if you hit it).</li>
-            <ul>
-                <li>Shooting the ball with a non-pack-a-punched weapon will cause the ball to miss the hoop, and you won't get the points.</li>
-            </ul>
-            <li>The ball should fall into the <a href="pictures/basketball_trickshot/hoop.png">hoop</a> in the 'Rec Yard,' fireworks will shoot from the hoop, and 20 100 point (2000 points total) canisters will drop from the hoop.</li>
-            <ul>
-                <li>These can be doubled with a Double Points drop, and shared with the Profit Sharing Gobblegum.</li>
-            </ul>
+            <li>Stand on <a href="pictures/basketball_trickshot/box.png">this box</a> outside the 'Living Quarters,' and shoot the <a href="pictures/basketball_trickshot/ball.png">basketball on the roof</a> of the 'Living Quarters' (you'll get a hitmarker if you hit it).
+                <ul>
+                    <li>Shooting the ball with a non-pack-a-punched weapon will cause the ball to miss the hoop, and you won't get the points.</li>
+                </ul>
+            </li>
+            <li>The ball should fall into the <a href="pictures/basketball_trickshot/hoop.png">hoop</a> in the 'Rec Yard,' fireworks will shoot from the hoop, and 20 100 point (2000 points total) canisters will drop from the hoop.
+                <ul>
+                    <li>These can be doubled with a Double Points drop, and shared with the Profit Sharing Gobblegum.</li>
+                </ul>
+            </li>
         </ol>
     </div>
 
@@ -412,7 +434,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

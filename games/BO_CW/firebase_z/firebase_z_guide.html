@@ -6,55 +6,55 @@
     <!--suppress HtmlUnknownTarget -->
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+    <!-- Google Analytics -->
+    <script>
+        const isLocalEnvironment = window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.hostname.includes(".local");
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+        if (!isLocalEnvironment) {
+            // Load gtag script dynamically
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+            document.head.appendChild(script);
 
-        function gtag() {
-            dataLayer.push(arguments);
+            // Initialize Google Analytics
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
         }
-
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
-
-<!-- Google Analytics -->
-
+    </script>
+</head>
 
 <body>
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Firebase Z Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Weapons</h2><ul><li><a href="#raik84">RAI K-84</a></li><ul><li><a href="#side_quest_step_1">Barrel Assembly</a></li><li><a href="#side_quest_step_2">Charged Power Cell</a></li><li><a href="#side_quest_step_3">Aetherium Converter</a></li><li><a href="#side_quest_step_4">Crafting the Weapon</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Maxis Potential' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Creating the Serum</a></li><li><a href="#main_ee_step3">Collect the Mimic's Memories</a></li><li><a href="#main_ee_step4">Stabilize the Breach</a></li><li><a href="#main_ee_step5">Orda Boss Fight</a></li></ul><li><a href="#song_ee">'Lost' Song</a></li><li><a href="#loot_ee">Bunny Rabbit / Free Loot</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#monkeybomb_upgrade">Upgraded Monkey Bombs</a></li><li><a href="#free_jump_pads">Free Jump Pads</a></li></ul></div>
     </div>
 </div>
@@ -79,13 +74,8 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
-    <h2>Weapons</h2><ul><li><a href="#raik84">RAI K-84</a></li><ul><li><a href="#side_quest_step_1">Barrel Assembly</a></li><li><a href="#side_quest_step_2">Charged Power Cell</a></li><li><a href="#side_quest_step_3">Aetherium Converter</a></li><li><a href="#side_quest_step_4">Crafting the Weapon</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Maxis Potential' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Creating the Serum</a></li><li><a href="#main_ee_step3">Collect the Mimic's Memories</a></li><li><a href="#main_ee_step4">Stabilize the Breach</a></li><li><a href="#main_ee_step5">Orda Boss Fight</a></li></ul><li><a href="#song_ee">'Lost' Song</a></li><li><a href="#loot_ee">Bunny Rabbit / Free Loot</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#monkeybomb_upgrade">Upgraded Monkey Bombs</a></li><li><a href="#free_jump_pads">Free Jump Pads</a></li></ul></div>
+        <h2>Weapons</h2><ul><li><a href="#raik84">RAI K-84</a></li><ul><li><a href="#side_quest_step_1">Barrel Assembly</a></li><li><a href="#side_quest_step_2">Charged Power Cell</a></li><li><a href="#side_quest_step_3">Aetherium Converter</a></li><li><a href="#side_quest_step_4">Crafting the Weapon</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Maxis Potential' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Creating the Serum</a></li><li><a href="#main_ee_step3">Collect the Mimic's Memories</a></li><li><a href="#main_ee_step4">Stabilize the Breach</a></li><li><a href="#main_ee_step5">Orda Boss Fight</a></li></ul><li><a href="#song_ee">'Lost' Song</a></li><li><a href="#loot_ee">Bunny Rabbit / Free Loot</a></li><li><a href="#free_perk">Free Perk</a></li><li><a href="#monkeybomb_upgrade">Upgraded Monkey Bombs</a></li><li><a href="#free_jump_pads">Free Jump Pads</a></li></ul>
+    </div>
 
     <div class="content-container" data-section-ind="Weapons" id="raik84">
         <h2 class="section-title">RAI K-84</h2>
@@ -304,7 +294,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

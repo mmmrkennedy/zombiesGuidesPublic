@@ -39,23 +39,23 @@
     <h2 class="title-text">Ancient Evil Guide</h2>
 
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -64,15 +64,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li><li><a href="#tributes">Tributes (Trials)</a></li><ul><li><a href="#eternal_flame">Eternal Flame</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apollos_will">Apollo's Will</a></li><li><a href="#god_hand_weapon">God Hand Wonder Weapons</a></li><ul><li><a href="#dormant_hand">Dormant Hand Locations</a></li><li><a href="#hand_of_charon">Fallen Hand of Charon</a></li><ul><li><a href="#redeemed_hand_of_charon">Redeemed Hand of Charon</a></li></ul><li><a href="#hand_of_ouranos">Fallen Hand of Ouranos</a></li><ul><li><a href="#redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</a></li></ul><li><a href="#hand_of_hemera">Fallen Hand of Hemera</a></li><ul><li><a href="#redeemed_hand_of_hemera">Redeemed Hand of Hemera</a></li></ul><li><a href="#hand_of_gaia">Fallen Hand of Gaia</a></li><ul><li><a href="#redeemed_hand_of_gaia">Redeemed Hand of Gaia</a></li></ul><li><a href="#exalted_hands">Exalted Hands Upgrade</a></li></ul><li><a href="#pegasus_strike">Pegasus Strike</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Greek Tragedy' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unleash the Eagles</a></li><li><a href="#main_ee_step2">Ignite the Beacons</a></li><li><a href="#main_ee_step3">Look the Dead in the Eye</a></li><li><a href="#main_ee_step4">Align the Citizens</a></li><li><a href="#main_ee_step5">Scepter and Sundial</a></li><li><a href="#main_ee_step6">Hit Your Marks</a></li><li><a href="#main_ee_step7">Cleanse the Center</a></li><li><a href="#main_ee_step8">Pegasus/Perseus Boss Fight</a></li></ul><li><a href="#song_ee">'Stormbound' Song</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Labours of Hercules' Gauntlet Challenges</a></li></ul></div>
     </div>
 </div>
@@ -108,7 +103,7 @@
             <li>Reward tiers don't reset when a challenge finishes; instead, you keep your progress until you collect the reward.</li>
             <li>Every time you interact with your current challenge (i.e., getting a kill with equipment during a "Kill Zombies with Equipment" challenge) the Tribute graphic on your screen will flash, indicating you've earned progress toward upgrading your reward rarity.</li>
             <li>To activate a challenge, interact with the bowl in either the <a href="pictures/tributes/bowl_temple.webp">'Temple of Apollo'</a> or <a href="pictures/tributes/bowl_cliff.webp">'Cliff Ruins'</a> areas. Activating challenges will cost more and more based on how many challenges you've activated.</li>
-            <li>When one player activates a challenge, it activates for all players, but reward tiers aren’t shared between players.</li>
+            <li>When one player activates a challenge, it activates for all players, but reward tiers aren't shared between players.</li>
             <li>The reward can be collected from the <a href="pictures/tributes/pillars.webp">Pillars</a> in the 'Temple of Apollo.' <span style="color:red">BUG:</span> You can't collect a reward while a "Prove yourself to..." The God Hand upgrade portal is active and waiting for you to enter. Rewards for each Tier: </li>
             <table>
                 <thead>
@@ -211,7 +206,7 @@
     <!-- Wonder Weapons -->
     <div class="content-container" id="god_hand_weapon">
         <h2 class="section-title">God Hand Wonder Weapons</h2>
-        <p class="weapon-desc">There are four God Hand Weapons, each corresponding to a Greek God (Charon, Ouranos, Hemera and Gaia). The Hand Weapons can’t be directly Pack-a-Punched, but there are three versions, "Fallen"/Base version, "Redeemed"/Upgraded and "Exalted"/Fully Upgraded.</p>
+        <p class="weapon-desc">There are four God Hand Weapons, each corresponding to a Greek God (Charon, Ouranos, Hemera and Gaia). The Hand Weapons can't be directly Pack-a-Punched, but there are three versions, "Fallen"/Base version, "Redeemed"/Upgraded and "Exalted"/Fully Upgraded.</p>
 
         <p class="step-group-title" id="dormant_hand">Dormant Hand Locations</p>
         <ul>
@@ -319,7 +314,7 @@
         <ol>
             <li>Obtain a <a href="#dormant_hand">Dormant Hand</a></li>
             <li>Place the Dormant Hand on the <a href="pictures/god_hand_weapons/charon/charon_shrine.webp">Charon Shrine</a> in 'Python Pass' to start a lockdown.</li>
-            <li>While in the lockdown, you must wait until you’re released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+            <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
             <li>Once enough glowing Zombies are killed, the Hand of Charon can be picked up from the Shrine.</li>
         </ol>
 
@@ -356,15 +351,15 @@
                     <li><a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/cliff_mystery_box.webp">Cliff Ruins - Near the Mystery Box</a></li>
                 </ul>
             </ul>
-            <li>Once you’ve collected all three real coins, deposit them a Charon's Shrine. This will remove the water's effect and spawn a portal.</li>
-            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Charon. Once you’ve completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Charon.</li>
+            <li>Once you've collected all three real coins, deposit them a Charon's Shrine. This will remove the water's effect and spawn a portal.</li>
+            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Charon. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Charon.</li>
         </ol>
 
         <p class="step-group-title" id="hand_of_ouranos">Fallen Hand of Ouranos</p>
         <ol>
             <li>Obtain a <a href="#dormant_hand">Dormant Hand</a></li>
             <li>Place the Dormant Hand on the <a href="pictures/god_hand_weapons/ouranos/ouranos_shrine.webp">Ouranos Shrine</a> in the 'Center of the World' to start a lockdown.</li>
-            <li>While in the lockdown, you must wait until you’re released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+            <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
             <li>Once enough glowing Zombies are killed, the Hand of Ouranos can be picked up from the Shrine.</li>
         </ol>
 
@@ -383,14 +378,14 @@
             </ul>
             <li>If an arrow's feather successfully made it to the Shrine, that arrow would fall, making it no longer possible to shoot a Zombie at it.</li>
             <li>Once all three feathers have made it to the Shrine, a portal will spawn at the Shrine of Ouranos.</li>
-            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Ouranos. Once you’ve completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Ouranos.</li>
+            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Ouranos. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Ouranos.</li>
         </ol>
 
         <p class="step-group-title" id="hand_of_hemera">Fallen Hand of Hemera</p>
         <ol>
             <li>Obtain a <a href="#dormant_hand">Dormant Hand</a></li>
             <li>Place the Dormant Hand on the <a href="pictures/god_hand_weapons/hemera/hemera_shrine.webp">Hemera Shrine</a> in 'Monument of Craterus' to start a lockdown.</li>
-            <li>While in the lockdown, you must wait until you’re released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+            <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
             <li>Once enough glowing Zombies are killed, the Hand of Hemera can be picked up from the Shrine.</li>
         </ol>
 
@@ -405,14 +400,14 @@
             </ul>
             <li>Melee the bowl with the light in it with the Fallen Hand of Hemera, this will transfer the light ball to the Hand. You must then run to the Monument of Craterus and melee the shrine to transfer the light ball onto the shrine. If you take too long to melee the shrine, you will have to re-obtain the ball of light on your hand.</li>
             <li>Once all three balls of light are on the Hemera shrine, a portal will open.</li>
-            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Hemera. Once you’ve completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Hemera.</li>
+            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Hemera. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Hemera.</li>
         </ol>
 
         <p class="step-group-title" id="hand_of_gaia">Fallen Hand of Gaia</p>
         <ol>
             <li>Obtain a <a href="#dormant_hand">Dormant Hand</a></li>
             <li>Place the Dormant Hand on the <a href="pictures/god_hand_weapons/gaia/gaia_shrine.webp">Gaia Shrine</a> in 'Spartan Monument' to start a lockdown.</li>
-            <li>While in the lockdown, you must wait until you’re released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+            <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
             <li>Once enough glowing Zombies are killed, the Hand of Gaia can be picked up from the Shrine.</li>
         </ol>
 
@@ -426,7 +421,7 @@
                 <li><a href="pictures/god_hand_weapons/gaia/redeemed/tree_mog12.webp">Temple Terrace - Right of the MOG 12 wallbuy</a></li>
             </ul>
             <li>Once three Seedlings have been placed at the Shrine, a portal will open.</li>
-            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Gaia. Once you’ve completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Gaia.</li>
+            <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Gaia. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Gaia.</li>
         </ol>
 
         <p class="step-group-title" id="exalted_hands">Exalted Hands Upgrade</p>
@@ -442,7 +437,7 @@
                 <li>Gaia - Fire Catalyst</li>
             </ul>
             <li>When a Shrine is successfully charged with souls, a symbol of the same colour as the Shrine will light up on the <a href="pictures/god_hand_weapons/exalted_hands/pap_lit_symbols.webp">top of the Pack-a-Punch</a>.</li>
-            <li>Once all four shrines are charged, interact with the Pack-a-Punch to be teleported to the Redeemed upgrade arena to start a trial for one of the Gods. The difference with this arena, compared to the Redeemed arena, is that the Hand doesn’t have unlimited ammo and stronger enemies (like Blightfathers, Gegenees, etc.) will spawn instead of regular Zombies.</li>
+            <li>Once all four shrines are charged, interact with the Pack-a-Punch to be teleported to the Redeemed upgrade arena to start a trial for one of the Gods. The difference with this arena, compared to the Redeemed arena, is that the Hand doesn't have unlimited ammo and stronger enemies (like Blightfathers, Gegenees, etc.) will spawn instead of regular Zombies.</li>
             <li>Once all four trials have been completed, you will be able to Pack-a-Punch any of the Redeemed Hands for free.</li>
         </ol>
     </div>
@@ -592,7 +587,7 @@
             </ul>
             <li>Once you do enough damage to Pegasus, it will destroy the 'Mount Olympus: Forest' island and spawn a Max Ammo Power-up on one of the other islands.</li>
             <ul>
-                <li>If a player is on the island while it is being destroyed, they will be downed instantly with no opportunity to revive. If you’re Solo, this will end the game.</li>
+                <li>If a player is on the island while it is being destroyed, they will be downed instantly with no opportunity to revive. If you're Solo, this will end the game.</li>
             </ul>
             <li>Repeat Step 31 one more time. Once you do enough damage to Pegasus, Pegasus will now attack Perseus.</li>
             <li>Perseus will then destroy the 'Mount Olympus: Fountains' island, leaving only the 'Mount Olympus: Columns' island. Once the island is destroyed, the fight with Perseus will start.</li>
@@ -636,7 +631,7 @@
             <tr>
                 <td>Round 2</td>
                 <td>Turret Mode</td>
-                <td>Players are Locked in Place Unless They’re Downed.</td>
+                <td>Players are Locked in Place Unless They're Downed.</td>
             </tr>
             <tr>
                 <td>Round 3</td>
@@ -797,7 +792,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

@@ -39,23 +39,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Shadowed Throne Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -64,15 +64,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#wunderbuss">Wunderbuss</a></li><li><a href="#smugglers_bat">Smuggler's Bat</a></li><li><a href="#dancers_dagger">Dancer's Dagger</a></li><li><a href="#nazi_axe">Nazi Axe</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Stadtjäger Down' Main Quest</a></li><ul><li><a href="#main_ee_step1">Obtaining the Blade</a></li><ul><li><a href="#Statue Puzzle Solver">Statue Puzzle Solver</a></li></ul><li><a href="#main_ee_step2">Lowering the Drop Pod</a></li><li><a href="#main_ee_step3">Entering the Zeppelin</a></li><li><a href="#main_ee_step4">Stadtjäger Bossfight</a></li></ul><li><a href="#hangman">Cabaret Sign Hangman</a></li><ul><li><a href="#Hangman Word Solver">Hangman Word Solver</a></li></ul><li><a href="#hats">Hats (Free Power Ups / Free Jolts)</a></li><li><a href="#the_classic">'The Classic' PPSh-41</a></li><li><a href="#camo">Thule's Errand Camo</a></li><li><a href="#jumpscare">Dead Woman Jumpscare / Audio Recording</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Necromedic (Fieldwork)">Necromedic (Fieldwork)</a></li><li><a href="#Stalker (Vigilant)">Stalker (Vigilant)</a></li><li><a href="#Skullbreaker (The Answer)">Skullbreaker (The Answer)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
     </div>
 </div>
@@ -80,12 +75,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#wunderbuss">Wunderbuss</a></li><li><a href="#smugglers_bat">Smuggler's Bat</a></li><li><a href="#dancers_dagger">Dancer's Dagger</a></li><li><a href="#nazi_axe">Nazi Axe</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Stadtjäger Down' Main Quest</a></li><ul><li><a href="#main_ee_step1">Obtaining the Blade</a></li><ul><li><a href="#Statue Puzzle Solver">Statue Puzzle Solver</a></li></ul><li><a href="#main_ee_step2">Lowering the Drop Pod</a></li><li><a href="#main_ee_step3">Entering the Zeppelin</a></li><li><a href="#main_ee_step4">Stadtjäger Bossfight</a></li></ul><li><a href="#hangman">Cabaret Sign Hangman</a></li><ul><li><a href="#Hangman Word Solver">Hangman Word Solver</a></li></ul><li><a href="#hats">Hats (Free Power Ups / Free Jolts)</a></li><li><a href="#the_classic">'The Classic' PPSh-41</a></li><li><a href="#camo">Thule's Errand Camo</a></li><li><a href="#jumpscare">Dead Woman Jumpscare / Audio Recording</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Necromedic (Fieldwork)">Necromedic (Fieldwork)</a></li><li><a href="#Stalker (Vigilant)">Stalker (Vigilant)</a></li><li><a href="#Skullbreaker (The Answer)">Skullbreaker (The Answer)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Power -->
@@ -122,7 +112,7 @@
             <li>Head to the 'Plaza,' and shoot the <a href="pictures/wunderbuss/wooden_box.webp">lock on the wooden box</a> left of the door to the 'Museum.' The box will open; shoot it again to launch a flare. This will get the attention of Straub's Zeppelin.</li>
             <li>Once the Zeppelin tethers itself, it will fire a "Geistbolt" at any undamaged Zombie. This will turn the Zombie into a <a href="pictures/wunderbuss/sizzlers.webp">Gekocht (commonly called Sizzlers)</a>.</li>
             <ul>
-                <li>Sizzlers are extremely fast Zombies that do normal damage; they will catch you while sprinting, but they don't gain more health, so they’re pretty easy to kill.</li>
+                <li>Sizzlers are extremely fast Zombies that do normal damage; they will catch you while sprinting, but they don't gain more health, so they're pretty easy to kill.</li>
                 <li>The Zeppelin will create a Sizzler every couple of minutes. You can avoid Sizzlers spawns (if you want to leave last, for example) by damaging the Zombie; damaged Zombies can't become Sizzlers.</li>
             </ul>
             <li>Melee kill a Sizzler to get a Geistbolt.</li>
@@ -285,7 +275,7 @@
             <li>Once you're in the Zeppelin, the Boss Fight won't start right away. You have to move a <a href="pictures/main_ee/power_ball.webp">"power ball"</a> in the floor around to open all the gates, then into Straub's room at the end of the Zeppelin.</li>
             <li>To move the ball, there will be <a href="pictures/main_ee/terminal.webp">interactive terminals</a> scattered throughout the Zeppelin. When you interact with a terminal, you will see multiple nodes connected wires. Note that each terminal has limited movement capabilities, indicated by the green or red wires connecting the nodes. On any given terminal, you can only move the ball between nodes connected by green wires.</li>
             <li>Throughout the Zeppelin, there are gates; you should open all of them, because it'll help when training in the Boss Fight. Once you move the ball up the stairs, there are two paths to move it. Take it up first, open all the gates in that direction, then take the down path. This is because moving down is the intended path, so moving up first will save you a "trip."</li>
-            <li>Once all the gates are open, guide the power source into the room where Dr. Straub is located. Once the power source reaches Straub’s room, the wave will end, and he will be killed by Zombies.</li>
+            <li>Once all the gates are open, guide the power source into the room where Dr. Straub is located. Once the power source reaches Straub's room, the wave will end, and he will be killed by Zombies.</li>
             <li>Exit the room, and the Stadtjäger will drop, signalling the start of the boss fight.</li>
 
             <p class="step-group-title" id="main_ee_step4">Stadtjäger Bossfight</p>
@@ -375,7 +365,7 @@
             </ul>
             <li>If you interacted at the right time, the lights around the mirror will flash again, and you can move on to the next one to the right.</li>
             <li>Repeat for the other two mirrors, each mirror is a little faster than the last.</li>
-            <li>When you’ve completed all the mirrors, they will start spewing bills, and The Classic will enter the Mystery Box's weapon pool (you aren’t guaranteed to get it).</li>
+            <li>When you've completed all the mirrors, they will start spewing bills, and The Classic will enter the Mystery Box's weapon pool (you aren't guaranteed to get it).</li>
         </ol>
     </div>
 
@@ -566,7 +556,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

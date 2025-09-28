@@ -38,23 +38,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Darkest Shore Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -63,15 +63,10 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li><li><a href="#fog">Fog on the Island / Meuchler Info</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ripsaw">Ripsaw</a></li><ul><li><a href="#ranged_ripsaw">Ranged Ripsaw Upgrade</a></li><li><a href="#rip_saw_upgrade">R.I.P. Saw Upgrade (Pack-a-Punch Ripsaw)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Making History' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Corpse Gate</a></li><li><a href="#main_ee_step3">Unlocking Nerthus' Secret Room</a></li><li><a href="#main_ee_step4">Ritual Sacrifices</a></li><ul><li><a href="#main_ee_step4_meuchler">Meuchler Sacrifice Ritual</a></li><li><a href="#main_ee_step4_wustling">Wustling Sacrifice Ritual</a></li><li><a href="#main_ee_step4_pest">Pest Sacrifice Ritual</a></li></ul><li><a href="#main_ee_step5">Bomber Escort and Destroying Ships</a></li><li><a href="#main_ee_step6">Meistermeuchler Boss Fight</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#hi_beam">"HI" Beam / Free Single Jolt</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Still Lurking" Trophy/Achievement)</a></li><li><a href="#jack_box_boss_fight">Single Use Upgraded Jack-in-the-Box in the Boss Fight</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Hunter">Bloodraven Hunter</a></li><li><a href="#Deathraven Hunter (Living the Dream)">Deathraven Hunter (Living the Dream)</a></li><li><a href="#The Hunter from Seville (Stock Broker)">The Hunter from Seville (Stock Broker)</a></li><li><a href="#Deathraven Mountaineer (Keep Moving)">Deathraven Mountaineer (Keep Moving)</a></li><li><a href="#The Mountaineer from Ruskeala (Barbarossa)">The Mountaineer from Ruskeala (Barbarossa)</a></li><li><a href="#Bloodraven Survivalist (In Charge)">Bloodraven Survivalist (In Charge)</a></li><li><a href="#Deathraven Survivalist (Sol Ace)">Deathraven Survivalist (Sol Ace)</a></li><li><a href="#The Survivalist from Hanoi (The Hunter)">The Survivalist from Hanoi (The Hunter)</a></li><li><a href="#Bloodraven Slayer (V.I.B.)">Bloodraven Slayer (V.I.B.)</a></li><li><a href="#Deathraven Slayer (Tools of the Trade)">Deathraven Slayer (Tools of the Trade)</a></li><li><a href="#The Slayer from Casablanca (Banker)">The Slayer from Casablanca (Banker)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
     </div>
 </div>
@@ -79,12 +74,7 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li><li><a href="#fog">Fog on the Island / Meuchler Info</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#ripsaw">Ripsaw</a></li><ul><li><a href="#ranged_ripsaw">Ranged Ripsaw Upgrade</a></li><li><a href="#rip_saw_upgrade">R.I.P. Saw Upgrade (Pack-a-Punch Ripsaw)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Making History' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Corpse Gate</a></li><li><a href="#main_ee_step3">Unlocking Nerthus' Secret Room</a></li><li><a href="#main_ee_step4">Ritual Sacrifices</a></li><ul><li><a href="#main_ee_step4_meuchler">Meuchler Sacrifice Ritual</a></li><li><a href="#main_ee_step4_wustling">Wustling Sacrifice Ritual</a></li><li><a href="#main_ee_step4_pest">Pest Sacrifice Ritual</a></li></ul><li><a href="#main_ee_step5">Bomber Escort and Destroying Ships</a></li><li><a href="#main_ee_step6">Meistermeuchler Boss Fight</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#hi_beam">"HI" Beam / Free Single Jolt</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Still Lurking" Trophy/Achievement)</a></li><li><a href="#jack_box_boss_fight">Single Use Upgraded Jack-in-the-Box in the Boss Fight</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Hunter">Bloodraven Hunter</a></li><li><a href="#Deathraven Hunter (Living the Dream)">Deathraven Hunter (Living the Dream)</a></li><li><a href="#The Hunter from Seville (Stock Broker)">The Hunter from Seville (Stock Broker)</a></li><li><a href="#Deathraven Mountaineer (Keep Moving)">Deathraven Mountaineer (Keep Moving)</a></li><li><a href="#The Mountaineer from Ruskeala (Barbarossa)">The Mountaineer from Ruskeala (Barbarossa)</a></li><li><a href="#Bloodraven Survivalist (In Charge)">Bloodraven Survivalist (In Charge)</a></li><li><a href="#Deathraven Survivalist (Sol Ace)">Deathraven Survivalist (Sol Ace)</a></li><li><a href="#The Survivalist from Hanoi (The Hunter)">The Survivalist from Hanoi (The Hunter)</a></li><li><a href="#Bloodraven Slayer (V.I.B.)">Bloodraven Slayer (V.I.B.)</a></li><li><a href="#Deathraven Slayer (Tools of the Trade)">Deathraven Slayer (Tools of the Trade)</a></li><li><a href="#The Slayer from Casablanca (Banker)">The Slayer from Casablanca (Banker)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
 
     <!-- Power -->
@@ -171,7 +161,7 @@
                     <li><a href="pictures/ripsaw/rip_saw_upgrade/dial_cart.webp">Artillery Bunker - Out a window to the left of the BAR wallbuy on a cart</a></li>
                 </ul>
             </ul>
-            <li>Complete the friendly Bomber escort step of the <a href="#main_ee">Main Quest</a> and charge the Artillery Cannon by killing Zombies near the battery the bomber brought.</li>
+            <li>Complete the friendly Bomber escort step of the <a href="#main_ee">Main Quest</a> (detailed on <a href="#main_ee_step5">Step 16</a> but can be started after completing <a href="#main_ee_step2">Step 7</a>). Charge the Artillery Cannon by killing Zombies near the battery the bomber brought.</li>
             <li>Once you charge the battery enough, the cannon will make a loading sound, and become ready to fire.</li>
             <li>Enter the coordinates from the dials into the cannon. To aim the cannon, interact with the <a href="pictures/main_ee/cannon_elevation.webp">left panel</a> to change the elevation, and the <a href="pictures/main_ee/cannon_angle.webp">right panel</a> to change the angle. Use <a href="pictures/main_ee/cannon_aiming_guide.webp">this aiming guide image</a> to help you aim the cannon. Interact with the <a href="pictures/main_ee/cannon_fire_button.webp">button in the middle of the panels</a> to fire.</li>
             <li>If done correctly, a fuse will drop from the <a href="pictures/ripsaw/rip_saw_upgrade/fuse.webp">barrel of the cannon onto the concrete pillar holding the cannon</a> for you to pick up.</li>
@@ -191,12 +181,12 @@
             <p class="step-group-title" id="main_ee_step2">Corpse Gate</p>
             <li>Shoot the head off the <a href="pictures/main_ee/hanging_man.webp">hanging corpse in 'Bunker 3.'</a> It will drop for you to pick it up.</li>
             <li>Place the head on the <a href="pictures/main_ee/corpse_gate.webp">headless corpse (Corpse Gate)</a> in the 'U-Boat Pens.'</li>
-            <li>Get about 10 kills next to the Corpse Gate. When you’ve gotten enough kills, some dialogue will play, and you will be locked in the 'U-Boat Pens' with some of the floor tiles randomly shooting fire.</li>
+            <li>Get about 10 kills next to the Corpse Gate. When you've gotten enough kills, some dialogue will play, and you will be locked in the 'U-Boat Pens' with some of the floor tiles randomly shooting fire.</li>
             <li>In three corners of the 'U-Boat Pens,' there are three <a href="pictures/main_ee/gas_valve.webp">gas valves</a> (on either side of the Corpse Gate, and left of the stairs) that need to be deactivated. The tiles below the valves will always be on fire unlike the other tiles. Randomly, one of the valve's tiles will go out, indicted by a gas turning off sound. You can then turn off that valve.</li>
             <ul>
                 <li>If you're too slow, the fire will reappear under the valve, and you must wait until it has gone again.</li>
             </ul>
-            <li>Once you've turned off all the valves, the fire will go away, and you’re able to interact with the Corpse Gate. The man will be ripped in half, and the door behind will open to reveal the Freezer area. Once the door has fully opened, a Brenner zombie will spawn. Killing the Brenner will drop a Max Ammo power-up that doesn't despawn, so you can leave it until you need it (keep it for the Boss Fight).</li>
+            <li>Once you've turned off all the valves, the fire will go away, and you're able to interact with the Corpse Gate. The man will be ripped in half, and the door behind will open to reveal the Freezer area. Once the door has fully opened, a Brenner zombie will spawn. Killing the Brenner will drop a Max Ammo power-up that doesn't despawn, so you can leave it until you need it (keep it for the Boss Fight).</li>
             <li>Make your way to an outside area of the map. Planes will start flying around, shooting at you. Using any of the <a href="pictures/main_ee/aa_gun.webp">Anti-Air guns</a> around the Bunker area, shoot down about three waves of planes (until "Shot down the German Fighter Planes" appears on screen).</li>
             <ul>
                 <li>The AA guns have health and can be attacked by Zombies, but you can shoot the Zombies with the AA gun.</li>
@@ -400,7 +390,7 @@
         <ol>
             <li>Progress the <a href="#main_ee">Main Quest</a> until you can summon a friendly Bomber zombie (after you open the Corpse Gate in the 'U-Boat Pens'). Once the Corpse Gate is open, the Bomber can be summoned from the <a href="pictures/main_ee/bomber_spawner.webp">machine of the right</a>.</li>
             <li>During the friendly Bomber escort step, drop 1000 total jolts in the path of the Bomber, so it picks them up. After 1000 jolts, it won't pick up any more drops.</li>
-            <li>If done correctly, The Classic will enter the Mystery Box's weapon pool (you aren’t guaranteed to get it).</li>
+            <li>If done correctly, The Classic will enter the Mystery Box's weapon pool (you aren't guaranteed to get it).</li>
         </ol>
     </div>
 
@@ -556,7 +546,7 @@
             <tr>
                 <td><i>Streaking around the island.</i></td>
                 <td>Obtain the Pommel without any player using Special Abilities, Mods or Consumables.</td>
-                <td class="strategy">You can't use self-revives, they are considered consumables</td>
+                <td class="strategy">You can't use self-revives, they’re considered consumables</td>
             </tr>
             <tr>
                 <td><i>No dirty kills</i></td>
@@ -771,7 +761,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

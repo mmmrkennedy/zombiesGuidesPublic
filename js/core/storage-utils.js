@@ -39,9 +39,6 @@ function initStorageListeners() {
                 break;
             case 'close_setting_auto':
                 break;
-            case 'fontSelector':
-                window.location.reload()
-                break;
             default:
                 console.log("Unknown Storage Event", event);
         }

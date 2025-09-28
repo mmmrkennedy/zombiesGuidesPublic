@@ -26,20 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const colourModeSelect = document.getElementById('colourMode');
     const preloadInput = document.getElementById('preload');
     const closeSettingAutoInput = document.getElementById('close_setting_auto');
-    const fontSelectorSelect = document.getElementById('fontSelector');
 
     // Load and set values from local storage
     const savedColourMode = localStorage.getItem('colourMode');
     const savedPreloadValue = (localStorage.getItem('preload') === 'true');
     const savedCloseSettingAutoValue = (localStorage.getItem('close_setting_auto') === 'true');
-    const savedfontSelector = localStorage.getItem('fontSelector');
 
     if (savedColourMode) {
         colourModeSelect.value = savedColourMode;
-    }
-
-    if (savedfontSelector) {
-        fontSelectorSelect.value = savedfontSelector;
     }
 
     preloadInput.checked = savedPreloadValue;
@@ -54,26 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const colourModeValue = colourModeSelect.value;
         const preloadValue = preloadInput.checked;
         const closeSettingAutoValue = closeSettingAutoInput.checked;
-        const fontSelectorValue = fontSelectorSelect.value;
 
         // Save values to local storage
         localStorage.setItem('colourMode', colourModeValue);
         localStorage.setItem('preload', preloadValue.toString());
         localStorage.setItem('close_setting_auto', closeSettingAutoValue.toString());
-        localStorage.setItem('fontSelector', fontSelectorValue);
 
-        checkSettingsSaved(colourModeValue, preloadValue.toString(), closeSettingAutoValue.toString(), fontSelectorValue);
+        checkSettingsSaved(colourModeValue, preloadValue.toString(), closeSettingAutoValue.toString());
     });
 });
 
 // Utility functions for settings
-function checkSettingsSaved(colourModeValue, preloadValue, close_setting_auto_value, fontSelectorValue) {
+function checkSettingsSaved(colourModeValue, preloadValue, close_setting_auto_value) {
     const settingsSaved =
         colourModeValue === localStorage.getItem('colourMode') &&
         preloadValue === localStorage.getItem('preload') &&
         close_setting_auto_value === localStorage.getItem('close_setting_auto') &&
-        fontSelectorValue === localStorage.getItem('fontSelector');
-
 
     changeText(settingsSaved ? "Settings Saved!" : "Settings Failed to Save! Please try again.");
 }

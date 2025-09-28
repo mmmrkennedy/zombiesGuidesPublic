@@ -26,9 +26,6 @@ class NavBuilder {
         // Clear existing content
         parentElement.innerHTML = '';
 
-        // Generate font box
-        parentElement.innerHTML = QuickLinksUtils.generateFontBoxHTML();
-
         // Generate navigation
         const elementsData = QuickLinksUtils.getQuickLinkElements(document);
         const isHamburgerMenu = parentElement.id === "hamburgerMenuLinks";

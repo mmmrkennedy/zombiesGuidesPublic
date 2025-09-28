@@ -41,29 +41,24 @@
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Black Box</a></li><li><a href="#main_ee_step2">Lilith's Keycard</a></li><li><a href="#main_ee_step3">Decker's Keycard</a></li><li><a href="#main_ee_step4">Oz's Keycard</a></li><li><a href="#main_ee_step5">Kahn's Keycard</a></li><li><a href="#main_ee_step6">Getting Clearance Level 49</a></li></ul><li><a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a></li><li><a href="#song_ee">'Ride of the Valkyries' Song</a></li></ul></div>
 
     <!-- Main Easter Egg -->
@@ -131,7 +126,7 @@
             <li>Complete the <a href="#main_ee">Main Quest</a> like normal up to step 12.</li>
             <li>On step 13, you must kill the Zombies only using melee attacks. They will still drop the Access Cards, but your Clearance Level number on the HUD will stay <a href="pictures/main_ee/hud_number_light_grey.webp">light grey</a>.</li>
             <ul>
-                <li>If you collect a card from a Zombie that wasn’t killed by melee, the number on the HUD will turn <a href="pictures/main_ee/hud_number_dark_grey.webp">dark grey</a>, and you will have to restart the game to try again.</li>
+                <li>If you collect a card from a Zombie that wasn't killed by melee, the number on the HUD will turn <a href="pictures/main_ee/hud_number_dark_grey.webp">dark grey</a>, and you will have to restart the game to try again.</li>
             </ul>
             <li>Once you get a Clearance Level of 49 and the number is still light grey, you can continue the steps like normal.</li>
         </ol>
@@ -163,7 +158,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 

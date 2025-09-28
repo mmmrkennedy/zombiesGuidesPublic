@@ -21,15 +21,13 @@ function initializeQuickLinks() {
             return;
         }
 
-        // Generate font box and quick links
-        if (window.FontManager.generateFontBox(parentElement)) {
-            const elementsData = window.QuickLinksUtils.getQuickLinkElements(document);
+        const elementsData = window.QuickLinksUtils.getQuickLinkElements(document);
 
-            let start = performance.now();
-            generateQuickLinks(parentElement, elementsData);
-            let end = performance.now();
-            console.log(`Time to generateQuickLinks ${end - start} ms`)
-        }
+        let start = performance.now();
+        generateQuickLinks(parentElement, elementsData);
+        let end = performance.now();
+        console.log(`Time to generateQuickLinks ${end - start} ms`)
+
     } catch (e) {
         console.error("Error initializing quick links:", e);
     }

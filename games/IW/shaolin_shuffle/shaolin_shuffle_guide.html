@@ -39,23 +39,23 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Shaolin Shuffle Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
-        <button class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
+        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -64,27 +64,17 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a></li><ul><li><a href="#fast_travel_gates">Fast Travel Doors/Torii Gates</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#katana">'Kirisute Gomen' Katana</a></li><li><a href="#mahjong_scorestreaks">Mahjong Tiles (Craftable Scorestreaks/Equipment)</a></li><li><a href="#nunchucks">Nunchakus/Character Bios</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Pest Control' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Eye</a></li><li><a href="#main_ee_step2">The Brain</a></li><li><a href="#main_ee_step3">The Heart</a></li><li><a href="#main_ee_step4">Rat King Boss Fight</a></li></ul><li><a href="#song_ee">'Cats on the Boulevard' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skullbuster">Skullbuster</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Clean the Machine</a></li><li><a href="#side_ee_step2">Skull 2/6 - Mahjong</a></li><li><a href="#side_ee_step3">Skull 3/6 - Draw Numbers on Glass</a></li><li><a href="#side_ee_step4">Skull 4/6 - Jumping Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Jump in front of the Train</a></li><li><a href="#side_ee_step6">Skull 6/6 - Dial a Phone Number</a></li><li><a href="#side_ee_step7">The Skullbuster Mini-Game</a></li></ul><li><a href="#trolltastic">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</a></li><li><a href="#phone_codes">Phone Secret Numbers</a></li><li><a href="#grier_code">Play as Pam Grier</a></li></ul></div>
     </div>
 </div>
 
 <div class="smooth-scroll content-window">
     <div class="content-container-top">
-        <label for="fontSelector">Select a Font:</label>
-        <select id="fontSelector">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana (Higher Readability)</option>
-            <option value="OpenDyslexic">OpenDyslexic</option>
-        </select>
+
     <h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a></li><ul><li><a href="#fast_travel_gates">Fast Travel Doors/Torii Gates</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#katana">'Kirisute Gomen' Katana</a></li><li><a href="#mahjong_scorestreaks">Mahjong Tiles (Craftable Scorestreaks/Equipment)</a></li><li><a href="#nunchucks">Nunchakus/Character Bios</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Pest Control' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Eye</a></li><li><a href="#main_ee_step2">The Brain</a></li><li><a href="#main_ee_step3">The Heart</a></li><li><a href="#main_ee_step4">Rat King Boss Fight</a></li></ul><li><a href="#song_ee">'Cats on the Boulevard' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skullbuster">Skullbuster</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Clean the Machine</a></li><li><a href="#side_ee_step2">Skull 2/6 - Mahjong</a></li><li><a href="#side_ee_step3">Skull 3/6 - Draw Numbers on Glass</a></li><li><a href="#side_ee_step4">Skull 4/6 - Jumping Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Jump in front of the Train</a></li><li><a href="#side_ee_step6">Skull 6/6 - Dial a Phone Number</a></li><li><a href="#side_ee_step7">The Skullbuster Mini-Game</a></li></ul><li><a href="#trolltastic">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</a></li><li><a href="#phone_codes">Phone Secret Numbers</a></li><li><a href="#grier_code">Play as Pam Grier</a></li></ul></div>
 
     <!-- Power -->
@@ -495,7 +485,7 @@
                     <li>If you run out of ammo, there is no way to get more, and you will have to quit the game, unless you have some other means of hitting the symbols.</li>
                 </ul>
                 <li>Heart: Acid will be dumped around the perimeter of the arena. Killing a Zombie in a puddle of acid will remove the acid for a short time. The goal is to clear the entire perimeter of acid before more is dumped into the arena. The acid can damage you if you stand in it for too long.</li>
-                <li>Brain: The Brain will spawn on the ground in the middle of the room, and Zombies with blue eyes (they’re friendly and won't attack you) will spawn and start attacking the Brain. You must wait until they destroy the Brain, as well as defend them from the Rat King (you can kill these Zombies, so be careful). Destroying the Rat King's staff with a Shuriken can make this step faster, as he will be unable to kill the blue-eyed Zombies quickly. If a blue-eyed Zombie dies, another one will spawn.</li>
+                <li>Brain: The Brain will spawn on the ground in the middle of the room, and Zombies with blue eyes (they're friendly and won't attack you) will spawn and start attacking the Brain. You must wait until they destroy the Brain, as well as defend them from the Rat King (you can kill these Zombies, so be careful). Destroying the Rat King's staff with a Shuriken can make this step faster, as he will be unable to kill the blue-eyed Zombies quickly. If a blue-eyed Zombie dies, another one will spawn.</li>
             </ul>
             <li>After completing the third challenge, you will be able to kill the Rat King by dealing enough damage. Once he is defeated, the ending cutscene will play, and the <a href="pictures/main_ee/soul_key.webp">Soul Key</a> will spawn in the middle of the room. If you're in Director's Cut, the <a href="pictures/main_ee/talisman.webp">Talisman</a> will spawn where the Soul Key was, and you will be given the <a href="pictures/main_ee/shaolin_dc.gif">Director's Cut III</a> animated calling card.</li>
         </ol>
@@ -615,13 +605,13 @@
             <p class="step-group-title" id="side_ee_step4">Skull 4/6 - Jumping Puzzle</p>
             <li>At the start of a round, go to the RPR Evo wallbuy near Deadeye Dewdrops; there will be a <a href="pictures/skullbuster/skull_4/white_circle.webp">white circle floating</a> in front of where the Torii Gate was. To complete this step, you must jump from circle to circle until you get to the skull. The circles will slowly start to disappear as you go, so make sure to not take too long.</li>
             <ul>
-                <li>Tip: <strong>DO NOT SPRINT</strong>. All the jumps (except maybe the first one) can/should be made without sprinting. Sprinting may make you overshoot the circle you’re trying to land on.</li>
+                <li>Tip: <strong>DO NOT SPRINT</strong>. All the jumps (except maybe the first one) can/should be made without sprinting. Sprinting may make you overshoot the circle you're trying to land on.</li>
                 <li>If you fall/fail, you will need to wait for the start of the next round to retry.</li>
             </ul>
             <li>Once you reach the end, you must jump into the Skull to collect it.</li>
 
             <p class="step-group-title" id="side_ee_step5">Skull 5/6 - Jump in front of the Train</p>
-            <li>There will be a <a href="pictures/skullbuster/skull_5/skull_on_train.webp">skull on the front of the train</a> that runs through the Bang Bangs subway station. You have to jump in front of the train as it's going by (just standing on the tracks won't work). This will down you; if you’re solo and don’t have Up &amp; Atoms, your game will end.</li>
+            <li>There will be a <a href="pictures/skullbuster/skull_5/skull_on_train.webp">skull on the front of the train</a> that runs through the Bang Bangs subway station. You have to jump in front of the train as it's going by (just standing on the tracks won't work). This will down you; if you're solo and don't have Up &amp; Atoms, your game will end.</li>
             <li>If the skull is collected, the completion sound will play</li>
 
             <p class="step-group-title" id="side_ee_step6">Skull 6/6 - Dial a Phone Number</p>
@@ -804,7 +794,6 @@
 <script src="/js/navigation/nav-utils.js"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/font-manager.js"></script>
 <script src="/js/ui/tutorial-system.js"></script>
 <script src="/js/ui/lightbox.js"></script>
 
