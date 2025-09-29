@@ -3,47 +3,60 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
-const QuickLinksUtils = require('../js/quick-links-utils.js');
 
-// Simple CLI argument parsing
-const args = process.argv.slice(2);
-let indexFile = "index.html"; // default
+/**
+ * Generates page titles from filenames at build time
+ * Converts: my_page_name.html -> "My Page Name"
+ */
 
-for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--index" && args[i + 1]) {
-        indexFile = args[i + 1];
-    }
-}
-
-class NavBuilder {
+class TitleGenerator {
     constructor(options = {}) {
         this.options = {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
-            indexFile: options.indexFile || '../index.html',
+            indexFile: options.indexFile || './index.html',
             ...options
         };
         this.processedFiles = 0;
+        this.modifiedFiles = 0;
         this.errors = [];
     }
 
     log(message, level = 'info') {
         if (level === 'error') {
-            console.error(`${message}`);
+            console.error(`ERROR: ${message}`);
             this.errors.push(message);
         } else if (level === 'warn') {
-            console.warn(`${message}`);
+            console.warn(`WARNING: ${message}`);
         } else if (level === 'success') {
-            console.log(`${message}`);
+            console.log(`SUCCESS: ${message}`);
         } else if (this.options.verbose) {
-            console.log(`${message}`);
+            console.log(`  ${message}`);
         }
+    }
+
+    generateTitle(filename) {
+        const nameWithoutExt = filename.replace(/\.html$/, '');
+        const withSpaces = nameWithoutExt.replace(/_/g, ' ');
+        const lowercaseWords = ["of", "the", "a", "an", "and", "but", "or", "for", "nor", "in", "on", "at", "to", "with", "by"];
+
+        const words = withSpaces.split(' ');
+        return words.map((word, index) => {
+            if (index === 0 || index === words.length - 1) {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }
+            if (lowercaseWords.includes(word.toLowerCase())) {
+                return word.toLowerCase();
+            }
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
     }
 
     processFile(filePath) {
         try {
             this.log(`Processing ${path.basename(filePath)}...`);
-            
+            this.processedFiles++;
+
             if (!fs.existsSync(filePath)) {
                 this.log(`File does not exist: ${filePath}`, 'error');
                 return false;
@@ -53,38 +66,39 @@ class NavBuilder {
             const dom = new JSDOM(content);
             const document = dom.window.document;
 
-            // Find the hamburger menu container
-            const parentElement = document.getElementById("hamburgerMenuLinks");
+            const titleElement = document.querySelector('.title-text');
+            const filename = path.basename(filePath);
+            let modified = false;
 
-            if (!parentElement) {
-                this.log('Hamburger menu container not found, skipping', 'warn');
-                return false;
+            // Update document title if it says "change me"
+            if (document.title.toLowerCase() === 'change me') {
+                const newTitle = this.generateTitle(filename);
+                document.title = newTitle;
+                this.log(`Document title: "change me" -> "${newTitle}"`);
+                modified = true;
             }
 
-            // Clear existing content
-            parentElement.innerHTML = '';
+            // Update title element if it says "change me"
+            if (titleElement && titleElement.textContent.toLowerCase() === 'change me') {
+                titleElement.textContent = document.title;
+                this.log(`Title element: "change me" -> "${document.title}"`);
+                modified = true;
+            }
 
-            // Generate navigation
-            const elementsData = QuickLinksUtils.getQuickLinkElements(document);
-            const navHTML = QuickLinksUtils.generateNavHTML(elementsData);
-
-            if (navHTML) {
-                parentElement.innerHTML += navHTML;
-                this.log(`Generated navigation with ${elementsData.length} items`);
+            if (modified) {
+                if (!this.options.dryRun) {
+                    fs.writeFileSync(filePath, dom.serialize());
+                    this.log(`Updated ${path.basename(filePath)}`, 'success');
+                } else {
+                    this.log(`Would update ${path.basename(filePath)} (dry run)`);
+                }
+                this.modifiedFiles++;
             } else {
-                this.log('No navigation elements found', 'warn');
+                this.log(`No changes needed`);
             }
 
-            // Write back to file (unless dry run)
-            if (!this.options.dryRun) {
-                fs.writeFileSync(filePath, dom.serialize());
-                this.log(`Updated ${path.basename(filePath)}`, 'success');
-            } else {
-                this.log(`Would update ${path.basename(filePath)} (dry run)`);
-            }
-            
-            return true;
-            
+            return modified;
+
         } catch (error) {
             this.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
@@ -92,7 +106,7 @@ class NavBuilder {
     }
 
     getLinkedHtmlFiles() {
-        const indexPath = path.resolve(indexFile);
+        const indexPath = path.resolve(this.options.indexFile);
 
         if (!fs.existsSync(indexPath)) {
             this.log(`Index file not found: ${indexPath}`, 'error');
@@ -106,28 +120,19 @@ class NavBuilder {
             const dom = new JSDOM(content);
             const document = dom.window.document;
 
-            // Find all <a> tags with href attributes
             const links = document.querySelectorAll('a[href]');
             const htmlFiles = [];
 
             for (const link of links) {
                 const href = link.getAttribute('href');
 
-                // Check if it's an HTML file (ends with .html)
                 if (href && href.endsWith('.html')) {
-                    // Skip files with "solver" in the name
-                    if (href.includes('solver')) {
-                        this.log(`Skipping ${href} (contains "solver")`);
+                    // Skip solver and temp files
+                    if (href.includes('solver') || href.includes('temp')) {
+                        this.log(`Skipping ${href} (solver/temp file)`);
                         continue;
                     }
 
-                    // Skip files with "temp" in the name
-                    if (href.includes('temp')) {
-                        this.log(`Skipping ${href} (contains "temp")`);
-                        continue;
-                    }
-
-                    // Resolve the path and check if file exists
                     const filePath = path.resolve(path.dirname(indexPath), href);
                     if (fs.existsSync(filePath)) {
                         htmlFiles.push(filePath);
@@ -139,7 +144,7 @@ class NavBuilder {
             }
 
             return htmlFiles;
-            
+
         } catch (error) {
             this.log(`Error reading index file: ${error.message}`, 'error');
             return [];
@@ -147,10 +152,9 @@ class NavBuilder {
     }
 
     run() {
-        console.log('Building navigation for HTML files...\n');
+        console.log('Generating titles for HTML files...\n');
 
         try {
-            // Get HTML files linked from index.html
             const files = this.getLinkedHtmlFiles();
 
             if (files.length === 0) {
@@ -158,17 +162,14 @@ class NavBuilder {
                 return this.generateReport();
             }
 
-            this.log(`Found ${files.length} linked HTML files to process`);
+            this.log(`Found ${files.length} linked HTML files to process\n`);
 
-            // Process each file
             for (const file of files) {
-                if (this.processFile(file)) {
-                    this.processedFiles++;
-                }
+                this.processFile(file);
             }
 
             return this.generateReport();
-            
+
         } catch (error) {
             this.log(`Critical error during build: ${error.message}`, 'error');
             return this.generateReport();
@@ -176,35 +177,35 @@ class NavBuilder {
     }
 
     generateReport() {
-        console.log('\nBuild Report:');
+        console.log('\nTitle Generation Report:');
         console.log(`   Files processed: ${this.processedFiles}`);
+        console.log(`   Files modified: ${this.modifiedFiles}`);
         console.log(`   Errors: ${this.errors.length}`);
-        
+
         if (this.errors.length > 0) {
             console.log('\nErrors:');
             this.errors.forEach((error, index) => {
                 console.log(`   ${index + 1}. ${error}`);
             });
         }
-        
+
         if (this.options.dryRun) {
             console.log('\nThis was a dry run - no files were actually modified');
         }
 
         const success = this.errors.length === 0;
-        console.log(`\n${success ? 'Build completed successfully!' : 'Build completed with errors'}`);
-        
+        console.log(`\n${success ? 'Title generation completed successfully!' : 'Title generation completed with errors'}`);
+
         return success;
     }
 }
 
-// Command line interface
 function parseArguments() {
     const args = process.argv.slice(2);
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: '../index.html'
+        indexFile: './index.html'
     };
 
     for (let i = 0; i < args.length; i++) {
@@ -226,20 +227,25 @@ function parseArguments() {
             case '--help':
             case '-h':
                 console.log(`
-Navigation Builder for Zombies Guides
+Title Generator for Zombies Guides
 
-Usage: node nav-builder-improved.js [options]
+Usage: node generate-titles.js [options]
 
 Options:
   -v, --verbose     Enable verbose logging
   -d, --dry-run     Show what would be done without making changes
-  -i, --index FILE  Path to index.html file (default: ../index.html)
+  -i, --index FILE  Path to index.html file (default: ./index.html)
   -h, --help        Show this help message
 
+This script:
+  - Finds all HTML files linked from index.html
+  - Generates proper titles from filenames (my_page.html -> "My Page")
+  - Updates <title> and .title-text elements that say "change me"
+
 Examples:
-  node nav-builder-improved.js
-  node nav-builder-improved.js --verbose --dry-run
-  node nav-builder-improved.js --index ./index.html
+  node generate-titles.js
+  node generate-titles.js --verbose --dry-run
+  node generate-titles.js --index ./index.html
                 `);
                 process.exit(0);
                 break;
@@ -249,17 +255,17 @@ Examples:
     return options;
 }
 
-// Check if jsdom is available
+// Check dependencies
 try {
     require('jsdom');
 } catch (error) {
-    console.error('jsdom is not installed. Please run: npm install jsdom');
+    console.error('ERROR: jsdom is not installed. Please run: npm install jsdom');
     process.exit(1);
 }
 
-// Run the builder
+// Run
 const options = parseArguments();
-const builder = new NavBuilder(options);
-const success = builder.run();
+const generator = new TitleGenerator(options);
+const success = generator.run();
 
 process.exit(success ? 0 : 1);

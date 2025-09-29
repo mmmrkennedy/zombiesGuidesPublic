@@ -5,114 +5,248 @@ const path = require('path');
 const { JSDOM } = require('jsdom');
 const QuickLinksUtils = require('../js/quick-links-utils.js');
 
+// Simple CLI argument parsing
+const args = process.argv.slice(2);
+let indexFile = "index.html"; // default
+
+for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--index" && args[i + 1]) {
+        indexFile = args[i + 1];
+    }
+}
+
 class NavBuilder {
-    // All utility functions moved to quick-links-utils.js
+    constructor(options = {}) {
+        this.options = {
+            verbose: options.verbose || false,
+            dryRun: options.dryRun || false,
+            indexFile: options.indexFile || '../index.html',
+            ...options
+        };
+        this.processedFiles = 0;
+        this.errors = [];
+    }
+
+    log(message, level = 'info') {
+        if (level === 'error') {
+            console.error(`${message}`);
+            this.errors.push(message);
+        } else if (level === 'warn') {
+            console.warn(`${message}`);
+        } else if (level === 'success') {
+            console.log(`${message}`);
+        } else if (this.options.verbose) {
+            console.log(`${message}`);
+        }
+    }
 
     processFile(filePath) {
-        console.log(`Processing ${path.basename(filePath)}...`);
+        try {
+            this.log(`Processing ${path.basename(filePath)}...`);
+            
+            if (!fs.existsSync(filePath)) {
+                this.log(`File does not exist: ${filePath}`, 'error');
+                return false;
+            }
 
-        const content = fs.readFileSync(filePath, 'utf8');
-        const dom = new JSDOM(content);
-        const document = dom.window.document;
+            const content = fs.readFileSync(filePath, 'utf8');
+            const dom = new JSDOM(content);
+            const document = dom.window.document;
 
-        // Find the hamburger menu container
-        let parentElement = document.getElementById("hamburgerMenuLinks");
+            // Find the hamburger menu container
+            const parentElement = document.getElementById("hamburgerMenuLinks");
 
-        if (!parentElement) {
-            console.log('  Hamburger menu container not found, skipping');
+            if (!parentElement) {
+                this.log('Hamburger menu container not found, skipping', 'warn');
+                return false;
+            }
+
+            // Clear existing content
+            parentElement.innerHTML = '';
+
+            // Generate navigation
+            const elementsData = QuickLinksUtils.getQuickLinkElements(document);
+            const navHTML = QuickLinksUtils.generateNavHTML(elementsData);
+
+            if (navHTML) {
+                parentElement.innerHTML += navHTML;
+                this.log(`Generated navigation with ${elementsData.length} items`);
+            } else {
+                this.log('No navigation elements found', 'warn');
+            }
+
+            // Write back to file (unless dry run)
+            if (!this.options.dryRun) {
+                fs.writeFileSync(filePath, dom.serialize());
+                this.log(`Updated ${path.basename(filePath)}`, 'success');
+            } else {
+                this.log(`Would update ${path.basename(filePath)} (dry run)`);
+            }
+            
+            return true;
+            
+        } catch (error) {
+            this.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
         }
-
-        // Clear existing content
-        parentElement.innerHTML = '';
-
-        // Generate navigation
-        const elementsData = QuickLinksUtils.getQuickLinkElements(document);
-        const isHamburgerMenu = parentElement.id === "hamburgerMenuLinks";
-        const navHTML = QuickLinksUtils.generateNavHTML(elementsData, isHamburgerMenu);
-
-        if (navHTML) {
-            parentElement.innerHTML += navHTML;
-            console.log(`  Generated navigation with ${elementsData.length} items`);
-        } else {
-            console.log('  No navigation elements found');
-        }
-
-        // Write back to file
-        fs.writeFileSync(filePath, dom.serialize());
-        console.log(`  Updated ${path.basename(filePath)}`);
-        return true;
     }
 
     getLinkedHtmlFiles() {
-        const indexPath = path.resolve('../index.html');
+        const indexPath = path.resolve(indexFile);
 
         if (!fs.existsSync(indexPath)) {
-            console.log('index.html not found in current directory');
+            this.log(`Index file not found: ${indexPath}`, 'error');
             return [];
         }
 
-        console.log('Reading index.html to find linked HTML files...');
+        this.log(`Reading ${path.basename(indexPath)} to find linked HTML files...`);
 
-        const content = fs.readFileSync(indexPath, 'utf8');
-        const dom = new JSDOM(content);
-        const document = dom.window.document;
+        try {
+            const content = fs.readFileSync(indexPath, 'utf8');
+            const dom = new JSDOM(content);
+            const document = dom.window.document;
 
-        // Find all <a> tags with href attributes
-        const links = document.querySelectorAll('a[href]');
-        const htmlFiles = [];
+            // Find all <a> tags with href attributes
+            const links = document.querySelectorAll('a[href]');
+            const htmlFiles = [];
 
-        for (const link of links) {
-            const href = link.getAttribute('href');
+            for (const link of links) {
+                const href = link.getAttribute('href');
 
-            // Check if it's an HTML file (ends with .html)
-            if (href && href.endsWith('.html')) {
-                // Skip files with "solver" in the name
-                if (href.includes('solver')) {
-                    console.log(`  Skipping ${href} (contains "solver")`);
-                    continue;
-                }
+                // Check if it's an HTML file (ends with .html)
+                if (href && href.endsWith('.html')) {
+                    // Skip files with "solver" in the name
+                    if (href.includes('solver')) {
+                        this.log(`Skipping ${href} (contains "solver")`);
+                        continue;
+                    }
 
-                // Resolve the path and check if file exists
-                const filePath = path.resolve('..', href);
-                if (fs.existsSync(filePath)) {
-                    htmlFiles.push(filePath);
-                    console.log(`  Found: ${href}`);
-                } else {
-                    console.log(`  Warning: ${href} linked but file not found`);
+                    // Skip files with "temp" in the name
+                    if (href.includes('temp')) {
+                        this.log(`Skipping ${href} (contains "temp")`);
+                        continue;
+                    }
+
+                    // Resolve the path and check if file exists
+                    const filePath = path.resolve(path.dirname(indexPath), href);
+                    if (fs.existsSync(filePath)) {
+                        htmlFiles.push(filePath);
+                        this.log(`Found: ${href}`);
+                    } else {
+                        this.log(`Warning: ${href} linked but file not found`, 'warn');
+                    }
                 }
             }
-        }
 
-        return htmlFiles;
+            return htmlFiles;
+            
+        } catch (error) {
+            this.log(`Error reading index file: ${error.message}`, 'error');
+            return [];
+        }
     }
 
     run() {
         console.log('Building navigation for HTML files...\n');
 
-        // Get HTML files linked from index.html
-        const files = this.getLinkedHtmlFiles();
+        try {
+            // Get HTML files linked from index.html
+            const files = this.getLinkedHtmlFiles();
 
-        if (files.length === 0) {
-            console.log('No HTML files found linked from index.html');
-            return;
-        }
-
-        console.log(`\nFound ${files.length} linked HTML files to process`);
-
-        let processed = 0;
-        for (const file of files) {
-            try {
-                if (this.processFile(file)) {
-                    processed++;
-                }
-            } catch (error) {
-                console.error(`Error processing ${path.basename(file)}:`, error.message);
+            if (files.length === 0) {
+                this.log('No HTML files found linked from index.html', 'warn');
+                return this.generateReport();
             }
+
+            this.log(`Found ${files.length} linked HTML files to process`);
+
+            // Process each file
+            for (const file of files) {
+                if (this.processFile(file)) {
+                    this.processedFiles++;
+                }
+            }
+
+            return this.generateReport();
+            
+        } catch (error) {
+            this.log(`Critical error during build: ${error.message}`, 'error');
+            return this.generateReport();
+        }
+    }
+
+    generateReport() {
+        console.log('\nBuild Report:');
+        console.log(`   Files processed: ${this.processedFiles}`);
+        console.log(`   Errors: ${this.errors.length}`);
+        
+        if (this.errors.length > 0) {
+            console.log('\nErrors:');
+            this.errors.forEach((error, index) => {
+                console.log(`   ${index + 1}. ${error}`);
+            });
+        }
+        
+        if (this.options.dryRun) {
+            console.log('\nThis was a dry run - no files were actually modified');
         }
 
-        console.log(`\nCompleted! Processed ${processed} files.`);
+        const success = this.errors.length === 0;
+        console.log(`\n${success ? 'Build completed successfully!' : 'Build completed with errors'}`);
+        
+        return success;
     }
+}
+
+// Command line interface
+function parseArguments() {
+    const args = process.argv.slice(2);
+    const options = {
+        verbose: false,
+        dryRun: false,
+        indexFile: '../index.html'
+    };
+
+    for (let i = 0; i < args.length; i++) {
+        switch (args[i]) {
+            case '--verbose':
+            case '-v':
+                options.verbose = true;
+                break;
+            case '--dry-run':
+            case '-d':
+                options.dryRun = true;
+                break;
+            case '--index':
+            case '-i':
+                if (i + 1 < args.length) {
+                    options.indexFile = args[++i];
+                }
+                break;
+            case '--help':
+            case '-h':
+                console.log(`
+Navigation Builder for Zombies Guides
+
+Usage: node nav-builder-improved.js [options]
+
+Options:
+  -v, --verbose     Enable verbose logging
+  -d, --dry-run     Show what would be done without making changes
+  -i, --index FILE  Path to index.html file (default: ../index.html)
+  -h, --help        Show this help message
+
+Examples:
+  node nav-builder-improved.js
+  node nav-builder-improved.js --verbose --dry-run
+  node nav-builder-improved.js --index ./index.html
+                `);
+                process.exit(0);
+                break;
+        }
+    }
+
+    return options;
 }
 
 // Check if jsdom is available
@@ -124,5 +258,8 @@ try {
 }
 
 // Run the builder
-const builder = new NavBuilder();
-builder.run();
+const options = parseArguments();
+const builder = new NavBuilder(options);
+const success = builder.run();
+
+process.exit(success ? 0 : 1);

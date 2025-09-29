@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Die Maschine Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -33,6 +33,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Die Maschine Guide</h2>
@@ -77,7 +82,7 @@
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="die_shockwave">
         <h2 class="section-title">D.I.E. Shockwave</h2>
-        <p class="weapon-desc">The D.I.E. Shockwave is a weapon that fires an energy blast, capable of killing multiple Zombies with one shot. It can be Pack-a-Punched, and there are four variants, the <a href="#nova_5">Nova-5</a>, <a href="#cryo_emitter">Cryo Emitter</a>, <a href="#elecrobolt">Electrobolt</a> or <a href="#thermophasic">Thermophasic</a>. The D.I.E. Shockwave is available from the mystery box, through the completion of trials, and via the following quest: </p>
+        <p class="weapon-desc">The D.I.E. Shockwave is a weapon that fires an energy blast, capable of killing multiple Zombies with one shot. It can be Pack-a-Punched, and there are four variants, the <a href="#nova_5" class="link-to-page">Nova-5</a>, <a href="#cryo_emitter" class="link-to-page">Cryo Emitter</a>, <a href="#elecrobolt" class="link-to-page">Electrobolt</a> or <a href="#thermophasic" class="link-to-page">Thermophasic</a>. The D.I.E. Shockwave is available from the mystery box, through the completion of trials, and via the following quest: </p>
         <ol>
             <li>Kill a Megaton and pick up the <a href="pictures/die/shockwave/keycard.webp">Keycard</a>.</li>
             <li>In the 'Weapons Lab,' interact with the <a href="pictures/die/shockwave/weapon_locker.webp">Weapon Locker</a> and pick up the D.I.E. Remote Control.</li>
@@ -106,7 +111,7 @@
 
         <p class="upgrade-title" id="elecrobolt">Elecrobolt</p>
         <ol>
-            <li>Complete Steps 1–6 of the <a href="#main_ee">Main Quest</a>.</li>
+            <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
             <li>Enter the <a href="pictures/die/electrobolt/elec_portal.webp">Anomaly</a> on the lowest level of the Particle Accelerator.</li>
             <li>Locate three Glowing Crystals and use the Alt Fire mode on the D.I.E. to collect the energy. Only one crystal's energy can be held at a time. Crystal Locations:
                 <ul>
@@ -125,7 +130,7 @@
 
         <p class="upgrade-title" id="thermophasic">Thermophasic</p>
         <ol>
-            <li>Complete Steps 1–6 of the <a href="#main_ee">Main Quest</a>.</li>
+            <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
             <li>Enter the <a href="pictures/die/thermophasic/pond_anomaly.webp">Anomaly</a> in the 'Pond.'</li>
             <li>Go to the <a href="pictures/die/thermophasic/fuse_crashsite.webp">Crash Site</a> and shoot/melee open the <a href="pictures/die/thermophasic/fuse.webp">Fuse Box</a> beside the Fast Travel Portal to pick up the Fuse.</li>
             <li>In the 'Weapons Lab,' interact with <a href="pictures/die/thermophasic/plasmacutter.webp">the Plasma Cutter</a> to insert the fuse. Doing so will remove you from the Dark Aether.</li>
@@ -167,7 +172,7 @@
             <li class="dummy-li">
                 <p class="step-group-title" id="main_ee_step3">Creating Orlov</p>
             </li>
-            <li>Obtain all four <a href="#die_shockwave">D.I.E. Variants</a></li>
+            <li>Obtain all four <a href="#die_shockwave" class="link-to-page">D.I.E. Variants</a></li>
             <li>Once you have obtained all four variants, you must shoot coloured ports with the corresponding D.I.E. variant. Ports:
                 <ul>
                     <li>Nova-5 - <a href="pictures/main_ee/creating_orlov/port_green.webp">Green Port</a></li>
@@ -212,7 +217,7 @@
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
         <h2 class="section-title">'Alone' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713417662">here</a>.</p>
+        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713417662" class="external-link">here</a>.</p>
         <ol>
             <li>There are three tapes required to start the song. Tape Locations:
                 <ul>
@@ -316,36 +321,33 @@
     </div>
 </div>
 
-
-
-
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
 
 </body></html>

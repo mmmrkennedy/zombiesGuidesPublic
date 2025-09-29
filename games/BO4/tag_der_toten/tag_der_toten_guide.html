@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Tag der Toten Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -34,6 +34,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Tag der Toten Guide</h2>
@@ -82,14 +87,14 @@
         <ul>
             <li><a href="pictures/power/power_docks.webp">Docks</a></li>
             <li><a href="pictures/power/power_boat.webp">Bridge</a></li>
-            <li><a href="pictures/power/power_human_infusion.webp">Human Infusion</a> (<a href="#zipline_handle">Zipline Handle</a> required) </li>
+            <li><a href="pictures/power/power_human_infusion.webp">Human Infusion</a> (<a href="#zipline_handle" class="link-to-page">Zipline Handle</a> required) </li>
         </ul>
     </div>
 
     <div class="content-container" id="pap">
         <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
-            <li>Activate <a href="#power">Power</a> at the Docks and Bridge.</li>
+            <li>Activate <a href="#power" class="link-to-page">Power</a> at the Docks and Bridge.</li>
             <li>In the 'Lighthouse Approach' cave, shoot/melee the Blue Rock (<a href="pictures/pap/blue_rock_loc1.webp">Location 1</a>, <a href="pictures/pap/blue_rock_loc2.webp">Location 2</a> or <a href="pictures/pap/blue_rock_loc3.webp">Location 3</a>) to make it fall to the ground for you to pick up.</li>
             <li>Navigate to 'Lighthouse Level 4' and place the rock on the <a href="pictures/pap/hermit_pulley.webp">Pulley</a> that the Hermit lowers down.</li>
             <li>Occasionally, the lighthouse will shine its light on a location on the map. This will cause the Pack-a-Punch machine to appear there for a limited amount of time (~5 Mins).</li>
@@ -98,8 +103,8 @@
         <p class="upgrade-title" id="golden_pap">Golden Pack-a-Punch</p>
         <p class="weapon-desc">Golden Pack-a-Punch will immediately upgrade a weapon to its highest level, instead of requiring four uses to upgrade damage like with normal PAP.</p>
         <ol>
-            <li>Activate <a href="#pap">Pack-a-Punch</a> and obtain the <a href="#zipline_handle">Zipline Handle</a>.</li>
-            <li>Activate <a href="#power">Power Switch</a> in 'Human Infusion.'</li>
+            <li>Activate <a href="#pap" class="link-to-page">Pack-a-Punch</a> and obtain the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a>.</li>
+            <li>Activate <a href="#power" class="link-to-page">Power Switch</a> in 'Human Infusion.'</li>
             <li>Occasionally, the lighthouse will not shine at one of the normal locations, but instead shine at an iceberg off the side of the ship. This is also indicated by a sound cue, different from the sound when the PAP is at a new location.</li>
             <li>All players must stand on the <a href="pictures/pap/golden_pap/flinger_sun_deck.webp">Flinger</a> on the 'Sun Deck' of the ship to be flung to the iceberg. While on the iceberg, the Golden Pack-a-Punch will be able to be used for 5000 points (or 2500/1500 Points on an already PAPed weapon) and Zombies will start spawning infinitely. After about two minutes, all players will be flung back to the ship.</li>
         </ol>
@@ -109,10 +114,10 @@
         <h2 class="section-title">Flinger Repairs</h2>
         <ul>
             <li>Around the map, there are two flingers which need to have their gearboxes repaired by the Hermit.</li>
-            <li>Pick up a gearbox (if you can't, make sure you have the <a href="#power">Power</a> on for that location) and give it to the Hermit; he will repair it and return it. Return the gearbox to the Flinger to activate it.</li>
+            <li>Pick up a gearbox (if you can't, make sure you have the <a href="#power" class="link-to-page">Power</a> on for that location) and give it to the Hermit; he will repair it and return it. Return the gearbox to the Flinger to activate it.</li>
             <ul>
                 <li><a href="pictures/flinger_repairs/gearbox_boat.webp">Navigation</a></li>
-                <li><a href="pictures/flinger_repairs/gearbox_facility.webp">Facility</a> (You will need the <a href="#zipline_handle">Zipline Handle</a> to get to the Facility, and a <a href="#dynamite_bomb">Dynamite Bomb</a> to clear the debris) </li>
+                <li><a href="pictures/flinger_repairs/gearbox_facility.webp">Facility</a> (You will need the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a> to get to the Facility, and a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a> to clear the debris) </li>
             </ul>
         </ul>
     </div>
@@ -161,7 +166,7 @@
                     <ul>
                         <li><a href="pictures/challenge_totems/beach/totem_beach.webp">Beach - On the side of the boat behind the Beach Challenge Totem</a></li>
                         <li><a href="pictures/challenge_totems/beach/sos_lighthouse.webp">Lighthouse Station - On the side of the Lighthouse, just below the Level 4 catwalk</a></li>
-                        <li>Sunken Path (To access, either shoot <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or place a <a href="#dynamite_bomb">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon') - <a href="pictures/challenge_totems/beach/sos_sunken_path.webp">On the side of the Boat</a></li>
+                        <li>Sunken Path (To access, either shoot <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or place a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon') - <a href="pictures/challenge_totems/beach/sos_sunken_path.webp">On the side of the Boat</a></li>
                     </ul>
                 </ul>
             </ol>
@@ -197,9 +202,9 @@
                 </ul>
             </ol>
 
-            <li><strong><a href="pictures/challenge_totems/facility/totem_facility.webp">Facility</a> (<a href="#zipline_handle">Zipline Handle</a> Required)</strong></li>
+            <li><strong><a href="pictures/challenge_totems/facility/totem_facility.webp">Facility</a> (<a href="#zipline_handle" class="link-to-page">Zipline Handle</a> Required)</strong></li>
             <ol>
-                <li>Fling Zombies. See <a href="#flinger_repairs">Flinger Repairs</a> for how to repair the flingers --- Reward: Insta-kill Power-up</li>
+                <li>Fling Zombies. See <a href="#flinger_repairs" class="link-to-page">Flinger Repairs</a> for how to repair the flingers --- Reward: Insta-kill Power-up</li>
                 <li>Kill zombies while riding a zipline --- Reward: Team Full Power Power-up</li>
                 <li>Complete the Wack-a-mole station using only snowballs --- Reward: Traps are half-price</li>
                 <ul>
@@ -218,7 +223,7 @@
         <h2 class="section-title">Thundergun</h2>
         <p class="weapon-desc">The Thundergun is a wonder weapon that fires blasts of incredibly strong compressed air, with the ability to kill an entire horde in one shot. The Thundergun can be Pack-a-Punched and does not require an Easter Egg to do so. The Thundergun can be obtained via the Mystery Box or the following quest:</p>
         <ol>
-            <li>Complete all five <a href="#challenge_totems">Hermit Challenge Totems</a>.</li>
+            <li>Complete all five <a href="#challenge_totems" class="link-to-page">Hermit Challenge Totems</a>.</li>
             <li>Navigate to 'Lighthouse Level 4' and collect the Key from the Hermit's pulley.</li>
             <li>Interact with the <a href="pictures/thundergun/reward_crate.webp">Reward Crate</a> left of the Hermit's Pulley on 'Lighthouse Level 4' to open it, revealing a free Thundergun.</li>
         </ol>
@@ -226,9 +231,9 @@
 
     <div class="content-container" id="tundragun">
         <h2 class="section-title">Tundragun</h2>
-        <p class="weapon-desc">The Tundragun is a modified <a href="#thundergun">Thundergun</a> that fires snowballs. The Tundragun does heavy splash damage to the player making PhD Slider highly recommended. The Tundragun can be upgraded via the Pack-a-Punch. The Tundragun can be obtained via the Mystery Box or the following quest:</p>
+        <p class="weapon-desc">The Tundragun is a modified <a href="#thundergun" class="link-to-page">Thundergun</a> that fires snowballs. The Tundragun does heavy splash damage to the player making PhD Slider highly recommended. The Tundragun can be upgraded via the Pack-a-Punch. The Tundragun can be obtained via the Mystery Box or the following quest:</p>
         <ol>
-            <li>Obtain the <a href="#zipline_handle">Zipline Handle</a> and <a href="#flinger_repairs">Repair the Flinger</a> on the Boat.</li>
+            <li>Obtain the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a> and <a href="#flinger_repairs" class="link-to-page">Repair the Flinger</a> on the Boat.</li>
             <li>You must hit five targets with snowballs in a specific order within 1 Min and 45 Secs. When you hit a target successfully, it will make a ding sound. If you take too long or hit the wrong target, you retry immediately with the first target. Target Locations and Order: </li>
             <ol>
                 <li><a href="pictures/tundragun/target_loading_platform.webp">Loading Platform - Above doorway to inside Facility</a></li>
@@ -253,7 +258,7 @@
                 </li>
             </ul>
             <li>Navigate to the 'Forecastle' and place the Icicle into the <a href="pictures/challenge_totems/forecastle/soup_pot.webp">Pot above the Campfire</a>. Once the Icicle has melted, collect the <a href="pictures/wunderwaffe/key_in_pot.webp">Key from the Pot</a>.</li>
-            <li>Obtain the <a href="#zipline_handle">Zipline Handle</a>.</li>
+            <li>Obtain the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a>.</li>
             <li>Interact with the <a href="pictures/wunderwaffe/safe.webp">Safe</a> in 'Specimen Storage' to open it, revealing the Vril Device. Kill Zombies near the Safe until the <a href="pictures/wunderwaffe/glowing_vril.webp">Vril Device starts to glow</a>.</li>
             <li>Give the Vril Device to the Hermit, and in return, he'll give you the Reward Crate Key.</li>
             <li>Interact with the <a href="pictures/wunderwaffe/reward_crate.webp">Reward Crate</a> left of the VAPR-XKG wallbuy on 'Lighthouse Level 4' to open it, revealing a free Wunderwaffe DG-Scharfschütze.</li>
@@ -292,7 +297,7 @@
     <div class="content-container" id="samanthas_music_box">
         <h2 class="section-title">Samantha's Music Box</h2>
         <ol>
-            <li>Obtain the <a href="#zipline_handle">Zipline Handle</a> and activate <a href="#power">all three Power Switches</a>.</li>
+            <li>Obtain the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a> and activate <a href="#power" class="link-to-page">all three Power Switches</a>.</li>
             <li>Around the Facility, find two key cards in the following locations:</li>
             <ul>
                 <li><strong>Key Card 1:</strong></li>
@@ -324,7 +329,7 @@
             <ul>
                 <li>Flaming Zombies only spawn when you <strong>DON'T</strong> have a crafted Dynamite Bomb or all three required parts in your inventory.</li>
             </ul>
-            <li>Kill it with either Snowballs (Snowballs are always a one-shot kill headshot) or the <a href="#tundragun">Tundragun</a> to make it drop a Part.</li>
+            <li>Kill it with either Snowballs (Snowballs are always a one-shot kill headshot) or the <a href="#tundragun" class="link-to-page">Tundragun</a> to make it drop a Part.</li>
             <li>Repeat two more times for two more parts.</li>
             <li>Once you have all three parts, the Dynamite Bomb can only be crafted in the <a href="pictures/buildable_tables/gangway.webp">Gangway</a>.</li>
         </ol>
@@ -333,9 +338,9 @@
     <div class="content-container" id="heat_pack">
         <h2 class="section-title">Heat Pack</h2>
         <ol>
-            <li>Obtain the <a href="#zipline_handle">Zipline Handle</a> and a <a href="#dynamite_bomb">Dynamite Bomb</a>, and activate <a href="#power">all three Power Switches</a>.</li>
+            <li>Obtain the <a href="#zipline_handle" class="link-to-page">Zipline Handle</a> and a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a>, and activate <a href="#power" class="link-to-page">all three Power Switches</a>.</li>
             <li>Make sure the 'Frozen Crevasse,' 'Lagoon,' and 'Lighthouse Cove' areas are opened.</li>
-            <li><a href="#flinger_repairs">Repair the Flinger</a> on the 'Outer Walkway' of the Facility.</li>
+            <li><a href="#flinger_repairs" class="link-to-page">Repair the Flinger</a> on the 'Outer Walkway' of the Facility.</li>
             <li>Based on where you stand on the Flinger <a href="pictures/heat_pack/flinger.webp">(left, middle, right)</a>, you will be flung to one of three locations. You will need to be flung to each of these locations as when you land, you will land on a box, breaking it, and revealing a Part. Box locations: </li>
             <ul>
                 <li><a href="pictures/heat_pack/crate_frozen_crevasse.webp">Left (Red) - Frozen Crevasse</a></li>
@@ -373,8 +378,8 @@
         <p class="stats">Stats (Solo): Difficulty - 5/10, Est. Completion Time - 1:30 Hr to 1:45 Hr, RNG Rating - 1/5 (The offerings are random, but you don't have to burn rounds to get them)</p>
         <ol start="0">
             <p class="step-group-title" id="main_ee_step1">Ascend from Darkness</p>
-            <li>Activate <a href="#pap">Pack-a-Punch</a> (Not Required).</li>
-            <li>Complete any two <a href="#challenge_totems">Challenge Totems</a>.</li>
+            <li>Activate <a href="#pap" class="link-to-page">Pack-a-Punch</a> (Not Required).</li>
+            <li>Complete any two <a href="#challenge_totems" class="link-to-page">Challenge Totems</a>.</li>
 
             <p class="step-group-title" id="main_ee_step2">Knowledge is Power</p>
             <li>Return to the Hermit; he will present you with a <a href="pictures/main_ee/knowledge_is_power/set_of_dials.webp">set of Dials</a> for you to pick up.</li>
@@ -442,7 +447,7 @@
                 <li>"Where Aether was gathered": Melee the <a href="pictures/main_ee/acquire_the_vessel/geological_processing_board.webp">Bulletin Board</a> in 'Geological Processing' to reveal a safe.</li>
                 <li>"Where cages hang": Melee the <a href="pictures/main_ee/acquire_the_vessel/boathouse_map.webp">Framed Map</a> in the 'Boathouse' to reveal a safe.</li>
             </ul>
-            <li>Once the safe is revealed, place a <a href="#dynamite_bomb">Dynamite Bomb</a> on it to open it, revealing the <a href="pictures/main_ee/acquire_the_vessel/seal_in_safe.webp">Seal of Duality</a> for you to pick up.</li>
+            <li>Once the safe is revealed, place a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a> on it to open it, revealing the <a href="pictures/main_ee/acquire_the_vessel/seal_in_safe.webp">Seal of Duality</a> for you to pick up.</li>
 
             <p class="step-group-title" id="main_ee_step4">Tame that which is Bonded</p>
             <p class="warning">WARNING: Do not interact with the Apothicon Blood Orb in 'Artifact Storage' unless instructed to. If you do, you will be instantly downed or your health will be dropped down to 50 HP.</p>
@@ -464,7 +469,7 @@
                 </ul>
             </ul>
             <li>Once you've found all three orbs, return to the 'Artifact Storage.' The Orbs will be floating near the ceiling, throw Snowballs at the Orbs to turn blue, then shoot them to make them fly into the Seal. With all three orbs inside, pick up the Seal.</li>
-            <li>Obtain <a href="#samanthas_music_box">Samantha's Music Box</a>. The Music Box is required throughout the Easter Egg, so do not replace it with other equipment.</li>
+            <li>Obtain <a href="#samanthas_music_box" class="link-to-page">Samantha's Music Box</a>. The Music Box is required throughout the Easter Egg, so do not replace it with other equipment.</li>
             <li>Place the Seal on top of the <a href="pictures/main_ee/campfire.webp">Campfire</a> in the 'Sunken Path' area. Throw a Music Box at it to turn the flame blue and activate some story dialogue. This will despawn all Zombies till the dialogue is done. Once the dialogue is done, pick the Seal from the campfire.</li>
 
             <p class="step-group-title" id="main_ee_step5">Knowledge Itself is for the Taking</p>
@@ -473,7 +478,7 @@
             <li>Place the other one on the "freeze marks" under the 'Decontamination' room trap. Activate the trap to freeze the stone. Pick up the stone and bring it to the terminal.</li>
             <li>Once both different temperature stones are placed in the terminal, a <a href="pictures/main_ee/knowledge_itself_is_for_the_taking/fuse.webp">Fuse</a> in the middle of the terminal will become available for pickup.</li>
             <li>Place the fuse in the <a href="pictures/main_ee/knowledge_itself_is_for_the_taking/fuse_box.webp">Fuse Box</a> next to the large door in the 'Lighthouse Station' (the one from the OG COTD Easter Egg).</li>
-            <li>Obtain the <a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a>.</li>
+            <li>Obtain the <a href="#wunderwaffe_dg_scharfschutze" class="link-to-page">Wunderwaffe DG-Scharfschütze</a>.</li>
             <li>Using the Wunderwaffe, shoot two different red batteries on electricity pylons in the Facility area. The locations below: </li>
             <ul>
                 <li><a href="pictures/main_ee/knowledge_itself_is_for_the_taking/facility_entrance_red_battery.webp">Facility Entrance - Off to the left side of the Facility</a></li>
@@ -528,7 +533,7 @@
 
     <div class="content-container" id="song_ee">
         <h2 class="section-title">'A Light from the Shore' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/i/1713269275">here</a>.</p>
+        <p class="song-link">Link to song on streaming <a href="https://song.link/i/1713269275" class="external-link">here</a>.</p>
         <ul>
             <li>Interact with three melee weapons found around the map, locations below:</li>
             <ul>
@@ -542,7 +547,7 @@
 
     <div class="content-container" id="song_ee_2">
         <h2 class="section-title">'Reflections' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713269286">here</a>.</p>
+        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713269286" class="external-link">here</a>.</p>
         <ol>
             <li>Interact with the <a href="pictures/song_ee/large_door.webp">large, metal door</a> on the bottom floor of the 'Lighthouse Station' three times. Each time should be accompanied by a knocking sound.</li>
             <li>Once complete, the song will begin to play.</li>
@@ -556,7 +561,7 @@
             <ul>
                 <li><strong>Samantha's Sock Puppet</strong></li>
                 <ul>
-                    <li>Unlock Sunken Path by either shooting <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or placing a <a href="#dynamite_bomb">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon.' </li>
+                    <li>Unlock Sunken Path by either shooting <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or placing a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon.' </li>
                     <li><a href="pictures/yellow_snowballs/sock_sam_small_rock.webp">Sunken Path - On a rock, behind the GKS wallbuy</a></li>
                     <li><a href="pictures/yellow_snowballs/sock_sam_boat.webp">Sunken Path - On the broken boat, left of the GKS wallbuy</a></li>
                     <li><a href="pictures/yellow_snowballs/sock_sam_large_rock.webp">Sunken Path - Left of the previous location, on top of a big rock</a></li>
@@ -601,7 +606,7 @@
     <div class="content-container" id="free_perk">
         <h2 class="section-title">Free Perk</h2>
         <ol>
-            <li>Unlock <a href="#golden_pap">Golden Pack-a-Punch</a></li>
+            <li>Unlock <a href="#golden_pap" class="link-to-page">Golden Pack-a-Punch</a></li>
             <li>A miniature figurine can be found around each of the Pack-a-Punch spawn locations, only when the ice is melted at that location. Figurine Locations: </li>
             <ul>
                 <li><a href="pictures/free_perk/perk_iceberg.webp">Iceberg (Golden Pack-a-Punch) - Right of Machine</a>
@@ -630,7 +635,7 @@
                 <li><a href="pictures/dont_freeze/hidden_path.webp">Hidden Path</a></li>
                 <li><a href="pictures/dont_freeze/cargo_hold.webp">Cargo Hold</a></li>
                 <li><a href="pictures/dont_freeze/artifact_storage.webp">Artifact Storage</a></li>
-                <li><a href="pictures/dont_freeze/sunken_path.webp">Sunken Path</a> (To access, either shoot <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or place a <a href="#dynamite_bomb">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon')</li>
+                <li><a href="pictures/dont_freeze/sunken_path.webp">Sunken Path</a> (To access, either shoot <a href="pictures/sunken_path/pipe_sunken_path.webp">this pipe</a> in 'Artifact Storage' or place a <a href="#dynamite_bomb" class="link-to-page">Dynamite Bomb</a> on <a href="pictures/sunken_path/lagoon_debris.webp">this debris</a> in the 'Lagoon')</li>
                 <li><a href="pictures/dont_freeze/beach.webp">Beach</a></li>
             </ul>
 
@@ -651,7 +656,7 @@
     <div class="content-container" id="hermit_jumpscare">
         <h2 class="section-title">The Hermit Jumpscare</h2>
         <ol>
-            <li>Obtain a scoped weapon (the <a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe DG-Scharfschütze</a> does work for this). The <a href="pictures/jumpscare/koshka.webp">Koshka</a> wallbuy can be found in the 'Security lobby.' </li>
+            <li>Obtain a scoped weapon (the <a href="#wunderwaffe_dg_scharfschutze" class="link-to-page">Wunderwaffe DG-Scharfschütze</a> does work for this). The <a href="pictures/jumpscare/koshka.webp">Koshka</a> wallbuy can be found in the 'Security lobby.' </li>
             <li>Navigate to the 'Facility Entrance' and aim at the <a href="pictures/jumpscare/lighthouse_light.webp">Light from the Lighthouse</a>.</li>
         </ol>
     </div>
@@ -667,7 +672,7 @@
         <h2 class="section-title">'The Secret' Easter Egg/Achievement</h2>
         <ol start="0">
             <li>Equip the 'Talkin' Bout Regeneration' Elixir (RECOMMENDED) <strong>AND/OR</strong> equip the 'Dying Wish' Perk to your loadout.</li>
-            <li>Obtain the <a href="#heat_pack">Heat Pack</a> and complete the <a href="#challenge_totems">Beach Challenge Totem</a>.</li>
+            <li>Obtain the <a href="#heat_pack" class="link-to-page">Heat Pack</a> and complete the <a href="#challenge_totems" class="link-to-page">Beach Challenge Totem</a>.</li>
             <li>Make sure you have Dying Wish and your Specialist Weapon charged and 'Talkin' Bout Regeneration' ready.</li>
             <li>Make your way to the Facility Flinger, crouch, then walk on to the <a href="pictures/the_secret/back_left_flinger.webp">back-left of the Flinger</a> and spin as fast as you can, while remaining crouched (increase controller sensitivity to at least 8).</li>
             <li>If done correctly, you should be launched into a faraway iceberg. Activate your elixir and start swimming. Keep following the path through the tunnels until you make it to the end. After a while, you will start taking damage (from no air).</li>
@@ -728,12 +733,12 @@
             <tr>
                 <td>Round 8</td>
                 <td>Call of the Hermit</td>
-                <td>Complete One <a href="#challenge_totems">Challenge Totem</a> By The End Of This Round</td>
+                <td>Complete One <a href="#challenge_totems" class="link-to-page">Challenge Totem</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 9</td>
                 <td>Wunderbar</td>
-                <td>At Least One Player Must Possess <a href="#wunderwaffe_dg_scharfschutze">Wunderwaffe</a> By The End Of This Round
+                <td>At Least One Player Must Possess <a href="#wunderwaffe_dg_scharfschutze" class="link-to-page">Wunderwaffe</a> By The End Of This Round
                 </td>
             </tr>
             <tr>
@@ -744,7 +749,7 @@
             <tr>
                 <td>Round 11</td>
                 <td>Heating Up</td>
-                <td>Craft The <a href="#heat_pack">Heat Pack</a> By The End Of This Round</td>
+                <td>Craft The <a href="#heat_pack" class="link-to-page">Heat Pack</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 12</td>
@@ -754,12 +759,12 @@
             <tr>
                 <td>Round 13</td>
                 <td>Toss Up</td>
-                <td>Kill Enemies With <a href="#flinger_repairs">Flingers</a></td>
+                <td>Kill Enemies With <a href="#flinger_repairs" class="link-to-page">Flingers</a></td>
             </tr>
             <tr>
                 <td>Round 14</td>
                 <td>Heed the Hermit</td>
-                <td>Complete Two <a href="#challenge_totems">Challenge Totems</a> By The End Of This Round</td>
+                <td>Complete Two <a href="#challenge_totems" class="link-to-page">Challenge Totems</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 15</td>
@@ -774,12 +779,12 @@
             <tr>
                 <td>Round 17</td>
                 <td>Gilded Rage</td>
-                <td>Possess Two <a href="#pap">Fully-Packed</a> Weapons At The End Of This Round</td>
+                <td>Possess Two <a href="#pap" class="link-to-page">Fully-Packed</a> Weapons At The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 18</td>
                 <td>Hermit's Little Helpers</td>
-                <td>Complete Three <a href="#challenge_totems">Challenge Totems</a> By The End Of This Round</td>
+                <td>Complete Three <a href="#challenge_totems" class="link-to-page">Challenge Totems</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 19</td>
@@ -799,7 +804,7 @@
             <tr>
                 <td>Round 22</td>
                 <td>Hermit's Heroes</td>
-                <td>Complete Four <a href="#challenge_totems">Challenge Totems</a> By The End Of This Round</td>
+                <td>Complete Four <a href="#challenge_totems" class="link-to-page">Challenge Totems</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 23</td>
@@ -819,7 +824,7 @@
             <tr>
                 <td>Round 26</td>
                 <td>Honor the Hermit</td>
-                <td>Complete Five <a href="#challenge_totems">Challenge Totems</a> By The End Of This Round</td>
+                <td>Complete Five <a href="#challenge_totems" class="link-to-page">Challenge Totems</a> By The End Of This Round</td>
             </tr>
             <tr>
                 <td>Round 27</td>
@@ -850,33 +855,33 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
 
 
 </body></html>

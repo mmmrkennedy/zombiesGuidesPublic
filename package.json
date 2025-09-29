@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Zombies Guides website with automated build system",
   "scripts": {
-    "build": "node build_scripts/add-version-placeholders.js && node build_scripts/nav-builder-improved.js --index ./index.html && node build_scripts/update-version.js",
-    "build:verbose": "node build_scripts/add-version-placeholders.js --verbose && node build_scripts/nav-builder-improved.js --verbose && node build_scripts/update-version.js",
+    "build": "npm run build:titles && npm run build:links && npm run build:nav && npm run version:setup && npm run version:update && npm run generate:sitemap",
+    "build:verbose": "npm run build:titles -- --verbose && npm run build:links -- --verbose && npm run build:nav -- --verbose && npm run version:update",
+    "build:dry-run": "npm run build:titles -- --dry-run && npm run build:links -- --dry-run && npm run build:nav -- --dry-run",
+    "build:titles": "node build_scripts/generate-titles.js",
+    "build:links": "node build_scripts/classify-links.js",
+    "build:nav": "node build_scripts/nav-builder.js --index ./index.html",
     "version:setup": "node build_scripts/add-version-placeholders.js",
     "version:update": "node build_scripts/update-version.js",
-    "nav": "node build_scripts/nav-builder-improved.js",
+    "generate:sitemap": "node build_scripts/sitemap-generator.js",
+    "prebuild": "node build_scripts/add-version-placeholders.js",
     "dev": "python -m http.server 8000",
     "test": "echo \"No tests specified\" && exit 0"
   },
@@ -21,7 +26,9 @@
   "author": "mmmrkennedy",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^22.1.0"
+    "generate-robotstxt": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "sitemap": "^8.0.0"
   },
   "engines": {
     "node": ">=14.0.0"

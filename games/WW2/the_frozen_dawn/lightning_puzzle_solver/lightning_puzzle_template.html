@@ -16,3 +16,46 @@
         <p><span id="result"></span></p>
     </div>
 </div>
+    <!-- Version display component -->
+    <div class="version-display" data-version="1759169821123">
+        v.<span id="version-number">0</span>
+    </div>
+
+    <style>
+        .version-display {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-family: monospace, 'Courier New', serif;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 8px;
+            border-radius: 3px;
+            backdrop-filter: blur(2px);
+            pointer-events: none;
+            z-index: 9999;
+            user-select: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        @media (prefers-color-scheme: light) {
+            .version-display {
+                color: rgba(0, 0, 0, 0.4);
+                background: rgba(255, 255, 255, 0.3);
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const versionDisplay = document.querySelector('.version-display');
+            const versionNumber = document.getElementById('version-number');
+            
+            if (versionDisplay && versionNumber) {
+                const version = versionDisplay.getAttribute('data-version') || '0';
+                versionNumber.textContent = version === '0' ? 'dev' : version.toString().slice(-6);
+                console.log('Website version:', version);
+            }
+        });
+    </script>

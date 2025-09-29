@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>The Darkest Shore Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -34,6 +34,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Darkest Shore Guide</h2>
@@ -87,7 +92,7 @@
     <div class="content-container" id="pap">
         <h2 class="section-title">Pack-a-Punch (Ubersprengen)</h2>
         <ol>
-            <li>Turn on <a href="#power">Power</a>.</li>
+            <li>Turn on <a href="#power" class="link-to-page">Power</a>.</li>
             <li>Activate the Minecart system by activating the <a href="pictures/pap/minecart_power.webp">Power Switch in the 'Artillery Bunker.'</a></li>
             <li>You must now take three different specific minecart trips (in either direction). Halfway through each trip, there will be a <a href="pictures/pap/battery_1.webp">green battery (Elektroschnalle)</a> that you need to pick up. Changing the <a href="pictures/pap/minecart_switch.webp">switch</a> at each of the minecart stations will change where it takes you. On your first trip of each round, there will be four bombers standing on the tracks. Trips to take:</li>
             <ul>
@@ -116,7 +121,7 @@
         <p class="weapon-desc">The Ripsaw is a melee Wonder Weapon that kills Zombies with powerful melee swings at close range.</p>
 
         <ol>
-            <li>Turn on the <a href="#power">Power</a>.</li>
+            <li>Turn on the <a href="#power" class="link-to-page">Power</a>.</li>
             <li>Pick up the <a href="pictures/ripsaw/saw_blade.webp">Saw Blade in 'Bunker 3' to the right of the MP-40 wallbuy</a>.</li>
             <li>Pick up the Saw Handle in the 'Artillery Bunker' in one of the following locations. Locations:</li>
             <ul>
@@ -130,7 +135,7 @@
         <p class="upgrade-title" id="ranged_ripsaw">Ranged Ripsaw Upgrade</p>
         <p class="weapon-desc">The upgraded Ripsaw is a Wonder Weapon that fires sawblades which ricochet and pierce through multiple zombies, while still retaining its melee ability.</p>
         <ol>
-            <li>Build the <a href="#ripsaw">Ripsaw</a>.</li>
+            <li>Build the <a href="#ripsaw" class="link-to-page">Ripsaw</a>.</li>
             <li>Obtain any charged enemy spine (doesn't matter which). The Ripsaw can remove enemy spines through the method below.</li>
             <ul>
                 <li>Activate a heavy melee attack by either sprinting and meleeing or aiming and meleeing. This will lock you in a short attack animation; if you press interact while in this animation, you will pull out the enemy's spine.</li>
@@ -145,7 +150,7 @@
         <p class="upgrade-title" id="rip_saw_upgrade">R.I.P. Saw Upgrade (Pack-a-Punch Ripsaw)</p>
         <p class="weapon-desc">The R.I.P. Saw is a the Pack-a-Punched version of the Ranged Ripsaw that fires stronger sawblades with increased ammo and damage, and still retains its melee attack.</p>
         <ol>
-            <li>Unlock <a href="#pap">Pack-a-Punch</a> and build the <a href="#ranged_ripsaw">Ranged Ripsaw</a>.</li>
+            <li>Unlock <a href="#pap" class="link-to-page">Pack-a-Punch</a> and build the <a href="#ranged_ripsaw" class="link-to-page">Ranged Ripsaw</a>.</li>
             <li>Find six broken dial machines around the map. Each dial machine will only have one dial on it, despite being able to fit six. The location of the dial on the machine indicates the order of the number/symbol shown on it. The first and fourth dials will show either a "+" or "-", and all the others will show a number. These are "firing coordinates" for the Artillery Cannon. I recommend you buy the <a href="pictures/ripsaw/rip_saw_upgrade/lee_enfield_wallbuy.webp">Lee Enfield from the wallbuy in 'Bunker 1,'</a> so you can see the symbol on the dials better.</li>
             <ul>
                 <li>Example: a dial all the way to the left of its machine indicates that the first symbol.</li>
@@ -159,7 +164,7 @@
                     <li><a href="pictures/ripsaw/rip_saw_upgrade/dial_cart.webp">Artillery Bunker - Out a window to the left of the BAR wallbuy on a cart</a></li>
                 </ul>
             </ul>
-            <li>Complete the friendly Bomber escort step of the <a href="#main_ee">Main Quest</a> (detailed on <a href="#main_ee_step5">Step 16</a> but can be started after completing <a href="#main_ee_step2">Step 7</a>). Charge the Artillery Cannon by killing Zombies near the battery the bomber brought.</li>
+            <li>Complete the friendly Bomber escort step of the <a href="#main_ee" class="link-to-page">Main Quest</a> (detailed on <a href="#main_ee_step5" class="link-to-page">Step 16</a> but can be started after completing <a href="#main_ee_step2" class="link-to-page">Step 7</a>). Charge the Artillery Cannon by killing Zombies near the battery the bomber brought.</li>
             <li>Once you charge the battery enough, the cannon will make a loading sound, and become ready to fire.</li>
             <li>Enter the coordinates from the dials into the cannon. To aim the cannon, interact with the <a href="pictures/main_ee/cannon_elevation.webp">left panel</a> to change the elevation, and the <a href="pictures/main_ee/cannon_angle.webp">right panel</a> to change the angle. Use <a href="pictures/main_ee/cannon_aiming_guide.webp">this aiming guide image</a> to help you aim the cannon. Interact with the <a href="pictures/main_ee/cannon_fire_button.webp">button in the middle of the panels</a> to fire.</li>
             <li>If done correctly, a fuse will drop from the <a href="pictures/ripsaw/rip_saw_upgrade/fuse.webp">barrel of the cannon onto the concrete pillar holding the cannon</a> for you to pick up.</li>
@@ -174,7 +179,7 @@
         <ol start="0">
             <p class="step-group-title" id="main_ee_step1">Prerequisites</p>
             <li>Make sure you have either the Frag Grenades or the N° 74 ST (recommended) in your loadout.</li>
-            <li>Turn on the <a href="#power">power</a> and acquire the <a href="#ranged_ripsaw">Ranged Ripsaw</a>.</li>
+            <li>Turn on the <a href="#power" class="link-to-page">power</a> and acquire the <a href="#ranged_ripsaw" class="link-to-page">Ranged Ripsaw</a>.</li>
 
             <p class="step-group-title" id="main_ee_step2">Corpse Gate</p>
             <li>Shoot the head off the <a href="pictures/main_ee/hanging_man.webp">hanging corpse in 'Bunker 3.'</a> It will drop for you to pick it up.</li>
@@ -190,7 +195,7 @@
                 <li>The AA guns have health and can be attacked by Zombies, but you can shoot the Zombies with the AA gun.</li>
             </ul>
 
-            <p class="warning">The rest of the Quest is split into two parts (<a href="#main_ee_step3">Unlocking Nerthus' Secret Room / Ritual Sacrifices</a> and <a href="#main_ee_step5">Destroying The Ships</a>). These parts can be done independently of each other, and in any order.</p>
+            <p class="warning">The rest of the Quest is split into two parts (<a href="#main_ee_step3" class="link-to-page">Unlocking Nerthus' Secret Room / Ritual Sacrifices</a> and <a href="#main_ee_step5" class="link-to-page">Destroying The Ships</a>). These parts can be done independently of each other, and in any order.</p>
 
             <p class="step-group-title" id="main_ee_step3">Unlocking Nerthus' Secret Room</p>
             <li>On the first minecart trip of a round, go between <a href="pictures/pap/minecart_station_bunker_1.webp">Bunker 1 (Graben)</a> and the <a href="pictures/pap/minecart_station_beach.webp">Beach (Strand)</a>. Halfway through the trip, there will be a <a href="pictures/main_ee/wall_in_minecart.webp">semi-broken wall</a> that can be blown open with one of the Bombers on the tracks.</li>
@@ -227,7 +232,7 @@
             <li>Once all three sons are in the door, it will open, revealing three Meuchlers "praying" in front of a statue of Nerthus. You can either kill them or leave (which will completely despawn them if the map isn't foggy at the time).</li>
 
             <p class="step-group-title" id="main_ee_step4">Ritual Sacrifices</p>
-            <li>You will need to complete three different ritual sacrifices (<a href="#main_ee_step4_meuchler">Meuchler Sacrifice Ritual</a>, <a href="#main_ee_step4_wustling">Wustling Sacrifice Ritual</a>, and <a href="#main_ee_step4_pest">Pest Sacrifice Ritual</a>) which can be done in any order.</li>
+            <li>You will need to complete three different ritual sacrifices (<a href="#main_ee_step4_meuchler" class="link-to-page">Meuchler Sacrifice Ritual</a>, <a href="#main_ee_step4_wustling" class="link-to-page">Wustling Sacrifice Ritual</a>, and <a href="#main_ee_step4_pest" class="link-to-page">Pest Sacrifice Ritual</a>) which can be done in any order.</li>
 
             <p class="sub-sub-step" id="main_ee_step4_meuchler">Meuchler Sacrifice Ritual</p>
             <ol>
@@ -288,14 +293,14 @@
                 <ul>
                     <li>If the Pest dies, or you charge it wrong, you will need to get another Pest spine and try again.</li>
                     <ul>
-                        <li>Charge 1 - <a href="https://youtu.be/3d5grZLZzBo?t=0">Video Example (YouTube)</a>:</li>
+                        <li>Charge 1 - <a href="https://youtu.be/3d5grZLZzBo?t=0" class="external-link">Video Example (YouTube)</a>:</li>
                         <ul>
                             <li>Pest Location: <a href="pictures/main_ee/pest_ritual/pest_loc_1.webp">Near the M1927 wallbuy</a></li>
                             <li>Player Location: <a href="pictures/main_ee/pest_ritual/player_loc_1.webp">Left of the Pest</a></li>
                             <li>Coil to shoot: <a href="pictures/main_ee/pest_ritual/panel_1.webp">Blue coil out of the map, near the M1927 wallbuy</a>
                             </li>
                         </ul>
-                        <li>Charge 2 - <a href="https://youtu.be/3d5grZLZzBo?t=10">Video Example (YouTube)</a>:</li>
+                        <li>Charge 2 - <a href="https://youtu.be/3d5grZLZzBo?t=10" class="external-link">Video Example (YouTube)</a>:</li>
                         <ul>
                             <li>Pest Location: <a href="pictures/main_ee/pest_ritual/pest_loc_2.webp">At the bottom the stairs</a>
                             </li>
@@ -304,7 +309,7 @@
                             <li>Coil to shoot: <a href="pictures/main_ee/pest_ritual/panel_2.webp">Yellow coil up on the wall right of the Minecart station</a>
                             </li>
                         </ul>
-                        <li>Charge 3 - <a href="https://youtu.be/3d5grZLZzBo?t=18">Video Example (YouTube)</a>:</li>
+                        <li>Charge 3 - <a href="https://youtu.be/3d5grZLZzBo?t=18" class="external-link">Video Example (YouTube)</a>:</li>
                         <ul>
                             <li>Pest Location: <a href="pictures/main_ee/pest_ritual/pest_loc_3.webp">In the doorway up to the 'Bluffs' (door must be open)</a>
                             </li>
@@ -313,7 +318,7 @@
                             <li>Coil to shoot: <a href="pictures/main_ee/pest_ritual/panel_3.webp">Blue coil up on the wall above the door to the 'Bluffs'</a>
                             </li>
                         </ul>
-                        <li>Charge 4 - <a href="https://youtu.be/3d5grZLZzBo?t=26">Video Example (YouTube)</a>:</li>
+                        <li>Charge 4 - <a href="https://youtu.be/3d5grZLZzBo?t=26" class="external-link">Video Example (YouTube)</a>:</li>
                         <ul>
                             <li>Pest Location: <a href="pictures/main_ee/pest_ritual/pest_loc_4.webp">Right of the STG44 wallbuy</a>
                             </li>
@@ -322,7 +327,7 @@
                             <li>Coil to shoot: <a href="pictures/main_ee/pest_ritual/panel_4.webp">Yellow coil up on the wall above the M1941 wallbuy</a>
                             </li>
                         </ul>
-                        <li>Charge 5 - <a href="https://youtu.be/3d5grZLZzBo?t=36">Video Example (YouTube)</a>:</li>
+                        <li>Charge 5 - <a href="https://youtu.be/3d5grZLZzBo?t=36" class="external-link">Video Example (YouTube)</a>:</li>
                         <ul>
                             <li>Pest Location: <a href="pictures/main_ee/pest_ritual/pest_loc_5.webp">Anywhere on the long walkway with the propellers</a>
                             </li>
@@ -386,7 +391,7 @@
         <h2 class="section-title">The Classic (Special PPSh-41)</h2>
         <p class="weapon-desc">The Classic is a special PPSh-41 variant with a bigger 70-round mag, more reserve ammo, and a faster fire rate.</p>
         <ol>
-            <li>Progress the <a href="#main_ee">Main Quest</a> until you can summon a friendly Bomber zombie (after you open the Corpse Gate in the 'U-Boat Pens'). Once the Corpse Gate is open, the Bomber can be summoned from the <a href="pictures/main_ee/bomber_spawner.webp">machine of the right</a>.</li>
+            <li>Progress the <a href="#main_ee" class="link-to-page">Main Quest</a> until you can summon a friendly Bomber zombie (after you open the Corpse Gate in the 'U-Boat Pens'). Once the Corpse Gate is open, the Bomber can be summoned from the <a href="pictures/main_ee/bomber_spawner.webp">machine of the right</a>.</li>
             <li>During the friendly Bomber escort step, drop 1000 total jolts in the path of the Bomber, so it picks them up. After 1000 jolts, it won't pick up any more drops.</li>
             <li>If done correctly, The Classic will enter the Mystery Box's weapon pool (you aren't guaranteed to get it).</li>
         </ol>
@@ -422,7 +427,7 @@
         <ol>
             <li>Obtain the Jack-in-the-Box from the Mystery Box.</li>
             <li>Throw a Jack into the hole of the <a href="pictures/jack_box_boss_fight/wooden_box.webp">wooden box behind the Whale</a> on the 'Beach.' If done correctly, a sound will play.</li>
-            <li>Get to the Boss Fight at the end of the <a href="#main_ee">Main Quest</a>.</li>
+            <li>Get to the Boss Fight at the end of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
             <li>During the "intro" cutscene of the first phase on the 'Beach,' the Red Meistermeuchler will spawn a Jack-in-the-Box when it shows off its special attack.</li>
             <li>Any Zombies that get near the Box will charge it. After about 30 seconds or once its charged, it will explode, dealing massive damage to any Zombies (including the Meistermeuchlers) that are close by.</li>
         </ol>
@@ -492,7 +497,7 @@
             <tr>
                 <td><i>Scrounge and scheme.</i></td>
                 <td>Get 25k by wave 10.</td>
-                <td class="strategy" rowspan="2">Use the Round 0 Beach Rush Despawn Trick (See <a href="https://youtu.be/LtocV4ptaTM?t=34">this video (YouTube)</a> by <a href="https://www.youtube.com/@GlitchingQueen">Glitching Queen</a>)</td>
+                <td class="strategy" rowspan="2">Use the Round 0 Beach Rush Despawn Trick (See <a href="https://youtu.be/LtocV4ptaTM?t=34" class="external-link">this video (YouTube)</a> by <a href="https://www.youtube.com/@GlitchingQueen" class="external-link">Glitching Queen</a>)</td>
             </tr>
             <tr>
                 <td><i>Add more zeros.</i></td>
@@ -501,7 +506,7 @@
             <tr>
                 <td><i>Take it with you.</i></td>
                 <td>Beat the Main Quest having more than 30k.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to beat it.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to beat it.</td>
             </tr>
         </tbody></table>
 
@@ -516,7 +521,7 @@
             <tr>
                 <td><i>Frog in water.</i></td>
                 <td>Survive around 3-5 minutes without taking damage during the U-Boat Pens lockdown (fire step.</td>
-                <td class="strategy" rowspan="3">See the <a href="#main_ee">Main Quest</a> section for how to get to the U-Boat Pens lockdown step.</td>
+                <td class="strategy" rowspan="3">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to get to the U-Boat Pens lockdown step.</td>
             </tr>
             <tr>
                 <td><i>Kitchen appliances.</i></td>
@@ -539,7 +544,7 @@
             <tr>
                 <td><i>Don't touch the merchandise!</i></td>
                 <td>Obtain the Pommel without going down or losing Armour.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get the Pommel. You could not buy armour to not risk losing it.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to get the Pommel. You could not buy armour to not risk losing it.</td>
             </tr>
             <tr>
                 <td><i>Streaking around the island.</i></td>
@@ -549,7 +554,7 @@
             <tr>
                 <td><i>No dirty kills</i></td>
                 <td>Obtain the Pommel without getting kills with the Ripsaw weapon.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get the Pommel.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to get the Pommel.</td>
             </tr>
         </tbody></table>
 
@@ -564,7 +569,7 @@
             <tr>
                 <td><i>Survive on your feet.</i></td>
                 <td>Complete the Boss Fight with no players going down.</td>
-                <td class="strategy" rowspan="3">See the <a href="#main_ee">Main Quest</a> section for info about the Boss Fight.</td>
+                <td class="strategy" rowspan="3">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for info about the Boss Fight.</td>
             </tr>
             <tr>
                 <td><i>There is no point.</i></td>
@@ -610,7 +615,7 @@
             <tr>
                 <td><i>I shall bring the death.</i></td>
                 <td>Beat the Main Quest without using traps.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section.</td>
             </tr>
             <tr>
                 <td><i>Nothing is too fast to die.</i></td>
@@ -635,12 +640,12 @@
             <tr>
                 <td><i>Untouched mayhem.</i></td>
                 <td>Escort the Artillery Loader Bomber to the artillery cannon bunker without it taking any damage.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to escort the Bomber. If it takes damage, let it die and try again. You can't summon another Bomber if one delivered the payload.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to escort the Bomber. If it takes damage, let it die and try again. You can't summon another Bomber if one delivered the payload.</td>
             </tr>
             <tr>
                 <td><i>Mathematician.</i></td>
                 <td>Don't miss any of the ships during the cannon step.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to aim the cannons; there is a helper image that will tell you exactly where to fire.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to aim the cannons; there is a helper image that will tell you exactly where to fire.</td>
             </tr>
             <tr>
                 <td><i>I live underground.</i></td>
@@ -670,7 +675,7 @@
             <tr>
                 <td><i>To death you say?</i></td>
                 <td>Survive five waves only using the Pommel.</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to get the Pommel.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to get the Pommel.</td>
             </tr>
         </tbody></table>
 
@@ -710,27 +715,27 @@
             <tr>
                 <td><i>Search and rescue</i></td>
                 <td>Complete the Hardcore Main Quest on The Final Reich</td>
-                <td class="strategy">See the <a href="/games/WW2/the_final_reich/the_final_reich_guide.html#main_ee_hardcore">Hardcore Main Quest</a> section of The Final Reich Guide for how to complete it.</td>
+                <td class="strategy">See the <a href="/games/WW2/the_final_reich/the_final_reich_guide.html#main_ee_hardcore" class="link-to-page">Hardcore Main Quest</a> section of The Final Reich Guide for how to complete it.</td>
             </tr>
             <tr>
                 <td><i>They can swim now?</i></td>
                 <td>Complete the Main Quest on The Darkest Shore</td>
-                <td class="strategy">See the <a href="#main_ee">Main Quest</a> section for how to complete it.</td>
+                <td class="strategy">See the <a href="#main_ee" class="link-to-page">Main Quest</a> section for how to complete it.</td>
             </tr>
             <tr>
                 <td><i>Mechanized abomination</i></td>
                 <td>Complete the Main Quest on The Shadowed Throne</td>
-                <td class="strategy">See the <a href="/games/WW2/the_shadowed_throne/the_shadowed_throne_guide.html#main_ee">Main Quest</a> section of The Shadowed Throne Guide for how to complete it.</td>
+                <td class="strategy">See the <a href="/games/WW2/the_shadowed_throne/the_shadowed_throne_guide.html#main_ee" class="link-to-page">Main Quest</a> section of The Shadowed Throne Guide for how to complete it.</td>
             </tr>
             <tr>
                 <td><i>The road ahead</i></td>
                 <td>Complete the Main Quest on The Tortured Path</td>
-                <td class="strategy">See the <a href="/games/WW2/the_tortured_path/the_tortured_path_guide.html#main_ee">Main Quest</a> section of The Tortured Path Guide for how to complete it.</td>
+                <td class="strategy">See the <a href="/games/WW2/the_tortured_path/the_tortured_path_guide.html#main_ee" class="link-to-page">Main Quest</a> section of The Tortured Path Guide for how to complete it.</td>
             </tr>
             <tr>
                 <td><i>Descend...</i></td>
                 <td>Complete the Main Quest on The Frozen Dawn</td>
-                <td class="strategy">See the <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee">Main Quest</a> section of The Frozen Dawn Guide for how to complete it.</td>
+                <td class="strategy">See the <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee" class="link-to-page">Main Quest</a> section of The Frozen Dawn Guide for how to complete it.</td>
             </tr>
         </tbody></table>
 
@@ -743,7 +748,7 @@
             </tr>
             <tr>
                 <td>Reach Level 1000 in the Zombie Mode</td>
-                <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/">post (reddit)</a> for some XP farming strategies.</td>
+                <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/" class="external-link">post (reddit)</a> for some XP farming strategies.</td>
             </tr>
         </tbody></table>
     </div>
@@ -751,33 +756,33 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
 
 
 </body></html>

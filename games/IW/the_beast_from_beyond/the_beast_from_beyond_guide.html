@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>The Beast From Beyond Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
-    <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
+    <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -35,6 +35,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">The Beast From Beyond Guide</h2>
@@ -89,14 +94,14 @@
     <div class="content-container" id="pap">
         <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
-            <li>Turn on the <a href="#power">Power</a>.</li>
+            <li>Turn on the <a href="#power" class="link-to-page">Power</a>.</li>
             <li>You need to collect three pieces of scrap metal to build a bridge. Picking up a piece will spawn three Cryptids. Part locations:</li>
             <ul>
                 <li><a href="pictures/pap/metal_cargo_bay.webp">Cargo Bay - On the lowest level of the room, left of the stairs</a></li>
                 <li><a href="pictures/pap/metal_med_bay.webp">Medical Bay - Right of the Blue Bolts perk machine</a></li>
                 <li><a href="pictures/pap/metal_theatre.webp">Theatre - On a burning car on the street, right of the Portal</a></li>
                 <ul>
-                    <li>See <a href="#theatre">Accessing the Theatre</a> for more information</li>
+                    <li>See <a href="#theatre" class="link-to-page">Accessing the Theatre</a> for more information</li>
                 </ul>
             </ul>
             <li>Once you have all three metal pieces, place them on the <a href="pictures/pap/broken_bridge.webp">broken bridge</a> in the outside area to repair it.</li>
@@ -114,7 +119,7 @@
             <li>Travel to the Theatre. Place the fuses on the <a href="pictures/double_pap/sasquatch.webp">hand of the Sasquatch cardboard cutout</a> in the hallway, between the main theatre room and the lobby area.</li>
             <li>Go to the concession stand in the Theatre, and pick up the <a href="pictures/double_pap/film_reel.webp">Film Reel</a> on the right side.</li>
             <li>Go to the Projector room and interact with the <a href="pictures/double_pap/projector.webp">film reels on the front of the projector</a> to replace the reel. The projector will now start projecting footage of Zombies in Spaceland.</li>
-            <li>Obtain the Entangler (complete Skull 1 and 2 of the <a href="#skull_breaker">Skull Breaker Side Quest</a>).</li>
+            <li>Obtain the Entangler (complete Skull 1 and 2 of the <a href="#skull_breaker" class="link-to-page">Skull Breaker Side Quest</a>).</li>
             <li>Activate the <a href="pictures/double_pap/wormhole_trap.webp">Movie Wormhole Trap</a> in the Theatre. While the trap is active, shoot the Entangler at the <a href="pictures/double_pap/vortex.webp">vortex on the screen</a> to pull out a Brute helmet. Drop the helmet on the ground, then interact with it to pick it up.</li>
             <li>Interact with the <a href="pictures/double_pap/brute.webp">Brute cutout near the Sasquatch</a> to place the head on it. If the fuses are already on the Sasquatch, the Brute head will shoot a laser at them, charging them.</li>
             <li>Once the fuses are charged, bring them to the Projector room and insert them into the Pack-a-Punch Projector. Once inserted, you will be able to Pack-a-Punch any Pack-a-Punched weapon again for 10,000 Points.</li>
@@ -232,9 +237,9 @@
         <p class="upgrade-title" id="venom_y">Venom-Y</p>
         <p class="weapon-desc">The Venom-Y will still shoot an egg, but the egg will explode into gas that freezes and kills Zombies. The gas lasts about 5 seconds. The gas does not affect larger cryptids (Phantoms, Rhinos, etc.), but the initial explosion does.</p>
         <ol>
-            <li>Obtain the <a href="#venom_x">Venom-X</a>.</li>
+            <li>Obtain the <a href="#venom_x" class="link-to-page">Venom-X</a>.</li>
             <li>Optional but highly recommended: Disable Voice Volume in the settings. This will help you hear the following morse code messages without your character spewing some garbage voice lines over it.</li>
-            <li>Interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">terminal right of Bang Bangs</a>. It will play one of the two Morse code messages (morse code is a series of long <span class="morse-code">-</span> (dash) and short <span class="morse-code">.</span> (period) beeps which, when combined, equal letters; see <a href="/games/common_images/morse_code.webp">this image</a> or <a href="https://morsecodetranslator.com/">this website</a> for Morse code letter translations). Possible Morse code sequences:</li>
+            <li>Interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">terminal right of Bang Bangs</a>. It will play one of the two Morse code messages (morse code is a series of long <span class="morse-code">-</span> (dash) and short <span class="morse-code">.</span> (period) beeps which, when combined, equal letters; see <a href="/games/common_images/morse_code.webp">this image</a> or <a href="https://morsecodetranslator.com/" class="external-link">this website</a> for Morse code letter translations). Possible Morse code sequences:</li>
             <ul>
                 <li>Archer: <span class="morse-code">.- .-. -.-. .... . .-.</span></li>
                 <li>Cross: <span class="morse-code">-.-. .-. --- ... ...</span></li>
@@ -251,7 +256,7 @@
             <div id="venom-y-main-container" style="display: none">
                 <li>Interact with the <a href="pictures/venom_x/venom_y/code_terminal.webp">terminal at the bottom of the stairs</a> near Bang Bangs. This will play a long morse code message. The message will start with the following code (based on the key from the previous step). After this opening code, you will need to listen to one of the options below. This will tell you a number you'll need later.</li>
                 <ul>
-                    <li>The message this terminal produces is encrypted with a Vigenere Cypher using the key obtained from the first terminal. The solver below will automatically decrypt your message with the correct code, so just enter the Morse code as is. You can also use <a href="https://www.cs.du.edu/~snarayan/crypt/vigenere.html">this website</a> to decrypt the code.</li>
+                    <li>The message this terminal produces is encrypted with a Vigenere Cypher using the key obtained from the first terminal. The solver below will automatically decrypt your message with the correct code, so just enter the Morse code as is. You can also use <a href="https://www.cs.du.edu/~snarayan/crypt/vigenere.html" class="external-link">this website</a> to decrypt the code.</li>
                     <li>I recommend following along with the "<span class="key_input">KEY</span> - Message Start" below while the Morse Code is playing, to help you follow the code, then "lock-in" to listen for the number below. As you're listening, enter the morse into the solver below, it should auto translate the number.</li>
                     <li>Numbers in Morse code:</li>
                     <ul>
@@ -334,12 +339,12 @@
         <p class="upgrade-title" id="venom_z">Venom-Z</p>
         <p class="weapon-desc">The Venom-Z is the same as the Venom-Y, but the gas cloud lasts longer, and it has more ammo.</p>
         <ol>
-            <li>Unlock <a href="#double_pap">Double Pack-a-Punch</a> and obtain the <a href="#venom_y">Venom-Y</a>.</li>
+            <li>Unlock <a href="#double_pap" class="link-to-page">Double Pack-a-Punch</a> and obtain the <a href="#venom_y" class="link-to-page">Venom-Y</a>.</li>
             <li>You must now "flip" the key you had in the Venom-Y quest. So if you had "ARCHER," your new key is "CROSS" and vice versa.</li>
             <ul>
                 <li>You can interact with the <a href="pictures/venom_x/venom_y/key_terminal.webp">console that gave you the key</a> in the Venom-Y quest to check your new one.</li>
             </ul>
-            <li>With your new Key, repeat <strong>Steps 4-6</strong> from the <a href="#venom_y">Venom-Y</a> quest. These steps are the exact same except the key and the number from the Morse code gives you will change. You can reuse the solver as well, just make sure to change the selected key in the dropdown.</li>
+            <li>With your new Key, repeat <strong>Steps 4-6</strong> from the <a href="#venom_y" class="link-to-page">Venom-Y</a> quest. These steps are the exact same except the key and the number from the Morse code gives you will change. You can reuse the solver as well, just make sure to change the selected key in the dropdown.</li>
 
             <li>Once you input the correct number into the Morse code panel, you will need to kill that number of non-standard Zombies (Any Cryptid type, Ninjas, and Clowns) with the Venom-Y. Your progress can be checked on the scoreboard menu. This time, however, your progress on the scoreboard will stop at 50%.</li>
             <li>Once you get to 50%, interact with this <a href="pictures/message_sent/console.webp">machine near the Magic Wheel in the outside area</a>, until "195#" is shown on screen. This will spawn "Ghosts" around you that will float around you.</li>
@@ -355,12 +360,12 @@
         <p class="stats">Stats (Solo): Difficulty - 7/10 (4/10 Dir. Cut), Est. Completion Time - 45 Mins to 1 Hr (20 Mins to 35 Mins Dir. Cut)</p>
         <ol>
             <p class="step-group-title" id="main_ee_step1">Collect 4 Floppy Disks</p>
-            <li>Activate <a href="#power">Power</a>.</li>
+            <li>Activate <a href="#power" class="link-to-page">Power</a>.</li>
             <li>There are four Floppy Disks you need to collect around the map. These Floppy Disks can be collected in any order, each has a different symbol on it, and only one can be held at a time. When held, the symbol will appear on the bottom left of the screen, above your points. Locations/collection methods:</li>
             <ul>
                 <li>Floppy Disk 1</li>
                 <ol>
-                    <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+                    <li>Unlock <a href="#pap" class="link-to-page">Pack-a-Punch</a>.</li>
                     <li>This floppy disk is dropped by the first Phantom (big blue Cryptid) you kill. One will always spawn the first time you leave the PAP Projector room.</li>
                     <ul>
                         <li>Make sure to kill the Phantom near N31L to save you time later.</li>
@@ -368,12 +373,12 @@
                 </ol>
                 <li>Floppy Disk 2</li>
                 <ol>
-                    <li>Unlock <a href="#pap">Pack-a-Punch</a>.</li>
+                    <li>Unlock <a href="#pap" class="link-to-page">Pack-a-Punch</a>.</li>
                     <li>This floppy disk is always <a href="pictures/main_ee/floppy_pap.webp">sitting in the snow</a> at the base of a pillar, left of the PAP Portal.</li>
                 </ol>
                 <li>Floppy Disk 3</li>
                 <ol>
-                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker">Skull Breaker side quest</a>.</li>
+                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker" class="link-to-page">Skull Breaker side quest</a>.</li>
                     <li>In the hallway with the Proteus wallbuy, there will be a <a href="pictures/main_ee/red_room_fence.webp">fence blocking a red room</a>, under/near some stairs.</li>
                     <li>The <a href="pictures/main_ee/vent.webp">vent on the floor at the end of the room</a> will occasionally <a href="pictures/main_ee/vent_smoke.webp">emit smoke</a>, and the Floppy Disk will be <a href="pictures/main_ee/red_room_floppy.webp">sitting on the floor</a> in front of the vent. Using the Entangler, grab the Floppy Disk, and shoot it at the vent while the smoke is visible.</li>
                     <ul>
@@ -393,7 +398,7 @@
                 </ol>
                 <li>Floppy Disk 4</li>
                 <ol>
-                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker">Skull Breaker side quest</a>.</li>
+                    <li>Obtain the Entangler weapon from Skull 2 of the <a href="#skull_breaker" class="link-to-page">Skull Breaker side quest</a>.</li>
                     <li>Using the Entangler, grab a <a href="pictures/main_ee/space_helmet.webp">Space Helmet</a> in the Hallway between the outside and the Cargo Bay.</li>
                     <li>Carry it over to the Medical Bay, where there is a <a href="pictures/main_ee/force_field_door.webp">door blocked by a force field</a>. You need to shoot the helmet through the force field at the <a href="pictures/main_ee/force_field_monitor.webp">active monitor, above the microscope</a>, to break it and disable the force field.</li>
                     <ul>
@@ -442,7 +447,7 @@
             <ul>
                 <li>This can and should be skipped one of two ways:</li>
                 <ul>
-                    <li>Option 1 (Recommended): Before you pick up N31L, shoot the Entangler at a N31L TV, switch weapons (while shooting), and then switch back to the Entangler. This allows you to open doors while carrying N31L. <a href="https://youtu.be/ed0xAyO3giA">Video Example (YouTube)</a>.</li>
+                    <li>Option 1 (Recommended): Before you pick up N31L, shoot the Entangler at a N31L TV, switch weapons (while shooting), and then switch back to the Entangler. This allows you to open doors while carrying N31L. <a href="https://youtu.be/ed0xAyO3giA" class="external-link">Video Example (YouTube)</a>.</li>
                     <li>Option 2 (Not as Recommended): Carry N31L like normal, but when you get to a locked door, spin around in front of it to (maybe) make it open.</li>
                     <ul>
                         <li>This works because N31L is coded to open the doors he is looking at. So when you spin, he doesn't spin as fast as you, so you can kind of force him to look at a door.</li>
@@ -479,7 +484,7 @@
             <li>After the countdown reaches 0, the screen will display a string of jumbled characters and the computer will start sparking. Interact with it to despawn all Cryptids.</li>
             <li>The lights will go dim, and the laser will target a <a href="pictures/main_ee/mammoth_crate.webp">crate above the Ammo Crate</a>. After a couple of seconds, it will shoot it open, revealing two Mammoths (Blue Rhinos).</li>
             <ul>
-                <li>These Mammoths can be insta-killed, using the Ego Trip F&amp;F card, and either the Mauler LMG with the Sentinal variant or the EBR-800 Sniper with the Bomber variant. See <a href="https://youtu.be/o9IU7jnKD9s?t=495">this video</a> by <a href="https://www.youtube.com/@Decezy_">Decezy</a> for an example of this being done. If you don't kill them instantly (like in the video), keep shooting them in the mouth, they should die before the card runs out.</li>
+                <li>These Mammoths can be insta-killed, using the Ego Trip F&amp;F card, and either the Mauler LMG with the Sentinal variant or the EBR-800 Sniper with the Bomber variant. See <a href="https://youtu.be/o9IU7jnKD9s?t=495" class="external-link">this video</a> by <a href="https://www.youtube.com/@Decezy_" class="external-link">Decezy</a> for an example of this being done. If you don't kill them instantly (like in the video), keep shooting them in the mouth, they should die before the card runs out.</li>
             </ul>
             <li>These Mammoths are absolute bullet sponges, and will occasionally, when damaged, leave blue fire on the ground. This blue fire does a lot of damage and doesn't despawn, so make sure you think about where you're shooting the mammoths, so the fire doesn't block a doorway or choke point.</li>
             <li>The Mammoths will occasionally charge at you, which will always red-screen you even with Tuff 'Nuff.</li>
@@ -492,9 +497,9 @@
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
         <h2 class="section-title">'Scattered Lies' Song</h2>
-        <p class="song-link">Link to song on <a href="https://youtu.be/7XiYvJF0RfY">YouTube</a>.</p>
+        <p class="song-link">Link to song on <a href="https://youtu.be/7XiYvJF0RfY" class="external-link">YouTube</a>.</p>
         <ol>
-            <li>Unlock <a href="#pap">Pack-a-Punch</a> and <a href="#theatre">Access the Theatre</a>.</li>
+            <li>Unlock <a href="#pap" class="link-to-page">Pack-a-Punch</a> and <a href="#theatre" class="link-to-page">Access the Theatre</a>.</li>
             <li>Find and shoot fifteen astronaut plush toys around the map. Locations:</li>
             <p class="sub-sub-step" data-bool-quick-link="false">Main Map</p>
             <ul>
@@ -526,9 +531,9 @@
         <h2 class="section-title">Additional Lobby Music</h2>
 
         <ol>
-            <li>Unlock Director's Cut mode (See the <a href="#directors_cut">Director's Cut</a> section for more information).</li>
+            <li>Unlock Director's Cut mode (See the <a href="#directors_cut" class="link-to-page">Director's Cut</a> section for more information).</li>
 
-            <li>While in Director's Cut mode, and on Scene 1, <a href="#power">activate N31L</a> and make your way to the Arcade in the Theatre. Interact with the <a href="pictures/lobby_music/shooting_gallery.webp">Octonian Hunter shooting gallery</a>. The White Talisman mask will drop down from the ceiling (like the UFO in the actual game) and move across the top of the shooting gallery. Shoot the Mask to unlock the lobby music.</li>
+            <li>While in Director's Cut mode, and on Scene 1, <a href="#power" class="link-to-page">activate N31L</a> and make your way to the Arcade in the Theatre. Interact with the <a href="pictures/lobby_music/shooting_gallery.webp">Octonian Hunter shooting gallery</a>. The White Talisman mask will drop down from the ceiling (like the UFO in the actual game) and move across the top of the shooting gallery. Shoot the Mask to unlock the lobby music.</li>
             <ul>
                 <li>This can only be attempted once per game, and you will need to restart if you don't shoot the mask.</li>
             </ul>
@@ -664,7 +669,7 @@
     <div class="content-container" id="message_sent">
         <h2 class="section-title">Message Sent (Achievement)</h2>
         <ol>
-            <li>Obtain the Entangler weapon from <a href="#skull_breaker">Skull 2</a> of the Skull Breaker side quest.</li>
+            <li>Obtain the Entangler weapon from <a href="#skull_breaker" class="link-to-page">Skull 2</a> of the Skull Breaker side quest.</li>
             <li>Interact with the <a href="pictures/message_sent/console.webp">console in the snowy outside area</a>, near the Magic Wheel location, until it shows "197#." This will spawn a <a href="pictures/message_sent/vortex.webp">vortex left of the console</a>.</li>
             <li>Go to the street in front of the Theatre. Grab the <a href="pictures/message_sent/turnstile.webp">Turnstile</a> with the Entangler from the back left side of the dumpster with the KBS Longbow wallbuy on the front.</li>
             <li>Walk the Turnstile back to the vortex in the outside area, then shoot it into the vortex.</li>
@@ -695,7 +700,7 @@
 
         <ul>
             <p class="step-group-title" id="how_to_unlock_dir_cut">How to Unlock Director's Cut</p>
-            <li>Director's Cut (DC) is an unlockable mode that requires you to complete all five Main Quest (<a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee">ZiS - Sooooul Key</a>, <a href="/games/IW/rave_in_the_redwoods/rave_in_the_redwoods_guide.html#main_ee">RitR - Locksmith</a>, <a href="/games/IW/shaolin_shuffle/shaolin_shuffle_guide.html#main_ee">SS - Pest Control</a>, <a href="/games/IW/attack_of_the_radioactive_thing/attack_of_the_radioactive_thing_guide.html#main_ee">AotRT - Soul-Less</a>, and <a href="#main_ee">TBFB - The End?</a>). Then interact with the Soul Jar in the Projector room of any map.</li>
+            <li>Director's Cut (DC) is an unlockable mode that requires you to complete all five Main Quest (<a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#main_ee" class="link-to-page">ZiS - Sooooul Key</a>, <a href="/games/IW/rave_in_the_redwoods/rave_in_the_redwoods_guide.html#main_ee" class="link-to-page">RitR - Locksmith</a>, <a href="/games/IW/shaolin_shuffle/shaolin_shuffle_guide.html#main_ee" class="link-to-page">SS - Pest Control</a>, <a href="/games/IW/attack_of_the_radioactive_thing/attack_of_the_radioactive_thing_guide.html#main_ee" class="link-to-page">AotRT - Soul-Less</a>, and <a href="#main_ee" class="link-to-page">TBFB - The End?</a>). Then interact with the Soul Jar in the Projector room of any map.</li>
             <li>This will allow you to toggle Director's Cut mode on the pre-game lobby screen.</li>
         </ul>
 
@@ -704,61 +709,61 @@
             <li>While in Director's Cut (DC for short), there are Talisman Masks you can shoot to unlock additional lobby music. See the Additional Lobby Music sections for each of the maps for more info.</li>
             <li>Upon completion of all the Quest again in DC, you will be given a Talisman to pick up. Upon collection of the Talisman, you will be rewarded with a special animated calling card based on the map.</li>
             <li>Once you collect four (not including Beast) Talismans, the next time you complete the Beast Main Quest, you will be put into the Mephistopheles Boss Fight. This is the final, and most challenging boss in this game (see the Mephistopheles Boss Fight section for how to beat him).</li>
-            <li>Once you beat Mephistopheles, you will be rewarded with the animated calling card of Mephistopheles called "<a href="pictures/meph_dc.gif">Demon Slayer</a>" and an animated camouflage titled "Director's Cut Camouflage." As well as the ability to play as Willard Wyler on Spaceland (see the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#wyler_code">Play as Willard Wyler</a> section of the Spaceland guide for more information).</li>
+            <li>Once you beat Mephistopheles, you will be rewarded with the animated calling card of Mephistopheles called "<a href="pictures/meph_dc.gif">Demon Slayer</a>" and an animated camouflage titled "Director's Cut Camouflage." As well as the ability to play as Willard Wyler on Spaceland (see the <a href="/games/IW/zombies_in_spaceland/zombies_in_spaceland_guide.html#wyler_code" class="link-to-page">Play as Willard Wyler</a> section of the Spaceland guide for more information).</li>
         </ul>
 
         <ul>
             <p class="step-group-title" id="meph_fight">Mephistopheles Boss Fight</p>
-            <li>The Mephistopheles (Meph for short) boss fight is very complicated, and I feel I can't effectively explain it with in the website's format. See <a href="https://youtu.be/MRLTyFwOb8M?t=40">this video</a> (skip to <a href="https://youtu.be/MRLTyFwOb8M?t=271">4:31</a> to skip loadout tips) by <a href="https://www.youtube.com/@steviewacky3945">Steviewacky</a> for how to beat the fight (he kinda yaps a bit, so I recommend you play the video at least 1.25x or 1.5x speed).</li>
+            <li>The Mephistopheles (Meph for short) boss fight is very complicated, and I feel I can't effectively explain it with in the website's format. See <a href="https://youtu.be/MRLTyFwOb8M?t=40" class="external-link">this video</a> (skip to <a href="https://youtu.be/MRLTyFwOb8M?t=271" class="external-link">4:31</a> to skip loadout tips) by <a href="https://www.youtube.com/@steviewacky3945" class="external-link">Steviewacky</a> for how to beat the fight (he kinda yaps a bit, so I recommend you play the video at least 1.25x or 1.5x speed).</li>
             <li>Tips for completion:</li>
             <ul>
                 <li>ALWAYS, ALWAYS, ALWAYS pay attention to Meph. All the attacks have specific animations that indicate the coming attack. The only exception to this is the Wall spawning/Zombie spawning animation, which share the "raises both arms" animation. I always assume this is the wall attack, and get out of the way.</li>
                 <li>Prioritize safety over completion. There is no downside to taking your time and being safe. It will probably save you time when you consider the reset time (redoing the Beast Quest). Don't try to be the hero, and die standing on the talisman circle; just run, be safe, and try again.</li>
                 <li>Practice in the Boss Battles mode. The worst part of the Meph fight is the long reset time when you die. This can be mitigated by playing in the Boss Battles mode in the lobby menu. You won't get the rewards, but you will be able to quickly retry the fight after dying.</li>
             </ul>
-            <li>Link to the <a href="https://youtu.be/WSIeqTZ5KYM?t=0">song (YouTube)</a> that plays during the fight.</li>
+            <li>Link to the <a href="https://youtu.be/WSIeqTZ5KYM?t=0" class="external-link">song (YouTube)</a> that plays during the fight.</li>
         </ul>
     </div>
 </div>
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
-<script src="venom/venom_main_cont_html.js?v=1759103273862"></script>
-<script src="venom/box/venom_x_box_html_helper.js?v=1759103273862"></script>
-<script src="venom/box/venom_x_box.js?v=1759103273862"></script>
-<script src="skull_5/eight_queens_html_helper.js?v=1759103273862"></script>
-<script src="skull_5/eight_queens.js?v=1759103273862"></script>
-<script src="venom/venom_maze/maze_board_html_helper.js?v=1759103273862"></script>
-<script src="venom/venom_maze/maze.js?v=1759103273862"></script>
-<script src="venom/venom_y/venom_y_morse_code.js?v=1759103273862"></script>
-<script src="floppy_disk_puzzle/floppy_disk_solver.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
+<script src="venom/venom_main_cont_html.js?v=1759169821123"></script>
+<script src="venom/box/venom_x_box_html_helper.js?v=1759169821123"></script>
+<script src="venom/box/venom_x_box.js?v=1759169821123"></script>
+<script src="skull_5/eight_queens_html_helper.js?v=1759169821123"></script>
+<script src="skull_5/eight_queens.js?v=1759169821123"></script>
+<script src="venom/venom_maze/maze_board_html_helper.js?v=1759169821123"></script>
+<script src="venom/venom_maze/maze.js?v=1759169821123"></script>
+<script src="venom/venom_y/venom_y_morse_code.js?v=1759169821123"></script>
+<script src="floppy_disk_puzzle/floppy_disk_solver.js?v=1759169821123"></script>
 
 
 </body></html>

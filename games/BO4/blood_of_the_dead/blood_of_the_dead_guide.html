@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Blood of the Dead Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -44,6 +44,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Blood of the Dead Guide</h2>
@@ -100,8 +105,8 @@
     <div class="content-container" id="pap">
         <h2 class="section-title">Pack-a-Punch</h2>
         <ol>
-            <li>Activate the <a href="#power">Power</a>.</li>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
+            <li>Activate the <a href="#power" class="link-to-page">Power</a>.</li>
+            <li>Obtain the <a href="#spectral_shield" class="link-to-page">Spectral Shield</a>.</li>
             <li>Spirit blast the <a href="pictures/pap/voltmeter.webp">Voltmeter</a> on the roof to spawn the Pack-a-Punch.</li>
             <li>The Pack-a-Punch will teleport between the following three locations. There is <strong>no way</strong> (that we know of) to figure out where the Pack-a-Punch is without checking each location. Locations: </li>
             <ul>
@@ -115,9 +120,9 @@
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons and Buildables" id="blundergat">
         <h2 class="section-title">Blundergat</h2>
-        <p class="weapon-desc">The Blundergat is a shotgun with four barrels that all fire all at once, using only one bullet per shot. The Blundergat can be Pack-a-Punched and does not require an Easter Egg to do so. Also, the Blundergat can be converted into the <a href="#acidgat">Acidgat</a> or <a href="#magmagat">Magmagat</a>. The Blundergat is available through the mystery box and via the following quest: </p>
+        <p class="weapon-desc">The Blundergat is a shotgun with four barrels that all fire all at once, using only one bullet per shot. The Blundergat can be Pack-a-Punched and does not require an Easter Egg to do so. Also, the Blundergat can be converted into the <a href="#acidgat" class="link-to-page">Acidgat</a> or <a href="#magmagat" class="link-to-page">Magmagat</a>. The Blundergat is available through the mystery box and via the following quest: </p>
         <ol>
-            <li>Obtain the <a href="#hells_retriever">Hell's Retriever</a>.</li>
+            <li>Obtain the <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a>.</li>
             <li>Around the map, five Skulls need to be collected with the Hell's Retriever. The Skulls can only be seen through the shield (The shield is not required to pick up the skulls, only to see them).</li>
             <ul>
                 <li><a href="pictures/blundergat/skull_westgrounds.webp">West Grounds - On the stairs, just outside the spawn building</a></li>
@@ -133,7 +138,7 @@
         <p class="weapon-desc">The Acidgat is an upgraded version of the Blundergat that fires three acid bullets in a burst. These bullets stick to surfaces and enemies, exploding after a few seconds to damage both Zombies and the player. Additionally, they attract Zombies, luring them in until detonation.</p>
         <ol>
             <p class="warning">The Acidgat can do heavy damage to the player (~25-50 health for the whole burst) if they do not have PhD Slider, so standing near an acid bullet should be avoided whenever possible.</p>
-            <li>Obtain the <a href="#blundergat">Blundergat</a>.</li>
+            <li>Obtain the <a href="#blundergat" class="link-to-page">Blundergat</a>.</li>
             <li>Obtain the <a href="pictures/spectral_shield/wardens_key.webp">Warden's Key</a> from killing the Warden for the first time.</li>
             <li>The Acidgat Kit requires three parts to be built:</li>
             <ul>
@@ -148,7 +153,7 @@
         <p class="upgrade-title" id="magmagat">Magmagat</p>
         <p class="weapon-desc">The Magmagat is an upgraded Blundergat that launches a lava ball. When this ball sticks to a Zombie, it explodes, killing it. If shot at the ground, the ball remains for a few seconds, attracting Zombies and continuously damaging those nearby. The ball does minimal damage to the player when standing on it (~1-2 health/sec).</p>
         <ol>
-            <li>Obtain the <a href="#blundergat">Blundergat</a>.</li>
+            <li>Obtain the <a href="#blundergat" class="link-to-page">Blundergat</a>.</li>
             <li>Place the Blundergat in the <a href="pictures/blundergat/magmagat/fireplace.webp">Fireplace</a> in the 'Warden's House.' </li>
             <li>You must stay in the 'Warden's House' until the essence has been deposited, or the Blundergat will disappear. While in the 'Warden's House,' kill Zombies and pick up the <a href="pictures/blundergat/magmagat/blue_essence.webp">Blue Essence</a> they drop. Once enough essence has been collected, Zombies will no longer drop any.</li>
             <li>Deposit the essence into the Fireplace to convert the Blundergat into the Tempered Blundergat. You must pick it up within 30 seconds, or it will disappear. The Tempered Blundergat cools over time, reverting to the Blundergat. Touching <a href="pictures/blundergat/magmagat/bluebarrel_example.webp">Blue Flaming Barrels</a> resets the cooling timer. Travel from 'Warden's House' to 'New Industries' without it going out; fast travelling will extinguish it. If it goes out, reignite it at the fireplace. There are five barrels on the path from 'Warden's House' to 'New Industries': </li>
@@ -168,7 +173,7 @@
     <div class="content-container" id="hells_retriever">
         <h2 class="section-title">Hell's Retriever</h2>
         <ol>
-            <li>Activate the <a href="#power">Power</a>.</li>
+            <li>Activate the <a href="#power" class="link-to-page">Power</a>.</li>
             <li>Feed three Hellhounds with Zombies by killing Zombies near them. Only one Zombie can be fed to a Hellhound at a time, so wait for the Hound to finish chewing before killing another Zombie. Three Hellhound locations: </li>
             <ul>
                 <li><a href="pictures/hells_retriever/hellhound_newindustries.webp">New Industries - Left of the GKS wallbuy</a></li>
@@ -190,7 +195,7 @@
                 <li><a href="pictures/hells_retriever/hells_redeemer/bluespot_nearprison.webp">At the top of the first stairs leading to the Prison</a> <strong>(For me, this location has been inconsistent)</strong>
                 </li>
             </ul>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
+            <li>Obtain the <a href="#spectral_shield" class="link-to-page">Spectral Shield</a>.</li>
             <li>In one of the following locations, a <a href="pictures/hells_retriever/hells_redeemer/blue_dog_symbol.webp">blue hellhound drawing</a> can be seen using the Spectral Shield. Once found, throw the Hell's Retriever at the drawing. If done correctly, the drawing will disappear and the Hell's Retriever will be taken from you.</li>
             <ul>
                 <li><a href="pictures/hells_retriever/hells_redeemer/blue_dog_symbols/bluedog_mysterybox.webp">Recreation Yard - Left of Mystery Box</a></li>
@@ -217,8 +222,8 @@
     <div class="content-container" id="spoon">
         <h2 class="section-title">Spoon</h2>
         <ol>
-            <p class="warning">Recommended: If you plan on getting the <a href="#golden_scalpel">Golden Scalpel</a> Upgrade, equip the Ethereal Razor (Modifier slot or not) and Timeslip (not as important) perks. If you plan to get the <a href="#golden_sporknife">Golden Sporknife</a>, equip the Sword Flay Elixir, as it makes killing the Warden with melee a lot easier.</p>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a> and <a href="#hells_retriever">Hell's Retriever</a>.</li>
+            <p class="warning">Recommended: If you plan on getting the <a href="#golden_scalpel" class="link-to-page">Golden Scalpel</a> Upgrade, equip the Ethereal Razor (Modifier slot or not) and Timeslip (not as important) perks. If you plan to get the <a href="#golden_sporknife" class="link-to-page">Golden Sporknife</a>, equip the Sword Flay Elixir, as it makes killing the Warden with melee a lot easier.</p>
+            <li>Obtain the <a href="#spectral_shield" class="link-to-page">Spectral Shield</a> and <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a>.</li>
             <li>Navigate to the Warden's Office. On the pillars in the Office, <a href="pictures/spoon/number_on_pillars.webp">three numbers</a> can be seen using the shield's vision. The numbers are ordered close, middle, far.</li>
             <li>In the 'Citadel Tunnels,' spirit blast the <a href="pictures/spoon/number_pad.webp">Number Pad</a> with the shield to activate it. Once activated, interact with each of the three panels to change them to the numbers seen in the Office. Once the correct numbers have been entered, the elevator in the middle of the spiral staircase will break and fall into the water.</li>
             <li>Spirit blast the <a href="pictures/spoon/docks_voltmeter.webp">Voltmeter</a> at the Docks to activate the crane. The Crane will raise a net from the water and move toward the docks. Once the net has <a href="pictures/spoon/net_above_docks.webp">stopped above the docks</a>, throw the Hell's Retriever at the net to cut off the arm of the skeleton, making it drop onto a <a href="pictures/spoon/box_no_spoon.webp">box</a>.</li>
@@ -229,8 +234,8 @@
         <p class="upgrade-title" id="golden_spork">Golden Spork</p>
         <p class="weapon-desc">The Golden Spork can one-hit kill Zombies until round 34.</p>
         <ol>
-            <li>Obtain the <a href="#acidgat">Acidgat</a> or <a href="#magmagat">Magmagat</a>.</li>
-            <li>Place the <a href="#spoon">Spoon</a> in the <a href="pictures/spoon/golden_spork/tub_empty_infirmary.webp">Bathtub</a> in the 'Infirmary.' </li>
+            <li>Obtain the <a href="#acidgat" class="link-to-page">Acidgat</a> or <a href="#magmagat" class="link-to-page">Magmagat</a>.</li>
+            <li>Place the <a href="#spoon" class="link-to-page">Spoon</a> in the <a href="pictures/spoon/golden_spork/tub_empty_infirmary.webp">Bathtub</a> in the 'Infirmary.' </li>
             <li>Kill Zombies on the 'Roof' with the Magmagat or Acidgat until the Bathtub is <a href="pictures/spoon/golden_spork/tub_full_infirmary.webp">full of blood</a>.</li>
             <li>Once the Bathtub is full of blood, interact with it to drain the tub. The Spoon will now be gone from the tub.</li>
             <li>Shoot the four <a href="pictures/spoon/golden_spork/support_example.webp">Yellow Supports</a> of the <a href="pictures/spoon/golden_spork/water_tower.webp">Water Tower near the Catwalk</a>.</li>
@@ -247,8 +252,8 @@
         <p class="upgrade-title" id="golden_scalpel">Golden Scalpel</p>
         <p class="warning">Recommended: Equip the Ethereal Razor (Modifier slot or not) and Timeslip (Not as important) Perks</p>
         <ol>
-            <li>Obtain the <a href="#hells_redeemer">Hell's Redeemer</a>.</li>
-            <li>Once you have the Hell's Redeemer, kill 100 Zombies with the <a href="#golden_spork">Golden Spork</a> anywhere on the map. Once you get 100 kills, a sound will play and the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub will turn Dark Red</a>.</li>
+            <li>Obtain the <a href="#hells_redeemer" class="link-to-page">Hell's Redeemer</a>.</li>
+            <li>Once you have the Hell's Redeemer, kill 100 Zombies with the <a href="#golden_spork" class="link-to-page">Golden Spork</a> anywhere on the map. Once you get 100 kills, a sound will play and the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub will turn Dark Red</a>.</li>
             <ul>
                 <li>The kills don't have to be in a row.</li>
                 <li>You <strong>do not</strong> need to get the kills while standing near the <a href="pictures/spoon/golden_scalpel/orange_tub.webp">Orange Tub</a> in the 'New Industries' building (as many old guides say).</li>
@@ -275,7 +280,7 @@
         <p class="upgrade-title" id="golden_sporknife">Golden Sporknife</p>
         <p class="weapon-desc">The Golden Sporknife can one-hit kill any enemy (including the Warden) on any round.</p>
         <ol>
-            <li>Place the <a href="#golden_scalpel">Golden Scalpel</a> in the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub</a> in the 'New Industries' building. A Skeleton's Hand will take the Golden Scalpel.</li>
+            <li>Place the <a href="#golden_scalpel" class="link-to-page">Golden Scalpel</a> in the <a href="pictures/spoon/golden_scalpel/red_tub.webp">Tub</a> in the 'New Industries' building. A Skeleton's Hand will take the Golden Scalpel.</li>
             <li>Wait for the Warden to spawn. Tip: You can spawn the Warden by entering "666" into the <a href="pictures/spoon/number_pad.webp">Number Pad</a> in the 'Citadel Tunnels' (this can only be done once per game).</li>
             <li>Kill the Warden by near <a href="pictures/spoon/golden_sporknife/sign_with_knife_and_cloth.webp">this sign with the Knife and piece of cloth</a> on the 'Catwalk.' You can shoot the Warden to weaken him, but the final blow has to come from a Melee Attack (The Path of Sorrows doesn't work).</li>
             <ul>
@@ -311,12 +316,12 @@
             </ul>
             <li>Craft the Spectral Shield at the <a href="pictures/buildable_tables/transverse_tunnel.webp">Transverse Tunnel</a>, <a href="pictures/buildable_tables/cellblock3rdfloor.webp">Cell Block 3rd Floor</a> or <a href="pictures/buildable_tables/docks.webp">Docks</a>.</li>
             <li>To charge the shield, kill Zombies with the shield Key to collect their souls. Three souls are required per charge/spirit blast, and the Spectral Shield can hold two charges.</li>
-            <li>Once per round, you can get a <a href="#free_max_shield_charge">free refill on the shield charges</a> by interacting with a sparking power box around the map.</li>
+            <li>Once per round, you can get a <a href="#free_max_shield_charge" class="link-to-page">free refill on the shield charges</a> by interacting with a sparking power box around the map.</li>
         </ol>
 
         <p class="upgrade-title" id="attuned_spectral_shield">Attuned Spectral Shield</p>
         <ol>
-            <li>Obtain the <a href="#hells_retriever">Hell's Retriever</a>.</li>
+            <li>Obtain the <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a>.</li>
             <li>Use the Mystery Box until the <a href="pictures/spectral_shield/attuned_spectral_shield/regular_lock.webp">Lock</a> appears (Lock appears when the box is moving).</li>
             <li>Use the Key from the Spectral Shield on the Lock until it turns <a href="pictures/spectral_shield/attuned_spectral_shield/blue_lock.webp">blue</a>.</li>
             <li>Throw the Hell's Retriever at the Blue Lock to collect it. Note: Any player, anywhere around the map, can throw the Hell's Retriever at the same time as the player at the box to get the upgrade as well. Otherwise, the other players need to do this if they want the upgrade.</li>
@@ -375,14 +380,14 @@
             <li>For the fullest/best experience, play as Richtofen. When you spawn in, if you interact with <a href="pictures/main_ee/samuels_cryo_pod.webp">Samuel's Cryo Pod</a> after the opening voice lines are finished you will hear Richtofen say, "Ahh, you have all remained safe for so long, my little popsicles...". For the remainder of the Easter Egg, Samuel and Richtofen will talk to each other about what is happening during the Easter Egg.</li>
 
             <p class="step-group-title" id="main_ee_step1">Unleash the Spirits</p>
-            <li>Activate <a href="#pap">Pack-a-Punch</a>.</li>
+            <li>Activate <a href="#pap" class="link-to-page">Pack-a-Punch</a>.</li>
 
             <p class="step-group-title" id="main_ee_step2">Shock and Denial</p>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>, <a href="#hells_retriever">Hell's Retriever</a> and <a href="#spoon">Spoon</a>.</li>
+            <li>Obtain the <a href="#spectral_shield" class="link-to-page">Spectral Shield</a>, <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a> and <a href="#spoon" class="link-to-page">Spoon</a>.</li>
             <li>Melee the <a href="pictures/main_ee/shock_and_denial/wall_top_of_stairs.webp">wall at the top of the stairs</a>, left of the Titan wallbuy, in the 'Warden's House' with the Spoon. If done correctly, the wall will become <a href="pictures/main_ee/shock_and_denial/scratched_wall.webp">scratched</a>.</li>
             <li>You need to have the Warden slam the ground in front of the scratched wall. You can spawn the Warden by entering "666" into the <a href="pictures/spoon/number_pad.webp">Number Pad</a> in the 'Citadel Tunnels' (this can only be done once per game). The Warden's slam attack can be triggered in two ways: </li>
             <ul>
-                <li>Obtain <a href="#free_monkey_bomb">Monkey Bombs</a>. Wait for/Spawn the Warden. Throw a Monkey Bomb below the scratched wall and run down the stairs (No players should be near the wall with the Warden). If done correctly, the Warden should run to the Monkey Bomb and perform a slam.</li>
+                <li>Obtain <a href="#free_monkey_bomb" class="link-to-page">Monkey Bombs</a>. Wait for/Spawn the Warden. Throw a Monkey Bomb below the scratched wall and run down the stairs (No players should be near the wall with the Warden). If done correctly, the Warden should run to the Monkey Bomb and perform a slam.</li>
                 <li>Starting on Round 18, the Warden will gain an electric slam attack when near a player (not recommended due to needing to wait for Round 18) </li>
             </ul>
             <li>Once the Warden slams near the wall, the wall should fall, revealing the 'Warden's Ritual Room.' Activate the <a href="pictures/main_ee/shock_and_denial/electric_chair_switch.webp">switch next to the electric chair</a> and pick up the <a href="pictures/main_ee/shock_and_denial/red_stone_ritual_room.webp">Red Stone</a> from the table near the electric chair.</li>
@@ -394,7 +399,7 @@
             <ul>
                 <li>The first seagull might only spawn in five locations, which are marked in <span class="bird-highlight-green">green</span> in the list below. If you can't find it in the locations in <span class="bird-highlight-green">green</span>, then try the spawns near those.</li>
                 <li>Note: There is a way to know roughly where the Seagull is going to be for the second and third spawns. On the round before the second spawn (i.e. the round you found the first location) end the round at the top of the Gondola (the Gondola doesn't have to be there). Once you kill the last zombie, look <a href="pictures/main_ee/pain_and_guilt/aim_here_bird_step.webp">about here, out to the water</a> and wait for a subtle <a href="pictures/main_ee/pain_and_guilt/blue_light_streak_bird.webp">Blue Light Streak</a> coming from the water to shoot toward somewhere on the map. The light indicates what area of the map the Seagull has spawned: The right of your screen means it spawned in the 'Warden's Office'/'Citadel' area, Down means 'Docks,' and the left side of the screen means Spawn Area/'Catwalk.' </li>
-                <li>There are 42 Locations the Seagull can be in. <a href="https://youtu.be/BcyyoyEDXVc">Video Guide</a> by <a href="https://www.youtube.com/@MysteryHQ">MysteryHQ</a> or Pictures Below: </li>
+                <li>There are 42 Locations the Seagull can be in. <a href="https://youtu.be/BcyyoyEDXVc" class="external-link">Video Guide</a> by <a href="https://www.youtube.com/@MysteryHQ" class="external-link">MysteryHQ</a> or Pictures Below: </li>
             </ul>
 
             <details class="spacing">
@@ -477,10 +482,10 @@
                 </ol>
             </details>
             <li>Once the bird has been spirit blasted three times, on the following round, in addition to a Seagull squawking, a man can also be heard crying. When looking through the shield, the Bird will have been replaced with a <a href="pictures/main_ee/pain_and_guilt/white_flash.webp">white light</a> that flashes every couple of seconds. The light can only be in the locations in <span class="bird-highlight-orange">orange</span> in the list above.</li>
-            <li>Obtain the <a href="#hells_retriever">Hell's Retriever</a> if you replaced it with Monkey Bombs for step 4.</li>
+            <li>Obtain the <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a> if you replaced it with Monkey Bombs for step 4.</li>
             <li>The Bird can now only be seen while in 'Zombie Blood.' To obtain 'Zombie Blood,' spirit blast the <a href="pictures/spoon/number_pad.webp">Number Pad</a> in 'Citadel Tunnels' and enter "872". A 'Zombie Blood' Power-up will spawn (The Temporal Gift Elixir will increase the duration of the Zombie Blood Effect).</li>
             <li>With 'Zombie Blood' active, return to the White Light and look through the shield to see if the Bird is standing on the Kronorium. <strong>DON'T look at the bird through the shield for too long, just look until the Kronorium spawns below the bird</strong>. Once you see the Kronorium spawn, quickly put away the shield and make sure no other players are in the room. Throw the Hell's Retriever at the Kronorium to make it <a href="pictures/main_ee/pain_and_guilt/kronorium_on_floor_bird.webp">appear at your feet</a>. Pickup the Kronorium.</li>
-            <li><strong>Recommended but NOT required: The remainder of the Main Quest utilizes the shield a lot, so you should obtain the <a href="#attuned_spectral_shield">Attuned Spectral Shield</a> for the increased "ammo" capacity and health. Also, The Hell's Retriever is no longer required for the Main Quest (but is required for many side Easter Eggs, like the shield upgrade), so if you'd prefer to get <a href="#free_monkey_bomb">Monkey Bombs</a> it's safe to do so now.</strong></li>
+            <li><strong>Recommended but NOT required: The remainder of the Main Quest utilizes the shield a lot, so you should obtain the <a href="#attuned_spectral_shield" class="link-to-page">Attuned Spectral Shield</a> for the increased "ammo" capacity and health. Also, The Hell's Retriever is no longer required for the Main Quest (but is required for many side Easter Eggs, like the shield upgrade), so if you'd prefer to get <a href="#free_monkey_bomb" class="link-to-page">Monkey Bombs</a> it's safe to do so now.</strong></li>
             <li>Return to the 'Warden's Ritual Room' and place the Kronorium on the corpse in the chair. The pages should begin flipping; interact with them to make them stop.
 
                 <p class="step-group-title" id="main_ee_step4">Anger and Bargaining</p>
@@ -488,16 +493,16 @@
             <li>The <a href="pictures/main_ee/anger_and_bargaining/lighthouse.webp">Lighthouse</a> near the 'Warden's House' will now be shining its light on a <a href="pictures/main_ee/anger_and_bargaining/red_orb_example.webp">Red Orb</a>, which can only be seen with the shield. The red orb is in one of five locations and corresponds to a challenge the players must complete. Spirit Blast the orb to make it visible without the shield and to start the challenge.</li>
             <li>Once a Challenge is complete, return to the Kronorium in the 'Warden's Ritual Room' for another set of numbers. Red Orb Locations: </li>
             <ul>
-                <li><a href="#docks_challenge">Docks</a> --- <a href="pictures/main_ee/anger_and_bargaining/docks_orb_loc.webp">Orb Location</a></li>
-                <li><a href="#showers_challenge">Showers </a> --- <a href="pictures/main_ee/anger_and_bargaining/showers_orb_loc.webp">Orb Location</a></li>
-                <li><a href="#michigan_avenue_challenge">Michigan Avenue</a> --- <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_orb.webp">Orb Location</a></li>
-                <li><a href="#power_house_challenge">Power House</a> --- <a href="pictures/main_ee/anger_and_bargaining/power_house_orb_loc.webp">Orb Location</a></li>
-                <li><a href="#new_industries_challenge">New Industries</a> --- <a href="pictures/main_ee/anger_and_bargaining/new_industries_orb_loc.webp">Orb Location</a></li>
+                <li><a href="#docks_challenge" class="link-to-page">Docks</a> --- <a href="pictures/main_ee/anger_and_bargaining/docks_orb_loc.webp">Orb Location</a></li>
+                <li><a href="#showers_challenge" class="link-to-page">Showers </a> --- <a href="pictures/main_ee/anger_and_bargaining/showers_orb_loc.webp">Orb Location</a></li>
+                <li><a href="#michigan_avenue_challenge" class="link-to-page">Michigan Avenue</a> --- <a href="pictures/main_ee/anger_and_bargaining/michigan_avenue_orb.webp">Orb Location</a></li>
+                <li><a href="#power_house_challenge" class="link-to-page">Power House</a> --- <a href="pictures/main_ee/anger_and_bargaining/power_house_orb_loc.webp">Orb Location</a></li>
+                <li><a href="#new_industries_challenge" class="link-to-page">New Industries</a> --- <a href="pictures/main_ee/anger_and_bargaining/new_industries_orb_loc.webp">Orb Location</a></li>
             </ul>
 
             <p class="sub-sub-step" id="docks_challenge">Docks Challenge - 2/5 Difficulty</p>
             <ol>
-                <li>In the water around the map, three buoys will begin flashing a single-digit number in Morse code (<a href="/games/common_images/morse_code.webp">Cheat Sheet</a> or <a href="https://morsedecoder.com/">Decoder website</a>). The flashing can only be seen with the shield. Note down the number each buoy is flashing. Buoy Locations: </li>
+                <li>In the water around the map, three buoys will begin flashing a single-digit number in Morse code (<a href="/games/common_images/morse_code.webp">Cheat Sheet</a> or <a href="https://morsedecoder.com/" class="external-link">Decoder website</a>). The flashing can only be seen with the shield. Note down the number each buoy is flashing. Buoy Locations: </li>
                 <ul>
                     <li><a href="pictures/main_ee/anger_and_bargaining/docks_challenge/buoy_gondola.webp">Upper Gondola Platform - To the left of the Gondola</a></li>
                     <li>'Recreation Yard' - Top of the slope, near the Swordfish wallbuy --- <a href="pictures/main_ee/anger_and_bargaining/docks_challenge/buoy_recyard_establishing.webp">Window to stand at</a> --- <a href="pictures/main_ee/anger_and_bargaining/docks_challenge/buoy_recyard.webp">Buoy in water</a></li>
@@ -556,7 +561,7 @@
 
             <p class="sub-sub-step" id="new_industries_challenge">New Industries Challenge - 5/5 Difficulty (4/5 with the Undead Man Walking elixir)</p>
             <ol>
-                <li>Obtain the <a href="#attuned_spectral_shield">Attuned Spectral Shield</a> with 3-4 Charges. Technically, the upgraded shield is not required, but without it, it's a lot harder. You can get a <a href="#free_max_shield_charge">free full refill for the shield</a> once per round.</li>
+                <li>Obtain the <a href="#attuned_spectral_shield" class="link-to-page">Attuned Spectral Shield</a> with 3-4 Charges. Technically, the upgraded shield is not required, but without it, it's a lot harder. You can get a <a href="#free_max_shield_charge" class="link-to-page">free full refill for the shield</a> once per round.</li>
                 <li>Kill a Zombie in <a href="pictures/main_ee/anger_and_bargaining/new_industries_challenge/d_block.webp">'D-Block'</a> to spawn a Ghost, which can only be seen with the shield.</li>
                 <ul>
                     <li>If you do not have the Undead Man Walking elixir, pull out your Specialist Weapon near a Zombie to spawn the Ghost without ending the round.</li>
@@ -603,9 +608,9 @@
     <!-- Song -->
     <div class="content-container" id="song_ee">
         <h2 class="section-title">'Where Are We Going (2018 Edition)' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542635676">here</a>.</p>
+        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542635676" class="external-link">here</a>.</p>
         <ol>
-            <li>Obtain the <a href="#spectral_shield">Spectral Shield</a>.</li>
+            <li>Obtain the <a href="#spectral_shield" class="link-to-page">Spectral Shield</a>.</li>
             <li>In the 'Citadel Tunnels,' spirit blast the <a href="pictures/spoon/number_pad.webp">Number Pad</a> to activate it.</li>
             <li>Enter "115" to start the song.</li>
         </ol>
@@ -717,7 +722,7 @@
             <tr>
                 <td>Round 9</td>
                 <td>Helluva Appetite</td>
-                <td>At least one player must possess <a href="#hells_retriever">Hell's Retriever</a> at the end of the round.
+                <td>At least one player must possess <a href="#hells_retriever" class="link-to-page">Hell's Retriever</a> at the end of the round.
                 </td>
             </tr>
             <tr>
@@ -733,7 +738,7 @@
             <tr>
                 <td>Round 12</td>
                 <td>Brain Soup</td>
-                <td>Get at least 20 <a href="#spoon">Spoon</a> kills by round end. Unrelated weapons are locked out.
+                <td>Get at least 20 <a href="#spoon" class="link-to-page">Spoon</a> kills by round end. Unrelated weapons are locked out.
                 </td>
             </tr>
             <tr>
@@ -759,7 +764,7 @@
             <tr>
                 <td>Round 17</td>
                 <td>Oh My Gat!</td>
-                <td>Forge the <a href="#magmagat">Magmagat</a> during the round.</td>
+                <td>Forge the <a href="#magmagat" class="link-to-page">Magmagat</a> during the round.</td>
             </tr>
             <tr>
                 <td>Round 18</td>
@@ -835,33 +840,33 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
 
 
 </body></html>

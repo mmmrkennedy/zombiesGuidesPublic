@@ -70,55 +70,16 @@ function addVersionPlaceholders(htmlContent, filePath) {
     });
 
     // Add version display component to index.html if not present
-    if (path.basename(filePath) === 'index.html' && !newContent.includes('version-display')) {
-        const versionDisplayComponent = `
-    <!-- Version display component -->
-    <div class="version-display" data-version="0">
-        v.<span id="version-number">0</span>
-    </div>
-
-    <style>
-        .version-display {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            font-family: monospace, 'Courier New', serif;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.4);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 4px 8px;
-            border-radius: 3px;
-            backdrop-filter: blur(2px);
-            pointer-events: none;
-            z-index: 9999;
-            user-select: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        @media (prefers-color-scheme: light) {
-            .version-display {
-                color: rgba(0, 0, 0, 0.4);
-                background: rgba(255, 255, 255, 0.3);
-            }
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const versionDisplay = document.querySelector('.version-display');
-            const versionNumber = document.getElementById('version-number');
-            
-            if (versionDisplay && versionNumber) {
-                const version = versionDisplay.getAttribute('data-version') || '0';
-                versionNumber.textContent = version === '0' ? 'dev' : version.toString().slice(-6);
-                console.log('Website version:', version);
-            }
-        });
-    </script>`;
+    // if (path.basename(filePath) === 'index.html' && !newContent.includes('version-display')) {
+    if ((path.basename(filePath) === 'index.html' || filePath.startsWith("games")) && !newContent.includes('version-display')) {
+        const versionDisplayComponent = `<!-- Version display component -->
+<div class="version-display" data-version="0">
+    v.<span id="version-number">0</span>
+</div>`;
 
         // Insert before closing </body> tag
-        if (newContent.includes('</body>')) {
-            newContent = newContent.replace('</body>', versionDisplayComponent + '\n</body>');
+        if (newContent.includes('<body>')) {
+            newContent = newContent.replace('<body>', '<body>\n' + versionDisplayComponent + '\n');
             changes.push('Added version display component');
             modified = true;
         } else {
@@ -128,6 +89,9 @@ function addVersionPlaceholders(htmlContent, filePath) {
             modified = true;
         }
     }
+    // } else {
+    //     // console.log(`Skipping path: ${filePath} because of Option 1: ${!(path.basename(filePath) === 'index.html' || filePath.startsWith("games"))} or Option 2: ${!!newContent.includes('version-display')}`);
+    // }
 
     return { content: newContent, modified, changes };
 }

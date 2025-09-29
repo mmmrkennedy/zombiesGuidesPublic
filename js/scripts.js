@@ -376,6 +376,16 @@ document.addEventListener('click', function(e) {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const versionDisplay = document.querySelector('.version-display');
+    const versionNumber = document.getElementById('version-number');
+
+    if (versionDisplay && versionNumber) {
+        const version = versionDisplay.getAttribute('data-version') || '0';
+        versionNumber.textContent = version.toString().slice(-6);  // Last 6 digits
+    }
+});
+
 async function includeSolverComponent() {
     try {
         const solverInserts = document.querySelectorAll('.solver-insert');
@@ -490,8 +500,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: 'Media Preloader', fn: () => window.MediaPreloader?.preloadImages() },
             { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },
-            { name: 'Link Processor Colors', fn: () => window.LinkProcessor?.colourCodeAnchors() },
-            { name: 'Page Title', fn: () => window.PageUtils?.setTitle() },
             { name: 'Solver Buttons', fn: () => window.LinkProcessor?.setupSolverButtons() },
             { name: 'Quick Links', fn: () => window.QuickLinks?.initializeQuickLinks() },
             { name: 'Hamburger Menu', fn: setupHamburgerMenuLinks },
@@ -499,7 +507,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: 'Lightbox Class', fn: () => window.Lightbox?.addLightboxClass() },
             { name: 'Lightbox Init', fn: () => window.Lightbox?.initLightbox() },
             { name: 'Solver Components', fn: includeSolverComponent },
-            { name: 'Link Validation', fn: () => window.LinkProcessor?.incompleteATagInit() }
         ];
 
         // Execute initialization steps with error handling
@@ -509,7 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     step.fn();
                     // console.log(`✓ ${step.name} initialized successfully`);
                 } else {
-                    console.warn(`⚠ ${step.name} function not available`);
+                    console.warn(`${step.name} function not available`);
                 }
             } catch (error) {
                 console.error(`✗ Error initializing ${step.name}:`, error);

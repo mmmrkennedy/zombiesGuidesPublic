@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Terra Maledicta Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759103273862">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -34,6 +34,11 @@
 
 
 <body>
+<!-- Version display component -->
+<div class="version-display" data-version="1759169821123">
+    v.<span id="version-number">0</span>
+</div>
+
 <div class="top_buttons_background_box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Terra Maledicta Guide</h2>
@@ -107,7 +112,7 @@
             <h2 class="section-title">Main Easter Egg Quest</h2>
             <p class="stats">Stats (Solo): Difficulty - 2/10, Est. Completion Time - 25 to 40 Mins</p>
             <ol>
-                <li>Obtain the <a href="#decimator_shield">Decimator Shield</a>.</li>
+                <li>Obtain the <a href="#decimator_shield" class="link-to-page">Decimator Shield</a>.</li>
                 <li>Open <a href="pictures/main_ee/debrisfield_portal.webp">Debris Field</a> by completing a Portal Objective.</li>
                 <li>Navigate to the Debris Field area and interact with the <a href="pictures/main_ee/debrisfield_runestone.webp">rune stone</a> near Venomous Vigor (Quick Revive). <strong>Note: This conversation takes <i>only</i> about one minute to finish.</strong></li>
                 <li>Enter the <a href="pictures/main_ee/voidportal.webp">Void Portal</a> near the rune stone.</li>
@@ -129,7 +134,7 @@
             <h2 class="section-title">Free Ray Gun and/or Deathmachine Scorestreak</h2>
             <ol>
                 <li>Optional: To also get a Free Ray Gun, keep digging until it <a href="pictures/deathmachine/corruptedraygun.webp">appears from one of the dig spots</a>.</li>
-                <li>Dig four <a href="pictures/deathmachine/losttomepage_digspot.webp">Lost Tome pages</a> from the <a href="#dig_spots">Dig Spots</a> throughout the Eastern Desert.</li>
+                <li>Dig four <a href="pictures/deathmachine/losttomepage_digspot.webp">Lost Tome pages</a> from the <a href="#dig_spots" class="link-to-page">Dig Spots</a> throughout the Eastern Desert.</li>
                 <li>Place Lost Tome pages on the <a href="pictures/deathmachine/magicalbarrier.webp">Magical Barrier</a> blocking the Deathmachine room in the Outpost Courtyard.</li>
                 <li>The Lost Tome pages must be placed in a specific order between 4 positions (Top, Bottom, Left, Right). If the first page disappeared when placed, it means it wasn't in the correct position, and it should be placed elsewhere. Any page placed in the wrong location will reset the entire puzzle.</li>
                 <li>Once all the pages are placed, the spell will fade and the Deathmachine will become available as a reward.</li>
@@ -141,7 +146,7 @@
         <div class="content-container" id="antenna">
             <h2 class="section-title">Antenna Quest / Free Random Weapon</h2>
             <ol>
-                <li>Dig up the <a href="pictures/antenna/antenna.webp">radio antenna</a> from one of the <a href="#dig_spots">Dig Spots</a>.</li>
+                <li>Dig up the <a href="pictures/antenna/antenna.webp">radio antenna</a> from one of the <a href="#dig_spots" class="link-to-page">Dig Spots</a>.</li>
                 <li>Place the antenna on the <a href="pictures/antenna/armouredcar_radio.webp">radio</a> next to the <a href="pictures/antenna/armouredcar.webp">armoured car at Merchant Road</a>. This will spawn Boom-Schreiers.</li>
                 <li>Interact with the <a href="pictures/antenna/deadshot_radio.webp">radio</a> in the same room as <a href="pictures/antenna/deadshot.webp">Diabolical Damage (Deadshot) at Bazaar</a>. This will spawn Boom-Schreiers.</li>
                 <li>Interact with the <a href="pictures/antenna/revive_radio.webp">radio</a> next to <a href="pictures/antenna/revive.webp">Venomous Vigor (Quick Revive)</a>. This will spawn Boom-Schreiers.</li>
@@ -154,7 +159,7 @@
         <div class="content-container" id="free_heart">
             <h2 class="section-title">Purple Corrupted Heart / Free Heart</h2>
             <ol>
-                <li>Dig up the <a href="pictures/free_heart/corruptedheart.webp">corrupted heart (purple orb)</a> from one of the <a href="#dig_spots">Dig Spots</a>.</li>
+                <li>Dig up the <a href="pictures/free_heart/corruptedheart.webp">corrupted heart (purple orb)</a> from one of the <a href="#dig_spots" class="link-to-page">Dig Spots</a>.</li>
                 <li>While holding the Heart, the player's health will be halved.</li>
                 <li>Place the corrupted heart at one of the <a href="pictures/free_heart/specialdigstop.webp">highlighted dig spots</a>.</li>
                 <li>Upon placing the Heart at one of the special dig spots, a Corrupted Heart will be rewarded to be used at the Altar of Covenants or Tome of Rituals.</li>
@@ -166,7 +171,7 @@
         <div class="content-container" id="free_points">
             <h2 class="section-title">Free Points</h2>
             <ol>
-                <li>Dig up the <a href="pictures/free_points/pointsorb.webp">Red Orb</a> from one of the <a href="#dig_spots">Dig Spots</a>.</li>
+                <li>Dig up the <a href="pictures/free_points/pointsorb.webp">Red Orb</a> from one of the <a href="#dig_spots" class="link-to-page">Dig Spots</a>.</li>
                 <li>The Orb will go flying to somewhere random; chase it to where it stops.</li>
                 <li>Shoot the orb until it falls to the ground.</li>
                 <li>Interact with the Orb to be awarded with 5000 Points.</li>
@@ -189,9 +194,9 @@
                 </li>
                 <li>The dig spots also contain the items required to start the three side quests on the map:
                     <ul>
-                        <li><a href="#deathmachine">Free Ray Gun and/or Deathmachine Scorestreak</a></li>
-                        <li><a href="#antenna">Antenna Quest / Free Random Weapon</a></li>
-                        <li><a href="#free_heart">Purple Corrupted Heart / Free Heart</a></li>
+                        <li><a href="#deathmachine" class="link-to-page">Free Ray Gun and/or Deathmachine Scorestreak</a></li>
+                        <li><a href="#antenna" class="link-to-page">Antenna Quest / Free Random Weapon</a></li>
+                        <li><a href="#free_heart" class="link-to-page">Purple Corrupted Heart / Free Heart</a></li>
                     </ul>
                 </li>
             </ul>
@@ -200,33 +205,33 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759103273862"></script>
-<script src="/js/core/storage-utils.js?v=1759103273862"></script>
+<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759103273862"></script>
-<script src="/js/navigation/nav-utils.js?v=1759103273862"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
+<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759103273862"></script>
-<script src="/js/ui/lightbox.js?v=1759103273862"></script>
+<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
+<script src="/js/ui/lightbox.js?v=1759169821123"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759103273862"></script>
-<script src="/js/content/quick-links.js?v=1759103273862"></script>
+<script src="/js/content/link-processor.js?v=1759169821123"></script>
+<script src="/js/content/quick-links.js?v=1759169821123"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759103273862"></script>
-<script src="/js/device/media-preloader.js?v=1759103273862"></script>
+<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759103273862"></script>
+<script src="/js/features/substeps.js?v=1759169821123"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759103273862"></script>
+<script src="/js/quick-links-utils.js?v=1759169821123"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759103273862"></script>
+<script src="/js/scripts.js?v=1759169821123"></script>
 
 
 </body></html>

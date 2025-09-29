@@ -28,7 +28,6 @@ BASE STYLES
 /* Base body styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
     padding: 0;
     position: relative;
     background-color: var(--primary-bg);
@@ -36,6 +35,7 @@ body {
     line-height: 1.75;
     overflow: hidden;
     max-width: 100%;
+    margin-right: calc(100vw - 100%);
 }
 
 /* Base link styles */
@@ -55,7 +55,7 @@ a.link-to-page {
     font-style: italic;
 }
 
-a.youtube-link {
+a.external-link {
     color: #34a400;
     text-decoration: underline;
     font-style: italic;
@@ -105,6 +105,7 @@ LAYOUT STYLES
     height: calc(100vh - 20px);
     overflow-y: auto;
     background-color: var(--primary-bg);
+    scrollbar-width: thin;
 }
 
 /* Mobile content visibility */
@@ -146,35 +147,19 @@ LAYOUT STYLES
 
 /* Version display component - matches existing theme */
 .version-display {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-family: monospace, Arial, serif;
-    font-size: 11px;
-    color: color-mix(in srgb, var(--primary-text) 40%, transparent);
-    padding: 4px 8px;
-    border-radius: 2px;
-    backdrop-filter: blur(2px);
-    pointer-events: none;
-    z-index: 9999;
-    user-select: none;
-    transition: opacity 0.3s ease;
-    border: 1px solid color-mix(in srgb, var(--primary-text) 20%, transparent);
-}
-
-/* Slightly more visible on hover over the area */
-.version-display:hover {
-    opacity: 0.8;
-    color: color-mix(in srgb, var(--primary-text) 60%, transparent);
-}
-
-/* Alternative minimal style - just text */
-.version-display.minimal {
     background: none;
     backdrop-filter: none;
     border: none;
     padding: 2px 4px;
-    color: color-mix(in srgb, var(--primary-text) 30%, transparent);
+    color: color-mix(in srgb, var(--primary-text) 50%, transparent);
+    position: fixed;
+    top: 3px;
+    right: 3px;
+    font-size: 10px;
+    font-family: monospace, Arial, serif;
+    pointer-events: none;
+    z-index: 9999;
+    user-select: none;
 }
 
 /* 
