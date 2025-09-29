@@ -46,11 +46,14 @@ function addVersionPlaceholders(htmlContent, filePath) {
     const changes = [];
 
     // Regex patterns for CSS and JS links without version parameters
-    const cssPattern = /<link[^>]+rel=["']stylesheet["'][^>]+href=["']([^"'?]+\.css)["'][^>]*>/gi;
-    const jsPattern = /<script[^>]+src=["']([^"'?]+\.js)["'][^>]*>/gi;
+    // Handle attribute order independence: href can come before or after rel="stylesheet"
+    const cssPattern = /<link[^>]*href=["']([^"']+\.css[^"']*)["'][^>]*rel=["']stylesheet["'][^>]*>|<link[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+\.css[^"']*)["'][^>]*>/gi;
+    const jsPattern = /<script[^>]+src=["']([^"']+\.js[^"']*)["'][^>]*>/gi;
 
     // Find and update CSS links
-    newContent = newContent.replace(cssPattern, (match, href) => {
+    newContent = newContent.replace(cssPattern, (match, href1, href2) => {
+        // Use the non-empty capture group (either href1 or href2)
+        const href = href1 || href2;
         if (!href.includes('?v=')) {
             changes.push(`CSS: ${href} → ${href}?v=0`);
             modified = true;
