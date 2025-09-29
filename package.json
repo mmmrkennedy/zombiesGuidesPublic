@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "Zombies Guides website with automated build system",
   "scripts": {
-    "build": "node build-tools/build-all.js",
-    "build:verbose": "node build-tools/build-all.js --verbose",
-    "build:nav": "node build-tools/build-all.js --nav-only",
-    "nav": "node build-tools/nav-builder-improved.js",
-    "nav:verbose": "node build-tools/nav-builder-improved.js --verbose",
-    "nav:dry": "node build-tools/nav-builder-improved.js --dry-run",
+    "build": "node build_scripts/add-version-placeholders.js && node build_scripts/nav-builder-improved.js --index ./index.html && node build_scripts/update-version.js",
+    "build:verbose": "node build_scripts/add-version-placeholders.js --verbose && node build_scripts/nav-builder-improved.js --verbose && node build_scripts/update-version.js",
+    "version:setup": "node build_scripts/add-version-placeholders.js",
+    "version:update": "node build_scripts/update-version.js",
+    "nav": "node build_scripts/nav-builder-improved.js",
     "dev": "python -m http.server 8000",
     "test": "echo \"No tests specified\" && exit 0"
   },

@@ -5,6 +5,16 @@ const path = require('path');
 const { JSDOM } = require('jsdom');
 const QuickLinksUtils = require('../js/quick-links-utils.js');
 
+// Simple CLI argument parsing
+const args = process.argv.slice(2);
+let indexFile = "index.html"; // default
+
+for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--index" && args[i + 1]) {
+        indexFile = args[i + 1];
+    }
+}
+
 class NavBuilder {
     constructor(options = {}) {
         this.options = {
@@ -82,7 +92,7 @@ class NavBuilder {
     }
 
     getLinkedHtmlFiles() {
-        const indexPath = path.resolve(this.options.indexFile);
+        const indexPath = path.resolve(indexFile);
 
         if (!fs.existsSync(indexPath)) {
             this.log(`Index file not found: ${indexPath}`, 'error');

@@ -144,6 +144,39 @@ LAYOUT STYLES
     letter-spacing: 0.1em;
 }
 
+/* Version display component - matches existing theme */
+.version-display {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-family: monospace, Arial, serif;
+    font-size: 11px;
+    color: color-mix(in srgb, var(--primary-text) 40%, transparent);
+    padding: 4px 8px;
+    border-radius: 2px;
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    z-index: 9999;
+    user-select: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid color-mix(in srgb, var(--primary-text) 20%, transparent);
+}
+
+/* Slightly more visible on hover over the area */
+.version-display:hover {
+    opacity: 0.8;
+    color: color-mix(in srgb, var(--primary-text) 60%, transparent);
+}
+
+/* Alternative minimal style - just text */
+.version-display.minimal {
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    padding: 2px 4px;
+    color: color-mix(in srgb, var(--primary-text) 30%, transparent);
+}
+
 /* 
 =======================================
 UI COMPONENTS
@@ -664,3 +697,4 @@ LIGHTBOX STYLES
     font-size: 16px;
     width: fit-content;
 }
+

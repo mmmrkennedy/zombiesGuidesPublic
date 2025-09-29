@@ -369,7 +369,7 @@ document.addEventListener('click', function(e) {
 
     // If we have cached HTML and CSS, the page should load very fast
     if (window.isHtmlCached && window.isHtmlCached(href)) {
-        console.log('⚡ Fast load: Content preloaded for', href);
+        console.log('Fast load: Content preloaded for', href);
         // Optional: Add visual feedback
         link.style.opacity = '0.7';
         setTimeout(() => link.style.opacity = '1', 100);
