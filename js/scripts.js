@@ -466,19 +466,6 @@ async function loadSolverComponent(insert) {
     }
 }
 
-function setContentWindowPosition() {
-    const topBox = document.querySelector('.top_buttons_background_box');
-    const contentWindow = document.querySelector('.content-window');
-
-    if (topBox && contentWindow) {
-        const topBoxHeight = topBox.offsetHeight;
-
-        // Set the content window to start right after the top box
-        contentWindow.style.top = topBoxHeight + 'px';
-        contentWindow.style.height = `calc(100vh - ${topBoxHeight}px)`;
-    }
-}
-
 /*
 =======================================
 MAIN INITIALIZATION
@@ -493,7 +480,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: 'Storage Utils', fn: () => window.StorageUtils?.initStorageListeners() },
             { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
             { name: 'Feature Utils', fn: () => window.FeatureUtils?.initSubsteps() },
-            { name: 'Content Window Position', fn: setContentWindowPosition },
             { name: 'Scroll Manager Clear', fn: () => window.ScrollManager?.clearHashAndScrollTop() },
             { name: 'Theme Color', fn: () => window.StorageUtils?.changeThemeColour() },
             { name: 'Mobile Detection', fn: () => window.MobileDetection?.touchScreenInit() },
@@ -530,5 +516,3 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error('Critical error during website initialization:', error);
     }
 });
-
-window.addEventListener('resize', setContentWindowPosition);
