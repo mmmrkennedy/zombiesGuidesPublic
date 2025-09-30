@@ -5,20 +5,17 @@ import shutil
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-def png_to_webp(root_dir, image_quality, image_extensions, extention):
+def png_to_webp(root_dir, image_quality, image_extensions):
     num_images = count_image_files(root_dir, image_extensions)
     images_converted = 0
 
     if num_images == 0:
         print("No images found!")
     else:
-        if input("Backup directory? (y/n), No is default: ") == "y":
-            incremental_backup(root_dir, root_dir + "_backup")
-
         with ThreadPoolExecutor() as executor:
-            futures = [executor.submit(convert_to_avif_or_webp, dirpath, filename, image_quality, extention)
+            futures = [executor.submit(convert_to_webp, dirpath, filename, image_quality)
                        for dirpath, dirnames, filenames in os.walk(root_dir)
-                       for filename in filenames if any(filename.endswith(ext) for ext in image_extensions)]
+                       for filename in filenames if any(filename.lower().endswith(ext.lower()) for ext in image_extensions)]
 
             for future in as_completed(futures):
                 result = future.result()
@@ -31,16 +28,12 @@ def png_to_webp(root_dir, image_quality, image_extensions, extention):
         print(f"Conversion to WebP @ {image_quality} Quality Completed!")
 
 
-def convert_to_avif_or_webp(dirpath, filename, image_quality, extention="webp"):
+def convert_to_webp(dirpath, filename, image_quality):
     input_path = os.path.join(dirpath, filename)
+    output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.webp')
 
-    #try:
-    if extention == "avif":
-        output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.avif')
-        result = subprocess.run(['avifenc', '-s', '6', '-q', str(image_quality), input_path, output_path], check=True)
-    else:
-        output_path = os.path.join(dirpath, os.path.splitext(filename)[0] + '.webp')
-        result = subprocess.run(['cwebp', '-q', str(image_quality), '-m', '6', '-pass', '10', '-mt', input_path, '-o', output_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    result = subprocess.run(['cwebp', '-q', str(image_quality), '-m', '6', '-pass', '10', '-mt', input_path, '-o', output_path],
+                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
     if result.returncode == 0 and os.path.exists(output_path):
         if input_path != output_path:
@@ -48,8 +41,6 @@ def convert_to_avif_or_webp(dirpath, filename, image_quality, extention="webp"):
         return filename
     else:
         return None
-    # except subprocess.CalledProcessError:
-        #return None
 
 
 def webp_to_png(root_dir):
@@ -60,12 +51,10 @@ def webp_to_png(root_dir):
         print("No images found!")
         return
 
-    incremental_backup(root_dir, root_dir + "_backup")
-
     with ThreadPoolExecutor() as executor:
         futures = [executor.submit(convert_to_png, dirpath, filename)
                    for dirpath, dirnames, filenames in os.walk(root_dir)
-                   for filename in filenames if filename.endswith('.webp')]
+                   for filename in filenames if filename.lower().endswith('.webp')]
 
         for future in as_completed(futures):
             result = future.result()
@@ -143,8 +132,9 @@ def count_image_files(directory_path, image_extensions):
     for root, dirs, files in os.walk(directory_path):
         for file in files:
             for ext in image_extensions:
-                if file.lower().endswith(ext):
+                if file.lower().endswith(ext.lower()):
                     image_count += 1
+                    break
 
     return image_count
 
@@ -153,7 +143,7 @@ def valid_dir(image_dir):
     if image_dir == "":
         new_input = input("Enter the path to the image directory: ")
         if new_input == "":
-            default_dir = "D:\\zombiesGuidesPublic\\games"
+            default_dir = r"D:\programming_projects\zombiesGuidesPublic\games"
             print(f"Using default directory: {default_dir}")
             return default_dir
         else:
@@ -168,17 +158,13 @@ def valid_dir(image_dir):
 
 
 if __name__ == "__main__":
-    while 1:
-        image_dir = ""
+    image_dir = ""
 
-        convert_option = input(
-            "Convert to webp/avif (1), convert to png (2), Backup Directory in Full (Don't) (3), Change Directory (4) or "
-            "Quit (5)? ")
+    while True:
+        convert_option = input("Convert to WebP (1), convert to PNG (2), or Quit (3)? ")
 
         if convert_option == "1":
             if input("Default Config? (y/n): ") == "n":
-                extention = input("AVIF or WEBP? ").lower()
-
                 image_dir = valid_dir(image_dir)
 
                 image_quality = input("Enter the image quality (1-100), 90 is Default: ")
@@ -191,37 +177,15 @@ if __name__ == "__main__":
                 else:
                     image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.webp']
 
-                png_to_webp(image_dir, image_quality, image_extensions, extention)
+                png_to_webp(image_dir, image_quality, image_extensions)
             else:
-                extention = input("AVIF or WEBP? ").lower()
-
                 image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
-
-                convert_already_converted = input("Convert to webp/avif files to the other? (y/n), No is default: ")
-
-                if convert_already_converted == "" or convert_already_converted.lower() == "n":
-                    image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
-                else:
-                    if extention == "avif":
-                        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.webp']
-                    elif extention == "webp":
-                        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.avif']
-
-                png_to_webp(r"D:\ZombiesGuidesHolder\zombiesGuidesPublic\games\BO4\dead_of_the_night", "90", image_extensions, extention)
+                path = r"D:\programming_projects\zombiesGuidesPublic\games"
+                png_to_webp(path, "90", image_extensions)
 
         elif convert_option == "2":
             image_dir = valid_dir(image_dir)
-
             webp_to_png(image_dir)
 
         elif convert_option == "3":
-            image_dir = valid_dir(image_dir)
-
-            incremental_backup(image_dir, image_dir + "_backup")
-            print("Backup Completed!")
-
-        elif convert_option == "4":
-            image_dir = input("Enter the path to the image directory: ").strip('\'"')
-
-        elif convert_option == "5":
             break
