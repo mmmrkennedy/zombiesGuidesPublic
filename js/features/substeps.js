@@ -18,6 +18,7 @@ function substeps(check) {
     while (true) {
         try {
             document.getElementById('substeps' + i).style.display = displayStyle;
+            console.log("Substeps loaded");
         } catch (e) {
             break;
         }
@@ -29,7 +30,7 @@ function substeps(check) {
  * Initialize substeps based on localStorage setting
  */
 function initSubsteps() {
-    substeps((localStorage.getItem('substeps') === 'true'));
+    substeps(true);
 }
 
 // Make functions available globally

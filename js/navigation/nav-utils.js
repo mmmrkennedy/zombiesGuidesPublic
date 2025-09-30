@@ -15,17 +15,6 @@ function navigateToIndex() {
 }
 
 /**
- * Opens the settings page in a new tab
- */
-function navigateToSettings() {
-    if (checkLocalEnvironment()) {
-        window.open("/settings/settings.html", "_blank");
-    } else {
-        window.open(window.PageUtils.BASE_PATH + "settings/settings.html", "_blank");
-    }
-}
-
-/**
  * Checks if the current environment is local development
  */
 function checkLocalEnvironment() {
@@ -37,6 +26,5 @@ function checkLocalEnvironment() {
 // Make functions available globally
 window.NavUtils = {
     navigateToIndex,
-    navigateToSettings,
     checkLocalEnvironment
 };

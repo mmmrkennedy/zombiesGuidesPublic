@@ -9,10 +9,6 @@ function scrollToTop() {
     window.ScrollManager.scrollToTop();
 }
 
-function navigateToSettings() {
-    window.NavUtils.navigateToSettings();
-}
-
 function navigateToIndex() {
     window.NavUtils.navigateToIndex();
 }
@@ -78,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Options for the IntersectionObserver
         const observerOptions = {
             root: null, // viewport
-            rootMargin: '100px', // load images 100px before they enter the viewport
+            rootMargin: '1000px', // load images 1000px before they enter the viewport
             threshold: 0.01 // trigger when at least 1% of the element is visible
         };
 
@@ -156,206 +152,76 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     try {
-        // Cache for loaded HTML content and CSS
-        const htmlCache = new Map();
-        const cssCache = new Set(); // Track which CSS files we've loaded
+        // Track which pages we've already prefetched
+        const prefetchedUrls = new Set();
 
-        // Set to track which links we've processed to avoid duplicates
-        const processedLinks = new Set();
+        // Helper function to prefetch a page
+        function prefetchPage(url) {
+            // Skip if already prefetched
+            if (prefetchedUrls.has(url)) {
+                return;
+            }
 
-        // Check if IntersectionObserver is supported
-        if (!('IntersectionObserver' in window)) {
-            console.warn('IntersectionObserver not supported, skipping HTML/CSS lazy loading');
+            // Mark as prefetched
+            prefetchedUrls.add(url);
+
+            // Create prefetch link element
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = url;
+            link.as = 'document';
+
+            // Optional: Add event listeners to track success/failure
+            link.onload = () => {
+                console.log('Prefetched:', url);
+            };
+
+            link.onerror = () => {
+                console.warn('Failed to prefetch:', url);
+                // Remove from set so we can retry if needed
+                prefetchedUrls.delete(url);
+            };
+
+            // Add to document head
+            document.head.appendChild(link);
+        }
+
+        // Find all internal HTML links (excluding disabled ones)
+        const htmlLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
+
+        if (htmlLinks.length === 0) {
+            console.log('No HTML links found to prefetch');
             return;
         }
 
-        // Options for the IntersectionObserver
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '100px', // load HTML 100px before they enter the viewport
-            threshold: 0.01 // trigger when at least 1% of the element is visible
-        };
-
-        // Callback for the IntersectionObserver
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const linkElement = entry.target;
-                    const htmlUrl = linkElement.getAttribute('href');
-
-                    if (!htmlUrl || processedLinks.has(htmlUrl)) {
-                        return;
-                    }
-
-                    // Mark as processed to avoid duplicate requests
-                    processedLinks.add(htmlUrl);
-
-                    // If HTML isn't in cache, load it and its CSS
-                    if (!htmlCache.has(htmlUrl)) {
-                        preloadHtmlAndCss(htmlUrl, htmlCache);
-                    }
-
-                    // Unobserve since we've processed it
-                    observer.unobserve(linkElement);
-                }
-            });
-        };
-
-        // Helper function to preload CSS file
-        function preloadCss(cssUrl) {
-            // Avoid loading the same CSS multiple times
-            if (cssCache.has(cssUrl)) {
-                return Promise.resolve();
-            }
-
-            return new Promise((resolve, reject) => {
-                // Check if CSS is already in the document
-                const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
-                if (existingLink) {
-                    cssCache.add(cssUrl);
-                    resolve();
-                    return;
-                }
-
-                // Create link element for preloading
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'style';
-                link.href = cssUrl;
-
-                link.onload = () => {
-                    // Convert preload to actual stylesheet
-                    link.rel = 'stylesheet';
-                    cssCache.add(cssUrl);
-                    console.log('CSS preloaded and applied:', cssUrl);
-                    resolve();
-                };
-
-                link.onerror = () => {
-                    console.warn('Failed to preload CSS:', cssUrl);
-                    reject(new Error(`Failed to load CSS: ${cssUrl}`));
-                };
-
-                // Add to document head
-                document.head.appendChild(link);
-            });
-        }
-
-        // Helper function to extract CSS links from HTML content
-        function extractCssLinks(htmlContent, baseUrl) {
-            const cssUrls = [];
-            const parser = new DOMParser();
-
-            try {
-                const doc = parser.parseFromString(htmlContent, 'text/html');
-                const linkElements = doc.querySelectorAll('link[rel="stylesheet"], link[rel="preload"][as="style"]');
-
-                linkElements.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href) {
-                        // Convert relative URLs to absolute based on the HTML file's location
-                        const cssUrl = new URL(href, baseUrl).href;
-                        cssUrls.push(cssUrl);
-                    }
-                });
-            } catch (error) {
-                console.warn('Failed to parse HTML for CSS extraction:', error);
-            }
-
-            return cssUrls;
-        }
-
-        // Helper function to preload HTML content and its CSS dependencies
-        function preloadHtmlAndCss(htmlUrl, cache) {
-            console.log('Preloading HTML and CSS for:', htmlUrl);
-
-            fetch(htmlUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    // Cache the HTML content
-                    cache.set(htmlUrl, html);
-                    console.log('HTML preloaded successfully:', htmlUrl);
-
-                    // Extract and preload CSS files
-                    const baseUrl = new URL(htmlUrl, window.location.origin);
-                    const cssUrls = extractCssLinks(html, baseUrl.href);
-
-                    // Preload all CSS files
-                    const cssPromises = cssUrls.map(cssUrl => {
-                        // Convert back to relative URL if it's on the same domain
-                        const relativeUrl = cssUrl.startsWith(window.location.origin)
-                            ? cssUrl.substring(window.location.origin.length)
-                            : cssUrl;
-                        return preloadCss(relativeUrl);
-                    });
-
-                    // Wait for all CSS to load
-                    return Promise.allSettled(cssPromises);
-                })
-                .then(cssResults => {
-                    const successfulCss = cssResults.filter(result => result.status === 'fulfilled').length;
-                    const failedCss = cssResults.filter(result => result.status === 'rejected').length;
-
-                    if (successfulCss > 0) {
-                        console.log(`CSS preloaded: ${successfulCss} successful, ${failedCss} failed for ${htmlUrl}`);
-                    }
-
-                    // Trigger custom event for tracking
-                    document.dispatchEvent(new CustomEvent('htmlAndCssPreloaded', {
-                        detail: {
-                            url: htmlUrl,
-                            cssCount: successfulCss,
-                            cssFailures: failedCss
-                        }
-                    }));
-                })
-                .catch(error => {
-                    console.error('Failed to preload HTML/CSS:', htmlUrl, error);
-                });
-        }
-
-        // Create the observer
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        // Target your existing links to HTML guide pages
-        const guideLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
-
-        if (guideLinks.length === 0) {
-            console.log('No HTML guide links found to observe');
-            return;
-        }
-
-        // Observe all guide links
-        guideLinks.forEach(link => {
-            // Skip external links and anchors
+        // Add hover listeners to all links
+        htmlLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                observer.observe(link);
+
+            // Skip external links, anchors, and disabled links
+            if (!href || href.startsWith('http') || href.startsWith('#')) {
+                return;
             }
+
+            // Prefetch on hover (mouseenter is better than mouseover)
+            link.addEventListener('mouseenter', () => {
+                prefetchPage(href);
+            }, { once: true }); // 'once: true' removes listener after first trigger
         });
 
-        console.log(`Observing ${guideLinks.length} guide links for HTML/CSS preloading`);
+        console.log(`Hover prefetch enabled for ${htmlLinks.length} links`);
 
-        // Optional: Add methods to check cache status
-        window.isHtmlCached = function(url) {
-            return htmlCache.has(url);
+        // Optional: Expose helper for debugging
+        window.isPrefetched = function(url) {
+            return prefetchedUrls.has(url);
         };
 
-        window.getCachedHtml = function(url) {
-            return htmlCache.get(url);
-        };
-
-        window.isCssCached = function(url) {
-            return cssCache.has(url);
+        window.getPrefetchedUrls = function() {
+            return Array.from(prefetchedUrls);
         };
 
     } catch (error) {
-        console.error('Error initializing HTML/CSS lazy loading:', error);
+        console.error('Error initializing page prefetch:', error);
     }
 });
 
@@ -454,8 +320,7 @@ async function loadSolverComponent(insert) {
         insert.innerHTML = html;
         
         // Extract event name from path
-        const eventName = insert.dataset.solverHtmlPath.split("/").pop().replace(/\.html$/, '');
-        return eventName;
+        return insert.dataset.solverHtmlPath.split("/").pop().replace(/\.html$/, '');
         
     } catch (error) {
         console.error(`Error loading solver component at ${insert.dataset.solverHtmlPath}:`, error);
@@ -477,11 +342,9 @@ document.addEventListener("DOMContentLoaded", function () {
         
         // Initialize core utilities with error handling
         const initializationSteps = [
-            { name: 'Storage Utils', fn: () => window.StorageUtils?.initStorageListeners() },
             { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
             { name: 'Feature Utils', fn: () => window.FeatureUtils?.initSubsteps() },
             { name: 'Scroll Manager Clear', fn: () => window.ScrollManager?.clearHashAndScrollTop() },
-            { name: 'Theme Color', fn: () => window.StorageUtils?.changeThemeColour() },
             { name: 'Mobile Detection', fn: () => window.MobileDetection?.touchScreenInit() },
             { name: 'Media Preloader', fn: () => window.MediaPreloader?.preloadImages() },
             { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },

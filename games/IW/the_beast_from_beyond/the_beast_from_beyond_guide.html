@@ -51,16 +51,13 @@
     <!-- Mobile devices content -->
     <div id="mobileContent">
         <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">⚙️</button>
         <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
         <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <!-- <button class="toggle-button top-right" onclick="toggleLightMode()">Toggle Dark Mode</button> -->
         <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-        <button type="button" class="toggle-button top-right" onclick="navigateToSettings()">Settings</button>
     </div>
 </div>
 
@@ -729,7 +726,6 @@
 
 <!-- Core utilities -->
 <script src="/js/core/page-utils.js?v=1759169821123"></script>
-<script src="/js/core/storage-utils.js?v=1759169821123"></script>
 
 <!-- Navigation -->
 <script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
@@ -745,7 +741,6 @@
 
 <!-- Device & Environment -->
 <script src="/js/device/mobile-detection.js?v=1759169821123"></script>
-<script src="/js/device/media-preloader.js?v=1759169821123"></script>
 
 <!-- Features -->
 <script src="/js/features/substeps.js?v=1759169821123"></script>
