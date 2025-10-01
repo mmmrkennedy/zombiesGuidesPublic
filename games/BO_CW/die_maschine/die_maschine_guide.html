@@ -1,40 +1,41 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Die Maschine Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759169821123">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link href="/css/styles.css?v=1759345946399" rel="stylesheet" type="text/css">
+    <link href="/favicon/favicon.ico" rel="icon" type="image/x-icon">
     <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+    <script>
+        const isLocalEnvironment = window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.hostname.includes(".local");
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+        if (!isLocalEnvironment) {
+            // Load gtag script dynamically
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+            document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+            // Initialize Google Analytics
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
         }
-
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+    </script>
+</head>
 
 <!-- Google Analytics -->
 
 
 <body>
 <!-- Version display component -->
-<div class="version-display" data-version="1759169821123">
+<div class="version-display" data-version="1759345946399">
     v.<span id="version-number">0</span>
 </div>
 
@@ -42,20 +43,22 @@
     <!-- Title at the top of the page, INCLUDE "guide"-->
     <h2 class="title-text">Die Maschine Guide</h2>
     <!-- Hamburger Menu Button -->
-    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+    <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
+        <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+        </svg>
     </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">&lt;-</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">^</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()" type="button">←</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()" type="button">↑</button>
     </div>
 
     <!-- Non-mobile devices content -->
     <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button class="toggle-button top-left" onclick="navigateToIndex()" type="button">Back</button>
+        <button class="toggle-button bottom-right" onclick="scrollToTop()" type="button">Back to Top</button>
     </div>
 </div>
 
@@ -64,7 +67,7 @@
     <div class="hamburger-menu-content">
         <div class="hamburger-menu-header">
             <h3>Quick Navigation</h3>
-            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
         </div>
         <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#die_shockwave">D.I.E. Shockwave</a></li><ul><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo_emitter">Cryo Emitter</a></li><li><a href="#elecrobolt">Elecrobolt</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Seal the Deal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li><li><a href="#main_ee_step3">Creating Orlov</a></li><li><a href="#main_ee_step4">Boss Fight</a></li></ul><li><a href="#song_ee">'Alone' Song</a></li><li><a href="#free_jug">Coffin Dance / Free Jug</a></li><li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li><li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li><li><a href="#free_essence">Free 1,500 Essence</a></li><li><a href="#orda_ee">See Orda Walking Outside the Map</a></li></ul></div>
     </div>
@@ -73,13 +76,38 @@
 <div class="smooth-scroll content-window">
     <!-- Legend to other parts -->
     <div class="content-container-top">
-        <h2>Weapons</h2><ul><li><a href="#die_shockwave">D.I.E. Shockwave</a></li><ul><li><a href="#nova_5">Nova-5</a></li><li><a href="#cryo_emitter">Cryo Emitter</a></li><li><a href="#elecrobolt">Elecrobolt</a></li><li><a href="#thermophasic">Thermophasic</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Seal the Deal' Main Quest</a></li><ul><li><a href="#main_ee_step1">Prerequisites</a></li><li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li><li><a href="#main_ee_step3">Creating Orlov</a></li><li><a href="#main_ee_step4">Boss Fight</a></li></ul><li><a href="#song_ee">'Alone' Song</a></li><li><a href="#free_jug">Coffin Dance / Free Jug</a></li><li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li><li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li><li><a href="#free_essence">Free 1,500 Essence</a></li><li><a href="#orda_ee">See Orda Walking Outside the Map</a></li></ul>
+        <h2>Weapons</h2>
+        <ul>
+            <li><a href="#die_shockwave">D.I.E. Shockwave</a></li>
+            <ul>
+                <li><a href="#nova_5">Nova-5</a></li>
+                <li><a href="#cryo_emitter">Cryo Emitter</a></li>
+                <li><a href="#elecrobolt">Elecrobolt</a></li>
+                <li><a href="#thermophasic">Thermophasic</a></li>
+            </ul>
+        </ul>
+        <h2>Easter Eggs</h2>
+        <ul>
+            <li><a href="#main_ee">'Seal the Deal' Main Quest</a></li>
+            <ul>
+                <li><a href="#main_ee_step1">Prerequisites</a></li>
+                <li><a href="#main_ee_step2">Activate the Der Wechsler's Computer</a></li>
+                <li><a href="#main_ee_step3">Creating Orlov</a></li>
+                <li><a href="#main_ee_step4">Boss Fight</a></li>
+            </ul>
+            <li><a href="#song_ee">'Alone' Song</a></li>
+            <li><a href="#free_jug">Coffin Dance / Free Jug</a></li>
+            <li><a href="#free_legendary_upgrade">Free Legendary Weapon Upgrade</a></li>
+            <li><a href="#free_scorestreak">Free Scorestreak or Jumpscare</a></li>
+            <li><a href="#free_essence">Free 1,500 Essence</a></li>
+            <li><a href="#orda_ee">See Orda Walking Outside the Map</a></li>
+        </ul>
     </div>
 
     <!-- Wonder Weapons -->
     <div class="content-container" data-section-ind="Weapons" id="die_shockwave">
         <h2 class="section-title">D.I.E. Shockwave</h2>
-        <p class="weapon-desc">The D.I.E. Shockwave is a weapon that fires an energy blast, capable of killing multiple Zombies with one shot. It can be Pack-a-Punched, and there are four variants, the <a href="#nova_5" class="link-to-page">Nova-5</a>, <a href="#cryo_emitter" class="link-to-page">Cryo Emitter</a>, <a href="#elecrobolt" class="link-to-page">Electrobolt</a> or <a href="#thermophasic" class="link-to-page">Thermophasic</a>. The D.I.E. Shockwave is available from the mystery box, through the completion of trials, and via the following quest: </p>
+        <p class="weapon-desc">The D.I.E. Shockwave is a weapon that fires an energy blast, capable of killing multiple Zombies with one shot. It can be Pack-a-Punched, and there are four variants, the <a class="link-to-page" href="#nova_5">Nova-5</a>, <a class="link-to-page" href="#cryo_emitter">Cryo Emitter</a>, <a class="link-to-page" href="#elecrobolt">Electrobolt</a> or <a class="link-to-page" href="#thermophasic">Thermophasic</a>. The D.I.E. Shockwave is available from the mystery box, through the completion of trials, and via the following quest: </p>
         <ol>
             <li>Kill a Megaton and pick up the <a href="pictures/die/shockwave/keycard.webp">Keycard</a>.</li>
             <li>In the 'Weapons Lab,' interact with the <a href="pictures/die/shockwave/weapon_locker.webp">Weapon Locker</a> and pick up the D.I.E. Remote Control.</li>
@@ -108,7 +136,7 @@
 
         <p class="upgrade-title" id="elecrobolt">Elecrobolt</p>
         <ol>
-            <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
+            <li>Complete Steps 1–6 of the <a class="link-to-page" href="#main_ee">Main Quest</a>.</li>
             <li>Enter the <a href="pictures/die/electrobolt/elec_portal.webp">Anomaly</a> on the lowest level of the Particle Accelerator.</li>
             <li>Locate three Glowing Crystals and use the Alt Fire mode on the D.I.E. to collect the energy. Only one crystal's energy can be held at a time. Crystal Locations:
                 <ul>
@@ -127,7 +155,7 @@
 
         <p class="upgrade-title" id="thermophasic">Thermophasic</p>
         <ol>
-            <li>Complete Steps 1–6 of the <a href="#main_ee" class="link-to-page">Main Quest</a>.</li>
+            <li>Complete Steps 1–6 of the <a class="link-to-page" href="#main_ee">Main Quest</a>.</li>
             <li>Enter the <a href="pictures/die/thermophasic/pond_anomaly.webp">Anomaly</a> in the 'Pond.'</li>
             <li>Go to the <a href="pictures/die/thermophasic/fuse_crashsite.webp">Crash Site</a> and shoot/melee open the <a href="pictures/die/thermophasic/fuse.webp">Fuse Box</a> beside the Fast Travel Portal to pick up the Fuse.</li>
             <li>In the 'Weapons Lab,' interact with <a href="pictures/die/thermophasic/plasmacutter.webp">the Plasma Cutter</a> to insert the fuse. Doing so will remove you from the Dark Aether.</li>
@@ -169,7 +197,7 @@
             <li class="dummy-li">
                 <p class="step-group-title" id="main_ee_step3">Creating Orlov</p>
             </li>
-            <li>Obtain all four <a href="#die_shockwave" class="link-to-page">D.I.E. Variants</a></li>
+            <li>Obtain all four <a class="link-to-page" href="#die_shockwave">D.I.E. Variants</a></li>
             <li>Once you have obtained all four variants, you must shoot coloured ports with the corresponding D.I.E. variant. Ports:
                 <ul>
                     <li>Nova-5 - <a href="pictures/main_ee/creating_orlov/port_green.webp">Green Port</a></li>
@@ -207,14 +235,15 @@
                     <li>On the way to the 'Pond,' players must avoid lethal beams of electricity coming from the ground.</li>
                     <li>There is only one path to the 'Pond' which takes you through the 'Weapons Lab' to the 'Control Room,' out to the 'Tunnel' then the 'Crash Site' then down to the 'Pond.' </li>
                 </ul>
-            </li><li>Once in the 'Pond,' board the exfil chopper to finish the Easter Egg.</li>
+            </li>
+            <li>Once in the 'Pond,' board the exfil chopper to finish the Easter Egg.</li>
         </ol>
     </div>
 
     <!-- Song EE -->
     <div class="content-container" id="song_ee">
         <h2 class="section-title">'Alone' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1713417662" class="external-link">here</a>.</p>
+        <p class="song-link">Link to song on streaming <a class="external-link" href="https://song.link/ca/i/1713417662">here</a>.</p>
         <ol>
             <li>There are three tapes required to start the song. Tape Locations:
                 <ul>
@@ -319,30 +348,31 @@
 </div>
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759169821123"></script>
+<script src="/js/core/page-utils.js?v=1759345946399"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759169821123"></script>
-<script src="/js/navigation/nav-utils.js?v=1759169821123"></script>
+<script src="/js/navigation/scroll-manager.js?v=1759345946399"></script>
+<script src="/js/navigation/nav-utils.js?v=1759345946399"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759169821123"></script>
-<script src="/js/ui/lightbox.js?v=1759169821123"></script>
+<script src="/js/ui/tutorial-system.js?v=1759345946399"></script>
+<script src="/js/ui/lightbox.js?v=1759345946399"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759169821123"></script>
-<script src="/js/content/quick-links.js?v=1759169821123"></script>
+<script src="/js/content/link-processor.js?v=1759345946399"></script>
+<script src="/js/content/quick-links.js?v=1759345946399"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759169821123"></script>
+<script src="/js/device/mobile-detection.js?v=1759345946399"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759169821123"></script>
+<script src="/js/features/substeps.js?v=1759345946399"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759169821123"></script>
+<script src="/js/quick-links-utils.js?v=1759345946399"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759169821123"></script>
+<script src="/js/scripts.js?v=1759345946399"></script>
+
 
 </body></html>

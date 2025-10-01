@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Prefetch on hover (mouseenter is better than mouseover)
             link.addEventListener('mouseenter', () => {
+                console.log(`Prefetched: ${link.getAttribute('href')}`);
                 prefetchPage(href);
             }, { once: true }); // 'once: true' removes listener after first trigger
         });
@@ -338,15 +339,12 @@ MAIN INITIALIZATION
  */
 document.addEventListener("DOMContentLoaded", function () {
     try {
-        // console.log('Initializing Zombies Guides website...');
-        
         // Initialize core utilities with error handling
         const initializationSteps = [
             { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
             { name: 'Feature Utils', fn: () => window.FeatureUtils?.initSubsteps() },
             { name: 'Scroll Manager Clear', fn: () => window.ScrollManager?.clearHashAndScrollTop() },
-            { name: 'Mobile Detection', fn: () => window.MobileDetection?.touchScreenInit() },
-            { name: 'Media Preloader', fn: () => window.MediaPreloader?.preloadImages() },
+            { name: 'Mobile Detection', fn: () => window.MobileDetection?.updateMobileText() },
             { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },
             { name: 'Solver Buttons', fn: () => window.LinkProcessor?.setupSolverButtons() },
@@ -363,18 +361,13 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 if (typeof step.fn === 'function') {
                     step.fn();
-                    // console.log(`✓ ${step.name} initialized successfully`);
                 } else {
                     console.warn(`${step.name} function not available`);
                 }
             } catch (error) {
-                console.error(`✗ Error initializing ${step.name}:`, error);
-                // Continue with other initialization steps even if one fails
+                console.error(`Error initializing ${step.name}:`, error);
             }
         }
-
-        // console.log('Website initialization completed');
-        
     } catch (error) {
         console.error('Critical error during website initialization:', error);
     }

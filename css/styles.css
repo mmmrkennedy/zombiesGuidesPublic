@@ -22,6 +22,8 @@ BASE STYLES
     --border-gray: #ddd;
     --button-bg: #333333;
     --button-hover: #555;
+    --mobile-header-height: 56px;
+    --desktop-header-height: 72px;
 }
 
 /* Base body styles */
@@ -29,11 +31,9 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    padding: 0;
     background-color: var(--primary-bg);
     color: var(--primary-text);
     line-height: 1.75;
-    overflow: hidden;
     height: 100vh;
     margin: 0;
     max-width: 100%;
@@ -100,12 +100,14 @@ LAYOUT STYLES
 
 /* Content window */
 .content-window {
-    flex: 1; /* Takes remaining space */
-    position: relative; /* Change from fixed */
+    flex: 1;
+    position: relative;
     width: 100%;
-    overflow-y: auto;
+    overflow-x: hidden;
     background-color: var(--primary-bg);
     scrollbar-width: thin;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Mobile content visibility */
@@ -243,19 +245,21 @@ UI COMPONENTS
 
 /* Hamburger Menu */
 .hamburger-menu-toggle {
-    position: fixed;
     top: 25px;
     left: 120px;
-    width: 30px;
-    height: 30px;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 1001;
-    display: flex;
-    align-items: center;
     justify-content: center;
     padding: 0;
+    position: static;
+    order: 3;
+    margin-right: 12px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .hamburger-menu-toggle svg {
@@ -313,7 +317,8 @@ UI COMPONENTS
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding-left: 12px;
+    height: var(--desktop-header-height);
     border-bottom: 2px solid gray;
     background-color: #333333;
 }
@@ -343,7 +348,7 @@ UI COMPONENTS
 }
 
 .hamburger-menu-links {
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 .hamburger-menu-links h4 {
@@ -388,17 +393,6 @@ UI COMPONENTS
 .hamburger-menu-links a:hover {
     color: #fff;
     text-decoration: underline;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .hamburger-menu-content {
-        width: 100%;
-    }
-    
-    .hamburger-menu-toggle {
-        left: 100px;
-    }
 }
 
 /* 
@@ -588,13 +582,21 @@ table caption {
 }
 
 /* Title elements */
-.title-text, .title-sub-text {
-    margin-top: 0;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+.title-text {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1;              /* expands to take middle space */
+    text-align: center;   /* center text within that space */
+    padding: 0 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    order: 2;
 }
 
 .title-sub-text {
@@ -603,16 +605,26 @@ table caption {
 
 /* Top buttons background */
 .top-buttons-background-box {
-    flex-shrink: 0; /* Prevents shrinking */
-    position: relative; /* Change from fixed */
+    flex-shrink: 0;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
+    height: var(--desktop-header-height);
     z-index: 1000;
     background-color: var(--primary-bg);
     border-bottom: 3px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.toggle-button.top-left {
+    position: static;     /* let flexbox handle placement */
+    order: 1;             /* left side */
+    margin-left: 12px;    /* spacing from edge */
+}
+
 
 /* 
 =======================================
@@ -682,5 +694,88 @@ LIGHTBOX STYLES
     border-radius: 4px;
     font-size: 16px;
     width: fit-content;
+}
+
+/*
+=======================================
+MOBILE SPECIFIC STYLES
+=======================================
+*/
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    h2.section-title {
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    p.step-group-title,
+    p.sub-sub-step,
+    p.upgrade-title,
+    p.warning,
+    p.boss-fight-phases {
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    .solver-with-button {
+        min-width: unset;
+        width: 100%;
+        margin: 10px;
+    }
+
+    .button-activated-div {
+        max-width: 100%;
+        margin: 10px 5px;
+    }
+
+    table {
+        margin: 20px 10px;
+        max-width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .hamburger-menu-content {
+        width: 100%;
+    }
+
+    .top-buttons-background-box {
+        height: var(--mobile-header-height);
+    }
+
+    /* Move hamburger to the right */
+    .hamburger-menu-toggle {
+        padding-right: 12px;
+        width: unset;
+    }
+
+    .title-text {
+        font-size: 18px;
+    }
+
+    .version-display {
+        top: -3px
+    }
+
+    .toggle-button.bottom-right {
+        --btn-bottom: 16px;
+        --btn-right: 16px;
+        padding: 12px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+    }
+
+    .hamburger-menu-header {
+        height: var(--mobile-header-height);
+    }
+
+    .content-window {
+        padding-bottom: var(--mobile-header-height);
+    }
 }
 

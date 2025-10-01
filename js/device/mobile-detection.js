@@ -1,63 +1,61 @@
 /**
  * Mobile and touch device detection utilities
- * Handles device-specific functionality and responsive behavior
+ * Handles device-specific functionality and responsive behaviour
  */
-
-/**
- * Detects if the device has a touch screen
- */
-function hasTouchScreen() {
-    let hasTouchScreen;
-
-    if ("maxTouchPoints" in navigator) {
-        hasTouchScreen = navigator.maxTouchPoints > 0;
-    } else if ("msMaxTouchPoints" in navigator) {
-        hasTouchScreen = navigator.msMaxTouchPoints > 0;
-    } else {
-        let mQ = window.matchMedia && matchMedia("(pointer:coarse)");
-        if (mQ && mQ.media === "(pointer:coarse)") {
-            hasTouchScreen = !!mQ.matches;
-        } else if ('orientation' in window) {
-            hasTouchScreen = true; // deprecated, but good fallback
-        } else {
-            // Only as a last resort, fall back to user agent sniffing
-            let UA = navigator.userAgent;
-            hasTouchScreen = (
-                /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
-                /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
-            );
-        }
-    }
-    return hasTouchScreen;
-}
 
 /**
  * Detects if the device is mobile based on user agent
  */
-function isMobile() {
+function isMobileUserAgent() {
+    // console.log("User Agent: ", navigator.userAgent);
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+/**
+ * Detects if the device is mobile based on screen size
+ */
+function isMobileScreenSize() {
+    return window.innerWidth <= 768;
 }
 
 /**
  * Initializes mobile-specific UI elements
  */
-function touchScreenInit() {
-    try {
-        if (hasTouchScreen() || isMobile()) {
-            document.getElementById('mobileContent').style.display = 'block';
-            document.getElementById('nonMobileContent').style.display = 'none';
-        } else {
-            document.getElementById('mobileContent').style.display = 'none';
-            document.getElementById('nonMobileContent').style.display = 'block';
+function updateMobileText() {
+    // const isMobileDevice = isMobileUserAgent() || isMobileScreenSize();
+    const isMobileDevice = isMobileScreenSize();
+
+    // console.log("updateMobileText called", isMobileScreenSize());
+
+    const contentElements = [
+        { id: 'mobileContent', showOnMobile: true },
+        { id: 'nonMobileContent', showOnMobile: false }
+    ];
+
+    contentElements.forEach(contentItem => {
+        try {
+            const element = document.getElementById(contentItem.id);
+            if (element) {
+                element.style.display = isMobileDevice === contentItem.showOnMobile ? 'block' : 'none';
+            } else {
+                console.log(`${contentItem.id} not found`);
+            }
+        } catch (error) {
+            console.log(`Error handling ${contentItem.id}:`, error);
         }
-    } catch (e) {
-        console.log(e);
-    }
+    });
 }
+
 
 // Make functions available globally
 window.MobileDetection = {
-    hasTouchScreen,
-    isMobile,
-    touchScreenInit
+    isMobileUserAgent,
+    isMobileScreenSize,
+    updateMobileText
 };
+
+// Run once on page load
+window.addEventListener('DOMContentLoaded', window.MobileDetection.updateMobileText);
+
+// Update dynamically on resize
+window.addEventListener('resize', window.MobileDetection.updateMobileText);

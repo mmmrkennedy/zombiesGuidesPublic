@@ -21,12 +21,16 @@ function initializeQuickLinks() {
             return;
         }
 
-        const elementsData = window.QuickLinksUtils.getQuickLinkElements(document);
+        // Exit early if navigation already exists (built at build-time)
+        if (parentElement.children.length > 0) {
+            console.log("Navigation already pre-built, skipping runtime generation");
+            return;
+        }
 
-        let start = performance.now();
+        // Fallback: generate navigation dynamically only if empty
+        console.warn("Navigation not pre-built, generating at runtime (fallback)");
+        const elementsData = window.QuickLinksUtils.getQuickLinkElements(document);
         generateQuickLinks(parentElement, elementsData);
-        let end = performance.now();
-        console.log(`Time to generateQuickLinks ${end - start} ms`)
 
     } catch (e) {
         console.error("Error initializing quick links:", e);

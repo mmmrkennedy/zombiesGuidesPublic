@@ -69,20 +69,20 @@ function addTutorialBox() {
 
                     <!-- Page 3 -->
                     <div class="tutorial-page" data-page="3">
-                        <p>Links in <a href="#">light blue</a> will take you to another part of the same page or to a different page on this site.</p>
+                        <p>Links in <a class="link-to-page" href="#">Light Blue</a> will take you to another part of the same page or to a different page on this site.</p>
                         <p>You can always use your browser's back button to return to where you were.</p>
                     </div>
 
                     <!-- Page 4 -->
                     <div class="tutorial-page" data-page="4">
-                        <p>Links in <a href="https://youtube.com">green</a> lead to other websites, like YouTube or Reddit.</p>
+                        <p>Links in <a class="external-link" href="https://youtube.com">Green (YouTube)</a> lead to other websites, like YouTube or Reddit.</p>
                         <p>We try to make it clear where each link goes before you click it.</p>
                     </div>
 
                     <!-- Page 5 -->
                     <div class="tutorial-page" data-page="5">
                         <p>If you ever need to jump to the top of a guide, just use the "Back to Top" button.</p>
-                        <p>Also, the guides are open to anyone who wishes to contribute. Join the <a href="https://discord.com/invite/hQng3Yz48A">Discord Server</a> to start helping out.</p>
+                        <p>Also, the guides are open to anyone who wishes to contribute. Join the <a class="external-link" href="https://discord.com/invite/hQng3Yz48A">Discord Server</a> to start helping out.</p>
                         <p>Thanks for checking out the Website!</p>
                     </div>
                 </div>
