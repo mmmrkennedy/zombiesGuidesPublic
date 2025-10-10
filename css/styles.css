@@ -445,7 +445,7 @@ p.boss-fight-phases {
 }
 
 /* Step group titles */
-p.step-group-title, p.sub-sub-step {
+p.step-group-title {
     margin-top: 13px;
     margin-bottom: 10px;
     margin-right: 0;
@@ -503,7 +503,7 @@ h4.sub-header {
 }
 
 /* Upgrade titles */
-p.upgrade-title {
+p.upgrade-title, p.sub-sub-step {
     margin: 13px 0 10px;
     font-weight: bold;
     font-size: 105%;
@@ -513,7 +513,6 @@ p.upgrade-title {
     border-left: 4.5px solid;
     border-image: linear-gradient(to bottom, var(--accent-green), var(--accent-yellow)) 1;
     border-radius: 0 5px 5px 0;
-    min-width: 250px;
     width: fit-content;
 }
 
@@ -581,26 +580,43 @@ table caption {
     line-height: 1.75;
 }
 
+.title-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    order: 2;
+    padding: 0 12px;
+    line-height: 1;
+}
+
 /* Title elements */
 .title-text {
-    position: static;
-    transform: none;
-    left: auto;
-    top: auto;
-    margin: 0;
+    margin: 5px;
     font-size: 24px;
     font-weight: bold;
-    flex: 1;              /* expands to take middle space */
-    text-align: center;   /* center text within that space */
-    padding: 0 12px;
+    text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.top-buttons-background-box > .title-text {
+    flex: 1;
     order: 2;
+    padding: 0 12px;
 }
 
 .title-sub-text {
-    top: 50px;
+    font-size: 14px;
+    color: var(--primary-text);
+    opacity: 0.8;
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
 }
 
 /* Top buttons background */
@@ -752,6 +768,10 @@ MOBILE SPECIFIC STYLES
 
     .title-text {
         font-size: 18px;
+    }
+
+    .title-sub-text {
+        font-size: 12px;
     }
 
     .version-display {

@@ -3,39 +3,40 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Alpha Omega Guide</title>
-    <link rel="stylesheet" href="/css/styles.css?v=1759345946399" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css?v=1760054889493" type="text/css">
     <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
     <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+    <script>
+        const isLocalEnvironment = window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1" ||
+            window.location.hostname.includes(".local");
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+        if (!isLocalEnvironment) {
+            // Load gtag script dynamically
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+            document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+            // Initialize Google Analytics
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
         }
-
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+    </script>
+</head>
 
 <!-- Google Analytics -->
 
 
 <body>
 <!-- Version display component -->
-<div class="version-display" data-version="1759345946399">
+<div class="version-display" data-version="1760054889493">
     v.<span id="version-number">0</span>
 </div>
 
@@ -968,30 +969,30 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759345946399"></script>
+<script src="/js/core/page-utils.js?v=1760054889493"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759345946399"></script>
-<script src="/js/navigation/nav-utils.js?v=1759345946399"></script>
+<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
+<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759345946399"></script>
-<script src="/js/ui/lightbox.js?v=1759345946399"></script>
+<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
+<script src="/js/ui/lightbox.js?v=1760054889493"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759345946399"></script>
-<script src="/js/content/quick-links.js?v=1759345946399"></script>
+<script src="/js/content/link-processor.js?v=1760054889493"></script>
+<script src="/js/content/quick-links.js?v=1760054889493"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759345946399"></script>
+<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759345946399"></script>
+<script src="/js/features/substeps.js?v=1760054889493"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759345946399"></script>
+<script src="/js/quick-links-utils.js?v=1760054889493"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759345946399"></script>
+<script src="/js/scripts.js?v=1760054889493"></script>
 
 </body></html>

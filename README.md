@@ -8,7 +8,7 @@ The plan is to also include solvers for steps that require them (such as Attack 
 
 ## Roadmap
 Next:
-- Shadows of Evil (BO3)
+- Der Eisendrache (BO3)
 
 Finished:
 - All Of Black Ops Cold War (Except Outbreak)
@@ -17,9 +17,10 @@ Finished:
 - All of Infinite Warfare
 - Outbreak (AW)
 - Infection (AW)
-- All Of World at War
+- All of World at War
 - All of WW2
 - Liberty Falls (BO6)
+- Shadows of Evil (BO3)
 
 In Limbo (I don't wanna):
 - Outbreak (CW)

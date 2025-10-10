@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Browser Tab Title (don't include "guide", just map name) -->
     <title>Outbreak (AW) Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1759345946399">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
 <script>
@@ -35,14 +35,23 @@
 
 <body>
 <!-- Version display component -->
-<div class="version-display" data-version="1759345946399">
+<div class="version-display" data-version="1760054889493">
     v.<span id="version-number">0</span>
 </div>
 
 <div class="top-buttons-background-box">
     <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Outbreak (AW) Guide</h2>
-    <p class="title-sub-text">By: Nomad, mmmrkennedy, and Nati</p>
+    <div class="title-wrapper">
+        <h2 class="title-text">Outbreak (AW) Guide</h2>
+        <p class="title-sub-text">By: Nomad, mmmrkennedy, and Nati</p>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
+        <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+        </svg>
+    </button>
 
     <!-- Mobile devices content -->
     <div id="mobileContent">
@@ -54,6 +63,17 @@
     <div id="nonMobileContent">
         <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
         <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+    </div>
+</div>
+
+<!-- Hamburger Menu Overlay -->
+<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+    <div class="hamburger-menu-content">
+        <div class="hamburger-menu-header">
+            <h3>Quick Navigation</h3>
+            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
+        </div>
+        <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Black Box</a></li><li><a href="#main_ee_step2">Lilith's Keycard</a></li><li><a href="#main_ee_step3">Decker's Keycard</a></li><li><a href="#main_ee_step4">Oz's Keycard</a></li><li><a href="#main_ee_step5">Kahn's Keycard</a></li><li><a href="#main_ee_step6">Getting Clearance Level 49</a></li></ul><li><a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a></li><li><a href="#song_ee">'Ride of the Valkyries' Song</a></li></ul></div>
     </div>
 </div>
 
@@ -152,31 +172,31 @@
 
 
 <!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1759345946399"></script>
+<script src="/js/core/page-utils.js?v=1760054889493"></script>
 
 <!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1759345946399"></script>
-<script src="/js/navigation/nav-utils.js?v=1759345946399"></script>
+<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
+<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
 
 <!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1759345946399"></script>
-<script src="/js/ui/lightbox.js?v=1759345946399"></script>
+<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
+<script src="/js/ui/lightbox.js?v=1760054889493"></script>
 
 <!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1759345946399"></script>
-<script src="/js/content/quick-links.js?v=1759345946399"></script>
+<script src="/js/content/link-processor.js?v=1760054889493"></script>
+<script src="/js/content/quick-links.js?v=1760054889493"></script>
 
 <!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1759345946399"></script>
+<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
 
 <!-- Features -->
-<script src="/js/features/substeps.js?v=1759345946399"></script>
+<script src="/js/features/substeps.js?v=1760054889493"></script>
 
 <!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1759345946399"></script>
+<script src="/js/quick-links-utils.js?v=1760054889493"></script>
 
 <!-- Main scripts -->
-<script src="/js/scripts.js?v=1759345946399"></script>
+<script src="/js/scripts.js?v=1760054889493"></script>
 
 
 </body></html>
