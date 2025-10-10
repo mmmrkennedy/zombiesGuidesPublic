@@ -1,10 +1,4 @@
-/* 
-=======================================
-ZOMBIES GUIDES STYLESHEET
-=======================================
-*/
-
-/* 
+/*
 =======================================
 BASE STYLES
 =======================================
@@ -16,12 +10,15 @@ BASE STYLES
     --primary-text: #c0bfbf;
     --accent-blue: cornflowerblue;
     --accent-green: #6bc343;
+    --secondary-accent-green: #8bb846;
     --accent-yellow: #c9c449;
     --warning-red: #ef4444;
     --warning-text: #fca5a5;
     --border-gray: #ddd;
-    --button-bg: #333333;
-    --button-hover: #555;
+    --lighter-bg: #333333;
+    --lighter-bg-hover: #555;
+    --link-to-page: #359fad;
+    --external-link: #34a400;
     --mobile-header-height: 56px;
     --desktop-header-height: 72px;
 }
@@ -51,13 +48,13 @@ a:hover {
 
 /* Link type variations */
 a.link-to-page {
-    color: #359fad;
+    color: var(--link-to-page);
     text-decoration: underline;
     font-style: italic;
 }
 
 a.external-link {
-    color: #34a400;
+    color: var(--external-link);
     text-decoration: underline;
     font-style: italic;
 }
@@ -139,9 +136,9 @@ LAYOUT STYLES
 .morse-code {
     display: inline-block;
     padding: 1px 5px;
-    border: 3px solid rgba(0, 0, 0, 0.7);
+    border: 3px solid black;
     border-radius: 8px;
-    background-color: #333;
+    background-color: var(--lighter-bg);
     font-family: "Courier New", Courier, monospace;
     font-size: 1em;
     letter-spacing: 0.1em;
@@ -177,8 +174,8 @@ UI COMPONENTS
     font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: var(--button-bg);
-    color: #fff;
+    background-color: var(--lighter-bg);
+    color: white;
     border-radius: 5px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
@@ -191,7 +188,7 @@ UI COMPONENTS
 }
 
 .toggle-button:hover {
-    background-color: var(--button-hover);
+    background-color: var(--lighter-bg-hover);
     opacity: 1;
 }
 
@@ -208,8 +205,8 @@ UI COMPONENTS
 .square-button {
     padding: 10px 20px;
     border: none;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--lighter-bg);
+    color: white;
     font-size: 12px;
     cursor: pointer;
     border-radius: 0;
@@ -218,8 +215,8 @@ UI COMPONENTS
 }
 
 .square-button.active {
-    background-color: #fff;
-    color: #000;
+    background-color: white;
+    color: black;
 }
 
 .square-button:hover {
@@ -263,7 +260,7 @@ UI COMPONENTS
 }
 
 .hamburger-menu-toggle svg {
-    fill: #fff;
+    fill: white;
     transition: fill 0.3s ease;
 }
 
@@ -320,7 +317,7 @@ UI COMPONENTS
     padding-left: 12px;
     height: var(--desktop-header-height);
     border-bottom: 2px solid gray;
-    background-color: #333333;
+    background-color: var(--lighter-bg);
 }
 
 .hamburger-menu-header h3 {
@@ -344,7 +341,7 @@ UI COMPONENTS
 }
 
 .hamburger-menu-close:hover {
-    color: #fff;
+    color: white;
 }
 
 .hamburger-menu-links {
@@ -391,7 +388,7 @@ UI COMPONENTS
 }
 
 .hamburger-menu-links a:hover {
-    color: #fff;
+    color: white;
     text-decoration: underline;
 }
 
@@ -418,7 +415,7 @@ CONTENT STYLES
 }
 
 /* Warning and info boxes */
-p.warning, p.boss-fight-phases {
+p.warning, p.boss-fight-phases, p.notes {
     padding: 0.5rem;
     margin: 1rem 0;
     min-width: 150px;
@@ -440,6 +437,14 @@ p.boss-fight-phases {
     color: #bdb968;
     background-color: rgba(140, 137, 65, 0.08);
     border-left: 4px solid #9a9b52;
+    min-width: 75px;
+    width: fit-content;
+}
+
+p.notes {
+    color: var(--primary-text);
+    background-color: var(--lighter-bg);
+    border-left: 4px solid color-mix(in srgb, var(--lighter-bg), var(--primary-text));
     min-width: 75px;
     width: fit-content;
 }
@@ -507,7 +512,7 @@ p.upgrade-title, p.sub-sub-step {
     margin: 13px 0 10px;
     font-weight: bold;
     font-size: 105%;
-    color: #8bb846;
+    color: var(--secondary-accent-green);
     padding: 6px 9px;
     background: linear-gradient(to bottom, rgba(107, 195, 67, 0.15), rgba(201, 196, 73, 0.15));
     border-left: 4.5px solid;
@@ -656,7 +661,7 @@ LIGHTBOX STYLES
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: black;
     z-index: 2000;
     justify-content: center;
     align-items: center;
@@ -682,7 +687,7 @@ LIGHTBOX STYLES
     right: 30px;
     font-size: 30px;
     color: black;
-    background-color: yellowgreen;
+    background-color: var(--secondary-accent-green);
     cursor: pointer;
     opacity: 0.8;
     display: flex;
@@ -705,7 +710,7 @@ LIGHTBOX STYLES
     top: -5px;
     left: 0;
     color: black;
-    background-color: yellowgreen;
+    background-color: var(--secondary-accent-green);
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 16px;
