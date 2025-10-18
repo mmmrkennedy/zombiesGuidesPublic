@@ -55,7 +55,7 @@ function scrollToElement(elementId, offset, fromPopstate = false) {
 
         contentWindow.scrollTo({
             top: targetY,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
 
         // Only add to history if this wasn't triggered by popstate (back/forward button)
@@ -90,7 +90,7 @@ function initHistoryManagement() {
         console.log('Popstate event triggered:', {
             hash: window.location.hash,
             state: event.state,
-            historyLength: window.history.length
+            historyLength: window.history.length,
         });
 
         const hash = window.location.hash;
@@ -114,5 +114,5 @@ window.ScrollManager = {
     scrollToAnchors,
     scrollToElement,
     clearHashAndScrollTop,
-    initHistoryManagement
+    initHistoryManagement,
 };

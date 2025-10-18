@@ -1,186 +1,255 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Groesten Haus Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Groesten Haus Guide</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760756343789">
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+        <base target="_blank">
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
+            }
+        </script>
+    </head>
 
-<!-- Google Analytics -->
+    <!-- Google Analytics -->
 
-
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
-
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Groesten Haus Guide</h2>
-    <!-- Hamburger Menu Button -->
-    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
-    </button>
-
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<!-- Hamburger Menu Overlay -->
-<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-    <div class="hamburger-menu-content">
-        <div class="hamburger-menu-header">
-            <h3>Quick Navigation</h3>
-            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
         </div>
-        <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression / Easter Eggs</h2><ul><li><a href="#mystery_box">Mystery Box Room</a></li><ul><li><a href="#pap_box">Pack-A-Punched Weapons from Mystery Box</a></li></ul></ul><h2>Unlockable Characters</h2><ul><li><a href="#charcters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
-    </div>
-</div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Groesten Haus Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
 
-    <h2>Map Progression / Easter Eggs</h2><ul><li><a href="#mystery_box">Mystery Box Room</a></li><ul><li><a href="#pap_box">Pack-A-Punched Weapons from Mystery Box</a></li></ul></ul><h2>Unlockable Characters</h2><ul><li><a href="#charcters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
 
-    <!-- Mystery Box -->
-    <div class="content-container" data-section-ind="Map Progression / Easter Eggs" id="mystery_box">
-        <h2 class="section-title">Mystery Box Room</h2>
-        <ul>
-            <li>Shoot ten lanterns around the map. When a lantern is shot correctly, it will very faintly <a href="pictures/mystery_box/purple_glow.webp">light up purple</a> and a raven's caw sound will play. Lantern Locations: </li>
-            <ol>
-                <p><strong>Downstairs</strong></p>
-                <li><a href="pictures/mystery_box/mp40_loc1.webp">Hanging at the bottom of the stairs, left of the MP-40 wallbuy</a></li>
-                <li><a href="pictures/mystery_box/mp40_loc3.webp">Outside the window left of the MP-40 wallbuy, on the hood of a truck</a></li>
-                <li><a href="pictures/mystery_box/mp40_loc2.webp">Hanging on the support column in the middle of the room, right of the MP-40 wallbuy</a></li>
-                <li><a href="pictures/mystery_box/kitchen_loc1.webp">At the bottom of the stairs in the Kitchen</a></li>
-                <li><a href="pictures/mystery_box/kitchen_loc2.webp">Above the table in the Kitchen</a></li>
-                <li><a href="pictures/mystery_box/kitchen_loc3.webp">Outside the window in the Kitchen, on the metal cart, left of the stack of wood</a></li>
-                <p><strong>Upstairs</strong></p>
-                <li><a href="pictures/mystery_box/blitz_loc2.webp">Hanging above the top of the stairs closest to the MP-40 wallbuy</a></li>
-                <li><a href="pictures/mystery_box/blitz_loc1.webp">Across from the Random Blitz machine</a></li>
-                <li><a href="pictures/mystery_box/shotgun_loc1.webp">On a chair, left of the Combat Shotgun wallbuy</a>
-                </li>
-                <li><a href="pictures/mystery_box/shotgun_loc2.webp">On the desk, across from the Combat Shotgun wallbuy</a></li>
-            </ol>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
 
-            <p class="upgrade-title" id="pap_box">Pack-A-Punched Weapons from Mystery Box</p>
-            <ol>
-                <li>Obtain Jack-In-The-Boxes from the Mystery Box.</li>
-                <li>Throw a Jack-In-The-Box at the <a href="pictures/pap_box/metal_square.webp">metal square</a> on top of a beam above the staircase near the Blitz machine. Once the Jack-in-the-Box blows up, the metal square should be gone.</li>
-                <li>Give the <a href="pictures/pap_box/piano.webp">piano</a> next to the Mystery Box room 10,000 Jolts.</li>
-                <li>All weapons from the Mystery Box will be Pack-A-Punched.</li>
-            </ol>
-        </ul>
-    </div>
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression / Easter Eggs</h2><ul><li><a href="#mystery_box">Mystery Box Room</a></li><ul><li><a href="#pap_box">Pack-A-Punched Weapons from Mystery Box</a></li></ul></ul><h2>Unlockable Characters</h2><ul><li><a href="#charcters">Unlockable Characters</a></li><ul><li><a href="#Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+            </div>
+        </div>
 
-    <div class="content-container" data-section-ind="Unlockable Characters" id="charcters">
-        <h2 class="section-title">Unlockable Characters</h2>
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Map Progression / Easter Eggs</h2>
+                <ul>
+                    <li><a href="#mystery_box">Mystery Box Room</a></li>
+                    <ul>
+                        <li><a href="#pap_box">Pack-A-Punched Weapons from Mystery Box</a></li>
+                    </ul>
+                </ul>
+                <h2>Unlockable Characters</h2>
+                <ul>
+                    <li><a href="#charcters">Unlockable Characters</a></li>
+                    <ul>
+                        <li>
+                            <a href="#Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward)</a>
+                        </li>
+                        <li><a href="#Rookbane">Rookbane</a></li>
+                    </ul>
+                </ul>
+            </div>
 
-        <p class="weapon-desc">Characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
+            <!-- Mystery Box -->
+            <div class="content-container" data-section-ind="Map Progression / Easter Eggs" id="mystery_box">
+                <h2 class="section-title">Mystery Box Room</h2>
+                <ul>
+                    <li>
+                        Shoot ten lanterns around the map. When a lantern is shot correctly, it will very faintly
+                        <a href="pictures/mystery_box/purple_glow.webp">light up purple</a>
+                        and a raven's caw sound will play. Lantern Locations:
+                    </li>
+                    <ol>
+                        <p><strong>Downstairs</strong></p>
+                        <li>
+                            <a href="pictures/mystery_box/mp40_loc1.webp">Hanging at the bottom of the stairs, left of the MP-40 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/mp40_loc3.webp">Outside the window left of the MP-40 wallbuy, on the hood of a truck</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/mp40_loc2.webp">Hanging on the support column in the middle of the room, right of the MP-40 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/kitchen_loc1.webp">At the bottom of the stairs in the Kitchen</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/kitchen_loc2.webp">Above the table in the Kitchen</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/kitchen_loc3.webp">Outside the window in the Kitchen, on the metal cart, left of the stack of wood</a>
+                        </li>
+                        <p><strong>Upstairs</strong></p>
+                        <li>
+                            <a href="pictures/mystery_box/blitz_loc2.webp">Hanging above the top of the stairs closest to the MP-40 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/blitz_loc1.webp">Across from the Random Blitz machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/shotgun_loc1.webp">On a chair, left of the Combat Shotgun wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/mystery_box/shotgun_loc2.webp">On the desk, across from the Combat Shotgun wallbuy</a>
+                        </li>
+                    </ol>
 
-        <!-- Bloodraven Mountaineer Table -->
-        <p class="step-group-title" data-custom-quick-link="Bloodraven Mountaineer (Home Ward)" id="Bloodraven Mountaineer (Home Ward)">Bloodraven Mountaineer (Home Ward) --- <a href="pictures/charcters/bloodraven_mountaineer.webp">Character Model</a></p>
-        <p></p>
-        <table>
-            <tbody><tr>
-                <th>Challenge Hint Text / Riddle</th>
-                <th>Challenge</th>
-                <th>Strategy / Notes</th>
-            </tr>
-            <tr>
-                <td><i>And stay out!</i></td>
-                <td>Survive 30 waves without going down.</td>
-                <td>Unlock the <a href="#pap_box" class="link-to-page">Pack-a-Punched Mystery Box</a>.</td>
-            </tr>
-            <tr>
-                <td><i>Tag world champion.</i></td>
-                <td>Survive 20 waves without getting hit.</td>
-                <td>Co-op recommended. At the beginning of the match, you can camp at the Combat Shotgun wallbuy. If another player gets hit, you can still complete the challenge. You have to reach wave 20 without getting hit, not complete any 20 waves without getting hit.</td>
-            </tr>
-            <tr>
-                <td><i>If you can't take the heat...</i></td>
-                <td>Kill the Brenner that spawns on Wave 50.</td>
-                <td>Unlock the <a href="#pap_box" class="link-to-page">Pack-a-Punched Mystery Box</a>.</td>
-            </tr>
-        </tbody></table>
+                    <p class="upgrade-title" id="pap_box">Pack-A-Punched Weapons from Mystery Box</p>
+                    <ol>
+                        <li>Obtain Jack-In-The-Boxes from the Mystery Box.</li>
+                        <li>
+                            Throw a Jack-In-The-Box at the
+                            <a href="pictures/pap_box/metal_square.webp">metal square</a>
+                            on top of a beam above the staircase near the Blitz machine. Once the Jack-in-the-Box blows up, the metal square should be gone.
+                        </li>
+                        <li>
+                            Give the
+                            <a href="pictures/pap_box/piano.webp">piano</a>
+                            next to the Mystery Box room 10,000 Jolts.
+                        </li>
+                        <li>All weapons from the Mystery Box will be Pack-A-Punched.</li>
+                    </ol>
+                </ul>
+            </div>
 
-        <!-- Rookbane -->
-        <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">Rookbane (Level 1000 Reward) --- <a href="/games/WW2/rookbane.webp">Character Model</a></p>
-        <table>
-            <tbody><tr>
-                <th>Challenge</th>
-                <th>Strategy / Notes</th>
-            </tr>
-            <tr>
-                <td>Reach Level 1000 in the Zombie Mode</td>
-                <td class="strategy">See this <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/" class="external-link">post (reddit)</a> for some XP farming strategies.</td>
-            </tr>
-        </tbody></table>
-    </div>
-</div>
+            <div class="content-container" data-section-ind="Unlockable Characters" id="charcters">
+                <h2 class="section-title">Unlockable Characters</h2>
 
+                <p class="weapon-desc">Characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
 
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+                <!-- Bloodraven Mountaineer Table -->
+                <p class="step-group-title" data-custom-quick-link="Bloodraven Mountaineer (Home Ward)" id="Bloodraven Mountaineer (Home Ward)">
+                    Bloodraven Mountaineer (Home Ward) ---
+                    <a href="pictures/charcters/bloodraven_mountaineer.webp">Character Model</a>
+                </p>
+                <p></p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>And stay out!</i></td>
+                            <td>Survive 30 waves without going down.</td>
+                            <td>
+                                Unlock the
+                                <a href="#pap_box" class="link-to-page">Pack-a-Punched Mystery Box</a>
+                                .
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Tag world champion.</i></td>
+                            <td>Survive 20 waves without getting hit.</td>
+                            <td>Co-op recommended. At the beginning of the match, you can camp at the Combat Shotgun wallbuy. If another player gets hit, you can still complete the challenge. You have to reach wave 20 without getting hit, not complete any 20 waves without getting hit.</td>
+                        </tr>
+                        <tr>
+                            <td><i>If you can't take the heat...</i></td>
+                            <td>Kill the Brenner that spawns on Wave 50.</td>
+                            <td>
+                                Unlock the
+                                <a href="#pap_box" class="link-to-page">Pack-a-Punched Mystery Box</a>
+                                .
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+                <!-- Rookbane -->
+                <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">
+                    Rookbane (Level 1000 Reward) ---
+                    <a href="/games/WW2/rookbane.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td>Reach Level 1000 in the Zombie Mode</td>
+                            <td class="strategy">
+                                See this
+                                <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/" class="external-link">post (reddit)</a>
+                                for some XP farming strategies.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
 
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
 
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    
 
 </body></html>

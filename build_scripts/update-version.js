@@ -1,7 +1,7 @@
 // build_scripts/update-version.js
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 // Generate timestamp version
 const VERSION = Date.now().toString();
@@ -15,7 +15,7 @@ function walk(dir, filelist = []) {
         const stat = fs.statSync(filepath);
         if (stat.isDirectory()) {
             walk(filepath, filelist);
-        } else if (filepath.endsWith(".html")) {
+        } else if (filepath.endsWith('.html')) {
             filelist.push(filepath);
         }
     }
@@ -23,11 +23,11 @@ function walk(dir, filelist = []) {
 }
 
 // Update contents of each HTML file
-const htmlFiles = walk(".");
-let updatedFiles = [];
+const htmlFiles = walk('.');
+const updatedFiles = [];
 
 for (const file of htmlFiles) {
-    let content = fs.readFileSync(file, "utf8");
+    let content = fs.readFileSync(file, 'utf8');
     const original = content;
 
     // Replace ?v=123 style cache-busting query
@@ -37,15 +37,15 @@ for (const file of htmlFiles) {
     content = content.replace(/data-version="\d+"/g, `data-version="${VERSION}"`);
 
     if (content !== original) {
-        fs.writeFileSync(file, content, "utf8");
+        fs.writeFileSync(file, content, 'utf8');
         updatedFiles.push(file);
     }
 }
 
 console.log(`Version update complete: ${VERSION}`);
 if (updatedFiles.length) {
-    console.log("Updated files:");
+    console.log('Updated files:');
     updatedFiles.forEach(f => console.log(`- ${f}`));
 } else {
-    console.log("No files needed updating.");
+    console.log('No files needed updating.');
 }

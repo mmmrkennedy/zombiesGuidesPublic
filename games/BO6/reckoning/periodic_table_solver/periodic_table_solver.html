@@ -1,38 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Periodic Table Element Finder</title>
+        <link rel="stylesheet" href="/css/global_solver.css?v=1760756343789" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periodic Table Element Finder</title>
-    <link rel="stylesheet" href="/css/global_solver.css?v=1760054889493">
-</head>
+    <body class="solver-body">
+        <div class="solver-container">
+            <h3>Periodic Table Element Finder</h3>
+            <p>Enter 1-2 letters to find matching periodic table elements.</p>
+            <p>Input can be forwards or backwards (e.g., "fc" = "Cf" = Californium).</p>
 
-<body class="solver-body">
+            <div>
+                <label for="element-input">Element Symbol (1-2 letters):</label>
+                <input type="text" id="element-input" class="solver" placeholder="e.g., H, He, Li..." maxlength="2" onchange="findElements()" oninput="findElements()" />
+            </div>
 
-    <div class="solver-container">
-        <h3>Periodic Table Element Finder</h3>
-        <p>Enter 1-2 letters to find matching periodic table elements.</p>
-        <p>Input can be forwards or backwards (e.g., "fc" = "Cf" = Californium).</p>
+            <button type="reset" class="solver-button" id="reset" onclick="resetSolver()">Clear</button>
 
-        <div>
-            <label for="element-input">Element Symbol (1-2 letters):</label>
-            <input type="text" id="element-input" class="solver" placeholder="e.g., H, He, Li..." maxlength="2" onchange="findElements()" oninput="findElements()">
-        </div>
-
-        <button type="reset" class="solver-button" id="reset" onclick="resetSolver()">Clear</button>
-
-        <div class="solver-output">
-            <div id="results-container">
-                <p id="result"></p>
+            <div class="solver-output">
+                <div id="results-container">
+                    <p id="result"></p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="periodic_table_solver.js?v=1760054889493"></script>
-
-</body>
-
+        <script src="periodic_table_solver.js?v=1760756343789"></script>
+    </body>
 </html>
 
 <style>
@@ -42,7 +38,9 @@
         border-bottom: 1px solid #666;
         padding-bottom: 5px;
     }
-</style><!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
+</style>
+<!-- Version display component -->
+<div class="version-display" data-version="1760756343789">
+    v.
+    <span id="version-number">0</span>
 </div>

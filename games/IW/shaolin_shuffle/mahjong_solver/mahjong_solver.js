@@ -5,7 +5,7 @@ let resultTiles;
 let tile_count;
 
 document.addEventListener('mahjong_solver_template', function () {
-    console.log("mahjong_solver_template called")
+    console.log('mahjong_solver_template called');
 
     selectedTiles = [];
     tileSelection = document.getElementById('tileSelection');
@@ -14,14 +14,14 @@ document.addEventListener('mahjong_solver_template', function () {
     tile_count = [0, 0, 0, 0, 0];
 
     // Add click event to each tile
-    tileSelection.addEventListener('click', (event) => {
+    tileSelection.addEventListener('click', event => {
         const tile = event.target;
         if (tile.tagName === 'IMG' && selectedTiles.length < 14) {
             const tileValue = parseInt(tile.getAttribute('data-value'));
             const tileSrc = tile.getAttribute('data-src');
 
             // Add tile to the selected list and display in the result
-            selectedTiles.push({value: tileValue, src: tileSrc});
+            selectedTiles.push({ value: tileValue, src: tileSrc });
             tile_count[tileValue - 1] += 1;
             updateResult();
 
@@ -74,8 +74,8 @@ function disableTile(tileValue) {
 function resetSelection() {
     selectedTiles.length = 0;
     tile_count = [0, 0, 0, 0, 0];
-    result.textContent = "";
-    resultTiles.innerHTML = "";
+    result.textContent = '';
+    resultTiles.innerHTML = '';
     updateResult(); // Reset the result display
     enableTiles(); // Re-enable tile selection
 }
@@ -110,7 +110,9 @@ function calculateHand() {
         }
     });
 
-    const values = Object.keys(tileCounts).map(Number).sort((a, b) => a - b);
+    const values = Object.keys(tileCounts)
+        .map(Number)
+        .sort((a, b) => a - b);
     for (let i = 0; i < values.length - 2; i++) {
         const [a, b, c] = [values[i], values[i + 1], values[i + 2]];
         if (tileCounts[a] > 0 && tileCounts[b] > 0 && tileCounts[c] > 0) {
@@ -124,18 +126,17 @@ function calculateHand() {
     if (melds.length === 4 && pair) {
         displayWinningHand(melds, pair);
     } else {
-        result.innerHTML += "Invalid hand";
+        result.innerHTML += 'Invalid hand';
         // checkErrorInHand(melds, pair);
     }
 }
-
 
 // Display the winning hand in the result area
 function displayWinningHand(melds, pair) {
     resultTiles.innerHTML = ''; // Clear previous result
 
     // Helper function to create a container for melds or pairs
-    const createTileContainer = (tiles) => {
+    const createTileContainer = tiles => {
         const container = document.createElement('div');
         container.style.display = 'inline-block';
         container.style.margin = '0 10px';
@@ -164,4 +165,3 @@ function displayWinningHand(melds, pair) {
     const pairContainer = createTileContainer(pair);
     resultTiles.appendChild(pairContainer);
 }
-

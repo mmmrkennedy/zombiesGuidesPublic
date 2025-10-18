@@ -1,6 +1,10 @@
 <div class="solver-container lightning_puzzle_container">
     <h3>Block Positions (click to change)</h3>
-    <p>Up = Facing Away<br>Down = Facing Front (Solve Direction)</p>
+    <p>
+        Up = Facing Away
+        <br />
+        Down = Facing Front (Solve Direction)
+    </p>
 
     <div class="aligned-buttons vertical">
         <button class="aligned-button square solver-button" id="blockA" onclick="change_directions(0)">↓</button>
@@ -8,7 +12,6 @@
         <button class="aligned-button square solver-button" id="blockC" onclick="change_directions(2)">↓</button>
         <button class="aligned-button square solver-button" id="blockD" onclick="change_directions(3)">↓</button>
     </div>
-
 
     <button class="solver-button" id="solve" onclick="dawn_solver_init()">Solve!</button>
 

@@ -1,113 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Reckoning Solver</title>
+        <link rel="stylesheet" href="/css/styles.css?v=1760756343789" />
+        <link rel="stylesheet" href="/css/global_solver.css?v=1760756343789" />
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <base target="_blank" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Reckoning Solver</title>
-    <link rel="stylesheet" href="/css/styles.css?v=1760054889493">
-    <link rel="stylesheet" href="/css/global_solver.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
+        <!-- Google Analytics -->
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    <!-- Google Analytics -->
-    <script>
-        const isLocalEnvironment = window.location.hostname === "localhost" ||
-            window.location.hostname === "127.0.0.1" ||
-            window.location.hostname.includes(".local");
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        if (!isLocalEnvironment) {
-            // Load gtag script dynamically
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-            document.head.appendChild(script);
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-            // Initialize Google Analytics
-            window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-            function gtag() {
-                dataLayer.push(arguments);
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
             }
+        </script>
+    </head>
 
-            gtag('js', new Date());
-            gtag('config', 'G-EVBLWE1MJL', { 'anonymize_ip': true });
-        }
-    </script>
-</head>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
+        </div>
 
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Reckoning Solver</h2>
 
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Reckoning Solver</h2>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
 
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container">
-        <div class="content-container-top">
-            <div class="solver-insert"
-                data-solver-html-path="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.html">
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
             </div>
         </div>
-    </div>
 
-    <!-- S.A.M. Files Solver -->
-    <div class="content-container">
-        <div class="content-container-top">
-            <div class="solver-insert"
-                data-solver-html-path="/games/BO6/reckoning/maxis_items_solver/maxis_items_solver.html">
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container">
+                <div class="content-container-top">
+                    <div class="solver-insert" data-solver-html-path="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.html"></div>
+                </div>
+            </div>
+
+            <!-- S.A.M. Files Solver -->
+            <div class="content-container">
+                <div class="content-container-top">
+                    <div id="maxis-solver-react"></div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/dist/assets/index-DIjh4Ggf.js?v=1760756343789"></script>
 
-<script src="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.js?v=1760054889493"></script>
-<script src="/games/BO6/reckoning/maxis_items_solver/maxis_items_solver.js?v=1760054889493"></script>
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountMaxisItemsSolver('maxis-solver-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+        <script src="/games/BO6/reckoning/periodic_table_solver/periodic_table_solver.js?v=1760756343789"></script>
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
 
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
 
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
-</body>
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    </body>
 </html>

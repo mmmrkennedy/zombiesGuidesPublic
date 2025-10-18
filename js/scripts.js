@@ -35,19 +35,19 @@ function setupHamburgerMenuLinks() {
     // Add click handlers to all links to close the menu
     const hamburgerMenuLinks = document.getElementById('hamburgerMenuLinks');
     const overlay = document.getElementById('hamburgerMenuOverlay');
-    
+
     if (!hamburgerMenuLinks || !overlay) {
         return;
     }
-    
+
     // Add click handlers to all links to close the menu
     const allLinks = hamburgerMenuLinks.querySelectorAll('a');
     allLinks.forEach(link => {
         link.addEventListener('click', closeHamburgerMenu);
     });
-    
+
     // Add click-outside-to-close functionality
-    overlay.addEventListener('click', function(e) {
+    overlay.addEventListener('click', function (e) {
         if (e.target === overlay) {
             closeHamburgerMenu();
         }
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const observerOptions = {
             root: null, // viewport
             rootMargin: '1000px', // load images 1000px before they enter the viewport
-            threshold: 0.01 // trigger when at least 1% of the element is visible
+            threshold: 0.01, // trigger when at least 1% of the element is visible
         };
 
         // Callback for the IntersectionObserver
@@ -104,15 +104,15 @@ document.addEventListener('DOMContentLoaded', function () {
         // Helper function to load individual image
         function loadImage(imgUrl, cache) {
             const img = new Image();
-            
-            img.onload = function() {
+
+            img.onload = function () {
                 // console.log('Image loaded successfully:', imgUrl);
             };
-            
-            img.onerror = function() {
+
+            img.onerror = function () {
                 console.error('Failed to load image:', imgUrl);
             };
-            
+
             img.src = imgUrl;
             cache.set(imgUrl, img);
         }
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Observe all a tags with href pointing to an image
         const imageLinks = document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".webp"]');
-        
+
         if (imageLinks.length === 0) {
             console.log('No image links found to observe');
             return;
@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         console.log(`Observing ${imageLinks.length} image links for lazy loading`);
-        
     } catch (error) {
         console.error('Error initializing lazy loading:', error);
     }
@@ -204,30 +203,33 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Prefetch on hover (mouseenter is better than mouseover)
-            link.addEventListener('mouseenter', () => {
-                console.log(`Prefetched: ${link.getAttribute('href')}`);
-                prefetchPage(href);
-            }, { once: true }); // 'once: true' removes listener after first trigger
+            link.addEventListener(
+                'mouseenter',
+                () => {
+                    console.log(`Prefetched: ${link.getAttribute('href')}`);
+                    prefetchPage(href);
+                },
+                { once: true }
+            ); // 'once: true' removes listener after first trigger
         });
 
         console.log(`Hover prefetch enabled for ${htmlLinks.length} links`);
 
         // Optional: Expose helper for debugging
-        window.isPrefetched = function(url) {
+        window.isPrefetched = function (url) {
             return prefetchedUrls.has(url);
         };
 
-        window.getPrefetchedUrls = function() {
+        window.getPrefetchedUrls = function () {
             return Array.from(prefetchedUrls);
         };
-
     } catch (error) {
         console.error('Error initializing page prefetch:', error);
     }
 });
 
 // Enhanced link clicking with cached content feedback
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const link = e.target.closest('a[href$=".html"]:not(.disabled)');
     if (!link) return;
 
@@ -239,30 +241,30 @@ document.addEventListener('click', function(e) {
         console.log('Fast load: Content preloaded for', href);
         // Optional: Add visual feedback
         link.style.opacity = '0.7';
-        setTimeout(() => link.style.opacity = '1', 100);
+        setTimeout(() => (link.style.opacity = '1'), 100);
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const versionDisplay = document.querySelector('.version-display');
     const versionNumber = document.getElementById('version-number');
 
     if (versionDisplay && versionNumber) {
         const version = versionDisplay.getAttribute('data-version') || '0';
-        versionNumber.textContent = version.toString().slice(-6);  // Last 6 digits
+        versionNumber.textContent = version.toString().slice(-6); // Last 6 digits
     }
 });
 
 async function includeSolverComponent() {
     try {
         const solverInserts = document.querySelectorAll('.solver-insert');
-        
+
         if (solverInserts.length === 0) {
             // console.log('No solver components found to load');
             return;
         }
 
-        let event_names = [];
+        const event_names = [];
         const loadPromises = [];
 
         // Use Promise.allSettled to handle partial failures gracefully
@@ -277,7 +279,7 @@ async function includeSolverComponent() {
         }
 
         const results = await Promise.allSettled(loadPromises);
-        
+
         // Collect event names from successful loads
         results.forEach((result, index) => {
             if (result.status === 'fulfilled' && result.value) {
@@ -298,7 +300,6 @@ async function includeSolverComponent() {
         }
 
         console.log(`Loaded ${event_names.length} solver components successfully`);
-        
     } catch (error) {
         console.error('Error in includeSolverComponent:', error);
     }
@@ -307,22 +308,24 @@ async function includeSolverComponent() {
 async function loadSolverComponent(insert) {
     try {
         const response = await fetch(insert.dataset.solverHtmlPath);
-        
+
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
 
         const html = await response.text();
-        
+
         if (!html.trim()) {
             throw new Error('Empty response received');
         }
 
         insert.innerHTML = html;
-        
+
         // Extract event name from path
-        return insert.dataset.solverHtmlPath.split("/").pop().replace(/\.html$/, '');
-        
+        return insert.dataset.solverHtmlPath
+            .split('/')
+            .pop()
+            .replace(/\.html$/, '');
     } catch (error) {
         console.error(`Error loading solver component at ${insert.dataset.solverHtmlPath}:`, error);
         insert.innerHTML = `<p class="error" style="color: red; padding: 10px; border: 1px solid red; background: rgba(255,0,0,0.1);">
@@ -337,13 +340,16 @@ async function loadSolverComponent(insert) {
 MAIN INITIALIZATION
 =======================================
  */
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     try {
         // Initialize core utilities with error handling
         const initializationSteps = [
             { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
             { name: 'Feature Utils', fn: () => window.FeatureUtils?.initSubsteps() },
-            { name: 'Scroll Manager Clear', fn: () => window.ScrollManager?.clearHashAndScrollTop() },
+            {
+                name: 'Scroll Manager Clear',
+                fn: () => window.ScrollManager?.clearHashAndScrollTop(),
+            },
             { name: 'Mobile Detection', fn: () => window.MobileDetection?.updateMobileText() },
             { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },

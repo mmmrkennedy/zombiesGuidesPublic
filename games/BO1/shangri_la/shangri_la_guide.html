@@ -1,122 +1,118 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Shangri La Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-<script>
-    // Check if we're on localhost or a local environment
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Shangri La Guide</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760756343789" />
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <base target="_blank" />
+        <script>
+            // Check if we're on localhost or a local environment
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    // Only redirect if we're not in a local environment
-    if (!isLocalEnvironment) {
-        window.location.href = "/unfinished.html";
-        setInterval(() => {
-            window.location.href = "/unfinished.html";
-        }, 1000); // Redirect every second
-    }
-</script><script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+            // Only redirect if we're not in a local environment
+            if (!isLocalEnvironment) {
+                window.location.href = '/unfinished.html';
+                setInterval(() => {
+                    window.location.href = '/unfinished.html';
+                }, 1000); // Redirect every second
+            }
+        </script>
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
+            }
+        </script>
+    </head>
 
+    <!-- Google Analytics -->
 
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
+        </div>
 
-<!-- Google Analytics -->
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Shangri La Guide</h2>
 
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
 
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
 
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Shangri La Guide</h2>
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Weapons</h2>
+                <ul>
+                    <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+                    <ol>
+                        <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
+                        <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
+                    </ol>
+                </ul>
 
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+                    <ol>
+                        <li><a href="#main_ee_step1">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step2">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step3">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step4">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step5">CHANGE ME</a></li>
+                    </ol>
+                </ul>
+            </div>
 
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
+            <!-- Wonder Weapons -->
+            <div class="content-container" id="CHANGE ME">
+                <h2>CHANGE ME</h2>
+                <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
+                <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest:</p>
+            </div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <h2>Weapons</h2>
-        <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#CHANGE_ME_step1">CHANGE ME</a></li>
-                <li><a href="#CHANGE_ME_step2">CHANGE ME</a></li>
-            </ol>
-        </ul>
+            <!-- Main Easter Egg -->
+            <div class="content-container" id="main_ee">
+                <h2>CHANGE ME</h2>
+                <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
+                    <li>CHANGE ME</li>
+                    <li>CHANGE ME</li>
+                </ol>
+            </div>
+        </div>
 
-        <h2>Easter Eggs</h2>
-        <ul>
-            <li><a href="#CHANGE_ME">CHANGE ME</a></li>
-            <ol>
-                <li><a href="#main_ee_step1">CHANGE ME</a></li>
-                <li><a href="#main_ee_step2">CHANGE ME</a></li>
-                <li><a href="#main_ee_step3">CHANGE ME</a></li>
-                <li><a href="#main_ee_step4">CHANGE ME</a></li>
-                <li><a href="#main_ee_step5">CHANGE ME</a></li>
-            </ol>
-        </ul>
-    </div>
-
-    <!-- Wonder Weapons -->
-    <div class="content-container" id="CHANGE ME">
-        <h2>CHANGE ME</h2>
-        <p class="weapon-desc">The CHANGE ME can be Pack-a-Punched and does not require an Easter Egg to do so.</p>
-        <p class="weapon-desc">The CHANGE ME is available through the mystery box and via the following quest: </p>
-    </div>
-
-    <!-- Main Easter Egg -->
-    <div class="content-container" id="main_ee">
-        <h2>CHANGE ME</h2>
-        <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
-        <ol>
-            <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
-            <li>CHANGE ME</li>
-            <li>CHANGE ME</li>
-        </ol>
-    </div>
-</div>
-
-
-<script src="/js/scripts.js?v=1760054889493"></script>
-
-
-</body></html>
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    </body>
+</html>

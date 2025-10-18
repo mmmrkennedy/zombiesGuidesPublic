@@ -240,14 +240,14 @@ function initLightbox() {
     closeBtn.addEventListener('click', closeLightbox);
 
     // Add lightbox background click listener
-    lightbox.addEventListener('click', (event) => {
+    lightbox.addEventListener('click', event => {
         if (event.target === lightbox) {
             closeLightbox();
         }
     });
 
     // Add keyboard event listeners
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
         if (lightbox.style.display === 'flex') {
             if (event.key === 'Escape') {
                 closeLightbox();
@@ -270,5 +270,5 @@ window.Lightbox = {
     navigateToNext,
     closeLightbox,
     handleLightboxClick,
-    initLightbox
+    initLightbox,
 };

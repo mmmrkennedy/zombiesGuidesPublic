@@ -7,10 +7,10 @@ const QuickLinksUtils = require('../js/quick-links-utils.js');
 
 // Simple CLI argument parsing
 const args = process.argv.slice(2);
-let indexFile = "index.html"; // default
+let indexFile = 'index.html'; // default
 
 for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--index" && args[i + 1]) {
+    if (args[i] === '--index' && args[i + 1]) {
         indexFile = args[i + 1];
     }
 }
@@ -21,7 +21,7 @@ class NavBuilder {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
             indexFile: options.indexFile || '../index.html',
-            ...options
+            ...options,
         };
         this.processedFiles = 0;
         this.errors = [];
@@ -43,7 +43,7 @@ class NavBuilder {
     processFile(filePath) {
         try {
             this.log(`Processing ${path.basename(filePath)}...`);
-            
+
             if (!fs.existsSync(filePath)) {
                 this.log(`File does not exist: ${filePath}`, 'error');
                 return false;
@@ -54,10 +54,10 @@ class NavBuilder {
             const document = dom.window.document;
 
             // Find the hamburger menu container
-            const parentElement = document.getElementById("hamburgerMenuLinks");
+            const parentElement = document.getElementById('hamburgerMenuLinks');
 
             if (!parentElement) {
-                this.log('Hamburger menu container not found, skipping', 'warn');
+                this.log(`Hamburger menu container not found in ${path.basename(filePath)}, skipping`, 'warn');
                 return false;
             }
 
@@ -82,9 +82,8 @@ class NavBuilder {
             } else {
                 this.log(`Would update ${path.basename(filePath)} (dry run)`);
             }
-            
+
             return true;
-            
         } catch (error) {
             this.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
@@ -139,7 +138,6 @@ class NavBuilder {
             }
 
             return htmlFiles;
-            
         } catch (error) {
             this.log(`Error reading index file: ${error.message}`, 'error');
             return [];
@@ -168,7 +166,6 @@ class NavBuilder {
             }
 
             return this.generateReport();
-            
         } catch (error) {
             this.log(`Critical error during build: ${error.message}`, 'error');
             return this.generateReport();
@@ -179,21 +176,21 @@ class NavBuilder {
         console.log('\nBuild Report:');
         console.log(`   Files processed: ${this.processedFiles}`);
         console.log(`   Errors: ${this.errors.length}`);
-        
+
         if (this.errors.length > 0) {
             console.log('\nErrors:');
             this.errors.forEach((error, index) => {
                 console.log(`   ${index + 1}. ${error}`);
             });
         }
-        
+
         if (this.options.dryRun) {
             console.log('\nThis was a dry run - no files were actually modified');
         }
 
         const success = this.errors.length === 0;
         console.log(`\n${success ? 'Build completed successfully!' : 'Build completed with errors'}`);
-        
+
         return success;
     }
 }
@@ -204,7 +201,7 @@ function parseArguments() {
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: '../index.html'
+        indexFile: '../index.html',
     };
 
     for (let i = 0; i < args.length; i++) {

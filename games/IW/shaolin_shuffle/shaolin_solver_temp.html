@@ -1,183 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Shaolin Shuffle Solvers</title>
-    <link rel="stylesheet" href="/css/styles.css?v=1760054889493">
-    <link rel="stylesheet" href="/css/global_solver.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon"href="/favicon/favicon.ico">
-    <base target="_blank">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Shaolin Shuffle Solvers</title>
+        <link rel="stylesheet" href="/css/styles.css?v=1760756343789" />
+        <link rel="stylesheet" href="/css/global_solver.css?v=1760756343789" />
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <base target="_blank" />
+    </head>
 
-<!-- Google Analytics -->
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+    <!-- Google Analytics -->
+    <script>
+        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+        if (!isLocalEnvironment) {
+            // Load gtag script dynamically
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+            document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+            // Initialize Google Analytics
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
         }
+    </script>
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script>
-
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
-
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Shaolin Shuffle Solvers</h2>
-
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
-        <div class="content-container">
-            <div class="solver-insert" data-solver-html-path="/games/IW/shaolin_shuffle/mahjong_solver/mahjong_solver_template.html"></div>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
         </div>
 
-        <h2>Main Quest Word Solver</h2>
-        <div class="button-activated-div border" data-bool-quick-link="false" id="word_filter">
-            <label for="word_filter_text">Enter what letters you have of your word so far: </label> <input id="word_filter_text" oninput="filterWordsByPrefix(this.value)" type="text">
-            <p class="sub-sub-step" data-bool-quick-link="false">List of possible letters to finish the word: </p>
-            <p id="possible_letters" style="text-indent: 20px;">No valid words to find letters for.</p>
-            <div id="word_filter_imgs"></div>
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Shaolin Shuffle Solvers</h2>
 
-            <p class="sub-sub-step" data-bool-quick-link="false">List of possible words:</p>
-            <ul id="word_list">
-                <li>ACTORS</li>
-                <li>AFTERLIFE</li>
-                <li>ANCESTOR</li>
-                <li>ARCADE</li>
-                <li>ARTHUR</li>
-                <li>AUDITION</li>
-                <li>BASEMENT</li>
-                <li>BEVERLYHILLS</li>
-                <li>BLACKCAT</li>
-                <li>BOAT</li>
-                <li>BREEDER</li>
-                <li>BROADWAY</li>
-                <li>BRUTE</li>
-                <li>BUMPERCARS</li>
-                <li>CHARMS</li>
-                <li>COMICBOOKS</li>
-                <li>CRANE</li>
-                <li>CRYPTID</li>
-                <li>DANCE</li>
-                <li>DAVIDARCHER</li>
-                <li>DEATH</li>
-                <li>DIRECTOR</li>
-                <li>DISCO</li>
-                <li>DRAGON</li>
-                <li>DRCROSS</li>
-                <li>FAIRIES</li>
-                <li>FORGEFREEZE</li>
-                <li>GEYSER</li>
-                <li>GHETTO</li>
-                <li>HARPOON</li>
-                <li>HIVES</li>
-                <li>INFERNO</li>
-                <li>KATANA</li>
-                <li>KEVINSMITH</li>
-                <li>KRAKEN</li>
-                <li>KUNGFU</li>
-                <li>LOSANGELES</li>
-                <li>MCINTOSH</li>
-                <li>MEMORIES</li>
-                <li>MEPHISTOPHELES</li>
-                <li>NEWYORK</li>
-                <li>NIGHTFALL</li>
-                <li>NUNCHUCKS</li>
-                <li>OBELISK</li>
-                <li>OCTONIAN</li>
-                <li>PAMGRIER</li>
-                <li>PINKCAT</li>
-                <li>PUNKS</li>
-                <li>RATKING</li>
-                <li>REALITYTV</li>
-                <li>REDWOODS</li>
-                <li>ROLLERCOASTER</li>
-                <li>ROLLERSKATES</li>
-                <li>SAMANTHA</li>
-                <li>SHAOLIN</li>
-                <li>SHIELD</li>
-                <li>SHUFFLE</li>
-                <li>SLASHER</li>
-                <li>SIXTYMILLION</li>
-                <li>SLASHER</li>
-                <li>SLIDE</li>
-                <li>SNAKE</li>
-                <li>SPACELAND</li>
-                <li>STAFF</li>
-                <li>SUBWAY</li>
-                <li>TIGER</li>
-                <li>TREES</li>
-                <li>WEREWOLFPOETS</li>
-                <li>WINONAWYLER</li>
-                <li>YETIEYES</li>
-                <li>ZAPPER</li>
-            </ul>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
-    </div>
-</div>
 
-<script src="mahjong_solver/mahjong_solver.js?v=1760054889493"></script>
-<script src="main_ee_word_solver/word_solver.js?v=1760054889493"></script>
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <div class="content-container">
+                    <div class="solver-insert" data-solver-html-path="/games/IW/shaolin_shuffle/mahjong_solver/mahjong_solver_template.html"></div>
+                </div>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+                <h2>Main Quest Word Solver</h2>
+                <div class="button-activated-div border" data-bool-quick-link="false" id="word_filter">
+                    <label for="word_filter_text">Enter what letters you have of your word so far:</label>
+                    <input id="word_filter_text" oninput="filterWordsByPrefix(this.value)" type="text" />
+                    <p class="sub-sub-step" data-bool-quick-link="false">List of possible letters to finish the word:</p>
+                    <p id="possible_letters" style="text-indent: 20px">No valid words to find letters for.</p>
+                    <div id="word_filter_imgs"></div>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+                    <p class="sub-sub-step" data-bool-quick-link="false">List of possible words:</p>
+                    <ul id="word_list">
+                        <li>ACTORS</li>
+                        <li>AFTERLIFE</li>
+                        <li>ANCESTOR</li>
+                        <li>ARCADE</li>
+                        <li>ARTHUR</li>
+                        <li>AUDITION</li>
+                        <li>BASEMENT</li>
+                        <li>BEVERLYHILLS</li>
+                        <li>BLACKCAT</li>
+                        <li>BOAT</li>
+                        <li>BREEDER</li>
+                        <li>BROADWAY</li>
+                        <li>BRUTE</li>
+                        <li>BUMPERCARS</li>
+                        <li>CHARMS</li>
+                        <li>COMICBOOKS</li>
+                        <li>CRANE</li>
+                        <li>CRYPTID</li>
+                        <li>DANCE</li>
+                        <li>DAVIDARCHER</li>
+                        <li>DEATH</li>
+                        <li>DIRECTOR</li>
+                        <li>DISCO</li>
+                        <li>DRAGON</li>
+                        <li>DRCROSS</li>
+                        <li>FAIRIES</li>
+                        <li>FORGEFREEZE</li>
+                        <li>GEYSER</li>
+                        <li>GHETTO</li>
+                        <li>HARPOON</li>
+                        <li>HIVES</li>
+                        <li>INFERNO</li>
+                        <li>KATANA</li>
+                        <li>KEVINSMITH</li>
+                        <li>KRAKEN</li>
+                        <li>KUNGFU</li>
+                        <li>LOSANGELES</li>
+                        <li>MCINTOSH</li>
+                        <li>MEMORIES</li>
+                        <li>MEPHISTOPHELES</li>
+                        <li>NEWYORK</li>
+                        <li>NIGHTFALL</li>
+                        <li>NUNCHUCKS</li>
+                        <li>OBELISK</li>
+                        <li>OCTONIAN</li>
+                        <li>PAMGRIER</li>
+                        <li>PINKCAT</li>
+                        <li>PUNKS</li>
+                        <li>RATKING</li>
+                        <li>REALITYTV</li>
+                        <li>REDWOODS</li>
+                        <li>ROLLERCOASTER</li>
+                        <li>ROLLERSKATES</li>
+                        <li>SAMANTHA</li>
+                        <li>SHAOLIN</li>
+                        <li>SHIELD</li>
+                        <li>SHUFFLE</li>
+                        <li>SLASHER</li>
+                        <li>SIXTYMILLION</li>
+                        <li>SLASHER</li>
+                        <li>SLIDE</li>
+                        <li>SNAKE</li>
+                        <li>SPACELAND</li>
+                        <li>STAFF</li>
+                        <li>SUBWAY</li>
+                        <li>TIGER</li>
+                        <li>TREES</li>
+                        <li>WEREWOLFPOETS</li>
+                        <li>WINONAWYLER</li>
+                        <li>YETIEYES</li>
+                        <li>ZAPPER</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+        <script src="mahjong_solver/mahjong_solver.js?v=1760756343789"></script>
+        <script src="main_ee_word_solver/word_solver.js?v=1760756343789"></script>
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
-</body>
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
+
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    </body>
 </html>

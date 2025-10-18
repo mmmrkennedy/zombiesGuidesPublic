@@ -1,322 +1,575 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mauer der Toten Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Mauer der Toten Guide</title>
+        <link href="/css/styles.css?v=1760756343789" rel="stylesheet" type="text/css">
+        <link href="/favicon/favicon.ico" rel="icon" type="image/x-icon">
+        <base target="_blank">
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
+            }
+        </script>
+    </head>
 
-<!-- Google Analytics -->
+    <!-- Google Analytics -->
 
-
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
-
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Mauer der Toten Guide</h2>
-    <!-- Hamburger Menu Button -->
-    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
-    </button>
-
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<!-- Hamburger Menu Overlay -->
-<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-    <div class="hamburger-menu-content">
-        <div class="hamburger-menu-header">
-            <h3>Quick Navigation</h3>
-            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
         </div>
-        <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#cbrss">CBRS-S</a></li><li><a href="#klaus_base">Klaus</a></li><ul><li><a href="#klaus_upgrade">Klaus Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Tin Man Heart' Main Quest</a></li><ul><li><a href="#main_ee_step2">Find the Secret Lab</a></li><li><a href="#main_ee_step3">Charge the Conversion Unit</a></li><li><a href="#main_ee_step4">Stop the Train</a></li><li><a href="#main_ee_step5">Obtain the Uranium</a></li><li><a href="#main_ee_step6">Valentina Boss Fight</a></li></ul><li><a href="#song_ee">'Amoeba' Song</a></li><li><a href="#aether_tool_ee">Free Aether Tool (Weapon Tier Upgrade)</a></li><li><a href="#nightclub_ee">Mister Peeks' Nightclub/ Free Loot</a></li><li><a href="#gersh_device_ee">Free Loot</a></li></ul></div>
-    </div>
-</div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Mauer der Toten Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
+                <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
 
-    <h2>Weapons</h2><ul><li><a href="#cbrss">CBRS-S</a></li><li><a href="#klaus_base">Klaus</a></li><ul><li><a href="#klaus_upgrade">Klaus Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Tin Man Heart' Main Quest</a></li><ul><li><a href="#main_ee_step2">Find the Secret Lab</a></li><li><a href="#main_ee_step3">Charge the Conversion Unit</a></li><li><a href="#main_ee_step4">Stop the Train</a></li><li><a href="#main_ee_step5">Obtain the Uranium</a></li><li><a href="#main_ee_step6">Valentina Boss Fight</a></li></ul><li><a href="#song_ee">'Amoeba' Song</a></li><li><a href="#aether_tool_ee">Free Aether Tool (Weapon Tier Upgrade)</a></li><li><a href="#nightclub_ee">Mister Peeks' Nightclub/ Free Loot</a></li><li><a href="#gersh_device_ee">Free Loot</a></li></ul></div>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button class="toggle-button top-left" onclick="navigateToIndex()" type="button">←</button>
+                <button class="toggle-button bottom-right" onclick="scrollToTop()" type="button">↑</button>
+            </div>
 
-    <!-- Wonder Weapons -->
-    <div class="content-container" data-section-ind="Weapons" id="cbrss">
-        <h2 class="section-title">CBRS-S</h2>
-        <p class="weapon-desc">The CBRS-S is a pistol that fires two high-energy shots per one ammo used due to the Copy-Cat Orb floating around the gun. It can be Pack-a-Punched and there are three variants. The CBRS-S is available from the mystery box, through the completion of trials, and via the following quest: </p>
-        <ol>
-            <li>Assemble the base version of <a href="#klaus_base" class="link-to-page">Klaus</a>.</li>
-            <li>Have Klaus open the <a href="pictures/klaus_ee/locker.webp">Locker</a> located in the 'Switch Control Room' by using the Tactical Equipment to move him in front of it.</li>
-            <li>Pick up the Blacklight from the Locker.</li>
-            <li>In the following three locations, there will be a number on a wall only visible with the blacklight (coloured blue): </li>
-            <ol>
-                <li>Garment Factory (First Dial):</li>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button class="toggle-button top-left" onclick="navigateToIndex()" type="button">Back</button>
+                <button class="toggle-button bottom-right" onclick="scrollToTop()" type="button">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#cbrss">CBRS-S</a></li><li><a href="#klaus_base">Klaus</a></li><ul><li><a href="#klaus_upgrade">Klaus Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Tin Man Heart' Main Quest</a></li><ul><li><a href="#main_ee_step2">Find the Secret Lab</a></li><li><a href="#main_ee_step3">Charge the Conversion Unit</a></li><li><a href="#main_ee_step4">Stop the Train</a></li><li><a href="#main_ee_step5">Obtain the Uranium</a></li><li><a href="#main_ee_step6">Valentina Boss Fight</a></li></ul><li><a href="#song_ee">'Amoeba' Song</a></li><li><a href="#aether_tool_ee">Free Aether Tool (Weapon Tier Upgrade)</a></li><li><a href="#nightclub_ee">Mister Peeks' Nightclub/ Free Loot</a></li><li><a href="#gersh_device_ee">Free Loot</a></li></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Weapons</h2>
                 <ul>
-                    <li><a href="pictures/cbrss/garment_chalkboard.webp">Chalkboard</a></li>
-                    <li><a href="pictures/cbrss/garment_doorway.webp">Doorway</a></li>
-                    <li><a href="pictures/cbrss/garment_graffiti.webp">Graffiti</a></li>
+                    <li><a href="#cbrss">CBRS-S</a></li>
+                    <li><a href="#klaus_base">Klaus</a></li>
+                    <ul>
+                        <li><a href="#klaus_upgrade">Klaus Upgrade</a></li>
+                    </ul>
                 </ul>
-                <li>Service Passage (Second Dial):</li>
+                <h2>Easter Eggs</h2>
                 <ul>
-                    <li><a href="pictures/cbrss/passage_doorway.webp">Doorway</a></li>
-                    <li><a href="pictures/cbrss/passage_pipes.webp">Pipes</a></li>
-                    <li><a href="pictures/cbrss/passage_electricalbox.webp">Electrical Box</a></li>
+                    <li><a href="#main_ee">'Tin Man Heart' Main Quest</a></li>
+                    <ul>
+                        <li><a href="#main_ee_step2">Find the Secret Lab</a></li>
+                        <li><a href="#main_ee_step3">Charge the Conversion Unit</a></li>
+                        <li><a href="#main_ee_step4">Stop the Train</a></li>
+                        <li><a href="#main_ee_step5">Obtain the Uranium</a></li>
+                        <li><a href="#main_ee_step6">Valentina Boss Fight</a></li>
+                    </ul>
+                    <li><a href="#song_ee">'Amoeba' Song</a></li>
+                    <li><a href="#aether_tool_ee">Free Aether Tool (Weapon Tier Upgrade)</a></li>
+                    <li><a href="#nightclub_ee">Mister Peeks' Nightclub/ Free Loot</a></li>
+                    <li><a href="#gersh_device_ee">Free Loot</a></li>
                 </ul>
-                <li>Grocery Store (Third Dial):</li>
+            </div>
+
+            <!-- Wonder Weapons -->
+            <div class="content-container" data-section-ind="Weapons" id="cbrss">
+                <h2 class="section-title">CBRS-S</h2>
+                <p class="weapon-desc">The CBRS-S is a pistol that fires two high-energy shots per one ammo used due to the Copy-Cat Orb floating around the gun. It can be Pack-a-Punched and there are three variants. The CBRS-S is available from the mystery box, through the completion of trials, and via the following quest:</p>
+                <ol>
+                    <li>
+                        Assemble the base version of
+                        <a class="link-to-page" href="#klaus_base">Klaus</a>
+                        .
+                    </li>
+                    <li>
+                        Have Klaus open the
+                        <a href="pictures/klaus_ee/locker.webp">Locker</a>
+                        located in the 'Switch Control Room' by using the Tactical Equipment to move him in front of it.
+                    </li>
+                    <li>Pick up the Blacklight from the Locker.</li>
+                    <li>In the following three locations, there will be a number on a wall only visible with the blacklight (coloured blue):</li>
+                    <ol>
+                        <li>Garment Factory (First Dial):</li>
+                        <ul>
+                            <li><a href="pictures/cbrss/garment_chalkboard.webp">Chalkboard</a></li>
+                            <li><a href="pictures/cbrss/garment_doorway.webp">Doorway</a></li>
+                            <li><a href="pictures/cbrss/garment_graffiti.webp">Graffiti</a></li>
+                        </ul>
+                        <li>Service Passage (Second Dial):</li>
+                        <ul>
+                            <li><a href="pictures/cbrss/passage_doorway.webp">Doorway</a></li>
+                            <li><a href="pictures/cbrss/passage_pipes.webp">Pipes</a></li>
+                            <li>
+                                <a href="pictures/cbrss/passage_electricalbox.webp">Electrical Box</a>
+                            </li>
+                        </ul>
+                        <li>Grocery Store (Third Dial):</li>
+                        <ul>
+                            <li><a href="pictures/cbrss/store_mugsposter.webp">Mugs Poster</a></li>
+                            <li><a href="pictures/cbrss/store_shelf.webp">Shelves</a></li>
+                            <li>
+                                <a href="pictures/cbrss/store_watermelon.webp">Watermelon Poster</a>
+                            </li>
+                        </ul>
+                    </ol>
+                    <li>
+                        Once you find the three blue numbers, go to 'Hotel Room 305' and use them to unlock the
+                        <a href="pictures/cbrss/closedsafe.webp">Safe</a>
+                        .
+                    </li>
+                    <li>Once you enter the right combination, the safe will open revealing the CBRS-S ready for pickup.</li>
+                </ol>
+
+                <p class="upgrade-title">Swarm, Blazer or Diffuser</p>
                 <ul>
-                    <li><a href="pictures/cbrss/store_mugsposter.webp">Mugs Poster</a></li>
-                    <li><a href="pictures/cbrss/store_shelf.webp">Shelves</a></li>
-                    <li><a href="pictures/cbrss/store_watermelon.webp">Watermelon Poster</a></li>
+                    <li>All the variants can be obtained by killing Zombies. There is no way to get a specific variant to drop other than just waiting for one to drop.</li>
+                    <li>Once a variant runs out of ammo, the CBRS-S will return to its base variant.</li>
                 </ul>
-            </ol>
-            <li>Once you find the three blue numbers, go to 'Hotel Room 305' and use them to unlock the <a href="pictures/cbrss/closedsafe.webp">Safe</a>.</li>
-            <li>Once you enter the right combination, the safe will open revealing the CBRS-S ready for pickup.</li>
-        </ol>
+            </div>
 
-        <p class="upgrade-title">Swarm, Blazer or Diffuser</p>
-        <ul>
-            <li>All the variants can be obtained by killing Zombies. There is no way to get a specific variant to drop other than just waiting for one to drop.</li>
-            <li>Once a variant runs out of ammo, the CBRS-S will return to its base variant.</li>
-        </ul>
-    </div>
+            <!-- Klaus Easter Egg -->
+            <div class="content-container" id="klaus_base">
+                <h2 class="section-title">Klaus</h2>
+                <ol>
+                    <li>Turn on Power and unlock Pack-a-Punch.</li>
+                    <li>Equip a weapon with Brain Rot.</li>
+                    <li>
+                        Navigate to
+                        <a href="pictures/klaus_ee/room305.webp">Hotel Room 305</a>
+                        and spawn a brain-rotted zombie near the
+                        <a href="pictures/klaus_ee/barricadeddoor.webp">Barricaded Door</a>
+                        .
+                    </li>
+                    <li>
+                        The zombie will tear down the barricade, allowing the player to access the room. Once in the room, pick up the
+                        <a href="pictures/klaus_ee/corpse.webp">Robotic Hands</a>
+                        from the corpse on the bed.
+                    </li>
+                    <li>
+                        Kill a Krasny Soldat and pick up the
+                        <a href="pictures/klaus_ee/battery.webp">Battery</a>
+                        it drops. They spawn in for the first time around round 10.
+                    </li>
+                    <li>
+                        Navigate to the
+                        <a href="pictures/klaus_ee/safehouse.webp">Safe House</a>
+                        and interact with
+                        <a href="pictures/klaus_ee/klaussitting.webp">Klaus</a>
+                        to install the Hands and Battery.
+                    </li>
+                </ol>
 
-    <!-- Klaus Easter Egg -->
-    <div class="content-container" id="klaus_base">
-        <h2 class="section-title">Klaus</h2>
-        <ol>
-            <li>Turn on Power and unlock Pack-a-Punch.</li>
-            <li>Equip a weapon with Brain Rot.</li>
-            <li>Navigate to <a href="pictures/klaus_ee/room305.webp">Hotel Room 305</a> and spawn a brain-rotted zombie near the <a href="pictures/klaus_ee/barricadeddoor.webp">Barricaded Door</a>.</li>
-            <li>The zombie will tear down the barricade, allowing the player to access the room. Once in the room, pick up the <a href="pictures/klaus_ee/corpse.webp">Robotic Hands</a> from the corpse on the bed.</li>
-            <li>Kill a Krasny Soldat and pick up the <a href="pictures/klaus_ee/battery.webp">Battery</a> it drops. They spawn in for the first time around round 10.</li>
-            <li>Navigate to the <a href="pictures/klaus_ee/safehouse.webp">Safe House</a> and interact with <a href="pictures/klaus_ee/klaussitting.webp">Klaus</a> to install the Hands and Battery.</li>
-        </ol>
+                <p class="upgrade-title" id="klaus_upgrade">Klaus Upgrade</p>
+                <ol>
+                    <li>
+                        Navigate to
+                        <a href="pictures/klaus_ee/deathstrip.webp">"Death Strip"</a>
+                        (both sides of the Pack-a-Punch) and interact with all the debris piles until the
+                        <a href="pictures/klaus_ee/dish.webp">Microwave Dish</a>
+                        spawns.
+                    </li>
+                    <li>
+                        Navigate to the 'Garment Factory' and install the Dish on the
+                        <a href="pictures/klaus_ee/upgradestation.webp">Upgrade Station</a>
+                        .
+                    </li>
+                    <li>
+                        Deploy Klaus and allow him to kill about 45 Zombies. Once he gets enough kills, a sound will play and the
+                        <a href="pictures/klaus_ee/monitor.webp">monitor</a>
+                        on the top-right of the Upgrade Station will turn green.
+                    </li>
+                    <li>Command Klaus to enter the Upgrade Station where you must defend him from infinitely spawning enemies until the timer finishes counting down.</li>
+                    <li>
+                        Have Klaus open the
+                        <a href="pictures/klaus_ee/locker.webp">Locker</a>
+                        located in the 'Switch Control Room' by using the Tactical Equipment to move him in front of it. Pick up the Blacklight from the open locker.
+                    </li>
+                    <li>
+                        Shine the Blacklight at each of the following electrical boxes, two of which will have a
+                        <a href="pictures/klaus_ee/klaussymbol.webp">Klaus Symbol</a>
+                        on them. Command Klaus to the two boxes to open them revealing floppy disks. Box Locations:
+                    </li>
+                    <ul>
+                        <li>
+                            5th Floor Apartments -
+                            <a href="pictures/klaus_ee/apartments.webp">Across from Zipline</a>
+                        </li>
+                        <li>
+                            Hotel Lounge -
+                            <a href="pictures/klaus_ee/hotel.webp">Across from Stamin-Up</a>
+                        </li>
+                        <li>
+                            Ghost Station -
+                            <a href="pictures/klaus_ee/ghoststation.webp">Near Service Passage</a>
+                        </li>
+                        <li>
+                            Maintenance Tunnel -
+                            <a href="pictures/klaus_ee/maintenancetunnel.webp">Near Safe House</a>
+                        </li>
+                        <li>
+                            West Berlin Street -
+                            <a href="pictures/klaus_ee/westberlinstreet.webp">Near Café Müller</a>
+                        </li>
+                        <li>
+                            Blasted Suite -
+                            <a href="pictures/klaus_ee/blastedsuite.webp">Near Barrier</a>
+                        </li>
+                    </ul>
+                    <li>Collect the Floppy Disks and return to the Upgrade Station.</li>
+                    <li>Command Klaus to enter the Upgrade Station and interact with it to insert one of the disks and begin the Upgrade Process. Klaus does not need to be defended during the Floppy Disk upgrades. Repeat for the other Floppy Disk.</li>
+                    <li>Once both floppy disk upgrades have been completed, Klaus will be fully upgraded.</li>
+                </ol>
+            </div>
 
-        <p class="upgrade-title" id="klaus_upgrade">Klaus Upgrade</p>
-        <ol>
-            <li>Navigate to <a href="pictures/klaus_ee/deathstrip.webp">"Death Strip"</a> (both sides of the Pack-a-Punch) and interact with all the debris piles until the <a href="pictures/klaus_ee/dish.webp">Microwave Dish</a> spawns.</li>
-            <li>Navigate to the 'Garment Factory' and install the Dish on the <a href="pictures/klaus_ee/upgradestation.webp">Upgrade Station</a>.</li>
-            <li>Deploy Klaus and allow him to kill about 45 Zombies. Once he gets enough kills, a sound will play and the <a href="pictures/klaus_ee/monitor.webp">monitor</a> on the top-right of the Upgrade Station will turn green.</li>
-            <li>Command Klaus to enter the Upgrade Station where you must defend him from infinitely spawning enemies until the timer finishes counting down.</li>
-            <li>Have Klaus open the <a href="pictures/klaus_ee/locker.webp">Locker</a> located in the 'Switch Control Room' by using the Tactical Equipment to move him in front of it. Pick up the Blacklight from the open locker.</li>
-            <li>Shine the Blacklight at each of the following electrical boxes, two of which will have a <a href="pictures/klaus_ee/klaussymbol.webp">Klaus Symbol</a> on them. Command Klaus to the two boxes to open them revealing floppy disks. Box Locations: </li>
-            <ul>
-                <li>5th Floor Apartments - <a href="pictures/klaus_ee/apartments.webp">Across from Zipline</a></li>
-                <li>Hotel Lounge - <a href="pictures/klaus_ee/hotel.webp">Across from Stamin-Up</a></li>
-                <li>Ghost Station - <a href="pictures/klaus_ee/ghoststation.webp">Near Service Passage</a></li>
-                <li>Maintenance Tunnel - <a href="pictures/klaus_ee/maintenancetunnel.webp">Near Safe House</a></li>
-                <li>West Berlin Street - <a href="pictures/klaus_ee/westberlinstreet.webp">Near Café Müller</a></li>
-                <li>Blasted Suite - <a href="pictures/klaus_ee/blastedsuite.webp">Near Barrier</a></li>
-            </ul>
-            <li>Collect the Floppy Disks and return to the Upgrade Station.</li>
-            <li>Command Klaus to enter the Upgrade Station and interact with it to insert one of the disks and begin the Upgrade Process. Klaus does not need to be defended during the Floppy Disk upgrades. Repeat for the other Floppy Disk.</li>
-            <li>Once both floppy disk upgrades have been completed, Klaus will be fully upgraded.</li>
-        </ol>
-    </div>
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">'Tin Man Heart' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - 5/10, Est. Completion Time - 40 Mins to 1 Hr</p>
+                <ol>
+                    <p class="step-group-title">Prerequisites</p>
+                    <li>Turn on Power and unlock Pack-a-Punch.</li>
+                    <li>
+                        <a class="link-to-page" href="#klaus_base">Assemble and Fully Upgrade Klaus</a>
+                        -
+                        <strong>
+                            Note:
+                            <a class="link-to-page" href="#klaus_upgrade">Upgraded Klaus</a>
+                            is required for Step 15, and Un-upgraded Klaus is required for Step 5
+                        </strong>
+                        .
+                    </li>
+                    <li>
+                        Obtain the
+                        <a class="link-to-page" href="#cbrss">CBRS-S</a>
+                        .
+                    </li>
 
-    <!-- Main Easter Egg -->
-    <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
-        <h2 class="section-title">'Tin Man Heart' Main Quest</h2>
-        <p class="stats">Stats (Solo): Difficulty - 5/10, Est. Completion Time - 40 Mins to 1 Hr</p>
-        <ol>
-            <p class="step-group-title">Prerequisites</p>
-            <li>Turn on Power and unlock Pack-a-Punch.</li>
-            <li><a href="#klaus_base" class="link-to-page">Assemble and Fully Upgrade Klaus</a> - <strong>Note: <a href="#klaus_upgrade" class="link-to-page">Upgraded Klaus</a> is required for Step 15, and Un-upgraded Klaus is required for Step 5</strong>.</li>
-            <li>Obtain the <a href="#cbrss" class="link-to-page">CBRS-S</a>.</li>
+                    <p class="step-group-title" id="main_ee_step2">Find the Secret Lab</p>
+                    <li>
+                        The player must craft the Hacking Helm. There are three items, two of which are only on one spot. The objects below must be shot with the
+                        <a class="link-to-page" href="#cbrss">CBRS-S</a>
+                        to make them drop the parts. Locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/helm_rooftop.webp">'Apartment Rooftop' - Radio Tower</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/helm_station.webp">'Ghost Station' - Box on the wall, near the M16 wallbuy</a>
+                        </li>
+                        <li>
+                            'Electronics Store' - Boombox:
+                            <a href="pictures/main_ee/helm_store_loc1.webp">Location 1</a>
+                            ,
+                            <a href="pictures/main_ee/helm_store_loc2.webp">Location 2</a>
+                            ,
+                            <a href="pictures/main_ee/helm_store_loc3.webp">Location 3</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once all three items have been collected, navigate to the
+                        <a href="pictures/klaus_ee/safehouse.webp">Safe House</a>
+                        and craft the Hacking Helm on
+                        <a href="pictures/klaus_ee/klaussitting.webp">Klaus</a>
+                        .
+                    </li>
+                    <li>
+                        Navigate to
+                        <a href="pictures/main_ee/vaguepicofseweraccess.webp">Sewer Access</a>
+                        and use the Klaus Remote Control to Command Klaus to break
+                        <a href="pictures/main_ee/brickwall.webp">this brick wall</a>
+                        to reveal the metal wall.
+                    </li>
+                    <li>
+                        Obtain the Blazer Mod Kit (Laser Beam Variant of the
+                        <a class="link-to-page" href="#cbrss">CBRS-S</a>
+                        ) and shoot the Metal Wall till it melts.
+                    </li>
 
-            <p class="step-group-title" id="main_ee_step2">Find the Secret Lab</p>
-            <li>The player must craft the Hacking Helm. There are three items, two of which are only on one spot. The objects below must be shot with the <a href="#cbrss" class="link-to-page">CBRS-S</a> to make them drop the parts. Locations: </li>
-            <ul>
-                <li><a href="pictures/main_ee/helm_rooftop.webp">'Apartment Rooftop' - Radio Tower</a></li>
-                <li><a href="pictures/main_ee/helm_station.webp">'Ghost Station' - Box on the wall, near the M16 wallbuy</a></li>
-                <li>'Electronics Store' - Boombox: <a href="pictures/main_ee/helm_store_loc1.webp">Location 1</a>, <a href="pictures/main_ee/helm_store_loc2.webp">Location 2</a>, <a href="pictures/main_ee/helm_store_loc3.webp">Location 3</a></li>
-            </ul>
-            <li>Once all three items have been collected, navigate to the <a href="pictures/klaus_ee/safehouse.webp">Safe House</a> and craft the Hacking Helm on <a href="pictures/klaus_ee/klaussitting.webp">Klaus</a>.</li>
-            <li>Navigate to <a href="pictures/main_ee/vaguepicofseweraccess.webp">Sewer Access</a> and use the Klaus Remote Control to Command Klaus to break <a href="pictures/main_ee/brickwall.webp">this brick wall</a> to reveal the metal wall.</li>
-            <li>Obtain the Blazer Mod Kit (Laser Beam Variant of the <a href="#cbrss" class="link-to-page">CBRS-S</a>) and shoot the Metal Wall till it melts.</li>
+                    <p class="step-group-title" id="main_ee_step3">Charge the Conversion Unit</p>
+                    <li>Once a player enters the lab, the current round will end and a Tormentor round will begin.</li>
+                    <li>
+                        Once the Tormentor round is over, collect the three empty canisters from the
+                        <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a>
+                        .
+                    </li>
+                    <li>
+                        Shoot
+                        <a href="pictures/main_ee/luremachine.webp">this machine</a>
+                        with the CBRS-S to open it. Once open, the player can pick up an Endstation Lure.
+                    </li>
+                    <li>Find three harvesters in the locations below. Only three of the seven harvesters spawn each game, so some spots will be empty. Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/harvesters_westberlin.webp">West Berlin Street</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/harvesters_penthouse.webp">Destroyed Penthouse (Below Quick Revive)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/harvesters_eastberlin.webp">East Berlin Street</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/harvesters_korber.webp">Korber Rooftop</a>
+                        </li>
+                        <li><a href="pictures/main_ee/harvesters_alley.webp">Alley</a></li>
+                        <li><a href="pictures/main_ee/harvesters_sewer.webp">Sewer Access</a></li>
+                        <li><a href="pictures/main_ee/harvesters_ghost.webp">Ghost Station</a></li>
+                    </ul>
+                    <li>Insert the canister into the harvester. Once the canister is fully inserted, throw the lure on top/near the Essence Harvesters to spawn Tempests. Kill the tempests near the harvester to charge the canister. Once all tempests are killed, pick up the canister. If the canister can't be picked up, try killing more tempests with another lure.</li>
+                    <li>
+                        Bring the filled canister to the
+                        <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a>
+                        and deposit it.
+                    </li>
+                    <li><i>Repeat Steps 11-13 for the other two Canisters.</i></li>
 
-            <p class="step-group-title" id="main_ee_step3">Charge the Conversion Unit</p>
-            <li>Once a player enters the lab, the current round will end and a Tormentor round will begin.</li>
-            <li>Once the Tormentor round is over, collect the three empty canisters from the <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a>.</li>
-            <li>Shoot <a href="pictures/main_ee/luremachine.webp">this machine</a> with the CBRS-S to open it. Once open, the player can pick up an Endstation Lure.</li>
-            <li>Find three harvesters in the locations below. Only three of the seven harvesters spawn each game, so some spots will be empty. Locations: </li>
-            <ul>
-                <li><a href="pictures/main_ee/harvesters_westberlin.webp">West Berlin Street</a></li>
-                <li><a href="pictures/main_ee/harvesters_penthouse.webp">Destroyed Penthouse (Below Quick Revive)</a>
-                </li>
-                <li><a href="pictures/main_ee/harvesters_eastberlin.webp">East Berlin Street</a></li>
-                <li><a href="pictures/main_ee/harvesters_korber.webp">Korber Rooftop</a></li>
-                <li><a href="pictures/main_ee/harvesters_alley.webp">Alley</a></li>
-                <li><a href="pictures/main_ee/harvesters_sewer.webp">Sewer Access</a></li>
-                <li><a href="pictures/main_ee/harvesters_ghost.webp">Ghost Station</a></li>
-            </ul>
-            <li>Insert the canister into the harvester. Once the canister is fully inserted, throw the lure on top/near the Essence Harvesters to spawn Tempests. Kill the tempests near the harvester to charge the canister. Once all tempests are killed, pick up the canister. If the canister can't be picked up, try killing more tempests with another lure.</li>
-            <li>Bring the filled canister to the <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a> and deposit it.</li>
-            <li><i>Repeat Steps 11-13 for the other two Canisters.</i></li>
+                    <p class="step-group-title" id="main_ee_step4">Stop the Train</p>
+                    <li>
+                        Navigate to the 'Switch Control Room' and interact with the
+                        <a href="pictures/main_ee/railwayswitch.webp">Railway Switch</a>
+                        .
+                    </li>
+                    <li>
+                        Fully upgrade
+                        <a class="link-to-page" href="#klaus_base">Klaus</a>
+                        .
+                    </li>
+                    <li>
+                        Command Klaus to
+                        <a href="pictures/main_ee/klaus_on_tracks.webp">stand on the track furthest from Mule Kick near the M16 wallbuy</a>
+                        . If done correctly, when the train comes, Klaus will stop it, allowing the player to board it. If Klaus fails to stop the train, wait till the next round, then flip the Railway Switch and try again.
+                    </li>
+                    <li>
+                        On the train, the player must quickly pick up
+                        <a href="pictures/main_ee/train_keycard.webp">Rico's Keycard</a>
+                        and the
+                        <a href="pictures/main_ee/train_bomb.webp">Bomb</a>
+                        before the train leaves.
+                    </li>
+                    <li>
+                        Return to the Secret Lab and interact with the
+                        <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a>
+                        to place the Bomb.
+                    </li>
 
-            <p class="step-group-title" id="main_ee_step4">Stop the Train</p>
-            <li>Navigate to the 'Switch Control Room' and interact with the <a href="pictures/main_ee/railwayswitch.webp">Railway Switch</a>.</li>
-            <li>Fully upgrade <a href="#klaus_base" class="link-to-page">Klaus</a>.</li>
-            <li>Command Klaus to <a href="pictures/main_ee/klaus_on_tracks.webp">stand on the track furthest from Mule Kick near the M16 wallbuy</a>. If done correctly, when the train comes, Klaus will stop it, allowing the player to board it. If Klaus fails to stop the train, wait till the next round, then flip the Railway Switch and try again.</li>
-            <li>On the train, the player must quickly pick up <a href="pictures/main_ee/train_keycard.webp">Rico's Keycard</a> and the <a href="pictures/main_ee/train_bomb.webp">Bomb</a> before the train leaves.</li>
-            <li>Return to the Secret Lab and interact with the <a href="pictures/main_ee/conversionunit.webp">Conversion Unit</a> to place the Bomb.</li>
+                    <p class="step-group-title" id="main_ee_step5">Obtain the Uranium</p>
+                    <li>
+                        Navigate to the Safe House and interact with
+                        <a href="pictures/main_ee/safehouse_computer.webp">this computer</a>
+                        until the screen shows a satellite.
+                    </li>
+                    <li>Navigate to the Objective Marker and kill the HVT Megaton. Two Uranium Rocks will drop from the Megaton.</li>
+                    <li>Pick one up and bring it to one of the workbenches to craft a Uranium Device.</li>
+                    <ul>
+                        <li><a href="pictures/main_ee/west_bench.webp">West Berlin Street</a></li>
+                        <li><a href="pictures/main_ee/east_bench.webp">Military Tent</a></li>
+                    </ul>
+                    <li>
+                        Navigate to the
+                        <a href="pictures/main_ee/penthouse_zipline.webp">Destroyed Penthouse Zipline</a>
+                        and attach the Uranium Device.
+                    </li>
+                    <li>
+                        Repeat Step 22 for the other Radioactive Material and then navigate to the
+                        <a href="pictures/main_ee/korber_zipline.webp">Korber Rooftop Zipline</a>
+                        and attach the Uranium Device.
+                    </li>
+                    <li>Both Uranium Devices will shoot across the zipline, collide in the middle and land on the street below. Collect the Cleansed Uranium and return it to the conversion unit.</li>
 
-            <p class="step-group-title" id="main_ee_step5">Obtain the Uranium</p>
-            <li>Navigate to the Safe House and interact with <a href="pictures/main_ee/safehouse_computer.webp">this computer</a> until the screen shows a satellite.</li>
-            <li>Navigate to the Objective Marker and kill the HVT Megaton. Two Uranium Rocks will drop from the Megaton.</li>
-            <li>Pick one up and bring it to one of the workbenches to craft a Uranium Device.</li>
-            <ul>
-                <li><a href="pictures/main_ee/west_bench.webp">West Berlin Street</a></li>
-                <li><a href="pictures/main_ee/east_bench.webp">Military Tent</a></li>
-            </ul>
-            <li>Navigate to the <a href="pictures/main_ee/penthouse_zipline.webp">Destroyed Penthouse Zipline</a> and attach the Uranium Device.</li>
-            <li>Repeat Step 22 for the other Radioactive Material and then navigate to the <a href="pictures/main_ee/korber_zipline.webp">Korber Rooftop Zipline</a> and attach the Uranium Device.</li>
-            <li>Both Uranium Devices will shoot across the zipline, collide in the middle and land on the street below. Collect the Cleansed Uranium and return it to the conversion unit.</li>
+                    <p class="warning">Warning: Point of No Return. Once the second Uranium is returned to the conversion unit, the Boss Fight will start.</p>
+                    <li><i>Repeat Steps 20-25 to get another Cleansed Uranium.</i></li>
 
-            <p class="warning">Warning: Point of No Return. Once the second Uranium is returned to the conversion unit, the Boss Fight will start.</p>
-            <li><i>Repeat Steps 20-25 to get another Cleansed Uranium.</i></li>
+                    <p class="step-group-title" id="main_ee_step6">Valentina Boss Fight</p>
+                    <li>Valentina has three attacks, two damage dealing and one healing. They are:</li>
+                    <ul>
+                        <li>Fire (Damage): Three Orange crystals will appear over Valentina's Head and begin shooting at a player. The projectiles can be outrun but cannot be avoided while walking.</li>
+                        <li>Wipe (Damage): A blue aura will appear around the player's screen. All players must take cover (out of view of Valentina) to avoid being instantly downed.</li>
+                        <li>Heal: Valentina will spawn floating zombies surrounding her. Kill the zombies to stop her from healing.</li>
+                    </ul>
+                    <li>To attack Valentina, shoot her until she becomes immune and moves to a new area. She will move to four different areas before returning to the secret lab.</li>
+                    <li>Once Valentina's health bar hits 0, a cutscene will play then the player must defend Klaus as he walks the Bomb into the Portal.</li>
+                    <li>Once he makes it into the portal, the game will end and the final cutscene will start.</li>
+                </ol>
+            </div>
 
-            <p class="step-group-title" id="main_ee_step6">Valentina Boss Fight</p>
-            <li>Valentina has three attacks, two damage dealing and one healing. They are:</li>
-            <ul>
-                <li>Fire (Damage): Three Orange crystals will appear over Valentina's Head and begin shooting at a player. The projectiles can be outrun but cannot be avoided while walking.</li>
-                <li>Wipe (Damage): A blue aura will appear around the player's screen. All players must take cover (out of view of Valentina) to avoid being instantly downed.</li>
-                <li>Heal: Valentina will spawn floating zombies surrounding her. Kill the zombies to stop her from healing.</li>
-            </ul>
-            <li>To attack Valentina, shoot her until she becomes immune and moves to a new area. She will move to four different areas before returning to the secret lab.</li>
-            <li>Once Valentina's health bar hits 0, a cutscene will play then the player must defend Klaus as he walks the Bomb into the Portal.</li>
-            <li>Once he makes it into the portal, the game will end and the final cutscene will start.</li>
-        </ol>
-    </div>
+            <!-- Song EE -->
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Amoeba' Song</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a class="external-link" href="https://song.link/ca/i/498659005">here</a>
+                    .
+                </p>
+                <ol>
+                    <li>There are three tapes required to start the song:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/song_ee/tape1.webp">'Garment Factory' - Top of mannequin</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/tape2.webp">'Electronics Store' - Shelf</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/tape3.webp">'Blasted Suite' - Flower vase</a>
+                        </li>
+                    </ul>
+                    <li>Once all three tapes are collected, the song will start.</li>
+                </ol>
+            </div>
 
-    <!-- Song EE -->
-    <div class="content-container" id="song_ee">
-        <h2 class="section-title">'Amoeba' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/498659005" class="external-link">here</a>.</p>
-        <ol>
-            <li>There are three tapes required to start the song:</li>
-            <ul>
-                <li><a href="pictures/song_ee/tape1.webp">'Garment Factory' - Top of mannequin</a></li>
-                <li><a href="pictures/song_ee/tape2.webp">'Electronics Store' - Shelf</a></li>
-                <li><a href="pictures/song_ee/tape3.webp">'Blasted Suite' - Flower vase</a></li>
-            </ul>
-            <li>Once all three tapes are collected, the song will start.</li>
-        </ol>
-    </div>
+            <!-- Aether Tool -->
+            <div class="content-container" id="aether_tool_ee">
+                <h2 class="section-title">Free Aether Tool (Weapon Tier Upgrade)</h2>
+                <ol>
+                    <li>Turn on Power</li>
+                    <li>Navigate to the 'Apartment Rooftop.'</li>
+                    <li>Five targets will spawn in the following locations one at a time. This is timed, and you will not be allowed to retry if you fail to shoot all the targets. The order of the targets is always the same. The targets move left to right.</li>
+                    <li>
+                        To spawn the targets, interact with the
+                        <a href="pictures/aether_tool_ee/folder.webp">Folder</a>
+                        on the ground in the corner closest to the street. Target locations:
+                    </li>
+                    <ol>
+                        <li>
+                            Königshaus Sign -
+                            <a href="pictures/aether_tool_ee/target1_zoomout.webp">Zoomed Out</a>
+                            ---
+                            <a href="pictures/aether_tool_ee/target1_zoomin.webp">Zoomed In</a>
+                        </li>
+                        <li>
+                            Windows of Königshaus building -
+                            <a href="pictures/aether_tool_ee/target2_zoomout.webp">Zoomed Out</a>
+                            ---
+                            <a href="pictures/aether_tool_ee/target2_zoomin.webp">Zoomed In</a>
+                        </li>
+                        <li>
+                            Korber sign -
+                            <a href="pictures/aether_tool_ee/target3_zoomout.webp">Zoomed Out</a>
+                            ---
+                            <a href="pictures/aether_tool_ee/target3_zoomin.webp">Zoomed In</a>
+                        </li>
+                        <li>
+                            Windows of Der Dozent building -
+                            <a href="pictures/aether_tool_ee/target4_zoomout.webp">Zoomed Out</a>
+                            ---
+                            <a href="pictures/aether_tool_ee/target4_zoomin.webp">Zoomed In</a>
+                        </li>
+                        <li>
+                            Der Dozent sign -
+                            <a href="pictures/aether_tool_ee/target5_zoomout.webp">Zoomed Out</a>
+                            ---
+                            <a href="pictures/aether_tool_ee/target5_zoomin.webp">Zoomed In</a>
+                        </li>
+                    </ol>
+                    <li>Once the last target is shot, an Aether Tool will spawn nearby.</li>
+                </ol>
+            </div>
 
-    <!-- Aether Tool -->
-    <div class="content-container" id="aether_tool_ee">
-        <h2 class="section-title">Free Aether Tool (Weapon Tier Upgrade)</h2>
-        <ol>
-            <li>Turn on Power</li>
-            <li>Navigate to the 'Apartment Rooftop.'</li>
-            <li>Five targets will spawn in the following locations one at a time. This is timed, and you will not be allowed to retry if you fail to shoot all the targets. The order of the targets is always the same. The targets move left to right.</li>
-            <li>To spawn the targets, interact with the <a href="pictures/aether_tool_ee/folder.webp">Folder</a> on the ground in the corner closest to the street. Target locations: </li>
-            <ol>
-                <li>Königshaus Sign - <a href="pictures/aether_tool_ee/target1_zoomout.webp">Zoomed Out</a> --- <a href="pictures/aether_tool_ee/target1_zoomin.webp">Zoomed In</a></li>
-                <li>Windows of Königshaus building - <a href="pictures/aether_tool_ee/target2_zoomout.webp">Zoomed Out</a> --- <a href="pictures/aether_tool_ee/target2_zoomin.webp">Zoomed In</a></li>
-                <li>Korber sign - <a href="pictures/aether_tool_ee/target3_zoomout.webp">Zoomed Out</a> --- <a href="pictures/aether_tool_ee/target3_zoomin.webp">Zoomed In</a></li>
-                <li>Windows of Der Dozent building - <a href="pictures/aether_tool_ee/target4_zoomout.webp">Zoomed Out</a> --- <a href="pictures/aether_tool_ee/target4_zoomin.webp">Zoomed In</a></li>
-                <li>Der Dozent sign - <a href="pictures/aether_tool_ee/target5_zoomout.webp">Zoomed Out</a> --- <a href="pictures/aether_tool_ee/target5_zoomin.webp">Zoomed In</a></li>
-            </ol>
-            <li>Once the last target is shot, an Aether Tool will spawn nearby.</li>
-        </ol>
-    </div>
+            <!-- Nightclub -->
+            <div class="content-container" id="nightclub_ee">
+                <h2 class="section-title">Mister Peeks' Nightclub/ Free Loot</h2>
+                <ol>
+                    <li>Collect six pieces of Mister Peeks (Aether Bunny) from the locations below:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/nightclub_ee/sewer.webp">'Sewer Access' - Near wooden pallet</a>
+                        </li>
+                        <li>
+                            <a href="pictures/nightclub_ee/departmentstore.webp">'Department Store' - Right of Wunderfizz on Shelf</a>
+                        </li>
+                        <li>
+                            <a href="pictures/nightclub_ee/store.webp">'Grocery Store' - Shelf</a>
+                        </li>
+                        <li>
+                            <a href="pictures/nightclub_ee/jug.webp">'Bar' - Left of Juggernog</a>
+                        </li>
+                        <li>
+                            <a href="pictures/nightclub_ee/alley.webp">'Alley' - Near tire stack</a>
+                        </li>
+                        <li>
+                            <a href="pictures/nightclub_ee/hotel.webp">'Hotel Room 304' - Desk</a>
+                        </li>
+                    </ul>
+                    <li>Upon collecting the last piece, all players will be teleported to Mister Peeks' Nightclub.</li>
+                    <li>Zombies will start attacking in waves. Once the player has eliminated three waves, Mister Peeks will disappear and the player is allowed to collect a random reward from one of three doors.</li>
+                    <li>
+                        Every 15 rounds after entering the nightclub, the player may return to the nightclub by going to East Berlin Streets and shooting
+                        <a href="pictures/nightclub_ee/bunny_window.webp">Mister Peeks</a>
+                        found on the window ledge of the "Hasenbau" building out of bounds.
+                    </li>
+                </ol>
+            </div>
 
-    <!-- Nightclub -->
-    <div class="content-container" id="nightclub_ee">
-        <h2 class="section-title">Mister Peeks' Nightclub/ Free Loot</h2>
-        <ol>
-            <li>Collect six pieces of Mister Peeks (Aether Bunny) from the locations below:</li>
-            <ul>
-                <li><a href="pictures/nightclub_ee/sewer.webp">'Sewer Access' - Near wooden pallet</a></li>
-                <li><a href="pictures/nightclub_ee/departmentstore.webp">'Department Store' - Right of Wunderfizz on Shelf</a></li>
-                <li><a href="pictures/nightclub_ee/store.webp">'Grocery Store' - Shelf</a></li>
-                <li><a href="pictures/nightclub_ee/jug.webp">'Bar' - Left of Juggernog</a></li>
-                <li><a href="pictures/nightclub_ee/alley.webp">'Alley' - Near tire stack</a></li>
-                <li><a href="pictures/nightclub_ee/hotel.webp">'Hotel Room 304' - Desk</a></li>
-            </ul>
-            <li>Upon collecting the last piece, all players will be teleported to Mister Peeks' Nightclub.</li>
-            <li>Zombies will start attacking in waves. Once the player has eliminated three waves, Mister Peeks will disappear and the player is allowed to collect a random reward from one of three doors.</li>
-            <li>Every 15 rounds after entering the nightclub, the player may return to the nightclub by going to East Berlin Streets and shooting <a href="pictures/nightclub_ee/bunny_window.webp">Mister Peeks</a> found on the window ledge of the "Hasenbau" building out of bounds.</li>
-        </ol>
-    </div>
+            <!-- Free Loot -->
+            <div class="content-container" id="gersh_device_ee">
+                <h2 class="section-title">Free Loot</h2>
+                <ol>
+                    <li>
+                        Navigate to the 'East Berlin Streets' and locate the
+                        <a href="pictures/gersh_device_ee/hole.webp">exposed sewer entrance</a>
+                        found on the ground near a military vehicle.
+                    </li>
+                    <li>Repeatedly throw explosive equipment or shoot explosive weapons into the hole until loot items come out.</li>
+                    <li>This can be repeated up to three times in a single match.</li>
+                </ol>
+            </div>
+        </div>
 
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-    <!-- Free Loot -->
-    <div class="content-container" id="gersh_device_ee">
-        <h2 class="section-title">Free Loot</h2>
-        <ol>
-            <li>Navigate to the 'East Berlin Streets' and locate the <a href="pictures/gersh_device_ee/hole.webp">exposed sewer entrance</a> found on the ground near a military vehicle.</li>
-            <li>Repeatedly throw explosive equipment or shoot explosive weapons into the hole until loot items come out.</li>
-            <li>This can be repeated up to three times in a single match.</li>
-        </ol>
-    </div>
-</div>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
-
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
-
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
-
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
-
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    
 
 </body></html>

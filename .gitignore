@@ -42,3 +42,5 @@ easter_egg_help
 !SEO_img.png
 /node_modules
 /dist
+/guide_making_utils/
+/old_solvers/

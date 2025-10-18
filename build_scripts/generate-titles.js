@@ -15,7 +15,7 @@ class TitleGenerator {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
             indexFile: options.indexFile || './index.html',
-            ...options
+            ...options,
         };
         this.processedFiles = 0;
         this.modifiedFiles = 0;
@@ -38,18 +38,20 @@ class TitleGenerator {
     generateTitle(filename) {
         const nameWithoutExt = filename.replace(/\.html$/, '');
         const withSpaces = nameWithoutExt.replace(/_/g, ' ');
-        const lowercaseWords = ["of", "the", "a", "an", "and", "but", "or", "for", "nor", "in", "on", "at", "to", "with", "by"];
+        const lowercaseWords = ['of', 'the', 'a', 'an', 'and', 'but', 'or', 'for', 'nor', 'in', 'on', 'at', 'to', 'with', 'by'];
 
         const words = withSpaces.split(' ');
-        return words.map((word, index) => {
-            if (index === 0 || index === words.length - 1) {
+        return words
+            .map((word, index) => {
+                if (index === 0 || index === words.length - 1) {
+                    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                }
+                if (lowercaseWords.includes(word.toLowerCase())) {
+                    return word.toLowerCase();
+                }
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            }
-            if (lowercaseWords.includes(word.toLowerCase())) {
-                return word.toLowerCase();
-            }
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }).join(' ');
+            })
+            .join(' ');
     }
 
     processFile(filePath) {
@@ -98,7 +100,6 @@ class TitleGenerator {
             }
 
             return modified;
-
         } catch (error) {
             this.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
@@ -144,7 +145,6 @@ class TitleGenerator {
             }
 
             return htmlFiles;
-
         } catch (error) {
             this.log(`Error reading index file: ${error.message}`, 'error');
             return [];
@@ -169,7 +169,6 @@ class TitleGenerator {
             }
 
             return this.generateReport();
-
         } catch (error) {
             this.log(`Critical error during build: ${error.message}`, 'error');
             return this.generateReport();
@@ -205,7 +204,7 @@ function parseArguments() {
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: './index.html'
+        indexFile: './index.html',
     };
 
     for (let i = 0; i < args.length; i++) {

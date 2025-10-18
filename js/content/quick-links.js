@@ -11,29 +11,28 @@ function initializeQuickLinks() {
     try {
         const page = window.PageUtils.getCurrentPage();
 
-        if (page === "index.html") return;
+        if (page === 'index.html') return;
 
         // Find the hamburger menu container
-        let parentElement = document.getElementById("hamburgerMenuLinks");
+        const parentElement = document.getElementById('hamburgerMenuLinks');
 
         if (!parentElement) {
-            console.warn("Hamburger menu container not found");
+            console.warn('Hamburger menu container not found');
             return;
         }
 
         // Exit early if navigation already exists (built at build-time)
         if (parentElement.children.length > 0) {
-            console.log("Navigation already pre-built, skipping runtime generation");
+            console.log('Navigation already pre-built, skipping runtime generation');
             return;
         }
 
         // Fallback: generate navigation dynamically only if empty
-        console.warn("Navigation not pre-built, generating at runtime (fallback)");
+        console.warn('Navigation not pre-built, generating at runtime (fallback)');
         const elementsData = window.QuickLinksUtils.getQuickLinkElements(document);
         generateQuickLinks(parentElement, elementsData);
-
     } catch (e) {
-        console.error("Error initializing quick links:", e);
+        console.error('Error initializing quick links:', e);
     }
 }
 
@@ -59,40 +58,40 @@ function generateQuickLinks(parentElement, elements) {
 
         if (isSectionHeader) {
             if (sectionHeaderLevel === 0) {
-                const sectionHeader = document.createElement("h2");
+                const sectionHeader = document.createElement('h2');
                 sectionHeader.innerText = element.dataset.sectionInd;
                 fragment.appendChild(sectionHeader);
             } else {
-                const sectionHeader = document.createElement("h4");
+                const sectionHeader = document.createElement('h4');
                 // Don't add sub-header class for hamburger menu
-                if (!parentElement.id || parentElement.id !== "hamburgerMenuLinks") {
-                    sectionHeader.classList.add("sub-header");
+                if (!parentElement.id || parentElement.id !== 'hamburgerMenuLinks') {
+                    sectionHeader.classList.add('sub-header');
                 }
                 sectionHeader.innerText = element.dataset.sectionInd;
                 fragment.appendChild(sectionHeader);
             }
 
-            currentList = document.createElement("ul");
+            currentList = document.createElement('ul');
             fragment.appendChild(currentList);
             listStack = [currentList];
             currentIndentLevel = 0;
         }
 
         if (!currentList) {
-            currentList = document.createElement("ul");
+            currentList = document.createElement('ul');
             fragment.appendChild(currentList);
             listStack = [currentList];
             currentIndentLevel = 0;
         }
 
         // Create list item and link
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
 
         // Get element ID, fallback to previous element's ID if empty
-        let elementId = element.id;
+        const elementId = element.id;
 
-        if (elementId === "") {
+        if (elementId === '') {
             console.log(`Element Quick Link (at screen top) with text **${element.innerText}** skipped, no ID given`);
             continue; // Skip if no valid ID
         }
@@ -111,14 +110,14 @@ function generateQuickLinks(parentElement, elements) {
         if (indentLevel > currentIndentLevel) {
             // Need to create nested lists to reach the desired indent level
             while (currentIndentLevel < indentLevel) {
-                const newList = document.createElement("ul");
+                const newList = document.createElement('ul');
 
                 if (listStack[listStack.length - 1].lastElementChild) {
                     listStack[listStack.length - 1].lastElementChild.appendChild(newList);
                 } else {
                     // If there's no last element, create a dummy item
-                    const dummyItem = document.createElement("li");
-                    dummyItem.textContent = "Untitled";
+                    const dummyItem = document.createElement('li');
+                    dummyItem.textContent = 'Untitled';
                     listStack[listStack.length - 1].appendChild(dummyItem);
                     dummyItem.appendChild(newList);
                 }
@@ -146,5 +145,5 @@ function generateQuickLinks(parentElement, elements) {
 // Make functions available globally
 window.QuickLinks = {
     initializeQuickLinks,
-    generateQuickLinks
+    generateQuickLinks,
 };

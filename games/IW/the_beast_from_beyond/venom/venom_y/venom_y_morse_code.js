@@ -1,14 +1,41 @@
 // Morse code mapping
 const morseToText = {
-    ".-": "A", "-...": "B", "-.-.": "C", "-..": "D",
-    ".": "E", "..-.": "F", "--.": "G", "....": "H",
-    "..": "I", ".---": "J", "-.-": "K", ".-..": "L",
-    "--": "M", "-.": "N", "---": "O", ".--.": "P",
-    "--.-": "Q", ".-.": "R", "...": "S", "-": "T",
-    "..-": "U", "...-": "V", ".--": "W", "-..-": "X",
-    "-.--": "Y", "--..": "Z", ".----": "1", "..---": "2",
-    "...--": "3", "....-": "4", ".....": "5", "-....": "6",
-    "--...": "7", "---..": "8", "----.": "9", "-----": "0"
+    '.-': 'A',
+    '-...': 'B',
+    '-.-.': 'C',
+    '-..': 'D',
+    '.': 'E',
+    '..-.': 'F',
+    '--.': 'G',
+    '....': 'H',
+    '..': 'I',
+    '.---': 'J',
+    '-.-': 'K',
+    '.-..': 'L',
+    '--': 'M',
+    '-.': 'N',
+    '---': 'O',
+    '.--.': 'P',
+    '--.-': 'Q',
+    '.-.': 'R',
+    '...': 'S',
+    '-': 'T',
+    '..-': 'U',
+    '...-': 'V',
+    '.--': 'W',
+    '-..-': 'X',
+    '-.--': 'Y',
+    '--..': 'Z',
+    '.----': '1',
+    '..---': '2',
+    '...--': '3',
+    '....-': '4',
+    '.....': '5',
+    '-....': '6',
+    '--...': '7',
+    '---..': '8',
+    '----.': '9',
+    '-----': '0',
 };
 
 const textToMorse = Object.entries(morseToText).reduce((acc, [morse, char]) => {
@@ -41,26 +68,27 @@ function decodeMorse(morseCode) {
         const letters = word.split(' ');
         for (const letter of letters) {
             if (!(letter in morseToText) && letter !== '') {
-                return ""; // Error converting code
+                return ''; // Error converting code
             }
         }
     }
 
     // Combine words into the full message
-    return words.map(word => {
-        const letters = word.split(' '); // Split word into letters
-        const translatedLetters = letters.map(letter => morseToText[letter]); // Translate each letter
-        return translatedLetters.join(''); // Combine letters into a word
-    }).join(' ');
+    return words
+        .map(word => {
+            const letters = word.split(' '); // Split word into letters
+            const translatedLetters = letters.map(letter => morseToText[letter]); // Translate each letter
+            return translatedLetters.join(''); // Combine letters into a word
+        })
+        .join(' ');
 }
-
 
 function decryptVigenere(ciphertext, key) {
     key = key.split(' ')[0];
 
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const keyUpper = key.toUpperCase();
-    let plaintext = "";
+    let plaintext = '';
 
     let keyIndex = 0;
     for (let i = 0; i < ciphertext.length; i++) {
@@ -86,9 +114,9 @@ function decryptVigenere(ciphertext, key) {
 }
 
 function encryptVigenere(plaintext, key) {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const keyUpper = key.toUpperCase();
-    let ciphertext = "";
+    let ciphertext = '';
 
     let keyIndex = 0;
     for (let i = 0; i < plaintext.length; i++) {
@@ -113,52 +141,49 @@ function encryptVigenere(plaintext, key) {
     return ciphertext;
 }
 
-const cross_morse = encodeMorse("CROSS");
-const archer_morse = encodeMorse("ARCHER");
+const cross_morse = encodeMorse('CROSS');
+const archer_morse = encodeMorse('ARCHER');
 
 function get_key(code) {
     // Returns the key (if it could be determined), and a bool indicating if the input is JUST the key
 
-    if (cross_morse.startsWith(code) || code.startsWith(cross_morse)) { // If the input is the key
-        return ["CROSS", true];
-
+    if (cross_morse.startsWith(code) || code.startsWith(cross_morse)) {
+        // If the input is the key
+        return ['CROSS', true];
     } else if (archer_morse.startsWith(code) || code.startsWith(archer_morse)) {
-        return ["ARCHER", true];
+        return ['ARCHER', true];
     }
 
-    return ["", false];
+    return ['', false];
 }
 
 function extract_number(decrypted_text) {
-    let number_str = decrypted_text.replace("KILLOVER", "")
+    const number_str = decrypted_text.replace('KILLOVER', '');
 
-    if (number_str.startsWith("F")) {
-        return "FIFTEEN";
-
-    } else if (number_str.startsWith("E")) {
-        return "EIGHTEEN";
-
-    } else if (number_str.startsWith("TW")) {
-        if (number_str.startsWith("TWENTY") && !number_str.startsWith("TWENTYF")) {
-            return "TWENTY";
-        } else if (number_str.startsWith("TWENTYF")) {
-            return "TWENTYFIVE";
+    if (number_str.startsWith('F')) {
+        return 'FIFTEEN';
+    } else if (number_str.startsWith('E')) {
+        return 'EIGHTEEN';
+    } else if (number_str.startsWith('TW')) {
+        if (number_str.startsWith('TWENTY') && !number_str.startsWith('TWENTYF')) {
+            return 'TWENTY';
+        } else if (number_str.startsWith('TWENTYF')) {
+            return 'TWENTYFIVE';
         }
 
-        return "TWENTY or TWENTYFIVE (input more code to get a definitive result).";
-
-    } else if (number_str.startsWith("TH")) {
-        return "THIRTY";
+        return 'TWENTY or TWENTYFIVE (input more code to get a definitive result).';
+    } else if (number_str.startsWith('TH')) {
+        return 'THIRTY';
     }
 
-    return "";
+    return '';
 }
 
 function is_valid_morse_code(code) {
-    let code_char_num = new Set(code);
+    const code_char_num = new Set(code);
 
     for (const char of code_char_num) {
-        if (!(char === "-" || char === "." || char === " ")) {
+        if (!(char === '-' || char === '.' || char === ' ')) {
             return false;
         }
     }
@@ -166,15 +191,14 @@ function is_valid_morse_code(code) {
     return true;
 }
 
-
 function process_morse_code() {
-    let code = morseInput.value.trim();
+    const code = morseInput.value.trim();
 
     if (!is_valid_morse_code(code)) {
-        morseCodeInputError.innerText = "Error: Code can only contain \"-\",\".\", or \"space\"";
+        morseCodeInputError.innerText = 'Error: Code can only contain "-",".", or "space"';
         return;
     } else {
-        morseCodeInputError.innerText = "";
+        morseCodeInputError.innerText = '';
     }
 
     // Set default display values for all spans to indicate invalid input
@@ -201,24 +225,24 @@ function process_morse_code() {
         return;
     }
 
-    if (key === "") {
+    if (key === '') {
         key = venomXKeySelector.value.toUpperCase();
     }
 
     // Decode the Morse code into plain text
-    let decodedMorseToText = decodeMorse(code);
+    const decodedMorseToText = decodeMorse(code);
 
     // Decrypt the decoded text using the determined key
-    let decryptedText = decryptVigenere(decodedMorseToText, key);
+    const decryptedText = decryptVigenere(decodedMorseToText, key);
 
     // Extract the "kill number" from the decrypted text
     let extractedNumber = extract_number(decryptedText);
 
     // For the case when the user just enters the encrypted number ("KILLOVER" is needed for accurate decryption)
-    if (extractedNumber.length === 0 && !decryptedText.startsWith("KILLOVER")) {
-        let start_encrypted = encryptVigenere("KILLOVER", key);
+    if (extractedNumber.length === 0 && !decryptedText.startsWith('KILLOVER')) {
+        const start_encrypted = encryptVigenere('KILLOVER', key);
 
-        let decryptedTextExtended = decryptVigenere(start_encrypted + decodedMorseToText, key);
+        const decryptedTextExtended = decryptVigenere(start_encrypted + decodedMorseToText, key);
 
         // Extract the "kill number" from the decrypted text
         extractedNumber = extract_number(decryptedTextExtended);
@@ -231,7 +255,7 @@ function process_morse_code() {
     killNumberSpan.innerText = extractedNumber;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     keyTextSpan.innerText = 'N/A (Invalid message)';
     decodedTextSpan.innerText = 'N/A (Invalid message)';
     decryptedTextSpan.innerText = 'N/A (Invalid message)';

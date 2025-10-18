@@ -29,7 +29,7 @@ function updateMobileText() {
 
     const contentElements = [
         { id: 'mobileContent', showOnMobile: true },
-        { id: 'nonMobileContent', showOnMobile: false }
+        { id: 'nonMobileContent', showOnMobile: false },
     ];
 
     contentElements.forEach(contentItem => {
@@ -46,12 +46,11 @@ function updateMobileText() {
     });
 }
 
-
 // Make functions available globally
 window.MobileDetection = {
     isMobileUserAgent,
     isMobileScreenSize,
-    updateMobileText
+    updateMobileText,
 };
 
 // Run once on page load

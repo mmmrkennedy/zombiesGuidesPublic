@@ -139,7 +139,7 @@ LAYOUT STYLES
     border: 3px solid black;
     border-radius: 8px;
     background-color: var(--lighter-bg);
-    font-family: "Courier New", Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
     letter-spacing: 0.1em;
 }
@@ -193,13 +193,34 @@ UI COMPONENTS
 }
 
 /* Button positioning utilities */
-.top-left { --btn-top: 20px; --btn-left: 20px; }
-.top-left-down { --btn-top: 70px; --btn-left: 20px; }
-.top-right { --btn-top: 20px; --btn-right: 20px; }
-.top-right-down { --btn-top: 70px; --btn-right: 20px; }
-.bottom-left { --btn-bottom: 20px; --btn-left: 20px; }
-.bottom-right { --btn-bottom: 20px; --btn-right: 20px; }
-.bottom-right-up { --btn-bottom: 70px; --btn-right: 20px; }
+.top-left {
+    --btn-top: 20px;
+    --btn-left: 20px;
+}
+.top-left-down {
+    --btn-top: 70px;
+    --btn-left: 20px;
+}
+.top-right {
+    --btn-top: 20px;
+    --btn-right: 20px;
+}
+.top-right-down {
+    --btn-top: 70px;
+    --btn-right: 20px;
+}
+.bottom-left {
+    --btn-bottom: 20px;
+    --btn-left: 20px;
+}
+.bottom-right {
+    --btn-bottom: 20px;
+    --btn-right: 20px;
+}
+.bottom-right-up {
+    --btn-bottom: 70px;
+    --btn-right: 20px;
+}
 
 /* Square Buttons */
 .square-button {
@@ -279,7 +300,9 @@ UI COMPONENTS
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 .hamburger-menu-overlay.active {
@@ -415,7 +438,9 @@ CONTENT STYLES
 }
 
 /* Warning and info boxes */
-p.warning, p.boss-fight-phases, p.notes {
+p.warning,
+p.boss-fight-phases,
+p.notes {
     padding: 0.5rem;
     margin: 1rem 0;
     min-width: 150px;
@@ -430,7 +455,7 @@ p.warning {
 }
 
 p.warning::before {
-    content: "⚠️ ";
+    content: '⚠️ ';
 }
 
 p.boss-fight-phases {
@@ -508,7 +533,8 @@ h4.sub-header {
 }
 
 /* Upgrade titles */
-p.upgrade-title, p.sub-sub-step {
+p.upgrade-title,
+p.sub-sub-step {
     margin: 13px 0 10px;
     font-weight: bold;
     font-size: 105%;
@@ -532,7 +558,8 @@ li {
     margin-bottom: 5px;
 }
 
-p.li-spacing, p.weapon-desc {
+p.li-spacing,
+p.weapon-desc {
     margin: 7px 0;
 }
 
@@ -553,7 +580,8 @@ input.spacing {
     margin: 10px 0 15px;
 }
 
-p.stats, p.song-link {
+p.stats,
+p.song-link {
     font-weight: bold;
     font-style: italic;
 }
@@ -565,7 +593,8 @@ table {
     width: auto;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     text-align: left;
     border: 1px solid var(--border-gray);
@@ -641,11 +670,10 @@ table caption {
 }
 
 .toggle-button.top-left {
-    position: static;     /* let flexbox handle placement */
-    order: 1;             /* left side */
-    margin-left: 12px;    /* spacing from edge */
+    position: static; /* let flexbox handle placement */
+    order: 1; /* left side */
+    margin-left: 12px; /* spacing from edge */
 }
-
 
 /* 
 =======================================
@@ -672,7 +700,8 @@ LIGHTBOX STYLES
     max-width: 90%;
 }
 
-.lightbox-content img, .lightbox-content video {
+.lightbox-content img,
+.lightbox-content video {
     max-width: 100%;
     max-height: 88vh;
     display: block;
@@ -725,6 +754,11 @@ MOBILE SPECIFIC STYLES
 
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
+    ol,
+    ul {
+        padding-inline-start: 20px;
+    }
+
     h2.section-title {
         min-width: unset;
         max-width: 100%;
@@ -780,7 +814,7 @@ MOBILE SPECIFIC STYLES
     }
 
     .version-display {
-        top: -3px
+        top: -3px;
     }
 
     .toggle-button.bottom-right {
@@ -803,4 +837,3 @@ MOBILE SPECIFIC STYLES
         padding-bottom: var(--mobile-header-height);
     }
 }
-

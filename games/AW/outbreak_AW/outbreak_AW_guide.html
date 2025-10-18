@@ -1,202 +1,310 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Outbreak (AW) Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Outbreak (AW) Guide</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760756343789">
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+        <base target="_blank">
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
+            }
+        </script>
+    </head>
 
-<!-- Google Analytics -->
+    <!-- Google Analytics -->
 
-
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
-
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <div class="title-wrapper">
-        <h2 class="title-text">Outbreak (AW) Guide</h2>
-        <p class="title-sub-text">By: Nomad, mmmrkennedy, and Nati</p>
-    </div>
-
-    <!-- Hamburger Menu Button -->
-    <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
-        <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
-        </svg>
-    </button>
-
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<!-- Hamburger Menu Overlay -->
-<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-    <div class="hamburger-menu-content">
-        <div class="hamburger-menu-header">
-            <h3>Quick Navigation</h3>
-            <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
         </div>
-        <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Black Box</a></li><li><a href="#main_ee_step2">Lilith's Keycard</a></li><li><a href="#main_ee_step3">Decker's Keycard</a></li><li><a href="#main_ee_step4">Oz's Keycard</a></li><li><a href="#main_ee_step5">Kahn's Keycard</a></li><li><a href="#main_ee_step6">Getting Clearance Level 49</a></li></ul><li><a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a></li><li><a href="#song_ee">'Ride of the Valkyries' Song</a></li></ul></div>
-    </div>
-</div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <div class="title-wrapper">
+                <h2 class="title-text">Outbreak (AW) Guide</h2>
+                <p class="title-sub-text">By: Nomad, mmmrkennedy, and Nati</p>
+            </div>
 
-    <h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Black Box</a></li><li><a href="#main_ee_step2">Lilith's Keycard</a></li><li><a href="#main_ee_step3">Decker's Keycard</a></li><li><a href="#main_ee_step4">Oz's Keycard</a></li><li><a href="#main_ee_step5">Kahn's Keycard</a></li><li><a href="#main_ee_step6">Getting Clearance Level 49</a></li></ul><li><a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a></li><li><a href="#song_ee">'Ride of the Valkyries' Song</a></li></ul></div>
+            <!-- Hamburger Menu Button -->
+            <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
+                <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
 
-    <!-- Main Easter Egg -->
-    <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
-        <h2 class="section-title">'Game Over, Man!' Main Quest</h2>
-        <p class="stats">Stats (Solo): Difficulty - 1/10, Est. Completion Time - 20 to 30 Mins, RNG Rating - 2/5 (EM1 from Box)</p>
-        <ol>
-            <p class="step-group-title" id="main_ee_step1">The Black Box</p>
-            <li>Obtain the <a href="pictures/main_ee/black_box.webp">Black Box</a> found on the ground in Spawn left of the crashed Warbird.</li>
-            <li>Navigate to the Morgue and interact with the <a href="pictures/main_ee/black_box_computer.webp">Computer Terminal</a> on the right side of the room to place the Black Box. Once complete, a quote from Angie will play.</li>
-            <p class="warning">Steps 3, 4-7, 8-10, and 11-12 can be completed in any order</p>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
 
-            <p class="step-group-title" id="main_ee_step2">Lilith's Keycard</p>
-            <li>Acquire the EM1 from the 3D Printer. Next, while shooting the 3D Printer with the EM1, purchase it again. The player (Lilith, if available) can now obtain the <a href="pictures/main_ee/lilith_card.webp">Access Card</a> from the 3D Printer, incrementing their Clearance Level by 1 (indicated by <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>). If no one in the lobby is Lilith, then anyone can collect the Access Card.</li>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
 
-            <p class="step-group-title" id="main_ee_step3">Decker's Keycard</p>
-            <li><strong>RECOMMENDED:</strong> Keep the EM1 (if Lilith's Card was obtained before this) as you can fire at the ground and mash interact without having to reload.</li>
-            <li>In Solo, purchase a Trash Chute and DO NOT enter (by backing away from it); instead wait for it to close, then buy it again immediately after and enter. In Co-Op, two players must purchase and enter two different Trash Chutes at the same time.</li>
-            <li>The player(s) will be taken to the Incinerator, where you need to shoot the floor until an <a href="pictures/main_ee/decker_card.webp">Access Card</a> is revealed. The card will fly up into the air when the right area on the floor is shot.</li>
-            <li>The player (Decker, if available) can now obtain the Access Card from the ground, incrementing their Clearance Level by 1 (indicated by <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>). If no one in the lobby is Decker, then anyone can collect the Access Card.</li>
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Black Box</a></li><li><a href="#main_ee_step2">Lilith's Keycard</a></li><li><a href="#main_ee_step3">Decker's Keycard</a></li><li><a href="#main_ee_step4">Oz's Keycard</a></li><li><a href="#main_ee_step5">Kahn's Keycard</a></li><li><a href="#main_ee_step6">Getting Clearance Level 49</a></li></ul><li><a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a></li><li><a href="#song_ee">'Ride of the Valkyries' Song</a></li></ul></div>
+            </div>
+        </div>
 
-            <p class="step-group-title" id="main_ee_step4">Oz's Keycard</p>
-            <li>Navigate to the Holding Room, shoot the <a href="pictures/main_ee/oz_metal_bar.webp">metal bar</a> beneath the middle holding cell which reacts when shot. Continue to shoot it until it disappears.</li>
-            <li>All players must now buy Exo Slam, then return to the Holding Room and simultaneously slam on the top of the <a href="pictures/main_ee/outermost_holding_cell.webp">outermost holding cell</a>. If done correctly, the holding cell will collapse while another raises.</li>
-            <ul>
-                <li>After a couple seconds, the Holding Cell that came up after the slam, will lower back down. If this happens before the player(s) pick up Oz's Card, you must slam the Holding Cell again.</li>
-            </ul>
-            <li>The player (Oz, if available) can now obtain the <a href="pictures/main_ee/oz_card.webp">Access Card</a> from the holding cell, incrementing their Clearance Level by 1 (indicated by <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>). If no one in the lobby is Oz, then anyone can collect the Access Card.</li>
-
-            <p class="step-group-title" id="main_ee_step5">Kahn's Keycard</p>
-            <li>During an Infected round, navigate to the Administration area and get infected. There are four keypads you'll need to interact with (in any order) that can only be used while infected.</li>
-            <ul>
-                <li>The Keypads are NOT timed, but all four must be interacted with in one "instance" of being infected. If you cure yourself, you will have to interact with each keypad again.</li>
-                <li>Keypad locations:</li>
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Easter Eggs</h2>
                 <ul>
-                    <li><a href="pictures/main_ee/kahn_keypad_1.webp">On the security checkpoint door across from Exo Medic</a></li>
-                    <li><a href="pictures/main_ee/kahn_keypad_2.webp">Across from the entrance door next to the Decontamination Shower</a></li>
-                    <li><a href="pictures/main_ee/kahn_keypad_3.webp">At the end of the red hallway around the right corner inside Administration</a></li>
-                    <li><a href="pictures/main_ee/kahn_keypad_4.webp">On a second floor balcony, left of the MP11 wallbuy</a></li>
+                    <li><a href="#main_ee">'Game Over, Man!' Main Quest</a></li>
+                    <ul>
+                        <li><a href="#main_ee_step1">The Black Box</a></li>
+                        <li><a href="#main_ee_step2">Lilith's Keycard</a></li>
+                        <li><a href="#main_ee_step3">Decker's Keycard</a></li>
+                        <li><a href="#main_ee_step4">Oz's Keycard</a></li>
+                        <li><a href="#main_ee_step5">Kahn's Keycard</a></li>
+                        <li><a href="#main_ee_step6">Getting Clearance Level 49</a></li>
+                    </ul>
+                    <li>
+                        <a href="#main_ee_alt_end">'Game Over, Man!' Gold Statue / Alternative Ending</a>
+                    </li>
+                    <li><a href="#song_ee">'Ride of the Valkyries' Song</a></li>
                 </ul>
-            </ul>
-            <li>After using all four keypads, return to the security checkpoint and the window will open up revealing the Access Card. The player (Kahn, if available) can now obtain the <a href="pictures/main_ee/kahn_card.webp">Access Card</a> from the window, incrementing their Clearance Level by 1 (indicated by <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>). If no one in the lobby is Kahn, then anyone can collect the Access Card.</li>
+            </div>
 
-            <p class="step-group-title" id="main_ee_step6">Getting Clearance Level 49</p>
-            <li>Killing Zombies will now randomly drop <a href="pictures/main_ee/keycards_on_ground.webp">Access Cards</a> which can be obtained by simply walking over the drop location, incrementing their Clearance Level by 1. Collect cards until every player in the lobby has a Clearance Level of 49.</li>
-            <li>Navigate to the Morgue and interact with the terminal where the Black Box was placed.</li>
-            <li>Each player must locate and interact with their designated Access card Reader. Once complete, the player's Clearance Level will be increased to 50.</li>
-            <ul>
-                <li><a href="pictures/main_ee/lilith_keypad.webp">Lilith: Morgue - On the second floor in the room between the Exo Reload room and Exo Training Room</a></li>
-                <li><a href="pictures/main_ee/decker_keypad.webp">Decker: Exo Training Room - Halfway up the stairwell</a></li>
-                <li><a href="pictures/main_ee/oz_keypad.webp">Oz: Holding - Left of Exo Health</a></li>
-                <li><a href="pictures/main_ee/kahn_keypad.webp">Khan: Administration - Left of the door leading to the Morgue, across from the MP11 wallbuy</a></li>
-            </ul>
-            <li>Interact with the <a href="pictures/main_ee/black_box_computer.webp">Computer Terminal</a> in the Morgue again. Angie will say, "Authorization Successful..." </li>
-            <li>All players must now simultaneously interact with the Exo Suit Station. Once complete, Angie will begin to speak, and you will now need to navigate to Spawn to witness the Outro. Also, the <a href="pictures/main_ee/exp_weapon_upgrade.webp">Experimental Weapon Upgrade Station</a> in the Exo Testing Room will unlock which can be used to upgrade a weapon from Mk 20 to Mk 25.</li>
-        </ol>
-    </div>
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">'Game Over, Man!' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - 1/10, Est. Completion Time - 20 to 30 Mins, RNG Rating - 2/5 (EM1 from Box)</p>
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">The Black Box</p>
+                    <li>
+                        Obtain the
+                        <a href="pictures/main_ee/black_box.webp">Black Box</a>
+                        found on the ground in Spawn left of the crashed Warbird.
+                    </li>
+                    <li>
+                        Navigate to the Morgue and interact with the
+                        <a href="pictures/main_ee/black_box_computer.webp">Computer Terminal</a>
+                        on the right side of the room to place the Black Box. Once complete, a quote from Angie will play.
+                    </li>
+                    <p class="warning">Steps 3, 4-7, 8-10, and 11-12 can be completed in any order</p>
 
-    <!-- Main Easter Egg Gold Ending -->
-    <div class="content-container" id="main_ee_alt_end">
-        <h2 class="section-title">'Game Over, Man!' Gold Statue / Alternative Ending</h2>
-        <p class="stats">Stats (Solo): Difficulty - 3/10, Est. Completion Time - 25 to 35 Mins, RNG Rating - 2/5 (EM1 from Box)</p>
-        <ol>
-            <li>None of the players in the match can go down; doing so will void completion, and you will get the normal ending if you continue the quest. Also, this ending will automatically end the game.</li>
-            <li>Complete the <a href="#main_ee" class="link-to-page">Main Quest</a> like normal up to step 12.</li>
-            <li>On step 13, you must kill the Zombies only using melee attacks. They will still drop the Access Cards, but your Clearance Level number on the HUD will stay <a href="pictures/main_ee/hud_number_light_grey.webp">light grey</a>.</li>
-            <ul>
-                <li>If you collect a card from a Zombie that wasn't killed by melee, the number on the HUD will turn <a href="pictures/main_ee/hud_number_dark_grey.webp">dark grey</a>, and you will have to restart the game to try again.</li>
-            </ul>
-            <li>Once you get a Clearance Level of 49 and the number is still light grey, you can continue the steps like normal.</li>
-        </ol>
-    </div>
+                    <p class="step-group-title" id="main_ee_step2">Lilith's Keycard</p>
+                    <li>
+                        Acquire the EM1 from the 3D Printer. Next, while shooting the 3D Printer with the EM1, purchase it again. The player (Lilith, if available) can now obtain the
+                        <a href="pictures/main_ee/lilith_card.webp">Access Card</a>
+                        from the 3D Printer, incrementing their Clearance Level by 1 (indicated by
+                        <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>
+                        ). If no one in the lobby is Lilith, then anyone can collect the Access Card.
+                    </li>
 
-    <!-- Song EE -->
-    <div class="content-container" id="song_ee">
-        <h2 class="section-title">'Ride of the Valkyries' Song</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/us/i/339006422" class="external-link">here</a>.</p>
-        <ol>
-            <li>Three tools need to be interacted with to start the song. Interacting with a tool will play a brief section of the song. Tools Locations: </li>
-            <ul>
-                <li><a href="pictures/song_ee/tool_admin.webp">Administration - Wrench sticking out of the wall right of the Weapon Upgrade Station</a></li>
-                <li><a href="pictures/song_ee/tool_exo.webp">Exo Testing Room - Bonesaw on a table behind two big doors right of the trash chute</a></li>
-                <li><a href="pictures/song_ee/tool_holding.webp">Holding - On the table with the corpse, left of the weapon upgrade station</a></li>
-            </ul>
-            <li>Once all three tools are interacted with, the song will start.</li>
-        </ol>
-    </div>
-</div>
+                    <p class="step-group-title" id="main_ee_step3">Decker's Keycard</p>
+                    <li>
+                        <strong>RECOMMENDED:</strong>
+                        Keep the EM1 (if Lilith's Card was obtained before this) as you can fire at the ground and mash interact without having to reload.
+                    </li>
+                    <li>In Solo, purchase a Trash Chute and DO NOT enter (by backing away from it); instead wait for it to close, then buy it again immediately after and enter. In Co-Op, two players must purchase and enter two different Trash Chutes at the same time.</li>
+                    <li>
+                        The player(s) will be taken to the Incinerator, where you need to shoot the floor until an
+                        <a href="pictures/main_ee/decker_card.webp">Access Card</a>
+                        is revealed. The card will fly up into the air when the right area on the floor is shot.
+                    </li>
+                    <li>
+                        The player (Decker, if available) can now obtain the Access Card from the ground, incrementing their Clearance Level by 1 (indicated by
+                        <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>
+                        ). If no one in the lobby is Decker, then anyone can collect the Access Card.
+                    </li>
 
+                    <p class="step-group-title" id="main_ee_step4">Oz's Keycard</p>
+                    <li>
+                        Navigate to the Holding Room, shoot the
+                        <a href="pictures/main_ee/oz_metal_bar.webp">metal bar</a>
+                        beneath the middle holding cell which reacts when shot. Continue to shoot it until it disappears.
+                    </li>
+                    <li>
+                        All players must now buy Exo Slam, then return to the Holding Room and simultaneously slam on the top of the
+                        <a href="pictures/main_ee/outermost_holding_cell.webp">outermost holding cell</a>
+                        . If done correctly, the holding cell will collapse while another raises.
+                    </li>
+                    <ul>
+                        <li>After a couple seconds, the Holding Cell that came up after the slam, will lower back down. If this happens before the player(s) pick up Oz's Card, you must slam the Holding Cell again.</li>
+                    </ul>
+                    <li>
+                        The player (Oz, if available) can now obtain the
+                        <a href="pictures/main_ee/oz_card.webp">Access Card</a>
+                        from the holding cell, incrementing their Clearance Level by 1 (indicated by
+                        <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>
+                        ). If no one in the lobby is Oz, then anyone can collect the Access Card.
+                    </li>
 
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+                    <p class="step-group-title" id="main_ee_step5">Kahn's Keycard</p>
+                    <li>During an Infected round, navigate to the Administration area and get infected. There are four keypads you'll need to interact with (in any order) that can only be used while infected.</li>
+                    <ul>
+                        <li>The Keypads are NOT timed, but all four must be interacted with in one "instance" of being infected. If you cure yourself, you will have to interact with each keypad again.</li>
+                        <li>Keypad locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee/kahn_keypad_1.webp">On the security checkpoint door across from Exo Medic</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/kahn_keypad_2.webp">Across from the entrance door next to the Decontamination Shower</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/kahn_keypad_3.webp">At the end of the red hallway around the right corner inside Administration</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/kahn_keypad_4.webp">On a second floor balcony, left of the MP11 wallbuy</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        After using all four keypads, return to the security checkpoint and the window will open up revealing the Access Card. The player (Kahn, if available) can now obtain the
+                        <a href="pictures/main_ee/kahn_card.webp">Access Card</a>
+                        from the window, incrementing their Clearance Level by 1 (indicated by
+                        <a href="pictures/main_ee/hud_number_light_grey.webp">number on the keycard on the bottom left of the HUD</a>
+                        ). If no one in the lobby is Kahn, then anyone can collect the Access Card.
+                    </li>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+                    <p class="step-group-title" id="main_ee_step6">Getting Clearance Level 49</p>
+                    <li>
+                        Killing Zombies will now randomly drop
+                        <a href="pictures/main_ee/keycards_on_ground.webp">Access Cards</a>
+                        which can be obtained by simply walking over the drop location, incrementing their Clearance Level by 1. Collect cards until every player in the lobby has a Clearance Level of 49.
+                    </li>
+                    <li>Navigate to the Morgue and interact with the terminal where the Black Box was placed.</li>
+                    <li>Each player must locate and interact with their designated Access card Reader. Once complete, the player's Clearance Level will be increased to 50.</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/lilith_keypad.webp">Lilith: Morgue - On the second floor in the room between the Exo Reload room and Exo Training Room</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/decker_keypad.webp">Decker: Exo Training Room - Halfway up the stairwell</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/oz_keypad.webp">Oz: Holding - Left of Exo Health</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/kahn_keypad.webp">Khan: Administration - Left of the door leading to the Morgue, across from the MP11 wallbuy</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Interact with the
+                        <a href="pictures/main_ee/black_box_computer.webp">Computer Terminal</a>
+                        in the Morgue again. Angie will say, "Authorization Successful..."
+                    </li>
+                    <li>
+                        All players must now simultaneously interact with the Exo Suit Station. Once complete, Angie will begin to speak, and you will now need to navigate to Spawn to witness the Outro. Also, the
+                        <a href="pictures/main_ee/exp_weapon_upgrade.webp">Experimental Weapon Upgrade Station</a>
+                        in the Exo Testing Room will unlock which can be used to upgrade a weapon from Mk 20 to Mk 25.
+                    </li>
+                </ol>
+            </div>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+            <!-- Main Easter Egg Gold Ending -->
+            <div class="content-container" id="main_ee_alt_end">
+                <h2 class="section-title">'Game Over, Man!' Gold Statue / Alternative Ending</h2>
+                <p class="stats">Stats (Solo): Difficulty - 3/10, Est. Completion Time - 25 to 35 Mins, RNG Rating - 2/5 (EM1 from Box)</p>
+                <ol>
+                    <li>None of the players in the match can go down; doing so will void completion, and you will get the normal ending if you continue the quest. Also, this ending will automatically end the game.</li>
+                    <li>
+                        Complete the
+                        <a href="#main_ee" class="link-to-page">Main Quest</a>
+                        like normal up to step 12.
+                    </li>
+                    <li>
+                        On step 13, you must kill the Zombies only using melee attacks. They will still drop the Access Cards, but your Clearance Level number on the HUD will stay
+                        <a href="pictures/main_ee/hud_number_light_grey.webp">light grey</a>
+                        .
+                    </li>
+                    <ul>
+                        <li>
+                            If you collect a card from a Zombie that wasn't killed by melee, the number on the HUD will turn
+                            <a href="pictures/main_ee/hud_number_dark_grey.webp">dark grey</a>
+                            , and you will have to restart the game to try again.
+                        </li>
+                    </ul>
+                    <li>Once you get a Clearance Level of 49 and the number is still light grey, you can continue the steps like normal.</li>
+                </ol>
+            </div>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+            <!-- Song EE -->
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Ride of the Valkyries' Song</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a href="https://song.link/us/i/339006422" class="external-link">here</a>
+                    .
+                </p>
+                <ol>
+                    <li>Three tools need to be interacted with to start the song. Interacting with a tool will play a brief section of the song. Tools Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/song_ee/tool_admin.webp">Administration - Wrench sticking out of the wall right of the Weapon Upgrade Station</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/tool_exo.webp">Exo Testing Room - Bonesaw on a table behind two big doors right of the trash chute</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/tool_holding.webp">Holding - On the table with the corpse, left of the weapon upgrade station</a>
+                        </li>
+                    </ul>
+                    <li>Once all three tools are interacted with, the song will start.</li>
+                </ol>
+            </div>
+        </div>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
+
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    
 
 </body></html>

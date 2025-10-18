@@ -1,17 +1,4 @@
-const words = [
-    "ACTORS", "AFTERLIFE", "ANCESTOR", "ARCADE", "ARTHUR", "AUDITION",
-    "BASEMENT", "BEVERLYHILLS", "BLACKCAT", "BOAT", "BREEDER", "BROADWAY",
-    "BRUTE", "BUMPERCARS", "CHARMS", "COMICBOOKS", "CRANE", "CRYPTID",
-    "DANCE", "DAVIDARCHER", "DEATH", "DIRECTOR", "DISCO", "DRAGON", "DRCROSS",
-    "FAIRIES", "FORGEFREEZE", "GEYSER", "GHETTO", "HARPOON", "HIVES",
-    "INFERNO", "KATANA", "KEVINSMITH", "KRAKEN", "KUNGFU", "LOSANGELES",
-    "MCINTOSH", "MEMORIES", "MEPHISTOPHELES", "NEWYORK", "NIGHTFALL",
-    "NUNCHUCKS", "OBELISK", "OCTONIAN", "PAMGRIER", "PINKCAT", "PUNKS",
-    "RATKING", "REALITYTV", "REDWOODS", "ROLLERCOASTER", "ROLLERSKATES",
-    "SAMANTHA", "SHAOLIN", "SHIELD", "SHUFFLE", "SLASHER", "SIXTYMILLION",
-    "SLASHER", "SLIDE", "SNAKE", "SPACELAND", "STAFF", "SUBWAY", "TIGER",
-    "TREES", "WEREWOLFPOETS", "WINONAWYLER", "YETIEYES", "ZAPPER"
-];
+const words = ['ACTORS', 'AFTERLIFE', 'ANCESTOR', 'ARCADE', 'ARTHUR', 'AUDITION', 'BASEMENT', 'BEVERLYHILLS', 'BLACKCAT', 'BOAT', 'BREEDER', 'BROADWAY', 'BRUTE', 'BUMPERCARS', 'CHARMS', 'COMICBOOKS', 'CRANE', 'CRYPTID', 'DANCE', 'DAVIDARCHER', 'DEATH', 'DIRECTOR', 'DISCO', 'DRAGON', 'DRCROSS', 'FAIRIES', 'FORGEFREEZE', 'GEYSER', 'GHETTO', 'HARPOON', 'HIVES', 'INFERNO', 'KATANA', 'KEVINSMITH', 'KRAKEN', 'KUNGFU', 'LOSANGELES', 'MCINTOSH', 'MEMORIES', 'MEPHISTOPHELES', 'NEWYORK', 'NIGHTFALL', 'NUNCHUCKS', 'OBELISK', 'OCTONIAN', 'PAMGRIER', 'PINKCAT', 'PUNKS', 'RATKING', 'REALITYTV', 'REDWOODS', 'ROLLERCOASTER', 'ROLLERSKATES', 'SAMANTHA', 'SHAOLIN', 'SHIELD', 'SHUFFLE', 'SLASHER', 'SIXTYMILLION', 'SLASHER', 'SLIDE', 'SNAKE', 'SPACELAND', 'STAFF', 'SUBWAY', 'TIGER', 'TREES', 'WEREWOLFPOETS', 'WINONAWYLER', 'YETIEYES', 'ZAPPER'];
 
 const imgContainer = document.getElementById('word_filter_imgs');
 
@@ -30,39 +17,37 @@ function filterWordsByPrefix(prefix) {
     });
 
     // Select the <ul> element by its ID
-    const wordList = document.getElementById("word_list");
-    const possible_letters_p_tag = document.getElementById("possible_letters");
+    const wordList = document.getElementById('word_list');
+    const possible_letters_p_tag = document.getElementById('possible_letters');
 
     imgContainer.innerHTML = '';
-    document.getElementById("word_list").innerHTML = "";
+    document.getElementById('word_list').innerHTML = '';
 
-    let possible_letters = [];
+    const possible_letters = [];
 
     // Loop through the words array and create <li> elements for each word
     filteredWords.forEach(word => {
-        const listItem = document.createElement("li"); // Create an <li> element
+        const listItem = document.createElement('li'); // Create an <li> element
         listItem.textContent = word; // Set the text content to the word
         wordList.appendChild(listItem); // Append the <li> to the <ul>
-        let letter = chopString(prefix, word)[0];
+        const letter = chopString(prefix, word)[0];
         if (!possible_letters.includes(letter)) {
             possible_letters.push(letter);
         }
     });
 
-
     if (filteredWords.length === 0) {
-        const listItem = document.createElement("li"); // Create an <li> element
-        listItem.textContent = "No Words Found."; // Set the text content to the word
+        const listItem = document.createElement('li'); // Create an <li> element
+        listItem.textContent = 'No Words Found.'; // Set the text content to the word
         wordList.appendChild(listItem); // Append the <li> to the <ul>
     }
 
-    if (possible_letters.length === 0 || prefix === "") {
-        possible_letters_p_tag.textContent = "No valid words to find letters for.";
+    if (possible_letters.length === 0 || prefix === '') {
+        possible_letters_p_tag.textContent = 'No valid words to find letters for.';
     } else {
-        possible_letters_p_tag.textContent = "";
+        possible_letters_p_tag.textContent = '';
         generate_letter_img(possible_letters);
     }
-
 }
 
 function generate_letter_img(possible_letters) {
@@ -72,26 +57,26 @@ function generate_letter_img(possible_letters) {
 
     // Loop through each possible letter
     for (let i = 0; i < possible_letters.length; i++) {
-        let letter = possible_letters[i];
+        const letter = possible_letters[i];
 
         // Create a wrapper div for the image and label
         const wrapperDiv = document.createElement('div');
-        wrapperDiv.style.display = "inline-block"; // Ensure they are inline
-        wrapperDiv.style.textAlign = "center"; // Center text below the image
-        wrapperDiv.style.margin = "5px";
+        wrapperDiv.style.display = 'inline-block'; // Ensure they are inline
+        wrapperDiv.style.textAlign = 'center'; // Center text below the image
+        wrapperDiv.style.margin = '5px';
 
         // Create the <img> element
         const img = document.createElement('img');
         img.src = `/zombiesGuidesPublic/games/IW/wyler_language_symbols/${letter.toLowerCase()}.webp`; // Path to the image
         img.alt = letter.toUpperCase(); // Alt text (uppercase letter)
-        img.style.height = "60px";
-        img.style.width = "60px";
+        img.style.height = '60px';
+        img.style.width = '60px';
 
         // Create the label (e.g., <p> or <span>)
         const label = document.createElement('p');
         label.textContent = letter.toUpperCase(); // Set the letter as the text
-        label.style.fontSize = "14px";
-        label.style.margin = "0";
+        label.style.fontSize = '14px';
+        label.style.margin = '0';
 
         // Append the image and label to the wrapper div
         wrapperDiv.appendChild(img);
@@ -102,8 +87,7 @@ function generate_letter_img(possible_letters) {
     }
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     // JavaScript to toggle the 'active' class
     const filter_button = document.getElementById('word_filter_button');
 
@@ -119,11 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
     filter_div.style.display = 'none';
 
     filter_button.addEventListener('click', () => {
-        input_item.value = "";
-        filterWordsByPrefix("");
+        input_item.value = '';
+        filterWordsByPrefix('');
 
         if (imgContainer) {
-            imgContainer.innerHTML = "";
+            imgContainer.innerHTML = '';
         }
 
         if (filter_button.classList.contains('active')) {
@@ -133,4 +117,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-

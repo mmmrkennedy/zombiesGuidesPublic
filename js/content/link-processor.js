@@ -22,5 +22,5 @@ function setupSolverButtons() {
 
 // Make functions available globally
 window.LinkProcessor = {
-    setupSolverButtons
+    setupSolverButtons,
 };

@@ -12,21 +12,13 @@ function shouldExcludeElement(element) {
     // Check if the element itself or any of its ancestors is a solver-container
     let current = element;
     while (current) {
-        if (current.classList &&
-            (current.classList.contains('solver-container') ||
-                current.classList.contains('stats') ||
-                current.classList.contains('weapon-desc') ||
-                current.classList.contains('warning') ||
-                current.classList.contains('solver-output') ||
-                current.classList.contains('solver-symbol-select') ||
-                current.classList.contains('aligned-buttons') ||
-                current.classList.contains('aligned-label'))) {
+        if (current.classList && (current.classList.contains('solver-container') || current.classList.contains('stats') || current.classList.contains('weapon-desc') || current.classList.contains('warning') || current.classList.contains('solver-output') || current.classList.contains('solver-symbol-select') || current.classList.contains('aligned-buttons') || current.classList.contains('aligned-label'))) {
             return true;
         }
         current = current.parentElement;
     }
 
-    return element.dataset && element.dataset.boolQuickLink === "false";
+    return element.dataset && element.dataset.boolQuickLink === 'false';
 }
 
 /**
@@ -57,7 +49,7 @@ function getQuickLinkElements(document) {
     const results = [];
 
     // Get all div.content-container elements
-    const containers = document.querySelectorAll("div.content-container");
+    const containers = document.querySelectorAll('div.content-container');
 
     for (const container of containers) {
         if (shouldExcludeElement(container)) continue;
@@ -69,13 +61,13 @@ function getQuickLinkElements(document) {
             sectionHeaderLevel: container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
         });
 
-        const titles = container.querySelectorAll("p.step-group-title, p.upgrade-title, p.sub-sub-step");
+        const titles = container.querySelectorAll('p.step-group-title, p.upgrade-title, p.sub-sub-step');
 
         for (const [title_counter, title] of titles.entries()) {
             if (shouldExcludeElement(title)) continue;
 
             let indentLevel = 1;
-            if (title.classList.contains("sub-sub-step") && title_counter !== 0) {
+            if (title.classList.contains('sub-sub-step') && title_counter !== 0) {
                 indentLevel = 2;
             }
             if (title.dataset.customIndent) {
@@ -83,19 +75,19 @@ function getQuickLinkElements(document) {
             }
 
             if (title.dataset.customQuickLink) {
-                const customLinks = title.dataset.customQuickLink.split(";");
+                const customLinks = title.dataset.customQuickLink.split(';');
                 title.id = customLinks[0];
                 for (const customName of customLinks) {
                     results.push({
                         element: title,
                         indentLevel,
-                        custom_name: customName
+                        custom_name: customName,
                     });
                 }
             } else {
                 results.push({
                     element: title,
-                    indentLevel
+                    indentLevel,
                 });
             }
         }
@@ -149,7 +141,7 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
         }
 
         const elementId = element.id;
-        if (elementId === "") {
+        if (elementId === '') {
             console.log(`Element Quick Link with text **${element.textContent}** skipped, no ID given`);
             continue;
         }
@@ -183,14 +175,13 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
     return html;
 }
 
-
 // Export for Node.js environments
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         shouldExcludeElement,
         getElementTitle,
         getQuickLinkElements,
-        generateNavHTML
+        generateNavHTML,
     };
 }
 
@@ -200,6 +191,6 @@ if (typeof window !== 'undefined') {
         shouldExcludeElement,
         getElementTitle,
         getQuickLinkElements,
-        generateNavHTML
+        generateNavHTML,
     };
 }

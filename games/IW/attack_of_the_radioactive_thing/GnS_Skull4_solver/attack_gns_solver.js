@@ -1,5 +1,4 @@
-const VALID_WORDS = ["aldehydes", "allomer", "benzene", "chlorination", "ethers", "ethyl", "hydrogenation", "neutrino",
-    "nitriles", "oxidation", "reduction", "solvolysis", "sublimation", "zwitterion"];
+const VALID_WORDS = ['aldehydes', 'allomer', 'benzene', 'chlorination', 'ethers', 'ethyl', 'hydrogenation', 'neutrino', 'nitriles', 'oxidation', 'reduction', 'solvolysis', 'sublimation', 'zwitterion'];
 
 // Map letters to numerical values ('a' -> 1, ..., 'z' -> 26)
 function letterToNumber(letter) {
@@ -7,7 +6,7 @@ function letterToNumber(letter) {
 }
 
 function wordToNumbers(word) {
-    return word.split("").map(letterToNumber);
+    return word.split('').map(letterToNumber);
 }
 
 // Generate all possible combinations of letter positions
@@ -29,18 +28,15 @@ function generateCombinations() {
 
 // Check if a combination is valid
 function isValidCombination(second, third, fourth) {
-    return !(
-        (second === 0 && (third !== 0 || fourth !== 0)) ||
-        (third === 0 && fourth !== 0)
-    );
+    return !((second === 0 && (third !== 0 || fourth !== 0)) || (third === 0 && fourth !== 0));
 }
 
 // Calculate the sequence modulo
 function calculateSequenceModulo(first, second, third, fourth, letterValues) {
     const valueOne = letterValues[first];
-    let valueTwo = 3 * second + letterValues[second];
-    let valueThree = 3 * third * 2 + letterValues[third];
-    let valueFour = 3 * fourth * 3 + letterValues[fourth];
+    const valueTwo = 3 * second + letterValues[second];
+    const valueThree = 3 * third * 2 + letterValues[third];
+    const valueFour = 3 * fourth * 3 + letterValues[fourth];
     return (valueOne + valueTwo + valueThree + valueFour) % 26;
 }
 
@@ -71,25 +67,23 @@ function hasDuplicates(array) {
 
 function solveCipher(targetWord, swingsetLetters) {
     targetWord = targetWord.toLowerCase();
-    swingsetLetters = swingsetLetters.join("").toLowerCase();
+    swingsetLetters = swingsetLetters.join('').toLowerCase();
 
     // Validate input
     if (swingsetLetters.length !== 4) {
-        return "Error: Swingset letters must be exactly 4 characters.";
+        return 'Error: Swingset letters must be exactly 4 characters.';
     } else if (hasDuplicates(swingsetLetters)) {
         return "Error: Swingset letters can't be the same.";
     }
 
     if (targetWord.length === 0) {
-        return "Error: Enter a word."
-
+        return 'Error: Enter a word.';
     } else if (!VALID_WORDS.includes(targetWord)) {
-        return "Error: Invalid word entered.";
-
+        return 'Error: Invalid word entered.';
     }
 
     try {
-        const letterValues = [0].concat(swingsetLetters.split("").map(letterToNumber));
+        const letterValues = [0].concat(swingsetLetters.split('').map(letterToNumber));
         const targetWordValues = wordToNumbers(targetWord);
 
         // Initialize shortest sequences with high values
@@ -112,19 +106,19 @@ function solveCipher(targetWord, swingsetLetters) {
         const solution = shortestSequences
             .filter(seq => seq !== Infinity)
             .map(seq => String(seq))
-            .join(" - ");
-        return "Code: " + solution || "Error: No valid sequence found.";
+            .join(' - ');
+        return 'Code: ' + solution || 'Error: No valid sequence found.';
     } catch {
-        return "Error: Input contains invalid characters.";
+        return 'Error: Input contains invalid characters.';
     }
 }
 
 function main_solve() {
-    let resultElement = document.getElementById("result_gns");
+    const resultElement = document.getElementById('result_gns');
 
     const id_names = ['symbol_1', 'symbol_2', 'symbol_3', 'symbol_4'];
 
-    let active_symbols = [];
+    const active_symbols = [];
 
     for (let i = 0; i < id_names.length; i += 1) {
         const container = document.getElementById(id_names[i]);
@@ -133,7 +127,7 @@ function main_solve() {
         for (let j = 0; j < container.children.length; j++) {
             const imgContainer = container.children[j]; // Get the img-container div
 
-            if (imgContainer.tagName === "P") {
+            if (imgContainer.tagName === 'P') {
                 continue;
             }
 
@@ -143,21 +137,17 @@ function main_solve() {
             // Check if the img-container is visible
             const isVisible = imgContainer.style.display !== 'none';
 
-
             if (img && isVisible) {
                 active_symbols.push(img.alt); // Add the alt text of the active image
             }
         }
     }
 
-    let wordElement = document.getElementById('word');
+    const wordElement = document.getElementById('word');
 
     // Get the selected option's text
-    let selectedText = wordElement.options[wordElement.selectedIndex].text;
+    const selectedText = wordElement.options[wordElement.selectedIndex].text;
 
     // Pass the target word and active symbols to solveCipher
     resultElement.innerHTML = solveCipher(selectedText, active_symbols);
 }
-
-
-

@@ -31,13 +31,13 @@ function addTutorialBox() {
     const smoothScrollDiv = document.querySelector('div.smooth-scroll');
 
     if (!smoothScrollDiv) {
-        console.log("SmoothScrollDiv is missing, unable to generate Tutorial Box");
+        console.log('SmoothScrollDiv is missing, unable to generate Tutorial Box');
         return false;
     }
 
     // Check if CSS is loaded before adding HTML
     if (!isTutorialCSSLoaded()) {
-        console.warn("Tutorial CSS not loaded, skipping tutorial box creation");
+        console.warn('Tutorial CSS not loaded, skipping tutorial box creation');
         return false;
     }
 
@@ -102,7 +102,7 @@ function addTutorialBox() {
             </div>
         </div>
     `;
-    smoothScrollDiv.insertAdjacentHTML("beforebegin", tutorialHTML);
+    smoothScrollDiv.insertAdjacentHTML('beforebegin', tutorialHTML);
     return true;
 }
 
@@ -114,11 +114,7 @@ function isIndexPage() {
     const path = window.location.pathname;
 
     // Common index page patterns
-    return path === '/' ||
-        path === '/index.html' ||
-        path === '/index.htm' ||
-        path.endsWith('/') ||
-        path === '';
+    return path === '/' || path === '/index.html' || path === '/index.htm' || path.endsWith('/') || path === '';
 }
 
 /**
@@ -127,7 +123,7 @@ function isIndexPage() {
 function tutorialPopupInit() {
     // Only run on index page
     if (!isIndexPage()) {
-        console.log("Not on index page, skipping tutorial");
+        console.log('Not on index page, skipping tutorial');
         return;
     }
 
@@ -135,13 +131,13 @@ function tutorialPopupInit() {
     if (!localStorage.getItem('zombiesGuidesTutorialShown')) {
         // Check if CSS is loaded before proceeding
         if (!isTutorialCSSLoaded()) {
-            console.warn("Tutorial CSS not loaded, tutorial will not be shown");
+            console.warn('Tutorial CSS not loaded, tutorial will not be shown');
             return;
         }
 
         const tutorialAdded = addTutorialBox();
         if (!tutorialAdded) {
-            console.warn("Tutorial box could not be added, skipping tutorial");
+            console.warn('Tutorial box could not be added, skipping tutorial');
             return;
         }
 
@@ -151,10 +147,9 @@ function tutorialPopupInit() {
         setTimeout(() => {
             showTutorial();
         }, 800);
-
     } else {
         // Hide tutorial for returning users
-        const tutorialOverlay = document.getElementById('tutorialOverlay')
+        const tutorialOverlay = document.getElementById('tutorialOverlay');
 
         if (tutorialOverlay) {
             tutorialOverlay.style.display = 'none';
@@ -166,7 +161,7 @@ function tutorialPopupInit() {
  * Initializes tutorial event listeners and shows first page
  */
 function initTutorial() {
-    let tutorialOverlay = document.getElementById('tutorialOverlay');
+    const tutorialOverlay = document.getElementById('tutorialOverlay');
     if (tutorialOverlay) {
         tutorialOverlay.style.display = 'flex';
     }
@@ -225,7 +220,6 @@ function showPage(pageNum) {
     if (pageNum === totalPages) {
         nextBtn.style.display = 'none';
         finishBtn.style.display = 'block';
-
     } else {
         nextBtn.style.display = 'block';
         finishBtn.style.display = 'none';
@@ -283,7 +277,7 @@ function updateProgressBar(currentPage, totalPages) {
  * Resets tutorial (for debugging/testing)
  */
 function resetTutorial() {
-    console.log("Manually Reset Tutorial...");
+    console.log('Manually Reset Tutorial...');
     localStorage.removeItem('zombiesGuidesTutorialShown');
 }
 
@@ -300,5 +294,5 @@ window.TutorialSystem = {
     navigatePrevPage,
     finishTutorial,
     updateProgressBar,
-    resetTutorial
+    resetTutorial,
 };

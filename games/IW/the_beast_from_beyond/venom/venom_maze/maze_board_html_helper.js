@@ -6,7 +6,7 @@ function createBoard() {
             const square = document.createElement('div');
             square.classList.add('green-square');
             square.id = `square-${row}-${col}`;
-            square.dataset.occupied = "false"; // Track whether the square is occupied
+            square.dataset.occupied = 'false'; // Track whether the square is occupied
             square.addEventListener('dragover', allowDrop);
             square.addEventListener('drop', drop);
             board.appendChild(square);
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function dragStart(event) {
-    event.dataTransfer.setData("text", event.target.id);
+    event.dataTransfer.setData('text', event.target.id);
 }
 
 function allowDrop(event) {
@@ -34,7 +34,7 @@ function allowDrop(event) {
 function drop(event) {
     event.preventDefault();
 
-    const imageId = event.dataTransfer.getData("text");
+    const imageId = event.dataTransfer.getData('text');
     const draggedImage = document.getElementById(imageId);
     const targetSquare = event.target;
 
@@ -42,18 +42,18 @@ function drop(event) {
     if (!targetSquare.classList.contains('green-square')) return;
 
     // Check if the square is already occupied
-    if (targetSquare.dataset.occupied === "true") {
-        alert("This square is already occupied!");
+    if (targetSquare.dataset.occupied === 'true') {
+        alert('This square is already occupied!');
         return;
     }
 
     // Unmark previous square if the image was already placed
     const previousSquare = draggedImage.parentElement;
     if (previousSquare.classList.contains('green-square')) {
-        previousSquare.dataset.occupied = "false";
+        previousSquare.dataset.occupied = 'false';
     }
 
     // Place the image and mark the square as occupied
     targetSquare.appendChild(draggedImage);
-    targetSquare.dataset.occupied = "true";
+    targetSquare.dataset.occupied = 'true';
 }

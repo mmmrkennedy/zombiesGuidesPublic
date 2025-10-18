@@ -1,176 +1,244 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Browser Tab Title (don't include "guide", just map name) -->
-    <title>Nacht der Untoten Guide</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760054889493">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-<script>
-    const isLocalEnvironment = window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Browser Tab Title (don't include "guide", just map name) -->
+        <title>Nacht der Untoten Guide</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760756343789">
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+        <base target="_blank">
+        <script>
+            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-    if (!isLocalEnvironment) {
-        // Load gtag script dynamically
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-        document.head.appendChild(script);
+            if (!isLocalEnvironment) {
+                // Load gtag script dynamically
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
+                document.head.appendChild(script);
 
-        // Initialize Google Analytics
-        window.dataLayer = window.dataLayer || [];
+                // Initialize Google Analytics
+                window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
 
-        gtag('js', new Date());
-        gtag('config', 'G-EVBLWE1MJL', {'anonymize_ip': true});
-    }
-</script></head>
+                gtag('js', new Date());
+                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
+            }
+        </script>
+    </head>
 
+    <!-- Google Analytics -->
 
-<!-- Google Analytics -->
-
-
-<body>
-<!-- Version display component -->
-<div class="version-display" data-version="1760054889493">
-    v.<span id="version-number">0</span>
-</div>
-
-<div class="top-buttons-background-box">
-    <!-- Title at the top of the page, INCLUDE "guide"-->
-    <h2 class="title-text">Nacht der Untoten Guide</h2>
-    <!-- Hamburger Menu Button -->
-    <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
-    </button>
-
-    <!-- Mobile devices content -->
-    <div id="mobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-    </div>
-
-    <!-- Non-mobile devices content -->
-    <div id="nonMobileContent">
-        <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-    </div>
-</div>
-
-<!-- Hamburger Menu Overlay -->
-<div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-    <div class="hamburger-menu-content">
-        <div class="hamburger-menu-header">
-            <h3>Quick Navigation</h3>
-            <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1760756343789">
+            v.
+            <span id="version-number">0</span>
         </div>
-        <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#sniper_cabinet">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#radio">Song Radio / Various Songs (WAW, BO1, BO3)</a></li><li><a href="#song_ee">'Undone' Song (BO1, BO3)</a></li><li><a href="#free_max_ammo">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</a></li></ul></div>
-    </div>
-</div>
 
-<div class="smooth-scroll content-window">
-    <!-- Legend to other parts -->
-    <div class="content-container-top">
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Nacht der Untoten Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
 
-    <h2>Weapons</h2><ul><li><a href="#sniper_cabinet">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#radio">Song Radio / Various Songs (WAW, BO1, BO3)</a></li><li><a href="#song_ee">'Undone' Song (BO1, BO3)</a></li><li><a href="#free_max_ammo">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</a></li></ul></div>
+            <!-- Mobile devices content -->
+            <div id="mobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+            </div>
 
-    <div class="content-container" data-section-ind="Weapons" id="sniper_cabinet">
-        <h2 class="section-title">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</h2>
-        <ul>
-            <li>The Scoped Kar98k can be purchased from the <a href="pictures/sniper_cabinet.webp">cabinet on the second floor</a>, above the Mystery Box room for 1500 points. Once the cabinet is open, ammo can be purchased for 380 points.</li>
-            <li>On the Zombies Chronicles version (BO3), this wallbuy is replaced by a Locus wallbuy.</li>
-        </ul>
-    </div>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
 
-    <div class="content-container" data-section-ind="Easter Eggs" id="radio">
-        <h2 class="section-title">Song Radio / Various Songs (WAW, BO1, BO3)</h2>
-        <ul>
-            <li>Damage (shoot or melee) the <a href="pictures/radio.webp">radio on the table</a> right of the Mystery Box. You can shoot it again to skip the current song.</li>
-        </ul>
-    </div>
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#sniper_cabinet">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#radio">Song Radio / Various Songs (WAW, BO1, BO3)</a></li><li><a href="#song_ee">'Undone' Song (BO1, BO3)</a></li><li><a href="#free_max_ammo">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</a></li></ul></div>
+            </div>
+        </div>
 
-    <div class="content-container" id="song_ee">
-        <h2 class="section-title">'Undone' Song (BO1, BO3)</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/ca/i/1542638737" class="external-link">here</a>.</p>
-        <ul>
-            <p class="weapon-desc">Black Ops 1</p>
-            <li>Shoot three specific barrels outside the map. Locations:</li>
-            <ol>
-                <li><a href="pictures/song_ee/barrel_stairs.webp">Outside window beside stairs</a></li>
-                <li><a href="pictures/song_ee/barrel_back_corner.webp">Outside window in back corner (window diagional from Mule Kick)</a></li>
-                <li><a href="pictures/song_ee/barrel_mule_kick.webp">Outside window closest to Mule Kick, beside the Truck</a></li>
-            </ol>
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Weapons</h2>
+                <ul>
+                    <li>
+                        <a href="#sniper_cabinet">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</a>
+                    </li>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#radio">Song Radio / Various Songs (WAW, BO1, BO3)</a></li>
+                    <li><a href="#song_ee">'Undone' Song (BO1, BO3)</a></li>
+                    <li>
+                        <a href="#free_max_ammo">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</a>
+                    </li>
+                </ul>
+            </div>
 
-            <p class="weapon-desc">Black Ops 3</p>
-            <li>Shoot all thirty barrels outside the map. <a href="https://youtu.be/ETCTukd0O-c" class="external-link">Video Guide (YouTube)</a> by <a href="https://www.youtube.com/@laagone" class="external-link">laagone</a>.</li>
-            <ol></ol>
-        </ul>
-    </div>
+            <div class="content-container" data-section-ind="Weapons" id="sniper_cabinet">
+                <h2 class="section-title">Sniper Cabinet / Scoped Sniper Wallbuy (WAW, BO1, BO3)</h2>
+                <ul>
+                    <li>
+                        The Scoped Kar98k can be purchased from the
+                        <a href="pictures/sniper_cabinet.webp">cabinet on the second floor</a>
+                        , above the Mystery Box room for 1500 points. Once the cabinet is open, ammo can be purchased for 380 points.
+                    </li>
+                    <li>On the Zombies Chronicles version (BO3), this wallbuy is replaced by a Locus wallbuy.</li>
+                </ul>
+            </div>
 
-    <div class="content-container" id="free_max_ammo">
-        <h2 class="section-title">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</h2>
-        <p class="song-link">Link to song on streaming <a href="https://song.link/s/0waGR3KrIgFCnxh8JMwm9h" class="external-link">here</a>.</p>
-        <ol>
-            <li>Interact with the four buttons around the map in any order. Locations:</li>
-            <ol>
-                <li><a href="pictures/free_max_ammo/button_mule.webp">Ground Floor - On the side of a pillar, left of Mule Kick</a></li>
-                <li><a href="pictures/free_max_ammo/button_shelf.webp">Ground Floor - Under the shelf at the bottom of the stairs in the Mystery Box Room</a></li>
-                <li><a href="pictures/free_max_ammo/button_cabinet.webp">Second Floor - In the Wunderfizz room, on the other side of the room, on the wall across from the Zombie spawn window</a></li>
-                <li><a href="pictures/free_max_ammo/button_stairs.webp">Second Floor - On the ceiling above the stairs in spawn</a></li>
-            </ol>
+            <div class="content-container" data-section-ind="Easter Eggs" id="radio">
+                <h2 class="section-title">Song Radio / Various Songs (WAW, BO1, BO3)</h2>
+                <ul>
+                    <li>
+                        Damage (shoot or melee) the
+                        <a href="pictures/radio.webp">radio on the table</a>
+                        right of the Mystery Box. You can shoot it again to skip the current song.
+                    </li>
+                </ul>
+            </div>
 
-            <li>Once all four are interacted with, a sound will play, and a Samantha doll will appear on the <a href="pictures/free_max_ammo/sam_doll_rk5.webp">floor in front of the RK5 wallbuy</a>. Interact with the Doll to make it disappear, and spawn five (one at a time) others around the map. The doll you're looking for will make a sound when you're close to it.</li>
-            <li>Shoot five Sam dolls around the map. The Dolls spawn one at a time and play a little song to help you locate them.</li>
-            <ul>
-                <li>Taking too long to shoot a Doll will make it despawn, a Samantha giggle sound will play, and you will fail the step. You can retry by interacting with the Sam doll by the RK5 as soon as it respawns.</li>
-                <li>Locations:</li>
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Undone' Song (BO1, BO3)</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a href="https://song.link/ca/i/1542638737" class="external-link">here</a>
+                    .
+                </p>
+                <ul>
+                    <p class="weapon-desc">Black Ops 1</p>
+                    <li>Shoot three specific barrels outside the map. Locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/song_ee/barrel_stairs.webp">Outside window beside stairs</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/barrel_back_corner.webp">Outside window in back corner (window diagional from Mule Kick)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/barrel_mule_kick.webp">Outside window closest to Mule Kick, beside the Truck</a>
+                        </li>
+                    </ol>
+
+                    <p class="weapon-desc">Black Ops 3</p>
+                    <li>
+                        Shoot all thirty barrels outside the map.
+                        <a href="https://youtu.be/ETCTukd0O-c" class="external-link">Video Guide (YouTube)</a>
+                        by
+                        <a href="https://www.youtube.com/@laagone" class="external-link">laagone</a>
+                        .
+                    </li>
+                    <ol></ol>
+                </ul>
+            </div>
+
+            <div class="content-container" id="free_max_ammo">
+                <h2 class="section-title">'Samantha's Lullaby' Song + Free Max Ammo (BO3)</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a href="https://song.link/s/0waGR3KrIgFCnxh8JMwm9h" class="external-link">here</a>
+                    .
+                </p>
                 <ol>
-                    <li><a href="pictures/free_max_ammo/doll_fence.webp">Ground Floor - On a fence post out the window diagonal from Mule Kick</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_pond.webp">Ground Floor - In the pond, out the window across from the RK5 wallbuy</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_generator.webp">Second Floor - Next to a power generator, out the window at the top of the spawn room stairs</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_truck.webp">Ground Floor - On top of a truck, outside the window right of the Sheiva wallbuy</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_tank.webp">Ground Floor - On the end of the tank's barrel, out the window next to Mule Kick</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_telephone_pole.webp">Second Floor - On top of a telephone pole, out the broken wall near the Cabinet</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_wunderfizz.webp">Second Floor - In the hole in the ceiling, the left of the Wunderfizz</a></li>
-                    <li><a href="pictures/free_max_ammo/doll_mule.webp">Ground Floor - In the hole in the ceiling in front of Mule Kick (Stand in front of Mule Kick and jump)</a></li>
+                    <li>Interact with the four buttons around the map in any order. Locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/free_max_ammo/button_mule.webp">Ground Floor - On the side of a pillar, left of Mule Kick</a>
+                        </li>
+                        <li>
+                            <a href="pictures/free_max_ammo/button_shelf.webp">Ground Floor - Under the shelf at the bottom of the stairs in the Mystery Box Room</a>
+                        </li>
+                        <li>
+                            <a href="pictures/free_max_ammo/button_cabinet.webp">Second Floor - In the Wunderfizz room, on the other side of the room, on the wall across from the Zombie spawn window</a>
+                        </li>
+                        <li>
+                            <a href="pictures/free_max_ammo/button_stairs.webp">Second Floor - On the ceiling above the stairs in spawn</a>
+                        </li>
+                    </ol>
+
+                    <li>
+                        Once all four are interacted with, a sound will play, and a Samantha doll will appear on the
+                        <a href="pictures/free_max_ammo/sam_doll_rk5.webp">floor in front of the RK5 wallbuy</a>
+                        . Interact with the Doll to make it disappear, and spawn five (one at a time) others around the map. The doll you're looking for will make a sound when you're close to it.
+                    </li>
+                    <li>Shoot five Sam dolls around the map. The Dolls spawn one at a time and play a little song to help you locate them.</li>
+                    <ul>
+                        <li>Taking too long to shoot a Doll will make it despawn, a Samantha giggle sound will play, and you will fail the step. You can retry by interacting with the Sam doll by the RK5 as soon as it respawns.</li>
+                        <li>Locations:</li>
+                        <ol>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_fence.webp">Ground Floor - On a fence post out the window diagonal from Mule Kick</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_pond.webp">Ground Floor - In the pond, out the window across from the RK5 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_generator.webp">Second Floor - Next to a power generator, out the window at the top of the spawn room stairs</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_truck.webp">Ground Floor - On top of a truck, outside the window right of the Sheiva wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_tank.webp">Ground Floor - On the end of the tank's barrel, out the window next to Mule Kick</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_telephone_pole.webp">Second Floor - On top of a telephone pole, out the broken wall near the Cabinet</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_wunderfizz.webp">Second Floor - In the hole in the ceiling, the left of the Wunderfizz</a>
+                            </li>
+                            <li>
+                                <a href="pictures/free_max_ammo/doll_mule.webp">Ground Floor - In the hole in the ceiling in front of Mule Kick (Stand in front of Mule Kick and jump)</a>
+                            </li>
+                        </ol>
+                    </ul>
+                    <li>If the five dolls were shot in time, the doll in front of the RK5 will now be standing. Interact with it to spawn a Max Ammo, and play the song.</li>
                 </ol>
-            </ul>
-            <li>If the five dolls were shot in time, the doll in front of the RK5 will now be standing. Interact with it to spawn a Max Ammo, and play the song.</li>
-        </ol>
-    </div>
-</div>
+            </div>
+        </div>
 
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1760756343789"></script>
 
-<!-- Core utilities -->
-<script src="/js/core/page-utils.js?v=1760054889493"></script>
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
+        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
 
-<!-- Navigation -->
-<script src="/js/navigation/scroll-manager.js?v=1760054889493"></script>
-<script src="/js/navigation/nav-utils.js?v=1760054889493"></script>
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
+        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
 
-<!-- UI Components -->
-<script src="/js/ui/tutorial-system.js?v=1760054889493"></script>
-<script src="/js/ui/lightbox.js?v=1760054889493"></script>
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1760756343789"></script>
+        <script src="/js/content/quick-links.js?v=1760756343789"></script>
 
-<!-- Content Processing -->
-<script src="/js/content/link-processor.js?v=1760054889493"></script>
-<script src="/js/content/quick-links.js?v=1760054889493"></script>
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
 
-<!-- Device & Environment -->
-<script src="/js/device/mobile-detection.js?v=1760054889493"></script>
+        <!-- Features -->
+        <script src="/js/features/substeps.js?v=1760756343789"></script>
 
-<!-- Features -->
-<script src="/js/features/substeps.js?v=1760054889493"></script>
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
 
-<!-- Shared utilities -->
-<script src="/js/quick-links-utils.js?v=1760054889493"></script>
-
-<!-- Main scripts -->
-<script src="/js/scripts.js?v=1760054889493"></script>
-
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1760756343789"></script>
+    
 
 </body></html>

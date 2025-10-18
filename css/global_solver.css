@@ -78,6 +78,10 @@ body.solver-body {
     pointer-events: none; /* Prevents interaction with the button */
 }
 
+.img-disabled {
+    opacity: 0.5; /* Makes the button appear "greyed out" */
+}
+
 .solver-output {
     margin-top: 20px;
     padding: 10px;

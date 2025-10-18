@@ -72,7 +72,7 @@ function processSymbols(symbols) {
         [9, 10, 7, 8, 6, 1],
         [9, 4, 3, 0, 5, 2],
         [1, 11, 3, 2, 0, 5],
-        [4, 11, 0, 2, 5, 8]
+        [4, 11, 0, 2, 5, 8],
     ];
 
     for (const line of lines) {
@@ -115,6 +115,6 @@ function generateSymbolGrid() {
 }
 
 // Call the function to generate the grid
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     generateSymbolGrid();
 });

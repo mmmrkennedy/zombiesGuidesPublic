@@ -8,10 +8,6 @@ const SITE_URL = 'https://mmmrkennedy.com'; // Change to your site
 const INDEX_FILE = path.resolve('./index.html'); // Path to your index.html
 const OUTPUT_FILE = path.resolve('./sitemap.xml');
 
-function formatDate(date) {
-    return date.toISOString().split('T')[0]; // YYYY-MM-DD
-}
-
 async function buildSitemap() {
     if (!fs.existsSync(INDEX_FILE)) {
         console.error(`Index file not found: ${INDEX_FILE}`);
@@ -49,7 +45,6 @@ async function buildSitemap() {
             sitemap.write({ url: `/${link}` });
         }
     }
-
 
     sitemap.end();
     const data = await streamToPromise(sitemap);

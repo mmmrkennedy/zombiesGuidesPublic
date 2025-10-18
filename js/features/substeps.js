@@ -18,7 +18,7 @@ function substeps(check) {
     while (true) {
         try {
             document.getElementById('substeps' + i).style.display = displayStyle;
-            console.log("Substeps loaded");
+            console.log('Substeps loaded');
         } catch (e) {
             break;
         }
@@ -36,5 +36,5 @@ function initSubsteps() {
 // Make functions available globally
 window.FeatureUtils = {
     substeps,
-    initSubsteps
+    initSubsteps,
 };

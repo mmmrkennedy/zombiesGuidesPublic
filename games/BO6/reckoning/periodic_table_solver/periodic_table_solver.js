@@ -117,7 +117,7 @@ const periodicElements = [
     { symbol: 'Mc', name: 'Moscovium', number: 115 },
     { symbol: 'Lv', name: 'Livermorium', number: 116 },
     { symbol: 'Ts', name: 'Tennessine', number: 117 },
-    { symbol: 'Og', name: 'Oganesson', number: 118 }
+    { symbol: 'Og', name: 'Oganesson', number: 118 },
 ];
 
 function findElements() {
@@ -126,7 +126,10 @@ function findElements() {
     const resultsContainer = document.getElementById('results-container');
 
     if (!input || !resultsContainer) {
-        console.error('Required elements not found:', { input: !!input, resultsContainer: !!resultsContainer });
+        console.error('Required elements not found:', {
+            input: !!input,
+            resultsContainer: !!resultsContainer,
+        });
         return;
     }
 
@@ -153,13 +156,13 @@ function findElements() {
         matches.forEach(element => {
             const symbolLower = element.symbol.toLowerCase();
             const isReversed = symbolLower === inputReversed && symbolLower !== inputLower;
-            
+
             let element_number = element.number;
-            
-            if (element_number < 10){
-                element_number = "00" + element_number;
-            } else if (element_number < 100){
-                element_number = "0" + element_number;
+
+            if (element_number < 10) {
+                element_number = '00' + element_number;
+            } else if (element_number < 100) {
+                element_number = '0' + element_number;
             }
 
             html += `<div class="element-card">
@@ -170,7 +173,7 @@ function findElements() {
             </div>`;
         });
     } else {
-        if(inputValue.length === 1){
+        if (inputValue.length === 1) {
             html = '<p id="result">No elements found matching "' + inputValue + '"</p>';
         } else {
             html = '<p id="result">No elements found matching "' + inputValue + '" or "' + inputValue.split('').reverse().join('') + '"</p>';

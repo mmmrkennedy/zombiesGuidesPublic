@@ -74,7 +74,7 @@ function addVersionPlaceholders(htmlContent, filePath) {
 
     // Add version display component to index.html if not present
     // if (path.basename(filePath) === 'index.html' && !newContent.includes('version-display')) {
-    if ((path.basename(filePath) === 'index.html' || filePath.startsWith("games")) && !newContent.includes('version-display') && !(filePath.includes("solver") || filePath.includes("_template"))) {
+    if ((path.basename(filePath) === 'index.html' || filePath.startsWith('games')) && !newContent.includes('version-display') && !(filePath.includes('solver') || filePath.includes('_template'))) {
         const versionDisplayComponent = `<!-- Version display component -->
 <div class="version-display" data-version="0">
     v.<span id="version-number">0</span>

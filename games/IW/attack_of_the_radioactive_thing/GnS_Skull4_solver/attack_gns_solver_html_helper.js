@@ -33,19 +33,19 @@ function resetAllButtons() {
     }
 
     // Reset the result text
-    let resultElement = document.getElementById("result_gns");
-    resultElement.innerHTML = "Select 4 Symbols and Enter the Word.";
+    const resultElement = document.getElementById('result_gns');
+    resultElement.innerHTML = 'Select 4 Symbols and Enter the Word.';
 
     // Clear the word input field
-    let wordElement = document.getElementById('word');
-    wordElement.value = "default";
+    const wordElement = document.getElementById('word');
+    wordElement.value = 'default';
 }
 
 function generate_all_letter_images() {
     const id_names = ['symbol_1', 'symbol_2', 'symbol_3', 'symbol_4'];
 
     for (let i = 0; i < id_names.length; i += 1) {
-        generate_images(id_names[i])
+        generate_images(id_names[i]);
     }
 }
 
@@ -70,7 +70,7 @@ function generate_images(div_id_name) {
         // Create an <img> element
         const img = document.createElement('img');
         img.src = `/games/IW/wyler_language_symbols/${letter}.webp`; // Path to the image
-        img.dataset.boolQuickLink = "false";
+        img.dataset.boolQuickLink = 'false';
         img.alt = letter.toUpperCase(); // Alt text (uppercase letter)
         img.setAttribute('onclick', 'setActiveButton(this)'); // Onclick event
         img.setAttribute('onmouseover', 'showAltText(this)'); // Onmouseover event
@@ -109,7 +109,6 @@ function hideAltText(imgElement) {
     const altTextDiv = imgElement.nextElementSibling;
     altTextDiv.style.display = 'none';
 }
-
 
 document.addEventListener('DOMContentLoaded', generate_all_letter_images);
 document.addEventListener('DOMContentLoaded', function () {

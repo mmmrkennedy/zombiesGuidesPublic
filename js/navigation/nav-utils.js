@@ -8,9 +8,9 @@
  */
 function navigateToIndex() {
     if (checkLocalEnvironment()) {
-        window.location.href = "/index.html";
+        window.location.href = '/index.html';
     } else {
-        window.location.href = window.PageUtils.BASE_PATH + "index.html";
+        window.location.href = window.PageUtils.BASE_PATH + 'index.html';
     }
 }
 
@@ -18,13 +18,11 @@ function navigateToIndex() {
  * Checks if the current environment is local development
  */
 function checkLocalEnvironment() {
-    return window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        window.location.hostname.includes(".local");
+    return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 }
 
 // Make functions available globally
 window.NavUtils = {
     navigateToIndex,
-    checkLocalEnvironment
+    checkLocalEnvironment,
 };

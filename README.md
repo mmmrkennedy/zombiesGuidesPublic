@@ -7,10 +7,13 @@ The goal of this site is to archive and compile accurate and up-to-date informat
 The plan is to also include solvers for steps that require them (such as Attack of the Radioactive Thing's Chemicals and Gorod Krovi's Valves).
 
 ## Roadmap
+
 Next:
+
 - Der Eisendrache (BO3)
 
 Finished:
+
 - All Of Black Ops Cold War (Except Outbreak)
 - All Of Vanguard
 - All Of Black Ops 4
@@ -23,11 +26,12 @@ Finished:
 - Shadows of Evil (BO3)
 
 In Limbo (I don't wanna):
+
 - Outbreak (CW)
 
 Planned:
+
 - Black Ops 3
 - The rest of Advanced Warfare
 
 If you have any suggestions or feedback, or you'd even like to contribute, join the Discord (https://discord.com/invite/hQng3Yz48A).
-

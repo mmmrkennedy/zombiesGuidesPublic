@@ -17,7 +17,7 @@ class LinkClassifier {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
             indexFile: options.indexFile || './index.html',
-            ...options
+            ...options,
         };
         this.processedFiles = 0;
         this.modifiedFiles = 0;
@@ -78,11 +78,7 @@ class LinkClassifier {
                 }
 
                 // Classify external links
-                if (href.includes('youtu.be') || href.includes('youtube') ||
-                    href.includes('discord.com') || href.startsWith('http://') ||
-                    href.startsWith('https://') ||
-                    (href.includes('.com') && !href.startsWith('/'))) {
-
+                if (href.includes('youtu.be') || href.includes('youtube') || href.includes('discord.com') || href.startsWith('http://') || href.startsWith('https://') || (href.includes('.com') && !href.startsWith('/'))) {
                     if (!link.classList.contains('external-link')) {
                         link.classList.add('external-link');
                         linkModified = true;
@@ -136,7 +132,6 @@ class LinkClassifier {
             }
 
             return modified;
-
         } catch (error) {
             console.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
@@ -187,7 +182,6 @@ class LinkClassifier {
             }
 
             return htmlFiles;
-
         } catch (error) {
             this.log(`Error reading index file: ${error.message}`, 'error');
             return [];
@@ -213,7 +207,6 @@ class LinkClassifier {
             }
 
             return this.generateReport();
-
         } catch (error) {
             this.log(`Critical error during build: ${error.message}`, 'error');
             return this.generateReport();
@@ -262,7 +255,7 @@ function parseArguments() {
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: './index.html'
+        indexFile: './index.html',
     };
 
     for (let i = 0; i < args.length; i++) {

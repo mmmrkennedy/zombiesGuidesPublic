@@ -3,7 +3,7 @@ const DIRECTION_SYMBOLS = ['↓', '→', '↑', '←'];
 const LABELS = ['A', 'B', 'C', 'D'];
 
 // State variables
-let currDirections = [0, 0, 0, 0];
+const currDirections = [0, 0, 0, 0];
 let turnCounts = [0, 0, 0, 0];
 let shootCounts = [0, 0, 0, 0];
 
@@ -13,20 +13,23 @@ function shotsToFaceForward(id) {
 
 function updateDirectionsAfterShots(targetId, shotCount) {
     // Update directions based on which block was shot
-    if (targetId === 1) { // Block B
+    if (targetId === 1) {
+        // Block B
         // B affects: A, B (double), C
-        currDirections[0] = (currDirections[0] + shotCount) % 4;     // A
-        currDirections[1] = (currDirections[1] + (shotCount * 2)) % 4; // B
-        currDirections[2] = (currDirections[2] + shotCount) % 4;     // C
-    } else if (targetId === 2) { // Block C
+        currDirections[0] = (currDirections[0] + shotCount) % 4; // A
+        currDirections[1] = (currDirections[1] + shotCount * 2) % 4; // B
+        currDirections[2] = (currDirections[2] + shotCount) % 4; // C
+    } else if (targetId === 2) {
+        // Block C
         // C affects: B, C (double), D
-        currDirections[1] = (currDirections[1] + shotCount) % 4;     // B
-        currDirections[2] = (currDirections[2] + (shotCount * 2)) % 4; // C
-        currDirections[3] = (currDirections[3] + shotCount) % 4;     // D
-    } else if (targetId === 3) { // Block D
+        currDirections[1] = (currDirections[1] + shotCount) % 4; // B
+        currDirections[2] = (currDirections[2] + shotCount * 2) % 4; // C
+        currDirections[3] = (currDirections[3] + shotCount) % 4; // D
+    } else if (targetId === 3) {
+        // Block D
         // D affects: C, D (double)
-        currDirections[2] = (currDirections[2] + shotCount) % 4;     // C
-        currDirections[3] = (currDirections[3] + (shotCount * 2)) % 4; // D
+        currDirections[2] = (currDirections[2] + shotCount) % 4; // C
+        currDirections[3] = (currDirections[3] + shotCount * 2) % 4; // D
     }
 }
 
@@ -58,18 +61,16 @@ function solve() {
     updateDirectionsAfterShots(3, shotsForD);
 
     // Once all A-C are faced, check three possible D locations
-    let block_d_dir = currDirections[3];
+    const block_d_dir = currDirections[3];
 
     // If block d is facing right
     if (block_d_dir === 1) {
         shootCounts[0] += 1;
         shootCounts[1] += 2;
         shootCounts[2] += 3;
-
     } else if (block_d_dir === 2) {
         shootCounts[0] += 2;
         shootCounts[2] += 2;
-
     } else if (block_d_dir === 3) {
         shootCounts[0] += 3;
         shootCounts[1] += 2;
@@ -129,7 +130,7 @@ function reset_all_directions(saved_dirs) {
 function dawn_solver_init() {
     sync_dirs_to_arrows();
 
-    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById('result');
     const savedDirections = [...currDirections]; // Save the initial state
 
     const result = solve();
@@ -141,4 +142,4 @@ function dawn_solver_init() {
 
 document.addEventListener('DOMContentLoaded', () => {
     sync_dirs_to_arrows();
-})
+});
