@@ -149,12 +149,12 @@ function get_key(code) {
 
     if (cross_morse.startsWith(code) || code.startsWith(cross_morse)) {
         // If the input is the key
-        return ['CROSS', true];
+        return 'CROSS';
     } else if (archer_morse.startsWith(code) || code.startsWith(archer_morse)) {
-        return ['ARCHER', true];
+        return 'ARCHER';
     }
 
-    return ['', false];
+    return '';
 }
 
 function extract_number(decrypted_text) {
@@ -213,13 +213,11 @@ function process_morse_code() {
         return;
     }
 
-    let key, was_only_key_entered;
-
     // Attempt to retrieve key automatically from the input Morse code
-    [key, was_only_key_entered] = get_key(code);
+    let key = get_key(code);
 
     // Handle cases where only a key is found in the input
-    if (was_only_key_entered) {
+    if (key !== '') {
         keyTextSpan.innerText = key;
         decodedTextSpan.innerText = 'N/A (Key message was entered)';
         return;

@@ -1,5 +1,12 @@
-// Periodic Table Elements Database
-const periodicElements = [
+import React, { ChangeEvent, useState } from 'react';
+
+type ElementObj = {
+    symbol: string;
+    name: string;
+    number: number;
+};
+
+const periodicElements: ElementObj[] = [
     { symbol: 'H', name: 'Hydrogen', number: 1 },
     { symbol: 'He', name: 'Helium', number: 2 },
     { symbol: 'Li', name: 'Lithium', number: 3 },
@@ -120,70 +127,94 @@ const periodicElements = [
     { symbol: 'Og', name: 'Oganesson', number: 118 },
 ];
 
-function findElements() {
-    console.log('findElements called');
-    const input = document.getElementById('element-input');
-    const resultsContainer = document.getElementById('results-container');
+function format_element_number(element_number: number): string {
+    return '#' + element_number.toString().padStart(3, '0');
+}
 
-    if (!input || !resultsContainer) {
-        console.error('Required elements not found:', {
-            input: !!input,
-            resultsContainer: !!resultsContainer,
+export default function BO6PeriodicTableSolver() {
+    const [elementInput, setElementInput] = useState<string>('');
+    const [result, setResult] = useState<React.ReactNode>(<div>Enter a symbol to find matching elements...</div>);
+
+    function filter_elements(periodicElements: ElementObj[], element_input: string): React.ReactNode {
+        const inputLower = element_input.toLowerCase();
+        const inputReversed = element_input.split('').reverse().join('').toLowerCase();
+
+        const exactMatches = periodicElements.filter(e => {
+            const symbolLower = e.symbol.toLowerCase();
+            return symbolLower === inputLower || symbolLower === inputReversed;
         });
-        return;
+
+        const possibleMatches = periodicElements.filter(e => {
+            const symbolLower = e.symbol.toLowerCase();
+            return symbolLower.includes(inputLower) && !(symbolLower === inputLower || symbolLower === inputReversed);
+        });
+
+        return (
+            <div>
+                {exactMatches.length > 0 && (
+                    <div>
+                        <strong>Exact Matches:</strong>
+                        <ul>
+                            {exactMatches.map(e => (
+                                <li key={e.symbol} style={{ maxWidth: 'fit-content' }}>
+                                    <strong>{e.symbol}</strong> – {e.name} ({format_element_number(e.number)})
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {possibleMatches.length > 0 && (
+                    <div>
+                        <strong>Possible Matches:</strong>
+                        <ul>
+                            {possibleMatches.map(e => (
+                                <li key={e.symbol} style={{ maxWidth: 'fit-content' }}>
+                                    <strong>{e.symbol}</strong> – {e.name} ({format_element_number(e.number)})
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {exactMatches.length === 0 && possibleMatches.length === 0 && <div>No matches found</div>}
+            </div>
+        );
     }
 
-    const inputValue = input.value.trim();
-    console.log('Input value:', inputValue);
+    function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+        setElementInput(e.target.value);
 
-    if (!inputValue) {
-        resultsContainer.innerHTML = '<p id="result">Enter a symbol to find matching elements...</p>';
-        return;
-    }
-
-    const inputLower = inputValue.toLowerCase();
-    const inputReversed = inputValue.split('').reverse().join('').toLowerCase();
-
-    // Find exact matches for both normal and reversed input
-    const matches = periodicElements.filter(element => {
-        const symbolLower = element.symbol.toLowerCase();
-        return symbolLower === inputLower || symbolLower === inputReversed;
-    });
-
-    let html = '';
-
-    if (matches.length > 0) {
-        matches.forEach(element => {
-            const symbolLower = element.symbol.toLowerCase();
-            const isReversed = symbolLower === inputReversed && symbolLower !== inputLower;
-
-            let element_number = element.number;
-
-            if (element_number < 10) {
-                element_number = '00' + element_number;
-            } else if (element_number < 100) {
-                element_number = '0' + element_number;
-            }
-
-            html += `<div class="element-card">
-                <span class="element-symbol">${element.symbol}</span>
-                <span class="element-name">${element.name}</span>
-                <span class="element-number">#${element_number}</span>
-                ${isReversed ? '<span class="reversed-indicator">(reversed)</span>' : ''}
-            </div>`;
-        });
-    } else {
-        if (inputValue.length === 1) {
-            html = '<p id="result">No elements found matching "' + inputValue + '"</p>';
+        if (e.target.value !== '') {
+            setResult(filter_elements(periodicElements, e.target.value));
         } else {
-            html = '<p id="result">No elements found matching "' + inputValue + '" or "' + inputValue.split('').reverse().join('') + '"</p>';
+            setResult('');
         }
     }
 
-    resultsContainer.innerHTML = html;
-}
+    function reset_input() {
+        setElementInput('');
+        setResult(<div>Enter a symbol to find matching elements...</div>);
+    }
 
-function resetSolver() {
-    document.getElementById('element-input').value = '';
-    document.getElementById('results-container').innerHTML = '<p id="result">Enter a symbol to find matching elements...</p>';
+    return (
+        <div className="solver-container">
+            <h3>Periodic Table Element Finder</h3>
+            <p>Enter 1-2 letters to find matching periodic table elements.</p>
+            <p>Input can be forwards or backwards (e.g., "fc" = "Cf" = Californium).</p>
+
+            <div>
+                <label htmlFor="element-input">Element Letters (1-2 letters): </label>
+                <input type="text" pattern="[^0-9]*" id="element-input" className="solver" placeholder="e.g., H, He, Li..." maxLength={2} value={elementInput} onChange={handleInputChange} />
+            </div>
+
+            <button type="reset" className="btn-base solver-button" id="reset" onClick={reset_input}>
+                Clear
+            </button>
+
+            <div className="solver-output">
+                <div id="results-container">{result}</div>
+            </div>
+        </div>
+    );
 }

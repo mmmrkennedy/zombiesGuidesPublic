@@ -123,21 +123,21 @@ export default function WW2HammerPuzzleSolver() {
             </p>
 
             <div className="aligned-buttons vertical">
-                <button className="aligned-button square solver-button" id="blockA" onClick={() => change_block_dir(0)}>
+                <button className="btn-base aligned-button square solver-button" id="blockA" onClick={() => change_block_dir(0)}>
                     {DIRECTION_SYMBOLS[directions[0]]}
                 </button>
-                <button className="aligned-button square solver-button" id="blockB" onClick={() => change_block_dir(1)}>
+                <button className="btn-base aligned-button square solver-button" id="blockB" onClick={() => change_block_dir(1)}>
                     {DIRECTION_SYMBOLS[directions[1]]}
                 </button>
-                <button className="aligned-button square solver-button" id="blockC" onClick={() => change_block_dir(2)}>
+                <button className="btn-base aligned-button square solver-button" id="blockC" onClick={() => change_block_dir(2)}>
                     {DIRECTION_SYMBOLS[directions[2]]}
                 </button>
-                <button className="aligned-button square solver-button" id="blockD" onClick={() => change_block_dir(3)}>
+                <button className="btn-base aligned-button square solver-button" id="blockD" onClick={() => change_block_dir(3)}>
                     {DIRECTION_SYMBOLS[directions[3]]}
                 </button>
             </div>
 
-            <button className="solver-button" id="solve" onClick={() => solve_blocks(directions)}>
+            <button className="btn-base solver-button" id="solve" onClick={() => solve_blocks(directions)}>
                 Solve!
             </button>
 

@@ -6,11 +6,7 @@ const key_span = document.getElementsByClassName('key_input');
 
 function toggleKeyText(selectedValue) {
     for (let i = 0; i < key_span.length; i++) {
-        if (name === undefined) {
-            key_span[i].textContent = 'KEY';
-        } else {
-            key_span[i].textContent = selectedValue.toUpperCase();
-        }
+        key_span[i].textContent = selectedValue.toUpperCase();
     }
 
     // Add additional logic here based on the selected value

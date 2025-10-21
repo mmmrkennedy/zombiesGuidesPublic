@@ -128,7 +128,7 @@ export default function BO3ValveSolver() {
             <h2>Gorod Valves Solver</h2>
             <label htmlFor="greenValve">
                 <span style={{ color: 'lawngreen' }}>Select Green Light Valve:</span>
-            </label>{' '}
+            </label>
             <select id="greenValve" className="solver-symbol-select" value={greenValve} onChange={handle_green_valve_change}>
                 <option value="department_store">Department Store</option>
                 <option value="supply_depot">Supply Depot</option>
@@ -140,7 +140,7 @@ export default function BO3ValveSolver() {
             <br />
             <label htmlFor="pinkValve">
                 <span style={{ color: 'deeppink' }}>Select Pink Cylinder Valve:</span>
-            </label>{' '}
+            </label>
             <select id="pinkValve" className="solver-symbol-select" value={pinkValve} onChange={handle_pink_valve_change}>
                 <option value="department_store">Department Store</option>
                 <option value="supply_depot">Supply Depot</option>

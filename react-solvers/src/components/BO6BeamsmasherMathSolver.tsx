@@ -144,7 +144,7 @@ export default function BO6BeamsmasherMathSolver() {
             <div className="solver-output" id="codeOutput">
                 <p>{result}</p>
             </div>
-            <button type="reset" className="solver-button" onClick={() => resetAll(selectedSymbols)}>
+            <button type="reset" className="btn-base solver-button" onClick={() => resetAll(selectedSymbols)}>
                 Reset All
             </button>
         </div>

@@ -183,34 +183,34 @@ export default function WW2StatueSolver() {
         <div className="solver-container">
             <h2>Select Which Wall</h2>
             <div>
-                <button className={activeWall === 'wall1' ? 'solver-button active' : 'solver-button'} onClick={() => handleWallClick('wall1')}>
+                <button className={activeWall === 'wall1' ? 'btn-base solver-button active' : 'btn-base solver-button'} onClick={() => handleWallClick('wall1')}>
                     Wall 1
                 </button>
-                <button className={activeWall === 'wall2' ? 'solver-button active' : 'solver-button'} onClick={() => handleWallClick('wall2')}>
+                <button className={activeWall === 'wall2' ? 'btn-base solver-button active' : 'btn-base solver-button'} onClick={() => handleWallClick('wall2')}>
                     Wall 2
                 </button>
-                <button className={activeWall === 'wall3' ? 'solver-button active' : 'solver-button'} onClick={() => handleWallClick('wall3')}>
+                <button className={activeWall === 'wall3' ? 'btn-base solver-button active' : 'btn-base solver-button'} onClick={() => handleWallClick('wall3')}>
                     Wall 3
                 </button>
-                <button className={activeWall === 'wall4' ? 'solver-button active' : 'solver-button'} onClick={() => handleWallClick('wall4')}>
+                <button className={activeWall === 'wall4' ? 'btn-base solver-button active' : 'btn-base solver-button'} onClick={() => handleWallClick('wall4')}>
                     Wall 4
                 </button>
             </div>
 
             <h3>Statue Positions (click to change)</h3>
             <div className="aligned-buttons">
-                <button className="aligned-button solver-button" onClick={() => handleStatueClick(0)}>
+                <button className="btn-base aligned-button solver-button" onClick={() => handleStatueClick(0)}>
                     {DIRECTION_SYMBOLS[directions[0]]}
                 </button>
-                <button className="aligned-button solver-button" onClick={() => handleStatueClick(1)}>
+                <button className="btn-base aligned-button solver-button" onClick={() => handleStatueClick(1)}>
                     {DIRECTION_SYMBOLS[directions[1]]}
                 </button>
-                <button className="aligned-button solver-button" onClick={() => handleStatueClick(2)}>
+                <button className="btn-base aligned-button solver-button" onClick={() => handleStatueClick(2)}>
                     {DIRECTION_SYMBOLS[directions[2]]}
                 </button>
 
                 {activeWall !== 'wall1' && (
-                    <button className="aligned-button solver-button" onClick={() => handleStatueClick(3)}>
+                    <button className="btn-base aligned-button solver-button" onClick={() => handleStatueClick(3)}>
                         {DIRECTION_SYMBOLS[directions[3]]}
                     </button>
                 )}
@@ -220,7 +220,7 @@ export default function WW2StatueSolver() {
                 <span className="aligned-label">A</span> <span className="aligned-label">B</span> <span className="aligned-label">C</span> {activeWall !== 'wall1' && <span className="aligned-label">D</span>}
             </div>
 
-            <button className="solver-button" onClick={handleSolve}>
+            <button className="btn-base solver-button" onClick={handleSolve}>
                 Solve!
             </button>
 

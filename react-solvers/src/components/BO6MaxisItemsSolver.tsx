@@ -203,7 +203,7 @@ export default function BO6MaxisItemsSolver() {
                 </select>
             </div>
 
-            <button type="reset" className="solver-button" id="maxis-reset" onClick={reset_maxis_solver}>
+            <button type="reset" className="btn-base solver-button" id="maxis-reset" onClick={reset_maxis_solver}>
                 Clear
             </button>
 

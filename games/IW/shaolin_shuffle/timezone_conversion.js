@@ -31,12 +31,8 @@ function getEquivalentTimesInTimezone(timezone = undefined) {
 
 // Function to format the time as "12 am TZ"
 function formatTime(localeString) {
-    let [time, tz] = localeString.split(' ');
-    if (tz.toUpperCase().includes('P')) {
-        tz = 'PM';
-    } else {
-        tz = 'AM';
-    }
+    const [time, tzRaw] = localeString.split(' ');
+    const tz = tzRaw.toUpperCase().includes('P') ? 'PM' : 'AM';
     const formattedTime = time.toLowerCase().replace(':00:00', ''); // Remove ":00" for cleaner output
     return `${formattedTime} ${tz}`;
 }

@@ -3,8 +3,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>Attack of the Radioactive Thing Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1760756343789">
-        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1760756343789">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761059662980">
+        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761059662980">
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
         <base target="_blank">
         <script>
@@ -34,7 +34,7 @@
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1760756343789">
+        <div class="version-display" data-version="1761059662980">
             v.
             <span id="version-number">0</span>
         </div>
@@ -50,13 +50,13 @@
             </button>
 
             <!-- Mobile devices content -->
-            <div id="mobileContent">
+            <div id="mobileContent" style="display: none">
                 <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
                 <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
             </div>
 
             <!-- Non-mobile devices content -->
-            <div id="nonMobileContent">
+            <div id="nonMobileContent" style="display: none">
                 <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
                 <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
             </div>
@@ -1074,61 +1074,7 @@
                                 </ul>
                                 <li>Once you have the M Number, TV number, Insect Repellent and Racing Fuel numbers, and the final chemical from the radio. Input those into the Solver.</li>
 
-                                <div class="solver-container left" style="margin-bottom: 10px; margin-top: 10px">
-                                    <h2>Attack Chemical Step Solver</h2>
-
-                                    <p class="sub-sub-step" data-bool-quick-link="false">Step 1</p>
-                                    <div>
-                                        <label for="mNum">Enter the M Number:</label>
-                                        <input type="number" id="mNum" class="solver">
-                                    </div>
-
-                                    <div>
-                                        <label for="lowerBound">Enter the Top Number on TV (&lt; ##):</label>
-                                        <input type="number" id="lowerBound" class="solver">
-                                    </div>
-
-                                    <p id="step2_text" class="sub-sub-step" data-bool-quick-link="false" style="display: none">Step 2</p>
-                                    <div id="insectContainer" style="display: none">
-                                        <label for="insectNum">Enter Insect Repellent Number (Top Num + Left Num) in given colour mode:</label>
-                                        <input type="number" id="insectNum" class="solver">
-                                    </div>
-
-                                    <div id="finalChemContainer" style="display: none">
-                                        <label for="finalChem">
-                                            <span>Select Final Chemical:</span>
-                                        </label>
-                                        <select id="finalChem" class="spacing">
-                                            <option value="default" disabled="">Select Chemical</option>
-                                            <option value="chem_1">3,4-di-nitroxy-methyl-propane</option>
-                                            <option value="chem_2">1,3,5 tera-nitro-phenol</option>
-                                            <option value="chem_3">Octa-hydro-2,5-nitro-3,4,7-para-zokine</option>
-                                            <option value="chem_4">3-methyl-2,4-di-nitrobenzene</option>
-                                            <option value="chem_5">2,4-propane-3,5-tetra-nitrite</option>
-                                        </select>
-                                    </div>
-
-                                    <p id="step3_text" class="sub-sub-step" data-bool-quick-link="false" style="display: none">Step 3</p>
-                                    <div id="racingFuelContainer" style="display: none">
-                                        <label for="racingNum">Enter Racing Fuel Number (Top Num + Left Num):</label>
-                                        <input type="number" id="racingNum" class="solver">
-                                    </div>
-
-                                    <div id="oNumContainer" style="display: none">
-                                        <label for="oNum">Enter O Number:</label>
-                                        <input type="number" id="oNum" class="solver">
-                                    </div>
-
-                                    <button class="solver-button" id="calculateButton" onclick="main()">Calculate</button>
-
-                                    <button class="solver-button" onclick="resetAll()">Reset All</button>
-
-                                    <button class="solver-button" onclick="noHandHolding()">I know what I'm doing</button>
-
-                                    <div class="solver-output" id="codeOutput">
-                                        <p><span id="result"></span></p>
-                                    </div>
-                                </div>
+                                <div id="chemical-solver-react"></div>
 
                                 <li>The Solver will return the chemicals and numbers to create your required chemical.</li>
                                 <li>
@@ -1412,57 +1358,7 @@
 
                     <div class="solver-with-button" data-bool-quick-link="false">
                         <button class="square-button">Click to show Skull 4 Word Puzzle Solver</button>
-                        <div class="solver-container left" style="display: none">
-                            <h2>Attack GnS Skull 4 Solver</h2>
-                            <h3>Input Word and Symbols</h3>
-
-                            <div>
-                                <label for="word"><span>Select your word:</span></label>
-                                <select id="word" class="spacing">
-                                    <option value="default" disabled="">Select your word</option>
-                                    <option value="word_1">Aldehydes</option>
-                                    <option value="word_2">Allomer</option>
-                                    <option value="word_3">Benzene</option>
-                                    <option value="word_4">Chlorination</option>
-                                    <option value="word_5">Ethers</option>
-                                    <option value="word_6">Ethyl</option>
-                                    <option value="word_7">Hydrogenation</option>
-                                    <option value="word_8">Neutrino</option>
-                                    <option value="word_9">Nitriles</option>
-                                    <option value="word_10">Oxidation</option>
-                                    <option value="word_11">Reduction</option>
-                                    <option value="word_12">Solvolysis</option>
-                                    <option value="word_13">Sublimation</option>
-                                    <option value="word_14">Zwitterion</option>
-                                </select>
-                            </div>
-
-                            <div class="solver-symbol-select" id="symbol_1">
-                                <p>Symbol 1 (Left most):</p>
-                            </div>
-
-                            <div class="solver-symbol-select" id="symbol_2">
-                                <p>Symbol 2:</p>
-                            </div>
-
-                            <div class="solver-symbol-select" id="symbol_3">
-                                <p>Symbol 3:</p>
-                            </div>
-
-                            <div class="solver-symbol-select" id="symbol_4">
-                                <p>Symbol 4 (Right most):</p>
-                            </div>
-
-                            <button class="solver-button" onclick="main_solve()">Calculate</button>
-
-                            <button class="solver-button" onclick="resetAllButtons()">Reset All</button>
-
-                            <div class="solver-output">
-                                <p>
-                                    <span id="result_gns">Enter the Word and select four symbols.</span>
-                                </p>
-                            </div>
-                        </div>
+                        <div id="gns-skull4-solver-react"></div>
                     </div>
 
                     <div class="solver-with-button" data-bool-quick-link="false">
@@ -1699,35 +1595,46 @@
             </div>
         </div>
 
-        <script src="GnS_Skull4_solver/attack_gns_solver.js?v=1760756343789"></script>
-        <script src="GnS_Skull4_solver/attack_gns_solver_html_helper.js?v=1760756343789"></script>
-        <script src="chems_solver/attack_chem_solver.js?v=1760756343789"></script>
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/dist/assets/index-CBrn5CXN.js?v=1761059662980"></script>
+
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountGnSSkull4Solver('gns-skull4-solver-react');
+                    window.ZombiesSolvers.mountChemicalStepSolver('chemical-solver-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
+
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1760756343789"></script>
+        <script src="/js/core/page-utils.js?v=1761059662980"></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1760756343789"></script>
-        <script src="/js/navigation/nav-utils.js?v=1760756343789"></script>
+        <script src="/js/navigation/scroll-manager.js?v=1761059662980"></script>
+        <script src="/js/navigation/nav-utils.js?v=1761059662980"></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1760756343789"></script>
-        <script src="/js/ui/lightbox.js?v=1760756343789"></script>
+        <script src="/js/ui/tutorial-system.js?v=1761059662980"></script>
+        <script src="/js/ui/lightbox.js?v=1761059662980"></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1760756343789"></script>
-        <script src="/js/content/quick-links.js?v=1760756343789"></script>
+        <script src="/js/content/link-processor.js?v=1761059662980"></script>
+        <script src="/js/content/quick-links.js?v=1761059662980"></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1760756343789"></script>
+        <script src="/js/device/mobile-detection.js?v=1761059662980"></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1760756343789"></script>
+        <script src="/js/features/substeps.js?v=1761059662980"></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1760756343789"></script>
+        <script src="/js/quick-links-utils.js?v=1761059662980"></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1760756343789"></script>
+        <script src="/js/scripts.js?v=1761059662980"></script>
     
 
 </body></html>

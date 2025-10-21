@@ -180,8 +180,6 @@ function find_valid_sol(starting_queen_cords) {
     const starting_x = starting_queen_cords[0];
     const starting_y = starting_queen_cords[1];
 
-    let solutions_num = 0;
-
     const flipped_options = ['vertical', 'horizontal'];
 
     for (let i = 0; i < solutions_queens.length; i++) {
@@ -194,8 +192,6 @@ function find_valid_sol(starting_queen_cords) {
             }
 
             for (let k = 0; k < flipped_options.length; k++) {
-                solutions_num++;
-
                 const solution_flipped = flip2DArray(solution, flipped_options[k]);
 
                 if (solution_flipped[starting_y][starting_x] === true) {

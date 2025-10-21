@@ -178,8 +178,6 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
 // Export for Node.js environments
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
-        shouldExcludeElement,
-        getElementTitle,
         getQuickLinkElements,
         generateNavHTML,
     };
@@ -188,9 +186,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // Make available globally for browser environments
 if (typeof window !== 'undefined') {
     window.QuickLinksUtils = {
-        shouldExcludeElement,
         getElementTitle,
         getQuickLinkElements,
-        generateNavHTML,
     };
 }

@@ -5,11 +5,13 @@ const path = require('path');
 const { JSDOM } = require('jsdom');
 
 /**
- * Generates page titles from filenames at build time
- * Converts: my_page_name.html -> "My Page Name"
+ * Classifies and validates links at build time
+ * - Adds CSS classes based on link type (external, internal, images, etc.)
+ * - Validates file paths and extensions
+ * - Flags incomplete or broken links
  */
 
-class TitleGenerator {
+class LinkClassifier {
     constructor(options = {}) {
         this.options = {
             verbose: options.verbose || false,
@@ -19,6 +21,9 @@ class TitleGenerator {
         };
         this.processedFiles = 0;
         this.modifiedFiles = 0;
+        this.totalLinks = 0;
+        this.classifiedLinks = 0;
+        this.warnings = [];
         this.errors = [];
     }
 
@@ -28,30 +33,12 @@ class TitleGenerator {
             this.errors.push(message);
         } else if (level === 'warn') {
             console.warn(`WARNING: ${message}`);
+            this.warnings.push(message);
         } else if (level === 'success') {
             console.log(`SUCCESS: ${message}`);
         } else if (this.options.verbose) {
             console.log(`  ${message}`);
         }
-    }
-
-    generateTitle(filename) {
-        const nameWithoutExt = filename.replace(/\.html$/, '');
-        const withSpaces = nameWithoutExt.replace(/_/g, ' ');
-        const lowercaseWords = ['of', 'the', 'a', 'an', 'and', 'but', 'or', 'for', 'nor', 'in', 'on', 'at', 'to', 'with', 'by'];
-
-        const words = withSpaces.split(' ');
-        return words
-            .map((word, index) => {
-                if (index === 0 || index === words.length - 1) {
-                    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-                }
-                if (lowercaseWords.includes(word.toLowerCase())) {
-                    return word.toLowerCase();
-                }
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            })
-            .join(' ');
     }
 
     processFile(filePath) {
@@ -68,40 +55,85 @@ class TitleGenerator {
             const dom = new JSDOM(content);
             const document = dom.window.document;
 
-            const titleElement = document.querySelector('.title-text');
-            const filename = path.basename(filePath);
+            const links = document.querySelectorAll('a:not(.content-container-top a)');
+            let fileLinksProcessed = 0;
+            let fileLinksClassified = 0;
             let modified = false;
 
-            // Update document title if it says "change me"
-            if (document.title.toLowerCase() === 'change me') {
-                const newTitle = this.generateTitle(filename);
-                document.title = newTitle;
-                this.log(`Document title: "change me" -> "${newTitle}"`);
-                modified = true;
-            }
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return;
 
-            // Update title element if it says "change me"
-            if (titleElement && titleElement.textContent.toLowerCase() === 'change me') {
-                titleElement.textContent = document.title;
-                this.log(`Title element: "change me" -> "${document.title}"`);
-                modified = true;
-            }
+                fileLinksProcessed++;
+                this.totalLinks++;
+                let linkModified = false;
+
+                // Classify anchor links (internal page links)
+                if (href.includes('#')) {
+                    if (!link.classList.contains('link-to-page')) {
+                        link.classList.add('link-to-page');
+                        linkModified = true;
+                        console.log(`Added link-to-page: ${href}`);
+                    }
+                }
+
+                // Classify external links
+                if (href.includes('youtu.be') || href.includes('youtube') || href.includes('discord.com') || href.startsWith('http://') || href.startsWith('https://') || (href.includes('.com') && !href.startsWith('/'))) {
+                    if (!link.classList.contains('external-link')) {
+                        link.classList.add('external-link');
+                        linkModified = true;
+                        console.log(`Added external-link (external): ${href}`);
+                    }
+                }
+
+                // Validate internal links (not anchors, not external)
+                if (!href.startsWith('#') && !href.startsWith('http')) {
+                    // Check for incomplete paths
+                    if (href.endsWith('/')) {
+                        if (!link.classList.contains('incomplete-path')) {
+                            link.classList.add('incomplete-path');
+                            linkModified = true;
+                            console.log(`Incomplete path: ${href}`, 'warn');
+                        }
+                    }
+
+                    // Check for valid file extensions
+                    const validExtensions = ['.webp', '.html', '.webm', '.gif', '.jpg', '.jpeg', '.png', '.mp4'];
+                    const hasValidExtension = validExtensions.some(ext => href.toLowerCase().includes(ext));
+
+                    if (!hasValidExtension && !href.endsWith('/')) {
+                        if (!link.classList.contains('wrong_file_type')) {
+                            link.classList.add('wrong_file_type');
+                            linkModified = true;
+                            console.log(`Invalid file type: ${href}`, 'warn');
+                        }
+                    }
+                }
+
+                if (linkModified) {
+                    fileLinksClassified++;
+                    this.classifiedLinks++;
+                    modified = true;
+                }
+            });
+
+            console.log(`Processed ${fileLinksProcessed} links, classified ${fileLinksClassified}`);
 
             if (modified) {
                 if (!this.options.dryRun) {
                     fs.writeFileSync(filePath, dom.serialize());
-                    this.log(`Updated ${path.basename(filePath)}`, 'success');
+                    console.log(`Updated ${path.basename(filePath)}`, 'success');
                 } else {
-                    this.log(`Would update ${path.basename(filePath)} (dry run)`);
+                    console.log(`Would update ${path.basename(filePath)} (dry run)`);
                 }
                 this.modifiedFiles++;
             } else {
-                this.log(`No changes needed`);
+                console.log(`No changes needed`);
             }
 
             return modified;
         } catch (error) {
-            this.log(`Error processing ${filePath}: ${error.message}`, 'error');
+            console.log(`Error processing ${filePath}: ${error.message}`, 'error');
             return false;
         }
     }
@@ -144,6 +176,11 @@ class TitleGenerator {
                 }
             }
 
+            // Always include index.html itself
+            if (!htmlFiles.includes(indexPath)) {
+                htmlFiles.unshift(indexPath);
+            }
+
             return htmlFiles;
         } catch (error) {
             this.log(`Error reading index file: ${error.message}`, 'error');
@@ -152,7 +189,7 @@ class TitleGenerator {
     }
 
     run() {
-        console.log('Generating titles for HTML files...\n');
+        console.log('Classifying links in HTML files...\n');
 
         try {
             const files = this.getLinkedHtmlFiles();
@@ -165,6 +202,7 @@ class TitleGenerator {
             this.log(`Found ${files.length} linked HTML files to process\n`);
 
             for (const file of files) {
+                console.log(file);
                 this.processFile(file);
             }
 
@@ -176,10 +214,23 @@ class TitleGenerator {
     }
 
     generateReport() {
-        console.log('\nTitle Generation Report:');
+        console.log('\nLink Classification Report:');
         console.log(`   Files processed: ${this.processedFiles}`);
         console.log(`   Files modified: ${this.modifiedFiles}`);
+        console.log(`   Total links scanned: ${this.totalLinks}`);
+        console.log(`   Links classified: ${this.classifiedLinks}`);
+        console.log(`   Warnings: ${this.warnings.length}`);
         console.log(`   Errors: ${this.errors.length}`);
+
+        if (this.warnings.length > 0 && this.options.verbose) {
+            console.log('\nWarnings:');
+            this.warnings.slice(0, 10).forEach((warning, index) => {
+                console.log(`   ${index + 1}. ${warning}`);
+            });
+            if (this.warnings.length > 10) {
+                console.log(`   ... and ${this.warnings.length - 10} more warnings`);
+            }
+        }
 
         if (this.errors.length > 0) {
             console.log('\nErrors:');
@@ -193,7 +244,7 @@ class TitleGenerator {
         }
 
         const success = this.errors.length === 0;
-        console.log(`\n${success ? 'Title generation completed successfully!' : 'Title generation completed with errors'}`);
+        console.log(`\n${success ? 'Link classification completed successfully!' : 'Link classification completed with errors'}`);
 
         return success;
     }
@@ -226,9 +277,9 @@ function parseArguments() {
             case '--help':
             case '-h':
                 console.log(`
-Title Generator for Zombies Guides
+Link Classifier for Zombies Guides
 
-Usage: node generate-titles.js [options]
+Usage: node classify-links.js [options]
 
 Options:
   -v, --verbose     Enable verbose logging
@@ -237,14 +288,15 @@ Options:
   -h, --help        Show this help message
 
 This script:
-  - Finds all HTML files linked from index.html
-  - Generates proper titles from filenames (my_page.html -> "My Page")
-  - Updates <title> and .title-text elements that say "change me"
+  - Classifies links as internal/external
+  - Adds appropriate CSS classes for styling
+  - Validates file paths and extensions
+  - Flags incomplete or invalid links
 
 Examples:
-  node generate-titles.js
-  node generate-titles.js --verbose --dry-run
-  node generate-titles.js --index ./index.html
+  node classify-links.js
+  node classify-links.js --verbose --dry-run
+  node classify-links.js --index ./index.html
                 `);
                 process.exit(0);
                 break;
@@ -258,13 +310,13 @@ Examples:
 try {
     require('jsdom');
 } catch (error) {
-    console.error('ERROR: jsdom is not installed. Please run: npm install jsdom');
+    console.error('ERROR: jsdom is not installed. Please run: npm install jsdom. Error: ', error.message);
     process.exit(1);
 }
 
 // Run
 const options = parseArguments();
-const generator = new TitleGenerator(options);
-const success = generator.run();
+const classifier = new LinkClassifier(options);
+const success = classifier.run();
 
 process.exit(success ? 0 : 1);

@@ -15,7 +15,7 @@ BASE STYLES
     --warning-red: #ef4444;
     --warning-text: #fca5a5;
     --border-gray: #ddd;
-    --lighter-bg: #333333;
+    --lighter-bg: #333;
     --lighter-bg-hover: #555;
     --link-to-page: #359fad;
     --external-link: #34a400;
@@ -60,33 +60,23 @@ a.external-link {
 }
 
 /* Link validation states */
-.incomplete-path {
+a.incomplete-path {
     color: red;
 }
 
-.wrong_file_type {
+a.wrong_file_type {
     color: orange;
 }
 
-.file-doesnt-exist {
+a.file-doesnt-exist {
     color: yellow;
 }
 
 /* Utility classes */
-.main-line {
-    border-top: 3px solid gray;
-    margin: 20px 15px;
-}
-
 .disabled {
     pointer-events: none;
     color: inherit;
     text-decoration: none;
-    cursor: default;
-}
-
-.page-title {
-    text-align: center;
 }
 
 /* 
@@ -103,36 +93,10 @@ LAYOUT STYLES
     overflow-x: hidden;
     background-color: var(--primary-bg);
     scrollbar-width: thin;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
-/* Mobile content visibility */
-#nonMobileContent {
-    display: none;
-}
-
-#mobileContent {
-    display: none;
-}
-
 /* Specialized components */
-#venom-x-box-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.venom-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.venom-row label {
-    margin-right: 10px;
-}
-
 .morse-code {
     display: inline-block;
     padding: 1px 5px;
@@ -180,11 +144,7 @@ UI COMPONENTS
     opacity: 0.8;
     transition: opacity 0.3s ease;
     z-index: 2;
-
-    top: var(--btn-top, auto);
-    right: var(--btn-right, auto);
-    bottom: var(--btn-bottom, auto);
-    left: var(--btn-left, auto);
+    inset: var(--btn-top, auto) var(--btn-right, auto) var(--btn-bottom, auto) var(--btn-left, auto);
 }
 
 .toggle-button:hover {
@@ -197,28 +157,9 @@ UI COMPONENTS
     --btn-top: 20px;
     --btn-left: 20px;
 }
-.top-left-down {
-    --btn-top: 70px;
-    --btn-left: 20px;
-}
-.top-right {
-    --btn-top: 20px;
-    --btn-right: 20px;
-}
-.top-right-down {
-    --btn-top: 70px;
-    --btn-right: 20px;
-}
-.bottom-left {
-    --btn-bottom: 20px;
-    --btn-left: 20px;
-}
+
 .bottom-right {
     --btn-bottom: 20px;
-    --btn-right: 20px;
-}
-.bottom-right-up {
-    --btn-bottom: 70px;
     --btn-right: 20px;
 }
 
@@ -261,160 +202,6 @@ UI COMPONENTS
     margin: 20px;
 }
 
-/* Hamburger Menu */
-.hamburger-menu-toggle {
-    top: 25px;
-    left: 120px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-    justify-content: center;
-    padding: 0;
-    position: static;
-    order: 3;
-    margin-right: 12px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.hamburger-menu-toggle svg {
-    fill: white;
-    transition: fill 0.3s ease;
-}
-
-.hamburger-menu-toggle:hover svg {
-    fill: #c0bfbf;
-}
-
-/* Hamburger Menu Overlay */
-.hamburger-menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
-
-.hamburger-menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.hamburger-menu-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 350px;
-    height: 100%;
-    background-color: var(--primary-bg);
-    border-right: 3px solid gray;
-    overflow-y: auto;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease 0.1s;
-}
-
-.hamburger-menu-overlay.active .hamburger-menu-content {
-    transform: translateX(0);
-    transition: transform 0.3s ease 0.1s;
-}
-
-.hamburger-menu-overlay:not(.active) .hamburger-menu-content {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.hamburger-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 12px;
-    height: var(--desktop-header-height);
-    border-bottom: 2px solid gray;
-    background-color: var(--lighter-bg);
-}
-
-.hamburger-menu-header h3 {
-    margin: 0;
-    color: var(--primary-text);
-    font-size: 18px;
-}
-
-.hamburger-menu-close {
-    background: none;
-    border: none;
-    color: var(--primary-text);
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hamburger-menu-close:hover {
-    color: white;
-}
-
-.hamburger-menu-links {
-    padding: 0 20px 20px;
-}
-
-.hamburger-menu-links h4 {
-    color: var(--accent-green);
-    margin: 20px 0 10px 0;
-    font-size: 16px;
-    border-bottom: 1px solid var(--accent-green);
-    padding-bottom: 5px;
-}
-
-.hamburger-menu-links h4:first-child {
-    margin-top: 0;
-}
-
-.hamburger-menu-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 15px 0;
-}
-
-.hamburger-menu-links ul ul {
-    margin-left: 20px;
-    margin-bottom: 5px;
-}
-
-.hamburger-menu-links ul ul ul {
-    margin-left: 20px;
-}
-
-.hamburger-menu-links li {
-    margin: 5px 0;
-}
-
-.hamburger-menu-links a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    display: block;
-    padding: 5px 0;
-    transition: color 0.2s ease;
-}
-
-.hamburger-menu-links a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
 /* 
 =======================================
 CONTENT STYLES
@@ -451,7 +238,7 @@ p.warning {
     border: 1px solid var(--warning-red);
     border-radius: 4px;
     color: var(--warning-text);
-    background: rgba(239, 68, 68, 0.1);
+    background: rgb(239 68 68 / 10%);
 }
 
 p.warning::before {
@@ -460,7 +247,7 @@ p.warning::before {
 
 p.boss-fight-phases {
     color: #bdb968;
-    background-color: rgba(140, 137, 65, 0.08);
+    background-color: rgb(140 137 65 / 8%);
     border-left: 4px solid #9a9b52;
     min-width: 75px;
     width: fit-content;
@@ -483,7 +270,7 @@ p.step-group-title {
     font-size: 115%;
     color: var(--accent-yellow);
     padding: 5px 8px;
-    background-color: rgba(201, 196, 73, 0.1);
+    background-color: rgb(201 196 73 / 10%);
     border-left: 4px solid var(--accent-yellow);
     border-radius: 0 4px 4px 0;
     min-width: 150px;
@@ -517,9 +304,9 @@ h2.section-title {
     font-weight: bold;
     font-size: 130%;
     color: var(--accent-green);
-    margin: 20px 0 15px 0;
+    margin: 20px 0 15px;
     padding: 8px 11px;
-    background-color: rgba(107, 195, 67, 0.1);
+    background-color: rgb(107 195 67 / 10%);
     border-left: 5px solid var(--accent-green);
     border-radius: 0 6px 6px 0;
     line-height: 1.75;
@@ -540,7 +327,7 @@ p.sub-sub-step {
     font-size: 105%;
     color: var(--secondary-accent-green);
     padding: 6px 9px;
-    background: linear-gradient(to bottom, rgba(107, 195, 67, 0.15), rgba(201, 196, 73, 0.15));
+    background: linear-gradient(to bottom, rgb(107 195 67 / 15%), rgb(201 196 73 / 15%));
     border-left: 4.5px solid;
     border-image: linear-gradient(to bottom, var(--accent-green), var(--accent-yellow)) 1;
     border-radius: 0 5px 5px 0;
@@ -558,12 +345,8 @@ li {
     margin-bottom: 5px;
 }
 
-p.li-spacing,
 p.weapon-desc {
     margin: 7px 0;
-}
-
-p.weapon-desc {
     font-weight: bold;
 }
 
@@ -571,7 +354,7 @@ p.weapon-desc {
 details.spacing {
     margin: 15px 0;
     border-left: var(--accent-green) solid 2px;
-    background-color: rgba(107, 195, 67, 0.1);
+    background-color: rgb(107 195 67 / 10%);
     display: inline-block;
     padding: 0.2em;
 }
@@ -607,7 +390,7 @@ table caption {
     margin-bottom: 15px;
     text-align: left;
     padding: 8px 10px;
-    background-color: rgba(201, 196, 73, 0.1);
+    background-color: rgb(201 196 73 / 10%);
     border-left: 4px solid var(--accent-yellow);
     border-radius: 0 4px 4px 0;
     caption-side: top;
@@ -706,7 +489,7 @@ LIGHTBOX STYLES
     max-height: 88vh;
     display: block;
     border: 3px solid white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 }
 
 /* Close button */
@@ -748,12 +531,137 @@ LIGHTBOX STYLES
 
 /*
 =======================================
+INPUT AND SELECT
+=======================================
+*/
+/* Global styling for all input and select elements */
+input,
+select {
+    /* Base styling matching the dark theme */
+    background-color: #3a3a3a;
+    color: white;
+    border: 2px solid #666;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    /* Layout properties */
+    width: fit-content;
+    min-width: 50px;
+    margin: 5px 0;
+
+    /* Interaction states */
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Focus states */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0060cd; /* Matches the active button color */
+    background-color: #444;
+}
+
+/* Hover states */
+input:hover,
+select:hover {
+    border-color: #666;
+    background-color: #444;
+}
+
+/* Disabled states */
+input:disabled,
+select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+/* Select-specific styling */
+select {
+    cursor: pointer;
+    appearance: none; /* Remove default browser styling */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px; /* Make room for the dropdown arrow */
+}
+
+/* Input type-specific styling */
+input[type='number'] {
+    text-align: right;
+}
+
+input[type='text'],
+input[type='search'],
+input[type='email'],
+input[type='password'],
+input[type='url'] {
+    min-width: 100px;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    /* Reset for checkbox and radio inputs */
+    width: auto;
+    min-width: auto;
+    padding: 0;
+    margin: 0 5px 0 0;
+    appearance: auto;
+    background-color: transparent;
+    border: none;
+}
+
+input[type='range'] {
+    /* Reset for range sliders */
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+input[type='file'] {
+    /* Special styling for file inputs */
+    padding: 6px;
+    background-color: #444;
+    border: 1px dashed #666;
+}
+
+input[type='color'] {
+    /* Color picker styling */
+    padding: 2px;
+    width: 50px;
+    height: 35px;
+    cursor: pointer;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Preserve existing solver-specific styles */
+input.solver,
+select.solver {
+    /* Keep existing solver styles intact */
+    width: fit-content;
+    min-width: 50px;
+    margin: 0;
+}
+
+/*
+=======================================
 MOBILE SPECIFIC STYLES
 =======================================
 */
 
 /* Mobile responsive fixes */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     ol,
     ul {
         padding-inline-start: 20px;
@@ -820,6 +728,7 @@ MOBILE SPECIFIC STYLES
     .toggle-button.bottom-right {
         --btn-bottom: 16px;
         --btn-right: 16px;
+
         padding: 12px;
         width: 48px;
         height: 48px;

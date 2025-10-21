@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
-const QuickLinksUtils = require('../js/quick-links-utils.js');
+const QuickLinksUtils = require('../js/quick-links-utils.cjs');
 
 // Simple CLI argument parsing
 const args = process.argv.slice(2);
@@ -250,7 +250,7 @@ Examples:
 try {
     require('jsdom');
 } catch (error) {
-    console.error('jsdom is not installed. Please run: npm install jsdom');
+    console.error('ERROR: jsdom is not installed. Please run: npm install jsdom. Error: ', error.message);
     process.exit(1);
 }
 

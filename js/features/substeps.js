@@ -19,7 +19,8 @@ function substeps(check) {
         try {
             document.getElementById('substeps' + i).style.display = displayStyle;
             console.log('Substeps loaded');
-        } catch (e) {
+        } catch {
+            console.info('All substeps loaded');
             break;
         }
         i++;

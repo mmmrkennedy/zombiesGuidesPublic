@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '/css/global_solver.css';
 import WW2HangmanSolver from './components/WW2HangmanSolver';
 import WW2StatueSolver from './components/WW2StatueSolver';
 import WW2HammerPuzzleSolver from './components/WW2HammerPuzzleSolver';
 import BO6BeamsmasherMathSolver from './components/BO6BeamsmasherMathSolver';
 import BO3ValveSolver from './components/BO3ValveSolver';
 import BO6MaxisItemsSolver from './components/BO6MaxisItemsSolver';
+import BO6PeriodicTableSolver from './components/BO6PeriodicTableSolver';
+import BO6LetterboardSolver from './components/BO6LetterboardSolver';
+import IWMahjongSolver from './components/IWMahjongSolver';
+import IWMainQuestWordFilter from './components/IWMainQuestWordFilter';
+import IWChemicalStepSolver from './components/IWChemicalStepSolver';
+import IWGnSSkull4Solver from './components/IWGnSSkull4Solver';
 
 /**
  * Mount functions - These allow you to embed React components anywhere in your HTML
@@ -25,6 +32,12 @@ interface ZombiesSolvers {
     mountValveSolver: MountFunction;
     mountBeamsmasherSolver: MountFunction;
     mountMaxisItemsSolver: MountFunction;
+    mountPeriodicTableSolver: MountFunction;
+    mountLetterboardSolver: MountFunction;
+    mountMahjongSolver: MountFunction;
+    mountShaolinWordFilter: MountFunction;
+    mountChemicalStepSolver: MountFunction;
+    mountGnSSkull4Solver: MountFunction;
 }
 
 declare global {
@@ -130,6 +143,102 @@ window.ZombiesSolvers = {
         );
         console.log('BO6MaxisItemsSolver mounted successfully');
     },
+
+    mountPeriodicTableSolver(elementId: string) {
+        console.log('Mounting BO6PeriodicTableSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <BO6PeriodicTableSolver />
+            </React.StrictMode>
+        );
+        console.log('BO6PeriodicTableSolver mounted successfully');
+    },
+
+    mountLetterboardSolver(elementId: string) {
+        console.log('Mounting BO6LetterboardSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <BO6LetterboardSolver />
+            </React.StrictMode>
+        );
+        console.log('BO6LetterboardSolver mounted successfully');
+    },
+
+    mountMahjongSolver(elementId: string) {
+        console.log('Mounting IWMahjongSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWMahjongSolver />
+            </React.StrictMode>
+        );
+        console.log('IWMahjongSolver mounted successfully');
+    },
+
+    mountShaolinWordFilter(elementId: string) {
+        console.log('Mounting IWMainQuestWordFilter to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWMainQuestWordFilter />
+            </React.StrictMode>
+        );
+        console.log('IWMainQuestWordFilter mounted successfully');
+    },
+
+    mountChemicalStepSolver(elementId: string) {
+        console.log('Mounting IWChemicalStepSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWChemicalStepSolver />
+            </React.StrictMode>
+        );
+        console.log('IWChemicalStepSolver mounted successfully');
+    },
+
+    mountGnSSkull4Solver(elementId: string) {
+        console.log('Mounting IWGnSSkull4Solver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWGnSSkull4Solver />
+            </React.StrictMode>
+        );
+        console.log('IWGnSSkull4Solver mounted successfully');
+    },
 };
 
 // For test page: auto-mount all solvers
@@ -139,6 +248,18 @@ if (devRoot) {
     root.render(
         <React.StrictMode>
             <div>
+                <h2>Attack GnS Skull 4 Solver</h2>
+                <IWGnSSkull4Solver />
+
+                <h2>Attack Chemical Step Solver</h2>
+                <IWChemicalStepSolver />
+
+                <h2>Shaolin Main Quest Word Filter</h2>
+                <IWMainQuestWordFilter />
+
+                <h2>Mahjong Solver</h2>
+                <IWMahjongSolver />
+
                 <h2>Hangman Solver</h2>
                 <WW2HangmanSolver />
 
@@ -156,6 +277,12 @@ if (devRoot) {
 
                 <h2>Maxis Items Solver</h2>
                 <BO6MaxisItemsSolver />
+
+                <h2>Periodic Table Solver</h2>
+                <BO6PeriodicTableSolver />
+
+                <h2>Letterboard Solver</h2>
+                <BO6LetterboardSolver />
             </div>
         </React.StrictMode>
     );

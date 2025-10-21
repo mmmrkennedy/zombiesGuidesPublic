@@ -1,57 +1,64 @@
 {
-    "name": "zombies-guides",
-    "version": "1.0.0",
-    "description": "Zombies Guides website with automated build system",
-    "scripts": {
-        "build": "npm run build:react && npm run build:html",
-        "build:html": "npm run build:titles && npm run build:links && npm run build:nav && npm run version:setup && npm run version:update && npm run generate:sitemap",
-        "build:verbose": "npm run build:titles -- --verbose && npm run build:links -- --verbose && npm run build:nav -- --verbose && npm run version:update",
-        "build:dry-run": "npm run build:titles -- --dry-run && npm run build:links -- --dry-run && npm run build:nav -- --dry-run",
-        "build:titles": "node build_scripts/generate-titles.js",
-        "build:links": "node build_scripts/classify-links.js",
-        "build:nav": "node build_scripts/nav-builder.js --index ./index.html",
-        "version:setup": "node build_scripts/add-version-placeholders.js",
-        "version:update": "node build_scripts/update-version.js",
-        "generate:sitemap": "node build_scripts/sitemap-generator.js",
-        "dev": "python -m http.server 8000",
-        "dev:react": "vite",
-        "build:react": "vite build && node build_scripts/update-react-bundle-refs.js",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
-        "format": "prettier --write .",
-        "format:check": "prettier --check ."
-    },
-    "keywords": [
-        "zombies",
-        "guides",
-        "gaming",
-        "static-site",
-        "build-tools"
-    ],
-    "author": "mmmrkennedy",
-    "license": "MIT",
-    "dependencies": {
-        "generate-robotstxt": "^8.0.3",
-        "jsdom": "^22.1.0",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0",
-        "sitemap": "^8.0.0"
-    },
-    "engines": {
-        "node": ">=14.0.0"
-    },
-    "homepage": "https://mmmrkennedy.com",
-    "devDependencies": {
-        "@eslint/js": "^9.38.0",
-        "@types/react": "^19.2.2",
-        "@types/react-dom": "^19.2.2",
-        "@vitejs/plugin-react": "^5.0.4",
-        "eslint": "^9.38.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-react-hooks": "^7.0.0",
-        "prettier": "^3.6.2",
-        "typescript": "^5.9.3",
-        "vite": "^7.1.10"
-    }
+  "name": "zombies-guides",
+  "version": "1.0.0",
+  "description": "Zombies Guides website with automated build system",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:react && npm run build:html",
+    "build:html": "npm run build:titles && npm run build:links && npm run build:nav && npm run version:setup && npm run version:update && npm run generate:sitemap",
+    "build:verbose": "npm run build:titles -- --verbose && npm run build:links -- --verbose && npm run build:nav -- --verbose && npm run version:update",
+    "build:dry-run": "npm run build:titles -- --dry-run && npm run build:links -- --dry-run && npm run build:nav -- --dry-run",
+    "build:titles": "node build_scripts/generate-titles.cjs",
+    "build:links": "node build_scripts/classify-links.cjs",
+    "build:nav": "node build_scripts/nav-builder.cjs --index ./index.html",
+    "version:setup": "node build_scripts/add-version-placeholders.cjs",
+    "version:update": "node build_scripts/update-version.cjs",
+    "generate:sitemap": "node build_scripts/sitemap-generator.cjs",
+    "dev": "python -m http.server 8000",
+    "dev:react": "vite",
+    "build:react": "vite build && node build_scripts/update-react-bundle-refs.cjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "css:check": "node build_scripts/css-usage-analyzer.js"
+  },
+  "keywords": [
+    "zombies",
+    "guides",
+    "gaming",
+    "static-site",
+    "build-tools"
+  ],
+  "author": "mmmrkennedy",
+  "license": "MIT",
+  "dependencies": {
+    "generate-robotstxt": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sitemap": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "homepage": "https://mmmrkennedy.com",
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.10"
+  }
 }
