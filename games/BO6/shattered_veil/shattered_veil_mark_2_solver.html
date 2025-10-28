@@ -4,34 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Browser Tab Title (don't include "guide", just map name) -->
-        <title>Gorod Krovi Easter Egg Valve Solver</title>
+        <title>Shattered Veil Mark 2 Word-Num Solver</title>
         <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776" />
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <base target="_blank" />
+
+
     </head>
-
-    <!-- Google Analytics -->
-    <script>
-        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
-
-        if (!isLocalEnvironment) {
-            // Load gtag script dynamically
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-            document.head.appendChild(script);
-
-            // Initialize Google Analytics
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
-        }
-    </script>
 
     <body>
         <!-- Version display component -->
@@ -42,7 +21,7 @@
 
         <div class="top-buttons-background-box">
             <!-- Title at the top of the page, INCLUDE "guide"-->
-            <h2 class="title-text">Gorod Krovi Easter Egg Valve Solver</h2>
+            <h2 class="title-text">Shattered Veil Mark 2 Word-Num Solver</h2>
 
             <!-- Mobile devices content -->
             <div id="mobileContent" style="display: none">
@@ -60,7 +39,7 @@
         <div class="smooth-scroll content-window">
             <!-- Legend to other parts -->
             <div class="content-container-top">
-                <div id="valve-solver-react"></div>
+                <div id="letterboard-solver-react"></div>
             </div>
         </div>
 
@@ -70,12 +49,13 @@
         <script>
             window.addEventListener('load', () => {
                 if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountValveSolver('valve-solver-react');
+                    window.ZombiesSolvers.mountLetterboardSolver('letterboard-solver-react');
                 } else {
                     console.error('ZombiesSolvers not loaded!');
                 }
             });
         </script>
+
         <!-- Core utilities -->
         <script src="/js/core/page-utils.js?v=1761587002776"></script>
 

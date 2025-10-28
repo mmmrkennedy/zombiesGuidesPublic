@@ -4,14 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Browser Tab Title (don't include "guide", just map name) -->
-        <title>Shattered Veil Mark 2 Word-Num Solver</title>
+        <title>Gorod Krovi Easter Egg Valve Solver</title>
         <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776" />
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <base target="_blank" />
-
-        <!-- Google Analytics -->
-
     </head>
+
 
     <body>
         <!-- Version display component -->
@@ -22,7 +20,7 @@
 
         <div class="top-buttons-background-box">
             <!-- Title at the top of the page, INCLUDE "guide"-->
-            <h2 class="title-text">Shattered Veil Mark 2 Word-Num Solver</h2>
+            <h2 class="title-text">Gorod Krovi Easter Egg Valve Solver</h2>
 
             <!-- Mobile devices content -->
             <div id="mobileContent" style="display: none">
@@ -40,7 +38,7 @@
         <div class="smooth-scroll content-window">
             <!-- Legend to other parts -->
             <div class="content-container-top">
-                <div id="letterboard-solver-react"></div>
+                <div id="valve-solver-react"></div>
             </div>
         </div>
 
@@ -50,13 +48,12 @@
         <script>
             window.addEventListener('load', () => {
                 if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountLetterboardSolver('letterboard-solver-react');
+                    window.ZombiesSolvers.mountValveSolver('valve-solver-react');
                 } else {
                     console.error('ZombiesSolvers not loaded!');
                 }
             });
         </script>
-
         <!-- Core utilities -->
         <script src="/js/core/page-utils.js?v=1761587002776"></script>
 

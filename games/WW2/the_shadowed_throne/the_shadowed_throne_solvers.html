@@ -11,28 +11,6 @@
         <base target="_blank" />
     </head>
 
-    <!-- Google Analytics -->
-    <script>
-        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
-
-        if (!isLocalEnvironment) {
-            // Load gtag script dynamically
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-            document.head.appendChild(script);
-
-            // Initialize Google Analytics
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
-        }
-    </script>
 
     <body>
         <!-- Version display component -->
