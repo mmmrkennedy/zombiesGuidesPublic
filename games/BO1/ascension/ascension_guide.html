@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>Ascension Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761059662980" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776" />
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <base target="_blank" />
         <script>
@@ -20,34 +20,14 @@
                 }, 1000); // Redirect every second
             }
         </script>
-        <script>
-            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-            if (!isLocalEnvironment) {
-                // Load gtag script dynamically
-                const script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-                document.head.appendChild(script);
-
-                // Initialize Google Analytics
-                window.dataLayer = window.dataLayer || [];
-
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-
-                gtag('js', new Date());
-                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
-            }
-        </script>
     </head>
 
     <!-- Google Analytics -->
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761059662980">
+        <div class="version-display" data-version="1761587002776">
             v.
             <span id="version-number">0</span>
         </div>
@@ -113,6 +93,6 @@
             </div>
         </div>
 
-        <script src="/js/scripts.js?v=1761059662980"></script>
+        <script src="/js/scripts.js?v=1761587002776"></script>
     </body>
 </html>

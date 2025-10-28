@@ -13,6 +13,10 @@ import IWMahjongSolver from './components/IWMahjongSolver';
 import IWMainQuestWordFilter from './components/IWMainQuestWordFilter';
 import IWChemicalStepSolver from './components/IWChemicalStepSolver';
 import IWGnSSkull4Solver from './components/IWGnSSkull4Solver';
+import IWBeastEightQueensSolver from './components/IWBeastEightQueensSolver';
+import IWBeastFloppySolver from './components/IWBeastFloppySolver';
+import IWBeastVenomXMazeSolver from './components/IWBeastVenomXMazeSolver';
+import IWBeastVenomXBoxSolver from './components/IWBeastVenomXBoxSolver';
 
 /**
  * Mount functions - These allow you to embed React components anywhere in your HTML
@@ -37,7 +41,11 @@ interface ZombiesSolvers {
     mountMahjongSolver: MountFunction;
     mountShaolinWordFilter: MountFunction;
     mountChemicalStepSolver: MountFunction;
-    mountGnSSkull4Solver: MountFunction;
+    mountAttackGnSSkull4Solver: MountFunction;
+    mountBeastGnSEightQueensSolver: MountFunction;
+    mountBeastFloppyDiskSolver: MountFunction;
+    mountBeastVenomXMazeSolver: MountFunction;
+    mountBeastVenomXBoxSolver: MountFunction;
 }
 
 declare global {
@@ -224,7 +232,7 @@ window.ZombiesSolvers = {
         console.log('IWChemicalStepSolver mounted successfully');
     },
 
-    mountGnSSkull4Solver(elementId: string) {
+    mountAttackGnSSkull4Solver(elementId: string) {
         console.log('Mounting IWGnSSkull4Solver to:', elementId);
         const element = document.getElementById(elementId);
         if (!element) {
@@ -239,6 +247,70 @@ window.ZombiesSolvers = {
         );
         console.log('IWGnSSkull4Solver mounted successfully');
     },
+
+    mountBeastGnSEightQueensSolver(elementId: string) {
+        console.log('Mounting IWBeastEightQueensSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWBeastEightQueensSolver />
+            </React.StrictMode>
+        );
+        console.log('IWBeastEightQueensSolver mounted successfully');
+    },
+
+    mountBeastFloppyDiskSolver(elementId: string) {
+        console.log('Mounting IWBeastFloppySolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWBeastFloppySolver />
+            </React.StrictMode>
+        );
+        console.log('IWBeastFloppySolver mounted successfully');
+    },
+
+    mountBeastVenomXMazeSolver(elementId: string) {
+        console.log('Mounting IWBeastVenomXBoxSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWBeastVenomXMazeSolver />
+            </React.StrictMode>
+        );
+        console.log('IWBeastVenomXBoxSolver mounted successfully');
+    },
+
+    mountBeastVenomXBoxSolver(elementId: string) {
+        console.log('Mounting IWBeastVenomXBoxSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWBeastVenomXBoxSolver />
+            </React.StrictMode>
+        );
+        console.log('IWBeastVenomXBoxSolver mounted successfully');
+    },
 };
 
 // For test page: auto-mount all solvers
@@ -248,6 +320,18 @@ if (devRoot) {
     root.render(
         <React.StrictMode>
             <div>
+                <h2>Beast Venom X Maze Solver</h2>
+                <IWBeastVenomXMazeSolver />
+
+                <h2>Beast Venom X Box Solver</h2>
+                <IWBeastVenomXBoxSolver />
+
+                <h2>Beast Floppy Disk Solver</h2>
+                <IWBeastFloppySolver />
+
+                <h2>Beast Eight Queens Solver</h2>
+                <IWBeastEightQueensSolver />
+
                 <h2>Attack GnS Skull 4 Solver</h2>
                 <IWGnSSkull4Solver />
 

@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The Beast From Beyond</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761059662980" />
-        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761059662980" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776" />
+        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761587002776" />
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <base target="_blank" />
 
@@ -30,7 +30,7 @@
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761059662980">
+        <div class="version-display" data-version="1761587002776">
             v.
             <span id="version-number">0</span>
         </div>
@@ -56,42 +56,11 @@
             <!-- Legend to other parts -->
             <div class="content-container-top">
                 <div class="content-container">
-                    <div class="solver-container">
-                        <h2>Venom-X Box Solver</h2>
-
-                        <label for="venom-x-box-button-selector">Select the number of buttons:</label>
-                        <select style="margin-bottom: 10px" id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
-                            <option value="3">3 Buttons</option>
-                            <option value="4">4 Buttons</option>
-                            <option value="5">5 Buttons</option>
-                            <option value="6">6 Buttons</option>
-                        </select>
-
-                        <div id="venom-x-box-buttons"></div>
-
-                        <p id="venom-x-box-result"></p>
-                    </div>
+                    <div id="beast-venomx-box-solver-react"></div>
                 </div>
 
                 <div class="content-container">
-                    <div class="solver-container">
-                        <h2>Venom-X Maze Solver</h2>
-
-                        <div id="maze-container">
-                            <div class="venom-board" id="board"></div>
-                            <p id="venom-maze-error"></p>
-
-                            <div class="draggable-container">
-                                <img src="/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start" />
-                                <img src="/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end" />
-                            </div>
-                        </div>
-
-                        <div id="maze_img_container" style="display: none"></div>
-
-                        <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
-                        <button class="solver-button" onclick="resetMaze()">Reset All</button>
-                    </div>
+                    <div id="beast-venomx-maze-solver-react"></div>
                 </div>
 
                 <div class="content-container">
@@ -143,67 +112,59 @@
                 </div>
 
                 <div class="content-container">
-                    <div class="solver-container">
-                        <h2>Beast Main Quest Floppy Disk Puzzle</h2>
-
-                        <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
-
-                        <div class="solver-output">
-                            <p><span id="floppy_solver_code"></span></p>
-                            <div id="floppy_result"></div>
-                        </div>
-
-                        <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
-                    </div>
+                    <div id="beast-floppy-solver-react"></div>
                 </div>
 
                 <div class="content-container">
-                    <div class="solver-container">
-                        <h2>GnS Skull 5 Solver</h2>
-                        <p id="queens-explain">Click a square to move the Queen.</p>
-
-                        <div class="chessboard" id="chessboard"></div>
-
-                        <button id="solve-button-queens" class="solver-button" onclick="solve_eight_queens()">Solve</button>
-                        <button class="solver-button" onclick="reset_eight_queens()">Reset All</button>
-                    </div>
+                    <div id="beast-eight-queens-react"></div>
                 </div>
             </div>
         </div>
 
-        <script src="venom/box/venom_x_box_html_helper.js?v=1761059662980"></script>
-        <script src="venom/box/venom_x_box.js?v=1761059662980"></script>
-        <script src="skull_5/eight_queens_html_helper.js?v=1761059662980"></script>
-        <script src="skull_5/eight_queens.js?v=1761059662980"></script>
-        <script src="venom/venom_maze/maze_board_html_helper.js?v=1761059662980"></script>
-        <script src="venom/venom_maze/maze.js?v=1761059662980"></script>
-        <script src="venom/venom_y/venom_y_morse_code.js?v=1761059662980"></script>
-        <script src="floppy_disk_puzzle/floppy_disk_solver.js?v=1761059662980"></script>
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/dist/assets/index-B-jPe1IT.js?v=1761587002776"></script>
+
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountBeastGnSEightQueensSolver('beast-eight-queens-react');
+                    window.ZombiesSolvers.mountBeastFloppyDiskSolver('beast-floppy-solver-react');
+                    window.ZombiesSolvers.mountBeastVenomXMazeSolver('beast-venomx-maze-solver-react');
+                    window.ZombiesSolvers.mountBeastVenomXBoxSolver('beast-venomx-box-solver-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
+
+        <script src="venom/box/venom_x_box_html_helper.js?v=1761587002776"></script>
+        <script src="venom/box/venom_x_box.js?v=1761587002776"></script>
+        <script src="venom/venom_y/venom_y_morse_code.js?v=1761587002776"></script>
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1761059662980"></script>
+        <script src="/js/core/page-utils.js?v=1761587002776"></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1761059662980"></script>
-        <script src="/js/navigation/nav-utils.js?v=1761059662980"></script>
+        <script src="/js/navigation/scroll-manager.js?v=1761587002776"></script>
+        <script src="/js/navigation/nav-utils.js?v=1761587002776"></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1761059662980"></script>
-        <script src="/js/ui/lightbox.js?v=1761059662980"></script>
+        <script src="/js/ui/tutorial-system.js?v=1761587002776"></script>
+        <script src="/js/ui/lightbox.js?v=1761587002776"></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1761059662980"></script>
-        <script src="/js/content/quick-links.js?v=1761059662980"></script>
+        <script src="/js/content/link-processor.js?v=1761587002776"></script>
+        <script src="/js/content/quick-links.js?v=1761587002776"></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1761059662980"></script>
+        <script src="/js/device/mobile-detection.js?v=1761587002776"></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1761059662980"></script>
+        <script src="/js/features/substeps.js?v=1761587002776"></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1761059662980"></script>
+        <script src="/js/quick-links-utils.js?v=1761587002776"></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1761059662980"></script>
+        <script src="/js/scripts.js?v=1761587002776"></script>
     </body>
 </html>

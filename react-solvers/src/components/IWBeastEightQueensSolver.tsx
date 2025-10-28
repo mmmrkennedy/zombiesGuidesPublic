@@ -1,5 +1,6 @@
-// Input coordinates
-const solution_cords_queens = [
+import React from 'react';
+
+const solution_cords_queens: number[][][] = [
     [
         [0, 0],
         [1, 4],
@@ -121,10 +122,9 @@ const solution_cords_queens = [
         [7, 5],
     ], // 12
 ];
+const solutions_queens: boolean[][][] = solution_cords_queens.map(coords => create2DArray(coords));
 
-const solutions_queens = [];
-
-function create2DArray(coords, size = 8) {
+function create2DArray(coords: number[][], size = 8): boolean[][] {
     // Initialize an 8x8 2D array with false values
     const array = Array.from({ length: size }, () => Array(size).fill(false));
 
@@ -136,13 +136,7 @@ function create2DArray(coords, size = 8) {
     return array;
 }
 
-function create_all_solution_arrays() {
-    solution_cords_queens.forEach(coords => {
-        solutions_queens.push(create2DArray(coords));
-    });
-}
-
-function rotate2DArrayToRight(array) {
+function rotate2DArrayToRight(array: boolean[][]): boolean[][] {
     const size = array.length;
     const rotated = Array.from({ length: size }, () => Array(size).fill(false));
 
@@ -155,7 +149,7 @@ function rotate2DArrayToRight(array) {
     return rotated;
 }
 
-function flip2DArray(array, direction) {
+function flip2DArray(array: boolean[][], direction: string): boolean[][] {
     const size = array.length;
     const flipped = Array.from({ length: size }, () => Array(size).fill(false));
 
@@ -176,14 +170,14 @@ function flip2DArray(array, direction) {
     return flipped;
 }
 
-function find_valid_sol(starting_queen_cords) {
+function find_valid_sol(starting_queen_cords: number[]) {
     const starting_x = starting_queen_cords[0];
     const starting_y = starting_queen_cords[1];
 
     const flipped_options = ['vertical', 'horizontal'];
 
     for (let i = 0; i < solutions_queens.length; i++) {
-        let solution = solutions_queens[i];
+        let solution: boolean[][] = solutions_queens[i];
 
         for (let j = 0; j < 4; j++) {
             if (solution[starting_y][starting_x] === true) {
@@ -207,115 +201,67 @@ function find_valid_sol(starting_queen_cords) {
     return null;
 }
 
-/*
-+++++++++++++++++++++++++++++
-HTML CODE
-+++++++++++++++++++++++++++++
- */
+export default function IWBeastEightQueensSolver() {
+    const [queenLocation, setQueenLocation] = React.useState<number[]>([0, 0]);
+    const [solution, setSolution] = React.useState<boolean[][] | null>(null);
+    const [message, setMessage] = React.useState<string>('Click a square to move the Queen.');
+    const [isMovementEnabled, setIsMovementEnabled] = React.useState<boolean>(true);
 
-const explain_p = document.getElementById('queens-explain');
+    const generateChessboard = () => {
+        const squares = [];
 
-// Function to place the queen at (0, 0) initially
-function initializeQueen() {
-    const square = document.getElementById('queen-square-0-0');
-    if (square) {
-        square.classList.add('queen');
-    }
-}
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                const isWhite = (row + col) % 2 === 0;
+                const hasQueen = solution ? solution[row][col] : row === queenLocation[0] && col === queenLocation[1];
 
-// Function to get the queen's current coordinates
-function get_queen_coordinates() {
-    const queen = document.querySelector('.queen');
-    if (queen) {
-        const id = queen.id; // e.g., "queen-square-0-0"
-        const coords = id.split('-').slice(2).map(Number); // Extract row and column
-        return [coords[0], coords[1]];
-    }
-    return null;
-}
-
-// Function to place queens on the chessboard
-function placeQueens(chessboardArray) {
-    // Clear any existing queens
-    document.querySelectorAll('.queen').forEach(el => el.classList.remove('queen'));
-
-    // Iterate through the 2D array
-    for (let row = 0; row < chessboardArray.length; row++) {
-        for (let col = 0; col < chessboardArray[row].length; col++) {
-            if (chessboardArray[row][col]) {
-                const square = document.getElementById(`queen-square-${row}-${col}`);
-                if (square) {
-                    square.classList.add('queen');
-                }
+                squares.push(<div key={`queen-square-${row}-${col}`} id={`queen-square-${row}-${col}`} className={`${isWhite ? 'white-board' : 'black-board'}${hasQueen ? ' queen' : ''}`} onClick={() => handleSquareClick(row, col)} />);
             }
         }
-    }
-}
 
-// Flag to track if movement is enabled
-let isMovementEnabled = true;
+        return squares;
+    };
 
-// Function to disable queen movement
-function disableQueenMovement() {
-    isMovementEnabled = false;
-    document.querySelectorAll('.chessboard div').forEach(square => {
-        square.onclick = null; // Remove click handler
-    });
-}
+    const handleSquareClick = (row: number, col: number) => {
+        if (isMovementEnabled) {
+            setQueenLocation([row, col]);
+        }
+    };
 
-// Function to enable queen movement
-function enableQueenMovement() {
-    isMovementEnabled = true;
-    document.querySelectorAll('.chessboard div').forEach(square => {
-        square.onclick = function () {
-            if (isMovementEnabled) {
-                document.querySelectorAll('.queen').forEach(el => el.classList.remove('queen'));
-                this.classList.add('queen');
-            }
-        };
-    });
-}
-
-function solve_eight_queens() {
-    const coords = get_queen_coordinates();
-    if (coords) {
-        const [y, x] = coords;
-
+    const handleSolve = () => {
+        const [y, x] = queenLocation;
         const sol = find_valid_sol([x, y]);
 
         if (sol === null) {
-            explain_p.innerText = 'No solution found.';
+            setMessage('No solution found.');
             return;
         }
 
-        placeQueens(sol);
-        disableQueenMovement();
+        setSolution(sol);
+        setIsMovementEnabled(false);
+        setMessage('Solution found!');
+    };
 
-        // Disable the solve button
-        document.getElementById('solve-button-queens').classList.add('disabled');
-    }
+    const handleReset = () => {
+        setSolution(null);
+        setQueenLocation([0, 0]);
+        setIsMovementEnabled(true);
+        setMessage('Click a square to move the Queen.');
+    };
+
+    return (
+        <div className="solver-container">
+            <h2>Eight Queens Puzzle</h2>
+            <p id="queens-explain">{message}</p>
+            <div className="chessboard">{generateChessboard()}</div>
+            <div>
+                <button className="btn-base solver-button" onClick={handleSolve} disabled={!isMovementEnabled}>
+                    Solve
+                </button>
+                <button className="btn-base solver-button" onClick={handleReset}>
+                    Reset
+                </button>
+            </div>
+        </div>
+    );
 }
-
-// Function to reset the chessboard
-function reset_eight_queens() {
-    // Remove all queens
-    document.querySelectorAll('.queen').forEach(el => el.classList.remove('queen'));
-
-    // Enable movement
-    enableQueenMovement();
-
-    // Place queen at (0, 0)
-    initializeQueen();
-
-    explain_p.innerText = 'Click a square to move the Queen.';
-
-    // Enable the solve button
-    document.getElementById('solve-button-queens').classList.remove('disabled');
-}
-
-// Initialize the queen and enable movement when the DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    initializeQueen(); // Place queen at (0, 0)
-    enableQueenMovement(); // Allow movement
-    create_all_solution_arrays(); // Replace with your implementation
-});

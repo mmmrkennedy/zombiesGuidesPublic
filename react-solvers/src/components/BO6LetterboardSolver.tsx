@@ -79,16 +79,16 @@ export default function BO6LetterboardSolver() {
             <br />
 
             <label htmlFor="board">
-                <span>Select the letter(s) on the bottom right of the Board: </span>
+                <span>Select the letter(s) on the bottom left of the Board: </span>
             </label>
             <select id="board" className="spacing" value={boardID} onChange={handleBoardChange}>
                 <option value="default" disabled>
                     Select your letter(s)
                 </option>
-                <option value="board_1">M</option>
-                <option value="board_2">AI</option>
-                <option value="board_3">JKZ</option>
-                <option value="board_4">APRSTVW</option>
+                <option value="board_1">NI</option>
+                <option value="board_2">OUY</option>
+                <option value="board_3">S</option>
+                <option value="board_4">M</option>
             </select>
 
             <div className="solver-output" id="codeOutput">

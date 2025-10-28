@@ -3,32 +3,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>The Beast From Beyond Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761059662980">
-        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761059662980">
-        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761059662980">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776">
+        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761587002776">
+        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761587002776">
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
         <base target="_blank">
-        <script>
-            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
 
-            if (!isLocalEnvironment) {
-                // Load gtag script dynamically
-                const script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-EVBLWE1MJL';
-                document.head.appendChild(script);
-
-                // Initialize Google Analytics
-                window.dataLayer = window.dataLayer || [];
-
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-
-                gtag('js', new Date());
-                gtag('config', 'G-EVBLWE1MJL', { anonymize_ip: true });
-            }
-        </script>
 
         <style>
             .venom-row {
@@ -53,7 +33,7 @@
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761059662980">
+        <div class="version-display" data-version="1761587002776">
             v.
             <span id="version-number">0</span>
         </div>
@@ -328,21 +308,7 @@
 
                     <div class="solver-with-button" data-bool-quick-link="false">
                         <button class="square-button">Click to show the button solver</button>
-                        <div class="solver-container" style="text-align: left; display: none; width: fit-content">
-                            <h2>Venom-X Box Solver</h2>
-
-                            <label for="venom-x-box-button-selector">Select the number of buttons:</label>
-                            <select style="margin-bottom: 10px" id="venom-x-box-button-selector" name="venom-x-box" onchange="add_colour_selectors()">
-                                <option value="3">3 Buttons</option>
-                                <option value="4">4 Buttons</option>
-                                <option value="5">5 Buttons</option>
-                                <option value="6">6 Buttons</option>
-                            </select>
-
-                            <div id="venom-x-box-buttons"></div>
-
-                            <p id="venom-x-box-result"></p>
-                        </div>
+                        <div id="beast-venomx-solver-react"></div>
                     </div>
 
                     <li>If you press the right button, you will hear a success sound, and the box will close.</li>
@@ -798,18 +764,7 @@
 
                     <div class="solver-with-button" data-bool-quick-link="false">
                         <button class="square-button">Click to show the Floppy Disk Solver</button>
-                        <div class="solver-container" style="max-width: 500px; display: none">
-                            <h2>Beast Main Quest Floppy Disk Puzzle</h2>
-
-                            <div class="solver-symbol-select" id="floppy_solver_symbol_select"></div>
-
-                            <div class="solver-output">
-                                <p><span id="floppy_solver_code"></span></p>
-                                <div id="floppy_result"></div>
-                            </div>
-
-                            <button class="solver-button" onclick="floppyResetAll()">Reset All</button>
-                        </div>
+                        <div id="beast-floppy-solver-react"></div>
                     </div>
 
                     <li>If done correctly, your scoreboard HUD will flash yellow, then red, and N31L will turn "evil." While evil, N31L will randomly close doors (this can kill you but will most of the time just close in front of you), which you can open for free by interacting with them, and he will randomly activate traps around the map.</li>
@@ -1220,15 +1175,7 @@
                         </li>
                     </ul>
 
-                    <div class="solver-container">
-                        <h2>GnS Skull 5 Solver</h2>
-                        <p id="queens-explain">Click a square to move the Queen.</p>
-
-                        <div class="chessboard" id="chessboard" data-bool-quick-link="false"></div>
-
-                        <button id="solve-button-queens" class="solver-button" onclick="solve_eight_queens()">Solve</button>
-                        <button class="solver-button" onclick="reset_eight_queens()">Reset All</button>
-                    </div>
+                    <div id="beast-eight-queens-react"></div>
 
                     <li>Once all Queens are placed correctly, confetti will fly from the board and the completion sound will play.</li>
 
@@ -1391,41 +1338,51 @@
             </div>
         </div>
 
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/dist/assets/index-B-jPe1IT.js?v=1761587002776"></script>
+
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountBeastGnSEightQueensSolver('beast-eight-queens-react');
+                    window.ZombiesSolvers.mountBeastFloppyDiskSolver('beast-floppy-solver-react');
+                    window.ZombiesSolvers.mountBeastVenomXMazeSolver('beast-venomx-solver-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
+
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1761059662980"></script>
+        <script src="/js/core/page-utils.js?v=1761587002776"></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1761059662980"></script>
-        <script src="/js/navigation/nav-utils.js?v=1761059662980"></script>
+        <script src="/js/navigation/scroll-manager.js?v=1761587002776"></script>
+        <script src="/js/navigation/nav-utils.js?v=1761587002776"></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1761059662980"></script>
-        <script src="/js/ui/lightbox.js?v=1761059662980"></script>
+        <script src="/js/ui/tutorial-system.js?v=1761587002776"></script>
+        <script src="/js/ui/lightbox.js?v=1761587002776"></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1761059662980"></script>
-        <script src="/js/content/quick-links.js?v=1761059662980"></script>
+        <script src="/js/content/link-processor.js?v=1761587002776"></script>
+        <script src="/js/content/quick-links.js?v=1761587002776"></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1761059662980"></script>
+        <script src="/js/device/mobile-detection.js?v=1761587002776"></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1761059662980"></script>
+        <script src="/js/features/substeps.js?v=1761587002776"></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1761059662980"></script>
+        <script src="/js/quick-links-utils.js?v=1761587002776"></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1761059662980"></script>
-        <script src="venom/venom_main_cont_html.js?v=1761059662980"></script>
-        <script src="venom/box/venom_x_box_html_helper.js?v=1761059662980"></script>
-        <script src="venom/box/venom_x_box.js?v=1761059662980"></script>
-        <script src="skull_5/eight_queens_html_helper.js?v=1761059662980"></script>
-        <script src="skull_5/eight_queens.js?v=1761059662980"></script>
-        <script src="venom/venom_maze/maze_board_html_helper.js?v=1761059662980"></script>
-        <script src="venom/venom_maze/maze.js?v=1761059662980"></script>
-        <script src="venom/venom_y/venom_y_morse_code.js?v=1761059662980"></script>
-        <script src="floppy_disk_puzzle/floppy_disk_solver.js?v=1761059662980"></script>
+        <script src="/js/scripts.js?v=1761587002776"></script>
+        <script src="venom/venom_main_cont_html.js?v=1761587002776"></script>
+        <script src="venom/box/venom_x_box_html_helper.js?v=1761587002776"></script>
+        <script src="venom/box/venom_x_box.js?v=1761587002776"></script>
+        <script src="venom/venom_y/venom_y_morse_code.js?v=1761587002776"></script>
     
 
 </body></html>
