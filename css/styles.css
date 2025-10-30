@@ -4,6 +4,12 @@ BASE STYLES
 =======================================
 */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* Root variables for consistent theming */
 :root {
     --primary-bg: #151515;
@@ -163,43 +169,11 @@ UI COMPONENTS
     --btn-right: 20px;
 }
 
-/* Square Buttons */
-.square-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--lighter-bg);
-    color: white;
-    font-size: 12px;
-    cursor: pointer;
-    border-radius: 0;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.square-button.active {
-    background-color: white;
-    color: black;
-}
-
-.square-button:hover {
-    opacity: 0.8;
-}
-
 /* Button-activated containers */
-.button-activated-div {
-    max-width: 850px;
-    margin: 10px;
-    padding: 10px;
-}
-
-.button-activated-div.border {
-    border: 5px dashed red;
-}
-
 .solver-with-button {
     min-width: 850px;
     width: fit-content;
-    margin: 20px;
+    margin: 10px;
 }
 
 /* 
@@ -415,10 +389,9 @@ table caption {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .top-buttons-background-box > .title-text {
@@ -714,7 +687,8 @@ MOBILE SPECIFIC STYLES
     }
 
     .title-text {
-        font-size: 18px;
+        margin: 0 !important; /* Force margin to 0 */
+        font-size: clamp(12px, 4vw, 18px);
     }
 
     .title-sub-text {

@@ -64,12 +64,27 @@ function addVersionPlaceholders(htmlContent, filePath) {
 
     // Find and update JS script tags
     newContent = newContent.replace(jsPattern, (match, src) => {
+        let updatedMatch = match;
+        let wasModified = false;
+
+        // Add version parameter if not present
         if (!src.includes('?v=')) {
             changes.push(`JS: ${src} → ${src}?v=0`);
             modified = true;
-            return match.replace(`"${src}"`, `"${src}?v=0"`);
+            wasModified = true;
+            updatedMatch = updatedMatch.replace(`"${src}"`, `"${src}?v=0"`);
         }
-        return match;
+
+        // Add defer attribute if not present and not a module script
+        if (!match.includes('defer') && !match.includes('type="module"')) {
+            changes.push(`JS: Adding defer to ${src}`);
+            modified = true;
+            wasModified = true;
+            // Insert defer before the closing >
+            updatedMatch = updatedMatch.replace('>', ' defer>');
+        }
+
+        return wasModified ? updatedMatch : match;
     });
 
     // Add version display component to index.html if not present
@@ -152,7 +167,7 @@ function main() {
     }
 
     if (totalModified > 0 && !DRY_RUN) {
-        console.log('\n🎉 Version placeholders added successfully!');
+        console.log('\nVersion placeholders added successfully!');
         console.log('   You can now run: npm run version');
     }
 }

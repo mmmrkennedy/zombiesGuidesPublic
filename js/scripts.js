@@ -13,6 +13,11 @@ function navigateToIndex() {
     window.NavUtils.navigateToIndex();
 }
 
+function isCSSLoaded(href) {
+    const links = document.querySelectorAll('link[rel="stylesheet"]');
+    return Array.from(links).some(link => link.href.includes(href));
+}
+
 function toggleHamburgerMenu() {
     const overlay = document.getElementById('hamburgerMenuOverlay');
     if (overlay.classList.contains('active')) {
@@ -31,6 +36,11 @@ function closeHamburgerMenu() {
 }
 
 function setupHamburgerMenuLinks() {
+    if (!isCSSLoaded('/css/hamburger_menu.css')) {
+        console.error('Hamburger CSS is not loaded in head tag.');
+        return;
+    }
+
     // This function will be called after quick links are generated
     // Add click handlers to all links to close the menu
     const hamburgerMenuLinks = document.getElementById('hamburgerMenuLinks');

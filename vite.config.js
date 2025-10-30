@@ -14,6 +14,13 @@ export default defineConfig({
         open: '/react-solvers/index.html',
     },
 
+    // Exclude styles.css from being processed/bundled
+    css: {
+        preprocessorOptions: {
+            // This won't work for plain CSS, see build.rollupOptions instead
+        },
+    },
+
     // Build configuration
     build: {
         // Output directory for built files
@@ -33,6 +40,8 @@ export default defineConfig({
                 format: 'iife',
                 name: 'ZombiesSolvers',
             },
+            // Exclude styles.css from being bundled
+            external: ['/css/styles.css', 'css/styles.css'],
         },
     },
 });

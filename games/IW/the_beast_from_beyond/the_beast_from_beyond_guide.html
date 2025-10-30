@@ -1,14 +1,15 @@
-<!DOCTYPE html><html lang="en"><head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>The Beast From Beyond Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761587002776">
-        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761587002776">
-        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761587002776">
-        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-        <base target="_blank">
-
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761840186726" />
+        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761840186726" />
+        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761840186726" />
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <base target="_blank" />
 
         <style>
             .venom-row {
@@ -29,10 +30,9 @@
         </style>
     </head>
 
-
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761587002776">
+        <div class="version-display" data-version="1761840186726">
             v.
             <span id="version-number">0</span>
         </div>
@@ -67,7 +67,57 @@
                     <h3>Quick Navigation</h3>
                     <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
                 </div>
-                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#power">Power/Activate N31L</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#theatre">Accessing the Theatre</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#venom_x">Venom-X</a></li><ul><li><a href="#venom_y">Venom-Y</a></li><li><a href="#venom_z">Venom-Z</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'The End?' Main Quest</a></li><ul><li><a href="#main_ee_step1">Collect 4 Floppy Disks</a></li><li><a href="#main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</a></li><li><a href="#main_ee_step3">Cryptid Boss Fight</a></li></ul><li><a href="#song_ee">'Scattered Lies' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_breaker">Skull Breaker</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Skull in a Power Box</a></li><li><a href="#side_ee_step2">Skull 2/6 - Entangler Defence</a></li><li><a href="#side_ee_step3">Skull 3/6 - Odd-symbol Out</a></li><li><a href="#side_ee_step4">Skull 4/6 - Follow the Skull's Path</a></li><li><a href="#side_ee_step5">Skull 5/6 - 8-Queens Puzzle</a></li><li><a href="#side_ee_step6">Skull 6/6 - Arcade Cheat Code</a></li><li><a href="#side_ee_step7">The Skull Breaker Mini-Game</a></li></ul><li><a href="#message_sent">Message Sent (Achievement)</a></li></ul><h2>Director's Cut/Bonuses</h2><ul><li><a href="#directors_cut">Director's Cut</a></li><ul><li><a href="#what_is_dir_cut">What is Director's Cut</a></li><li><a href="#how_to_unlock_dir_cut">How to Unlock Director's Cut</a></li><li><a href="#what_you_can_do">What you can do with Director's Cut</a></li><li><a href="#meph_fight">Mephistopheles Boss Fight</a></li></ul></ul></div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+                    <h2>Map Progression</h2>
+                    <ul>
+                        <li><a href="#power">Power/Activate N31L</a></li>
+                        <li><a href="#pap">Pack-a-Punch</a></li>
+                        <ul>
+                            <li><a href="#double_pap">Double Pack-a-Punch</a></li>
+                        </ul>
+                        <li><a href="#theatre">Accessing the Theatre</a></li>
+                    </ul>
+                    <h2>Weapons and Buildables</h2>
+                    <ul>
+                        <li><a href="#venom_x">Venom-X</a></li>
+                        <ul>
+                            <li><a href="#venom_y">Venom-Y</a></li>
+                            <li><a href="#venom_z">Venom-Z</a></li>
+                        </ul>
+                    </ul>
+                    <h2>Easter Eggs</h2>
+                    <ul>
+                        <li><a href="#main_ee">'The End?' Main Quest</a></li>
+                        <ul>
+                            <li><a href="#main_ee_step1">Collect 4 Floppy Disks</a></li>
+                            <li><a href="#main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</a></li>
+                            <li><a href="#main_ee_step3">Cryptid Boss Fight</a></li>
+                        </ul>
+                        <li><a href="#song_ee">'Scattered Lies' Song</a></li>
+                        <li><a href="#lobby_music">Additional Lobby Music</a></li>
+                        <li><a href="#skull_breaker">Skull Breaker</a></li>
+                        <ul>
+                            <li><a href="#side_ee_step1">Skull 1/6 - Skull in a Power Box</a></li>
+                            <li><a href="#side_ee_step2">Skull 2/6 - Entangler Defence</a></li>
+                            <li><a href="#side_ee_step3">Skull 3/6 - Odd-symbol Out</a></li>
+                            <li><a href="#side_ee_step4">Skull 4/6 - Follow the Skull's Path</a></li>
+                            <li><a href="#side_ee_step5">Skull 5/6 - 8-Queens Puzzle</a></li>
+                            <li><a href="#side_ee_step6">Skull 6/6 - Arcade Cheat Code</a></li>
+                            <li><a href="#side_ee_step7">The Skull Breaker Mini-Game</a></li>
+                        </ul>
+                        <li><a href="#message_sent">Message Sent (Achievement)</a></li>
+                    </ul>
+                    <h2>Director's Cut/Bonuses</h2>
+                    <ul>
+                        <li><a href="#directors_cut">Director's Cut</a></li>
+                        <ul>
+                            <li><a href="#what_is_dir_cut">What is Director's Cut</a></li>
+                            <li><a href="#how_to_unlock_dir_cut">How to Unlock Director's Cut</a></li>
+                            <li><a href="#what_you_can_do">What you can do with Director's Cut</a></li>
+                            <li><a href="#meph_fight">Mephistopheles Boss Fight</a></li>
+                        </ul>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -285,7 +335,7 @@
                     </li>
 
                     <div class="solver-with-button" data-bool-quick-link="false">
-                        <button class="square-button">Click to show the image explanation</button>
+                        <button type="button" class="btn-base in-line-button">Click to show the image explanation</button>
                         <div class="solver-container" style="text-align: left; display: none">
                             <ol>
                                 <li>At the top, we have some variable declarations:</li>
@@ -306,8 +356,8 @@
                     </div>
 
                     <div class="solver-with-button" data-bool-quick-link="false">
-                        <button class="square-button">Click to show the button solver</button>
-                        <div id="beast-venomx-solver-react"></div>
+                        <button type="button" class="btn-base in-line-button">Click to show the Venom-X Box solver</button>
+                        <div id="beast-venomx-box-solver-react" style="display: none"></div>
                     </div>
 
                     <li>If you press the right button, you will hear a success sound, and the box will close.</li>
@@ -342,25 +392,9 @@
                     </ul>
 
                     <div class="solver-with-button" data-bool-quick-link="false">
-                        <button class="square-button">Click to show the Maze Path Finder</button>
-                        <div class="solver-container" style="text-align: left; display: none; width: fit-content">
-                            <h2>Venom-X Maze Solver</h2>
+                        <button type="button" class="btn-base in-line-button">Click to show the Maze Path Finder</button>
 
-                            <div id="maze-container">
-                                <div class="venom-board" id="board" data-bool-quick-link="false"></div>
-                                <p id="venom-maze-error"></p>
-
-                                <div class="draggable-container" data-bool-quick-link="false">
-                                    <img src="venom/venom_maze/pictures/yellow_square.webp" id="start" class="draggable-image" draggable="true" alt="start">
-                                    <img src="venom/venom_maze/pictures/blue_diamond.webp" id="end" class="draggable-image" draggable="true" alt="end">
-                                </div>
-                            </div>
-
-                            <div id="maze_img_container" style="display: none" data-bool-quick-link="false"></div>
-
-                            <button id="solve-button-maze" class="solver-button" onclick="solveMaze()">Solve</button>
-                            <button class="solver-button" onclick="resetMaze()">Reset All</button>
-                        </div>
+                        <div id="beast-venomx-maze-solver-react" style="display: none"></div>
                     </div>
 
                     <li>
@@ -513,7 +547,7 @@
                         </ul>
 
                         <div class="solver-with-button" data-bool-quick-link="false">
-                            <button class="square-button">Click to show the Morse Code Solver</button>
+                            <button type="button" class="btn-base in-line-button">Click to show the Morse Code Solver</button>
                             <div class="solver-container" style="text-align: left; display: none; width: fit-content">
                                 <h2>Beast Venom-Y/Z Morse Code Solver</h2>
 
@@ -526,7 +560,7 @@
                                         <li>To decrypt a number without Cross' or Archer's starting code, manually enter the Key (the starting code determines the key automatically).</li>
                                     </ul>
                                     <label for="morse_input">Enter your Morse Code:</label>
-                                    <input type="text" id="morse_input" name="morse_input" class="spacing" style="width: fit-content" oninput="process_morse_code()">
+                                    <input type="text" id="morse_input" name="morse_input" class="spacing" style="width: fit-content" oninput="process_morse_code()" />
                                     <span style="color: red" id="morse-code-input-error"></span>
                                 </div>
 
@@ -762,7 +796,7 @@
                     </li>
 
                     <div class="solver-with-button" data-bool-quick-link="false">
-                        <button class="square-button">Click to show the Floppy Disk Solver</button>
+                        <button type="button" class="btn-base in-line-button">Click to show the Floppy Disk Solver</button>
                         <div id="beast-floppy-solver-react"></div>
                     </div>
 
@@ -1338,14 +1372,15 @@
         </div>
 
         <!-- Load React bundle -->
-        <script type="module" src="/react-solvers/dist/assets/index-B-jPe1IT.js?v=1761587002776"></script>
+        <script type="module" src="/react-solvers/dist/assets/index-BQa5FFhM.js"></script>
 
         <script>
             window.addEventListener('load', () => {
                 if (window.ZombiesSolvers) {
                     window.ZombiesSolvers.mountBeastGnSEightQueensSolver('beast-eight-queens-react');
                     window.ZombiesSolvers.mountBeastFloppyDiskSolver('beast-floppy-solver-react');
-                    window.ZombiesSolvers.mountBeastVenomXMazeSolver('beast-venomx-solver-react');
+                    window.ZombiesSolvers.mountBeastVenomXMazeSolver('beast-venomx-maze-solver-react');
+                    window.ZombiesSolvers.mountBeastVenomXBoxSolver('beast-venomx-box-solver-react');
                 } else {
                     console.error('ZombiesSolvers not loaded!');
                 }
@@ -1353,35 +1388,67 @@
         </script>
 
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1761587002776"></script>
+        <script src="/js/core/page-utils.js?v=1761840186726" defer=""></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1761587002776"></script>
-        <script src="/js/navigation/nav-utils.js?v=1761587002776"></script>
+        <script src="/js/navigation/scroll-manager.js?v=1761840186726" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1761840186726" defer=""></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1761587002776"></script>
-        <script src="/js/ui/lightbox.js?v=1761587002776"></script>
+        <script src="/js/ui/tutorial-system.js?v=1761840186726" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1761840186726" defer=""></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1761587002776"></script>
-        <script src="/js/content/quick-links.js?v=1761587002776"></script>
+        <script src="/js/content/link-processor.js?v=1761840186726" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1761840186726" defer=""></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1761587002776"></script>
+        <script src="/js/device/mobile-detection.js?v=1761840186726" defer=""></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1761587002776"></script>
+        <script src="/js/features/substeps.js?v=1761840186726" defer=""></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1761587002776"></script>
+        <script src="/js/quick-links-utils.js?v=1761840186726" defer=""></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1761587002776"></script>
-        <script src="venom/venom_main_cont_html.js?v=1761587002776"></script>
-        <script src="venom/box/venom_x_box_html_helper.js?v=1761587002776"></script>
-        <script src="venom/box/venom_x_box.js?v=1761587002776"></script>
-        <script src="venom/venom_y/venom_y_morse_code.js?v=1761587002776"></script>
-    
+        <script src="/js/scripts.js?v=1761840186726" defer=""></script>
 
-</body></html>
+        <!-- Map Specific -->
+        <script>
+            // This is for the Dropdown to Hide/Show the Archer/Cross Key content
+            const venom_y_main_container = document.getElementById('venom-y-main-container');
+            const venom_y_archer = document.getElementById('venom-y-archer');
+            const venom_y_cross = document.getElementById('venom-y-cross');
+            const venom_y_key_selector = document.getElementById('venom-y-key-selector');
+            const key_span = document.getElementsByClassName('key_input');
+
+            function toggleKeyText(selectedValue) {
+                for (let i = 0; i < key_span.length; i++) {
+                    key_span[i].textContent = selectedValue.toUpperCase();
+                }
+
+                // Add additional logic here based on the selected value
+                if (selectedValue !== 'default') {
+                    venom_y_main_container.style.display = 'block';
+                } else {
+                    venom_y_main_container.style.display = 'none';
+                }
+
+                if (selectedValue === 'archer') {
+                    venom_y_cross.style.display = 'none';
+                    venom_y_archer.style.display = 'block';
+                } else if (selectedValue === 'cross') {
+                    venom_y_archer.style.display = 'none';
+                    venom_y_cross.style.display = 'block';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                venom_y_key_selector.value = 'default';
+                toggleKeyText('default', undefined);
+            });
+        </script>
+        <script src="venom/venom_y/venom_y_morse_code.js?v=1761840186726" defer=""></script>
+    </body>
+</html>

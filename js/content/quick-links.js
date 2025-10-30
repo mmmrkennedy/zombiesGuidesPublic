@@ -56,6 +56,10 @@ function generateQuickLinks(parentElement, elements) {
 
         if (!element || indentLevel === undefined) continue;
 
+        if (element.style.display === 'none') {
+            continue;
+        }
+
         if (isSectionHeader) {
             if (sectionHeaderLevel === 0) {
                 const sectionHeader = document.createElement('h2');
