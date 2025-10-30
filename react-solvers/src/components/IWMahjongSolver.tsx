@@ -112,7 +112,7 @@ export default function IWMahjongSolver() {
     );
 
     return (
-        <div className="solver-container" style={{ minWidth: '605px' }}>
+        <div className="solver-container mahjong">
             <h2>Mahjong Tile Solver</h2>
 
             <div>

@@ -8,17 +8,36 @@
 
         <!-- Load your global CSS -->
         <!-- styles.css is excluded from build via vite.config.js -->
-        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761844579490" />
         <!-- global_solver.css is loaded via main.tsx import -->
     </head>
     <body>
-        <div style="max-width: 800px; margin: 0 auto; padding: 20px">
+        <div>
             <h1>All Solvers - Development Preview</h1>
 
-            <div id="root"></div>
+            <div id="root" style="text-align: center;"></div>
         </div>
 
         <!-- Vite will inject the script here during development -->
-        <script type="module" src="src/main.tsx?v=1761840186726"></script>
+        <script type="module" src="src/main.tsx?v=1761844579490"></script>
     </body>
+
+    <script>
+        function logViewportSize() {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                console.log('Mobile');
+            } else {
+                console.log('Desktop');
+            }
+        }
+
+        // Log on initial load
+        logViewportSize();
+
+        // Log on resize
+        window.addEventListener('resize', logViewportSize);
+
+        // Log on orientation change
+        window.addEventListener('orientationchange', logViewportSize);
+    </script>
 </html>
