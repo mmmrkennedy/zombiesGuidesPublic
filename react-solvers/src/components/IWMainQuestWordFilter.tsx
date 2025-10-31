@@ -45,17 +45,11 @@ export default function IWMainQuestWordFilter() {
     }
 
     return (
-        <div className="solver-container left">
-            <div>
-                <h2>Shaolin Main Quest Word Filter</h2>
-            </div>
-
-            <div>
+        <div className="solver-container">
+            <p className="solver-instructions">Enter letters to filter the word list. The solver shows matching words and possible next letters based on your current input.</p>
+            <div className="form-row">
                 <label htmlFor="prefix-input">Enter letters: </label>
                 <input id="prefix-input" type="text" className="solver" value={inputString} onChange={handleInputChange} placeholder="Type letters..." />
-                <button className="btn-base solver-button clear-button" onClick={handleClearInput}>
-                    Clear
-                </button>
             </div>
 
             {possibleLetters.length > 0 && (
@@ -63,7 +57,7 @@ export default function IWMainQuestWordFilter() {
                     <h3>Next Possible Letters ({possibleLetters.length}):</h3>
                     <div className="letter-symbols-container">
                         {possibleLetters.sort().map((letter, index) => (
-                            <div key={index} onClick={() => setInputString(inputString + letter)} className="letter-symbol-box">
+                            <div key={index} className="letter-symbol-box">
                                 <div className="letter-text-side">{letter}</div>
                                 <div className="letter-image-side">
                                     <img src={`/games/IW/wyler_language_symbols/${letter.toLowerCase()}.webp`} alt={letter} className="letter-symbol-image" />

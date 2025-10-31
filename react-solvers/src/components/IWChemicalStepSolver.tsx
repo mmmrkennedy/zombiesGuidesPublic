@@ -353,9 +353,8 @@ export default function IWChemicalStepSolver() {
     // M = 12, <## = 105, Insect = 6, Racing = 14
 
     return (
-        <div className="solver-container left">
-            <h2>Attack Chemical Step Solver</h2>
-
+        <div className="solver-container">
+            <p className="solver-instructions">This is a multi-step solver. Enter values as prompted and click "Calculate" to reveal the next steps. Use "I know what I'm doing" to show all inputs at once. The solver will guide you through calculating the O Number, color option, letter, and final chemical formula numbers.</p>
             <p className="sub-sub-step">Step 1</p>
             <div>
                 <label htmlFor="mNum">Enter the M Number: </label>

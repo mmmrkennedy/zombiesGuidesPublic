@@ -156,7 +156,7 @@ export default function BO6PeriodicTableSolver() {
                         <strong>Exact Matches:</strong>
                         <ul>
                             {exactMatches.map(e => (
-                                <li key={e.symbol} style={{ maxWidth: 'fit-content' }}>
+                                <li key={e.symbol}>
                                     <strong>{e.symbol}</strong> – {e.name} ({format_element_number(e.number)})
                                 </li>
                             ))}
@@ -169,7 +169,7 @@ export default function BO6PeriodicTableSolver() {
                         <strong>Possible Matches:</strong>
                         <ul>
                             {possibleMatches.map(e => (
-                                <li key={e.symbol} style={{ maxWidth: 'fit-content' }}>
+                                <li key={e.symbol}>
                                     <strong>{e.symbol}</strong> – {e.name} ({format_element_number(e.number)})
                                 </li>
                             ))}
@@ -188,7 +188,7 @@ export default function BO6PeriodicTableSolver() {
         if (e.target.value !== '') {
             setResult(filter_elements(periodicElements, e.target.value));
         } else {
-            setResult('');
+            setResult(<div>Enter a symbol to find matching elements...</div>);
         }
     }
 
@@ -200,17 +200,11 @@ export default function BO6PeriodicTableSolver() {
     return (
         <div className="solver-container">
             <h3>Periodic Table Element Finder</h3>
-            <p>Enter 1-2 letters to find matching periodic table elements.</p>
-            <p>Input can be forwards or backwards (e.g., "fc" = "Cf" = Californium).</p>
-
-            <div>
+            <p className="solver-instructions">Type 1-2 letters from the in-game monitors. The solver will automatically search forwards and backwards for the element (e.g., "fc" matches Californium "Cf"). Exact matches are shown first, followed by possible matches.</p>
+            <div className="form-row">
                 <label htmlFor="element-input">Element Letters (1-2 letters): </label>
                 <input type="text" pattern="[^0-9]*" id="element-input" className="solver" placeholder="e.g., H, He, Li..." maxLength={2} value={elementInput} onChange={handleInputChange} />
             </div>
-
-            <button type="reset" className="btn-base solver-button" id="reset" onClick={reset_input}>
-                Clear
-            </button>
 
             <div className="solver-output">
                 <div id="results-container">{result}</div>

@@ -112,59 +112,63 @@ export default function IWMahjongSolver() {
     );
 
     return (
-        <div className="solver-container mahjong">
-            <h2>Mahjong Tile Solver</h2>
+        <div className="solver-container centered">
+            <form onSubmit={e => e.preventDefault()}>
+                <fieldset>
+                    <legend>Mahjong Tile Solver</legend>
+                    <p className="solver-instructions">Click on the tiles as they appear in-game. If a valid hand is found, it'll be shown automatically. A valid hand consists of 4 Melds and 1 Pair. A Meld is a group of three or four matching or consecutive tiles, e.g., 3-4-5 or 3-3-3.</p>
+                    <div className="solver-symbol-select img" role="group" aria-label="Mahjong tile selection">
+                        {[1, 2, 3, 4, 5].map(value => {
+                            const isDisabled = getTileCount(value) >= 4;
+                            return (
+                                <button key={value} type="button" onClick={() => handleTileClick(value)} disabled={isDisabled || selectedTiles.length >= 14} aria-label={`${value} Dot tile${isDisabled ? ' (maximum selected)' : ''}`} className={isDisabled ? 'img-disabled' : ''}>
+                                    <img className="shaolin" src={tileImages[value]} alt="" aria-hidden="true" />
+                                </button>
+                            );
+                        })}
+                    </div>
+                </fieldset>
 
-            <div>
-                <p>Select Tiles (1 Dot to 5 Dot):</p>
-                <div className="solver-symbol-select">
-                    {/* Generate clickable tile images dynamically */}
-                    {[1, 2, 3, 4, 5].map(value => {
-                        const isDisabled = getTileCount(value) >= 4;
-                        return <img key={value} alt={`${value} Dot`} className={`shaolin ${isDisabled ? 'img-disabled' : ''}`} src={tileImages[value]} onClick={() => handleTileClick(value)} style={{ cursor: isDisabled ? 'not-allowed' : 'pointer' }} />;
-                    })}
+                <button type="button" className="btn-base solver-button" onClick={resetSelection}>
+                    Reset
+                </button>
+
+                <div className="solver-output solver-output-centered" role="status" aria-live="polite">
+                    {/* Show selected tiles while building hand or if hand is invalid */}
+                    {(!handResult || !handResult.isWinning) && (
+                        <div className="selected-tiles">
+                            <h4>
+                                {/* Show "Invalid Hand" if we have 14 tiles but invalid, otherwise show count */}
+                                {handResult && selectedTiles.length === 14 && !handResult.isWinning ? 'Invalid Hand:' : `Selected Tiles (${selectedTiles.length}/14):`}
+                            </h4>
+                            <div className="selected-tiles-row">
+                                {selectedTiles.map((tile, index) => (
+                                    <img key={index} className="selected-tile" src={tile.src} alt={`${tile.value} Dot`} />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Display winning hand breakdown */}
+                    {handResult?.isWinning && (
+                        <div className="winning-hand">
+                            <h3>Winning Hand!</h3>
+                            <div className="melds">
+                                <h4>Melds:</h4>
+                                {handResult.melds.map((meld, index) => (
+                                    <div key={index} className="meld-group">
+                                        {meld.map((value, tileIndex) => (
+                                            <img key={tileIndex} className="tile-display" src={tileImages[value]} alt={`${value} Dot`} />
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                            {/* Show the pair if one exists */}
+                            {handResult.pair && renderTileGroup(handResult.pair, 'Pair')}
+                        </div>
+                    )}
                 </div>
-            </div>
-
-            <button className="btn-base solver-button" onClick={resetSelection}>
-                Reset
-            </button>
-
-            <div className="solver-output" style={{ display: 'flex', justifyContent: 'center' }}>
-                {/* Show selected tiles while building hand or if hand is invalid */}
-                {(!handResult || !handResult.isWinning) && (
-                    <div className="selected-tiles">
-                        <h4>
-                            {/* Show "Invalid Hand" if we have 14 tiles but invalid, otherwise show count */}
-                            {handResult && selectedTiles.length === 14 && !handResult.isWinning ? 'Invalid Hand:' : `Selected Tiles (${selectedTiles.length}/14):`}
-                        </h4>
-                        <div className="selected-tiles-row">
-                            {selectedTiles.map((tile, index) => (
-                                <img key={index} className="selected-tile" src={tile.src} alt={`${tile.value} Dot`} />
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Display winning hand breakdown */}
-                {handResult?.isWinning && (
-                    <div className="winning-hand">
-                        <h3>Winning Hand!</h3>
-                        <div className="melds">
-                            <h4>Melds:</h4>
-                            {handResult.melds.map((meld, index) => (
-                                <div key={index} className="meld-group">
-                                    {meld.map((value, tileIndex) => (
-                                        <img key={tileIndex} className="tile-display" src={tileImages[value]} alt={`${value} Dot`} />
-                                    ))}
-                                </div>
-                            ))}
-                        </div>
-                        {/* Show the pair if one exists */}
-                        {handResult.pair && renderTileGroup(handResult.pair, 'Pair')}
-                    </div>
-                )}
-            </div>
+            </form>
         </div>
     );
 }

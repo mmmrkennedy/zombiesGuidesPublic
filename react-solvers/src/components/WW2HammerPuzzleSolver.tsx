@@ -115,12 +115,7 @@ export default function WW2HammerPuzzleSolver() {
 
     return (
         <div className="solver-container lightning_puzzle_container">
-            <h3>Block Positions (click to change)</h3>
-            <p>
-                Up = Facing Away
-                <br />
-                Down = Facing Front (Solve Direction)
-            </p>
+            <p className="solver-instructions">Click each block button to cycle through its direction (↓ ↑ → ←). Set each block to match the in-game block positions, then click "Solve!" to get the shooting instructions. Up = Facing Back, Down = Facing Front.</p>
 
             <div className="aligned-buttons vertical">
                 <button className="btn-base aligned-button square solver-button" id="blockA" onClick={() => change_block_dir(0)}>

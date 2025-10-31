@@ -155,10 +155,9 @@ export default function IWGnSSkull4Solver() {
     const isSelectionFull = selectedSymbols.filter(s => s !== '').length >= 4;
 
     return (
-        <div className="solver-container left">
-            <h2>Attack Ghost and Skulls Skull 4 Solver</h2>
-
-            <div>
+        <div className="solver-container">
+            <p className="solver-instructions">Select the target word from the dropdown, then click the 4 letter symbols that match the in-game swingset symbols. Click "Calculate" to get the code sequence.</p>
+            <div className="form-row">
                 <label className="solver-symbol-select" htmlFor="word">
                     Select Word:
                 </label>
@@ -190,22 +189,11 @@ export default function IWGnSSkull4Solver() {
 
             <div className="solver-symbol-select">
                 <p>Selected Symbols:</p>
-                <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <div className="skull-selected-symbols">
                     {selectedSymbols.map((symbol, index) => (
                         <div
                             key={index}
-                            style={{
-                                width: '60px',
-                                height: '60px',
-                                border: '2px solid #666',
-                                borderRadius: '5px',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                backgroundColor: symbol ? '#444' : '#222',
-                                cursor: symbol ? 'pointer' : 'default',
-                            }}
+                            className={`skull-symbol-slot ${symbol ? 'filled' : 'empty'}`}
                             onClick={() => {
                                 if (symbol) {
                                     const newSymbols = [...selectedSymbols];
@@ -216,11 +204,11 @@ export default function IWGnSSkull4Solver() {
                         >
                             {symbol ? (
                                 <>
-                                    <span style={{ color: 'white', fontSize: '12px', fontWeight: 'bold' }}>{symbol.toUpperCase()}</span>
-                                    <img src={`/games/IW/wyler_language_symbols/${symbol}.webp`} alt={symbol.toUpperCase()} style={{ width: '30px', height: '30px' }} />
+                                    <span className="skull-symbol-label">{symbol.toUpperCase()}</span>
+                                    <img src={`/games/IW/wyler_language_symbols/${symbol}.webp`} alt={symbol.toUpperCase()} className="skull-symbol-image" />
                                 </>
                             ) : (
-                                <span style={{ color: '#666', fontSize: '10px' }}>{index + 1}</span>
+                                <span className="skull-slot-number">{index + 1}</span>
                             )}
                         </div>
                     ))}

@@ -173,35 +173,38 @@ export default function IWBeastVenomXBoxSolver() {
     const result = selectedColors.length === buttonCount ? venomBoxCalc(selectedColors) : '';
 
     return (
-        <div className="solver-container left">
-            <h2>Venom-X Box Solver</h2>
+        <div className="solver-container">
+            <p className="solver-instructions">Select the number of buttons, then set each buttons colour to the same order as the ones in-game (from top to bottom). The Solution will automatically appear.</p>
+            <div className="form-row">
+                <label htmlFor="venom-x-box-button-selector">Select the number of buttons:</label>
+                <select id="venom-x-box-button-selector" name="venom-x-box" value={buttonCount} onChange={handleButtonCountChange}>
+                    <option value="3">3 Buttons</option>
+                    <option value="4">4 Buttons</option>
+                    <option value="5">5 Buttons</option>
+                    <option value="6">6 Buttons</option>
+                </select>
+            </div>
 
-            <label htmlFor="venom-x-box-button-selector">Select the number of buttons: </label>
-            <select id="venom-x-box-button-selector" name="venom-x-box" value={buttonCount} onChange={handleButtonCountChange}>
-                <option value="3">3 Buttons</option>
-                <option value="4">4 Buttons</option>
-                <option value="5">5 Buttons</option>
-                <option value="6">6 Buttons</option>
-            </select>
-
-            <div id="venom-x-box-buttons" style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+            <div id="venom-x-box-buttons" className="venom-box-buttons">
                 {Array.from({ length: buttonCount }, (_, i) => (
-                    <div key={i} className="venom-row" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <label htmlFor={`venom-button-${i}`} style={{ minWidth: '80px' }}>
-                            Button {i + 1}:
-                        </label>
-                        <select id={`venom-button-${i}`} name="venom-button" value={selectedColors[i]} onChange={e => handleColorChange(i, e.target.value as Color)}>
-                            {COLORS.map(color => (
-                                <option key={color} value={color}>
-                                    {color}
-                                </option>
-                            ))}
-                        </select>
+                    <div className="form-row">
+                        <div key={i} className="venom-box-row">
+                            <label htmlFor={`venom-button-${i}`} className="venom-box-label">
+                                Button {i + 1}:
+                            </label>
+                            <select id={`venom-button-${i}`} name="venom-button" value={selectedColors[i]} onChange={e => handleColorChange(i, e.target.value as Color)}>
+                                {COLORS.map(color => (
+                                    <option key={color} value={color}>
+                                        {color}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <div className="solver-output" id="venom-x-box-result" style={{ marginTop: '16px' }}>
+            <div className="solver-output" id="venom-x-box-result">
                 <p>{result}</p>
             </div>
         </div>

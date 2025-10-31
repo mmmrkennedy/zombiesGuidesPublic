@@ -47,6 +47,8 @@ const keyTextSpan = document.getElementById('morse_key');
 const decodedTextSpan = document.getElementById('morse_decoded_text');
 const decryptedTextSpan = document.getElementById('morse_decrypted_text');
 const killNumberSpan = document.getElementById('morse_kill_number');
+const morseOutputSpan = document.getElementById('morse_output_code');
+const copyButton = document.getElementById('morse_copy_button');
 const morseInput = document.getElementById('morse_input');
 const morseCodeInputError = document.getElementById('morse-code-input-error');
 const venomXKeySelector = document.getElementById('venom-y-key-selector');
@@ -171,12 +173,54 @@ function extract_number(decrypted_text) {
             return 'TWENTYFIVE';
         }
 
-        return 'TWENTY or TWENTYFIVE (input more code to get a definitive result).';
+        return 'PARTIAL';
     } else if (number_str.startsWith('TH')) {
         return 'THIRTY';
     }
 
     return '';
+}
+
+// Mapping from number words to their morse code input sequences
+const numberToMorseInput = {
+    'FIFTEEN': '..-. .. ..-. - . . -. .- .-.',
+    'EIGHTEEN': '. .. --. .... - . . -.',
+    'TWENTY': '- .-- . -. - -.--',
+    'TWENTYFIVE': '- .-- . -. - -.--   (then if no sound)   ..-. .. ...- .',
+    'THIRTY': '- .... .. .-. - -.--'
+};
+
+function getNumberMorseOutput(numberWord) {
+    return numberToMorseInput[numberWord] || '';
+}
+
+function copyToClipboard() {
+    const morseCode = morseOutputSpan.innerText;
+    if (morseCode && morseCode !== 'N/A (Enter more morse code)' && morseCode !== 'N/A (Invalid message)') {
+        navigator.clipboard.writeText(morseCode).then(() => {
+            const originalText = copyButton.innerText;
+            copyButton.innerText = 'Copied!';
+            setTimeout(() => {
+                copyButton.innerText = originalText;
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+}
+
+function loadExample(exampleType) {
+    if (exampleType === 'archer-fifteen') {
+        morseInput.value = '-.- --.. -. ... ... -- . . .... ..--.';
+        venomXKeySelector.value = 'archer';
+    } else if (exampleType === 'cross-twenty') {
+        morseInput.value = '-- --.. --.. -.. --. -..- ...- ..-. .-.. ---';
+        venomXKeySelector.value = 'cross';
+    } else if (exampleType === 'archer-key') {
+        morseInput.value = '.- .-. -.-. .... . .-.';
+        venomXKeySelector.value = 'default';
+    }
+    process_morse_code();
 }
 
 function is_valid_morse_code(code) {
@@ -191,11 +235,22 @@ function is_valid_morse_code(code) {
     return true;
 }
 
+function getInvalidCharacters(code) {
+    const invalidChars = new Set();
+    for (const char of code) {
+        if (!(char === '-' || char === '.' || char === ' ')) {
+            invalidChars.add(char);
+        }
+    }
+    return Array.from(invalidChars);
+}
+
 function process_morse_code() {
     const code = morseInput.value.trim();
 
     if (!is_valid_morse_code(code)) {
-        morseCodeInputError.innerText = 'Error: Code can only contain "-",".", or "space"';
+        const invalidChars = getInvalidCharacters(code);
+        morseCodeInputError.innerText = `Error: Invalid characters found: "${invalidChars.join('", "')}". Only use "-", ".", and spaces.`;
         return;
     } else {
         morseCodeInputError.innerText = '';
@@ -206,6 +261,10 @@ function process_morse_code() {
     decodedTextSpan.innerText = 'N/A (Invalid message)';
     decryptedTextSpan.innerText = 'N/A (Invalid message)';
     killNumberSpan.innerText = 'N/A (Invalid message)';
+    morseOutputSpan.innerText = 'N/A (Invalid message)';
+    if (copyButton) {
+        copyButton.style.display = 'none';
+    }
 
     console.log(`Code Length: ${code.length}`);
 
@@ -220,6 +279,9 @@ function process_morse_code() {
     if (key !== '') {
         keyTextSpan.innerText = key;
         decodedTextSpan.innerText = 'N/A (Key message was entered)';
+        decryptedTextSpan.innerText = 'N/A (Key message was entered)';
+        killNumberSpan.innerText = 'N/A (Key message was entered)';
+        morseOutputSpan.innerText = 'N/A (Key message was entered)';
         return;
     }
 
@@ -227,8 +289,19 @@ function process_morse_code() {
         key = venomXKeySelector.value.toUpperCase();
     }
 
+    // Check if a valid key has been selected
+    if (key === 'DEFAULT' || key === '') {
+        morseCodeInputError.innerText = 'Error: Please select a key (ARCHER or CROSS) from the dropdown above.';
+        return;
+    }
+
     // Decode the Morse code into plain text
     const decodedMorseToText = decodeMorse(code);
+
+    if (decodedMorseToText === '') {
+        morseCodeInputError.innerText = 'Error: Failed to decode morse code. Check your spacing between letters and words.';
+        return;
+    }
 
     // Decrypt the decoded text using the determined key
     const decryptedText = decryptVigenere(decodedMorseToText, key);
@@ -250,7 +323,28 @@ function process_morse_code() {
     keyTextSpan.innerText = key;
     decodedTextSpan.innerText = decodedMorseToText;
     decryptedTextSpan.innerText = decryptedText;
-    killNumberSpan.innerText = extractedNumber;
+
+    // Handle partial detection with visual feedback
+    if (extractedNumber === 'PARTIAL') {
+        killNumberSpan.innerHTML = '<span style="color: orange; font-weight: bold;">⚠ TWENTY or TWENTYFIVE</span> — Continue entering morse code to determine which one.';
+        morseOutputSpan.innerText = 'N/A (Enter more morse code)';
+        if (copyButton) {
+            copyButton.style.display = 'none';
+        }
+    } else if (extractedNumber !== '') {
+        killNumberSpan.innerHTML = `<span style="color: green; font-weight: bold;">${extractedNumber}</span>`;
+        const morseOutput = getNumberMorseOutput(extractedNumber);
+        morseOutputSpan.innerText = morseOutput;
+        if (copyButton && morseOutput) {
+            copyButton.style.display = 'inline-block';
+        }
+    } else {
+        killNumberSpan.innerText = extractedNumber;
+        morseOutputSpan.innerText = 'N/A (Number not detected)';
+        if (copyButton) {
+            copyButton.style.display = 'none';
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -258,4 +352,8 @@ document.addEventListener('DOMContentLoaded', function () {
     decodedTextSpan.innerText = 'N/A (Invalid message)';
     decryptedTextSpan.innerText = 'N/A (Invalid message)';
     killNumberSpan.innerText = 'N/A (Invalid message)';
+    morseOutputSpan.innerText = 'N/A (Invalid message)';
+    if (copyButton) {
+        copyButton.style.display = 'none';
+    }
 });

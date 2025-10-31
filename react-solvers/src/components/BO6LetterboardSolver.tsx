@@ -60,40 +60,43 @@ export default function BO6LetterboardSolver() {
     }
 
     return (
-        <div className="solver-container left">
-            <h2>Input Word and Board</h2>
+        <div className="solver-container">
+            <form onSubmit={e => e.preventDefault()}>
+                <fieldset>
+                    <legend>Letterboard Solver</legend>
+                    <p className="solver-instructions">Select the word and board found in-game to calculate the correct code. The code will be calculated automatically once both are entered.</p>
 
-            <label htmlFor="word">
-                <span>Select your word: </span>
-            </label>
-            <select id="word" className="spacing" value={selectedWord} onChange={handleWordChange}>
-                <option value="default" disabled>
-                    Select your word
-                </option>
-                <option value="CRAB">CRAB</option>
-                <option value="MOTH">MOTH</option>
-                <option value="WORM">WORM</option>
-                <option value="YETI">YETI</option>
-            </select>
+                    <div className="form-row">
+                        <label htmlFor="word">Select your word:</label>
+                        <select id="word" className="spacing" value={selectedWord} onChange={handleWordChange}>
+                            <option value="default" disabled>
+                                Select your word
+                            </option>
+                            <option value="CRAB">CRAB</option>
+                            <option value="MOTH">MOTH</option>
+                            <option value="WORM">WORM</option>
+                            <option value="YETI">YETI</option>
+                        </select>
+                    </div>
 
-            <br />
+                    <div className="form-row">
+                        <label htmlFor="board">Select the letter(s) on the bottom left of the Board:</label>
+                        <select id="board" className="spacing" value={boardID} onChange={handleBoardChange}>
+                            <option value="default" disabled>
+                                Select your letter(s)
+                            </option>
+                            <option value="board_1">NI</option>
+                            <option value="board_2">OUY</option>
+                            <option value="board_3">S</option>
+                            <option value="board_4">M</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-            <label htmlFor="board">
-                <span>Select the letter(s) on the bottom left of the Board: </span>
-            </label>
-            <select id="board" className="spacing" value={boardID} onChange={handleBoardChange}>
-                <option value="default" disabled>
-                    Select your letter(s)
-                </option>
-                <option value="board_1">NI</option>
-                <option value="board_2">OUY</option>
-                <option value="board_3">S</option>
-                <option value="board_4">M</option>
-            </select>
-
-            <div className="solver-output" id="codeOutput">
-                <p>{result}</p>
-            </div>
+                <div className="solver-output" id="codeOutput" role="status" aria-live="polite">
+                    <p>{result}</p>
+                </div>
+            </form>
         </div>
     );
 }

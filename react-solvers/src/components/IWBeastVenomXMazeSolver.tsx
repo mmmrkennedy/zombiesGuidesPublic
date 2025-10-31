@@ -401,7 +401,7 @@ export default function IWBeastVenomXMazeSolver() {
         const endDraggable = draggables.find(d => d.type === 'end');
 
         if (!startDraggable?.position || !endDraggable?.position) {
-            setErrorMessage('Please place both the Yellow Block and Blue Diamond.');
+            setErrorMessage('Please place both the Yellow Square and Blue Diamond.');
             return;
         }
 
@@ -444,24 +444,7 @@ export default function IWBeastVenomXMazeSolver() {
 
                 squares.push(
                     <div key={`square-${row}-${col}`} className="green-square" onDragOver={handleDragOver} onDrop={e => handleDrop(e, row, col)}>
-                        {draggable && (
-                            <img
-                                className="draggable-image"
-                                src={draggable.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
-                                alt={draggable.type === 'start' ? 'Yellow Square' : 'Blue Diamond'}
-                                draggable
-                                onDragStart={e => handleDragStart(e, draggable.type)}
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    cursor: 'grab',
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    objectFit: 'contain',
-                                }}
-                            />
-                        )}
+                        {draggable && <img className="placed-draggable" src={draggable.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND} alt={draggable.type === 'start' ? 'Yellow Square' : 'Blue Diamond'} draggable onDragStart={e => handleDragStart(e, draggable.type)} />}
                     </div>
                 );
             }
@@ -471,50 +454,21 @@ export default function IWBeastVenomXMazeSolver() {
     };
 
     const renderDraggableContainer = () => {
-        return (
-            <div className="draggable-container">
-                {draggables.map(
-                    d =>
-                        !d.position && (
-                            <img
-                                key={d.type}
-                                className="draggable-image"
-                                src={d.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
-                                alt={d.type === 'start' ? 'Yellow Square' : 'Blue Diamond'}
-                                draggable
-                                onDragStart={e => handleDragStart(e, d.type)}
-                                style={{
-                                    cursor: 'grab',
-                                }}
-                            />
-                        )
-                )}
-            </div>
-        );
+        return <div className="draggable-container">{draggables.map(d => !d.position && <img key={d.type} className="draggable-image" src={d.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND} alt={d.type === 'start' ? 'Yellow Square' : 'Blue Diamond'} draggable onDragStart={e => handleDragStart(e, d.type)} />)}</div>;
     };
 
     return (
-        <div className="solver-container" style={{ maxWidth: '370px' }}>
-            <h2>Venom-X Maze Puzzle</h2>
-            <p>Drag the Yellow Block and Blue Diamond onto the board, then click Solve.</p>
+        <div className="solver-container">
+            <p className="solver-instructions">Drag the Yellow Square and Blue Diamond onto the board where they're on the monitor in-game, then click Solve.</p>
             {renderDraggableContainer()}
-            <div style={{ position: 'relative', marginTop: '20px' }}>
+            <div className="venom-board-wrapper">
                 <div ref={boardRef} className="venom-board">
                     {renderBoard()}
+                    <canvas ref={canvasRef} className="venom-board-canvas" />
                 </div>
-                <canvas
-                    ref={canvasRef}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        pointerEvents: 'none',
-                        zIndex: 10,
-                    }}
-                />
             </div>
-            {errorMessage && <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>}
-            <div style={{ marginTop: '20px' }}>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <div className="solver-buttons">
                 <button className="btn-base solver-button" onClick={handleSolve} disabled={!!solutionPath}>
                     Solve
                 </button>

@@ -3,15 +3,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>Shaolin Shuffle Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761844579490">
-        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761844579490">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761918550865">
+        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761918550865">
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
         <base target="_blank">
     </head>
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761844579490">
+        <div class="version-display" data-version="1761918550865">
             v.
             <span id="version-number">0</span>
         </div>
@@ -522,7 +522,7 @@
                         <a href="pictures/main_ee/eye/glowing_circle_key.webp">large yellow circle</a>
                         will appear near the last cage.
                     </li>
-                    <li>Kill about 15-20 Zombies while THEY are inside the circle to make it disappear. Once the circle is gone, Ninja Zombies will start spawning.</li>
+                    <li>Kill about 15-20 Zombies while THEY’re inside the circle to make it disappear. Once the circle is gone, Ninja Zombies will start spawning.</li>
                     <li>
                         Once all Ninjas are dead, a
                         <a href="pictures/main_ee/eye/key.webp">Key</a>
@@ -691,7 +691,11 @@
                         </ul>
                     </ul>
 
-                    <div id="main-ee-word-filter-react"></div>
+                    <div class="solver-with-button" data-bool-quick-link="false">
+                        <button type="button" class="btn-base in-line-button">Click to show the Word Filter Module</button>
+
+                        <div id="main-ee-word-filter-react" style="display: none"></div>
+                    </div>
 
                     <li>
                         Once you finish the word, a gong sound will play and no more symbols will spawn. Go to the RPR Evo wallbuy near Deadeye Dewdrops and interact with the
@@ -721,7 +725,7 @@
                         near Mule Munchies and shoot the
                         <a href="pictures/main_ee/heart/symbol_in_window.webp">symbol in the window</a>. After shooting the symbol, the window will close and a glowing circle will spawn somewhere around the map.
                     </li>
-                    <li>Kill about 5-10 Zombies while THEY are inside the glowing circle to make it disappear. Find the next circle and repeat until you hear a gong. Circle locations:</li>
+                    <li>Kill about 5-10 Zombies while THEY’re inside the glowing circle to make it disappear. Find the next circle and repeat until you hear a gong. Circle locations:</li>
                     <ul>
                         <li>
                             <a href="pictures/main_ee/heart/glowing_circle_mule.webp">In the Mule Munchies/Bombstoppers Alley</a>
@@ -758,7 +762,7 @@
                         will spawn on the street in front of the Pink Cat. Activate it to fight the Rat King for the third time and get his
                         <a href="pictures/main_ee/heart/heart.webp">Heart</a>.
                     </li>
-                    <li>Once ready for the boss fight, speak to Pam in the Dojo and then enter the Rat King's lair in the sewers to start the final boss fight. Make sure you have a high ammo capacity bullet-based weapon (PAPed NV4 or similar should be fine) for the boss fight since you can soft-lock yourself if you don't have one, or run out of ammo during the fight. Save this gun's ammo for the Eye step in the boss fight.</li>
+                    <li>Once ready for the boss fight, speak to Pam in the Dojo and then enter the Rat King's lair in the sewers to start the final boss fight. Make sure you have a high ammo capacity bullet-based weapon (PAPed NV4 or similar should be fine) for the boss fight. If you don't, you could potentially soft-lock yourself since one of the steps requires you to shoot symbols. If you run out of ammo during this step, there's no way to get more.</li>
                 </ol>
 
                 <ol>
@@ -768,7 +772,7 @@
                         <li>You can destroy his staff by throwing a Chi Shuriken at it. After a minute or two, his staff will respawn.</li>
                     </ul>
                     <li>When you first enter the fight, you must deal damage to the Rat King. Once you've done enough damage, the Rat King will retreat to the rafters around the room, and the Eye, Brain, and Heart will appear on the ground.</li>
-                    <li>You must interact with one of the three organs and then interact with the big symbol on the floor in the centre of the room to activate that organ's challenge. Each organ triggers a specific challenge that you must complete; the challenges can be completed in any order. Completing a challenge will spawn a max ammo power-up in the middle of the room which does not despawn, so only pick it up when you need it. After completing a challenge, you will hear a gong sound, and you must damage the Rat King until he retreats to the rafters again.</li>
+                    <li>You must interact with one of the three organs and then interact with the big symbol on the floor in the centre of the room to activate that organ's challenge. Each organ triggers a specific challenge that you must complete; the challenges can be completed in any order. Completing a challenge will spawn a max ammo power-up in the middle of the room which doesn’t despawn, so only pick it up when you need it. After completing a challenge, you will hear a gong sound, and you must damage the Rat King until he retreats to the rafters again.</li>
                     <ul>
                         <li>Eye: The Eye will spawn in the centre of the room and scan the room about every 10 seconds, revealing pink symbols on the ceiling and walls around the arena (you can also manually scan using the eye you're holding). You must shoot all the symbols to complete this challenge. If you take too long, the Rat King will throw his shield around the arena, spawning symbols where it hits the walls.</li>
                         <ul>
@@ -969,7 +973,7 @@
                     <div class="solver-with-button" data-bool-quick-link="false">
                         <button type="button" class="btn-base in-line-button">Click to show Mahjong Tile Solver</button>
 
-                        <div id="mahjong-solver-react"></div>
+                        <div id="mahjong-solver-react" style="display: none"></div>
                     </div>
 
                     <li>Once the tiles are placed correctly, fireworks will shoot from behind the tiles and the completion sound will play.</li>
@@ -1273,7 +1277,7 @@
         </div>
 
         <!-- Load React bundle -->
-        <script type="module" src="/react-solvers/dist/assets/index-BQa5FFhM.js?v=1761844579490"></script>
+        <script type="module" src="/react-solvers/dist/assets/index-nUqveg8J.js?v=1761918550865"></script>
 
         <script>
             window.addEventListener('load', () => {
@@ -1287,32 +1291,32 @@
         </script>
 
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1761844579490" defer=""></script>
+        <script src="/js/core/page-utils.js?v=1761918550865" defer=""></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1761844579490" defer=""></script>
-        <script src="/js/navigation/nav-utils.js?v=1761844579490" defer=""></script>
+        <script src="/js/navigation/scroll-manager.js?v=1761918550865" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1761918550865" defer=""></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1761844579490" defer=""></script>
-        <script src="/js/ui/lightbox.js?v=1761844579490" defer=""></script>
+        <script src="/js/ui/tutorial-system.js?v=1761918550865" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1761918550865" defer=""></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1761844579490" defer=""></script>
-        <script src="/js/content/quick-links.js?v=1761844579490" defer=""></script>
+        <script src="/js/content/link-processor.js?v=1761918550865" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1761918550865" defer=""></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1761844579490" defer=""></script>
+        <script src="/js/device/mobile-detection.js?v=1761918550865" defer=""></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1761844579490" defer=""></script>
+        <script src="/js/features/substeps.js?v=1761918550865" defer=""></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1761844579490" defer=""></script>
+        <script src="/js/quick-links-utils.js?v=1761918550865" defer=""></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1761844579490" defer=""></script>
-        <script src="timezone_conversion.js?v=1761844579490" defer=""></script>
+        <script src="/js/scripts.js?v=1761918550865" defer=""></script>
+        <script src="timezone_conversion.js?v=1761918550865" defer=""></script>
     
 
 </body></html>

@@ -51,38 +51,32 @@ export default function WW2HangmanSolver() {
     const result = suggestNextLetter(revealedLetters, guessedLetters);
 
     return (
-        <div className="solver-container" style={{ minWidth: '400px', width: 'auto' }}>
-            <h2>Hangman Word Solver</h2>
+        <div className="solver-container">
+            <form onSubmit={e => e.preventDefault()}>
+                <fieldset>
+                    <legend>Hangman Word Solver</legend>
+                    <p className="solver-instructions">Enter the correct letters in order and any incorrect guesses to find possible words.</p>
 
-            <div>
-                <label htmlFor="revealed-letters">Correct Letters:</label> <input type="text" id="revealed-letters" value={revealedLetters} onChange={e => setRevealedLetters(e.target.value)} placeholder="All the correct letters in order (e.g. WND, DMN)" className="solver" style={{ width: '350px' }} />
-            </div>
+                    <div className="form-row">
+                        <label htmlFor="revealed-letters">Correct Letters:</label>
+                        <input type="text" id="revealed-letters" value={revealedLetters} onChange={e => setRevealedLetters(e.target.value)} placeholder="Correct letters in order" className="solver" />
+                    </div>
 
-            <div>
-                <label htmlFor="guessed-letters">Incorrect Letters:</label> <input type="text" id="guessed-letters" value={guessedLetters} onChange={e => setGuessedLetters(e.target.value)} placeholder="Any wrong letters (e.g. ZUQI)" className="solver" style={{ width: '350px' }} />
-            </div>
+                    <div className="form-row">
+                        <label htmlFor="guessed-letters">Incorrect Letters:</label>
+                        <input type="text" id="guessed-letters" value={guessedLetters} onChange={e => setGuessedLetters(e.target.value)} placeholder="Wrong letters" className="solver" />
+                    </div>
+                </fieldset>
 
-            <div className="solver-output">
-                <h3>Possible Words:</h3>
-                <ul style={{ textAlign: 'left', paddingLeft: '20px' }}>
-                    {result.map((word, index) => (
-                        <li key={index}>{word}</li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="solver-output" style={{ display: 'none' }}>
-                <h3>Reference Words:</h3>
-                <ul style={{ textAlign: 'left', paddingLeft: '20px' }}>
-                    <li>DAMNATION: Nuke</li>
-                    <li>REAPER: Insta-Kill</li>
-                    <li>GEISTKRAFT: Full Charge</li>
-                    <li>FAMISHED: Max Ammo</li>
-                    <li>GLUTTONY: Double Jolts</li>
-                    <li>WONDER: Tesla Gun & Ripsaw</li>
-                    <li>THEJACKBOX: Jack-in-the-Boxes</li>
-                </ul>
-            </div>
+                <div className="solver-output" role="status" aria-live="polite">
+                    <h3>Possible Words:</h3>
+                    <ul>
+                        {result.map((word, index) => (
+                            <li key={index}>{word}</li>
+                        ))}
+                    </ul>
+                </div>
+            </form>
         </div>
     );
 }

@@ -17,6 +17,7 @@ import IWBeastEightQueensSolver from './components/IWBeastEightQueensSolver';
 import IWBeastFloppySolver from './components/IWBeastFloppySolver';
 import IWBeastVenomXMazeSolver from './components/IWBeastVenomXMazeSolver';
 import IWBeastVenomXBoxSolver from './components/IWBeastVenomXBoxSolver';
+import IWBeastMorseCodeSolver from './components/IWBeastMorseCodeSolver';
 
 /**
  * Mount functions - These allow you to embed React components anywhere in your HTML
@@ -46,6 +47,7 @@ interface ZombiesSolvers {
     mountBeastFloppyDiskSolver: MountFunction;
     mountBeastVenomXMazeSolver: MountFunction;
     mountBeastVenomXBoxSolver: MountFunction;
+    mountBeastMorseCodeSolver: MountFunction;
 }
 
 declare global {
@@ -311,6 +313,22 @@ window.ZombiesSolvers = {
         );
         console.log('IWBeastVenomXBoxSolver mounted successfully');
     },
+
+    mountBeastMorseCodeSolver(elementId: string) {
+        console.log('Mounting IWBeastMorseCodeSolver to:', elementId);
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error('Element not found:', elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <IWBeastMorseCodeSolver />
+            </React.StrictMode>
+        );
+        console.log('IWBeastMorseCodeSolver mounted successfully');
+    },
 };
 
 // For test page: auto-mount all solvers
@@ -320,6 +338,9 @@ if (devRoot) {
     root.render(
         <React.StrictMode>
             <div>
+                <h2>Beast Morse Code Solver</h2>
+                <IWBeastMorseCodeSolver />
+
                 <h2>Beast Venom X Maze Solver</h2>
                 <IWBeastVenomXMazeSolver />
 

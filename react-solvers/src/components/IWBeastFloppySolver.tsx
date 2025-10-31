@@ -68,28 +68,19 @@ export default function IWBeastFloppySolver() {
     const resultImages = getResultImages();
 
     return (
-        <div className="solver-container" style={{ minWidth: '350px' }}>
-            <h2>Floppy Disk Puzzle</h2>
-            <p>Select 4 symbols in order:</p>
-            <div
-                id="floppy_solver_symbol_select"
-                className="solver-symbol-select"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '8px',
-                    maxWidth: '500px',
-                }}
-            >
+        <div className="solver-container floppy">
+            <p className="solver-instructions">Click the 4 symbols that appear in your game. The solver will validate the sequence and show the correct order if valid.</p>
+            <p>Select 4 symbols in any order:</p>
+            <div id="floppy_solver_symbol_select" className="solver-symbol-select floppy-grid">
                 {Array.from({ length: totalSymbols }, (_, i) => (
-                    <img key={i} src={`${imagePath}picture_${i}.webp`} alt={`Symbol ${i}`} data-symbol-id={i} className={selectedSymbols.includes(i) ? 'selected' : ''} onClick={() => selectSymbol(i)} style={{ width: '60px', height: '60px' }} />
+                    <img key={i} src={`${imagePath}picture_${i}.webp`} alt={`Symbol ${i}`} data-symbol-id={i} className={`floppy-symbol ${selectedSymbols.includes(i) ? 'selected' : ''}`} onClick={() => selectSymbol(i)} />
                 ))}
             </div>
             <div className="solver-output">
                 <p id="floppy_solver_code">{getMessage()}</p>
-                <div id="floppy_result">
+                <div id="floppy_result" className="floppy-result">
                     {resultImages.map(id => (
-                        <img key={id} src={`${imagePath}picture_${id}.webp`} alt={`Symbol ${id}`} style={{ width: '60px', height: '60px', margin: '5px' }} />
+                        <img key={id} src={`${imagePath}picture_${id}.webp`} alt={`Symbol ${id}`} className="floppy-symbol" />
                     ))}
                 </div>
             </div>

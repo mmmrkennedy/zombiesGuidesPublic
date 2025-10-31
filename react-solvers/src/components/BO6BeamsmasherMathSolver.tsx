@@ -107,9 +107,8 @@ export default function BO6BeamsmasherMathSolver() {
     }
 
     return (
-        <div className="solver-container" style={{ width: '415px' }}>
-            <h2>Input Symbols</h2>
-            <p>Click the symbols below that match the ones on the sticky notes on the computer. The solver will automatically calculate your code.</p>
+        <div className="solver-container beamsmasher">
+            <p className="solver-instructions">Click the symbol images that match the sticky notes on the in-game computer (one for X, one for Y, one for Z). The solver will automatically calculate and display the three-part code.</p>
 
             <div className="solver-symbol-select" id="xSymbols">
                 <p>X Symbol:</p>

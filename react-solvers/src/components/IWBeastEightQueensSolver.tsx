@@ -251,7 +251,7 @@ export default function IWBeastEightQueensSolver() {
 
     return (
         <div className="solver-container">
-            <h2>Eight Queens Puzzle</h2>
+            <p className="solver-instructions">Click the chessboard square where the starting Queen is located in your game to move the Queen. Then click "Solve" to show all 8 Queen placements that solve the puzzle.</p>
             <p id="queens-explain">{message}</p>
             <div className="chessboard">{generateChessboard()}</div>
             <div>

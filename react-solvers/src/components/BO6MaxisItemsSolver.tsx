@@ -100,10 +100,10 @@ export default function BO6MaxisItemsSolver() {
 
     return (
         <div className="solver-container">
-            <h3>S.A.M. Files Solver</h3>
-            <p>Select 4 S.A.M. Files to get the file number combination.</p>
+            <h3>S.A.M. File Order Solver</h3>
+            <p className="solver-instructions">Select the 4 different S.A.M. Files found in-game from the dropdowns. The solver will automatically sort them chronologically by date and display the correct code order.</p>
 
-            <div>
+            <div className="form-row">
                 <label htmlFor="file1">File 1:</label>{' '}
                 <select id="file1" className="solver" onChange={handle_file_select_change} value={file1}>
                     <option value="0">Select file...</option>
@@ -128,7 +128,7 @@ export default function BO6MaxisItemsSolver() {
                 </select>
             </div>
 
-            <div>
+            <div className="form-row">
                 <label htmlFor="file2">File 2:</label>{' '}
                 <select id="file2" className="solver" onChange={handle_file_select_change} value={file2}>
                     <option value="0">Select file...</option>
@@ -153,7 +153,7 @@ export default function BO6MaxisItemsSolver() {
                 </select>
             </div>
 
-            <div>
+            <div className="form-row">
                 <label htmlFor="file3">File 3:</label>{' '}
                 <select id="file3" className="solver" onChange={handle_file_select_change} value={file3}>
                     <option value="0">Select file...</option>
@@ -178,7 +178,7 @@ export default function BO6MaxisItemsSolver() {
                 </select>
             </div>
 
-            <div>
+            <div className="form-row">
                 <label htmlFor="file4">File 4:</label>{' '}
                 <select id="file4" className="solver" onChange={handle_file_select_change} value={file4}>
                     <option value="0">Select file...</option>

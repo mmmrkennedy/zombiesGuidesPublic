@@ -79,15 +79,42 @@ allHtmlFiles.forEach(htmlFilePath => {
 
     if (updatedHtml !== html) {
         fs.writeFileSync(htmlFilePath, updatedHtml, 'utf8');
-        const relativePath = path.relative(gamesDir, htmlFilePath);
-        console.log(`✓ Updated: games/${relativePath}`);
+        // Display path relative to project root
+        const relativePath = htmlFilePath.includes('games')
+            ? `games/${path.relative(gamesDir, htmlFilePath)}`
+            : path.relative(path.join(__dirname, '..'), htmlFilePath);
+        console.log(`✓ Updated: ${relativePath}`);
         updatedCount++;
     } else {
-        const relativePath = path.relative(gamesDir, htmlFilePath);
-        console.log(`- Skipped: games/${relativePath} (already up to date)`);
+        // Display path relative to project root
+        const relativePath = htmlFilePath.includes('games')
+            ? `games/${path.relative(gamesDir, htmlFilePath)}`
+            : path.relative(path.join(__dirname, '..'), htmlFilePath);
+        console.log(`- Skipped: ${relativePath} (already up to date)`);
         skippedCount++;
     }
 });
+
+// Handle root index.html separately (uses modulepreload instead of script tag)
+const indexFile = path.join(__dirname, '../index.html');
+if (fs.existsSync(indexFile)) {
+    const indexHtml = fs.readFileSync(indexFile, 'utf8');
+    const modulepreloadPattern = /<link rel="modulepreload" href="\/react-solvers\/dist\/assets\/index-[^"]+\.js" \/>/;
+
+    if (modulepreloadPattern.test(indexHtml)) {
+        const newModulepreload = `<link rel="modulepreload" href="/react-solvers/dist/assets/${jsFile}" />`;
+        const updatedIndexHtml = indexHtml.replace(modulepreloadPattern, newModulepreload);
+
+        if (updatedIndexHtml !== indexHtml) {
+            fs.writeFileSync(indexFile, updatedIndexHtml, 'utf8');
+            console.log(`✓ Updated: index.html`);
+            updatedCount++;
+        } else {
+            console.log(`- Skipped: index.html (already up to date)`);
+            skippedCount++;
+        }
+    }
+}
 
 console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 console.log(`Updated: ${updatedCount} file(s)`);

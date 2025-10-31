@@ -181,7 +181,7 @@ export default function WW2StatueSolver() {
 
     return (
         <div className="solver-container">
-            <h2>Select Which Wall</h2>
+            <p className="solver-instructions">Select the wall you're solving, then click each statue button to cycle through its facing direction (↑ → ↓ ←) until they match the in-game positions. Click "Solve!" to get the turning instructions.</p>
             <div>
                 <button className={activeWall === 'wall1' ? 'btn-base solver-button active' : 'btn-base solver-button'} onClick={() => handleWallClick('wall1')}>
                     Wall 1
@@ -197,7 +197,7 @@ export default function WW2StatueSolver() {
                 </button>
             </div>
 
-            <h3>Statue Positions (click to change)</h3>
+            <p className="solver-instructions">Down = Facing Front, Up = Facing Back</p>
             <div className="aligned-buttons">
                 <button className="btn-base aligned-button solver-button" onClick={() => handleStatueClick(0)}>
                     {DIRECTION_SYMBOLS[directions[0]]}

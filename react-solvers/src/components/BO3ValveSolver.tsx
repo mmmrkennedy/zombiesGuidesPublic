@@ -125,30 +125,34 @@ export default function BO3ValveSolver() {
 
     return (
         <div className="solver-container">
-            <h2>Gorod Valves Solver</h2>
-            <label htmlFor="greenValve">
-                <span style={{ color: 'lawngreen' }}>Select Green Light Valve:</span>
-            </label>
-            <select id="greenValve" className="solver-symbol-select" value={greenValve} onChange={handle_green_valve_change}>
-                <option value="department_store">Department Store</option>
-                <option value="supply_depot">Supply Depot</option>
-                <option value="armory">Armory</option>
-                <option value="infirmary">Infirmary</option>
-                <option value="tank_factory">Tank Factory</option>
-                <option value="dragon_command">Dragon Command</option>
-            </select>
-            <br />
-            <label htmlFor="pinkValve">
-                <span style={{ color: 'deeppink' }}>Select Pink Cylinder Valve:</span>
-            </label>
-            <select id="pinkValve" className="solver-symbol-select" value={pinkValve} onChange={handle_pink_valve_change}>
-                <option value="department_store">Department Store</option>
-                <option value="supply_depot">Supply Depot</option>
-                <option value="armory">Armory</option>
-                <option value="infirmary">Infirmary</option>
-                <option value="tank_factory">Tank Factory</option>
-                <option value="dragon_command">Dragon Command</option>
-            </select>
+            <p className="solver-instructions">Select the location of the Green Light Valve and the Pink Cylinder Valve from the dropdowns. The solver will automatically display which valves to adjust and their target settings.</p>
+            <div className="form-row">
+                <label htmlFor="greenValve">
+                    <span className="text-green">Select Green Light Valve:</span>
+                </label>
+                <select id="greenValve" value={greenValve} onChange={handle_green_valve_change}>
+                    <option value="department_store">Department Store</option>
+                    <option value="supply_depot">Supply Depot</option>
+                    <option value="armory">Armory</option>
+                    <option value="infirmary">Infirmary</option>
+                    <option value="tank_factory">Tank Factory</option>
+                    <option value="dragon_command">Dragon Command</option>
+                </select>
+            </div>
+
+            <div className="form-row">
+                <label htmlFor="pinkValve">
+                    <span className="text-pink">Select Pink Cylinder Valve:</span>
+                </label>
+                <select id="pinkValve" value={pinkValve} onChange={handle_pink_valve_change}>
+                    <option value="department_store">Department Store</option>
+                    <option value="supply_depot">Supply Depot</option>
+                    <option value="armory">Armory</option>
+                    <option value="infirmary">Infirmary</option>
+                    <option value="tank_factory">Tank Factory</option>
+                    <option value="dragon_command">Dragon Command</option>
+                </select>
+            </div>
             <div>
                 <p className="solver-output" id="result">
                     {result.split('\n').map((line, i) => (
