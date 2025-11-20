@@ -3,9 +3,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Browser Tab Title (don't include "guide", just map name) -->
         <title>The Beast From Beyond Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1761918550865">
-        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1761918550865">
-        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1761918550865">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1763614602844">
+        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1763614602844">
+        <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v=1763614602844">
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
         <base target="_blank">
 
@@ -30,7 +30,7 @@
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1761918550865">
+        <div class="version-display" data-version="1763614602844">
             v.
             <span id="version-number">0</span>
         </div>
@@ -404,7 +404,7 @@
                             <li>
                                 I recommend following along with the "
                                 <span class="key_input">KEY</span>
-                                - Message Start" below while the Morse Code is playing, to help you follow the code, then "lock-in" to listen for the number below. As you're listening, enter the morse into the solver below, it should auto translate the number.
+                                - Message Start" below while the Morse Code is playing, to help you follow the code, then "lock-in" to listen for the number below. As you're listening, enter the morse into the solver below (TEMPORARILY UNAVAILABLE), it should auto translate the number.
                             </li>
                             <li>Numbers in Morse code:</li>
                             <ul>
@@ -485,7 +485,7 @@
                             </ul>
                         </ul>
 
-                        <div class="solver-with-button" data-bool-quick-link="false">
+                        <div class="solver-with-button" style="display: none" data-bool-quick-link="false">
                             <button type="button" class="btn-base in-line-button">Click to show the Morse Code Solver</button>
                             <div id="beast-morse-code-solver-react" style="display: none"></div>
                         </div>
@@ -1237,7 +1237,7 @@
         </div>
 
         <!-- Load React bundle -->
-        <script type="module" src="/react-solvers/dist/assets/index-nUqveg8J.js?v=1761918550865"></script>
+        <script type="module" src="/react-solvers/dist/assets/index-Cj0WgEmQ.js?v=1763614602844"></script>
 
         <script>
             window.addEventListener('load', () => {
@@ -1253,31 +1253,31 @@
         </script>
 
         <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1761918550865" defer=""></script>
+        <script src="/js/core/page-utils.js?v=1763614602844" defer=""></script>
 
         <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1761918550865" defer=""></script>
-        <script src="/js/navigation/nav-utils.js?v=1761918550865" defer=""></script>
+        <script src="/js/navigation/scroll-manager.js?v=1763614602844" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1763614602844" defer=""></script>
 
         <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1761918550865" defer=""></script>
-        <script src="/js/ui/lightbox.js?v=1761918550865" defer=""></script>
+        <script src="/js/ui/tutorial-system.js?v=1763614602844" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1763614602844" defer=""></script>
 
         <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1761918550865" defer=""></script>
-        <script src="/js/content/quick-links.js?v=1761918550865" defer=""></script>
+        <script src="/js/content/link-processor.js?v=1763614602844" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1763614602844" defer=""></script>
 
         <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1761918550865" defer=""></script>
+        <script src="/js/device/mobile-detection.js?v=1763614602844" defer=""></script>
 
         <!-- Features -->
-        <script src="/js/features/substeps.js?v=1761918550865" defer=""></script>
+        <script src="/js/features/substeps.js?v=1763614602844" defer=""></script>
 
         <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1761918550865" defer=""></script>
+        <script src="/js/quick-links-utils.js?v=1763614602844" defer=""></script>
 
         <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1761918550865" defer=""></script>
+        <script src="/js/scripts.js?v=1763614602844" defer=""></script>
 
         <!-- Map Specific -->
         <script>
@@ -1313,12 +1313,6 @@
                 venom_y_key_selector.value = 'default';
                 toggleKeyText('default', undefined);
             });
-        </script>
-        <script>
-            // Mount Beast Morse Code Solver
-            if (window.ZombiesSolvers && window.ZombiesSolvers.mountBeastMorseCodeSolver) {
-                window.ZombiesSolvers.mountBeastMorseCodeSolver('beast-morse-code-solver-react');
-            }
         </script>
 
 

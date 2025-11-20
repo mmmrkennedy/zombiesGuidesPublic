@@ -47,7 +47,6 @@ interface ZombiesSolvers {
     mountBeastFloppyDiskSolver: MountFunction;
     mountBeastVenomXMazeSolver: MountFunction;
     mountBeastVenomXBoxSolver: MountFunction;
-    mountBeastMorseCodeSolver: MountFunction;
 }
 
 declare global {
