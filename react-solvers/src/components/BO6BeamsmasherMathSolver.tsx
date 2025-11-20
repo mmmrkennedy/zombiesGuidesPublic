@@ -110,34 +110,40 @@ export default function BO6BeamsmasherMathSolver() {
         <div className="solver-container beamsmasher">
             <p className="solver-instructions">Click the symbol images that match the sticky notes on the in-game computer (one for X, one for Y, one for Z). The solver will automatically calculate and display the three-part code.</p>
 
-            <div className="solver-symbol-select" id="xSymbols">
+            <div className="solver-symbol-select form-row" id="xSymbols">
                 <p>X Symbol:</p>
-                <img className={selectedX === 0 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="X0" onClick={() => selectSymbol(selectedSymbols, 'X', 0)} />
-                <img className={selectedX === 10 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="X10" onClick={() => selectSymbol(selectedSymbols, 'X', 10)} />
-                <img className={selectedX === 11 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="X11" onClick={() => selectSymbol(selectedSymbols, 'X', 11)} />
-                <img className={selectedX === 20 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="X20" onClick={() => selectSymbol(selectedSymbols, 'X', 20)} />
-                <img className={selectedX === 21 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="X21" onClick={() => selectSymbol(selectedSymbols, 'X', 21)} />
-                <img className={selectedX === 22 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="X22" onClick={() => selectSymbol(selectedSymbols, 'X', 22)} />
+                <div className={'beamsmasher-img-row'}>
+                    <img className={selectedX === 0 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="X0" onClick={() => selectSymbol(selectedSymbols, 'X', 0)} />
+                    <img className={selectedX === 10 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="X10" onClick={() => selectSymbol(selectedSymbols, 'X', 10)} />
+                    <img className={selectedX === 11 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="X11" onClick={() => selectSymbol(selectedSymbols, 'X', 11)} />
+                    <img className={selectedX === 20 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="X20" onClick={() => selectSymbol(selectedSymbols, 'X', 20)} />
+                    <img className={selectedX === 21 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="X21" onClick={() => selectSymbol(selectedSymbols, 'X', 21)} />
+                    <img className={selectedX === 22 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="X22" onClick={() => selectSymbol(selectedSymbols, 'X', 22)} />
+                </div>
             </div>
 
-            <div className="solver-symbol-select" id="ySymbols">
+            <div className="solver-symbol-select form-row" id="ySymbols">
                 <p>Y Symbol:</p>
-                <img className={selectedY === 0 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Y0" onClick={() => selectSymbol(selectedSymbols, 'Y', 0)} />
-                <img className={selectedY === 10 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Y10" onClick={() => selectSymbol(selectedSymbols, 'Y', 10)} />
-                <img className={selectedY === 11 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Y11" onClick={() => selectSymbol(selectedSymbols, 'Y', 11)} />
-                <img className={selectedY === 20 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Y20" onClick={() => selectSymbol(selectedSymbols, 'Y', 20)} />
-                <img className={selectedY === 21 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Y21" onClick={() => selectSymbol(selectedSymbols, 'Y', 21)} />
-                <img className={selectedY === 22 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Y22" onClick={() => selectSymbol(selectedSymbols, 'Y', 22)} />
+                <div className={'beamsmasher-img-row'}>
+                    <img className={selectedY === 0 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Y0" onClick={() => selectSymbol(selectedSymbols, 'Y', 0)} />
+                    <img className={selectedY === 10 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Y10" onClick={() => selectSymbol(selectedSymbols, 'Y', 10)} />
+                    <img className={selectedY === 11 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Y11" onClick={() => selectSymbol(selectedSymbols, 'Y', 11)} />
+                    <img className={selectedY === 20 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Y20" onClick={() => selectSymbol(selectedSymbols, 'Y', 20)} />
+                    <img className={selectedY === 21 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Y21" onClick={() => selectSymbol(selectedSymbols, 'Y', 21)} />
+                    <img className={selectedY === 22 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Y22" onClick={() => selectSymbol(selectedSymbols, 'Y', 22)} />
+                </div>
             </div>
 
-            <div className="solver-symbol-select" id="zSymbols">
+            <div className="solver-symbol-select form-row" id="zSymbols">
                 <p>Z Symbol:</p>
-                <img className={selectedZ === 0 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Z0" onClick={() => selectSymbol(selectedSymbols, 'Z', 0)} />
-                <img className={selectedZ === 10 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Z10" onClick={() => selectSymbol(selectedSymbols, 'Z', 10)} />
-                <img className={selectedZ === 11 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Z11" onClick={() => selectSymbol(selectedSymbols, 'Z', 11)} />
-                <img className={selectedZ === 20 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Z20" onClick={() => selectSymbol(selectedSymbols, 'Z', 20)} />
-                <img className={selectedZ === 21 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Z21" onClick={() => selectSymbol(selectedSymbols, 'Z', 21)} />
-                <img className={selectedZ === 22 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Z22" onClick={() => selectSymbol(selectedSymbols, 'Z', 22)} />
+                <div className={'beamsmasher-img-row'}>
+                    <img className={selectedZ === 0 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Z0" onClick={() => selectSymbol(selectedSymbols, 'Z', 0)} />
+                    <img className={selectedZ === 10 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Z10" onClick={() => selectSymbol(selectedSymbols, 'Z', 10)} />
+                    <img className={selectedZ === 11 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Z11" onClick={() => selectSymbol(selectedSymbols, 'Z', 11)} />
+                    <img className={selectedZ === 20 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Z20" onClick={() => selectSymbol(selectedSymbols, 'Z', 20)} />
+                    <img className={selectedZ === 21 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Z21" onClick={() => selectSymbol(selectedSymbols, 'Z', 21)} />
+                    <img className={selectedZ === 22 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Z22" onClick={() => selectSymbol(selectedSymbols, 'Z', 22)} />
+                </div>
             </div>
 
             <div className="solver-output" id="codeOutput">

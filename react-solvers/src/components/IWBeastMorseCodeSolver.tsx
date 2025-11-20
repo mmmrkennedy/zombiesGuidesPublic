@@ -282,7 +282,7 @@ export default function IWBeastMorseCodeSolver() {
         }
 
         // Check if a valid key has been selected
-        if (key === 'DEFAULT' || key === '') {
+        if (key === 'DEFAULT') {
             setError('Please select a key (ARCHER or CROSS) from the dropdown.');
             setResult(null);
             return;
@@ -327,13 +327,10 @@ export default function IWBeastMorseCodeSolver() {
         <div className="solver-container">
             <form onSubmit={e => e.preventDefault()}>
                 <fieldset>
-                    <legend>Beast Venom-Y/Z Morse Code Solver</legend>
-                    <p className="solver-instructions">
-                        Enter Morse Code using "-" for Long Beep and "." for Short Beep, including spaces. Input from either console will be accurately translated. Continue entering code until the solver extracts the number. To decrypt a number without Cross' or Archer's starting code, manually enter the Key (the starting code determines the key automatically).
-                    </p>
+                    <p className="solver-instructions">Enter Morse Code using "-" for Long Beep and "." for Short Beep, including spaces. Input from either console will be accurately translated. Continue entering code until the solver extracts the number. To decrypt a number without Cross' or Archer's starting code, manually enter the Key (the starting code determines the key automatically).</p>
 
                     <details style={{ marginBottom: '12px' }}>
-                        <summary style={{ cursor: 'pointer', fontWeight: 'bold', marginBottom: '8px' }}>📖 Morse Code Reference</summary>
+                        <summary style={{ cursor: 'pointer', fontWeight: 'bold', marginBottom: '8px' }}>Morse Code Reference</summary>
                         <div
                             style={{
                                 display: 'grid',
@@ -436,22 +433,13 @@ export default function IWBeastMorseCodeSolver() {
                                 <strong>Deciphered Morse Code:</strong> {result.isKeyMessage ? 'N/A (Key message was entered)' : result.decryptedText}
                             </p>
                             <p>
-                                <strong>Extracted Number:</strong>{' '}
-                                {result.isKeyMessage ? (
-                                    'N/A (Key message was entered)'
-                                ) : result.isPartial ? (
-                                    <span style={{ color: 'orange', fontWeight: 'bold' }}>⚠ TWENTY or TWENTYFIVE — Continue entering morse code to determine which one.</span>
-                                ) : result.killNumber ? (
-                                    <span style={{ color: 'green', fontWeight: 'bold' }}>{result.killNumber}</span>
-                                ) : (
-                                    'N/A (Number not detected)'
-                                )}
+                                <strong>Extracted Number:</strong> {result.isKeyMessage ? 'N/A (Key message was entered)' : result.isPartial ? <span style={{ color: 'orange', fontWeight: 'bold' }}>⚠ TWENTY or TWENTYFIVE — Continue entering morse code to determine which one.</span> : result.killNumber ? <span style={{ color: 'green', fontWeight: 'bold' }}>{result.killNumber}</span> : 'N/A (Number not detected)'}
                             </p>
                         </div>
 
                         {!result.isKeyMessage && !result.isPartial && result.morseOutputCode && (
                             <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '2px solid rgba(255,255,255,0.2)' }}>
-                                <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>🎮 Morse Code to Input on Panel:</p>
+                                <p style={{ fontWeight: 'bold', fontSize: '1.1em' }}>Morse Code to Input on Panel:</p>
                                 <div
                                     style={{
                                         fontFamily: 'monospace',
@@ -465,7 +453,7 @@ export default function IWBeastMorseCodeSolver() {
                                     {result.morseOutputCode}
                                 </div>
                                 <button type="button" className="btn-base" onClick={copyToClipboard} style={{ marginTop: '8px' }}>
-                                    📋 Copy Morse Code
+                                    Copy Morse Code
                                 </button>
                             </div>
                         )}
@@ -473,7 +461,7 @@ export default function IWBeastMorseCodeSolver() {
                         {result.isPartial && (
                             <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '2px solid rgba(255,255,255,0.2)' }}>
                                 <p>
-                                    <strong>🎮 Morse Code to Input on Panel:</strong> N/A (Enter more morse code)
+                                    <strong>Morse Code to Input on Panel:</strong> N/A (Enter more morse code)
                                 </p>
                             </div>
                         )}
