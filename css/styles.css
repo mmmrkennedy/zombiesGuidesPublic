@@ -202,7 +202,7 @@ CONTENT STYLES
 .content-container-top,
 .content-container {
     text-align: left;
-    padding: 8px 15px 10px;
+    padding: 5px 15px;
     position: relative;
     inline-size: auto;
     overflow-wrap: break-word;
@@ -440,9 +440,9 @@ table caption {
 }
 
 .toggle-button.top-left {
-    position: static; /* let flexbox handle placement */
-    order: 1; /* left side */
-    margin-left: 12px; /* spacing from edge */
+    position: static;
+    order: 1;
+    margin-left: 12px;
 }
 
 /* 
@@ -483,7 +483,7 @@ LIGHTBOX STYLES
 .close-lightbox {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 10px;
     font-size: 30px;
     color: black;
     background-color: var(--secondary-accent-green);
@@ -724,6 +724,10 @@ MOBILE SPECIFIC STYLES
         align-items: center;
         justify-content: center;
         opacity: 0.5;
+    }
+
+    .toggle-button.top-left {
+        height: 40px;
     }
 
     .hamburger-menu-header {

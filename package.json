@@ -5,9 +5,10 @@
     "type": "module",
     "scripts": {
         "build": "npm run build:react && npm run build:html",
-        "build:html": "npm run build:titles && npm run build:links && npm run build:nav && npm run version:setup && npm run version:update && npm run generate:sitemap",
+        "build:html": "npm run build:heads && npm run build:titles && npm run build:links && npm run build:nav && npm run version:setup && npm run version:update && npm run generate:sitemap",
         "build:verbose": "npm run build:titles -- --verbose && npm run build:links -- --verbose && npm run build:nav -- --verbose && npm run version:update",
         "build:dry-run": "npm run build:titles -- --dry-run && npm run build:links -- --dry-run && npm run build:nav -- --dry-run",
+        "build:heads": "node build_scripts/inject-head.cjs",
         "build:titles": "node build_scripts/generate-titles.cjs",
         "build:links": "node build_scripts/classify-links.cjs",
         "build:nav": "node build_scripts/nav-builder.cjs --index ./index.html",
@@ -59,6 +60,6 @@
         "stylelint": "^16.25.0",
         "stylelint-config-standard": "^39.0.1",
         "typescript": "^5.9.3",
-        "vite": "^7.1.10"
+        "vite": "^7.1.11"
     }
 }

@@ -1,31 +1,19 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Browser Tab Title (don't include "guide", just map name) -->
-        <title>Kino Der Toten Guide</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1763614602844" />
-        <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1763614602844" />
-        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
-        <base target="_blank" />
-        <script>
-            // Check if we're on localhost or a local environment
-            const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
-
-            // Only redirect if we're not in a local environment
-            if (!isLocalEnvironment) {
-                window.location.href = '/unfinished.html';
-                setInterval(() => {
-                    window.location.href = '/unfinished.html';
-                }, 1000); // Redirect every second
-            }
-        </script>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1763952347560">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1763952347560">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css?v=1763952347560">
+    <base target="_blank">
+    <title>Kino Der Toten Guide</title>
+</head>
 
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1763614602844">
+        <div class="version-display" data-version="1763952347560">
             v.
             <span id="version-number">0</span>
         </div>
@@ -36,8 +24,12 @@
 
             <!-- Mobile devices content -->
             <div id="mobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left"><circle cx="12" cy="12" r="10"/><path d="m12 8-4 4 4 4"/><path d="M16 12H8"/></svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line"><path d="M5 3h14"/><path d="m18 13-6-6-6 6"/><path d="M12 7v14"/></svg>
+                </button>
             </div>
 
             <!-- Non-mobile devices content -->
@@ -91,6 +83,6 @@
             </div>
         </div>
 
-        <script src="/js/scripts.js?v=1763614602844" defer></script>
+        <script src="/js/scripts.js?v=1763952347560" defer></script>
     </body>
 </html>
