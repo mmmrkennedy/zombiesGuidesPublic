@@ -467,15 +467,15 @@ LIGHTBOX STYLES
 
 /* Lightbox content */
 .lightbox-content {
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .lightbox-content img,
 .lightbox-content video {
     max-width: 100%;
-    max-height: 88vh;
+    max-height: 93vh;
     display: block;
-    border: 3px solid white;
+    border: 1px solid white;
     box-shadow: 0 0 20px rgb(0 0 0 / 50%);
 }
 
@@ -736,5 +736,9 @@ MOBILE SPECIFIC STYLES
 
     .content-window {
         padding-bottom: var(--mobile-header-height);
+    }
+
+    .lightbox-caption {
+        left: unset;
     }
 }

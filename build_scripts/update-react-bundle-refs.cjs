@@ -80,16 +80,12 @@ allHtmlFiles.forEach(htmlFilePath => {
     if (updatedHtml !== html) {
         fs.writeFileSync(htmlFilePath, updatedHtml, 'utf8');
         // Display path relative to project root
-        const relativePath = htmlFilePath.includes('games')
-            ? `games/${path.relative(gamesDir, htmlFilePath)}`
-            : path.relative(path.join(__dirname, '..'), htmlFilePath);
+        const relativePath = htmlFilePath.includes('games') ? `games/${path.relative(gamesDir, htmlFilePath)}` : path.relative(path.join(__dirname, '..'), htmlFilePath);
         console.log(`✓ Updated: ${relativePath}`);
         updatedCount++;
     } else {
         // Display path relative to project root
-        const relativePath = htmlFilePath.includes('games')
-            ? `games/${path.relative(gamesDir, htmlFilePath)}`
-            : path.relative(path.join(__dirname, '..'), htmlFilePath);
+        const relativePath = htmlFilePath.includes('games') ? `games/${path.relative(gamesDir, htmlFilePath)}` : path.relative(path.join(__dirname, '..'), htmlFilePath);
         console.log(`- Skipped: ${relativePath} (already up to date)`);
         skippedCount++;
     }

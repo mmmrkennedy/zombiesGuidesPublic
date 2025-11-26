@@ -71,6 +71,14 @@ LAZY LOAD IMAGES
  */
 document.addEventListener('DOMContentLoaded', function () {
     try {
+        // Disable preloading on mobile devices to save bandwidth
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            console.log('Preloading disabled on mobile devices');
+            return;
+        }
+
         // Cache for loaded images
         const imageCache = new Map();
 
@@ -88,21 +96,49 @@ document.addEventListener('DOMContentLoaded', function () {
             threshold: 0.01, // trigger when at least 1% of the element is visible
         };
 
+        // Helper function to determine which image size to load based on viewport AND pixel ratio
+        function getAppropriateImageUrl(href, srcset) {
+            if (!srcset) return href;
+
+            const viewportWidth = window.innerWidth;
+            const dpr = window.devicePixelRatio || 1;
+            const effectiveWidth = viewportWidth * dpr;
+
+            // Parse srcset to get available sizes
+            const sources = srcset
+                .split(',')
+                .map(s => {
+                    const parts = s.trim().split(' ');
+                    return { url: parts[0], width: parseInt(parts[1]) };
+                })
+                .sort((a, b) => a.width - b.width); // Sort by width
+
+            // Find the smallest image that's >= effective width
+            const selected = sources.find(s => s.width >= effectiveWidth);
+
+            // If no image is large enough, use the largest available
+            return selected ? selected.url : sources[sources.length - 1].url;
+        }
+
         // Callback for the IntersectionObserver
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const aTag = entry.target;
                     const imgUrl = aTag.getAttribute('href');
+                    const srcset = aTag.getAttribute('data-srcset');
 
                     if (!imgUrl) {
                         console.warn('Image link missing href attribute:', aTag);
                         return;
                     }
 
+                    // Get the appropriate image URL for current viewport
+                    const imageToLoad = getAppropriateImageUrl(imgUrl, srcset);
+
                     // If image isn't in cache, load it
-                    if (!imageCache.has(imgUrl)) {
-                        loadImage(imgUrl, imageCache);
+                    if (!imageCache.has(imageToLoad)) {
+                        loadImage(imageToLoad, imageCache);
                     }
 
                     // Unobserve since we've loaded it and it's now cached
@@ -129,11 +165,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Fallback function for browsers without IntersectionObserver
         function loadAllImagesImmediately() {
-            const imageLinks = document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".webp"]');
+            const imageLinks = document.querySelectorAll('a.glightbox');
             imageLinks.forEach(aTag => {
                 const imgUrl = aTag.getAttribute('href');
-                if (imgUrl) {
-                    loadImage(imgUrl, imageCache);
+                const srcset = aTag.getAttribute('data-srcset');
+                const imageToLoad = getAppropriateImageUrl(imgUrl, srcset);
+                if (imageToLoad) {
+                    loadImage(imageToLoad, imageCache);
                 }
             });
         }
@@ -141,8 +179,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create the observer
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // Observe all a tags with href pointing to an image
-        const imageLinks = document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".webp"]');
+        // Observe all glightbox links
+        const imageLinks = document.querySelectorAll('a.glightbox');
 
         if (imageLinks.length === 0) {
             console.log('No image links found to observe');
@@ -355,7 +393,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Initialize core utilities with error handling
         const initializationSteps = [
             { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
-            { name: 'Feature Utils', fn: () => window.FeatureUtils?.initSubsteps() },
             {
                 name: 'Scroll Manager Clear',
                 fn: () => window.ScrollManager?.clearHashAndScrollTop(),

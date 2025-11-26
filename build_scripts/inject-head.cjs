@@ -8,7 +8,6 @@ const headTemplate = `
     <link rel="stylesheet" type="text/css" href="/css/styles.css?v=0">
     <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=0">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <base target="_blank">
 `;
 
@@ -36,14 +35,11 @@ const changedFiles = [];
 files.forEach(file => {
     let content = fs.readFileSync(file, 'utf8');
 
-    const newContent = content.replace(
-        /<head>([\s\S]*?)<\/head>/i,
-        (match, innerContent) => {
-            const titleMatch = innerContent.match(/<title>.*?<\/title>/i);
-            const title = titleMatch ? titleMatch[0] : '<title>Guide</title>';
-            return `<head>${headTemplate}    ${title}\n</head>`;
-        }
-    );
+    const newContent = content.replace(/<head>([\s\S]*?)<\/head>/i, (match, innerContent) => {
+        const titleMatch = innerContent.match(/<title>.*?<\/title>/i);
+        const title = titleMatch ? titleMatch[0] : '<title>Guide</title>';
+        return `<head>${headTemplate}    ${title}\n</head>`;
+    });
 
     if (newContent !== content) {
         fs.writeFileSync(file, newContent);

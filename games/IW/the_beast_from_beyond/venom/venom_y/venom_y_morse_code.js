@@ -183,11 +183,11 @@ function extract_number(decrypted_text) {
 
 // Mapping from number words to their morse code input sequences
 const numberToMorseInput = {
-    'FIFTEEN': '..-. .. ..-. - . . -. .- .-.',
-    'EIGHTEEN': '. .. --. .... - . . -.',
-    'TWENTY': '- .-- . -. - -.--',
-    'TWENTYFIVE': '- .-- . -. - -.--   (then if no sound)   ..-. .. ...- .',
-    'THIRTY': '- .... .. .-. - -.--'
+    FIFTEEN: '..-. .. ..-. - . . -. .- .-.',
+    EIGHTEEN: '. .. --. .... - . . -.',
+    TWENTY: '- .-- . -. - -.--',
+    TWENTYFIVE: '- .-- . -. - -.--   (then if no sound)   ..-. .. ...- .',
+    THIRTY: '- .... .. .-. - -.--',
 };
 
 function getNumberMorseOutput(numberWord) {
@@ -197,15 +197,18 @@ function getNumberMorseOutput(numberWord) {
 function copyToClipboard() {
     const morseCode = morseOutputSpan.innerText;
     if (morseCode && morseCode !== 'N/A (Enter more morse code)' && morseCode !== 'N/A (Invalid message)') {
-        navigator.clipboard.writeText(morseCode).then(() => {
-            const originalText = copyButton.innerText;
-            copyButton.innerText = 'Copied!';
-            setTimeout(() => {
-                copyButton.innerText = originalText;
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
-        });
+        navigator.clipboard
+            .writeText(morseCode)
+            .then(() => {
+                const originalText = copyButton.innerText;
+                copyButton.innerText = 'Copied!';
+                setTimeout(() => {
+                    copyButton.innerText = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
     }
 }
 
