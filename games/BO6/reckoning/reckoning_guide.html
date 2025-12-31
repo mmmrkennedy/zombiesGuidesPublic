@@ -3,16 +3,29 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1764198720270">
-    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1764198720270">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767142545005">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767142545005">
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
     <base target="_blank">
     <title>Reckoning Guide</title>
 </head>
 
+    <script>
+        // Check if we're on localhost or a local environment
+        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
+
+        // Only redirect if we're not in a local environment
+        if (!isLocalEnvironment) {
+            window.location.href = '/unfinished.html';
+            setInterval(() => {
+                window.location.href = '/unfinished.html';
+            }, 1000); // Redirect every second
+        }
+    </script>
+
     <body>
         <!-- Version display component -->
-        <div class="version-display" data-version="1764198720270">
+        <div class="version-display" data-version="1767142545005">
             v.
             <span id="version-number">0</span>
         </div>
@@ -69,6 +82,6 @@
             </div>
         </div>
 
-        <script src="/zombiesGuidesPublic/js/scripts.js?v=1764198720270" defer></script>
+        <script src="/zombiesGuidesPublic/js/scripts.js?v=1767142545005" defer></script>
     </body>
 </html>
