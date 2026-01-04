@@ -1,0 +1,1355 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>The Final Reich Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">The Final Reich Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M16 12H8"></path>
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14"></path>
+                        <path d="m18 13-6-6-6 6"></path>
+                        <path d="M12 7v14"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#power">Power / Unlock the Salt Mine</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#tesla_gun">Tesla Gun</a></li><ul><li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li><li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li><li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li><li><a href="#midnight">Midnight (Green Tesla Gun)</a></li></ul><li><a href="#red_talon_sword">Red Talon Sword</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li><ul><li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li><li><a href="#main_ee_casual_step5">THE HILT</a></li><li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li></ul><li><a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a></li><ul><li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li><li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li><li><a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a></li><li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li><li><a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a></li><li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li><li><a href="#main_ee_hardcore_step8">THE HILT</a></li><li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li><li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li></ul><li><a href="#the_classic">The Classic (Special PPSh-41)</a></li><li><a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li><li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li><li><a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a></li><li><a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a></li><li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li><li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#power">Power / Unlock the Salt Mine</a></li>
+                    <li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li>
+                </ul>
+                <h2>Weapons and Buildables</h2>
+                <ul>
+                    <li><a href="#tesla_gun">Tesla Gun</a></li>
+                    <ul>
+                        <li><a href="#bloodthirst">Bloodthirst (Red Tesla Gun)</a></li>
+                        <li><a href="#reaper">Reaper (Orange Tesla Gun)</a></li>
+                        <li><a href="#hurricane">Hurricane (Purple Tesla Gun)</a></li>
+                        <li><a href="#midnight">Midnight (Green Tesla Gun)</a></li>
+                    </ul>
+                    <li><a href="#red_talon_sword">Red Talon Sword</a></li>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#main_ee_casual">'Fireworks' Main Quest (Casual Path)</a></li>
+                    <ul>
+                        <li><a href="#main_ee_casual_step1">THE WEAPON FORGE</a></li>
+                        <li><a href="#main_ee_casual_step2">THE RIGHT HAND OF GOD</a></li>
+                        <li>
+                            <a href="#main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</a>
+                        </li>
+                        <li><a href="#main_ee_casual_step4">THE VOICE OF GOD</a></li>
+                        <li><a href="#main_ee_casual_step5">THE HILT</a></li>
+                        <li><a href="#main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</a></li>
+                    </ul>
+                    <li>
+                        <a href="#main_ee_hardcore">'Dark Reunion' Main Quest (Hardcore Path)</a>
+                    </li>
+                    <ul>
+                        <li><a href="#main_ee_hardcore_step1">THE WEAPON FORGE</a></li>
+                        <li><a href="#main_ee_hardcore_step2">THE RIGHT HAND OF GOD</a></li>
+                        <li><a href="#main_ee_hardcore_step3">Tesla Gun Upgrades</a></li>
+                        <li>
+                            <a href="#main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</a>
+                        </li>
+                        <li><a href="#main_ee_hardcore_step5">THE VOICE OF GOD</a></li>
+                        <li>
+                            <a href="#main_ee_hardcore_step6">Record Player / Second Set of Voices</a>
+                        </li>
+                        <li><a href="#main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</a></li>
+                        <li><a href="#main_ee_hardcore_step8">THE HILT</a></li>
+                        <li><a href="#main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</a></li>
+                        <li><a href="#main_ee_hardcore_step10">Escort Klaus</a></li>
+                    </ul>
+                    <li><a href="#the_classic">The Classic (Special PPSh-41)</a></li>
+                    <li>
+                        <a href="#dr_straub">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</a>
+                    </li>
+                </ul>
+                <h2>Unlockable Characters</h2>
+                <ul>
+                    <li><a href="#characters">Unlockable Characters</a></li>
+                    <ul>
+                        <li><a href="#Hunter (On the Hunt)">Hunter (On the Hunt)</a></li>
+                        <li><a href="#Mountaineer (Roughing it)">Mountaineer (Roughing it)</a></li>
+                        <li>
+                            <a href="#Survivalist (Survival Guide)">Survivalist (Survival Guide)</a>
+                        </li>
+                        <li>
+                            <a href="#B.A.T. Agent (On Assignment)">B.A.T. Agent (On Assignment)</a>
+                        </li>
+                        <li><a href="#B.A.T. Elite (Off Record)">B.A.T. Elite (Off Record)</a></li>
+                        <li><a href="#Slayer (Big Game)">Slayer (Big Game)</a></li>
+                        <li>
+                            <a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a>
+                        </li>
+                        <li><a href="#Rookbane">Rookbane</a></li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- Power -->
+            <div class="content-container" data-section-ind="Map Progression" id="power">
+                <h2 class="section-title">Power / Unlock the Salt Mine</h2>
+                <ol>
+                    <li>
+                        Three valves need to be activated in and around the 'Village Square.' The Valves need to be interacted with till the dial lights up green and reaches 60. Releasing interact before a valve is finished will cause it to quickly drop back down to 0. The locations can be easily found by following the
+                        <a href="pictures/power/valve_generator.webp">tubes coming from the "generator"</a>
+                        left of the Armour station in the 'Village Square.' This will also indicate which valves have been activated. Valve locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/power/valve_armour.webp">Village Square - Behind the Armour station</a>
+                        </li>
+                        <li>
+                            <a href="pictures/power/valve_bunker.webp">Village Square - Left of the Bunker entrance</a>
+                        </li>
+                        <li>
+                            <a href="pictures/power/valve_riverside.webp">Riverside - Near the entrance to the 'Pub'</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once the three valves are activated, interact with the
+                        <a href="pictures/power/pilot_light.webp">Pilot Light in the middle of the 'Village Square.'</a>
+                        This will cause the fire to come shooting out of the hole, along with some Pest Zombies.
+                    </li>
+                    <li>
+                        Drop into the hole and make your way up the slope, where you will see
+                        <a href="pictures/power/power.webp">a generator</a>. Interact with it to activate Power.
+                    </li>
+                    <li>
+                        Open the
+                        <a href="pictures/power/bunker_door.webp">door to the Bunker</a>, then the doors to the 'Morgue' and 'Laboratory.'
+                    </li>
+                    <li>In the 'Morgue' and 'Laboratory,' there are power switches. You must interact with both power switches within about 1 minute of each other.</li>
+                    <ul>
+                        <li>If you take too long, the switch(s) will need to be activated again.</li>
+                        <li>Switch locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/power/switch_lab.webp">Laboratory - On the upper level at the back of the Lab</a>
+                            </li>
+                            <li>
+                                <a href="pictures/power/switch_morgue.webp">Morgue - On the right side of the Morgue, near the STG-44 wallbuy</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Once both switches are activated, the
+                        <a href="pictures/power/salt_mine_door.webp">door to the Salt Mine</a>
+                        can be opened.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- PaP -->
+            <div class="content-container" id="pap">
+                <h2 class="section-title">Pack-a-Punch (Ubersprengen)</h2>
+                <ol>
+                    <li>
+                        Interact with the
+                        <a href="pictures/pap/red_button.webp">red button in the 'Sewers'</a>
+                        near the MP-40 wallbuy.
+                    </li>
+                    <li>
+                        Once the button is pressed, three Sewer Pipe fast travels around the map will activate. You must use each pipe. After using a pipe, you will be dropped into a previously closed off, side room of the 'Sewers.' Interact with the
+                        <a href="pictures/pap/red_button_side_room.webp">red button in the side room</a>
+                        to partially raise the cage around the Pack-a-Punch. Sewer pipe locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/pap/pipe_tower.webp">Tower - In the back left corner, left of the Waffe 28 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/pap/pipe_command.webp">Command Room - Near the Grease Gun wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/pap/pipe_lab.webp">Laboratory - Near the Electric Trap</a>
+                        </li>
+                    </ul>
+                    <li>Once all three buttons are interacted with, the cage will rise, and Pack-a-Punch will be ready to use. Any non-special weapon can be upgraded for 5000 Jolts, and ammo can be purchased for any upgraded weapon for 4000 Jolts.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" data-section-ind="Weapons and Buildables" id="tesla_gun">
+                <h2 class="section-title">Tesla Gun</h2>
+                <p class="weapon-desc">The Tesla Gun is a Wonder Weapon that fires electricity that chain between enemies, stunning, then killing multiple zombies simultaneously.</p>
+
+                <ol>
+                    <li> <a href="#power" class="link-to-page">Unlock the Salt Mine</a>. </li>
+                    <li>
+                        Interact with the
+                        <a href="pictures/tesla_gun/crank.webp">crank in the 'Command Room'</a>
+                        until it stops.
+                    </li>
+                    <li>
+                        Head to the "Emperor's Chamber" at the bottom of the Salt Mine and interact with the
+                        <a href="pictures/tesla_gun/hilt.webp">Hilt in the machine</a>
+                        in front of Barbarossa's statue. Kill Zombies in the circle on the ground to charge the machine.
+                    </li>
+                    <li>Once you've gotten enough kills, the Geistkraft device will rise into a hole in the ceiling.</li>
+                    <li>
+                        Return to the 'Command Room' and interact with the
+                        <a href="pictures/tesla_gun/tesla_button.webp">button on the upper platform</a>. The Geistkraft device will begin to move into the 'Laboratory.' It will periodically stop at various locations. To get it moving again, kill zombies within the red circle on the floor to charge it with energy.
+                    </li>
+                    <li>
+                        Once the device reaches the
+                        <a href="pictures/tesla_gun/tesla_lab_generator.webp">electrical generator</a>
+                        near the Schnellblitz (Speed Cola) machine, it will enter the generator. After about 15-20 seconds, the generator will eject a
+                        <a href="pictures/tesla_gun/tesla_part_lab.webp">piece of the Tesla Gun</a>
+                        for you to pick up.
+                    </li>
+                    <li>
+                        The device will now move into the 'Morgue.' Follow it, and continue killing zombies inside the red circle on the ground to charge it. Once it reaches the Morgue generator, wait about 30 seconds, and a
+                        <a href="pictures/tesla_gun/tesla_part_morgue.webp">piece of the Tesla Gun</a>
+                        will appear inside the generator for you to pick up.
+                    </li>
+                    <li>When you return to the Command Room, a Brenner Zombie will spawn on the upper platform where you first activated the Geistkraft device.</li>
+                    <li>
+                        After defeating the Brenner, go back to the upper platform. In the center of that area, you'll be able to
+                        <a href="pictures/tesla_gun/tesla_build_loc.webp">place the Tesla Gun parts</a>. Once both parts are placed, wait for the machine to finish assembling the weapon. When it's done, you can pick up the Tesla Gun.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="bloodthirst">Bloodthirst (Red Tesla Gun)</p>
+                <p class="weapon-desc">The Bloodthirst variant of the Tesla Gun fires red electrical bolts that stun nearby zombies and cause them to explode after a few seconds, dealing area-of-effect damage to surrounding enemies.</p>
+                <ol>
+                    <li>
+                        In 'Riverside,' shoot a
+                        <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_1.webp">streetlamp</a>
+                        with the Tesla Gun near the M1928 wallbuy. The streetlamp will begin sparking.
+                    </li>
+                    <li>
+                        Shoot the sparking streetlamp with a regular bullet gun to make the spark move to another lamp. Quickly, continue shooting the spark as it moves from lamp to lamp. Follow it as it makes its way toward the 'Morgue.' When it reaches the final lamp, a
+                        <a href="pictures/tesla_gun/bloodthirst/battery.webp">battery will drop near the spike trap</a>.
+                    </li>
+                    <ul>
+                        <li>Taking too long to shoot a lamp will make it go out, and you will need to end the round to retry from the first lamp.</li>
+                        <li>
+                            <a href="https://youtu.be/tpKxTxZQWUc" class="external-link">Video Example (YouTube)</a>
+                            or Lamp location Images (you can use the arrow keys on your keyboard to quickly move between images):
+                        </li>
+                        <ol>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_1.webp">Riverside - Near the M1927 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_2.webp">Riverside - Behind the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_3.webp">Riverside - Behind the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_4.webp">Riverside - Above the Rooster weather vane</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_5.webp">Riverside - Unlit lamp, behind the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_6.webp">Riverside - Up the stairs, past the Pub valve, on the left side</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_7.webp">Riverside - Across from the previous location toward spawn</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_8.webp">Village Entrance - Above the M30 Luftwaffe Drilling wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_9.webp">Village Entrance - Above the Lebenblitz (Quick Revive) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_10.webp">Village Square - On the right, just out of spawn</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_11.webp">Village Square - Behind the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_12.webp">Village Square - Behind the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_13.webp">Village Square - Beside the Valve "Generator" with the lights</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_14.webp">Village Square - Above and beside the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_15.webp">Command Room - Just inside the Bunker Door</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_16.webp">Command Room - At the bottom of the stairs to the left</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_17.webp">Command Room - Above the M1 Garand wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_18.webp">Command Room - Just into the main room</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_19.webp">Command Room - On the first big light above the Salt Mine door</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_20.webp">Command Room - On the second big light above the Salt Mine door</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_21.webp">Morgue - On the first big light, "above" the stairs</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_22.webp">Morgue - Above the next set of stairs toward the Armour stand</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_23.webp">Morgue - Left of the Armour stand</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_24.webp">Morgue - Above the Bar wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_25.webp">Morgue - Beside the previous one</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_26.webp">Morgue - Just into the next room, "at the top" of the stairs</a>
+                            </li>
+                            <li>
+                                <a href="pictures/tesla_gun/bloodthirst/lamps/lamp_27.webp">Morgue - At the bottom of the stairs</a>
+                            </li>
+                        </ol>
+                    </ul>
+                    <li>
+                        Pick up the battery and place it in the
+                        <a href="pictures/tesla_gun/bloodthirst/charging_station.webp">charging station beside the spike trap</a>.
+                    </li>
+                    <li>You need to charge the battery three times. The battery will "charge" with every group of about five Pest Zombies killed in one Spike Trap use (if you get four kills and the trap ends, you will be set back to 0, but if you get 9, you will be set back to 5; one charge). You'll know the battery is being charged when you see it flash with electricity.</li>
+                    <li>
+                        Complete the
+                        <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>
+                        (indicated by the "Notebook" on the Scoreboard screen) up to the step where you've defended the lightning rods and the Zeppelin spawns.
+                    </li>
+                    <li>
+                        Take the charged battery to the
+                        <a href="pictures/tesla_gun/reaper/morgue_machine.webp">machine in the 'Morgue'</a>
+                        where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.
+                    </li>
+                    <li>
+                        Insert the battery into the
+                        <a href="pictures/tesla_gun/bloodthirst/left_slot.webp">left slot</a>
+                        and interact with it again to start the power transfer. You'll now need to protect the machine until the health bar on screen goes away, and the machine starts working quickly.
+                    </li>
+                    <li>
+                        Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a
+                        <a href="pictures/tesla_gun/bloodthirst/bloodthirst_build_loc.webp">pedestal for the Tesla Gun</a>
+                        will come out of the machine. Interact with it to upgrade to the Bloodthirst variant.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="reaper">Reaper (Orange Tesla Gun)</p>
+                <p class="weapon-desc">The Reaper variant of the Tesla Gun shoots orange electricity that turns a single Zombie into a bomb that will go off after a couple of seconds, damaging any nearby Zombies.</p>
+                <ol>
+                    <li>
+                        In the 'Sewers,' there is a
+                        <a href="pictures/tesla_gun/reaper/metal_door.webp">metal door on the wall</a>
+                        left of the door out to the Pilot Light trap. Lure a Wustling into charging at the door to break it open and reveal a battery. Place the battery in the nearby
+                        <a href="pictures/tesla_gun/reaper/battery_charger.webp">charging station next to the broken door</a>.
+                    </li>
+                    <li>You need to charge the battery two times. The battery will "charge" with every group of two Bomber Zombies killed in one Saw Trap use (if you get 1 kill and the trap ends, you will be set back to 0) near the battery. If the Bombers are close enough to the battery, it will glow green. You'll know the battery is being charged when you see it flash with electricity.</li>
+                    <ul>
+                        <li>Tip: To make this easier, shoot the bomb off the Bomber by shooting the head of the Zombie holding the bomb on the Bomber's back.</li>
+                    </ul>
+                    <li>
+                        Complete the
+                        <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>
+                        (indicated by the "Notebook" on the Scoreboard screen) up to the step where you've defended the lightning rods and the Zeppelin spawns.
+                    </li>
+                    <li>
+                        Take the charged battery to the
+                        <a href="pictures/tesla_gun/reaper/morgue_machine.webp">machine in the 'Morgue'</a>
+                        where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.
+                    </li>
+                    <li>
+                        Insert the battery into the
+                        <a href="pictures/tesla_gun/reaper/right_slot.webp">right slot</a>
+                        and interact with it again to start the power transfer. You'll now need to protect the machine until the health bar on screen goes away, and the machine starts working quickly.
+                    </li>
+                    <li>
+                        Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a
+                        <a href="pictures/tesla_gun/reaper/reaper_build_loc.webp">pedestal for the Tesla Gun</a>
+                        will come out of the machine. Interact with it to upgrade to the Reaper variant.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="hurricane">Hurricane (Purple Tesla Gun)</p>
+                <p class="weapon-desc">The Hurricane variant of the Tesla Gun fires a slow-moving, large pink electrical orb that expands as it travels, killing Zombies that it touches.</p>
+                <ol>
+                    <li>
+                        To the left of the Schildblitz (Electric Cherry) machine in the 'Laboratory,' you'll find a
+                        <a href="pictures/tesla_gun/hurricane/staircase.webp">staircase</a>. In the middle of that staircase is a <a href="pictures/tesla_gun/hurricane/metal_door.webp">metal door</a>. Lure a Bomber Zombie and have it explode next to the door. If done correctly, a battery will drop from the door.
+                    </li>
+                    <li>
+                        Place the battery in the
+                        <a href="pictures/tesla_gun/hurricane/battery_charger.webp">charging station inside the Electric Trap</a>.
+                    </li>
+                    <li>You need to charge the battery two times. The battery will "charge" with every group of two Wustling Zombies killed in one Electric Trap use (if you get one kill and the trap ends, you will be set back to 0). If the Wustlings are in the trap's area, the battery will glow green. You'll know the battery is being charged when you see it flash with electricity.</li>
+                    <ul>
+                        <li>Wustlings don't need to be killed to end the round, so make sure to keep them alive through rounds until you have 2/4 at a time.</li>
+                    </ul>
+                    <li>
+                        Complete the
+                        <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>
+                        (indicated by the "Notebook" on the Scoreboard screen) up to the step where you've defended the lightning rods and the Zeppelin spawns.
+                    </li>
+                    <li>
+                        Take the charged battery to the
+                        <a href="pictures/tesla_gun/midnight/lab_machine.webp">machine in the 'Laboratory'</a>
+                        where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.
+                    </li>
+                    <li>
+                        Insert the battery into the
+                        <a href="pictures/tesla_gun/hurricane/right_slot.webp">right slot</a>
+                        and interact with it again to start the power transfer. You'll now need to protect the machine until the health bar on screen goes away, and the machine starts working quickly.
+                    </li>
+                    <li>
+                        Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a
+                        <a href="pictures/tesla_gun/hurricane/hurricane_build_loc.webp">pedestal for the Tesla Gun</a>
+                        will come out of the machine. Interact with it to upgrade to the Hurricane variant.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="midnight">Midnight (Green Tesla Gun)</p>
+                <p class="weapon-desc">The Midnight variant of the Tesla Gun fires a fast-moving, small orb of green energy that flies forward, damaging any Zombie in the way.</p>
+                <ol>
+                    <li>
+                        In the 'Courtyard,' scan (aim) at the
+                        <a href="pictures/tesla_gun/midnight/statue.webp">statue</a>, left of the Lee Enfield wallbuy, with a Brenner head to make it explode, revealing a hidden battery.
+                    </li>
+                    <li>Shoot the battery with the Tesla Gun to make it fall to the ground.</li>
+                    <li>
+                        Pick up the battery and place it in the
+                        <a href="pictures/tesla_gun/midnight/charging_station.webp">charging station to the right of the statue</a>.
+                    </li>
+                    <li>You need to charge the battery two times. The battery will "charge" with every group of about 10 Zombies killed in one S-Mine Trap use. Once there are enough Zombies in the trap's area, the battery will glow green. You'll know the battery is being charged when you see it flash with electricity.</li>
+                    <li>
+                        Complete the
+                        <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>
+                        (indicated by the "Notebook" on the Scoreboard screen) up to the step where you've defended the lightning rods and the Zeppelin spawns.
+                    </li>
+                    <li>
+                        Take the charged battery to the
+                        <a href="pictures/tesla_gun/midnight/lab_machine.webp">machine in the 'Laboratory'</a>
+                        where you received one of the original Tesla Gun pieces. A slot on both the left and right sides of the machine will open.
+                    </li>
+                    <li>
+                        Insert the battery into the
+                        <a href="pictures/tesla_gun/midnight/battery_slot.webp">left slot</a>
+                        and interact with it again to start the power transfer. You'll now need to protect the machine until the health bar on screen goes away, and the machine starts working quickly.
+                    </li>
+                    <li>
+                        Once the process is complete, pick up the new part. Head back to the machine where you originally built the Tesla Gun. When you get close, a
+                        <a href="pictures/tesla_gun/midnight/midnight_build_loc.webp">pedestal for the Tesla Gun</a>
+                        will come out of the machine. Interact with it to upgrade to the Midnight variant.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="red_talon_sword">
+                <h2 class="section-title">Red Talon Sword</h2>
+                <p class="weapon-desc">The Red Talon is a melee Wonder Weapon that one-shots zombies high up into the rounds. Getting kills will charge it, allowing you to do an area-of-effect attack, allowing you to kill multiple Zombies at once.</p>
+
+                <ol>
+                    <li>
+                        Complete the
+                        <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>
+                        (indicated by the "Notebook" on the Scoreboard screen) up to the step where you've defended the lightning rods and the Zeppelin spawns.
+                    </li>
+                    <li>After defending the lightning rods, interact with power switches in both the 'Morgue' and 'Laboratory' (the same ones used to turn on the power).</li>
+                    <li>
+                        In the 'Command Room,' to the right of the Salt Mine door, you'll find another
+                        <a href="pictures/red_talon_sword/switch.webp">power switch</a>; activate it to reveal a <a href="pictures/red_talon_sword/coils.webp">set of coils</a>.
+                    </li>
+                    <li>Bring a Brenner head to the 'Command Room.' When ready, shoot the coils with the Tesla Gun. This will turn off the lights for a couple of minutes.</li>
+                    <li>
+                        With the lights off, head to the 'Laboratory.' Just as you enter, on the left a
+                        <a href="pictures/red_talon_sword/lab_safe.webp">wall slot</a>
+                        will be open, with a safe inside. Scan it using a Brenner head. This will allow you to spin the dials on the safe by interacting with them.
+                    </li>
+                    <li>You must interact with the dials on the safe until they're all showing fingerprints. This will open the safe, revealing a piece of a coin for you to pick up.</li>
+                    <ul>
+                        <li>There are numbers written on the safe in red. These are red herrings and do not indicate the correct code.</li>
+                    </ul>
+                    <li>
+                        Repeat this process in the 'Morgue' with the
+                        <a href="pictures/red_talon_sword/morgue_safe.webp">safe to the left when you enter</a>. Scan it with the Brenner head and set the dials. The safe has another piece of the coin inside.
+                    </li>
+                    <ul>
+                        <li>If the lights come back on before you complete both safes, you can retry the next round, picking up where you left off.</li>
+                    </ul>
+                    <li>
+                        Once you have both pieces, take them to the base of the Barbarossa statue in the "Emperor's Chamber" and interact with the
+                        <a href="pictures/red_talon_sword/sword_pickup_loc.webp">"hole" in the wall</a>
+                        to receive the Red Talon sword.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee_casual">
+                <h2 class="section-title">'Fireworks' Main Quest (Casual Path)</h2>
+                <p class="stats">Stats (Solo): Difficulty - 5/10, Est. Completion Time - 40 Mins to 55 Mins</p>
+                <ol>
+                    <p class="warning">Anytime during this quest, open the scoreboard menu, and you will see what step you're on at the top left of the screen. The game will also highlight your objective through walls. The guide will be split into these sections, indicated by the bold section headers.</p>
+                    <p class="step-group-title" id="main_ee_casual_step1">THE WEAPON FORGE</p>
+                    <li>
+                        Craft the
+                        <a href="#tesla_gun" class="link-to-page">Tesla Gun</a>.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_casual_step2">THE RIGHT HAND OF GOD</p>
+                    <li>
+                        Behind where the Tesla Gun is built, interact with
+                        <a href="pictures/main_ee_casual/power_grid.webp">this machine (Power Grid machine)</a>
+                        to activate the power grid.
+                        <a href="pictures/main_ee_casual/grid_lights.webp">One light in the four columns</a>
+                        will turn on (red, green, or blue); note these down, in order.
+                    </li>
+                    <li>Around the map, four power boxes need to be set to the correct colour under a time limit. On the power boxes, you will see three options: Rot, Grun, and Blau. These are German for Red, Green, and Blue, in that order. You need to set the power boxes to the indicated colour in the following order. Power box locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_command_room.webp">Command Room – Right of the Power Grid machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_sewers_1.webp">Sewers – On the fire trap side of the PAP room</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_sewers_2.webp">Sewers – At the other end of the PAP room, through the door to 'Riverside'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_pub.webp">Pub - Beside the door to the 'Tower,' at the back of the 'Pub'</a>
+                        </li>
+                    </ol>
+                    <li>
+                        Go to the 'Tower' and interact with the
+                        <a href="pictures/main_ee_casual/lightning_rod.webp">lever under the middle of the Tower</a>
+                        to start slowly raising a lightning rod. A new wave will begin, and you'll need to defend the lever from infinitely spawning Zombies for about 70 seconds. You'll know the step is complete when the on-screen health bar goes away (assuming you didn't fail).
+                    </li>
+                    <ul>
+                        <li>If the lever takes too much damage, you can restart as soon as the Lightning Rod resets back to the bottom.</li>
+                        <li>This (and the next) step can be cheesed with the Frontline special ability because when activated, all Zombies anywhere around the map will go after the Player who used Frontline. This means you can activate the lever, run to the Bunker Door, and when the Lightning Rod's Health Bar gets red activate Frontline. This will draw all the Zombies away from the Lightning Rod, and if you activate Frontline at the right time, the Lightning Rod should finish before the Zombies can get back to it.</li>
+                    </ul>
+                    <li>
+                        After defending the first lever, you must now defend
+                        <a href="pictures/main_ee_casual/two_levers.webp">two other levers</a>
+                        on either side of the Tower.
+                    </li>
+                    <li>
+                        Once all three Lightning Rods are raised, interact with the
+                        <a href="pictures/main_ee_casual/right_hand_of_god.webp">"Right Hand of God"</a>
+                        (the hand on the left) in the "Emperor's Chamber."
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_casual_step3">THE ZEPPELIN / THE LEFT HAND OF GOD</p>
+                    <li>
+                        Outside, there will be a Zeppelin flying around above the Village. When it shoots electricity at you,
+                        <a href="pictures/main_ee_casual/zeppelin_lights.webp">four yellow lights will appear on the bottom</a>. Shoot one of the lights until the Zeppelin drops <a href="pictures/main_ee_casual/generator.webp">a generator</a>. As you do damage to a light, it will go from Yellow to Red, indicating the level of damage taken. Watch for where the generator is falling to.
+                    </li>
+                    <li>
+                        Once the generator lands, kill the zombies near it to charge it. When fully charged, the generator will explode, leaving behind a battery. Take the battery to the
+                        <a href="pictures/main_ee_casual/left_hand_of_god.webp">"Left Hand of God"</a>
+                        (the hand on the Right) in the "Emperor's Chamber." The Battery can be dropped and picked up at any time, so drop it if you need to.
+                    </li>
+                    <li>Repeat the previous step two more times; the Zeppelin will respawn as soon as you give the battery to the Left Hand. On the third battery, the Zeppelin will suck the generator back up, and you will have to shoot the lights again to get another generator.</li>
+                    <li>Once the three batteries are in the Left Hand, interact with it.</li>
+
+                    <p class="step-group-title" id="main_ee_casual_step4">THE VOICE OF GOD</p>
+                    <li>Around the map, there are four paintings. Using the Brenner's Head, shine the purple light (ADS) on each painting. A bird symbol and a Roman numeral will appear. Record which numeral corresponds to which bird. Painting Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_pub.webp">Pub - On the second floor, by the Gramophone</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_courtyard.webp">Courtyard - In the S-Mine trap area</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_sewers.webp">Sewers - Right of the door to 'Riverside'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_morgue.webp">Morgue - In the Spike Trap room</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once you've recorded all the symbols, go to the
+                        <a href="pictures/main_ee_casual/voice_of_god.webp">machine in front of Barbarossa's Statue</a>
+                        in the "Emperor's Chamber." There are four "pillars" on the machine, each marked with a bird symbol on the top. Set each one to match the Roman numeral associated with its bird.
+                    </li>
+                    <li>Once all pillars are correctly set, press the big red button on the front of the machine.</li>
+
+                    <p class="step-group-title" id="main_ee_casual_step5">THE HILT</p>
+                    <li>
+                        If done correctly, sound effects will play and an
+                        <a href="pictures/main_ee_casual/energy_orb.webp">energy orb will surround the Hilt</a>. Shoot the orb with the Tesla Gun, which allows you to pick up the Hilt.
+                    </li>
+                    <li>Interact with the Hilt to start the Panzermörder boss fight.</li>
+
+                    <p class="step-group-title" id="main_ee_casual_step6">Boss Fight / THE PANZERMÖRDER</p>
+                    <li>All players will be teleported to a slightly modified version of the Village, with the Panzermörder slowly chasing you around, and the Zeppelin flying overhead. The Panzermörder can occasionally charge at you, swinging its arms, dealing massive damage.</li>
+                    <li>You will need to shoot a generator down from the Zeppelin (same way as during the Main Quest), and charge it.</li>
+                    <li>Once you have a charged battery, lure the Panzermörder near it. Shoot the Panzermörder to stun it. While stunned, it will drop to one knee, and you can attach the battery to it.</li>
+                    <li>After you attach a battery, the Panzermörder will leave the arena, and Zombies will start spawning. You don't need to kill the Zombies, just wait for the Panzermörder to return after a few minutes.</li>
+                    <li>Repeat until three batteries are attached. This will end the Boss Fight.</li>
+                </ol>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" id="main_ee_hardcore">
+                <h2 class="section-title">'Dark Reunion' Main Quest (Hardcore Path)</h2>
+                <p class="stats">Stats (Solo): Difficulty - 6/10, Est. Completion Time - 1:30 to 1:45 Hrs</p>
+                <ol>
+                    <p class="warning">
+                        The "Hardcore Path" is an altered, more complicated version of the "
+                        <a href="#main_ee_casual" class="link-to-page">Casual Path</a>." The Hardcore path consists of multiple sections that (for the most part) can be done at the same time/anytime. These sections being the (entire) Casual Path up until just before the boss fight, obtain the four upgraded Tesla Guns, and obtain the Red Talon Sword/get the second set of voices. I will place these section in the guide where I think you should start them, but you can do whatever, whenever.
+                    </p>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step1">THE WEAPON FORGE</p>
+                    <li>
+                        Craft the
+                        <a href="#tesla_gun" class="link-to-page">Tesla Gun</a>.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step2">THE RIGHT HAND OF GOD</p>
+                    <li>
+                        Behind where the Tesla Gun is built, interact with
+                        <a href="pictures/main_ee_casual/power_grid.webp">this machine (Power Grid machine)</a>
+                        to activate the power grid.
+                        <a href="pictures/main_ee_casual/grid_lights.webp">One light in the four columns</a>
+                        will turn on (red, green, or blue); note these down, in order.
+                    </li>
+                    <li>Around the map, four power boxes need to be set to the correct colour under a time limit. On the power boxes, you will see three options: Rot, Grun, and Blau. These are German for Red, Green, and Blue, in that order. You need to set the power boxes to the indicated colour in the following order. Power box locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_command_room.webp">Command Room – Right of the Power Grid machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_sewers_1.webp">Sewers – On the fire trap side of the PAP room</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_sewers_2.webp">Sewers – At the other end of the PAP room, through the door to 'Riverside'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/box_pub.webp">Pub - Beside the door to the 'Tower,' at the back of the 'Pub'</a>
+                        </li>
+                    </ol>
+                    <li>
+                        Go to the 'Tower' and interact with the
+                        <a href="pictures/main_ee_casual/lightning_rod.webp">lever under the middle of the Tower</a>
+                        to start slowly raising a lightning rod. A new wave will begin, and you'll need to defend the lever from infinitely spawning Zombies. You'll know the step is complete when the on-screen health bar goes away (assuming you didn't fail).
+                    </li>
+                    <ul>
+                        <li>If the lever takes too much damage, you can restart as soon as the Lightning Rod resets back to the bottom.</li>
+                        <li>This (and the next) step can be cheesed with the Frontline special ability because when activated, all Zombies anywhere around the map will go after the Player who used Frontline. This means you can activate the lever, run to the Bunker Door, and when the Lightning Rod's Health Bar gets red activate Frontline. This will draw all the Zombies away from the Lightning Rod, and if you activate Frontline at the right time, the Lightning Rod should finish before the Zombies can get back to it.</li>
+                    </ul>
+                    <li>
+                        After defending the first lever, you must now defend
+                        <a href="pictures/main_ee_casual/two_levers.webp">two other levers</a>
+                        on either side of the Tower.
+                    </li>
+                    <li>
+                        Once all three Lightning Rods are raised, interact with the
+                        <a href="pictures/main_ee_casual/right_hand_of_god.webp">"Right Hand of God"</a>
+                        (the hand on the left) in the "Emperor's Chamber."
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step3">Tesla Gun Upgrades</p>
+                    <li>
+                        Start working on obtaining all four Tesla Gun upgrades,
+                        <a href="#bloodthirst" class="link-to-page">Bloodthirst</a>, <a href="#reaper" class="link-to-page">Reaper</a>, <a href="#midnight" class="link-to-page">Midnight</a>, and <a href="#hurricane" class="link-to-page">Hurricane</a>. These aren't required until the end of the Quest, but you should start now.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step4">THE ZEPPELIN / THE LEFT HAND OF GOD</p>
+                    <li>
+                        Outside, there will be a Zeppelin flying around above the Village. When it shoots electricity at you, four yellow lights will appear on the bottom. Shoot one of the lights until the Zeppelin drops
+                        <a href="pictures/main_ee_casual/generator.webp">a generator</a>. As you do damage to a light, it will go from Yellow to Red, indicating the level of damage taken. Watch for where the generator is falling to.
+                    </li>
+                    <li>
+                        Once the generator lands, kill the zombies near it to charge it. When fully charged, the generator will explode, leaving behind a battery. Take the battery to the
+                        <a href="pictures/main_ee_casual/left_hand_of_god.webp">"Left Hand of God"</a>
+                        (the hand on the Right) in the "Emperor's Chamber." The Battery can be dropped and picked up at any time, so drop it if you need to.
+                    </li>
+                    <li>Repeat the previous step two more times. On the third battery, the Zeppelin will suck the generator back up, and you will have to shoot the lights again to get another generator.</li>
+                    <li>Once the three batteries are in the Left Hand, interact with it.</li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step5">THE VOICE OF GOD</p>
+                    <li>Around the map, there are four paintings. Using the Brenner's Head, shine the purple light (ADS) on each painting. A bird symbol and a Roman numeral will appear. Record which numeral corresponds to which bird. Painting Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_pub.webp">Pub - On the second floor, by the Gramophone</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_courtyard.webp">Courtyard - In the S-Mine trap area</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_sewers.webp">Sewers - Right of the door to 'Riverside'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_casual/painting_morgue.webp">Morgue - In the Spike Trap room</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once you've recorded all the symbols, go to the
+                        <a href="pictures/main_ee_casual/voice_of_god.webp">machine in front of Barbarossa's Statue</a>
+                        in the "Emperor's Chamber." There are four "pillars" on the machine, each marked with a bird symbol on the top. Set each one to match the Roman numeral associated with its bird.
+                    </li>
+                    <li>Once all pillars are correctly set, press the big red button on the front of the machine. If done correctly, sound effects will play and an energy orb will surround the Hilt.</li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step6">Record Player / Second Set of Voices</p>
+                    <li>Around the Village, there are three different colour "keepsakes" up on buildings. These keepsakes look like large wooden spinning tops. You need to shoot them to make them fall, so you can pick them up. Spawn locations:</li>
+                    <ul>
+                        <li>Red</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/red_pub_back.webp">Pub - Above the "back door"</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/red_pub_front.webp">Pub - Above the front entrance</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/red_roof.webp">Riverside - On a building to the right of the Tower in the Village</a>
+                            </li>
+                        </ul>
+                        <li>Yellow</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/yellow_pub.webp">Pub - Above and to the right of the door from the Pub to Spawn</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/yellow_quick_revive.webp">Village Entrance - Above Quick Revive</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/yellow_type_100.webp">Village Square - On the roof above the Type 100 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/yellow_gas_valve.webp">Riverside - Above the Gas valve</a>
+                            </li>
+                        </ul>
+                        <li>Green</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/green_toy_shop.webp">Village Square - In the window of Klaus' toyshop (above the Pilot Light trap hole)</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/green_tower.webp">Village Square - On the Tower, above the SVT 40 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/keepsake_locations/green_courtyard.webp">Courtyard - On the roof above the S-Mine trap</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>Once you have all three keepsakes, you must find two code machines around the Village/Bunker. There is a third code machine, the green one, but it is annoying to get and not required since you can guess the green number easily. These machines display a number and have a coloured bow on them. This indicates the number associated with that colour keepsake. Locations:</li>
+                    <ul>
+                        <li>Yellow</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/yellow_spawn.webp">Village Entrance - Through a boarded up window</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/yellow_couch.webp">Village Square - On a couch, in the Zombie spawn window, left of the Gas Valve near the Armour stand</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/yellow_riverside.webp">Riverside - In the M1927 wallbuy building, in a Zombie spawn window</a>
+                            </li>
+                        </ul>
+                        <li>Red</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/red_toy_shop.webp">Village Square - Out a window, upstairs in Klaus' toy shop</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/red_type_100.webp">Village Square - In the Zombie spawn window, left of the Type 100 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee_hardcore/enigma_locations/red_command_room.webp">Command Room - In the Zombie spawn window, right of the Grease Gun wallbuy</a>
+                            </li>
+                        </ul>
+                        <li>Green (not required)</li>
+                        <ul>
+                            <li>Activate the Pilot Trap, jump in, and wait for it to launch you at Klaus' shop. Hold the interact button on the wall. If done correctly, the green (it has a blue bow for some reason) machine will fall to the ground beside the trap activation machine.</li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Once you have two of the three codes, place the keepsakes on the
+                        <a href="pictures/main_ee_hardcore/keepsake_wall.webp">wall left of the Bunker Door</a>
+                        in the 'Village Square.' The black arrow on the keepsakes indicates a number, with the top being 0/12 (it's a clock).
+                    </li>
+                    <li>Spin the keepsakes till they're on the numbers indicated by the code machines. Once you set two of the keepsakes (and if you didn't get the third code), keep spinning the last one till it doesn't spin anymore.</li>
+                    <ul>
+                        <li>If the last one keeps spinning, it means one of the others wasn't set properly.</li>
+                    </ul>
+                    <li>
+                        Once all three keepsakes are set properly, a
+                        <a href="pictures/main_ee_hardcore/drawer.webp">drawer should open below the keepsakes</a>
+                        with a Record inside; pick it up.
+                    </li>
+                    <li>
+                        Interact with the
+                        <a href="pictures/main_ee_hardcore/weather_vane_init.webp">Weather Vane</a>
+                        on the wall in the 'Riverside.' It will spin, eventually stopping, pointing in a direction. In the direction the vane is pointing there will be a tiny yellow button that you need to shoot. Locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee_hardcore/weather_vane/vane_dir_1.webp">Direction 1</a>
+                            ---
+                            <a href="pictures/main_ee_hardcore/weather_vane/button_1.webp">Button 1</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_hardcore/weather_vane/vane_dir_2.webp">Direction 2</a>
+                            ---
+                            <a href="pictures/main_ee_hardcore/weather_vane/button_2.webp">Button 2</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee_hardcore/weather_vane/vane_dir_3.webp">Direction 3</a>
+                            ---
+                            <a href="pictures/main_ee_hardcore/weather_vane/button_3.webp">Button 3</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once shot, the
+                        <a href="pictures/main_ee_hardcore/water_wheel.webp">water wheel</a>
+                        in the river will spin. When it stops, there will be
+                        <a href="pictures/main_ee_hardcore/water_wheel_coils.webp">coils</a>
+                        visible; shoot them with a Tesla Gun.
+                    </li>
+                    <li>
+                        Obtain the
+                        <a href="#red_talon_sword" class="link-to-page">Red Talon Sword</a>.
+                    </li>
+                    <li>
+                        Place the Record on the
+                        <a href="pictures/main_ee_hardcore/record_player.webp">Record Player on the second floor of the 'Pub.'</a>
+                        It will start playing
+                        <a href="https://youtu.be/QqOVew62tJE" class="external-link">this song (YouTube)</a>
+                        on repeat.
+                    </li>
+                    <li>You will need to get 25-30 kills using the Red Talon Sword in one play through of the song, so wait till you hear the song restart (indicated by the record static) then start to get your kills. The record head will accurately indicate how far into the song you are, with it starting on the edge and moving in.</li>
+                    <ul>
+                        <li>If you don't get enough kills by the time the song is over, your kills will reset, and you will have to try again.</li>
+                    </ul>
+                    <li>
+                        If you get enough kills, the record player will stop accepting Zombie energy, the
+                        <a href="pictures/main_ee_hardcore/light_on_player.webp">light on the side</a>
+                        will start flashing green and red, and the player will make a clicking sound.
+                    </li>
+                    <li>You must watch the light on the player, and count the number of green flashes. There will be four sets of green flashes followed by a red flash to indicate the sequence will repeat. There will be a dead space between green flashes that indicated that the set of green is over.</li>
+                    <li>
+                        Once you have the set of numbers from the Record, go the "Emperor's Chamber" and input the numbers into the middle machine (the Voice of God) in
+                        <a href="pictures/main_ee_hardcore/second_set_of_voices_order.webp">this order</a>. When done correctly, your character will stay something about a sound getting louder.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step7">Obtain the Rabenherz (Gem)</p>
+                    <li>
+                        Shoot the
+                        <a href="pictures/main_ee_hardcore/chandelier.webp">Chandelier above the hilt</a>
+                        with each of the four upgraded Tesla Guns. The Chandelier will "shock" the Hilt with every shot, indicating you did it correctly.
+                    </li>
+                    <li>Once the Chandelier is shot with the fourth Tesla Gun, you will be given the Rabenherz.</li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step8">THE HILT</p>
+                    <li>
+                        Shoot the
+                        <a href="pictures/main_ee_casual/energy_orb.webp">energy orb around the Hilt</a>
+                        with a Tesla Gun, which allows you to pick up the Hilt.
+                    </li>
+                    <li>Interact with the Hilt to start the Panzermörder boss fight.</li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step9">Boss Fight / THE PANZERMÖRDER</p>
+                    <li>All players will be teleported to a slightly modified version of the Village, with the Panzermörder slowly chasing you around, and the Zeppelin flying overhead. The Panzermörder can occasionally charge at you, swinging its arms, dealing massive damage.</li>
+                    <li>You will need to shoot a generator down from the Zeppelin. However, there will only be one of the four lights lit on the Zeppelin. Once the generator falls, find it and charge it.</li>
+                    <li>Once you have a charged battery, lure the Panzermörder near it. Shoot the Panzermörder to stun it. While stunned, it will drop to one knee, and you can attach the battery to it. In the Hardcore boss fight, it will not be stunned for as long as in the casual version.</li>
+                    <li>After you attach a battery, the Panzermörder will leave the arena, and Zombies will start spawning. You don't need to kill the Zombies, just wait for the Panzermörder to return after a few minutes.</li>
+                    <li>Repeat until three batteries are attached. This will end the Boss Fight.</li>
+
+                    <p class="step-group-title" id="main_ee_hardcore_step10">Escort Klaus</p>
+                    <li>After the Boss Fight, the Hilt will revive Klaus. He will slowly walk to the Pilot Trap in the 'Village Square.' While standing near him, all players have infinite ammo. You don't have to defend Klaus from Zombies, but you should stay near him.</li>
+                    <li>Once he reaches the Pilot Trap, he will scream some story dialogue and explode.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="the_classic">
+                <h2 class="section-title">The Classic (Special PPSh-41)</h2>
+                <p class="weapon-desc">The Classic is a special PPSh-41 variant with a bigger 70-round mag, more reserve ammo, and a faster fire rate.</p>
+                <ol>
+                    <li>Around the map, there are four bowls you can place Jolts in (through the Drop Jolts game mechanic; the button to drop jolts is on the HUD above the shovel on the right side of the screen). When you place Jolts, it will take the jolts and spew money out at you. Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/the_classic/morgue_bowl.webp">Morgue - To the right of the Tesla Gun machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/the_classic/village_bowl.webp">Village Square - In the burned area, left of the SVT-40 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/the_classic/riverside_bowl.webp">Riverside - On the floor near some sandbags, in front of the building with the M1927 wallbuy on the back</a>
+                        </li>
+                        <li>
+                            <a href="pictures/the_classic/pub_bowl.webp">Pub - On the upper floor to the right of Kugelblitz (Double Tap)</a>
+                        </li>
+                    </ul>
+                    <li>After placing Jolts in all the bowls, The Classic will enter the Mystery Box's weapon pool (you aren't guaranteed to get it).</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="dr_straub">
+                <h2 class="section-title">Dr. Straub Locations ("Lurking Around" Trophy/Achievement)</h2>
+                <p class="warning">Not very much is known for sure about how to get Dr. Straub to spawn, or all the locations, so some information might be inaccurate. Sorry.</p>
+                <ul>
+                    <li>
+                        Randomly around the map,
+                        <a href="pictures/dr_straub/morgue_metal_gate.webp">Dr. Straub (a man in a lab coat)</a>
+                        will spawn in one of the locations. He will probably just stand there, but he could do other actions. Shooting him will get you the "Lurking Around" Trophy/Achievement. Potential spawn locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/dr_straub/village_sq_zombie_spawn.webp">Village Entrance/Square - In the Zombie spawn, left of the door out of spawn</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/riverside_window.webp">Riverside - In a second floor window near the Weather Vane</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/lab_electric_cherry.webp">Laboratory - In the Zombie spawn, behind Electric Cherry</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/lab_bodies.webp">Laboratory - Right of Schnellblitz (Speed Cola), where the bodies are hanging (Unconfirmed)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/morgue_power.webp">Morgue - In the area behind the power switch</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/morgue_white_room.webp">Morgue - In the "white" room, right of the Armour stand</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/morgue_bar.webp">Morgue - In the Zombie spawn, right of the BAR wallbuy (Unconfirmed)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/dr_straub/morgue_metal_gate.webp">Morgue - Behind the metal gate in the Spike trap room</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-container" data-section-ind="Unlockable Characters" id="characters">
+                <h2 class="section-title">Unlockable Characters</h2>
+
+                <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges.</p>
+
+                <!-- Hunter Table -->
+                <p class="step-group-title" data-custom-quick-link="Hunter (On the Hunt)" id="Hunter (On the Hunt)">
+                    Hunter (On the Hunt) ---
+                    <a href="pictures/characters/hunter.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>"Catch me if you can."</i></td>
+                            <td>All parts (A to E) are obtained randomly by killing Treasure Zombies.</td>
+                            <td>
+                                <a href="pictures/characters/treasure_zombie.webp">Treasure Zombies</a>
+                                are non-hostile Bomber Zombies that carry red bombs and drop Jolts. They can only start spawning once you open the
+                                <a href="#power" class="link-to-page">Salt Mine Door</a>
+                                (and maybe the Tower door as well), then every 1 hr and 15 mins after one spawns. You can know when a Treasure Zombie spawns when you see random jolts drops across the map. There is no (known) way to get the parts to drop, they seem entirely random.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Mountaineer Table -->
+                <p class="step-group-title" data-custom-quick-link="Mountaineer (Roughing it)" id="Mountaineer (Roughing it)">
+                    Mountaineer (Roughing it) ---
+                    <a href="pictures/characters/mountaineer.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>"We're safer in here.. right?"</i></td>
+                            <td>Survive Wave 20 with no open doors in The Final Reich.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>"Right... nothing will even tough us."</i></td>
+                            <td>Survive Wave 20 with no open doors and with no downed players in The Final Reich.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>Back to where it all started.</i></td>
+                            <td>Survive Wave 25 in the Prologue.</td>
+                            <td class="strategy">
+                                <a href="https://youtu.be/UryNkOLEYYM" class="external-link">Video Guide (YouTube)</a>
+                                by
+                                <a href="https://www.youtube.com/@acomega." class="external-link">AC OMEGA</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Back then, everything was perfect.</i></td>
+                            <td>Survive Wave 25 without going down in the Prologue.</td>
+                            <td class="strategy">
+                                <a href="https://youtu.be/UryNkOLEYYM" class="external-link">Video Guide (YouTube)</a>
+                                by
+                                <a href="https://www.youtube.com/@acomega." class="external-link">AC OMEGA</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Things were simpler back then.</i></td>
+                            <td>Survive Wave 25 without unlocking the secret room in the Prologue.</td>
+                            <td class="strategy">
+                                <a href="https://youtu.be/UryNkOLEYYM" class="external-link">Video Guide (YouTube)</a>
+                                by
+                                <a href="https://www.youtube.com/@acomega." class="external-link">AC OMEGA</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Survivalist Table -->
+                <p class="step-group-title" data-custom-quick-link="Survivalist (Survival Guide)" id="Survivalist (Survival Guide)">
+                    Survivalist (Survival Guide) ---
+                    <a href="pictures/characters/survivalist.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>No slacking off, on your feet.</i></td>
+                            <td>Survive Wave 30 with no downed players in The Final Reich.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>Don't trust this newfangled medicine.</i></td>
+                            <td>Survive Wave 30 without any players using Blitz (Perks) in The Final Reich.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>"Back in my day..."</i></td>
+                            <td>Survive Wave 30 without generator power in The Final Reich.</td>
+                            <td class="strategy">You can turn on the valves to get the Pilot Trap opened and even get down to the Stamin-Up. However, you can only leave the pit by activating the trap itself and having it fling you out.</td>
+                        </tr>
+                        <tr>
+                            <td><i>Only what you brought with you.</i></td>
+                            <td>Survive Wave 30 with only each player's starting weapon in The Final Reich.</td>
+                            <td class="strategy">You can Pack-a-Punch it.</td>
+                        </tr>
+                        <tr>
+                            <td><i>Roll the dice. Take what you can get.</i></td>
+                            <td>Survive Wave 30 with only weapons from two Mystery Box uses per player in The Final Reich. Starting weapons are allowed but can't be upgraded.</td>
+                            <td class="strategy">It doesn't matter when you hit the box, and you can use box consumables (e.g. Jack-in-the-Box guaranteed)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- BAT Agent Table -->
+                <p class="step-group-title" data-custom-quick-link="B.A.T. Agent (On Assignment)" id="B.A.T. Agent (On Assignment)">
+                    B.A.T. Agent (On Assignment) ---
+                    <a href="pictures/characters/bat_agent.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Survive.</i></td>
+                            <td>Kill a Treasure Zombie in The Final Reich.</td>
+                            <td class="strategy">Open the Salt Mine Door to allow the Treasure Zombie to start spawning.</td>
+                        </tr>
+                        <tr>
+                            <td><i>Rest in pieces.</i></td>
+                            <td>Defeat the Panzermörder in The Final Reich.</td>
+                            <td class="strategy">
+                                Complete the
+                                <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Power up.</i></td>
+                            <td>Survive Wave 25 in The Final Reich.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>"Oh, I know this part."</i></td>
+                            <td>Unlock the Ubersprengen in The Final Reich.</td>
+                            <td class="strategy">
+                                How to
+                                <a href="#pap" class="link-to-page">unlock the Ubersprengen (Pack-a-Punch)</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>"After that... thing!"</i></td>
+                            <td>Assemble the Tesla Gun by Wave 6 in The Final Reich.</td>
+                            <td class="strategy">
+                                How to
+                                <a href="#tesla_gun" class="link-to-page">Craft the Tesla Gun</a>.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- BAT Elite Table -->
+                <p class="step-group-title" data-custom-quick-link="B.A.T. Elite (Off Record)" id="B.A.T. Elite (Off Record)">
+                    B.A.T. Elite (Off Record) ---
+                    <a href="pictures/characters/bat_elite.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i>"I'll save you, brother, even if I have to do it myself."</i>
+                            </td>
+                            <td>Save Klaus while playing solo.</td>
+                            <td class="strategy">
+                                Complete the
+                                <a href="#main_ee_hardcore" class="link-to-page">Hardcore Main Quest Path</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Save your bullets. Take your time. Do this right.</i></td>
+                            <td>Save Klaus by wave 16.</td>
+                            <td class="strategy">
+                                This is extremely difficult to do Solo, so I recommend you get at least one other player to do it with, but four players are recommended. This can be done solo if you follow
+                                <a href="https://youtu.be/7jY-jfub37s" class="external-link">this guide (YouTube)</a>
+                                by
+                                <a href="https://www.youtube.com/@acomega." class="external-link">AC OMEGA</a>
+                                to the letter.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>"We must hurry, he may not have much time!"</i></td>
+                            <td>Save Klaus within 75 minutes.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>No man left behind.</i></td>
+                            <td>Save Klaus with no downed players.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>No school like old school.</i></td>
+                            <td>Save Klaus without any player using Special Abilities, Mods, or Consumables.</td>
+                            <td class="strategy">Make you don't equip/unequip any mods. You can't unequip the Special Ability, so you have to focus on not using it. Do not use self-revives if you go down. Geistschild (Armour) is allowed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Slayer Table -->
+                <p class="step-group-title" data-custom-quick-link="Slayer (Big Game)" id="Slayer (Big Game)">
+                    Slayer (Big Game) ---
+                    <a href="pictures/characters/slayer.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>"We're professionals."</i></td>
+                            <td>Defeat the Panzermörder by wave 12.</td>
+                            <td class="strategy">
+                                Complete the
+                                <a href="#main_ee_casual" class="link-to-page">Casual Main Quest Path</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>No fancy German engineering.</i></td>
+                            <td>Defeat the Panzermörder without any player upgrading weapons using the Ubersprengen.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>No fancy German medicine.</i></td>
+                            <td>Defeat the Panzermörder without any player using Blitz.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>No mistakes.</i></td>
+                            <td>Defeat the Panzermörder with no downed players.</td>
+                            <td class="strategy">N/A</td>
+                        </tr>
+                        <tr>
+                            <td><i>No helmet either.</i></td>
+                            <td>Defeat the Panzermörder without any player using Special Abilities, Mods, or Consumables.</td>
+                            <td class="strategy">Make you don't equip/unequip any mods. You can't unequip the Special Ability, so you have to focus on not using it. Do not use self-revives if you go down. Geistschild (Armour) is allowed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Wicht Warden -->
+                <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">
+                    Wicht Warden (Cold Blooded) ---
+                    <a href="/games/WW2/wicht_warden.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Search and rescue</i></td>
+                            <td>Complete the Hardcore Main Quest on The Final Reich</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#main_ee_hardcore" class="link-to-page">Hardcore Main Quest</a>
+                                section for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>They can swim now?</i></td>
+                            <td>Complete the Main Quest on The Darkest Shore</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_darkest_shore/the_darkest_shore_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Darkest Shore Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Mechanized abomination</i></td>
+                            <td>Complete the Main Quest on The Shadowed Throne</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_shadowed_throne/the_shadowed_throne_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Shadowed Throne Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>The road ahead</i></td>
+                            <td>Complete the Main Quest on The Tortured Path</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_tortured_path/the_tortured_path_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Tortured Path Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Descend...</i></td>
+                            <td>Complete the Main Quest on The Frozen Dawn</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_frozen_dawn/the_frozen_dawn_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Frozen Dawn Guide for how to complete it.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Rookbane -->
+                <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">
+                    Rookbane (Level 1000 Reward) ---
+                    <a href="/games/WW2/rookbane.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td>Reach Level 1000 in the Zombie Mode</td>
+                            <td class="strategy">
+                                See this
+                                <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/" class="external-link">post (reddit)</a>
+                                for some XP farming strategies.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer=""></script> 
+</body></html>

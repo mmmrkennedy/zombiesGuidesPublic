@@ -117,7 +117,7 @@ function addVersionPlaceholders(htmlContent, filePath) {
 function main() {
     console.log('Scanning for HTML files...');
 
-    const htmlFiles = findHtmlFiles();
+    const htmlFiles = findHtmlFiles('./src');
     console.log(`Found ${htmlFiles.length} HTML files\n`);
 
     if (htmlFiles.length === 0) {

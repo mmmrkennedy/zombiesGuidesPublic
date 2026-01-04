@@ -11,8 +11,8 @@ const path = require('path');
  * 3. Updates any that reference the old bundle hash
  */
 
-const reactSolversPath = path.join(__dirname, '../react-solvers');
-const distPath = path.join(reactSolversPath, 'dist/assets');
+const reactSolversPath = path.join(__dirname, '../dist/react-solvers');
+const distPath = path.join(reactSolversPath, 'assets');
 
 // Find the generated JS file
 if (!fs.existsSync(distPath)) {
@@ -51,14 +51,15 @@ function findHtmlFiles(dir, fileList = []) {
 }
 
 // Find all HTML files that might use React solvers
-const gamesDir = path.join(__dirname, '../games');
+const gamesDir = path.join(__dirname, '../src/games');
 const allHtmlFiles = findHtmlFiles(gamesDir);
 
 let updatedCount = 0;
 let skippedCount = 0;
 
 // Pattern to match React bundle script tags (absolute or relative paths)
-const scriptPattern = /<script type="module" src="(\.\.\/|\/)?react-solvers\/dist\/assets\/index-[^"?]+\.js(\?v=[^"]+)?"><\/script>/g;
+// Matches both /react-solvers/assets/ and /react-solvers/dist/assets/ for backwards compatibility
+const scriptPattern = /<script type="module" src="(\.\.\/|\/)?react-solvers\/(dist\/)?assets\/index-[^"?]+\.js(\?v=[^"]+)?"><\/script>/g;
 
 allHtmlFiles.forEach(htmlFilePath => {
     const html = fs.readFileSync(htmlFilePath, 'utf8');
@@ -71,8 +72,8 @@ allHtmlFiles.forEach(htmlFilePath => {
     // Reset regex lastIndex
     scriptPattern.lastIndex = 0;
 
-    // Use absolute path from root
-    const newScript = `<script type="module" src="/react-solvers/dist/assets/${jsFile}"></script>`;
+    // Use absolute path from root (dist/ becomes root when deployed)
+    const newScript = `<script type="module" src="/react-solvers/assets/${jsFile}"></script>`;
 
     // Replace all occurrences
     const updatedHtml = html.replace(scriptPattern, newScript);
@@ -92,13 +93,14 @@ allHtmlFiles.forEach(htmlFilePath => {
 });
 
 // Handle root index.html separately (uses modulepreload instead of script tag)
-const indexFile = path.join(__dirname, '../index.html');
+const indexFile = path.join(__dirname, '../src/index.html');
 if (fs.existsSync(indexFile)) {
     const indexHtml = fs.readFileSync(indexFile, 'utf8');
-    const modulepreloadPattern = /<link rel="modulepreload" href="\/react-solvers\/dist\/assets\/index-[^"]+\.js" \/>/;
+    // Match both /react-solvers/assets/ and /react-solvers/dist/assets/ for backwards compatibility
+    const modulepreloadPattern = /<link rel="modulepreload" href="\/react-solvers\/(dist\/)?assets\/index-[^"]+\.js" \/>/;
 
     if (modulepreloadPattern.test(indexHtml)) {
-        const newModulepreload = `<link rel="modulepreload" href="/react-solvers/dist/assets/${jsFile}" />`;
+        const newModulepreload = `<link rel="modulepreload" href="/react-solvers/assets/${jsFile}" />`;
         const updatedIndexHtml = indexHtml.replace(modulepreloadPattern, newModulepreload);
 
         if (updatedIndexHtml !== indexHtml) {

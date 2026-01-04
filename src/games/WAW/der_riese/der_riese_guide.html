@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>Der Riese Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Der Riese Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m12 8-4 4 4 4" />
+                        <path d="M16 12H8" />
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14" />
+                        <path d="m18 13-6-6-6 6" />
+                        <path d="M12 7v14" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">&times;</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks">
+                    <!-- Build tools will generate quick links here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#pap">Pack-a-Punch</a></li>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li>
+                        <a href="#main_ee">Paradoxical Prologue (Fly Trap) Main Quest / Annihilator Special Weapon (WAW, BO1, BO3)</a>
+                    </li>
+                    <li><a href="#song_ee">'Beauty of Annihilation' Song (WAW, BO1, BO3)</a></li>
+                    <li><a href="#new_perk">New Perk Machine / Deadshot or Stamin-Up (BO3)</a></li>
+                </ul>
+            </div>
+
+            <div class="content-container" data-section-ind="Map Progression" id="pap">
+                <h2 class="section-title">Pack-a-Punch</h2>
+                <ol>
+                    <li>
+                        Activate the Power by interacting with the
+                        <a href="pictures/pap/power_switch.webp">Power Switch</a>
+                        in the back middle of the map.
+                    </li>
+                    <li>
+                        Around the map, there are three teleporters that need to be linked to the
+                        <a href="pictures/pap/mainframe.webp">mainframe</a>
+                        in spawn. There will be one teleporter at the "end" of each area. Interact with a teleporter to start the link process; a
+                        <a href="pictures/pap/clock.webp">clock will appear at the top left of your screen</a>
+                        counting down to 30 seconds. You must get to the mainframe before the clock reaches zero. Teleporter locations:
+                    </li>
+                    <ul>
+                        <li><a href="pictures/pap/tele_a.webp">Teleporter A - Left of spawn</a></li>
+                        <li>
+                            <a href="pictures/pap/tele_b.webp">Teleporter B - Right of spawn</a>
+                        </li>
+                        <li>
+                            <a href="pictures/pap/tele_c.webp">Teleporter C - Power Switch Area</a>
+                        </li>
+                    </ul>
+                    <li>As you link teleporters, the door on the mainframe will lower slightly. After the last is linked, the door will open, and Pack-a-Punch will become accessible.</li>
+                </ol>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">Paradoxical Prologue (Fly Trap) Main Quest / Annihilator Special Weapon (WAW, BO1, BO3)</h2>
+
+                <p class="stats">Stats (Solo): Difficulty - 1/10, Est. Completion Time - 5 to 20 Mins</p>
+                <ol>
+                    <li>
+                        Unlock
+                        <a href="#pap">Pack-a-Punch</a>
+                        and get a bullet-based paped weapon.
+                    </li>
+                    <li>
+                        Shoot the
+                        <a href="pictures/main_ee/panel.webp">control panel</a>
+                        (
+                        <a href="pictures/main_ee/panel_zoomed_out.webp">zoomed-out view</a>
+                        ) out the Zombie spawn on the right of the map (when facing right of PAP) with the paped weapon. Multiple items should start flying around it, then fly into the air.
+                    </li>
+                    <li>Three of these items will spawn around the map which you must damage (shoot, melee, grenade, etc). The locations are different for WAW/BO1 and BO3. Locations:</li>
+                </ol>
+
+                <ol start="4">
+                    <p class="weapon-desc">WAW/BO1</p>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/toy_furnace_waw.webp">Teleporter B Thompson Room - In the furnace below the stairs</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/toy_spawn_waw.webp">Spawn - In a broken window above the M1 Carbine wallbuy (toward Tele A)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/toy_tele_a_waw.webp">Teleporter A - In the bottom left cage, right of the M1897 Trench Gun wallbuy</a>
+                        </li>
+                    </ul>
+                    <li>As items are shot, Samantha Maxis will speak to you. Upon shooting the last one, she will scream at you. There is no reward for completing this on this version.</li>
+                </ol>
+
+                <ol start="4">
+                    <p class="weapon-desc">BO3</p>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/toy_furnace_bo3.webp">Teleporter A - In a furnace left of the right-most stairs</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/toy_power_bo3.webp">Power Switch Area - On a fire escape left of the Power Switch (toward OG Jug spawn), near the top of the building</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/toy_tele_b_bo3.webp">Teleporter B - In the left water tank (when entering)</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once all three items are shot, Maxis will speak, and after some dialogue, the Annihilator Special Weapon will appear in the
+                        <a href="pictures/main_ee/annihilator.webp">furnace</a>
+                        in the room "below" teleporter B.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Beauty of Annihilation' Song (WAW, BO1, BO3)</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a href="https://song.link/ca/i/1542638516">here</a>.
+                </p>
+                <ol>
+                    <li>There are three brain jars that need to be interacted with to start the song. There is no interaction sound, but the jar will stop emitting sound when interacted with. Jar Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/song_ee/jar_shelf.webp">Animal Testing (left side) - On a shelf near the bottom of the stairs to Jug</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/jar_stairs.webp">Animal Testing (left side) - Across from the previous locations, directly to the right of the stairs to Jug</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/jar_tele_b.webp">Teleporter B - In the side room, right of the teleporter, on a table beside the chalkboard</a>
+                        </li>
+                    </ul>
+                    <li>Once all three jars are interacted with, the song will start.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="new_perk">
+                <h2 class="section-title">New Perk Machine / Deadshot or Stamin-Up (BO3)</h2>
+                <ol>
+                    <li>
+                        Unlock
+                        <a href="#pap">Pack-a-Punch</a>
+                        and get Monkey Bombs from the Mystery Box.
+                    </li>
+                    <li>
+                        Throw a Monkey Bomb into a teleporter and teleport before the Monkey goes off. If done correctly, one of the red
+                        <a href="pictures/new_perk/perk_panel.webp">lights on the panel on a railing</a>
+                        beside the mainframe will turn green.
+                    </li>
+                    <li>
+                        Once you teleport at all three teleporters, you can interact with the panel to activate the Giant's eye beam. The beam will melt a block of snow, revealing either the
+                        <a href="pictures/new_perk/new_perk.webp">Deadshot, or Stamin-Up perk machine</a>
+                        on the other side of the Spawn room wall.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer></script>
+        <script>
+            // Function to get URL parameters
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                const results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            // When the page loads
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the version parameter
+                const version = getUrlParameter('version');
+                const title_text = document.querySelector('.title-text');
+                let text;
+
+                // Change content based on version
+                if (version === 'original' || version === '') {
+                    // Show/hide or modify elements for original version
+                    text = 'Der Riese Guide';
+                } else if (version === 'remake') {
+                    // Show/hide or modify elements for remake version
+                    text = 'The Giant Guide';
+                }
+
+                document.title = text;
+                title_text.innerText = text;
+            });
+        </script>
+    </body>
+</html>

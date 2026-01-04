@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>Carrier Guide</title>
+</head>
+
+    <script>
+        // Check if we're on localhost or a local environment
+        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
+
+        // Only redirect if we're not in a local environment
+        if (!isLocalEnvironment) {
+            window.location.href = '/unfinished.html';
+            setInterval(() => {
+                window.location.href = '/unfinished.html';
+            }, 1000); // Redirect every second
+        }
+    </script>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Carrier Guide</h2>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m12 8-4 4 4 4" />
+                        <path d="M16 12H8" />
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14" />
+                        <path d="m18 13-6-6-6 6" />
+                        <path d="M12 7v14" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#CHANGE_ME">CHANGE ME</a></li>
+                    <ol>
+                        <li><a href="#main_ee_step1">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step2">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step3">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step4">CHANGE ME</a></li>
+                        <li><a href="#main_ee_step5">CHANGE ME</a></li>
+                    </ol>
+                </ul>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" id="main_ee">
+                <h2>'Flotsam & Jetsam' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - CHANGE ME, Est. Completion Time - CHANGE ME, RNG Rating - CHANGE ME</p>
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">CHANGE ME</p>
+                    <li>Obtain the Teleport Grenades and navigate to the Cargo Deck. You now need to activate Chompy. A small room behind the wall can be seen as the wall opens to either let Chompy in or out. You need to shoot a Teleport Grenade inside the room before the door closes. Once teleported inside, activate the power generator in there which will power-up the Grenade Disposal Machine and the Weapon Disposal Machine. You will now be teleported outside the room.</li>
+                    <li>CHANGE ME</li>
+                </ol>
+            </div>
+        </div>
+
+        <script src="/js/scripts.js?v=1767544654581" defer></script>
+    </body>
+</html>

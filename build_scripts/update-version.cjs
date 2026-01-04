@@ -23,7 +23,7 @@ function walk(dir, filelist = []) {
 }
 
 // Update contents of each HTML file
-const htmlFiles = walk('.');
+const htmlFiles = walk('./src');
 const updatedFiles = [];
 
 for (const file of htmlFiles) {

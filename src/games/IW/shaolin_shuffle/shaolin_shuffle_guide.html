@@ -1,0 +1,1328 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>Shaolin Shuffle Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Shaolin Shuffle Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M16 12H8"></path>
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14"></path>
+                        <path d="m18 13-6-6-6 6"></path>
+                        <path d="M12 7v14"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a></li><ul><li><a href="#fast_travel_gates">Fast Travel Doors/Torii Gates</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#katana">'Kirisute Gomen' Katana</a></li><li><a href="#mahjong_scorestreaks">Mahjong Tiles (Craftable Scorestreaks/Equipment)</a></li><li><a href="#nunchucks">Nunchakus/Character Bios</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Pest Control' Main Quest</a></li><ul><li><a href="#main_ee_step1">The Eye</a></li><li><a href="#main_ee_step2">The Brain</a></li><li><a href="#main_ee_step3">The Heart</a></li><li><a href="#main_ee_step4">Rat King Boss Fight</a></li></ul><li><a href="#song_ee">'Cats on the Boulevard' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skullbuster">Skullbuster</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Clean the Machine</a></li><li><a href="#side_ee_step2">Skull 2/6 - Mahjong</a></li><li><a href="#side_ee_step3">Skull 3/6 - Draw Numbers on Glass</a></li><li><a href="#side_ee_step4">Skull 4/6 - Jumping Puzzle</a></li><li><a href="#side_ee_step5">Skull 5/6 - Jump in front of the Train</a></li><li><a href="#side_ee_step6">Skull 6/6 - Dial a Phone Number</a></li><li><a href="#side_ee_step7">The Skullbuster Mini-Game</a></li></ul><li><a href="#trolltastic">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</a></li><li><a href="#phone_codes">Phone Secret Numbers</a></li><li><a href="#grier_code">Play as Pam Grier</a></li></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#power">Power</a></li>
+                    <li><a href="#pap">Pack-a-Punch</a></li>
+                    <ul>
+                        <li><a href="#double_pap">Double Pack-a-Punch</a></li>
+                    </ul>
+                    <li><a href="#chi_fast_travel">Chi Abilities/Fast Travel Portals</a></li>
+                    <ul>
+                        <li><a href="#fast_travel_gates">Fast Travel Doors/Torii Gates</a></li>
+                    </ul>
+                </ul>
+                <h2>Weapons and Buildables</h2>
+                <ul>
+                    <li><a href="#katana">'Kirisute Gomen' Katana</a></li>
+                    <li>
+                        <a href="#mahjong_scorestreaks">Mahjong Tiles (Craftable Scorestreaks/Equipment)</a>
+                    </li>
+                    <li><a href="#nunchucks">Nunchakus/Character Bios</a></li>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#main_ee">'Pest Control' Main Quest</a></li>
+                    <ul>
+                        <li><a href="#main_ee_step1">The Eye</a></li>
+                        <li><a href="#main_ee_step2">The Brain</a></li>
+                        <li><a href="#main_ee_step3">The Heart</a></li>
+                        <li><a href="#main_ee_step4">Rat King Boss Fight</a></li>
+                    </ul>
+                    <li><a href="#song_ee">'Cats on the Boulevard' Song</a></li>
+                    <li><a href="#lobby_music">Additional Lobby Music</a></li>
+                    <li><a href="#skullbuster">Skullbuster</a></li>
+                    <ul>
+                        <li><a href="#side_ee_step1">Skull 1/6 - Clean the Machine</a></li>
+                        <li><a href="#side_ee_step2">Skull 2/6 - Mahjong</a></li>
+                        <li><a href="#side_ee_step3">Skull 3/6 - Draw Numbers on Glass</a></li>
+                        <li><a href="#side_ee_step4">Skull 4/6 - Jumping Puzzle</a></li>
+                        <li><a href="#side_ee_step5">Skull 5/6 - Jump in front of the Train</a></li>
+                        <li><a href="#side_ee_step6">Skull 6/6 - Dial a Phone Number</a></li>
+                        <li><a href="#side_ee_step7">The Skullbuster Mini-Game</a></li>
+                    </ul>
+                    <li>
+                        <a href="#trolltastic">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</a>
+                    </li>
+                    <li><a href="#phone_codes">Phone Secret Numbers</a></li>
+                    <li><a href="#grier_code">Play as Pam Grier</a></li>
+                </ul>
+            </div>
+
+            <!-- Power -->
+            <div class="content-container" data-section-ind="Map Progression" id="power">
+                <h2 class="section-title">Power</h2>
+                <ul>
+                    <li>There are a total of four Power Switches on the map, each activating power for its corresponding area. Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/power/power_spawn.webp">Subway Station (Spawn) - On one of the support pillars</a>
+                        </li>
+                        <li>
+                            <a href="pictures/power/power_roof.webp">Disco Inferno Roof - Left of the Quickes Perk Machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/power/power_deadeye.webp">Park Area - On the wall, left of Deadeye Dewdrops</a>
+                        </li>
+                        <li>
+                            <a href="pictures/power/power_bang_bangs.webp">Main Street Subway Station - Left of Bang Bangs (on the other side of the tracks)</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- PaP -->
+            <div class="content-container" id="pap">
+                <h2 class="section-title">Pack-a-Punch</h2>
+                <ol>
+                    <li>To access Pack-a-Punch, you must collect three different items - Flyer, Coin, and Film Reel:</li>
+                    <ul>
+                        <li>Flyer:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pap/flyer_dojo.webp">Dojo - On a pile of garbage, on the left side of the Dojo</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/flyer_racin_stripes.webp">Rooftop near the Dojo - In front of Racin' Stripes, on a chair</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/flyer_roof.webp">Disco Inferno Rooftop - On a stool, around the corner from the KBS Longbow wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/flyer_street.webp">Main Street - On the ground in front of the Pink Cat</a>
+                            </li>
+                        </ul>
+
+                        <li>Coin:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pap/coin_jug.webp">Sewers - Underneath the Tuff 'Nuff Perk Machine (requires all four power switches to be on to access)</a>
+                            </li>
+                        </ul>
+
+                        <li>Film Reel:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pap/film_reel_disco.webp">Disco Inferno - On a couch on the second floor, right of the Rack-9 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/film_reel_pink_cat.webp">Pink Cat - On a couch near the right-most entrance (flyer needed)</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/film_reel_ticket_booth.webp">Main Street Subway Station - On a stack of boxes between the ticket booth and the lockers</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/film_reel_jug.webp">Sewers - On a box at the top of the stairs near Tuff 'Nuff</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pap/film_reel_sewer.webp">Rat King's Lair - In the Sewer holes in the wall, right of the Rat King's "Throne" (requires all four power switches to be on to access)</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Once you have the Flyer, you can open the
+                        <a href="pictures/pap/pink_cat_door1.webp">front door of the Pink Cat</a>. The Coin can open the
+                        <a href="pictures/pap/pink_cat_door2.webp">door to the room on the left</a>
+                        when coming from the street. The
+                        <a href="pictures/pap/projector.webp">Projector</a>
+                        inside can be repaired using the Film Reel. This will cause the Projector to project a portal on the wall.
+                    </li>
+                    <li>Interact with the portal on the wall to teleport to the Pack-a-Punch room.</li>
+                    <ul>
+                        <li>While in the projector room, you'll have 30 seconds to use the Pack-a-Punch before you're forcefully teleported back to the main map.</li>
+                    </ul>
+                    <li>After being forcefully teleported back, the teleporter will go on cooldown for about one minute. After a minute, the teleporter will reactivate.</li>
+                </ol>
+
+                <p class="upgrade-title" id="double_pap">Double Pack-a-Punch</p>
+                <ol>
+                    <li>
+                        Obtain a
+                        <a href="#chi_fast_travel" class="link-to-page">Chi Ability and open the Fast Travel from the Racin' Stripes rooftop to the Main Street</a>.
+                    </li>
+                    <li>
+                        Unlock
+                        <a href="#pap" class="link-to-page">Pack-a-Punch</a>.
+                    </li>
+                    <li>
+                        Enter the Pack-a-Punch room and interact with the
+                        <a href="pictures/pap/double_pap/proj_room_button.webp">button on the wall</a>.
+                    </li>
+                    <li>
+                        Quickly exit the Pack-a-Punch room, and take the portal on the Main Street by Blue Bolts. Once teleported, pick up the
+                        <a href="pictures/pap/double_pap/fuse_box.webp">Uncharged Alien Fuses from the box on the wall</a>
+                        beside the portal.
+                    </li>
+                    <ul>
+                        <li>You have about 25 seconds to pick up the fuses before the box closes.</li>
+                        <li>If you take too long, you can retry as soon as the PAP teleporter becomes available again.</li>
+                    </ul>
+                    <li>
+                        Place the fuses on the
+                        <a href="pictures/pap/double_pap/electric_rails.webp">electric rails</a>
+                        (both sides work) in the Main Street Subway Station. Wait for the train to run them over.
+                    </li>
+                    <li>Once the fuses have been run over, they will be charged and can be picked up. Insert them into the Pack-a-Punch Projector. Once inserted, you will be able to Pack-a-Punch any Pack-a-Punched weapon again for 10,000 Points.</li>
+                    <li>
+                        The Alien Fuses will only be activated for the remainder of the
+                        <strong>CURRENT</strong>
+                        game.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="chi_fast_travel">
+                <h2 class="section-title">Chi Abilities/Fast Travel Portals</h2>
+                <ul>
+                    <li>
+                        The Chi Abilities are melee abilities that can be used once per round*. They can be upgraded by completing kill challenges. Once you pick your ability (see below), picking up any
+                        <a href="pictures/chi_fast_travel/gourd.webp">Gourd</a>
+                        around the map will recharge your chi ability.
+                    </li>
+                    <ul>
+                        <li>*The gourds do respawn after about five minutes, so they can be reused in a round if you're willing to wait.</li>
+                    </ul>
+                    <li>
+                        A Chi ability can be obtained by talking to
+                        <a href="pictures/pam.webp">Pam Grier in the Dojo</a>
+                        on/after Round 5, then by picking up one of the
+                        <a href="pictures/chi_fast_travel/all_gourds_dojo.webp">four Gourds around the Dojo</a>. All players can have the same style at the same time and, a style can be switched for another one by going to the Dojo and picking up that style's Gourd.
+                    </li>
+                    <li>There are four different "fighting styles" (Dragon, Tiger, Crane, and Snake) each with their own unique tier 3 and 4 abilities. At tier 1, you can only melee. Tier 2 adds a chargeable Shuriken attack that, when charged, can split into three Shurikens. Tier 3 adds a style-specific Chi ability and tier 4 adds a style-specific ultimate Chi ability.</li>
+                    <ul>
+                        <li>Chi upgrade progress is not shared between fighting styles, so upgrading one style to max level will not upgrade others.</li>
+                        <li>Upgrade progress is saved if you switch styles, so if you switch to something, then switch back, you won't lose progress.</li>
+                    </ul>
+                </ul>
+
+                <p class="step-group-title" id="fast_travel_gates">Fast Travel Doors/Torii Gates</p>
+                <ul>
+                    <li>The Chi can also be used to unlock Fast Travel Portals and open Torii gates around the map. These doors/gates can be opened by meleeing/throwing a shuriken to break them. The fast travel doors must be opened in pairs to activate them.</li>
+                    <li>Fast Travel Door Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/chi_fast_travel/fast_trav_racin.webp">Rooftop near the Dojo near Racin' Stripes</a>
+                            &lt;==&gt;
+                            <a href="pictures/chi_fast_travel/fast_trav_blue_bolts.webp">Main Street right of Blue Bolts</a>
+                        </li>
+                        <li>
+                            <a href="pictures/chi_fast_travel/fast_trav_alley.webp">In the alley beside the Heebie Geebies bar</a>
+                            &lt;==&gt;
+                            <a href="pictures/chi_fast_travel/fast_trav_bang_bangs.webp">Bottom floor of the Main Street Subway Station</a>
+                        </li>
+                    </ul>
+
+                    <li>Torii Gate Locations:</li>
+                    <ul>
+                        <li>
+                            Rooftop near the Dojo near Racin' Stripes —
+                            <a href="pictures/chi_fast_travel/torii_gate_roof_pipe.webp">Location 1</a>,
+                            <a href="pictures/chi_fast_travel/torii_gate_rpr_evo.webp">Location 2</a>
+                        </li>
+                        <li>
+                            Disco Inferno Rooftop —
+                            <a href="pictures/chi_fast_travel/torii_gate_roof_to_street.webp">Location 1</a>,
+                            <a href="pictures/chi_fast_travel/torii_gate_roof_to_disco.webp">Location 2</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- Wonder Weapons -->
+            <div class="content-container" data-section-ind="Weapons and Buildables" id="katana">
+                <h2 class="section-title">'Kirisute Gomen' Katana</h2>
+                <p class="weapon-desc">The Katana can be Pack-a-Punched and doesn't require an Easter Egg to do so.</p>
+                <ol>
+                    <li>
+                        Complete the
+                        <a href="#main_ee" class="link-to-page">Main Quest</a>
+                        at least once in any game.
+                    </li>
+                    <li>
+                        Once you've completed the Main Quest, the
+                        <a href="pictures/katana/katana_on_wall.webp">Katana can be purchased from the wall in the Dojo</a>
+                        for 10,000 points (or free if you do the quest in the current game).
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="mahjong_scorestreaks">
+                <h2 class="section-title">Mahjong Tiles (Craftable Scorestreaks/Equipment)</h2>
+                <ul>
+                    <li>Around the map, there are tables with Mahjong tiles with Scorestreaks/Equipment on them. To get the scorestreaks, find the three missing Mahjong tiles and bring them back to the table. When all three tiles are returned, the scorestreak will appear for you to pick up. The scorestreak will respawn two rounds after being picked up. You can only carry one tile at a time.</li>
+                    <ul>
+                        <li>Toy Robot: When placed, it shoots Zombies with explosives, or an electric attack if they get close. It explodes when time runs out, killing any nearby Zombies.</li>
+                        <li>Zom-B-Gone: When thrown, it creates a temporary area that prevents Zombies from entering.</li>
+                        <li>Boom Box: When placed, it lures nearby Zombies away from players to its location before detonating and killing all surrounding Zombies (its a better Monkey Bomb).</li>
+                        <li>Lava Lamp: When placed, the lamp can explode on its own or when shot, creating a lava pool that kills Zombies that walk over it. The pool shrinks over time until it disappears. It CAN damage players (even with Bombstoppers).</li>
+                        <li>Sentry Gun: The Sentry Gun is an unmanned weapon that automatically detects and fires on enemies in front of it.</li>
+                    </ul>
+
+                    <p data-bool-quick-link="false" class="sub-sub-step">Table and Mahjong Locations:</p>
+                    <ul>
+                        <li>
+                            Toy Robot Table:
+                            <a href="pictures/mahjong_scorestreaks/toy_robot_table.webp">Near the bus on the street near the Dojo</a>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/toy_robot_bus.webp">At the front of the bus, on the top</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/toy_robot_stairs.webp">Halfway up the stairs from the Spawn Subway to the Dojo, near some trash on the ground</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/toy_robot_jug.webp">Left of Tuff 'Nuff, in a crate</a>
+                            </li>
+                        </ul>
+
+                        <li>
+                            Zom-B-Gone Table:
+                            <a href="pictures/mahjong_scorestreaks/zombgone_table.webp">In the Bombstoppers alley</a>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/zombgone_fence.webp">To the right of the Zom-B-Gone table, in front of the fence</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/zombgone_white_table.webp">On a white table in the private room (the room behind the GnS arcade machine) of the Disco</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/zombgone_fast_trav.webp">Opposite the Fast Travel Door in the Mule Munchies/Bombstoppers alley</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/zombgone_pallet.webp">On the burning pallet near Mule Munchies</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/zombgone_hookah.webp">On a red table in the Heebie Geebies, next to a hookah</a>
+                            </li>
+                        </ul>
+
+                        <li>
+                            Boom Box Table:
+                            <a href="pictures/mahjong_scorestreaks/boom_box_table.webp">At the bottom of the stairs near Racin' Stripes</a>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/boom_box_bricks.webp">Up the ramp near the Dojo, next to some concrete bricks</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/boom_box_spool.webp">Up the ramp near the Dojo, on a spool</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/boom_box_stairs.webp">On the ground at the top of the staircase near Racin' Stripes</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/boom_box_paint_cans.webp">On a paint bucket near the garbage chute on the roof</a>
+                            </li>
+                        </ul>
+
+                        <li>
+                            Lava Lamp Table:
+                            <a href="pictures/mahjong_scorestreaks/lamp_table.webp">Next to the Mystery Wheel near Deadeye Dewdrops</a>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/lamp_rvn.webp">On a white table outside the Disco, next to the R-VN wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/lamp_stairs.webp">Up the first flight of stairs from the R-VN wallbuy outside</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/lamp_garbage.webp">On the ground in the pile of garbage opposite the Volk wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/lamp_house.webp">In front of the house, just around the corner from the location (on the upper path outside)</a>
+                            </li>
+                        </ul>
+
+                        <li>
+                            Sentry Gun Table:
+                            <a href="pictures/mahjong_scorestreaks/gun_table.webp">Beside the subway entrance stairs outside the Disco</a>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_subway.webp">In front of the entrance to the subway near the Disco</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_van.webp">Next to the back right wheel of the white van in front of The Pink Cat</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_magic_wheel.webp">On a pallet, left of the Mystery Wheel outside the Disco</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_blue_room.webp">On the counter in the blue coat check room inside the Disco</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_kbar.webp">On a support beam on the second floor of the Disco, near the KBAR-32 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/mahjong_scorestreaks/gun_jug.webp">Near the wooden box up the stairs from Tuff 'Nuff</a>
+                            </li>
+                        </ul>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-container" id="nunchucks">
+                <h2 class="section-title">Nunchakus/Character Bios</h2>
+                <p class="weapon-desc">The Nunchucks can be Pack-a-Punched and doesn't require an Easter Egg to do so.</p>
+                <ol>
+                    <li>
+                        Activate the
+                        <a href="#chi_fast_travel" class="link-to-page">two sets of fast travel portals and open all Torii gates</a>.
+                    </li>
+                    <li>
+                        On a
+                        <a href="pictures/nunchucks/clock1_item1.webp">wooden pallet left of Blue Bolts</a>, you will find an item related to your character: a trophy for AJ, a microphone for Andre, a newspaper for Sally, and a comic book for Poindexter.
+                    </li>
+                    <li>
+                        Interact with the
+                        <a href="pictures/nunchucks/clock1.webp">alarm clock in the Disco</a>
+                        to activate a timed "clock vision," which is indicated by the "wind" effect on the edges of the screen.
+                    </li>
+                    <li>
+                        While in clock vision, melee the first item then quickly enter the portal to the right. Take a sharp left turn, and melee the
+                        <a href="pictures/nunchucks/clock1_item2.webp">item on the stack of wood</a>. If done correctly, the "clock vision" will end, and you won't be teleported back to the clock.
+                    </li>
+                    <ul>
+                        <li>If you fail any of the clock steps, end the round to be able to retry.</li>
+                    </ul>
+                    <li>
+                        Activate the
+                        <a href="pictures/nunchucks/clock2.webp">clock</a>
+                        in the Bang Bangs Subway Station. Run through the portal next to it, and melee the
+                        <a href="pictures/nunchucks/clock2_item1.webp">script lying on a dumpster</a>
+                        beside Bombstoppers. You will be brought back to the subway. Quickly run across the tracks and melee another
+                        <a href="pictures/nunchucks/clock2_item2.webp">script on the floor next to Bang Bangs</a>.
+                    </li>
+                    <li>
+                        Go to the roof of the Disco and interact with the
+                        <a href="pictures/nunchucks/clock3.webp">clock</a>
+                        there. Drop through the open skylight on the roof near Quickies and melee the
+                        <a href="pictures/nunchucks/clock3_item1.webp">book next to the Rack-9 wallbuy</a>. You will be brought back to the clock. Melee the
+                        <a href="pictures/nunchucks/clock3_item2.webp">book on the ledge</a>
+                        of the roof overlooking the street.
+                    </li>
+                    <li>Around the map, there are four TVs, one for each of the four different playable characters. Interact with the TV to change the image displayed on it. Keep interacting with it until a cartoon image of your character appears. TV locations:</li>
+                    <ul>
+                        <li>
+                            Sally:
+                            <a href="pictures/nunchucks/tv_spawn.webp">In the spawn room inside the train car</a>
+                        </li>
+                        <li>
+                            Andre:
+                            <a href="pictures/nunchucks/tv_heebie.webp">Inside Heebie Geebies</a>
+                        </li>
+                        <li>
+                            Poindexter:
+                            <a href="pictures/nunchucks/tv_rpr.webp">On the rooftop near the RPR Evo wallbuy</a>
+                        </li>
+                        <li>
+                            AJ:
+                            <a href="pictures/nunchucks/tv_blue_bolts.webp">Next to the Blue Bolts perk machine</a>
+                        </li>
+                    </ul>
+                    <li>Once your character's image is on the TV screen, a horde of Ninjas and Zombies will spawn that you must kill. Once they're dead, the TV will show colour bars.</li>
+                    <li>
+                        Return to the Disco roof and punch the
+                        <a href="pictures/nunchucks/clock3.webp">clock</a>. Then head down to the disco and punch the
+                        <a href="pictures/nunchucks/clock1.webp">clock</a>
+                        inside. Finally, go down to the subway and punch that
+                        <a href="pictures/nunchucks/clock2.webp">clock</a>. A fire sale will spawn once you complete this step.
+                    </li>
+                    <ul>
+                        <li>If you take too long, you will be teleported back to the first clock, but you can retry immediately.</li>
+                    </ul>
+                    <li>The Nunchucks will be the first item you get from the wheel during this fire sale. After completing this with any character once, the Nunchucks will become permanently available from the Mystery Wheel in any future game.</li>
+                </ol>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">'Pest Control' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - 6/10 (4/10 Dir. Cut), Est. Completion Time - 1 Hr to 1:30 Hr (40 Mins to 1:10 Hr Dir. Cut)</p>
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">The Eye</p>
+                    <li>
+                        Obtain a
+                        <a href="#chi_fast_travel" class="link-to-page">Chi ability</a>
+                        and level it up to Shurikens.
+                    </li>
+                    <li>
+                        Talk to
+                        <a href="pictures/pam.webp">Pam Grier</a>
+                        (whenever you need to talk to her to complete a step, if she is already speaking, you will have to wait for her to finish before you can interact with her); you need her to say "The one who terrorizes these streets...". This will spawn
+                        <a href="pictures/main_ee/eye/rat_cage_ramp.webp">rat cages</a>
+                        around the map.
+                    </li>
+                    <li>Throw a Shuriken at one of the rat cages to release the rat (any of the rat cages will work, so where you start is just personal preference). Here are some locations close to the Dojo:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/eye/rat_cage_ramp.webp">Up the ramp from the street in front of the Dojo</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/eye/rat_cage_heebie.webp">In the side hallway in the Heebie Geebies</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Follow the rat as it leads you to another cage. Each time the rat enters a cage, throw a Shuriken at the cage to release the rat and continue following it. After destroying the sixth cage, the cage will just disappear without the rat walking out and a
+                        <a href="pictures/main_ee/eye/glowing_circle_key.webp">large yellow circle</a>
+                        will appear near the last cage.
+                    </li>
+                    <li>Kill about 15-20 Zombies while THEY’re inside the circle to make it disappear. Once the circle is gone, Ninja Zombies will start spawning.</li>
+                    <li>
+                        Once all Ninjas are dead, a
+                        <a href="pictures/main_ee/eye/key.webp">Key</a>
+                        will appear where the circle was for you to pick up.
+                    </li>
+                    <li>
+                        In the Bang Bangs Subway Station, interact with the
+                        <a href="pictures/main_ee/eye/locker.webp">locker with symbols on it</a>
+                        to open it.
+                    </li>
+                    <li>Shoot the following symbols around the map in order. If you shoot the wrong symbol, you'll have to restart at the first symbol. Symbol Locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/main_ee/eye/symbols_1.webp">To the right of the Dojo - First Symbol of the two</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/eye/symbols_2.webp">In the bathroom on the bottom floor of the Disco - Second Symbol from left</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/eye/symbols_3.webp">Right of the Volk wallbuy near Deadeye Dewdrops - First Symbol from left</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/eye/symbols_3.webp">Right of the Volk wallbuy near Deadeye Dewdrops - Second Symbol from left</a>
+                        </li>
+                    </ol>
+                    <li>
+                        Interact with the
+                        <a href="pictures/main_ee/eye/eye_fight_symbol.webp">circle in front of the Black Cat Dojo</a>
+                        to spawn the Rat King. Kill him and pick up the
+                        <a href="pictures/main_ee/eye/eye.webp">Eye</a>
+                        he drops.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step2">The Brain</p>
+                    <li>Talk to Pam. You need her to say "You must once again face your enemy...".</li>
+                    <li>
+                        Use the eye (in your tactical slot) to find and shoot six
+                        <a href="pictures/main_ee/brain/eye_symbols/symbol_example.webp">orange Rat King symbols</a>
+                        around the map.
+                    </li>
+                    <ul>
+                        <li>Only one symbol spawns at a time.</li>
+                        <li>The eye will "recharge" after a few seconds.</li>
+                        <li>Possible symbol locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_spawn.webp">In the spawn area above the train</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_barbershop.webp">In the window of a barber shop left of the Dojo</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_dojo.webp">Above the main door in the Dojo</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_heebie.webp">Behind a speaker on the left side of the stage in the Heebie Geebies</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_police_car.webp">Behind Bombstoppers, on the door of a police car</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_up_the_ramp.webp">Up the ramp from the Heebie Geebies, in the first Zombie spawn to the right</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_rpr_evo.webp">On the far building right of the RPR Evo wallbuy near Deadeye Dewdrops</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_clothsline.webp">On a clothesline by the Magic Wheel near Deadeye Dewdrops</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_blue_room.webp">On the floor of the blue room in the Trail Blazers hallway (you have jump to see it)</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_water_tower.webp">On the Water Tower left of the KBS Longbow wallbuy on the Inferno Disco roof</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_skylight.webp">Though the dropdown skylight on the Inferno Disco roof, on an Air Duct</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_disco_sign.webp">On the Disco Inferno sign above the Magic Wheel on the Main Street</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/eye_symbols/symbol_bang_bangs.webp">In the Main Street Subway Station, behind the stairs on the Bang Bangs side</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        After shooting six symbols, one of the phones in either subway station will start ringing, and will not be lit up red. It will play a Morse Code message. There are only
+                        <a href="pictures/main_ee/brain/phone_morse_code_map.webp">six possible numbers</a>
+                        that the Morse code can be (
+                        <a href="/games/common_images/morse_code.webp">Morse Code Cheat Sheet</a>
+                        or
+                        <a href="https://morsedecoder.com/" class="external-link">Decoder website</a>
+                        ). Listen to the first five beeps and compare them to the ones on the image. Four of the six options have different starting beeps, so they can be determined easily. 407 and 420 have the same starting beeps, so listen to the last five beeps; if the sequence ends with five long beeps, then your number is 420, otherwise its 407.
+                    </li>
+                    <ul>
+                        <li>You MUST wait for the call to hang up. Hanging up early or being hit by a Zombie will cause you to not complete the step, and you will have to listen to the phone call again.</li>
+                    </ul>
+                    <li>
+                        Pick up the
+                        <a href="pictures/main_ee/brain/poster_example.webp">Nightmare Summer poster</a>
+                        with the same "Film Registration" number (on the bottom left of the poster) as the Morse Code.
+                    </li>
+                    <ul>
+                        <li>If you pick up the wrong poster, Willard Wyler will laugh, and you will have to shoot the six orange symbols to reactivate the phone and get a new number.</li>
+                        <li>Poster Locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_spawn.webp">In the Spawn subway station, on the Up &amp; Atoms side of the train</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_dojo.webp">Left of the Dojo</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_ramp.webp">Up the ramp from the Dojo, right of the Magic Wheel</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_alley.webp">In the Bombstoppers alley</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_roof.webp">On the Disco roof, by the dropdown through the skylight</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/poster_bang_bangs.webp">In the Main Street subway station, at the bottom of the stairs</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Place the poster on the
+                        <a href="pictures/main_ee/brain/spotlight.webp">spotlight</a>
+                        on the Disco roof, revealing an
+                        <a href="pictures/main_ee/brain/x_window.webp">"X" on a window</a>.
+                    </li>
+                    <li>Use explosives on the window to make the X disappear, then defeat the Ninja Zombies that spawn.</li>
+                    <li>
+                        Once all Ninjas are dead,
+                        <a href="pictures/main_ee/brain/letter_on_wall.webp">a letter will appear on the wall</a>
+                        right of the drop-down to the street and six symbols will spawn around the roof. Using this
+                        <a href="/games/IW/iw_symbols.webp">letter key</a>
+                        and the list of possible words below, you must spell one of the words based on the available letters. Once you find a letter that you think MIGHT be the next in the word, shoot it to add it to the word. If it is correct, the letter will be added to the word; otherwise, the word will reset back to one letter.
+                    </li>
+                    <ul>
+                        <li>The word is random, and there is no way to know what it is exactly, but most of the time there will only be one or two letters that line up with one of the possible words.</li>
+                        <li>There is no immediate penalty for failing, and you can retry immediately (if you fail about nine times in one round, you will have to wait for the next round). So if you get a long word (like ROLLERCOASTER or ROLLERSKATES), you can just fail it on purpose to try and get another (hopefully shorter) word.</li>
+                        <li>Warning: Blue Bolts' electric reload burst can activate a symbol.</li>
+                        <li>Letter Symbol Locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_word.webp">Left of the word on the wall</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_around_the_corner.webp">Around the corner from the Zombie spawn behind Quickies</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_magic_wheel.webp">Right of the Magic Wheel, on the underside of the scaffolding</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_clock.webp">In the Zombie spawn beside the clock on the wall</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_back_left_corner.webp">On a wall in the back left corner of the roof, across from the Clock</a>
+                            </li>
+                            <li>
+                                <a href="pictures/main_ee/brain/letter/letter_white_table.webp">On a white table, left of the KBS Longbow wallbuy</a>
+                            </li>
+                        </ul>
+                    </ul>
+
+                    <div class="solver-with-button" data-bool-quick-link="false">
+                        <button type="button" class="btn-base in-line-button">Click to show the Word Filter Module</button>
+
+                        <div id="main-ee-word-filter-react" style="display: none"></div>
+                    </div>
+
+                    <li>
+                        Once you finish the word, a gong sound will play and no more symbols will spawn. Go to the RPR Evo wallbuy near Deadeye Dewdrops and interact with the
+                        <a href="pictures/main_ee/brain/brain_fight.webp">Rat King symbol</a>
+                        to start a fight with the Rat King. Defeat him and pick up his
+                        <a href="pictures/main_ee/brain/brain.webp">Brain</a>.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step3">The Heart</p>
+                    <li>
+                        Talk to Pam, she will say, "The enemy you face possess the final ingredient...". At the start of the next three rounds, a
+                        <a href="pictures/main_ee/heart/cigarette_burn.webp">cigarette burn will appear on the top right of the screen</a>.
+                    </li>
+                    <li>
+                        After three rounds, the game will skip ahead three rounds and lock you on the street outside the Dojo with fire blocking the exits. Kill all the enemies that spawn to cause a
+                        <a href="pictures/main_ee/heart/turnstile.webp">turnstile piece</a>
+                        to drop and to remove the fire blocking the exits.
+                    </li>
+                    <li>
+                        Interact with the
+                        <a href="pictures/main_ee/heart/broken_turnstile.webp">broken turnstile gate in the spawn subway</a>
+                        to fix it.
+                    </li>
+                    <li>
+                        Climb the
+                        <a href="pictures/main_ee/heart/wooden_ladder.webp">wooden ladder in the alley</a>
+                        near Mule Munchies and shoot the
+                        <a href="pictures/main_ee/heart/symbol_in_window.webp">symbol in the window</a>. After shooting the symbol, the window will close and a glowing circle will spawn somewhere around the map.
+                    </li>
+                    <li>Kill about 5-10 Zombies while THEY’re inside the glowing circle to make it disappear. Find the next circle and repeat until you hear a gong. Circle locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/heart/glowing_circle_mule.webp">In the Mule Munchies/Bombstoppers Alley</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/heart/glowing_circle_private_room.webp">In the private room of the Disco (the room behind GnS Arcade Machine)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/heart/glowing_circle_park_path.webp">In the park path, near Deadeye Dewdrops</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/heart/glowing_circle_rpr_evo.webp">Beside the RPR Evo wallbuy near Deadeye Dewdrops</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/heart/glowing_circle_hornet.webp">In the spawn Subway, near the Hornet wallbuy</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Go to the Disco and interact with the
+                        <a href="pictures/main_ee/heart/dj_booth.webp">DJ booth</a>
+                        on the second floor of the Disco to spawn a
+                        <a href="pictures/main_ee/heart/disco_ball_zombie.webp">Dancing Zombie with a glowing Disco Ball over its head</a>
+                        on the dance floor below. This Zombie is passive and will not attack you.
+                    </li>
+                    <li>Bring a normal Zombie to the dance floor and kill the Disco Ball Zombie while the other Zombie is on the dance floor. This will cause the Disco Ball to transfer to the new Zombie.</li>
+                    <ul>
+                        <li>Killing the Disco Zombie without a Zombie on the dance floor will reset your progress. A new Disco Ball Zombie will spawn soon after.</li>
+                        <li>If the Disco Ball Zombie is the last Zombie of the round, you will have to kill it to start the next round, resetting your progress.</li>
+                    </ul>
+                    <li>After killing your tenth Disco Ball Zombie, the Disco Zombie will stop spawning, and you hear a gong sound.</li>
+                    <li>
+                        A
+                        <a href="pictures/main_ee/heart/heart_fight.webp">Rat King Symbol</a>
+                        will spawn on the street in front of the Pink Cat. Activate it to fight the Rat King for the third time and get his
+                        <a href="pictures/main_ee/heart/heart.webp">Heart</a>.
+                    </li>
+                    <li>Once ready for the boss fight, speak to Pam in the Dojo and then enter the Rat King's lair in the sewers to start the final boss fight. Make sure you have a high ammo capacity bullet-based weapon (PAPed NV4 or similar should be fine) for the boss fight. If you don't, you could potentially soft-lock yourself since one of the steps requires you to shoot symbols. If you run out of ammo during this step, there's no way to get more.</li>
+                </ol>
+
+                <ol>
+                    <p class="step-group-title" id="main_ee_step4">Rat King Boss Fight</p>
+                    <li>The Rat King can throw his shield at you, send a ground strike in your direction, and spawn Rat Ninja Zombies. Occasionally, he will defend himself using his shield. When this happens, a yellow armour marker will appear when you shoot him. The more you shoot him while his shield is raised, the longer he will hold it up.</li>
+                    <ul>
+                        <li>You can destroy his staff by throwing a Chi Shuriken at it. After a minute or two, his staff will respawn.</li>
+                    </ul>
+                    <li>When you first enter the fight, you must deal damage to the Rat King. Once you've done enough damage, the Rat King will retreat to the rafters around the room, and the Eye, Brain, and Heart will appear on the ground.</li>
+                    <li>You must interact with one of the three organs and then interact with the big symbol on the floor in the centre of the room to activate that organ's challenge. Each organ triggers a specific challenge that you must complete; the challenges can be completed in any order. Completing a challenge will spawn a max ammo power-up in the middle of the room which doesn’t despawn, so only pick it up when you need it. After completing a challenge, you will hear a gong sound, and you must damage the Rat King until he retreats to the rafters again.</li>
+                    <ul>
+                        <li>Eye: The Eye will spawn in the centre of the room and scan the room about every 10 seconds, revealing pink symbols on the ceiling and walls around the arena (you can also manually scan using the eye you're holding). You must shoot all the symbols to complete this challenge. If you take too long, the Rat King will throw his shield around the arena, spawning symbols where it hits the walls.</li>
+                        <ul>
+                            <li>If you run out of ammo, there is no way to get more, and you will have to quit the game, unless you have some other means of hitting the symbols.</li>
+                        </ul>
+                        <li>Heart: Acid will be dumped around the perimeter of the arena. Killing a Zombie in a puddle of acid will remove the acid for a short time. The goal is to clear the entire perimeter of acid before more is dumped into the arena. The acid can damage you if you stand in it for too long.</li>
+                        <li>Brain: The Brain will spawn on the ground in the middle of the room, and Zombies with blue eyes (they're friendly and won't attack you) will spawn and start attacking the Brain. You must wait until they destroy the Brain, as well as defend them from the Rat King (you can kill these Zombies, so be careful). Destroying the Rat King's staff with a Shuriken can make this step faster, as he will be unable to kill the blue-eyed Zombies quickly. If a blue-eyed Zombie dies, another one will spawn.</li>
+                    </ul>
+                    <li>
+                        After completing the third challenge, you will be able to kill the Rat King by dealing enough damage. Once he is defeated, the ending cutscene will play, and the
+                        <a href="pictures/main_ee/soul_key.webp">Soul Key</a>
+                        will spawn in the middle of the room. If you're in Director's Cut, the
+                        <a href="pictures/main_ee/talisman.webp">Talisman</a>
+                        will spawn where the Soul Key was, and you will be given the
+                        <a href="pictures/main_ee/shaolin_dc.gif">Director's Cut III</a>
+                        animated calling card.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Song EE -->
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Cats on the Boulevard' Song</h2>
+                <p class="song-link">
+                    Link to song on
+                    <a href="https://youtu.be/CN1GgpV9U5k" class="external-link">YouTube</a>.
+                </p>
+                <ul>
+                    <li>There are seven hidden radios scattered around the map that you need to interact with. Once you interact with the seventh radio, the song will start playing. Radio locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/song_ee/trash_pile_toy_robot.webp">In the big pile of trash to the right of the Toy Robot table near the Dojo</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/pallet_heebie.webp">Behind a pallet to the left of the main entrance to the Heebie Geebies</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/speaker_heebie.webp">Behind a speaker on the right side of the stage in the Heebie Geebies</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/red_crate_heebie.webp">In the red crate near the bathrooms in the Heebie Geebies</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/tire_roof.webp">In a tire on the right side of the roof near the Dojo</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/stack_of_wood_roof.webp">Behind a stack of wood, left of Racin' Stripes</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/trash_can_trash_chute.webp">In the Trash Can next to the trash chute, up the stairs from Racin' Stripes</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/ledge_trash_chute.webp">On a ledge on the left after going down the trash chute near Racin' Stripes</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/electrical_box.webp">On an Electrical Box up the stairs from Deadeye Dewdrops</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/trash_can_volk.webp">In/behind a Trash Can left of the Volk wallbuy near Deadeye Dewdrops</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/trash_can_park_path.webp">Behind a Trash Can on the upper level of the Park/Grassy Path</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/white_table.webp">Under a white table outside the Disco, next to the R-VN wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/bricks_roof.webp">On the roof of the Disco, behind some bricks ("behind" Quickies)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/vent_roof.webp">In a vent on the roof of the Disco, left of Quickes</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/trash_can_disco.webp">In a Trash Can inside the Inferno Disco, on the bottom floor beside the "front" desk</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/pipe.webp">In a broken pipe in the tunnel from Main Street to the Sewers</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/jug.webp">In the Tuff 'Nuff hallway, between an oil barrel and a green container (unconfirmed)</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-container" id="lobby_music">
+                <h2 class="section-title">Additional Lobby Music</h2>
+
+                <ol>
+                    <li>
+                        Unlock Director's Cut mode (See the
+                        <a href="/games/IW/the_beast_from_beyond/the_beast_from_beyond_guide.html#directors_cut" class="link-to-page">Director's Cut</a>
+                        section of The Beast From Beyond guide for more information).
+                    </li>
+
+                    <li>
+                        While in Director's Cut mode, and on Scene 1, make your way to the Rat King's lair and shoot the
+                        <a href="pictures/lobby_music/white_talisman.webp">White Talisman mask</a>
+                        on the painting beside the Rat King's Throne.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Ghosts 'N Skulls -->
+            <div class="content-container" id="skullbuster">
+                <h2 class="section-title">Skullbuster</h2>
+                <p class="weapon-desc">Skullbuster is an arcade game where players must clear skulls by firing cubes at them. To unlock the machine, you need to complete a specific set of side tasks to get six skulls. Completing the game unlocks all perks permanently (except for Up 'N Atoms in solo games), and all weapons in the Mystery Wheel will be pack-a-punched for the remainder of the game.</p>
+
+                <ol>
+                    <li>
+                        You can check your current progress by looking at the
+                        <a href="pictures/skullbuster/skullbuster_machine.webp">Skullbuster Arcade Cabinet</a>
+                        on the Upper Floor of the Disco.
+                    </li>
+
+                    <p class="step-group-title" id="side_ee_step1">Skull 1/6 - Clean the Machine</p>
+                    <li>Pick up a bottle of Glass Cleaner and a Cloth to clean off the Skullbuster machine. Locations:</li>
+                    <ul>
+                        <li>Glass Cleaner</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/bottle_disco.webp">In the Disco, on the pole table right of the Rack-9 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/bottle_locker.webp">Next to the lockers in the Bang Bangs Subway station</a>
+                            </li>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/bottle_heebie.webp">On the ground to the left of the stage in the Heebie Geebies</a>
+                            </li>
+                        </ul>
+                        <li>Cloth</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/cloth_roof.webp">On the roof of the Disco, next to the Magic Wheel on some wooden pallets</a>
+                            </li>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/cloth_rat_king.webp">To the left of the Rat King's throne</a>
+                            </li>
+                            <li>
+                                <a href="pictures/skullbuster/skull_1/cloth_scaffolding.webp">In the Mule Munchies alleyway, up the wooden ladder, sitting on the scaffolding</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>Interact with the Skullbuster Machine to clean the blood off the screen. Once clean, the completion sound will play.</li>
+
+                    <p class="step-group-title" id="side_ee_step2">Skull 2/6 - Mahjong</p>
+                    <li>
+                        Mahjong tiles have spawned in a row on the
+                        <a href="pictures/skullbuster/skull_2/mahjong_tiles.webp">roof of the Disco</a>
+                        right of the KBS Longbow. There are some missing tiles that you need to find to fill in the spaces. Your goal is to fill in the tiles so you have 14 tiles, then arrange them how you would for a winning hand in a real game of Mahjong. Use the solver below to find your winning hand or see the rules for a winning hand below.
+                    </li>
+                    <ul>
+                        <li>There might be at least one extra tile around the map that is not used in the winning hand. If you have one of these, swap it with another tile.</li>
+                        <li>You can only hold one tile at a time, so if you pick up a tile, you must place it on the roof before grabbing another. If you have a tile and pick up another, you will swap it with the one you're holding.</li>
+                        <li>Short description of how to make a winning hand: A winning hand consists of 14 tiles. You must form four sets of three tiles (either sequences like 1-2-3 or three identical tiles like 3-3-3) and a pair. There can only be four of the same tiles (1-1-1-1 is good but not 1-1-1-1-1).</li>
+                    </ul>
+
+                    <p class="sub-sub-step" data-bool-quick-link="false">Mahjong Tile Locations</p>
+                    <ul>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_table_roof.webp">On the left side of the Disco roof, on a red table</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_support_pillar.webp">On a support pillar on the second floor of the Disco, on the KBAR-32 wallbuy side of the bridge</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_bar_disco.webp">On the bar on the second floor of the Disco, left of the Skullbuster machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_private_room.webp">On the wooden table in the private room in the Disco (behind the Skullbuster machine)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_bar_heebie.webp">On the bar in the Heebie Geebies</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_heebie_crate.webp">On the red crate in the back hallway of the Heebie Geebies</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_car.webp">On a car to the right of the Dojo (Unconfirmed)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_crate_racin.webp">On the red crate near Racin' Stripes</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_table_rvn.webp">On a table near the R-VN wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_blue_bolts.webp">On the pallet, left of Blue Bolts</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_subway.webp">On a bench beside the Magic Wheel in the Bang Bangs Subway</a>
+                        </li>
+                        <li>
+                            <a href="pictures/skullbuster/skull_2/mahjong_loc/tile_jug.webp">On some cardboard (the further of the two) on the ground in the Tuff' Nuff room</a>
+                        </li>
+                    </ul>
+
+                    <div class="solver-with-button" data-bool-quick-link="false">
+                        <button type="button" class="btn-base in-line-button">Click to show Mahjong Tile Solver</button>
+
+                        <div id="mahjong-solver-react" style="display: none"></div>
+                    </div>
+
+                    <li>Once the tiles are placed correctly, fireworks will shoot from behind the tiles and the completion sound will play.</li>
+
+                    <p class="step-group-title" id="side_ee_step3">Skull 3/6 - Draw Numbers on Glass</p>
+                    <li>Around the map, you must “draw” numbers onto panes of glass by shooting specific parts of the glass. The glass you can "draw on" will be indicated by candles nearby.</li>
+                    <ul>
+                        <li>If you take too long or shoot a wrong piece of glass, you will hear an error sound, and you can retry with the same number next round.</li>
+                        <ul>
+                            <li>
+                                Number 1:
+                                <a href="pictures/skullbuster/skull_3/number_1.webp">Window to the right of the Inferno Disco sign by the street</a>
+                            </li>
+                            <li>
+                                Number 9:
+                                <a href="pictures/skullbuster/skull_3/number_9.webp">Across the alley when on the Racin' Stripes rooftop</a>
+                            </li>
+                            <li>
+                                Number 7:
+                                <a href="pictures/skullbuster/skull_3/number_7.webp">In the Trailblazers hallway, left of the stairs</a>
+                            </li>
+                            <li>
+                                Number 2:
+                                <a href="pictures/skullbuster/skull_3/number_2.webp">Outside on the left side of the Dojo</a>
+                            </li>
+                        </ul>
+                    </ul>
+
+                    <li>Once the last number is shot, the completion sound will play.</li>
+
+                    <p class="step-group-title" id="side_ee_step4">Skull 4/6 - Jumping Puzzle</p>
+                    <li>
+                        At the start of a round, go to the RPR Evo wallbuy near Deadeye Dewdrops; there will be a
+                        <a href="pictures/skullbuster/skull_4/white_circle.webp">white circle floating</a>
+                        in front of where the Torii Gate was. To complete this step, you must jump from circle to circle until you get to the skull. The circles will slowly start to disappear as you go, so make sure to not take too long.
+                    </li>
+                    <ul>
+                        <li>
+                            Tip:
+                            <strong>DO NOT SPRINT</strong>
+                            . All the jumps (except maybe the first one) can/should be made without sprinting. Sprinting may make you overshoot the circle you're trying to land on.
+                        </li>
+                        <li>If you fall/fail, you will need to wait for the start of the next round to retry.</li>
+                    </ul>
+                    <li>Once you reach the end, you must jump into the Skull to collect it.</li>
+
+                    <p class="step-group-title" id="side_ee_step5">Skull 5/6 - Jump in front of the Train</p>
+                    <li>
+                        There will be a
+                        <a href="pictures/skullbuster/skull_5/skull_on_train.webp">skull on the front of the train</a>
+                        that runs through the Bang Bangs subway station. You have to jump in front of the train as it's going by (just standing on the tracks won't work). This will down you; if you're solo and don't have Up &amp; Atoms, your game will end.
+                    </li>
+                    <li>If the skull is collected, the completion sound will play</li>
+
+                    <p class="step-group-title" id="side_ee_step6">Skull 6/6 - Dial a Phone Number</p>
+                    <li>
+                        At any
+                        <a href="pictures/skullbuster/skull_6/payphone.webp">interactable payphone</a>
+                        in either subway station, dial the number 555-0152. A man will answer and say something. Make sure to stay on the phone until you hear the completion noise.
+                    </li>
+                    <ul>
+                        <li>Taking damage will automatically hang up the phone and not give you completion.</li>
+                    </ul>
+
+                    <p class="step-group-title" id="side_ee_step7">The Skullbuster Mini-Game</p>
+                    <li>The game consists of three rounds, with each round requiring you to destroy all the skulls before they make it to the end. You have to form a group of three of the same colour skulls in either an L-shape or a straight line to destroy those skulls. Using the Entangler (your gun), grab a coloured cube floating around and shoot it at a question mark square to change its colour.</li>
+                    <ul>
+                        <li>Make sure you take into account the other possible groups for other colours. For example, imagine a blue group could be formed multiple ways, but a nearby red group could only be formed one way using one of the possible question mark blocks for the blue group. Thus, the blue group only has one actual way of forming that still allows the red group to form.</li>
+                    </ul>
+                    <li>If you hit a question mark with the wrong colour cube, you will get a strike. If you get three strikes, the game will end, and you will have to repeat the Skull 6 phone call.</li>
+                    <li>Once all three rounds are completed, you will be teleported back to the Disco, with all perks permanently (except Up &amp; Atoms in Solo), and all weapons in the Mystery Wheel will be pack-a-punched for the remainder of the game.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="trolltastic">
+                <h2 class="section-title">Billionaire's "Trolltastic" Treasure Hunt (Trollface Calling Card)</h2>
+                <ol>
+                    <li>
+                        You must find a radio that mentions the "eccentric billionaire David Savage" when interacted with. The radio locations are the same ones used in the
+                        <a href="#song_ee" class="link-to-page">Hidden Song Easter Egg</a>.
+                    </li>
+                    <li>
+                        Once you have found the specific radio, head to the roof of the Inferno Disco and look directly at the
+                        <a href="pictures/trolltastic/savage_ind_clock.webp">Savage Industries clock</a>. When done correctly, a Wyler Language cipher will appear on the clock.
+                    </li>
+                    <li>
+                        You must now interact with 12 specific
+                        <a href="pictures/trolltastic/garbage/bang_2.webp">standing Trash Cans</a>
+                        in both Subway Stations by holding interact on them. The Trash Cans will make a sound when interacted with. The Trash Cans can be interacted with in any order.
+                    </li>
+
+                    <p class="sub-sub-step" data-bool-quick-link="false">Trash Can Locations - Bang Bangs Subway</p>
+                    <ul>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/bang_4.webp">Between the lockers</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/bang_1.webp">To the left of the lockers, beside the fence</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/bang_3.webp">On the other side of the fence, beside the bench</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/bang_2.webp">In front of the Magic Wheel</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/bang_5.webp">At the bottom of the stairs on the Bang Bangs side of the tracks</a>
+                        </li>
+                    </ul>
+
+                    <p class="sub-sub-step" data-bool-quick-link="false">Trash Can Locations - Spawn Subway</p>
+
+                    <ul>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_1.webp">To the right of the Hornet wallbuy, in the dark corner</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_3.webp">Beside the Up &amp; Atoms perk machine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_4.webp">On the upper level of the station, right of the Magic Wheel</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_5.webp">Left of the Magic Wheel</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_8.webp">Across from the previous location, right of the Bank</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_7.webp">Left of the Bank</a>
+                        </li>
+                        <li>
+                            <a href="pictures/trolltastic/garbage/spawn_6.webp">Across from the previous location, at the bottom of the stairs</a>
+                        </li>
+                    </ul>
+
+                    <li>
+                        After activating the Trash Cans, aim at the
+                        <a href="pictures/trolltastic/cypher_garbage_mule.webp">dumpster across from Mule Munchies</a>, and another cipher will appear.
+                    </li>
+                    <li>
+                        Aim at the
+                        <a href="pictures/trolltastic/stop_sign.webp">stop sign</a>
+                        on the street below the Electric Barbed Wire trap bridge near Racin' Stripes to spawn another cypher.
+                    </li>
+                    <li>
+                        In the Inferno Disco, there is an inaccessible staircase in the
+                        <a href="pictures/trolltastic/trailblazers_hallway.webp">same hallway as Trail Blazers</a>. Crouch/prone and look directly at the
+                        <a href="pictures/trolltastic/staircase.webp">ceiling above the staircase</a>
+                        to spawn the cypher.
+                    </li>
+                    <li>
+                        The next cipher is in the Spawn Subway behind a
+                        <a href="pictures/trolltastic/spawn_gate.webp">gate, to the right of the bank</a>. Aim at the wall, and the cipher will appear.
+                    </li>
+                    <li>
+                        This next cipher will only spawn between 12 AM and 1 AM Eastern US Time
+                        <span id="timezone_conversion"></span>
+                        . The cipher is located on the
+                        <a href="pictures/trolltastic/jug_wall.webp">wall to the left of Tuff 'Nuff</a>.
+                    </li>
+                    <ul>
+                        <li>Changing your console/PC's time will not work since you need to be online (when online, the game gets the current time from its servers, not your machine).</li>
+                    </ul>
+                    <li>
+                        Aim at the
+                        <a href="pictures/trolltastic/rat_king_chair.webp">Rat King's chair</a>
+                        in the Sewers. An image of David Savage and his treasure will appear, and you will be awarded the
+                        <a href="pictures/trolltastic/trolltastic_calling_card.gif">Animated Trolltastic calling card</a>.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="phone_codes">
+                <h2 class="section-title">Phone Secret Numbers</h2>
+                <p>
+                    The following numbers can be dialled at any of the
+                    <a href="pictures/skullbuster/skull_6/payphone.webp">interactable payphones</a>
+                    around either subway station.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><strong>Phone Number</strong></th>
+                            <th><strong>Vanity Number</strong></th>
+                            <th><strong>Result</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>666</td>
+                            <td>N/A</td>
+                            <td>Automated messages from Beast Incorporated.</td>
+                        </tr>
+                        <tr>
+                            <td>369686337</td>
+                            <td>DOWNUNDER</td>
+                            <td>Plays a didgeridoo sound effect.</td>
+                        </tr>
+                        <tr>
+                            <td>49</td>
+                            <td>IW</td>
+                            <td>Plays a busy tone sound effect.</td>
+                        </tr>
+                        <tr>
+                            <td>736348</td>
+                            <td>SENDIT</td>
+                            <td>Plays a fax modem sound effect.</td>
+                        </tr>
+                        <tr>
+                            <td>69</td>
+                            <td>N/A</td>
+                            <td>Answered by prank call recipient.</td>
+                        </tr>
+                        <tr>
+                            <td>2333</td>
+                            <td>BEEF</td>
+                            <td>Answered by Burger Town employee.</td>
+                        </tr>
+                        <tr>
+                            <td>7399</td>
+                            <td>SEXY</td>
+                            <td>Plays a song.</td>
+                        </tr>
+                        <tr>
+                            <td>3323</td>
+                            <td>DEAD</td>
+                            <td>Answered by a distraught woman.</td>
+                        </tr>
+                        <tr>
+                            <td>34726</td>
+                            <td>DISCO</td>
+                            <td>Advertisement for the Disco club.</td>
+                        </tr>
+                        <tr>
+                            <td>411</td>
+                            <td>N/A</td>
+                            <td>Automated message from Big Apple Info.</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>N/A</td>
+                            <td>Answered by a Phone Operator.</td>
+                        </tr>
+                        <tr>
+                            <td>911</td>
+                            <td>N/A</td>
+                            <td>Answered by emergency services.</td>
+                        </tr>
+                        <tr>
+                            <td>232</td>
+                            <td>CDC</td>
+                            <td>Automated message from the Center for Disease Control and Prevention.</td>
+                        </tr>
+                        <tr>
+                            <td>9328437</td>
+                            <td>WEATHER</td>
+                            <td>Automated message stating the weather.</td>
+                        </tr>
+                        <tr>
+                            <td>5550152</td>
+                            <td>N/A</td>
+                            <td>
+                                Answered by upset man (won't work unless you're on Skull 6 of the
+                                <a href="#skullbuster" class="link-to-page">Skullbuster</a>
+                                EE).
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Play as Pam Grier -->
+            <div class="content-container" id="grier_code">
+                <h2 class="section-title">Play as Pam Grier</h2>
+                <ol>
+                    <li>
+                        Complete the
+                        <a href="#main_ee" class="link-to-page">Main Quest</a>
+                        at least once in any game.
+                    </li>
+                    <li>In the pre-game lobby, select Shaolin Shuffle and enter the following code using the D-Pad or Arrow Keys:</li>
+                    <ul>
+                        <li>Up (⬆️)</li>
+                        <li>Up (⬆️)</li>
+                        <li>Right (➡️)</li>
+                        <li>Left (⬅️)</li>
+                        <li>Down (⬇️)</li>
+                        <li>Left (⬅️)</li>
+                    </ul>
+                    <li>
+                        When done correctly, a
+                        <a href="pictures/grier_code/pam_grier_icon.webp">Pam Grier icon</a>
+                        will appear, and when you start the match, you will spawn as Pam Grier.
+                    </li>
+                    <ul>
+                        <li>Note: If you enter any other menus (like Barracks or Loadout) after activating the code, the icon will disappear, and you will need to enter the code again.</li>
+                    </ul>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/assets/index-D7LS4f7W.js?v=1767544654581"></script>
+
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountMahjongSolver('mahjong-solver-react');
+                    window.ZombiesSolvers.mountShaolinWordFilter('main-ee-word-filter-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer=""></script>
+        <script src="timezone_conversion.js?v=1767544654581" defer=""></script> 
+</body></html>

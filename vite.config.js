@@ -6,8 +6,8 @@ import path from 'path';
 export default defineConfig({
     plugins: [react()],
 
-    // Serve from project root so /css/styles.css works
-    root: './',
+    // Serve from src directory
+    root: './src',
 
     // Tell Vite where the index.html is for dev server
     server: {
@@ -23,8 +23,8 @@ export default defineConfig({
 
     // Build configuration
     build: {
-        // Output directory for built files
-        outDir: 'react-solvers/dist',
+        // Output directory for built files (relative to project root, not src)
+        outDir: '../dist/react-solvers',
 
         // Clear the output directory before building
         emptyOutDir: true,
@@ -34,7 +34,7 @@ export default defineConfig({
 
         // Make the bundle accessible as a global
         rollupOptions: {
-            input: path.resolve(__dirname, 'react-solvers/index.html'),
+            input: path.resolve(__dirname, 'src/react-solvers/index.html'),
             output: {
                 // This ensures our mount functions are available globally
                 format: 'iife',

@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>Bodega Cervantes Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Bodega Cervantes Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M16 12H8"></path>
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14"></path>
+                        <path d="m18 13-6-6-6 6"></path>
+                        <path d="M12 7v14"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li><ul><li><a href="#pap_upgrade">Pack-a-Punch Upgrade</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#sword">The Sword of Barbarossa</a></li></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#pap">Pack-a-Punch (Ubersprengen)</a></li>
+                    <ul>
+                        <li><a href="#pap_upgrade">Pack-a-Punch Upgrade</a></li>
+                    </ul>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#sword">The Sword of Barbarossa</a></li>
+                </ul>
+            </div>
+
+            <div class="content-container" data-section-ind="Map Progression" id="pap">
+                <h2 class="section-title">Pack-a-Punch (Ubersprengen)</h2>
+                <ol>
+                    <li>
+                        Behind the Windmill, there will be a
+                        <a href="pictures/pap/map_1/battery_1.webp">battery with a green light on top</a>. Kill Zombies next to it to power it. Once it's filled, it'll stop taking energy from Zombies, and the green light will go out.
+                    </li>
+                    <li>
+                        On Wave 5, there will be
+                        <a href="pictures/pap/map_1/battery_2.webp">another battery in the Wine Cellar</a>
+                        of the intact house. Once it's filled, it'll stop taking in energy from Zombies.
+                    </li>
+                    <li>
+                        On Wave 10, there will be
+                        <a href="pictures/pap/map_1/battery_3.webp">another battery across from the Lee Enfield wallbuy</a>
+                        outside the bombed house.
+                    </li>
+                    <li>Once all three batteries are filled, Pack-A-Punch will activate in the Windmill.</li>
+                </ol>
+
+                <p class="upgrade-title" id="pap_upgrade">Pack-a-Punch Upgrade</p>
+                <p class="weapon-desc">Allows you to upgrade the Tesla Gun, Ripsaw, and Melee Weapons (into the Shadowed Throne variants).</p>
+                <ol>
+                    <li>Obtain a scoped weapon. I recommend using the M1 Garand with a 4X scope since it has a wallbuy near Spawn.</li>
+                    <li>
+                        On the bridge behind the Windmill, there will be a
+                        <a href="pictures/pap/pap_upgrade/map_1/rubber_duck.webp">rubber duck sitting on the far wall</a>. Shoot the duck to activate the Shooting Galley minigame.
+                    </li>
+                    <li>Ducks will rise from behind the wall. You must shoot these ducks before they go back down. There will be 16 ducks for you to shoot. If done correctly, an animal in a dress holding balloons will rise up on the left side of the bridge.</li>
+                    <ul>
+                        <li>If you fail, you can retry on the next round.</li>
+                    </ul>
+                    <li>
+                        On the ground behind you, there will be a
+                        <a href="pictures/pap/pap_upgrade/map_1/fuse.webp">fuse</a>
+                        that you can pick up. The fuse will be automatically inserted into the Pack-a-Punch machine.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" data-section-ind="Easter Eggs" id="sword">
+                <h2 class="section-title">The Sword of Barbarossa</h2>
+                <ol>
+                    <li>
+                        Complete the
+                        <a href="/games/WW2/the_tortured_path/the_tortured_path_guide.html#main_ee" class="link-to-page">Main Quest of The Tortured Path</a>
+                        at any time at least once.
+                    </li>
+                    <li>Around the map, there are seven rune stone (like the ones from Map 3's main quest) that you must give 1750 jolts each (12250 jolts total). If done correctly, the stone will glow purple. Rune locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_cellar.webp">Inside the wine rack, left of Schnellblitz (Speed Cola)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_cow.webp">In some grass, left of the dead cow</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_rubble.webp">In a pile of rubble, right of the blue truck</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_barrels.webp">On the ground by some barrels, left of the outside stairs to the Wine Cellar</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_box.webp">In a box right of the truck with the paintings in front of the Windmill</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_bucket.webp">In a bucket right of the Windmill gears</a>
+                        </li>
+                        <li>
+                            <a href="pictures/sword/map_1/stone_armour.webp">In rubble in front of the Armour stand in the broken house</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Stand in the
+                        <a href="pictures/sword/map_1/white_ring.webp">glowing ring between the two trucks in front of the Windmill</a>
+                        and allow a Zombie down you. You'll be instantly revived with the Sword (you'll keep all perks, except Quick Revive on solo).
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer=""></script> 
+</body></html>

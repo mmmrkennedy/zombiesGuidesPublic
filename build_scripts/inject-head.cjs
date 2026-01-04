@@ -28,7 +28,7 @@ function getAllHtmlFiles(dir, fileList = []) {
     return fileList;
 }
 
-const files = getAllHtmlFiles('.');
+const files = getAllHtmlFiles('./src');
 let processedCount = 0;
 const changedFiles = [];
 

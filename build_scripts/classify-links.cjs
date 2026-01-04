@@ -16,7 +16,7 @@ class LinkClassifier {
         this.options = {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
-            indexFile: options.indexFile || './index.html',
+            indexFile: options.indexFile || './src/index.html',
             ...options,
         };
         this.processedFiles = 0;
@@ -255,7 +255,7 @@ function parseArguments() {
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: './index.html',
+        indexFile: './src/index.html',
     };
 
     for (let i = 0; i < args.length; i++) {

@@ -1,0 +1,1249 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>Ancient Evil Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">Ancient Evil Guide</h2>
+
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M16 12H8"></path>
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14"></path>
+                        <path d="m18 13-6-6-6 6"></path>
+                        <path d="M12 7v14"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#pap">Pack-a-Punch</a></li><li><a href="#tributes">Tributes (Trials)</a></li><ul><li><a href="#eternal_flame">Eternal Flame</a></li></ul></ul><h2>Weapons and Buildables</h2><ul><li><a href="#apollos_will">Apollo's Will</a></li><li><a href="#god_hand_weapon">God Hand Wonder Weapons</a></li><ul><li><a href="#dormant_hand">Dormant Hand Locations</a></li><li><a href="#hand_of_charon">Fallen Hand of Charon</a></li><ul><li><a href="#redeemed_hand_of_charon">Redeemed Hand of Charon</a></li></ul><li><a href="#hand_of_ouranos">Fallen Hand of Ouranos</a></li><ul><li><a href="#redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</a></li></ul><li><a href="#hand_of_hemera">Fallen Hand of Hemera</a></li><ul><li><a href="#redeemed_hand_of_hemera">Redeemed Hand of Hemera</a></li></ul><li><a href="#hand_of_gaia">Fallen Hand of Gaia</a></li><ul><li><a href="#redeemed_hand_of_gaia">Redeemed Hand of Gaia</a></li></ul><li><a href="#exalted_hands">Exalted Hands Upgrade</a></li></ul><li><a href="#pegasus_strike">Pegasus Strike</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Greek Tragedy' Main Quest</a></li><ul><li><a href="#main_ee_step1">Unleash the Eagles</a></li><li><a href="#main_ee_step2">Ignite the Beacons</a></li><li><a href="#main_ee_step3">Look the Dead in the Eye</a></li><li><a href="#main_ee_step4">Align the Citizens</a></li><li><a href="#main_ee_step5">Scepter and Sundial</a></li><li><a href="#main_ee_step6">Hit Your Marks</a></li><li><a href="#main_ee_step7">Cleanse the Center</a></li><li><a href="#main_ee_step8">Pegasus/Perseus Boss Fight</a></li></ul><li><a href="#song_ee">'Stormbound' Song</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Labours of Hercules' Gauntlet Challenges</a></li></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#pap">Pack-a-Punch</a></li>
+                    <li><a href="#tributes">Tributes (Trials)</a></li>
+                    <ul>
+                        <li><a href="#eternal_flame">Eternal Flame</a></li>
+                    </ul>
+                </ul>
+                <h2>Weapons and Buildables</h2>
+                <ul>
+                    <li><a href="#apollos_will">Apollo's Will</a></li>
+                    <li><a href="#god_hand_weapon">God Hand Wonder Weapons</a></li>
+                    <ul>
+                        <li><a href="#dormant_hand">Dormant Hand Locations</a></li>
+                        <li><a href="#hand_of_charon">Fallen Hand of Charon</a></li>
+                        <ul>
+                            <li><a href="#redeemed_hand_of_charon">Redeemed Hand of Charon</a></li>
+                        </ul>
+                        <li><a href="#hand_of_ouranos">Fallen Hand of Ouranos</a></li>
+                        <ul>
+                            <li>
+                                <a href="#redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</a>
+                            </li>
+                        </ul>
+                        <li><a href="#hand_of_hemera">Fallen Hand of Hemera</a></li>
+                        <ul>
+                            <li><a href="#redeemed_hand_of_hemera">Redeemed Hand of Hemera</a></li>
+                        </ul>
+                        <li><a href="#hand_of_gaia">Fallen Hand of Gaia</a></li>
+                        <ul>
+                            <li><a href="#redeemed_hand_of_gaia">Redeemed Hand of Gaia</a></li>
+                        </ul>
+                        <li><a href="#exalted_hands">Exalted Hands Upgrade</a></li>
+                    </ul>
+                    <li><a href="#pegasus_strike">Pegasus Strike</a></li>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#main_ee">'Greek Tragedy' Main Quest</a></li>
+                    <ul>
+                        <li><a href="#main_ee_step1">Unleash the Eagles</a></li>
+                        <li><a href="#main_ee_step2">Ignite the Beacons</a></li>
+                        <li><a href="#main_ee_step3">Look the Dead in the Eye</a></li>
+                        <li><a href="#main_ee_step4">Align the Citizens</a></li>
+                        <li><a href="#main_ee_step5">Scepter and Sundial</a></li>
+                        <li><a href="#main_ee_step6">Hit Your Marks</a></li>
+                        <li><a href="#main_ee_step7">Cleanse the Center</a></li>
+                        <li><a href="#main_ee_step8">Pegasus/Perseus Boss Fight</a></li>
+                    </ul>
+                    <li><a href="#song_ee">'Stormbound' Song</a></li>
+                </ul>
+                <h2>Gauntlet Challenges</h2>
+                <ul>
+                    <li><a href="#gauntlet">'Labours of Hercules' Gauntlet Challenges</a></li>
+                </ul>
+            </div>
+
+            <!-- PaP -->
+            <div class="content-container" data-section-ind="Map Progression" id="pap">
+                <h2 class="section-title">Pack-a-Punch</h2>
+                <ol>
+                    <li>
+                        Activate the
+                        <a href="pictures/sentinel_artifact.webp">Sentinel Artifact</a>
+                        in the 'Amphitheater.' Activating the Sentinel Artifact will start a lockdown, where you must survive until Pegasus appears and starts killing the Zombies.
+                    </li>
+                    <li>Pick up the Golden Bridle, which will spawn a Gegenees. Golden Bridle locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/pap/bridle_intersection.webp">Intersection of Treasuries - On a pedestal, between a Large Red Crystal and Wooden Cart</a>
+                        </li>
+                        <li>
+                            <a href="pictures/pap/bridle_stoa.webp">Stoa of the Athenians - On a pedestal, right of the stairs going down</a>
+                        </li>
+                    </ul>
+                    <li>Navigate to the 'Spartan Monument' and ride Pegasus to the "Dark Side of Delphi."</li>
+                    <li>From the 'River of Sorrow,' there are two paths on either side of the Odin perk. At the end of each side's path, there is an Eagle in a cage. Both eagles need to be freed to unlock Pack-a-Punch.</li>
+                    <ul>
+                        <li>
+                            In the 'Python Pass' (right path), the
+                            <a href="pictures/pap/hanging_cage.webp">cage is hanging from the ceiling</a>. You must shoot the
+                            <a href="pictures/pap/chain.webp">chain</a>
+                            to make the cage fall, doing so will spawn a Gegenees. Once the cage has fallen, damage the
+                            <a href="pictures/pap/fiery_part_of_cage.webp">Fiery Part of the Cage</a>
+                            with your Specialist Weapon to break it open.
+                        </li>
+                        <li>
+                            In the 'Cliff Ruins' (left path), the
+                            <a href="pictures/pap/cage_cliff_ruins.webp">cage</a>
+                            can be found on the ground near the Koshka wallbuy. Going near the Cage will spawn Skeletons. Damage the
+                            <a href="pictures/pap/fiery_part_of_cage.webp">Fiery Part of the Cage</a>
+                            with your Specialist Weapon to break it open.
+                        </li>
+                    </ul>
+                    <li>Once both Eagles are freed, navigate to the 'Center of the World' and survive the lockdown until the Eagles have opened Pack-a-Punch.</li>
+                    <li>
+                        Once Pack-a-Punch has been unlocked, you can return to the "Light Side" by taking the Fast Travel
+                        <a href="pictures/pap/pap_fast_travel.webp">Behind Pack-a-Punch</a>
+                        or
+                        <a href="pictures/pap/river_of_sorrow_fast_travel.webp">At the top of the 'River of Sorrow'</a>. To return to the "Dark Side", take any of the Fast Travels on the "Light Side" as they all go to the "Dark Side", one of the better ones is in the <a href="pictures/pap/spartan_monument_fast_travel.webp">'Spartan Monument'</a>.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Tributes -->
+            <div class="content-container" id="tributes">
+                <h2 class="section-title">Tributes (Trials)</h2>
+                <ul>
+                    <li>Tributes (which are identical to the Trials in Cold War) are timed challenges that will build up a reward as the player participates in challenges.</li>
+                    <li>Reward tiers can rank from Common to Epic rarity.</li>
+                    <li>Reward tiers don't reset when a challenge finishes; instead, you keep your progress until you collect the reward.</li>
+                    <li>Every time you interact with your current challenge (i.e., getting a kill with equipment during a "Kill Zombies with Equipment" challenge) the Tribute graphic on your screen will flash, indicating you've earned progress toward upgrading your reward rarity.</li>
+                    <li>
+                        To activate a challenge, interact with the bowl in either the
+                        <a href="pictures/tributes/bowl_temple.webp">'Temple of Apollo'</a>
+                        or
+                        <a href="pictures/tributes/bowl_cliff.webp">'Cliff Ruins'</a>
+                        areas. Activating challenges will cost more and more based on how many challenges you've activated.
+                    </li>
+                    <li>When one player activates a challenge, it activates for all players, but reward tiers aren't shared between players.</li>
+                    <li>
+                        The reward can be collected from the
+                        <a href="pictures/tributes/pillars.webp">Pillars</a>
+                        in the 'Temple of Apollo.'
+                        <span style="color: red">BUG:</span>
+                        You can't collect a reward while a "Prove yourself to..." The God Hand upgrade portal is active and waiting for you to enter. Rewards for each Tier:
+                    </li>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Reward</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Common</td>
+                                <td>Double Points, Self Revive, Insta-Kill, Bowie Knife</td>
+                            </tr>
+                            <tr>
+                                <td>Rare</td>
+                                <td>Fire Sale, Max Ammo, PAP'd Strife, PAP'd Escargot, PAP'd RK 7 Garrison</td>
+                            </tr>
+                            <tr>
+                                <td>Legendary</td>
+                                <td>Max Ammo, Full Power, Bullet Boost, PAP'd Rampage, PAP'd Switchblade X9, PAP'd Grav</td>
+                            </tr>
+                            <tr>
+                                <td>Epic</td>
+                                <td>Free Extra Perk, Self Revive, Pegasus Strike, PAP'd Swat RFT, PAP'd Daemon 3XB, PAP'd SDM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+
+                <p class="upgrade-title" id="eternal_flame">Eternal Flame</p>
+                <ul>
+                    <li>
+                        The Eternal Flame is used for the
+                        <a href="#main_ee" class="link-to-page">Main Quest</a>
+                        and the
+                        <a href="#exalted_hands" class="link-to-page">Exalted God Hand Upgrades</a>.
+                    </li>
+                    <li>
+                        An ignited Eternal Flame is indicated by the
+                        <a href="pictures/eternal_flame.webp">Blue Flame in the 'Temple of Apollo'</a>.
+                    </li>
+                    <li>To ignite the Eternal Flame, you must earn a certain number of Tribute Points based on the number of players in your game.</li>
+                    <ul>
+                        <li>Solo - 9 Tribute Points</li>
+                        <li>2-Player - 18 Tribute Points</li>
+                        <li>3-Player - 27 Tribute Points</li>
+                        <li>4-Player - 36 Tribute Points</li>
+                    </ul>
+
+                    <li>These points are earned based on the tier of reward collected. So for example, collecting a Rare reward will only award 1 point, but an Epic reward will award 6 points.</li>
+                    <li>Reward Conversion Chart:</li>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Points Received</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Common</td>
+                                <td>0.5 Tribute Points</td>
+                            </tr>
+                            <tr>
+                                <td>Rare</td>
+                                <td>1 Tribute Points</td>
+                            </tr>
+                            <tr>
+                                <td>Legendary</td>
+                                <td>4 Tribute Points</td>
+                            </tr>
+                            <tr>
+                                <td>Epic</td>
+                                <td>6 Tribute Points</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+            </div>
+
+            <!-- Shield -->
+            <div class="content-container" data-section-ind="Weapons and Buildables" id="apollos_will">
+                <h2 class="section-title">Apollo's Will</h2>
+                <ol>
+                    <li>The Apollo's Will requires three parts to be built:</li>
+                    <ul>
+                        <li>Handle:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/apollos_will/handle_bridge.webp">River Pass - On the lower part of the Bridge</a>
+                            </li>
+                            <li>
+                                <a href="pictures/apollos_will/handle_rock.webp">River Pass - On a rock near the top of the Bridge</a>
+                            </li>
+                            <li>
+                                <a href="pictures/apollos_will/handle_river.webp">River Pass - On a rock, in the river</a>
+                            </li>
+                        </ul>
+                        <li>Spear:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/apollos_will/spear_stoa.webp">Stoa of the Athenians - Behind the Mozu wallbuy, on the other side of the wall</a>
+                            </li>
+                            <li>
+                                <a href="pictures/apollos_will/spear_intersection1.webp">Intersection of Treasuries - Opposite the Mozu wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/apollos_will/spear_intersection2.webp">Intersection of Treasuries - At the base of a statue, opposite the Auger DMR wallbuy</a>
+                            </li>
+                        </ul>
+                        <li>Shield:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/apollos_will/shield.webp">Drops from the first Gegenees killed</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        The Apollo's Will can be built at the
+                        <a href="pictures/apollos_will/workbench.webp">Workbench</a>
+                        in the 'Marketplace.'
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Wonder Weapons -->
+            <div class="content-container" id="god_hand_weapon">
+                <h2 class="section-title">God Hand Wonder Weapons</h2>
+                <p class="weapon-desc">There are four God Hand Weapons, each corresponding to a Greek God (Charon, Ouranos, Hemera and Gaia). The Hand Weapons can't be directly Pack-a-Punched, but there are three versions, "Fallen"/Base version, "Redeemed"/Upgraded and "Exalted"/Fully Upgraded.</p>
+
+                <p class="step-group-title" id="dormant_hand">Dormant Hand Locations</p>
+                <ul>
+                    <li>To craft a God Hand, you'll first need to find one of four Dormant Hands, all of which spawn at the beginning of the game.</li>
+                    <li>Each Dormant Hand is hidden inside something (Vase, Pile of Dirt, Crystal, etc.) Items containing a Dormant Hand will glow purple if a Hand is present.</li>
+                    <li>You must melee these glowing items to reveal the Dormant Hand inside, after which you can pick it up.</li>
+                    <li>The Oracle will often hint to the player where a Dormant Hand can be found when the player is in the 'Temple of Apollo' anytime after unlocking Pack-a-Punch.</li>
+                    <li>The Oracle will only hint at one location until the Hand at that location is picked up.</li>
+                    <li>Below is a table of the location of a Dormant Hand based on the Hint the Oracle gives.</li>
+                    <li>You don't have to pick up the Hand at the location being hinted at.</li>
+                    <li>The hint the Oracle says will always start with "Seek the Primordial Weapon..." followed by the location. Example: "Seek the Primordial Weapon near the Purple Blossoms."</li>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Oracle Hint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chaos of the Treasuries</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/chaos_of_the_treasuries.webp">Intersection of Treasuries - Inside Chaos Crystal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Near the Purple Blossoms</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/purple_blossoms.webp">Intersection of Treasuries - At the base of the stairs, right of Auger DMR wallbuy</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Barque of Gold</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/barque_of_gold.webp">Stoa of Athenians - Right of the Boat</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>The Shieldbearer's Fountain</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/shieldbearers_fountain.webp">Stoa of the Athenians - In a vase on the fountain</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>General's Column</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/generals_column.webp">Spartan Monument - At the base of the pillar, down the stairs from the 'Stoa of the Athenians'</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fallen Statesman</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/fallen_statesman.webp">Spartan Monument - At the top of the stairs, near the Zeus Perk Status</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Beneath the watchful gaze of Zeus</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/watchful_gaze_of_zeus.webp">Spartan Monument - Next to the Zeus Perk Statue</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Golden Taurus</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/golden_taurus.webp">Spartan Monument - Near the Gaia shrine</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where the Arrow splits the Road</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/arrow_splits_the_road.webp">Intersection of Treasuries - Below Giant Arrow</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where Sorrow Flows Beneath</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/sorrow_flows_beneath.webp">River of Sorrow - Top of stairs</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where Sorrow washes over</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/sorrow_washes_over.webp">River of Sorrow - Left of the Odin Perk Statue</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Wheel of Water</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/wheel_of_water.webp">Cliff Ruins - Left of the fire in the Forge room</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Workbench of Hephaestus</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/workbench_of_hephaestus.webp">Cliff Ruins - In the Forge room, on a table</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where the Serpent snared the Eagle</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/serpent_snared_the_eagle.webp">Cliff Ruins - Left of the cage in the Cliff Side</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>On the Broken Bridge</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/broken_bridge.webp">Cliff Ruins - Bridge to the Center of the World</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Shrine of Wind and Sky</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/shrine_of_wind_and_sky.webp">Center of the World - Pile of Rocks to the left of the Ouranos shrine</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Top of the Center of the World</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/top_of_the_center.webp">Center of the World - Below the Fast Travel portal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chaos of Venom</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/chaos_of_venom.webp">Python Pass - Near the Venom Trap activation pedestal, in a crystal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where the mighty Titan points</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/mighty_titan_points.webp">Python Pass - To the left of the Titan wallbuy, in a crystal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Steps of Flesh and Bone</td>
+                                <td>
+                                    <a href="pictures/god_hand_weapons/dormant_hand/steps_of_flesh_and_bone.webp">Python Pass - Near the Charon shrine</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+
+                <p class="step-group-title" id="hand_of_charon">Fallen Hand of Charon</p>
+                <ol>
+                    <li>
+                        Obtain a
+                        <a href="#dormant_hand" class="link-to-page">Dormant Hand</a>
+                    </li>
+                    <li>
+                        Place the Dormant Hand on the
+                        <a href="pictures/god_hand_weapons/charon/charon_shrine.webp">Charon Shrine</a>
+                        in 'Python Pass' to start a lockdown.
+                    </li>
+                    <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+                    <li>Once enough glowing Zombies are killed, the Hand of Charon can be picked up from the Shrine.</li>
+                </ol>
+
+                <p class="upgrade-title" data-custom-indent="2" id="redeemed_hand_of_charon">Redeemed Hand of Charon</p>
+                <ol>
+                    <li>
+                        Obtain the
+                        <a href="#hand_of_charon" class="link-to-page">Fallen Hand of Charon</a>
+                    </li>
+                    <li>
+                        Navigate to the 'River of Sorrow' in the "Dark Side of Delphi". Kill Zombies with the Fallen Hand of Charon while they are standing in the
+                        <a href="pictures/god_hand_weapons/charon/redeemed/river.webp">River</a>
+                        in front of the Odin Perk Statue.
+                    </li>
+                    <li>
+                        Once enough Zombies are killed, the
+                        <a href="pictures/god_hand_weapons/charon/redeemed/red_river.webp">river will turn red</a>, and you will be able to interact with the river to "drink" from it.
+                    </li>
+                    <ul>
+                        <li>While affected by the water, your screen will go cloudy and red, and you will no longer regen health.</li>
+                        <li>There are two ways to stop being affected by the water, going down or completing the next step.</li>
+                    </ul>
+                    <li>While affected by the water, you must find three coins called "Charon's Obol." Along with the three real coins, there are many "False Obols" that are identical to the real coins.</li>
+                    <ul>
+                        <li>All the coins (real or fake) will glow. Interacting with a real one will cause you to pick it up, and interacting with a false one will cause it to stop glowing.</li>
+                        <li>To tell the coins apart, you can look at the text that appears when looking at a coin. A real one will say, "Hold Interact to Obtain Charon's Obol" and a false one will say, "Hold Interact to Extinguish the False Obol."</li>
+                        <li>There is no penalty for picking up a False Obol, it is recommended so they no longer glow, making it easier to find other coins.</li>
+                        <li>Coin Locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/river_zombie_spawn.webp">River of Sorrow - Left of a zombie spawn, on the stairs right of the Fast Travel</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/river_fast_travel.webp">River of Sorrow - Near the Fast Travel portal</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/river_odin.webp">River of Sorrow - Behind and to the right of Odin Perk Statue, near the entrance to 'Python Pass'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/python_mystery_box.webp">Python Pass - At the base of a zombie spawn, right of Mystery Box</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/python_mystery_box_2.webp">Python Pass - Opposite the zombie spawn, right of Mystery Box</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/python_cage.webp">Python Pass - At the base of a spear, near the cage</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/center_acid.webp">Center of the World - Near the Acid Trap</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/center_ouranos.webp">Center of the World - On the ground, by the Ouranos Shrine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/center_cliff.webp">Center of the World - By the bridge to the 'Cliff Ruins'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/cliff_koshka.webp">Cliff Ruins - Near the Koshka wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/cliff_cage.webp">Cliff Ruins - Path up to the Mystery Box location from the cage</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/cliff_forge.webp">Cliff Ruins - In the fire of the forge</a>
+                            </li>
+                            <li>
+                                <a href="pictures/god_hand_weapons/charon/redeemed/coin_locations/cliff_mystery_box.webp">Cliff Ruins - Near the Mystery Box</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>Once you've collected all three real coins, deposit them a Charon's Shrine. This will remove the water's effect and spawn a portal.</li>
+                    <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Charon. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Charon.</li>
+                </ol>
+
+                <p class="step-group-title" id="hand_of_ouranos">Fallen Hand of Ouranos</p>
+                <ol>
+                    <li>
+                        Obtain a
+                        <a href="#dormant_hand" class="link-to-page">Dormant Hand</a>
+                    </li>
+                    <li>
+                        Place the Dormant Hand on the
+                        <a href="pictures/god_hand_weapons/ouranos/ouranos_shrine.webp">Ouranos Shrine</a>
+                        in the 'Center of the World' to start a lockdown.
+                    </li>
+                    <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+                    <li>Once enough glowing Zombies are killed, the Hand of Ouranos can be picked up from the Shrine.</li>
+                </ol>
+
+                <p class="upgrade-title" data-custom-indent="2" id="redeemed_hand_of_ouranos">Redeemed Hand of Ouranos</p>
+                <ol>
+                    <li>
+                        Obtain the
+                        <a href="#hand_of_ouranos" class="link-to-page">Fallen Hand of Ouranos</a>
+                    </li>
+                    <li>Around the "Dark Side," there are three giant arrows. Using the Hand of Ouranos, you must fling a Zombie into these arrows to make a feather fly out of them. Arrow Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/god_hand_weapons/ouranos/redeemed/arrow_center.webp">Center of the World - Left of Pack-a-Punch</a>
+                        </li>
+                        <li>
+                            <a href="pictures/god_hand_weapons/ouranos/redeemed/arrow_charon.webp">Python Pass - In front of the Charon Shrine</a>
+                        </li>
+                        <li>
+                            <a href="pictures/god_hand_weapons/ouranos/redeemed/arrow_mystery_box.webp">Cliff Ruins - Left of the Mystery Box Location</a>
+                        </li>
+                    </ul>
+                    <li>You must keep the feather in the air by shooting it with the Hand until it flies to the Shrine.</li>
+                    <ul>
+                        <li>Each feather needs to be shot a different number of times for it to make it to the Shrine. The 'Center of the World' feather needs one shot to make it to the Shrine, and the 'Python Pass' and 'Cliff Ruins' feathers need two shots to make it.</li>
+                    </ul>
+                    <li>If an arrow's feather successfully made it to the Shrine, that arrow would fall, making it no longer possible to shoot a Zombie at it.</li>
+                    <li>Once all three feathers have made it to the Shrine, a portal will spawn at the Shrine of Ouranos.</li>
+                    <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Ouranos. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Ouranos.</li>
+                </ol>
+
+                <p class="step-group-title" id="hand_of_hemera">Fallen Hand of Hemera</p>
+                <ol>
+                    <li>
+                        Obtain a
+                        <a href="#dormant_hand" class="link-to-page">Dormant Hand</a>
+                    </li>
+                    <li>
+                        Place the Dormant Hand on the
+                        <a href="pictures/god_hand_weapons/hemera/hemera_shrine.webp">Hemera Shrine</a>
+                        in 'Monument of Craterus' to start a lockdown.
+                    </li>
+                    <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+                    <li>Once enough glowing Zombies are killed, the Hand of Hemera can be picked up from the Shrine.</li>
+                </ol>
+
+                <p class="upgrade-title" data-custom-indent="2" id="redeemed_hand_of_hemera">Redeemed Hand of Hemera</p>
+                <ol>
+                    <li>
+                        Obtain the
+                        <a href="#hand_of_hemera" class="link-to-page">Fallen Hand of Hemera</a>
+                    </li>
+                    <li>Around the map, three mirrors must be angled correctly so that when shot with the Hand of Hemera, the shot will bounce off and land in a bowl. To move a mirror, shoot it with a bullet-based weapon.</li>
+                    <ul>
+                        <li>
+                            Gymnasium Bathhouse -
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/bathhouse_mirror.webp">Angled Mirror</a>
+                            --
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/bathhouse_bowl.webp">Bowl Locations</a>
+                        </li>
+                        <li>
+                            Upper Road -
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/upper_road_mirror.webp">Angled Mirror</a>
+                            --
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/upper_road_bowl.webp">Bowl Locations</a>
+                        </li>
+                        <li>
+                            Temple Terrace -
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/temple_mirror.webp">Angled Mirror</a>
+                            --
+                            <a href="pictures/god_hand_weapons/hemera/redeemed/temple_bowl.webp">Bowl Locations</a>
+                        </li>
+                    </ul>
+                    <li>Melee the bowl with the light in it with the Fallen Hand of Hemera, this will transfer the light ball to the Hand. You must then run to the Monument of Craterus and melee the shrine to transfer the light ball onto the shrine. If you take too long to melee the shrine, you will have to re-obtain the ball of light on your hand.</li>
+                    <li>Once all three balls of light are on the Hemera shrine, a portal will open.</li>
+                    <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Hemera. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Hemera.</li>
+                </ol>
+
+                <p class="step-group-title" id="hand_of_gaia">Fallen Hand of Gaia</p>
+                <ol>
+                    <li>
+                        Obtain a
+                        <a href="#dormant_hand" class="link-to-page">Dormant Hand</a>
+                    </li>
+                    <li>
+                        Place the Dormant Hand on the
+                        <a href="pictures/god_hand_weapons/gaia/gaia_shrine.webp">Gaia Shrine</a>
+                        in 'Spartan Monument' to start a lockdown.
+                    </li>
+                    <li>While in the lockdown, you must wait until you're released after about 30 seconds. While in the lockdown, zombies glowing with the colour of the shrine will start spawning infinitely.</li>
+                    <li>Once enough glowing Zombies are killed, the Hand of Gaia can be picked up from the Shrine.</li>
+                </ol>
+
+                <p class="upgrade-title" data-custom-indent="2" id="redeemed_hand_of_gaia">Redeemed Hand of Gaia</p>
+                <ol>
+                    <li>
+                        Obtain the
+                        <a href="#hand_of_gaia" class="link-to-page">Fallen Hand of Gaia</a>
+                    </li>
+                    <li>Locate and shoot the red crystals off of three plants. After shooting the crystals off of a plant, a Seedling will spawn at the base of the plant. Bring the plant to the Shrine of Gaia.</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/god_hand_weapons/gaia/redeemed/tree_auger.webp">Intersection of Treasuries - Left of the Auger DMR wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/god_hand_weapons/gaia/redeemed/tree_stoa.webp">Stoa of Athenians - Behind the Mozu wallbuy, on the other side of the wall</a>
+                        </li>
+                        <li>
+                            <a href="pictures/god_hand_weapons/gaia/redeemed/tree_mog12.webp">Temple Terrace - Right of the MOG 12 wallbuy</a>
+                        </li>
+                    </ul>
+                    <li>Once three Seedlings have been placed at the Shrine, a portal will open.</li>
+                    <li>This portal leads to a small arena which serves as a tutorial for the Redeemed Hand of Gaia. Once you've completed the tutorial, you will be teleported back to the Shrine with the Redeemed Hand of Gaia.</li>
+                </ol>
+
+                <p class="step-group-title" id="exalted_hands">Exalted Hands Upgrade</p>
+                <ol>
+                    <li>Obtain all four Redeemed God Hands.</li>
+                    <li>
+                        Ignite the "Eternal Flame" via the
+                        <a href="#tributes" class="link-to-page">Tributes</a>
+                        and obtain the
+                        <a href="#apollos_will" class="link-to-page">Apollo's Will</a>
+                    </li>
+                    <li>
+                        Ignite the spear of the Apollo's Will using the Eternal Flame (by meleeing the flame with it). Throw the ignited spear just above the
+                        <a href="pictures/god_hand_weapons/exalted_hands/bowl.webp">Bowl on the Pillar</a>
+                        outside the 'Temple of Apollo' to ignite the gas coming from the bowl.
+                    </li>
+                    <li>Each Hand requires a specific Catalyst zombie to be killed in the circle on the ground in front of that Hand's Shrine. Once a Catalyst has been killed, kill regular Zombies near the Shrine until it stops accepting Souls.</li>
+                    <ul>
+                        <li>Charon - Poison Catalyst</li>
+                        <li>Ouranos - Water Catalyst</li>
+                        <li>Hemera - Electric Catalyst</li>
+                        <li>Gaia - Fire Catalyst</li>
+                    </ul>
+                    <li>
+                        When a Shrine is successfully charged with souls, a symbol of the same colour as the Shrine will light up on the
+                        <a href="pictures/god_hand_weapons/exalted_hands/pap_lit_symbols.webp">top of the Pack-a-Punch</a>.
+                    </li>
+                    <li>Once all four shrines are charged, interact with the Pack-a-Punch to be teleported to the Redeemed upgrade arena to start a trial for one of the Gods. The difference with this arena, compared to the Redeemed arena, is that the Hand doesn't have unlimited ammo and stronger enemies (like Blightfathers, Gegenees, etc.) will spawn instead of regular Zombies.</li>
+                    <li>Once all four trials have been completed, you will be able to Pack-a-Punch any of the Redeemed Hands for free.</li>
+                </ol>
+            </div>
+
+            <!-- Pegasus Strike -->
+            <div class="content-container" id="pegasus_strike">
+                <h2 class="section-title">Pegasus Strike</h2>
+                <ol>
+                    <li>There are three parts required to craft the Pegasus Strike:</li>
+                    <ul>
+                        <li>Anvil:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pegasus_strike/anvil_koshka.webp">Cliff Ruins - In front of the Koshka wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/anvil_mystery_box.webp">Cliff Ruins - In front of the Mystery Box Locations, at the base of the broken pillar.</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/anvil_forge.webp">Cliff Ruins - On the path down to the forge, from the Mystery Box</a>
+                            </li>
+                        </ul>
+                        <li>Hammer:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pegasus_strike/hammer_under_torch.webp">Python Pass - On the path to the Cage from the Shrine of Charon, below a torch on the wall</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/hammer_titan.webp">Python Pass - In the same area as the Cage, near the Titan wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/hammer_mystery_box.webp">Python Pass - Near the Mystery Box location</a>
+                            </li>
+                        </ul>
+                        <li>Tongs:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pegasus_strike/tongs_wall_symbols.webp">River of Sorrow - Left of the wall with symbols, left of the Fast Travel</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/tongs_fire.webp">River of Sorrow - In the fire, right of the Odin Perk Statue</a>
+                            </li>
+                            <li>
+                                <a href="pictures/pegasus_strike/tongs_window.webp">River of Sorrow - Left of a zombie spawn, on the stairs right of the Fast Travel</a>
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Once all parts have been collected, the Pegasus Strike can be crafted at the
+                        <a href="pictures/pegasus_strike/table.webp">Tree Stump</a>
+                        by the table in the 'Cliff Ruins.'
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Main Easter Egg -->
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">'Greek Tragedy' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - 7/10, Est. Completion Time - 1:15 Hr to 1:30 Hr, RNG Rating - 1/5 (Hellion Salvo From Box)</p>
+
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">Unleash the Eagles</p>
+                    <li>
+                        Open
+                        <a href="#pap" class="link-to-page">Pack-a-Punch</a>
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step2">Ignite the Beacons</p>
+                    <li>
+                        Ignite the
+                        <a href="#eternal_flame" class="link-to-page">Eternal Flame</a>
+                        and obtain the
+                        <a href="#apollos_will" class="link-to-page">Apollo's Will</a>
+                    </li>
+                    <li>
+                        Throughout the Main Quest, you will need to obtain the Fallen version of the Hand of Gaia and the Redeemed versions of the others to complete various steps. Make sure to keep it in mind while going through the steps. Also, for one of the steps, all players must acquire a Redeemed Hand, but by that point, you will already have one Fallen and two Redeemed Hands. The Hands will be needed in the following order at the following steps:
+                        <ol>
+                            <li>
+                                <a href="#redeemed_hand_of_charon" class="link-to-page">Redeemed Hand of Charon</a>
+                                - Step 6
+                            </li>
+                            <li>
+                                <a href="#hand_of_gaia" class="link-to-page">Fallen Hand of Gaia</a>
+                                - Step 11
+                            </li>
+                            <li>
+                                <a href="#redeemed_hand_of_hemera" class="link-to-page">Redeemed Hand of Hemera</a>
+                                - Step 15
+                            </li>
+                            <li>
+                                <a href="#redeemed_hand_of_ouranos" class="link-to-page">Redeemed Hand of Ouranos</a>
+                                - Step 21/24
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Ignite the spear of the Apollo's Will shield with the Eternal Flame by meleeing the flame with the Spear in the 'Temple of Apollo.' While the Shield is on fire, it will slowly take damage. If you put away the shield while it is on fire, the fire will go out, and you will have to melee the eternal flame to reignite it.</li>
+                    <li>Locate three Oil Spills and set them ablaze by meleeing them with the Flaming Spear of Apollo's Will.</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/ignite_the_beacons/oil_upper_road.webp">Upper Road - On a rock, on the path down to the river</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/ignite_the_beacons/oil_intersections_of_treasuries.webp">Intersections of Treasuries - At the top of the stairs, left of the Mozu wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/ignite_the_beacons/oil_spartan_monument.webp">Spartan Monument - On the landing, down the stairs from 'Stoa of the Athenians'</a>
+                        </li>
+                    </ul>
+
+                    <p class="step-group-title" id="main_ee_step3">Look the Dead in the Eye</p>
+                    <li>
+                        Obtain the
+                        <a href="#redeemed_hand_of_charon" class="link-to-page">Redeemed Hand of Charon</a>
+                    </li>
+                    <li>
+                        In the 'Spartan Monument' area, shoot the
+                        <a href="pictures/main_ee/look_the_dead_in_the_eye/ground_in_front_zeus.webp">ground in front of the Zeus Perk Statue</a>
+                        with the charged hand of Charon.
+                    </li>
+                    <li>
+                        While standing in the blood pool, your screen will go black and white, and one of the ten statues around you will have
+                        <a href="pictures/main_ee/look_the_dead_in_the_eye/glowing_eyes.webp">glowing eyes</a>. Shoot it with an uncharged shot of the Hand of Charon. If done correctly, the statue should be break and disappear. Repeat for three more statues.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step4">Align the Citizens</p>
+                    <li>
+                        Using any bullet-based weapon, shoot the walls (locations below) to reveal a
+                        <a href="pictures/main_ee/align_the_citizens/gears_example.webp">Set of Gears</a>
+                        – one small and one large. Stop the moving gear by throwing the Spear from Apollo's Will when it's touching the stationary gear. This will engage the gears, causing the stationary one to spin. Time your Spear throws, so the gears are touching when you stop the small gear.
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/main_ee/align_the_citizens/gears_intersection_2.webp">Intersections of Treasuries - Outside the map, left of the Auger DMR wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/align_the_citizens/gears_intersection_1.webp">Intersections of Treasuries - Right of the Mozu wallbuy, on the entrance to the 'Stoa of the Athenians'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/main_ee/align_the_citizens/gears_spartan_monument.webp">Spartan Monument - On the landing, down the stairs from 'Stoa of the Athenians'</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Once all three gear sets are spinning, navigate to the 'Stoa of Athenians' where you must throw a Spear at
+                        <a href="pictures/main_ee/align_the_citizens/where_to_throw.webp">this area</a>
+                        right when the three statues in the middle are facing the White Crystal. If done correctly, the statues will stop spinning and the crystal will rise to meet the beam of light.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step5">Scepter and Sundial</p>
+                    <li>
+                        Obtain the
+                        <a href="#hand_of_gaia" class="link-to-page">Fallen Hand of Gaia</a>
+                    </li>
+                    <li>
+                        In the 'Offering of the Attalids,' there will be a
+                        <a href="pictures/main_ee/scepter_and_sundial/root_1.webp">Glowing Root</a>
+                        on a wall outside the map, left of the Danu perk statue. When shot, with the Hand of Gaia, a new set of roots will spawn.
+                    </li>
+                    <ul>
+                        <li>After you shoot one set of roots, you must quickly shoot the new roots that spawn, or they will despawn, and you will have to restart with the first set.</li>
+                        <li>You must hit all roots in a set with one shot from the Hand of Gaia (the "auto-aim" of the Gaia shot will hit all roots when aimed correctly).</li>
+                        <li>
+                            Once all three sets are shot, a Gegenees will spawn, which
+                            <strong>YOU SHOULD NOT KILL</strong>
+                            as it can be used for the next step. It's fine if you kill it, as it is not required for the next step, it just makes it easier.
+                        </li>
+                        <li>
+                            If you do kill the Gegenees, it will drop a
+                            <a href="pictures/main_ee/scepter_and_sundial/golden_pole.webp">Golden Pole</a>
+                            for you to pick up.
+                        </li>
+                        <li>
+                            Sets of Roots -
+                            <a href="https://youtu.be/KmaMNTEHwQo" class="external-link">Video Example (Youtube)</a>:
+                        </li>
+                        <ol>
+                            <li>First Root - Left of Danu, outside the map</li>
+                            <li>Second Set - Around Danu statue</li>
+                            <li>Third Set - In between the Danu statue and the Mystery Box location</li>
+                        </ol>
+                    </ul>
+                    <li>
+                        In the 'Intersections of Treasuries,' bait a Gegenees into Shield Blasting the
+                        <a href="pictures/main_ee/scepter_and_sundial/ankh.webp">Ankh</a>
+                        trapped in the crystal. If done correctly, the Ankh will fall to the floor, where you can pick it up.
+                    </li>
+                    <ul>
+                        <li>
+                            If you used the Gegenees from the previous step, you can now kill it. Once killed, it will drop a
+                            <a href="pictures/main_ee/scepter_and_sundial/golden_pole.webp">Golden Pole</a>
+                            for you to pick up.
+                        </li>
+                    </ul>
+                    <li>
+                        In the 'Offering of the Attalids,' place the Golden Pole (dropped by the Gegenees spawned in step 12) in the
+                        <a href="pictures/main_ee/scepter_and_sundial/gold_sundial.webp">Gold Sundial</a>
+                        on the floor.
+                    </li>
+                    <li>Kill an Electric Catalyst while it's standing on the Sundial to activate it. This will cause one of the "windows" to open, revealing a rotating dial with symbols, one of which is blue.</li>
+                    <li>
+                        You must stop the dial when the blue symbol is underneath the
+                        <a href="pictures/main_ee/scepter_and_sundial/glowing_line.webp">Glowing Line</a>
+                        by interacting with the Golden Pole. Based on the number of positions from the open window to the line, you will have to "guess" when to stop the dial.
+                    </li>
+                    <ul>
+                        <li>This must be repeated, from step 15, two more times for the other two dials.</li>
+                        <li>If you fail, the screen will flash white, and you can retry immediately from step 15.</li>
+                    </ul>
+                    <li>Interact with the Ra perk statue to give him the Ankh.</li>
+                    <li>
+                        Obtain the
+                        <a href="#redeemed_hand_of_hemera" class="link-to-page">Redeemed Hand of Hemera</a>
+                        (Required) and the
+                        <a href="#pegasus_strike" class="link-to-page">Pegasus Strike</a>
+                        (Recommended)
+                    </li>
+                    <li>While holding the Redeemed Hand of Hemera, interact with the statue of Ra to give it to him. This will cause a beam to fire at the wall on the other side of the room. You must defend the beam from skeletons, who will try to stand in front of the beam on either side of the pool, blocking it. If the beam is blocked for long enough (~5-10 seconds total), Ra will stop shooting the beam and you will fail.</li>
+                    <ul>
+                        <li>Infinite Zombies and Blightfathers will also start spawning.</li>
+                        <li>If you have the Pegasus Strike, place it down just outside the room, by the 'Intersections of Treasuries.'</li>
+                        <li>If you fail to defend the beam, the Hand of Hemera will respawn at its shrine, where you can pick it up and try again.</li>
+                    </ul>
+                    <li>
+                        Once the beam has been defended for long enough, the wall it was targeting will break away to reveal the
+                        <a href="pictures/main_ee/scepter_and_sundial/scepter_of_ra.webp">Scepter of Ra</a>. Pick up the Scepter and give it to the Statue of Ra.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step6">Hit Your Marks</p>
+                    <li>
+                        All players must obtain a
+                        <a href="#god_hand_weapon" class="link-to-page">Redeemed Hand Weapon</a>. Once all players have a Redeemed Hand, navigate to the 'Amphitheater' and stand on the
+                        <a href="pictures/main_ee/hit_your_marks/home_circle.webp">glowing circles</a>
+                        on the floor corresponding to the colour of each player's God Hand. Once all players are standing in their circle (called "Home Circle" from now on), a minigame will start where the players must kill specific zombies using their God Hand. A detailed description of a round is below:
+                    </li>
+                    <ol>
+                        <li>Once the game has started, 1–4 glowing circles will appear on the floor of the 'Amphitheater.' The corresponding player must run to the circle and stand on it. There can be rounds where a player doesn't have a circle to stand on, in that case, that player should stay on the "Home Circle" and not move.</li>
+                        <li>While a player is standing on the new circle, Zombies matching the colour of the hand will spawn either somewhere in the stands or on the floor. The players must shoot their corresponding Zombies with different shots, depending on where the Zombies are standing. The ones in the stands must be killed with a regular shot of the Hand, and the Zombies on the floor must be killed with a charged shot of the Hand. You can move around to get a better angle on the zombies if needed.</li>
+                        <li>Once the Zombies are killed, one of two things will happen, either the glowing circle will move to somewhere else in the middle of the 'Amphitheater' or the player's screen will go black and white. If the circle moves to somewhere in the arena, the player must run to it and play again. If the screen goes black and white, the player will have to run back to the "Home Circle."</li>
+                        <li>A round ends with all players' screens going black and white, and they are sent back to their "Home Circles."</li>
+                        <ul>
+                            <li>If a player doesn't kill their Zombies quickly enough or a player uses the incorrect attack, all players will fail that round. If the players fail three of the five rounds, the game will end and the players can retry the next round.</li>
+                            <li>If the players complete three of the five rounds successfully, the screen will flash white and the players will be rewarded with a Max Ammo power-up and several Free Points power-ups.</li>
+                        </ul>
+                    </ol>
+
+                    <p class="step-group-title" id="main_ee_step7">Cleanse the Center</p>
+                    <li>
+                        Locate the
+                        <a href="pictures/main_ee/cleanse_the_center/door.webp">door</a>
+                        to the right of the Spitfire wallbuy in the 'River of Sorrow.' The symbols on the door must be shot with a bullet-based weapon in
+                        <a href="pictures/main_ee/door_symbols.webp">this order</a>.
+                    </li>
+                    <ul>
+                        <li>If you shoot the wrong symbol, all the symbols will go out and you can retry immediately.</li>
+                    </ul>
+                    <li>If the characters Shaw and Bruno are both in the game, they must interact with the door to start a short cutscene. If only one of them is present, that player interacts with the door. If neither is in the game, any player can interact with the door, but no cutscene will play.</li>
+                    <li>
+                        Obtain the
+                        <a href="#pegasus_strike" class="link-to-page">Pegasus Strike</a>
+                        and
+                        <a href="#redeemed_hand_of_ouranos" class="link-to-page">Redeemed Hand of Ouranos</a>
+                        if you haven't already.
+                    </li>
+                    <li>
+                        Navigate to the top of the stairs in the 'River of Sorrow' and place the Pegasus Strike the
+                        <a href="pictures/main_ee/cleanse_the_center/blue_symbol.webp">blue glowing symbol</a>. This will cause Pegasus to lift a giant ballista out of the ground.
+                    </li>
+                    <li>
+                        Once the ballista is fully out of the ground, shoot it with a charged shot of the Redeemed Hand of Ouranos until it is lined up with the
+                        <a href="pictures/main_ee/cleanse_the_center/gap_in_railing.webp">opening in the railing</a>
+                        by where the blue symbol was.
+                    </li>
+                    <li>
+                        Ignite the spear of Apollo's Will at the fire in the 'Temple of Apollo,' then quickly make your way back to the "Dark Side". With the burning spear, you must run through the
+                        <a href="pictures/main_ee/cleanse_the_center/acid_trap.webp">Acid Trap</a>
+                        in 'Python Pass.' If done correctly, the spear should become covered in green flames.
+                    </li>
+                    <li>Melee the ballista at the top of the stairs, with the spear to ignite it. This will cause the ballista to shoot an arrow.</li>
+
+                    <p class="warning">Warning: Point of No Return. Once the Portal is interacted with, the Boss Fight will start.</p>
+
+                    <li>
+                        A portal will spawn
+                        <a href="pictures/main_ee/cleanse_the_center/portal_behind_pap.webp">behind Pack-a-Punch</a>. All players must interact with it at the same time to start the Boss Fight.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step8">Pegasus/Perseus Boss Fight</p>
+                    <li>The Boss Fight consists of two phases, fighting Pegasus and then fighting Perseus. In the arena, there are three floating islands that you can move between using jump pads and one pillar in the middle where Perseus is, which you can't access.</li>
+                    <li>
+                        To kill Pegasus, you must shoot it while it is flying over one of the islands. If enough damage is done, it will fall to the ground and start
+                        <a href="pictures/main_ee/cleanse_the_center/orange_pegasus.webp">glowing orange</a>. While Pegasus is glowing orange, you can only do damage with your specialist weapon.
+                    </li>
+                    <ul>
+                        <li>If you don't do enough damage to Pegasus while it is flying over an island, it will drop Fire/Electricity on the island, which will stay on the ground for a few seconds. These attacks are quite easy to avoid, assuming you don't stand directly under Pegasus.</li>
+                        <li>Occasionally, Perseus will throw flaming spears at you that will leave fire on the ground.</li>
+                        <li>If you stand in the fire, it will damage you but will also charge your specialist weapon very quickly.</li>
+                    </ul>
+                    <li>Once you do enough damage to Pegasus, it will destroy the 'Mount Olympus: Forest' island and spawn a Max Ammo Power-up on one of the other islands.</li>
+                    <ul>
+                        <li>If a player is on the island while it is being destroyed, they will be downed instantly with no opportunity to revive. If you're Solo, this will end the game.</li>
+                    </ul>
+                    <li>Repeat Step 31 one more time. Once you do enough damage to Pegasus, Pegasus will now attack Perseus.</li>
+                    <li>Perseus will then destroy the 'Mount Olympus: Fountains' island, leaving only the 'Mount Olympus: Columns' island. Once the island is destroyed, the fight with Perseus will start.</li>
+                    <li>Perseus will stand on the pillar in the middle of the arena, occasionally teleporting to your island where he will attack you, and you can damage him with any weapon. If you do enough damage, Perseus will start glowing Orange, like Pegasus did, allowing you to damage him with your Specialist Weapon.</li>
+                    <li>
+                        Repeat this until he dies and drops a
+                        <a href="pictures/main_ee/cleanse_the_center/key.webp">key</a>. Pick up the key to end the Boss Fight and start the final cutscene.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Song -->
+            <div class="content-container" id="song_ee">
+                <h2 class="section-title">'Stormbound' Song</h2>
+                <p class="song-link">
+                    Link to song on streaming
+                    <a href="https://song.link/ca/i/1713269291" class="external-link">here</a>.
+                </p>
+                <ul>
+                    <li>Shoot four coins found in the following locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/song_ee/marketplace_coin.webp">Marketplace - Inside a zombie spawn, left of Shield workbench</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/spartan_coin.webp">Spartan Monument - On a bloody wall</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/river_coin.webp">River of Sorrow - At the base of a status, near the Odin Perk Statue</a>
+                            -
+                            <a href="pictures/song_ee/river_coin_establishing.webp">Zoomed out view of the Statue</a>
+                        </li>
+                        <li>
+                            <a href="pictures/song_ee/cliff_coin.webp">Cliff Ruins - On the underside of the table beside the Forge</a>
+                            -
+                            <a href="pictures/song_ee/cliff_coin_establishing.webp">Zoomed-out view of the table</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-container" data-section-ind="Gauntlet Challenges" id="gauntlet">
+                <h2 class="section-title">'Labours of Hercules' Gauntlet Challenges</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Round #</th>
+                            <th>Round Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Round 1</td>
+                            <td>Quick Kills</td>
+                            <td>Melee Kill All Zombies within the Time Limit.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 2</td>
+                            <td>Turret Mode</td>
+                            <td>Players are Locked in Place Unless They're Downed.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 3</td>
+                            <td>Sub Par</td>
+                            <td>Use Unpacked SMGs Only.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 4</td>
+                            <td>That's the Spear It</td>
+                            <td>
+                                Get the Required Number of Kills with the
+                                <a href="#apollos_will" class="link-to-page">Apollo's Will</a>
+                                Spear Throw.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Round 5</td>
+                            <td>Hot Day</td>
+                            <td>Players Take Damage if Not Standing in Water.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 6</td>
+                            <td>Dark Side</td>
+                            <td>
+                                End the round in the
+                                <a href="#pap" class="link-to-page">Dark Side</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Round 7</td>
+                            <td>Loaded</td>
+                            <td>End the round with Guns and Equipment at Full Ammo.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 8</td>
+                            <td>Double Damage</td>
+                            <td>Enemies Do Double Damage.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 9</td>
+                            <td>Half Speed</td>
+                            <td>Players' Movement Speeds are Halved. Sprinting and Sliding are Disabled.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 10</td>
+                            <td>Apollo-gy Accepted</td>
+                            <td>Defend the Temple of Apollo.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 11</td>
+                            <td>Handy</td>
+                            <td>
+                                Possess a
+                                <a href="#god_hand_weapon" class="link-to-page">Redeemed Hand Weapon</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Round 12</td>
+                            <td>Shopaholic</td>
+                            <td>Buy Something Every 20 Seconds.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 13</td>
+                            <td>Cat-aclysm</td>
+                            <td>Survive a Catalyst Onslaught.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 14</td>
+                            <td>Assault on the Senses</td>
+                            <td>Use Unpacked Assault Rifles Only.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 15</td>
+                            <td>The Big Show</td>
+                            <td>Defend the Amphitheater.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 16</td>
+                            <td>Tribute</td>
+                            <td>
+                                Each Player Must Earn an Epic
+                                <a href="#tributes" class="link-to-page">Tribute Reward</a>. Current Tribute Level is Reset.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Round 17</td>
+                            <td>Spartoi Scramble</td>
+                            <td>Defeat a Wave of Spartoi - No Headshot Kills Allowed.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 18</td>
+                            <td>Oracle's Boon</td>
+                            <td>Only Weapons from the Temple of Apollo Can Be Used. All Purchases Except Fast Travel are Disabled.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 19</td>
+                            <td>Stop Drop and Roll</td>
+                            <td>Go Prone to Stop Random Damage.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 20</td>
+                            <td>Worldly</td>
+                            <td>Defend the Center of the World.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 21</td>
+                            <td>Blindsided</td>
+                            <td>Players are Randomly Blinded.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 22</td>
+                            <td>Make It Rain</td>
+                            <td>Take Damage If You Have Over 5000 Points.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 23</td>
+                            <td>Trial of the Gods</td>
+                            <td>Survive the Round.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 24</td>
+                            <td>Run Away! Run Away!</td>
+                            <td>Kill All Zombies within the Time Limit. Zombies Will Run Away From Players.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 25</td>
+                            <td>Stoa-ic</td>
+                            <td>Defend the Stoa of the Athenians.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 26</td>
+                            <td>Shots! Shots! Shots!</td>
+                            <td>Weapon Fire Drains Points.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 27</td>
+                            <td>Keep It Light</td>
+                            <td>Use Unpacked LMGs Only.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 28</td>
+                            <td>Farewell to Arms</td>
+                            <td>Kill Zombies with 10 Different Weapons or Equipment.</td>
+                        </tr>
+                        <tr>
+                            <td>Round 29</td>
+                            <td>Dinner and a Play</td>
+                            <td>
+                                Go to the Amphitheater with a Redeemed or
+                                <a href="#exalted_hands" class="link-to-page">Exalted Hand</a>
+                                and Act in the Play.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Round 30</td>
+                            <td>Hot Perse-uit</td>
+                            <td>Defeat Perseus.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer=""></script> 
+</body></html>

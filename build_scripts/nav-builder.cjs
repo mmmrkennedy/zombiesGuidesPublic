@@ -3,11 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
-const QuickLinksUtils = require('../js/quick-links-utils.cjs');
+const QuickLinksUtils = require('../src/js/quick-links-utils.cjs');
 
 // Simple CLI argument parsing
 const args = process.argv.slice(2);
-let indexFile = 'index.html'; // default
+let indexFile = './src/index.html'; // default
 
 for (let i = 0; i < args.length; i++) {
     if (args[i] === '--index' && args[i + 1]) {
@@ -20,7 +20,7 @@ class NavBuilder {
         this.options = {
             verbose: options.verbose || false,
             dryRun: options.dryRun || false,
-            indexFile: options.indexFile || '../index.html',
+            indexFile: options.indexFile || './src/index.html',
             ...options,
         };
         this.processedFiles = 0;
@@ -201,7 +201,7 @@ function parseArguments() {
     const options = {
         verbose: false,
         dryRun: false,
-        indexFile: '../index.html',
+        indexFile: './src/index.html',
     };
 
     for (let i = 0; i < args.length; i++) {

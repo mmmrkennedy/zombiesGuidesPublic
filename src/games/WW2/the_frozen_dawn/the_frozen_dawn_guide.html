@@ -1,0 +1,1241 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
+    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
+    <title>The Frozen Dawn Guide</title>
+</head>
+
+    <body>
+        <!-- Version display component -->
+        <div class="version-display" data-version="1767544654581">
+            v.
+            <span id="version-number">0</span>
+        </div>
+
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page, INCLUDE "guide"-->
+            <h2 class="title-text">The Frozen Dawn Guide</h2>
+            <!-- Hamburger Menu Button -->
+            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="m12 8-4 4 4 4"></path>
+                        <path d="M16 12H8"></path>
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14"></path>
+                        <path d="m18 13-6-6-6 6"></path>
+                        <path d="M12 7v14"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+        </div>
+
+        <!-- Hamburger Menu Overlay -->
+        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
+            <div class="hamburger-menu-content">
+                <div class="hamburger-menu-header">
+                    <h3>Quick Navigation</h3>
+                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
+                </div>
+                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#thule">Accessing Thule</a></li><li><a href="#pap">Pack-a-Punch (Ubersprengen) / Thulian Transport Fast Travel</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#scythe">Thulian Scythe</a></li><ul><li><a href="#upgraded_scythe">Fang of An'heist (Upgraded Scythe)</a></li></ul><li><a href="#hammer">Thulian Hammer</a></li><ul><li><a href="#upgraded_hammer">Fist of Tal'rek (Upgraded Hammer)</a></li></ul><li><a href="#shield">Thulian Shield</a></li><ul><li><a href="#upgraded_shield">Roar of Sang'Ket (Upgraded Shield)</a></li></ul><li><a href="#flail">Broken Flail</a></li><ul><li><a href="#upgraded_flail">Talon of Lu'roth (Upgraded Flail)</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Kingfall' Main Quest</a></li><ul><li><a href="#main_ee_step1">Upgraded Raven Lord Wonder Weapons</a></li><li><a href="#main_ee_step2">God King Boss Fight</a></li></ul><li><a href="#raven_claw">'Raven's Claw' Special Pistol</a></li><li><a href="#the_classic">'The Classic' PPSh-41</a></li><li><a href="#the_vintage">'The Vintage' MG42</a></li><li><a href="#perkaholic">Dark Room Perkaholic</a></li><li><a href="#zombie_possession">Zombie Possession (10k Jolts, Free Perk, and Character Challenge)</a></li><li><a href="#free_double_jolts">Free Double Jolts &amp; Funderbuss (Upgraded Blunderbuss)</a></li><li><a href="#rocket_deflect">Thulian Tower Rocket Deflect</a></li><li><a href="#grenade_rain">Grenade Rain</a></li></ul><h2>Unlockable Characters</h2><ul><li><a href="#characters">Unlockable Characters</a></li><ul><li><a href="#Shadowguard (Shadow Hunter)">Shadowguard (Shadow Hunter)</a></li><li><a href="#Wayfarer (Wayward Rider)">Wayfarer (Wayward Rider)</a></li><li><a href="#Deathbringer (Desert Assassin)">Deathbringer (Desert Assassin)</a></li><li><a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a></li><li><a href="#Rookbane">Rookbane</a></li></ul></ul></div>
+            </div>
+        </div>
+
+        <div class="smooth-scroll content-window">
+            <!-- Legend to other parts -->
+            <div class="content-container-top">
+                <h2>Map Progression</h2>
+                <ul>
+                    <li><a href="#thule">Accessing Thule</a></li>
+                    <li>
+                        <a href="#pap">Pack-a-Punch (Ubersprengen) / Thulian Transport Fast Travel</a>
+                    </li>
+                </ul>
+                <h2>Weapons and Buildables</h2>
+                <ul>
+                    <li><a href="#scythe">Thulian Scythe</a></li>
+                    <ul>
+                        <li><a href="#upgraded_scythe">Fang of An'heist (Upgraded Scythe)</a></li>
+                    </ul>
+                    <li><a href="#hammer">Thulian Hammer</a></li>
+                    <ul>
+                        <li><a href="#upgraded_hammer">Fist of Tal'rek (Upgraded Hammer)</a></li>
+                    </ul>
+                    <li><a href="#shield">Thulian Shield</a></li>
+                    <ul>
+                        <li><a href="#upgraded_shield">Roar of Sang'Ket (Upgraded Shield)</a></li>
+                    </ul>
+                    <li><a href="#flail">Broken Flail</a></li>
+                    <ul>
+                        <li><a href="#upgraded_flail">Talon of Lu'roth (Upgraded Flail)</a></li>
+                    </ul>
+                </ul>
+                <h2>Easter Eggs</h2>
+                <ul>
+                    <li><a href="#main_ee">'Kingfall' Main Quest</a></li>
+                    <ul>
+                        <li><a href="#main_ee_step1">Upgraded Raven Lord Wonder Weapons</a></li>
+                        <li><a href="#main_ee_step2">God King Boss Fight</a></li>
+                    </ul>
+                    <li><a href="#raven_claw">'Raven's Claw' Special Pistol</a></li>
+                    <li><a href="#the_classic">'The Classic' PPSh-41</a></li>
+                    <li><a href="#the_vintage">'The Vintage' MG42</a></li>
+                    <li><a href="#perkaholic">Dark Room Perkaholic</a></li>
+                    <li>
+                        <a href="#zombie_possession">Zombie Possession (10k Jolts, Free Perk, and Character Challenge)</a>
+                    </li>
+                    <li>
+                        <a href="#free_double_jolts">Free Double Jolts &amp; Funderbuss (Upgraded Blunderbuss)</a>
+                    </li>
+                    <li><a href="#rocket_deflect">Thulian Tower Rocket Deflect</a></li>
+                    <li><a href="#grenade_rain">Grenade Rain</a></li>
+                </ul>
+                <h2>Unlockable Characters</h2>
+                <ul>
+                    <li><a href="#characters">Unlockable Characters</a></li>
+                    <ul>
+                        <li>
+                            <a href="#Shadowguard (Shadow Hunter)">Shadowguard (Shadow Hunter)</a>
+                        </li>
+                        <li><a href="#Wayfarer (Wayward Rider)">Wayfarer (Wayward Rider)</a></li>
+                        <li>
+                            <a href="#Deathbringer (Desert Assassin)">Deathbringer (Desert Assassin)</a>
+                        </li>
+                        <li>
+                            <a href="#Wicht Warden (Cold Blooded)">Wicht Warden (Cold Blooded)</a>
+                        </li>
+                        <li><a href="#Rookbane">Rookbane</a></li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="content-container" data-section-ind="Map Progression" id="thule">
+                <h2 class="section-title">Accessing Thule</h2>
+                <ul>
+                    <li>
+                        Get five kills near the
+                        <a href="pictures/thule/thule_plate.webp">pressure plate in the 'Crash Site.'</a>
+                        The
+                        <a href="pictures/thule/open_door.webp">door, beside the plate, to the underground</a>
+                        will open.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-container" id="pap">
+                <h2 class="section-title">Pack-a-Punch (Ubersprengen) / Thulian Transport Fast Travel</h2>
+                <ol>
+                    <li>
+                        Interact with the
+                        <a href="pictures/pap/pap_button.webp">stone on the wall in the 'Passage'</a>
+                        in front of the Thulian Transport (Fast Travel) to push it in and turn it red.
+                    </li>
+                    <li>Use each of the three Thulian Transports to go to the 'Lost In Blood' room, where the Pack-a-Punch machine is submerged in the floor. Every time you fast travel, the Pack-a-Punch Machine will rise slightly.</li>
+                    <ul>
+                        <li>If you can't access the Thulian Transports, make sure you've opened the area that you want to Fast Travel to.</li>
+                        <li>Fast travel locations:</li>
+                        <ul>
+                            <li>
+                                <a href="pictures/pap/transport_passage.webp">Passage - In the tunnels</a>
+                                --- Goes to the 'Blood Altar'
+                            </li>
+                            <li>
+                                <a href="pictures/pap/transport_spawn.webp">Crash Site - By the crashed plane</a>
+                                --- Goes to the 'Passage'
+                            </li>
+                            <li>
+                                <a href="pictures/pap/transport_blood.webp">Blood Altar - Below the pressure plate near Kugelblitz (Double Tap)</a>
+                                --- Goes to the 'Crash Site'
+                            </li>
+                        </ul>
+                    </ul>
+                    <li>Once you've used every Transport once, the Pack-a-Punch Machine will be available for use when you fast travel with the stone activated (deactivating the stone, will stop you from going to the PAP area).</li>
+                </ol>
+            </div>
+
+            <div class="content-container" data-section-ind="Weapons and Buildables" id="scythe">
+                <h2 class="section-title">Thulian Scythe</h2>
+                <p class="weapon-desc">The Thulian Scythe is a melee wonder weapon that swings twice in front of the player.</p>
+
+                <ol>
+                    <li>
+                        Interact with the
+                        <a href="pictures/scythe/shrine.webp">Shrine in the 'Phylactery.'</a>
+                    </li>
+                    <li>This will activate a lockdown event in the area for about 25-35 seconds.</li>
+                    <li>
+                        Once it's done, the
+                        <a href="pictures/scythe/scythe.webp">Thulian Scythe</a>
+                        will spawn in front of the Shrine.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="upgraded_scythe">Fang of An'heist (Upgraded Scythe)</p>
+                <p class="weapon-desc">The Fang of An'heist allows players to "cheat death" by melee killing a fully empowered Corpse Eater. Upon taking a fatal blow while holding the Scythe, the player will survive and unleash a powerful shockwave that stuns nearby enemies.</p>
+                <ol>
+                    <li>Kill a Corpse Eater (tall, white, special Zombie) with the Scythe to get its spine (you don't have to press interact like with the Ripsaw in The Darkest Shore).</li>
+                    <ul>
+                        <li>Two Corpse Eaters will always spawn when you travel to the Pack-a-Punch.</li>
+                    </ul>
+                    <li>
+                        Pick up the
+                        <a href="pictures/scythe/upgraded_scythe/wire.webp">Wire from the broken drop pod</a>
+                        in the 'Crash Site.'
+                    </li>
+                    <li>
+                        Place the Spine, Wire, and Scythe on the
+                        <a href="pictures/scythe/upgraded_scythe/altar.webp">Altar at the top of the stairs</a>
+                        in the 'Phylactery.'
+                    </li>
+                    <li>Get 15 kills near the Scythe until you see "Ignited the Forge" and it stops collecting energy.</li>
+                    <li>Wait two full rounds, then pick up the Scythe (you won't get it back as a weapon).</li>
+                    <li>Use any Thulian Transport around the map. You'll be teleported to the Deathraven Trial, which is basically a tutorial on how to use the upgraded Scythe. Upon completion, you'll be teleported back.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="hammer">
+                <h2 class="section-title">Thulian Hammer</h2>
+                <p class="weapon-desc">The Thulian Hammer is a melee wonder weapon that has two attacks, a single target swing or a sweeping swing, activated by the aim button, that can damage groups.</p>
+
+                <ol>
+                    <li>
+                        In the 'Crash Site,' pick up the
+                        <a href="pictures/hammer/battery.webp">battery in the debris</a>
+                        left of the M30 Luftwaffe Drilling wallbuy. Bring it to the
+                        <a href="pictures/hammer/bowl.webp">bowl right of the Laufenblitz (Stamin-Up)</a>
+                        on the 'Overlook.'
+                    </li>
+                    <li>Get about 15-20 kills near the bowl. It'll glow purple and stop taking energy.</li>
+                    <li>Pick up four Stones. Locations:</li>
+                    <ol>
+                        <li>
+                            <a href="pictures/hammer/stone_cola.webp">Thulian Archives - Right of Schnellblitz (Speed Cola)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/hammer/stone_caves.webp">Ice Caves - On the right side of the cliff</a>
+                        </li>
+                        <li>
+                            <a href="pictures/hammer/stone_armour.webp">Morgue - On the column behind the Armour stand</a>
+                        </li>
+                        <li>
+                            <a href="pictures/hammer/stone_blood.webp">Blood Altar - On the left side of the ledge, across from Kugelblitz (Double Tap)</a>
+                        </li>
+                    </ol>
+                    <li>
+                        Place the stones in the
+                        <a href="pictures/hammer/stone_slots.webp">slots across from the Battery bowl</a>. Each stone will stop the "bloodfall" allowing you to see a
+                        <a href="pictures/hammer/runes_bloodfalls.webp">rune</a>
+                        (stand by the Armour stand to see). Read these runes from left to right; there are only four possible runes, which vaguely look like the letters F, R, S, M.
+                    </li>
+                    <li>
+                        Around the Armour stand, there are
+                        <a href="pictures/hammer/runes_to_charge.webp">four runes (three pictured here)</a>, one for each of the letters. You need to get a kill at each of the runes in the order indicated by the bloodfall runes.
+                    </li>
+                    <ul>
+                        <li>Example: If the bloodfall runes are F, F, S, R, then get two kills at F, then one at S, and one at R.</li>
+                        <li>If you get too many kills or at the wrong rune, wait a couple of seconds, then start again with the first rune.</li>
+                    </ul>
+                    <li>
+                        If done correctly, lightning will start striking the ground in front of the bowl, and the
+                        <a href="pictures/hammer/hammer_spawned.webp">Hammer will spawn</a>. Run over to it to make it teleport away.
+                    </li>
+                    <li>
+                        <a href="pictures/hammer/pillars.webp">Four pillars</a>
+                        will rise around the 'Overlook.' Each pillar will have four blocks with a lightning bolt on one side. Using
+                        <a href="pictures/hammer/pillar_solver.webp">this image</a>
+                        or the solver below, shoot the blocks so all the bolts are facing where the Hammer spawned/the bowl. They will light up when all blocks are facing the right way.
+                    </li>
+
+                    <div id="hammer-solver-react"></div>
+
+                    <li>Once the pillars are set, find the Hammer somewhere around the underground part of the map. Once you find it, go prone, crawl up to it, then interact with it.</li>
+                    <ul>
+                        <li>If you get too close, and you aren't prone, the Hammer will teleport away, and you'll have to find it and try again.</li>
+                    </ul>
+                    <li>
+                        If done correctly, it will turn horizontal, and start moving away from you (you can stand up now). Push it to the 'Overlook.' If the pillars are set correctly, they will stop the
+                        <a href="pictures/hammer/hammer_pickup.webp">Hammer</a>, and it will become available to pick up.
+                    </li>
+                </ol>
+
+                <p class="upgrade-title" id="upgraded_hammer">Fist of Tal'rek (Upgraded Hammer)</p>
+                <p class="weapon-desc">The Fist of Tal'rek adds the ability to throw the hammer using the grenade button, damaging zombies in its path before returning to the player. Its side-swing now also releases an electric shockwave.</p>
+                <ol>
+                    <li>
+                        In the 'Crash Site' on the wall right of the Thulian Transport, a
+                        <a href="pictures/hammer/upgraded_hammer/rune_1.webp">rune will be glowing with purple electricity</a>. Melee it with the Hammer to transfer the electricity to the Hammer.
+                    </li>
+                    <li>
+                        Quickly, run to the 'Ice Caves,' and melee the
+                        <a href="pictures/hammer/upgraded_hammer/rune_2.webp">rune on the wall</a>
+                        with the Hammer to transfer the electricity.
+                    </li>
+                    <ul>
+                        <li>If you take too long, the electricity will respawn at the previous rune, and you can try again immediately.</li>
+                    </ul>
+                    <li>
+                        Melee the rune, and run it to the
+                        <a href="pictures/hammer/upgraded_hammer/rune_3.webp">rune on the wall in the 'Morgue'</a>
+                        above the Shield Blood Pool.
+                    </li>
+                    <li>
+                        You'll now need to transfer the electricity to the
+                        <a href="pictures/hammer/upgraded_hammer/rune_4.webp">rune above the door to the 'Morgue' in the 'Phylactery.'</a>
+                        You need to kill a Zombie in the doorway with the Hammer while it's electrified.
+                    </li>
+                    <ul>
+                        <li>This is very annoying to do on Solo, since once you get to the 'Phylactery,' you only have about a second to kill a Zombie before the Hammer de-electrifies.</li>
+                        <li>I recommend you wait for higher rounds when Zombies are running, so any chasing you will be close behind when you get to the rune.</li>
+                        <li>
+                            <span style="color: red">Bug(?):</span>
+                            Once the Rune in the 'Phylactery' is electrified, put away, then put back out the Hammer. When you pull out the Hammer, it might still be electrified, allowing you to skip the first part of the next step.
+                        </li>
+                    </ul>
+                    <li>
+                        Once the electricity is on the 'Phylactery' rune, bring a Corpse Eater or Wustling to below the rune. The enemy will become electrified; kill it with the Hammer to electrify it. Melee the
+                        <a href="pictures/hammer/upgraded_hammer/rune_5.webp">rune below the "contraption"</a>
+                        in the 'Blood Altar.'
+                    </li>
+                    <li>
+                        You'll now need to shoot
+                        <a href="pictures/hammer/upgraded_hammer/contraption_blocks.webp">blocks on the "contraption"</a>
+                        so that all the lit sides are facing front. Once you face all the blocks, they'll all spin, and you'll complete a round. Use
+                        <a href="pictures/hammer/upgraded_hammer/contraption_guide.webp">this image</a>
+                        for how to solve each round. You can reset the current round of the puzzle by shooting a skull block if present.
+                    </li>
+                    <li>
+                        Once you complete all three rounds, go to the 'Overlook' and,
+                        <strong>while holding the Hammer</strong>
+                        , walk along the
+                        <a href="pictures/hammer/upgraded_hammer/invis_path.webp">invisible path in front of the Armour stand out toward the pyramid</a>. Keep walking until you're stopped, and lifted into the air.
+                    </li>
+                    <ul>
+                        <li>Zombies can chase you down the path, and they aren't slowed like you are, so try to do this between rounds or throw a Jack-in-the-box.</li>
+                    </ul>
+                    <li>You'll be teleported to the Stormraven Trial, which is basically a tutorial on how to use the upgraded Hammer. Upon completion, you'll be teleported back.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="shield">
+                <h2 class="section-title">Thulian Shield</h2>
+                <p class="weapon-desc">The Thulian Shield is a melee wonder weapon that can release a short-range shockwave with the melee button and block attacks by aiming.</p>
+
+                <ol>
+                    <li>Fill two Blood Pools by killing about six Zombies in the pool. Pool locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/shield/pool_ice_caves.webp">Ice Caves - Left of the Type 100 wallbuy</a>
+                        </li>
+                        <li>
+                            <a href="pictures/shield/pool_morgue.webp">Morgue - Left of the M1928 wallbuy</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Pick up the
+                        <a href="pictures/shield/bloodstone.webp">Bloodraven Stone near the "body jars"</a>
+                        at the bottom of the 'Morgue.' Place it on the
+                        <a href="pictures/shield/pool_overlook.webp">blood pool in the 'Overlook,'</a>
+                        and fill the pool with kills.
+                    </li>
+                    <li>
+                        Once all three pools are filled, a Wustling will spawn in the
+                        <a href="pictures/shield/large_pool.webp">large blood pool in the 'Blood Altar'</a>
+                        with the Thulian Shield on its back. Kill the Wustling and pick up the Thulian Shield it dropped.
+                    </li>
+                    <li>With the Thulian Shield, you can block enemy attacks while aiming with the shield equipped (it doesn't block damage on your back).</li>
+                </ol>
+
+                <p class="upgrade-title" id="upgraded_shield">Roar of Sang'Ket (Upgraded Shield)</p>
+                <p class="weapon-desc">The Roar of Sang'ket enhances the shockwave to do more damage and the blocking ability to take more damage.</p>
+                <ol>
+                    <li>
+                        Look at each of the Blood Pools until you find the one
+                        <a href="pictures/shield/upgraded_shield/red_smoke.webp">emitting red smoke</a>
+                        (can only be seen by the player with the shield).
+                    </li>
+                    <li>Let a Corpse Eater eat about 3-4 Zombies so it's fully charged (it'll glow red once it's eaten enough Zombies).</li>
+                    <ul>
+                        <li>
+                            A fully charged Corpse Eater will spawn every time you shoot a Raven in the
+                            <a href="#raven_claw" class="link-to-page">Raven's Claw Special Pistol</a>
+                            quest. You can use this to not have to pass rounds.
+                        </li>
+                        <li>Two uncharged Corpse Eaters will spawn when you come back from Pack-a-Punch.</li>
+                    </ul>
+                    <li>
+                        Kill the Corpse Eater while it's standing in the Pool. If done right, the blood pool will show
+                        <a href="pictures/shield/upgraded_shield/pattern.webp">a pattern</a>
+                        (different every game).
+                    </li>
+                    <ul>
+                        <li>You don't have to be holding the shield to kill the Corpse Eater in the pool. It will still work, but you won't be able to see the mist or the pattern.</li>
+                    </ul>
+                    <li>Repeat for the two remaining pools. Remember the order you "activated" the pools in.</li>
+                    <li>
+                        Blow up a Bomber (first spawn is on wave 8) on the
+                        <a href="pictures/shield/upgraded_shield/metal_door.webp">metal door</a>
+                        in the 'Crash Site' to reveal a radio and speaker.
+                    </li>
+                    <li>
+                        Place both items at the Blood Pool in the 'Blood Altar' (
+                        <a href="pictures/shield/upgraded_shield/radio.webp">Radio location</a>
+                        and
+                        <a href="pictures/shield/upgraded_shield/speaker.webp">speaker location</a>
+                        ). Interact with the radio to make patterns appear similar to those in the smaller Blood Pools.
+                    </li>
+                    <li>
+                        Cycle through patterns by interacting with the radio;
+                        <a href="pictures/shield/upgraded_shield/frozen_dawn_blood_patterns.webp">image of all the patterns</a>. When the pattern matches the one from the first Blood Pool, get a kill in the Blood Altar pool. Repeat for the other two patterns in order.
+                    </li>
+                    <li>If done correctly, the Blood Pool will start flashing patterns rapidly. While holding the Shield, go down in the blood.</li>
+                    <ul>
+                        <li>You'll be given full armour upon being revived, and it will not use Quick Revive.</li>
+                    </ul>
+                    <li>You'll be teleported to the Bloodraven Trial, which is basically a tutorial on how to use the upgraded Shield. Upon completion, you'll be teleported back.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="flail">
+                <h2 class="section-title">Broken Flail</h2>
+                <p class="weapon-desc">The Broken Flail is a melee wonder weapon that, when held, replaces grenades with the Orb of Lu'roth, allowing the player to throw the orb, then teleport to the orb's location. The orb returns after a short cooldown.</p>
+
+                <ol>
+                    <li>Pick up two Books. Locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/flail/book_overlook.webp">Overlook - Right of the bowl (right of Stamin-Up), behind a stone bowl</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/book_passage.webp">Passage - On the ground, right of the Thulian Transport</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/book_morgue.webp">Morgue - Above the drop-off to the 'Phylactery'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/book_blood.webp">Blood Altar - Left of the blood pool (when standing by the Mystery Box)</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Go to the 'Thulian Archives' and place the two books on the
+                        <a href="pictures/flail/book_pedestal.webp">pedestal near the M1 Garand wallbuy</a>. This will open the <a href="pictures/flail/cypher_room.webp">Cypher Room beside the pedestal</a>.
+                    </li>
+                    <li>Pick up three gears. Locations:</li>
+                    <ul>
+                        <li><a href="pictures/flail/gear_cypher.webp">In the Cypher Room</a></li>
+                        <li>
+                            <a href="pictures/flail/gear_passage.webp">Passage - In the nook, up the ramp from the 'Gearworks'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/gear_overlook.webp">Overlook - Left of the stairs to the 'Phylactery'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/gear_phylactery.webp">Phylactery - Right of the door to the 'Overlook'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/gear_blood.webp">Blood Altar - Right of the Mystery Box location</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/gear_ice_caves.webp">Ice Caves - Right of the door to the 'Morgue'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/gear_spawn.webp">Crash Site - On the ground, left of the Thulian Transport</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Place all three gears into the
+                        <a href="pictures/flail/gearworks.webp">mechanism in the 'Gearworks'</a>
+                        below the 'Thulain Archives.' Get about 15 kills near the gears to charge them. Once charged, the
+                        <a href="pictures/flail/orrery.webp">Orrery</a>
+                        will start moving.
+                    </li>
+                    <li>
+                        You will need to stop the Orbs, by interacting with the stationary ones, in the positions indicated by the
+                        <a href="pictures/flail/wall_in_cypher_room.webp">wall in the 'Cypher Room'</a>
+                        (this will be different every game). Use
+                        <a href="pictures/flail/orrery_map.webp">this image</a>
+                        to help relate the positions in the Cypher Room to the Orrery. Start with the Red one since it's the fastest and easiest to get wrong. There are only eight positions you can stop a ball in (see image above), so you should interact to stop the ball once it passes the position before the one you want.
+                    </li>
+                    <ul>
+                        <li>If you stop an Orb in the wrong location, you'll need to stop the others to reset the whole device.</li>
+                        <li>When an Orb is stopped correctly, it will play a distinct sound, while an incorrect orb, will play a dull sound.</li>
+                    </ul>
+                    <li>
+                        Once all Orbs are correct in the correct locations, the
+                        <a href="pictures/flail/flail.webp">Broken Flail will spawn in front of the Orrery</a>
+                        for you to pick up.
+                    </li>
+                    <li>The Broken Flail lets you teleport by throwing the Orb (which replaces grenades while holding the Flail), then pressing the grenade button again after the orb lands. The orb regenerates after a few seconds.</li>
+                </ol>
+
+                <p class="upgrade-title" id="upgraded_flail">Talon of Lu'roth (Upgraded Flail)</p>
+                <p class="weapon-desc">The Talon of Lu'roth allows players to possess Zombies by throwing the orb and pressing the tactical grenade button. Like the Perchta (from The Shadowed Throne), aiming and meleeing an enemy recovers health or armour (when max health).</p>
+                <ol>
+                    <li>
+                        Throw the flail orb into the
+                        <a href="pictures/flail/upgraded_flail/room_above_orrery.webp">room above the Orrery</a>
+                        and teleport inside.
+                    </li>
+                    <li>
+                        Inside the room, you'll see three
+                        <a href="pictures/flail/upgraded_flail/moonraven_stone.webp">Moonraven stones</a>
+                        on the floor in the corners of the room.
+                    </li>
+                    <li>Get three kills with the Flail near the stone "on the right" (closest to the Combat Shotgun wallbuy) to charge it. This will spawn a Rune in the air above it.</li>
+                    <li>A constellation will spawn in the air around the map that can only be seen in "Flail Vision" (ADS with the Flail). Constellation locations:</li>
+                    <ul>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_crash_site.webp">Crash Site - Above the entrance to Thule</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_purple_orb.webp">Thulian Archives - Above the Purple Orb on the Orrery</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_overlook.webp">Overlook - Behind the fillable blood pool</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_electric.webp">Phylactery - In the window behind Schildblitz (Electric Cherry)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_blood_pillar.webp">Blood Altar - In the air toward the Pyramid, left when coming from the 'Phylactery'</a>
+                        </li>
+                        <li>
+                            <a href="pictures/flail/upgraded_flail/const_mystery_box.webp">Blood Altar - Behind the Mystery Box</a>
+                        </li>
+                    </ul>
+                    <li>Once you find the constellation, connect the stars with your crosshair while aiming with the Flail. If done correctly, you'll see "Beheld the First Message."</li>
+                    <li>Go back to the room above the Orrery, charge the "middle" stone, and find its constellation. Repeat for the last stone.</li>
+                    <ul>
+                        <li>The "completed" constellations will stay visible after being connected.</li>
+                    </ul>
+                    <li>
+                        Once all three constellations are completed, throw the Flail Orb into the
+                        <a href="pictures/flail/upgraded_flail/glowing_orb.webp">glowing ball in the Orrery</a>.
+                    </li>
+                    <li>You'll be teleported to the Moonraven Trial, which is basically a tutorial on how to use the upgraded Flail. Upon completion, you'll be teleported back.</li>
+                    <li>In addition to the teleportation ability, the upgraded Flail (Talon of Lu'roth) allows you to turn Zombies friendly by throwing the orb at a Zombie and pressing the tactical grenade button.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+                <h2 class="section-title">'Kingfall' Main Quest</h2>
+                <p class="stats">Stats (Solo): Difficulty - 8/10, Est. Completion Time - 1:20 Hr to 1:35 Hr</p>
+                <ol>
+                    <p class="step-group-title" id="main_ee_step1">Upgraded Raven Lord Wonder Weapons</p>
+                    <li>
+                        Obtain all four upgraded Raven Lord Wonder Weapons:
+                        <a href="#scythe" class="link-to-page">Thulian Scythe</a>, <a href="#hammer" class="link-to-page">Thulian Hammer</a>, <a href="#shield" class="link-to-page">Thulian Shield</a>, and <a href="#flail" class="link-to-page">Broken Flail</a>.
+                    </li>
+                    <li>
+                        Place the weapons in the
+                        <a href="pictures/main_ee/weapon_pedestals.webp">pedestals on the edge of the cliff</a>
+                        in the 'Ice Caves.' You can place Scythe, Hammer, and Flail in any of the pedestals, but the Shield goes on the
+                        <a href="pictures/main_ee/shield_circle.webp">stone circle on the floor in front of the pedestals</a>.
+                    </li>
+
+                    <p class="warning">Warning: Point of No Return. Once you activate the Transport, you'll be put into the Boss Fight.</p>
+
+                    <li>
+                        All players must enter the newly activated
+                        <a href="pictures/main_ee/boss_fight_transport.webp">Thulian Transport in the 'Ice Caves,'</a>
+                        left of the door to the 'Morgue.' After a short cutscene, you'll be taken to the God King Boss Fight arena. Any Raven weapons not brought by a player will spawn on the floor in front of the Thulian Transport for you to freely swap between.
+                    </li>
+
+                    <p class="step-group-title" id="main_ee_step2">God King Boss Fight</p>
+                    <p class="boss-fight-phases">Phase 1</p>
+                    <li>The God King has two attacks. He can either shoot a bolt of electricity at you or lob bombs that explode after a few seconds.</li>
+                    <li>Shoot the God King until he moves to the middle of the arena. He will pull you toward him, "The God King begins to consume blood" will appear on the left side of the screen, and he'll start slowly damaging you.</li>
+                    <li>
+                        You need to shoot each of the three
+                        <a href="pictures/main_ee/god_king_plate.webp">pressure plates around the arena</a>
+                        until they stop glowing. One of the pressure plates is in the middle of the arena (below where the God King will be), and the other two are on either side of Thulian Transport near the edges of the map.
+                    </li>
+                    <li>This will stun the God King, knocking him to the floor, allowing you to do damage. Once the God King gets back up, a Max Ammo, and Full Meter power-up will spawn where he was.</li>
+                    <ul>
+                        <li>You don't need to do damage to the God King while he's down, but it will help speed up the next phase.</li>
+                    </ul>
+
+                    <p class="boss-fight-phases">Phase 2</p>
+                    <li>During the second phase, he gains another attack where he flies high up into the air, and starts charging a wipe attack. You can hide behind the ice pillars or use the shield's block ability to avoid taking damage.</li>
+                    <li>Shoot the God King, and the pressure plates to end the phase just like in phase 1. This is how you complete all future phases as well.</li>
+
+                    <p class="boss-fight-phases">Phase 3</p>
+                    <li>The God King will occasionally give some Zombies purple shields, making them invincible. Throw the Hammer at the shields to break them.</li>
+
+                    <p class="boss-fight-phases">Phase 4</p>
+                    <li>The God King will fly to the throne and throw out a wall of fire. The player with the Flail needs to teleport to the God King (past the fire) and do damage to stun him and stop the fire. Any player touched by the fire will instantly down.</li>
+
+                    <p class="boss-fight-phases">Phase 5 (Co-op Only)</p>
+                    <li>The God King can use all the previous attacks (Wipe, Shields, Fire).</li>
+
+                    <p class="boss-fight-phases">Final Phase</p>
+                    <li>After phase 4 (or 5 on Co-op), the God King will go to his throne, pull all players toward him, drop you to 1 HP, and make you kneel. The ending cutscene will play. After the cutscene, you'll be brought back to the arena, with the God King sitting on his throne. Shoot him until he dies; failing to do so will cause him to wipe your team, ending your game.</li>
+                    <li>Once he's dead, you'll have completed the Boss Fight. After the Boss fight, you'll constantly regenerate armour for free for the remainder of the current match. You're able to use the Thulian Transport to go between the arena and main map as much as you want.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="raven_claw">
+                <h2 class="section-title">'Raven's Claw' Special Pistol</h2>
+                <ol>
+                    <li>
+                        On the 'Overlook,' interact with the
+                        <a href="pictures/raven_claw/raven_statue.webp">Golden Raven statue by the Blood Pool</a>
+                        to make it disappear.
+                    </li>
+                    <li>
+                        Around the map, there will be four Ravens making a squawking noise. Shoot a Raven with a pistol to make it fly away; doing so will spawn a fully charged Corpse Eater. Once the Corpse Eater is killed, a Golden Raven statue will spawn
+                        <a href="pictures/raven_claw/raven_statues_blood_altar.webp">down the first ramp from the Kugelblitz (Double Tap) machine</a>
+                        in the 'Blood Altar.' Find and shoot all four Ravens.
+                    </li>
+                    <ul>
+                        <li>Any ravens shot with a non-pistol weapon will respawn in a new location.</li>
+                        <li>
+                            Raven
+                            <a href="https://youtu.be/4fG-Z4fAV9I?t=53" class="external-link">Video Locations (YouTube)</a>
+                            by
+                            <a href="https://www.youtube.com/@TheDrShowtds" class="external-link">TheDrShow</a>
+                            or images below:
+                        </li>
+                        <ol>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/crash_plane.webp">Crash Site - On the back wing of the crashed plane</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/crash_transport.webp">Crash Site - On top of the Thulian Transport</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/crash_metal_beam.webp">Crash Site - On a metal bar by the radio used in the Shield Quest</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/crash_machine_pistol.webp">Crash Site - On the stone pillar with the Machine Pistol wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/crash_entrance.webp">Crash Site - Above the entrance to Thule</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/ice_caves_door_crash.webp">Ice Caves - On a stone pillar, just to the right when you enter from the Crash Site</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/ice_caves_cliff_edge.webp">Ice Caves - On the edge of the cliff between the middle and right pillars</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/ice_caves_pit.webp">Ice Caves - On the wall on the left above the pit between the 'Ice Caves' and 'Overlook'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/archives_cola.webp">Thulian Archives - Above the Schnellblitz (Speed Cola) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/archives_right_cola.webp">Thulian Archives - In the corner of the ceiling, right of the Schnellblitz (Speed Cola) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/archives_doorway_gearworks.webp">Thulian Archives - On the ledge above the doorway to the 'Gearworks'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/archives_shotgun.webp">Thulian Archives - In the corner of the ceiling, above the Combat Shotgun wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/archives_floor.webp">Thulian Archives - On the floor in front of the door to the 'Overlook'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/overlook_pool.webp">Overlook - Behind the Blood Pool</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/overlook_armour.webp">Overlook - At the top of the stone pillar, above the Armour stand</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/overlook_stamin.webp">Overlook - On a stone pillar, left of Laufenblitz (Stamin-Up) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_transport.webp">Overlook/Phylactery - In the opening in the wall, between the Transport and Schildblitz (Electric Cherry)</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_electric.webp">Overlook/Phylactery - Left of the Schildblitz (Electric Cherry) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_across_electric.webp">Overlook/Phylactery - On the wall in front of the Schildblitz (Electric Cherry) machine</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_bowl.webp">Phylactery - On the edge of the large "bowl"</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_fg42.webp">Phylactery - On the wall above and to the right of the FG 42 wallbuy</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_morgue_door.webp">Phylactery - Above the door to the Morgue</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/phylactery_beam.webp">Phylactery - On the beam in front of the open part of the wall</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/blood_face_statues.webp">Blood Altar - On the beam sticking out of either of the stone face statues above the pressure plate</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/blood_pillar.webp">Blood Altar - On a stone pillar left of the doorway to the 'Phylactery'</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/blood_scaffold_top.webp">Blood Altar - On the top of the wooden scaffolding behind the previous location</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/blood_scaffold_bottom.webp">Blood Altar - Below the previous location on the scaffolding</a>
+                            </li>
+                            <li>
+                                <a href="pictures/raven_claw/raven_locations/blood_mystery_box.webp">Blood Altar - Right of the Mystery Box location</a>
+                            </li>
+                        </ol>
+                    </ul>
+                    <li>
+                        Once all four Ravens are shot, the
+                        <a href="pictures/raven_claw/raven_pistol.webp">Raven's Claw pistol will spawn on the floor by the statues</a>
+                        for you to pick up.
+                    </li>
+                    <li>When the Raven's Claw is upgraded, a headshot kill will refund a bullet, and a Raven will spawn that will kill about 2-3 Zombies.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="the_classic">
+                <h2 class="section-title">'The Classic' PPSh-41</h2>
+                <p class="weapon-desc">The Classic is a special PPSh-41 variant with a bigger 70-round mag, more reserve ammo, and a faster fire rate.</p>
+                <ol>
+                    <li>
+                        You have to choose to either do this quest or
+                        <a href="#the_vintage" class="link-to-page">'The Vintage' MG42</a>
+                        quest, you can't do them both in the same game.
+                    </li>
+                    <li>
+                        On the bottom level of the 'Morgue' (where you get the Shield stone), drop Jolts in front of the
+                        <a href="pictures/vintage_and_classic/corpse_classic.webp">open corpse container on the right side of the room</a>. If placed correctly, it will take your money, and the Corpse's eyes will turn blue.
+                    </li>
+                    <li>After a few seconds, three skulls will light up red on the left, and four will be blue on the right. The red skulls indicate the remaining number of rounds in the minigame.</li>
+                    <li>
+                        One of the
+                        <a href="pictures/vintage_and_classic/red_eyed.webp">corpse's eyes will light up red</a>. Shoot it before the lights turn off. After a few seconds, another red-eyed head will spawn; shoot it. Repeat for all the red-eyed heads that spawn. Occasionally, a blue-eyed head will spawn; don't shoot these, as this will cause you to fail.
+                    </li>
+                    <ul>
+                        <li>If you fail, give the corpse container another jolts drop to retry.</li>
+                    </ul>
+                    <li>After enough red-eyed heads have been shot, give the corpse another jolts drop to start the next round.</li>
+                    <li>After you complete three rounds, interact with the original corpse container to get The Classic. Once picked up, it will also become available in the Mystery Box.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="the_vintage">
+                <h2 class="section-title">'The Vintage' MG42</h2>
+                <p class="weapon-desc">'The Vintage' is a special MG42 variant with a bigger 125-round mag, more reserve ammo, and a faster fire rate.</p>
+                <ol>
+                    <li>
+                        You have to choose to either do this quest or
+                        <a href="#the_classic" class="link-to-page">'The Classic' PPSh-41</a>
+                        quest, you can't do them both in the same game.
+                    </li>
+                    <li>
+                        On the bottom level of the 'Morgue' (where you get the Shield stone), drop Jolts in front of the
+                        <a href="pictures/vintage_and_classic/corpse_vintage.webp">open corpse container on the left side of the room</a>. If placed correctly, it will take your money, and the Corpse's eyes will turn red.
+                    </li>
+                    <li>After a few seconds, four skulls will light up red on the left, and three will be blue on the right. The blue skulls indicate the remaining number of rounds in the minigame.</li>
+                    <li>
+                        One of the
+                        <a href="pictures/vintage_and_classic/blue_eyed.webp">corpse's eyes will light up blue</a>. Shoot it before the lights turn off. After a few seconds, another blue-eyed head will spawn; shoot it. Repeat for all the blue-eyed heads that spawn. Occasionally, a red-eyed head will spawn; don't shoot these, as this will cause you to fail.
+                    </li>
+                    <ul>
+                        <li>If you fail, give the corpse container another jolts drop to retry.</li>
+                    </ul>
+                    <li>After enough blue-eyed heads have been shot, give the corpse another jolts drop to start the next round.</li>
+                    <li>After you complete three rounds, interact with the original corpse container to get The Vintage. Once picked up, it will also become available in the Mystery Box.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="perkaholic">
+                <h2 class="section-title">Dark Room Perkaholic</h2>
+                <ol>
+                    <li>
+                        Obtain the
+                        <a href="#flail" class="link-to-page">Broken Flail</a>.
+                    </li>
+                    <li>
+                        Kill Zombies near each of the three pressure plates around the map until they're
+                        <a href="pictures/perkaholic/glowing_plate.webp">glowing red</a>. You don't need to be standing on the plate to fill it. Locations:
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="pictures/thule/thule_plate.webp">Crash Site - Beside the entrance to Thule (the one used to open the door)</a>
+                        </li>
+                        <li>
+                            <a href="pictures/perkaholic/plate_double_tap.webp">Blood Altar - Near the Kugelblitz (Double Tap) machine</a>
+                        </li>
+                        <li> <a href="pictures/perkaholic/plate_flail.webp">Overlook - "Behind" the Blood Pool used in the Thulian Shield quest</a>. You have to teleport to it using the Flail --- <a href="https://youtu.be/dUMEL3a35w8" class="external-link">Video Example (YouTube)</a>. </li>
+                    </ul>
+                    <li>
+                        A new
+                        <a href="pictures/perkaholic/new_transport.webp">Thulian Transport</a>
+                        will open in the hallway between the 'Overlook' and 'Phylactery.'
+                    </li>
+                    <li>Get at least 10,000 jolts. Activate the new Thulian Transport; it should take about 6916 jolts from you.</li>
+                    <li>
+                        You'll be taken to a Dark Room where you must find four
+                        <a href="pictures/perkaholic/nail.webp">metal nails</a>. Three of the nails on small stone pedestals, and one is in the skull of a skeleton near a pedestal. There are about 6-8 stone pedestals around the room; only three will have nails.
+                    </li>
+                    <li>
+                        When you pick up all four, find the
+                        <a href="pictures/perkaholic/taller_pillar.webp">taller stone pedestal</a>
+                        what says "Blood is Power" when near it.
+                    </li>
+                    <li>Place the nails and interact with it. You will be rewarded with all six perks and will be teleported out of the Dark Room. The new Thulian Transport can now be used like normal.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="zombie_possession">
+                <h2 class="section-title">Zombie Possession (10k Jolts, Free Perk, and Character Challenge)</h2>
+                <ol>
+                    <li>
+                        Acquire the
+                        <a href="#upgraded_flail" class="link-to-page">Upgraded Thulian Flail</a>.
+                    </li>
+                    <li>
+                        Disable the
+                        <a href="pictures/pap/pap_button.webp">Pack-a-Punch button on the wall in the 'Passage'</a>
+                        so the Thulian Transports don't take you to Pack-a-Punch.
+                    </li>
+                    <li>Get a Zombie, or Pest to stand in a Thulian Transport with you. Activate the transport; while the doors are closing, turn the Zombie friendly using the Flail.</li>
+                    <li>When you're teleported, you will be "spectating" the Zombie. A Corpse Eater will spawn and kill the Zombie you're watching.</li>
+                    <li>When you return to your character, you will be rewarded with 10k Jolts, a Perk, and a Character Challenge. You can only do this once per game.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="free_double_jolts">
+                <h2 class="section-title">Free Double Jolts &amp; Funderbuss (Upgraded Blunderbuss)</h2>
+                <ol start="0">
+                    <li>Have a Frag Grenade, Semtex, C4, or Throwing Knife equipped to your loadout.</li>
+                    <li>
+                        Obtain the
+                        <a href="#scythe" class="link-to-page">Scythe</a>.
+                    </li>
+                    <li>
+                        Shoot the four
+                        <a href="pictures/free_double_jolts/lit_candles.webp">lit candles on the Altar</a>
+                        at the top of the stairs in the 'Phylactery' (where you upgrade the Scythe). The candles won't go out, but they will make a Raven squawk sound (like the lanterns in Groesten Haus).
+                    </li>
+                    <li>
+                        A
+                        <a href="pictures/free_double_jolts/power_up_phylactery.webp">Double Jolts power-up will spawn in the air</a>
+                        around the Ancient Forge, moving around every couple of seconds. Note its colour (Green, Cyan, or Magenta).
+                    </li>
+                    <ul>
+                        <li>
+                            The
+                            <a href="pictures/free_double_jolts/green_power_up.webp">green</a>
+                            and
+                            <a href="pictures/free_double_jolts/cyan_power_up.webp">cyan</a>
+                            power-ups look very similar, so if you can't tell, assume it's green, and if it doesn't work, it's cyan.
+                        </li>
+                    </ul>
+                    <li>You need to create a piece of equipment that's the same colour as the Double Jolts power-up by colouring then combining equipment. Colour combinations:</li>
+                    <ul>
+                        <li>
+                            <span style="color: yellow">Yellow</span>
+                            +
+                            <span style="color: deepskyblue">Blue</span>
+                            =
+                            <span style="color: #7bb121">Green</span>
+                        </li>
+                        <li>
+                            <span style="color: #7bb121">Green</span>
+                            +
+                            <span style="color: deepskyblue">Blue</span>
+                            =
+                            <span style="color: cyan">Cyan</span>
+                        </li>
+                        <li>
+                            <span style="color: orangered">Red</span>
+                            +
+                            <span style="color: deepskyblue">Blue</span>
+                            =
+                            <span style="color: magenta">Magenta</span>
+                        </li>
+                    </ul>
+                    <li>
+                        To colour a piece of equipment, stand near the candles and throw a Frag Grenade, Semtex, C4, or Throwing Knife to either the
+                        <a href="pictures/free_double_jolts/throwing_the_equipment.webp">left or right of the bone structure used in the Scythe upgrade</a>. This will cause the equipment to "orbit" in the direction you threw it in, changing colours every couple of orbits (White, Yellow, Red, and Blue).
+                    </li>
+                    <li>
+                        Throw one piece of equipment and wait until it's the colour you need, then pick it up; this will "set" that equipment's colour permanently. Then throw the piece of equipment back, so it's orbiting again (it should be the colour it was when you picked it up). Throw another piece of equipment
+                        <strong>in the same direction as the other one</strong>
+                        , so they don't collide midair. Pick up the first piece of equipment as soon as you can (equipment in the air will explode after about 20-30 seconds), and wait for the other equipment to be the right colour; pick it up when it is.
+                    </li>
+                    <li>
+                        Now that you have the two colours required, throw them in
+                        <strong>opposite directions</strong>
+                        , so they collide midair. The colours should combine, and one of the pieces of equipment will turn the new colour, and the other will explode. Pick up the remaining piece of equipment.
+                    </li>
+                    <li>Once you have the right colour equipment, jump down from the platform with the candles and then throw the equipment at the power-up. The power-up should disappear.</li>
+                    <ul>
+                        <li>You need to be off the candle platform because equipment thrown while on the platform will orbit instead of flying straight.</li>
+                        <li>When coloured, the equipment will fly completely straight (not affected by gravity) to you don't need to "lead" your throw.</li>
+                    </ul>
+                    <li>
+                        Go to 'Crash Site,' find the new
+                        <a href="pictures/free_double_jolts/power_up_crash_site.webp">Double Jolts power-up around of the crashed Zeppelin</a>
+                        and note its colour. It will also move around like the previous one.
+                    </li>
+                    <ul>
+                        <li>If the new power-up is the same colour as the first one, you can reuse the already coloured equipment if you still have it. Otherwise, I recommend you throw away all your equipment, and wait for a Max Ammo to make sure you have four new, uncoloured pieces of equipment.</li>
+                    </ul>
+                    <li>Back in the 'Phylactery,' make a piece of equipment with the same colour as the Double Jolts in the 'Crash Site.' Return to the Crash Site and throw the equipment at the power-up.</li>
+                    <li>
+                        In the 'Phylactery,' locate the new
+                        <a href="pictures/free_double_jolts/power_up_electric.webp">Double Jolts behind the Schildblitz (Electric Cherry) machine</a>
+                        and note its colour. Make a piece of equipment with the same colour, and throw it at the power-up.
+                    </li>
+                    <ul>
+                        <li>Once complete, you'll be given a standard (timed) Double Jolts Power-up.</li>
+                    </ul>
+                    <li>
+                        Go to the 'Overlook' and interact with the
+                        <a href="pictures/free_double_jolts/red_mist.webp">red mist in front of the Armour stand</a>.
+                    </li>
+                    <li> <a href="pictures/free_double_jolts/target.webp">Four glowing dots will appear toward the pyramid</a>. Throw a piece of equipment into the square (target) made by the dots. You will be given infinite equipment, and when thrown, the equipment won't be affected by gravity. Once you "hit" a target successfully, it will turn green and disappear, and another will appear. Repeat for ten total targets. </li>
+                    <ul>
+                        <li>The targets will get farther and farther from you as you go, but if you line up the middle of the crosshair with the middle of the target, you should be fine.</li>
+                        <li>If you fail to hit a target in time, you'll need to progress five waves to try again.</li>
+                    </ul>
+                    <li>
+                        Once complete, a Funderbuss (Pack-a-Punched Blunderbuss Shotgun) will
+                        <a href="pictures/free_double_jolts/funderbuss.webp">spawn at the edge of the 'Overlook'</a>
+                        for you to pick up.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="rocket_deflect">
+                <h2 class="section-title">Thulian Tower Rocket Deflect</h2>
+                <ol>
+                    <li>Equip either the Panzershreck or M1 Bazooka consumable to your loadout, or obtain the Fliegerfaust from the Mystery Box.</li>
+                    <li>
+                        Fire a rocket at either of the
+                        <a href="pictures/rocket_deflect/pyramid.webp">two front pillars of the large Pyramid</a>
+                        in the distance, from either the 'Overlook,' or 'Ice Caves.'
+                    </li>
+                    <li>A rocket will fly back toward you that can damage you and the Zombies.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" id="grenade_rain">
+                <h2 class="section-title">Grenade Rain</h2>
+                <ol>
+                    <li>Start the game with Frag Grenades in your loadout.</li>
+                    <li>
+                        In the 'Thulian Archives,' throw a Frag Grenade into any of the bright holes in the ceiling (above the
+                        <a href="pictures/grenade_rain/book.webp">book pedestal</a>
+                        or
+                        <a href="pictures/grenade_rain/orrery.webp">Orrery</a>
+                        ).
+                    </li>
+                    <li>After a few seconds, multiple grenades will be thrown back down. They can damage you and the Zombies.</li>
+                </ol>
+            </div>
+
+            <div class="content-container" data-section-ind="Unlockable Characters" id="characters">
+                <h2 class="section-title">Unlockable Characters</h2>
+
+                <p class="weapon-desc">New playable characters can be unlocked through the completion of various challenges. Your progress can be checked on the Lobby Menu → Soldier → Dossier → Challenges. The challenges will not explicitly say what to do (due to data mining issues at launch), so the challenges are the Community's "best guess" of what to do.</p>
+
+                <!-- Shadowguard Table -->
+                <p class="step-group-title" data-custom-quick-link="Shadowguard (Shadow Hunter)" id="Shadowguard (Shadow Hunter)">
+                    Shadowguard (Shadow Hunter) ---
+                    <a href="pictures/characters/shadow_guard.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Death becomes</i></td>
+                            <td>Obtain the Thulian Scythe without taking damage during the lockdown</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#scythe" class="link-to-page">Thulian Scythe</a>
+                                section for how to get the Scythe. Use Shellshock with the Sustain Zone Mod to stop the Zombies from attacking you.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Waltz of starvation</i></td>
+                            <td>Kill about 15 Zombies while they're getting "eaten" by a corpse eater with the Fang of An'heist (upgraded scythe)</td>
+                            <td class="strategy" rowspan="2">
+                                See the
+                                <a href="#scythe" class="link-to-page">Thulian Scythe</a>
+                                section for how to get and upgrade the Scythe.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Elder Blood</i></td>
+                            <td>Kill the Corpse Eaters before they kill the Wustlings during the Fang of An'heist trial</td>
+                        </tr>
+                        <tr>
+                            <td><i>Crown's solace</i></td>
+                            <td>Complete the Main Quest solo</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#main_ee" class="link-to-page">Main Quest</a>
+                                section for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Wreathed in death</i></td>
+                            <td>Survive the God King's Phase 2 wipe attack and Phase 4 Fire attack with the Scythe's "Cheat Death" ability</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#main_ee" class="link-to-page">Main Quest</a>
+                                section for how to get to the Boss Fight.
+                                <br>
+                                Kill a fully charged, red-glowing Corpse Eater with the Upgraded Scythe before the Boss Fight to activate the Scythe's "Cheat Death" ability (the gem should glow). During phase 2 of the Boss Fight, take lethal damage from the red wipe attack (you should survive and the gem should turn off). Get another charge from a Corpse Eater, then during phase 4, get hit by the fire.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Wayfarer Table -->
+                <p class="step-group-title" data-custom-quick-link="Wayfarer (Wayward Rider)" id="Wayfarer (Wayward Rider)">
+                    Wayfarer (Wayward Rider) ---
+                    <a href="pictures/characters/wayfarer.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Dark Wings, Dark Path</i></td>
+                            <td>Obtain the Raven's Claw Special Pistol</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#raven_claw" class="link-to-page">Raven's Claw</a>
+                                section for how to get the pistol.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Leaps and bounds</i></td>
+                            <td>Visit every location on the map in under 2 minutes</td>
+                            <td class="strategy">This doesn't include special areas like the Dark Room, or the Boss Fight arena.</td>
+                        </tr>
+                        <tr>
+                            <td><i>Darkest sky</i></td>
+                            <td>Observe all three constellations in the Flail upgrade quest in under 3-5 minutes</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#flail" class="link-to-page">Bloken Flail</a>
+                                section for how to get the get and upgrade the Flail.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Like sightless eyes</i></td>
+                            <td>Die to a Corpse Eater while possessing a Zombie</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#zombie_possession" class="link-to-page">Zombie Possession</a>
+                                section for how to possess a Zombie.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Bureau's Pride</i></td>
+                            <td>Complete all the Raven trials (final part of Raven Weapon Upgrades) in one game</td>
+                            <td class="strategy">You don't need to do all the steps, just the final challenge/trial.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Deathbringer Table -->
+                <p class="step-group-title" data-custom-quick-link="Deathbringer (Desert Assassin)" id="Deathbringer (Desert Assassin)">
+                    Deathbringer (Desert Assassin) ---
+                    <a href="pictures/characters/death_bringer.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Left forgotten</i></td>
+                            <td>Survive 15 Waves without leaving the Crash Site (Spawn)</td>
+                            <td class="strategy">Use Freefire with the MK.II Mod to get temporary paped weapons</td>
+                        </tr>
+                        <tr>
+                            <td><i>Guarded Sacrifice</i></td>
+                            <td>Kill 10 Zombies while they're in the blood pool in Blood Altar by charging them with the Roar of Sang'ket (Upgraded Shield)</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#shield" class="link-to-page">Thulian Shield</a>
+                                section for how to get and upgrade the Shield. To do a charged attack, activate sprint and then press the melee button.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Needless effort</i></td>
+                            <td>Transport a Wustling (by itself, meaning no other Zombies or players) two times using the Thulian Transports, starting at the Blood Altar transport</td>
+                            <td class="strategy">
+                                You can use the Wustling that spawns in the
+                                <a href="#shield" class="link-to-page">Thulian Shield</a>
+                                quest. The Blood Altar transport always goes to the Crash Site, so transport the Wustling from the Blood Altar to the Crash Site, then transport from the Crash Site.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Relentless</i></td>
+                            <td>Let the Zombies damage the Thulian Shield an unknown amount of times without letting it break</td>
+                            <td class="strategy">Leave one Zombie alive and let it damage the shield while you're holding it. Once it gets close to breaking, let it recharge, and repeat.</td>
+                        </tr>
+                        <tr>
+                            <td><i>Light in darkness</i></td>
+                            <td>Complete the Dark Room Perkaholic side quest</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#perkaholic" class="link-to-page">Dark Room Perkaholic</a>
+                                section for how to do it.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Wicht Warden -->
+                <p class="step-group-title" data-custom-quick-link="Wicht Warden (Cold Blooded)" id="Wicht Warden (Cold Blooded)">
+                    Wicht Warden (Cold Blooded) ---
+                    <a href="/games/WW2/wicht_warden.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge Hint Text / Riddle</th>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td><i>Search and rescue</i></td>
+                            <td>Complete the Hardcore Main Quest on The Final Reich</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_final_reich/the_final_reich_guide.html#main_ee_hardcore" class="link-to-page">Hardcore Main Quest</a>
+                                section of The Final Reich Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>They can swim now?</i></td>
+                            <td>Complete the Main Quest on The Darkest Shore</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_darkest_shore/the_darkest_shore_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Darkest Shore Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Mechanized abomination</i></td>
+                            <td>Complete the Main Quest on The Shadowed Throne</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_shadowed_throne/the_shadowed_throne_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Shadowed Throne Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>The road ahead</i></td>
+                            <td>Complete the Main Quest on The Tortured Path</td>
+                            <td class="strategy">
+                                See the
+                                <a href="/games/WW2/the_tortured_path/the_tortured_path_guide.html#main_ee" class="link-to-page">Main Quest</a>
+                                section of The Tortured Path Guide for how to complete it.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i>Descend...</i></td>
+                            <td>Complete the Main Quest on The Frozen Dawn</td>
+                            <td class="strategy">
+                                See the
+                                <a href="#main_ee" class="link-to-page">Main Quest</a>
+                                section for how to complete it.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Rookbane -->
+                <p class="step-group-title" data-custom-quick-link="Rookbane" id="Rookbane">
+                    Rookbane (Level 1000 Reward) ---
+                    <a href="/games/WW2/rookbane.webp">Character Model</a>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Strategy / Notes</th>
+                        </tr>
+                        <tr>
+                            <td>Reach Level 1000 in the Zombie Mode</td>
+                            <td class="strategy">
+                                See this
+                                <a href="https://www.reddit.com/r/WWII/comments/i5elyy/ultimate_cod_wwii_zombies_xp_strategy_master/" class="external-link">post (reddit)</a>
+                                for some XP farming strategies.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Load React bundle -->
+        <script type="module" src="/react-solvers/assets/index-D7LS4f7W.js?v=1767544654581"></script>
+
+        <script>
+            window.addEventListener('load', () => {
+                if (window.ZombiesSolvers) {
+                    window.ZombiesSolvers.mountHammerSolver('hammer-solver-react');
+                } else {
+                    console.error('ZombiesSolvers not loaded!');
+                }
+            });
+        </script>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
+        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
+        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
+        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v=1767544654581" defer=""></script> 
+</body></html>

@@ -1,0 +1,11 @@
+name = "zombies-guides"
+compatibility_date = "2024-01-01"
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+[build]
+command = "npm run build"
+
+[build.environment]
+NODE_VERSION = "18"
