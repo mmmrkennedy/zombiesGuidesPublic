@@ -4,23 +4,21 @@ title: Shaolin Shuffle Solvers
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container-top">
-                <div class="content-container">
-                    <div id="mahjong-solver-react"></div>
-                </div>
+<div class="content-container">
+    <div id="mahjong-solver-react"></div>
+</div>
 
-                <div class="content-container">
-                    <div id="main-ee-word-filter-react"></div>
-                </div>
-            </div>
+<div class="content-container">
+    <div id="main-ee-word-filter-react"></div>
+</div>
 
 <script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountMahjongSolver('mahjong-solver-react');
-                    window.ZombiesSolvers.mountShaolinWordFilter('main-ee-word-filter-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+    window.addEventListener('load', () => {
+        if (window.ZombiesSolvers) {
+            window.ZombiesSolvers.mountMahjongSolver('mahjong-solver-react');
+            window.ZombiesSolvers.mountShaolinWordFilter('main-ee-word-filter-react');
+        } else {
+            console.error('ZombiesSolvers not loaded!');
+        }
+    });
+</script>

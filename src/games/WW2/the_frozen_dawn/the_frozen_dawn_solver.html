@@ -4,16 +4,16 @@ title: The Frozen Dawn Hammer Puzzle Solver
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container-top">
-                <div id="hammer-solver-react"></div>
-            </div>
+<div class="content-container">
+    <div id="hammer-solver-react"></div>
+</div>
 
 <script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountHammerSolver('hammer-solver-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+    window.addEventListener('load', () => {
+        if (window.ZombiesSolvers) {
+            window.ZombiesSolvers.mountHammerSolver('hammer-solver-react');
+        } else {
+            console.error('ZombiesSolvers not loaded!');
+        }
+    });
+</script>

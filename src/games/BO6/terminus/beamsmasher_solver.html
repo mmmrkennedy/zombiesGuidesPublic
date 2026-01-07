@@ -5,28 +5,14 @@ description: Black Ops 6 Zombies Terminus Beamsmasher math solver.
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container-top">
-                <div id="beamsmasher-solver-react"></div>
-            </div>
+<div id="beamsmasher-solver-react"></div>
 
 <script>
-        // Check if we're on localhost or a local environment
-        const isLocalEnvironment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('.local');
-
-        // Only redirect if we're not in a local environment
-        if (!isLocalEnvironment) {
-            window.location.href = '/unfinished.html';
-            setInterval(() => {
-                window.location.href = '/unfinished.html';
-            }, 1000); // Redirect every second
-        }
-    </script>
-<script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountBeamsmasherSolver('beamsmasher-solver-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+window.addEventListener('load', () => {
+    if (window.ZombiesSolvers) {
+        window.ZombiesSolvers.mountBeamsmasherSolver('beamsmasher-solver-react');
+    } else {
+        console.error('ZombiesSolvers not loaded!');
+    }
+});
+</script>

@@ -5,22 +5,22 @@ description: Black Ops 6 Zombies Reckoning Periodic Table and S.A.M. Files Solve
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container">
-                <div id="periodic-solver-react"></div>
-            </div>
+<div class="content-container">
+    <div id="periodic-solver-react"></div>
+</div>
 
-            <!-- S.A.M. Files Solver -->
-            <div class="content-container">
-                <div id="maxis-solver-react"></div>
-            </div>
+<!-- S.A.M. Files Solver -->
+<div class="content-container">
+    <div id="maxis-solver-react"></div>
+</div>
 
 <script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountMaxisItemsSolver('maxis-solver-react');
-                    window.ZombiesSolvers.mountPeriodicTableSolver('periodic-solver-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+    window.addEventListener('load', () => {
+        if (window.ZombiesSolvers) {
+            window.ZombiesSolvers.mountMaxisItemsSolver('maxis-solver-react');
+            window.ZombiesSolvers.mountPeriodicTableSolver('periodic-solver-react');
+        } else {
+            console.error('ZombiesSolvers not loaded!');
+        }
+    });
+</script>

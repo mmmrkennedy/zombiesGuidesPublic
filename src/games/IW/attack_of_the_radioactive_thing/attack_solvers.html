@@ -4,23 +4,21 @@ title: Attack Main Easter Egg/GnS Skull 4 Solver
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container-top">
-                <div class="content-container">
-                    <div id="chemical-solver-react"></div>
-                </div>
+<div class="content-container">
+    <div id="chemical-solver-react"></div>
+</div>
 
-                <div class="content-container">
-                    <div id="gns-skull4-solver-react"></div>
-                </div>
-            </div>
+<div class="content-container">
+    <div id="gns-skull4-solver-react"></div>
+</div>
 
 <script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountAttackGnSSkull4Solver('gns-skull4-solver-react');
-                    window.ZombiesSolvers.mountChemicalStepSolver('chemical-solver-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+    window.addEventListener('load', () => {
+        if (window.ZombiesSolvers) {
+            window.ZombiesSolvers.mountAttackGnSSkull4Solver('gns-skull4-solver-react');
+            window.ZombiesSolvers.mountChemicalStepSolver('chemical-solver-react');
+        } else {
+            console.error('ZombiesSolvers not loaded!');
+        }
+    });
+</script>

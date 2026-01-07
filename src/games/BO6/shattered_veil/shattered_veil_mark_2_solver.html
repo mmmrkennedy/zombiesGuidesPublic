@@ -5,16 +5,14 @@ description: Black Ops 6 Zombies Shattered Veil Ray Gun Mark 2 Letter Puzzle Sol
 ---
 
 <!-- Legend to other parts -->
-            <div class="content-container-top">
-                <div id="letterboard-solver-react"></div>
-            </div>
+<div id="letterboard-solver-react"></div>
 
 <script>
-            window.addEventListener('load', () => {
-                if (window.ZombiesSolvers) {
-                    window.ZombiesSolvers.mountLetterboardSolver('letterboard-solver-react');
-                } else {
-                    console.error('ZombiesSolvers not loaded!');
-                }
-            });
-        </script>
+    window.addEventListener('load', () => {
+        if (window.ZombiesSolvers) {
+            window.ZombiesSolvers.mountLetterboardSolver('letterboard-solver-react');
+        } else {
+            console.error('ZombiesSolvers not loaded!');
+        }
+    });
+</script>
