@@ -1,68 +1,10 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
-    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-    <title>The Beast From Beyond Guide</title>
-</head>
+---
+layout: solver-layout.njk
+title: The Beast From Beyond Guide
+description: Complete Infinite Warfare Zombies "The Beast From Beyond" map guide. Features 'Venom-X' upgrades, 'The End?' main quest, Skull Breaker quest, and all other side quests.
+---
 
-    <body>
-        <!-- Version display component -->
-        <div class="version-display" data-version="1767544654581">
-            v.
-            <span id="version-number">0</span>
-        </div>
-
-        <div class="top-buttons-background-box">
-            <!-- Title at the top of the page, INCLUDE "guide"-->
-            <h2 class="title-text">The Beast From Beyond Guide</h2>
-            <!-- Hamburger Menu Button -->
-            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon">
-                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
-                </svg>
-            </button>
-
-            <!-- Mobile devices content -->
-            <div id="mobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="m12 8-4 4 4 4"></path>
-                        <path d="M16 12H8"></path>
-                    </svg>
-                </button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
-                        <path d="M5 3h14"></path>
-                        <path d="m18 13-6-6-6 6"></path>
-                        <path d="M12 7v14"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Non-mobile devices content -->
-            <div id="nonMobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-            </div>
-        </div>
-
-        <!-- Hamburger Menu Overlay -->
-        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-            <div class="hamburger-menu-content">
-                <div class="hamburger-menu-header">
-                    <h3>Quick Navigation</h3>
-                    <button type="button" class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
-                </div>
-                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#power">Power/Activate N31L</a></li><li><a href="#pap">Pack-a-Punch</a></li><ul><li><a href="#double_pap">Double Pack-a-Punch</a></li></ul><li><a href="#theatre">Accessing the Theatre</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#venom_x">Venom-X</a></li><ul><li><a href="#venom_y">Venom-Y</a></li><li><a href="#venom_z">Venom-Z</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'The End?' Main Quest</a></li><ul><li><a href="#main_ee_step1">Collect 4 Floppy Disks</a></li><li><a href="#main_ee_step2">Corrupt/Hack N31L (Floppy Solver)</a></li><li><a href="#main_ee_step3">Cryptid Boss Fight</a></li></ul><li><a href="#song_ee">'Scattered Lies' Song</a></li><li><a href="#lobby_music">Additional Lobby Music</a></li><li><a href="#skull_breaker">Skull Breaker</a></li><ul><li><a href="#side_ee_step1">Skull 1/6 - Skull in a Power Box</a></li><li><a href="#side_ee_step2">Skull 2/6 - Entangler Defence</a></li><li><a href="#side_ee_step3">Skull 3/6 - Odd-symbol Out</a></li><li><a href="#side_ee_step4">Skull 4/6 - Follow the Skull's Path</a></li><li><a href="#side_ee_step5">Skull 5/6 - 8-Queens Puzzle</a></li><li><a href="#side_ee_step6">Skull 6/6 - Arcade Cheat Code</a></li><li><a href="#side_ee_step7">The Skull Breaker Mini-Game</a></li></ul><li><a href="#message_sent">Message Sent (Achievement)</a></li></ul><h2>Director's Cut/Bonuses</h2><ul><li><a href="#directors_cut">Director's Cut</a></li><ul><li><a href="#what_is_dir_cut">What is Director's Cut</a></li><li><a href="#how_to_unlock_dir_cut">How to Unlock Director's Cut</a></li><li><a href="#what_you_can_do">What you can do with Director's Cut</a></li><li><a href="#meph_fight">Mephistopheles Boss Fight</a></li></ul></ul></div>
-            </div>
-        </div>
-
-        <div class="smooth-scroll content-window">
-            <!-- Legend to other parts -->
+<!-- Legend to other parts -->
             <div class="content-container-top">
                 <h2>Map Progression</h2>
                 <ul>
@@ -1226,12 +1168,8 @@
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Load React bundle -->
-        <script type="module" src="/react-solvers/assets/index-D7LS4f7W.js?v=1767544654581"></script>
-
-        <script>
+<script>
             window.addEventListener('load', () => {
                 if (window.ZombiesSolvers) {
                     window.ZombiesSolvers.mountBeastGnSEightQueensSolver('beast-eight-queens-react');
@@ -1243,65 +1181,3 @@
                 }
             });
         </script>
-
-        <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
-        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
-        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
-
-        <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
-        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
-
-        <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
-
-        <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1767544654581" defer=""></script>
-
-        <!-- Map Specific -->
-        <script>
-            // This is for the Dropdown to Hide/Show the Archer/Cross Key content
-            const venom_y_main_container = document.getElementById('venom-y-main-container');
-            const venom_y_archer = document.getElementById('venom-y-archer');
-            const venom_y_cross = document.getElementById('venom-y-cross');
-            const venom_y_key_selector = document.getElementById('venom-y-key-selector');
-            const key_span = document.getElementsByClassName('key_input');
-
-            function toggleKeyText(selectedValue) {
-                for (let i = 0; i < key_span.length; i++) {
-                    key_span[i].textContent = selectedValue.toUpperCase();
-                }
-
-                // Add additional logic here based on the selected value
-                if (selectedValue !== 'default') {
-                    venom_y_main_container.style.display = 'block';
-                } else {
-                    venom_y_main_container.style.display = 'none';
-                }
-
-                if (selectedValue === 'archer') {
-                    venom_y_cross.style.display = 'none';
-                    venom_y_archer.style.display = 'block';
-                } else if (selectedValue === 'cross') {
-                    venom_y_archer.style.display = 'none';
-                    venom_y_cross.style.display = 'block';
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                venom_y_key_selector.value = 'default';
-                toggleKeyText('default', undefined);
-            });
-        </script>
-    
-</body></html>

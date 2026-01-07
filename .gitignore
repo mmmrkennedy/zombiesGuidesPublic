@@ -26,24 +26,17 @@ cmake-build-*/
 /*/*.txt
 !/guide_making_utils/commit_checklist.txt
 /Easter Egg Help/*
-/games - Copy/*
 *.png
 /venv/
-/games/*/*_backup*/
-/*_backup*/
 
 .*
 !.gitignore
 !.gitattributes
 easter_egg_help
-/Gemfile
-/Gemfile.lock
-/_site/
 !SEO_img.png
 /node_modules
 /dist
 /guide_making_utils/
 /old_solvers/
-/css/OLD_CSS_BACKUP/
-/games/IW/shaolin_shuffle/mahjong_solver/old_imgs
-/games/IW/wyler_language_symbols/old_symbols
+/backups/
+/.eleventyignore

@@ -1,68 +1,10 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
-    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-    <title>Blood of the Dead Guide</title>
-</head>
+---
+layout: guide-layout.njk
+title: Blood of the Dead Guide
+description: Complete Black Ops 4 Zombies "Blood of the Dead" map guide. Features Blundergat upgrades, 'Most Escape Alive' main quest, Spoon, Hell's Retriever, and all other side quests.
+---
 
-    <body>
-        <!-- Version display component -->
-        <div class="version-display" data-version="1767544654581">
-            v.
-            <span id="version-number">0</span>
-        </div>
-
-        <div class="top-buttons-background-box">
-            <!-- Title at the top of the page, INCLUDE "guide"-->
-            <h2 class="title-text">Blood of the Dead Guide</h2>
-            <!-- Hamburger Menu Button -->
-            <button aria-label="Open side menu" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" type="button">
-                <svg aria-hidden="true" class="hamburger-icon" focusable="false" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
-                </svg>
-            </button>
-
-            <!-- Mobile devices content -->
-            <div id="mobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="m12 8-4 4 4 4"></path>
-                        <path d="M16 12H8"></path>
-                    </svg>
-                </button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
-                        <path d="M5 3h14"></path>
-                        <path d="m18 13-6-6-6 6"></path>
-                        <path d="M12 7v14"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Non-mobile devices content -->
-            <div id="nonMobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-            </div>
-        </div>
-
-        <!-- Hamburger Menu Overlay -->
-        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-            <div class="hamburger-menu-content">
-                <div class="hamburger-menu-header">
-                    <h3>Quick Navigation</h3>
-                    <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()" type="button">×</button>
-                </div>
-                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Map Progression</h2><ul><li><a href="#power">Power</a></li><li><a href="#pap">Pack-a-Punch</a></li></ul><h2>Weapons and Buildables</h2><ul><li><a href="#blundergat">Blundergat</a></li><ul><li><a href="#acidgat">Acidgat</a></li><li><a href="#magmagat">Magmagat</a></li></ul><li><a href="#hells_retriever">Hell's Retriever</a></li><ul><li><a href="#hells_redeemer">Hell's Redeemer</a></li></ul><li><a href="#spoon">Spoon</a></li><ul><li><a href="#golden_spork">Golden Spork</a></li><li><a href="#golden_scalpel">Golden Scalpel</a></li><li><a href="#golden_sporknife">Golden Sporknife</a></li></ul><li><a href="#spectral_shield">Spectral Shield</a></li><ul><li><a href="#attuned_spectral_shield">Attuned Spectral Shield</a></li></ul></ul><h2>Easter Eggs</h2><ul><li><a href="#main_ee">'Most Escape Alive' Main Quest</a></li><ul><li><a href="#main_ee_step0">Before you Start</a></li><li><a href="#main_ee_step1">Unleash the Spirits</a></li><li><a href="#main_ee_step2">Shock and Denial</a></li><li><a href="#main_ee_step3">Pain and Guilt</a></li><li><a href="#main_ee_step4">Anger and Bargaining</a></li><ul><li><a href="#docks_challenge">Docks Challenge - 2/5 Difficulty</a></li><li><a href="#showers_challenge">Showers Challenge - 1/5 Difficulty</a></li><li><a href="#michigan_avenue_challenge">Michigan Avenue Challenge - 4/5 Difficulty</a></li><li><a href="#power_house_challenge">Power House Challenge - 3/5 Difficulty</a></li><li><a href="#new_industries_challenge">New Industries Challenge - 5/5 Difficulty (4/5 with the Undead Man Walking elixir)</a></li></ul><li><a href="#main_ee_step5">Reflection and Loneliness</a></li><li><a href="#main_ee_step6">The Upward Turn</a></li><li><a href="#main_ee_step7">Reconstruction (Boss Fight)</a></li><li><a href="#main_ee_step8">Acceptance</a></li></ul><li><a href="#song_ee">'Where Are We Going (2018 Edition)' Song</a></li><li><a href="#song_ee2">Mob of the Dead Showers Lockdown Theme</a></li><li><a href="#free_monkey_bomb">Free Monkey Bombs</a></li><li><a href="#shadowman_jumpscare">Shadowman Jumpscare</a></li><li><a href="#free_max_shield_charge">Free Max Shield Charge</a></li></ul><h2>Gauntlet Challenges</h2><ul><li><a href="#gauntlet">'Hellcatraz' Gauntlet Challenges</a></li></ul></div>
-            </div>
-        </div>
-
-        <div class="smooth-scroll content-window">
-            <div class="content-container-top">
+<div class="content-container-top">
                 <h2>Map Progression</h2>
                 <ul>
                     <li><a href="#power">Power</a></li>
@@ -1633,29 +1575,3 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-
-        <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
-        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
-        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
-
-        <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
-        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
-
-        <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
-
-        <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
-
-        <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1767544654581" defer=""></script> 
-</body></html>

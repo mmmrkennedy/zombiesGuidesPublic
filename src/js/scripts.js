@@ -1,3 +1,5 @@
+console.log('[DEBUG] scripts.js loaded at:', new Date().toISOString());
+
 /*
 =======================================
 GLOBAL FUNCTION WRAPPERS FOR HTML COMPATIBILITY

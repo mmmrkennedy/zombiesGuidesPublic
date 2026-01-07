@@ -1,3 +1,5 @@
+console.log('[DEBUG] device/mobile-detection.js loaded');
+
 /**
  * Mobile and touch device detection utilities
  * Handles device-specific functionality and responsive behaviour

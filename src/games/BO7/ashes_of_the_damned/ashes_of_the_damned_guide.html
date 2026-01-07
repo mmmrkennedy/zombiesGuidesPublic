@@ -1,557 +1,828 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v=1767544654581">
-    <link rel="stylesheet" type="text/css" href="/css/hamburger_menu.css?v=1767544654581">
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <base target="_blank">
-    <title>Ashes of the Damned Guide</title>
-</head>
+---
+layout: guide-layout.njk
+title: Ashes of the Damned Guide
+---
 
-    <body>
-        <!-- Version display component -->
-        <div class="version-display" data-version="1767544654581"> v.<span id="version-number">0</span> </div>
+<style>
+    @font-face {
+        font-family: 'Pigpen';
+        /*noinspection CssUnknownTarget*/
+        src: url('/font/PigpenCipher.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
 
-        <div class="top-buttons-background-box">
-            <!-- Title at the top of the page, INCLUDE "guide"-->
-            <h2 class="title-text">Ashes of the Damned Guide</h2>
+    .pig {
+        font-family: 'Pigpen', sans-serif;
+    }
+</style>
 
-            <!-- Hamburger Menu Button -->
-            <button type="button" class="hamburger-menu-toggle" onclick="toggleHamburgerMenu()" aria-label="Open side menu">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" class="hamburger-icon"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
-            </button>
+<!-- Legend to other parts -->
+<div class="content-container-top">
+    <h2>Weapons and Buildables</h2>
+    <ul>
+        <li><a href="#necrofluid_gauntlet">Necrofluid Gauntlet</a></li>
+        <li><a href="#ol_tessie_upgrades">Ol' Tessie Upgrades</a></li>
+    </ul>
+    <h2>Easter Eggs</h2>
+    <ul>
+        <li>
+            <a href="#main_ee">'Dust to Dust' Main Quest</a>
+            <ul>
+                <li><a href="#main_ee_step1">Crafting the Serum</a></li>
+                <li><a href="#main_ee_step2">Mixing the Ingredients</a></li>
+                <li><a href="#main_ee_step3">Gauntlet Challenges</a>
+                    <ul>
+                        <li><a href="#main_ee_step3_1">Vandorn Farm Challenge</a>
+                        <li><a href="#main_ee_step3_2">Zarya Cosmodrome Challenge</a>
+                        <li><a href="#main_ee_step3_3">Exit 115 Challenge</a>
+                        <li><a href="#main_ee_step3_4">Blackwater Lake Challenge</a>
+                    </ul>
+                </li>
+                <li><a href="#main_ee_step4">Veytharion Boss Fight</a></li>
+            </ul>
+        </li>
+        <li><a href="#song_ee">"Turned to Ashes" song</a></li>
+    </ul>
+    <h4 class="sub-header">Free Loot Easter Eggs</h4>
+    <ul>
+        <li><a href="#aether_loot_plant">Aether Loot Plant</a></li>
+        <li><a href="#dempsey_side_quest">Good Soldiers Trophy/Achievement (Dempsey's Side Quest/Dark Ops Calling Card)</a></li>
+        <li><a href="#jump_pad_raygun_mark_2">Free Ray Gun Mark II (Portal Quest)</a></li>
+        <li><a href="#free_perk_soda_fountain">Free Perk (Soda Fountain)</a></li>
+        <li><a href="#claw_talisman">Permanent Melee Kill Double Points (Bear Boss/Claw Talisman)</a></li>
+        <li><a href="#arc_xd_race">ARC-XD Race</a></li>
+        <li><a href="#axe_throwing">Axe Throwing (Mr. Peeks Loot)</a></li>
+        <li><a href="#tv_twins_wisp_tea">Free Wisp Tea (TV Twins)</a></li>
+        <li><a href="#chompy">Chompy (Trash Can)</a></li>
+        <li><a href="#vending_machine">Vending Machine (Free Loot)</a></li>
+    </ul>
+    <h4 class="sub-header">Misc. Easter Eggs</h4>
+    <ul>
+        <li><a href="#free_powerups">Free Power-ups + Free Perk</a></li>
+        <li><a href="#spawn_a_zursa">Spawn a Zursa</a></li>
+    </ul>
+</div>
 
-            <!-- Mobile devices content -->
-            <div id="mobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">←</button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">↑</button>
-            </div>
+<div class="content-container" data-section-ind="Weapons" id="necrofluid_gauntlet">
+    <h2 class="section-title">Necrofluid Gauntlet</h2>
+    <p class="weapon-desc">The Necrofluid Gauntlet is a Wonder Weapon that shoots spikes that stick to enemies and the environment. On reload, these spikes will be recalled to the gauntlet, restoring the players ammo and Zombies and other enemies in their way. When upgraded, the spikes can be detonated, dealing area-of-effect damage. Ammo is still returned when using this explosion ability.</p>
+    <ol>
+        <li>
+            Turn on the power in Ashwood, Blackwater Lake, and Vandorn Farm.
+            <ul>
+                <li>This is not required until later, but since you need to wait for round 8, you might as well do it now.</li>
+            </ul>
+        </li>
+        <li>
+            On Round 8, go up to <a href="pictures/necrofluid_gauntlet/">this wreckage</a>, right of the door to 'Blackwater Lake,' in the 'Janus Towers Plaza' area to spawn an Uber Klaus. Kill both phases of the Uber Klaus, and it will drop the <a href="pictures/necrofluid_gauntlet/">Stabilizer Chip</a>.
+        </li>
+        <li>
+            In Ashwood, interact with the
+            <a href="pictures/necrofluid_gauntlet/">panel</a>
+            on the cell in the 'Sheriff's Office' (located to the left of the Vulture Aid perk machine) to install the chip.
+        </li>
+        <li>
+            Once the panel says, "Update requires restart", rapidly throw two stun grenades at Klaus in the cell. If done correctly, a spinning-star stun effect will appear over Klaus' head.
+            <ul>
+                <li>A stun grenade will always spawn in the <a href="pictures/necrofluid_gauntlet/">'Server Room'</a> in the spawn area (the room where you get TEDD's head). You'll still need to find/buy the second stun.</li>
+            </ul>
+        </li>
+        <li>
+            Klaus will break free from the chair and start following you around as a "Protector Robot" (he'll kill zombies and revive players).
+            <ul>
+                <li>While Klaus is active, your tactical grenade will be replaced with the "Klaus Remote Control," which enables you to direct Klaus to a specific location.</li>
+                <li>After a while, Klaus will stop following you and go on cooldown. Once the cooldown is over, you can summon Klaus again for 2000 points from any of the radios around the map.</li>
+            </ul>
+        </li>
+        <li>
+            While Klaus is active, drive Ol' Tessie (don't jump pad, you'll need the car) to the Zarya Cosmodrome.
+            Command Klaus to stand in front of <a href="pictures/necrofluid_gauntlet/">this panel</a> in the 'Support Systems' area. He should stomp, and the panel will light up.
+        </li>
+        <li>
+            Interact with the panel to activate the <a href="pictures/necrofluid_gauntlet/">scanner</a>.
+            You'll need to stand in the red circle on the ground until the bar on the left side of your screen fills up.
+            If a zombie enters the circle, progress will pause.
+            <ul>
+                <li>If you fail to "defend" the scanner, you can retry at the start of the next round.</li>
+            </ul>
+        </li>
+        <li>
+            If the scan was successful, you can pick up the <a href="pictures/necrofluid_gauntlet/">canister</a>, left of the panel.
+            <ul>
+                <li>While holding the canister, you can't sprint, and using a jump pad will make you drop the canister.</li>
+            </ul>
+        </li>
+        <li>
+            With the canister, drive to Ashwood and interact with the
+            <a href="pictures/necrofluid_gauntlet/">power pump</a>.
+            The canister will fill with "energy."
+            Once it's done, pick it up and go to Blackwater Lake, and do the same with that
+            <a href="pictures/necrofluid_gauntlet/">power pump</a>.
+            <ul>
+                <li>Once the canister has "energy" inside, you have a time limit to get to the next pump.</li>
+            </ul>
+        </li>
+        <li>
+            Once you collect the energy from Blackwater Lake, drive to Vandorn Farm and get the energy from the <a href="pictures/necrofluid_gauntlet/">pump</a>.
+        </li>
+        <li>
+            Once you've got the energy from each pump, bring the canister to the <a href="pictures/necrofluid_gauntlet/">Cube</a> in the 'Cellar.'
+            Once you get close enough, the cube will take the energy, and the canister will disappear.
+        </li>
+        <li>
+            Take the Jump Pad between Vandorn Farm and Janus Tower Plaza.
+            While in the air, you'll see three <a href="pictures/necrofluid_gauntlet/">symbols</a> on the roofs of the buildings in Vandorn Farm.
+            One on the Barn, one on the House, and one on the Grain Silo; note down the symbols.
+            <ul>
+                <li>Saving and quitting will change the symbols.</li>
+            </ul>
+        </li>
+        <li>
+            Once you have your symbols, interact with each side of the Cube in the Cellar until the three sides are showing your symbols, then interact with the
+            <a href="pictures/necrofluid_gauntlet/">Eye on the Cube</a>.
+            If done correctly, the eye will disappear, and you can pick up the
+            <a href="pictures/necrofluid_gauntlet/">Necrofluid Gauntlet</a>.
+        </li>
+        <li>
+            Once you pick it up, you'll be locked in a circle around the Cube.
+            <a href="pictures/necrofluid_gauntlet/">Green orbs</a>
+            will spawn around the room. Shoot an orb with the Gauntlet, then recall the spike (with the reload button) to collect it; multiple orbs can be shot and collected at once.
+            Once you collect six orbs, the lockdown will end.
+        </li>
+    </ol>
+</div>
 
-            <!-- Non-mobile devices content -->
-            <div id="nonMobileContent" style="display: none">
-                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-            </div>
-        </div>
+<div class="content-container" id="ol_tessie_upgrades">
+    <h2 class="section-title">Ol' Tessie Upgrades</h2>
+    <ol>
+        <li class="dummy-li">
+            <p class="step-group-title">Abomination Beam Upgrade</p>
+        </li>
+        <li>
+            In the Diner in the Exit 115 area, a Cook zombie will spawn randomly. Killing this zombie will drop a
+            <a href="pictures/ol_tessie_upgrades/">Freezer Key</a>.
+        </li>
+        <li>
+            Open the
+            <a href="pictures/ol_tessie_upgrades/">freezer</a>
+            at the back of the Diner (beside the "back-right" door), and pick up the
+            <a href="pictures/ol_tessie_upgrades/">Abomination Carcass</a>
+            inside.
+        </li>
+        <li>
+            Go back to Ashwood and, with Ol' Tessie in the Garage, interact with the
+            <a href="pictures/ol_tessie_upgrades/">workbench</a>
+            (same bench to craft the Pack-a-Punch) to craft the upgrade.
+        </li>
+    </ol>
 
-        <!-- Hamburger Menu Overlay -->
-        <div class="hamburger-menu-overlay" id="hamburgerMenuOverlay">
-            <div class="hamburger-menu-content">
-                <div class="hamburger-menu-header">
-                    <h3>Quick Navigation</h3>
-                    <button class="hamburger-menu-close" onclick="toggleHamburgerMenu()">×</button>
-                </div>
-                <div class="hamburger-menu-links" id="hamburgerMenuLinks"><h2>Weapons</h2><ul><li><a href="#necrofluid_gauntlet">Necrofluid Gauntlet</a></li></ul><h2>Weapons</h2><ul><li><a href="#ol_tessie_upgrades">Ol' Tessie Upgrades</a></li></ul><h2>Easter Eggs</h2><ul><li><a href="#dust_to_dust_main_quest">'Dust to Dust' Main Quest</a></li><ul><li><a href="#dust_to_dust_step1">Crafting the Serum</a></li><li><a href="#dust_to_dust_step2">Mixing the Ingredients</a></li><li><a href="#dust_to_dust_step3">Gauntlet Challenges</a></li><li><a href="#dust_to_dust_step4">Boss Fight</a></li></ul></ul></div>
-            </div>
-        </div>
+    <ol>
+        <li class="dummy-li">
+            <p class="step-group-title">DG-2 Turret Upgrade</p>
+        </li>
+        <li>
+            Complete the Serum lockdown in the <a href="#main_ee" class="link-to-page">Main Quest</a>.
+            The <a href="pictures/ol_tessie_upgrades/">Seal of Sorrow</a> should spawn.
+        </li>
+        <li>
+            Around the map, there are three keys that you must find and bring to the Seal of Sorrow.
+            <ul>
+                <li>Each key is found in the "Fog" and will apply a different debuff while you're holding it.</li>
+                <li>Each key will need to be shot and retrieved with the Necrofluid Gauntlet (with the reload button).</li>
+            </ul>
+        </li>
 
-        <div class="smooth-scroll">
-            <!-- Wonder Weapons -->
-            <div class="content-container" data-section-ind="Weapons" id="necrofluid_gauntlet">
-                <h2 class="section-title">Necrofluid Gauntlet</h2>
-                <p class="weapon-desc">The Necrofluid Gauntlet is a Wonder Weapon CHANGE ME</p>
-                <ol>
-                    <li>
-                        Turn on the power in Ashwood, Blackwater Lake, and Vandorn Farm.
-                        <ul>
-                            <li>This is not required until later, but since you need to wait for round 8, you might as well do it now.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        On Round 8, go up to <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">this wreckage</a>, right of the door to 'Blackwater Lake,' in the 'Janus Towers Plaza' area to spawn an Uber Klaus. Kill both phases of the Uber Klaus, and it will drop the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">Stabilizer Chip</a>.
-                    </li>
-                    <li>
-                        In Ashwood, interact with the
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">panel</a>
-                        on the cell in the 'Sheriff's Office' (located to the left of the Vulture Aid perk machine) to install the chip.
-                    </li>
-                    <li>
-                        Once the panel says, "Update requires restart", rapidly throw two stun grenades at Klaus in the cell. If done correctly, a spinning-star stun effect will appear over Klaus' head.
-                        <ul>
-                            <li>A stun grenade will always spawn in the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">'Server Room'</a> in the spawn area (the room where you get TEDD's head). You'll still need to find/buy the second stun.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Klaus will break free from the chair and start following you around as a "Protector Robot" (he'll kill zombies and revive players).
-                        <ul>
-                            <li>While Klaus is active, your tactical grenade will be replaced with the "Klaus Remote Control," which enables you to direct Klaus to a specific location.</li>
-                            <li>After a while, Klaus will stop following you and go on cooldown. Once the cooldown is over, you can summon Klaus again for 2000 points from any of the radios around the map.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        While Klaus is active, drive Ol' Tessie (don't jump pad, you'll need the car) to the Zarya Cosmodrome.
-                        Command Klaus to stand in front of <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">this panel</a> in the 'Support Systems' area. He should stomp, and the panel will light up.
-                    </li>
-                    <li>
-                        Interact with the panel to activate the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">scanner</a>.
-                        You'll need to stand in the red circle on the ground until the bar on the left side of your screen fills up.
-                        If a zombie enters the circle, progress will pause.
-                        <ul>
-                            <li>If you fail to "defend" the scanner, you can retry at the start of the next round.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        If the scan was successful, you can pick up the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">canister</a>, left of the panel.
-                        <ul>
-                            <li>While holding the canister, you can't sprint, and using a jump pad will make you drop the canister.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        With the canister, drive to Ashwood and interact with the
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">power pump</a>.
-                        The canister will fill with "energy."
-                        Once it's done, pick it up and go to Blackwater Lake, and do the same with that
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">power pump</a>.
-                        <ul>
-                            <li>Once the canister has "energy" inside, you have a time limit to get to the next pump.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Once you collect the energy from Blackwater Lake, drive to Vandorn Farm and get the energy from the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">pump</a>.
-                    </li>
-                    <li>
-                        Once you've got the energy from each pump, bring the canister to the <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">Cube</a> in the 'Cellar.'
-                        Once you get close enough, the cube will take the energy, and the canister will disappear.
-                    </li>
-                    <li>
-                        Take the Jump Pad between Vandorn Farm and Janus Tower Plaza.
-                        While in the air, you'll see three <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">symbols</a> on the roofs of the buildings in Vandorn Farm.
-                        One on the Barn, one on the House, and one on the Grain Silo; note down the symbols.
-                        <ul>
-                            <li>Saving and quitting will change the symbols.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Once you have your symbols, interact with each side of the Cube in the Cellar until the three sides are showing your symbols, then interact with the
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">Eye on the Cube</a>.
-                        If done correctly, the eye will disappear, and you can pick up the
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">Necrofluid Gauntlet</a>.
-                    </li>
-                    <li>
-                        Once you pick it up, you'll be locked in a circle around the Cube.
-                        <a href="pictures/necrofluid_gauntlet/" class="incomplete-path">Green orbs</a>
-                        will spawn around the room. Shoot an orb with the Gauntlet, then recall the spike (with the reload button) to collect it; multiple orbs can be shot and collected at once.
-                        Once you collect six orbs, the lockdown will end.
-                    </li>
-                </ol>
-            </div>
-
-            <div class="content-container" data-section-ind="Weapons" id="ol_tessie_upgrades">
-                <h2 class="section-title">Ol' Tessie Upgrades</h2>
-                <p class="weapon-desc">CHANGE ME</p>
-                <ol>
-                    <li class="dummy-li">
-                        <p class="step-group-title">Abomination Beam Upgrade</p>
-                    </li>
-                    <li>
-                        In the Diner in the Exit 115 area, a Cook zombie will spawn randomly. Killing this zombie will drop a
-                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Freezer Key</a>.
-                    </li>
-                    <li>
-                        Open the
-                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">freezer</a>
-                        at the back of the Diner (beside the "back-right" door), and pick up the
-                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Abomination Carcass</a>
-                        inside.
-                    </li>
-                    <li>
-                        Go back to Ashwood and, with Ol' Tessie in the Garage, interact with the
-                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">workbench</a>
-                        (same bench to craft the Pack-a-Punch) to craft the upgrade.
-                    </li>
-                </ol>
-                
-                <ol>
-                    <li class="dummy-li">
-                        <p class="step-group-title">DG-2 Turret Upgrade</p>
-                    </li>
-                    <li>
-                        Complete the Serum lockdown in the <a href="#main_ee" class="link-to-page">Main Quest</a>.
-                        The <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Seal of Sorrow</a> should spawn.
-                    </li>
-                    <li>
-                        Around the map, there are three keys that you must find and bring to the Seal of Sorrow.
-                        <ul>
-                            <li>Each key is found in the "Fog" and will apply a different debuff while you're holding it.</li>
-                            <li>Each key will need to be shot and retrieved with the Necrofluid Gauntlet (with the reload button).</li>
-                        </ul>
-                    </li>
-
-                    <li class="dummy-li">
-                        <p><strong>Key Locations:</strong></p>
-                        <ul>
-                            <li>
-                                <strong>Bruin Key</strong> (Crashed Rocket; Ashwood to Zarya Cosmodrome) - Forces you to hold your Knife:
-                                <ul>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">On the wall just outside Zarya Cosmodrome, on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">On the fallen radio tower, between Ashwood and Zarya Cosmodrome</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">On the cliff just outside Ashwood, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Nightbird Key</strong> (Orda Graveyard; Ashwood to Exit 115) - Reduces max health to 50 and disables health regen:
-                                <ul>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">In the T. rex skull, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">In the mouth of the T. rex skull on the cliff, on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Behind the Project Janus vehicle on the right when coming from Exit 115</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Terrapin Key</strong> (Grounded Ship; Ashwood to Vandorn Farm) - Movement speed is significantly reduced:
-                                <ul>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">In the open blue crate on deck near the front of the ship, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">In a window on deck on the left side of the ship, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">By some barrel under the ship (near the inaccessible stairs), on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">Location on Map</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Once all three keys have been brought to the Seal of Sorrow, a cutscene will play.
-                        Once it's done, the <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">DG-2 Turret</a> will spawn where the Seal of Sorrow was.
-                    </li>
-                    <li>
-                        With Ol' Tessie in the Garage, interact with the <a href="pictures/ol_tessie_upgrades/" class="incomplete-path">workbench</a> to craft the upgrade.
-                    </li>
-                </ol>
-            </div>
-
-            <!-- Main Easter Egg -->
-            <div class="content-container" data-section-ind="Easter Eggs" id="dust_to_dust_main_quest">
-                <h2 class="section-title">'Dust to Dust' Main Quest</h2>
-                <ol>
-                    <li class="dummy-li">
-                        <p class="step-group-title" id="dust_to_dust_step1">Crafting the Serum</p>
-                    </li>
-                    <li>
-                        Install the Pack-a-Punch upgrade on Ol' Tessie.
-                    </li>
-                    <li>
-                        You must collect six items to craft the Serum. These items can be collected in any order, and their steps can be done simultaneously.
-                        <ul>
-                            <li>
-                                <strong>Hoard Hunk Chucks:</strong> Upgrade Ol' Tessie with the <a href="#ol_tessie_upgrades" class="link-to-page">Abomination Beam</a>. Destroy any <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">purple Aether Flora</a>, found randomly in the fog, with the beam to drop a bunch of loot and the Hoard Hunk Chucks.
-                            </li>
-                            <li>
-                                <strong>Widow's Lantern:</strong> Pick up the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Jar of Spores</a> from the open kitchen cabinet in the Cabin in Blackwater Lake. Interact with the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">horse corpse</a> covered with mushrooms on the road in front of Vandorn Farm. After three rounds, the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Widow's Lantern</a> will spawn on the Horse.
-                            </li>
-                            <li>
-                                <strong>Ravager Eyes:</strong> Kill a Ravager with any of the three <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Saw Traps</a> around the map (Vandorn Farm, Ashwood, or Exit 115). The first Ravager killed will drop the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Ravager Eyes</a>.
-                            </li>
-                            <li>
-                                <strong>Human Bones:</strong> In the Vandorn Farm Barn, locate the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">hanging corpse</a> dripping blood above the Ryden 45K wallbuy. Throw a Tomahawk at the right foot of the corpse, then throw a Molotov at the fallen foot to burn it. Pick up the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Human Bones</a>.
-                                <ul>
-                                    <li>A free Tomahawk spawns in the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Kitchen of the Exit 115 Diner</a>, and a free Molotov spawns on the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">barrel in front of the Ashwood Garage</a>.</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Mysterious Limb:</strong> Upgrade Ol' Tessie with the <a href="#ol_tessie_upgrades" class="link-to-page">Abomination Beam</a>. Kill a Zursa with the beam to drop the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Mysterious Limb</a>.
-                            </li>
-                            <li>
-                                <strong>Powder of the Forgotten:</strong> Obtain the Wisp Tea perk (machine in Zarya Cosmodrome). Go to the 'Tailor's Shop' in Ashwood and activate the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Wisp</a> by dealing damage to zombies. It will fly into the Mirror, revealing the "Seal of Sorrow". Shoot the Mirror with the <a href="#necrofluid_gauntlet" class="link-to-page">Necrofluid Gauntlet</a> to break it and pick up the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Powder of the Forgotten</a>.
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dummy-li">
-                        <p class="step-group-title" id="dust_to_dust_step2">Mixing the Ingredients</p>
-                    </li>
-                    <li>
-                        Go to 'Yuri's Lab' in the Zarya Cosmodrome (left of the M15 MOD O wallbuy).
-                    </li>
-                    <li>
-                        Interact with the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Powder of the Forgotten</a> on the table to spawn <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">three sets of symbols on the chalkboard</a>.
-                    </li>
-                    <li>
-                        Each symbol indicates which item you must interact with on the table, and in what order (top to bottom). See the table below or use <a href="pictures/dust_to_dust_main_quest/serum_symbols.png">this cheat sheet</a> to match the left symbol in each set with the item it represents.
-                        <ul>
-                            <li>If you interact with the items in the wrong order, you'll have to go to the next round to retry.</li>
-                        </ul>
-                    </li>
-                    <li class="dummy-li">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th scope="colgroup">Chalkboard Word (in Pigpen)</th>
-                                <th scope="colgroup">Translated Word</th>
-                                <th scope="colgroup">Ingredient</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><span class="pig">FUNGI</span></td>
-                                <td>FUNGI</td>
-                                <td>Widow's Lantern</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pig">LIMBS</span></td>
-                                <td>LIMBS</td>
-                                <td>Mysterious Limb</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pig">OCULI</span></td>
-                                <td>OCULI</td>
-                                <td>Ravager Eyes</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pig">CONCH</span></td>
-                                <td>CONCH</td>
-                                <td>Hoard Hunk Chucks</td>
-                            </tr>
-                            <tr>
-                                <td><span class="pig">TALUS</span></td>
-                                <td>TALUS</td>
-                                <td>Human Bones</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li>
-                        If done correctly, interact with the beaker in the middle to "Add Blood" to start a lockdown. The player who added blood will have reduced health, and health regen disabled, but you can heal with the Necrofluid Gauntlet. Kill zombies until the room fills with gas.
-                    </li>
-
-                    <li class="dummy-li">
-                        <p class="step-group-title" id="dust_to_dust_step3">Gauntlet Challenges</p>
-                    </li>
-                    <li>
-                        Obtain the <a href="#ol_tessie_upgrades" class="link-to-page">DG-2 Turret Upgrade</a> for Ol' Tessie.
-                    </li>
-                    <li>
-                        You must complete four challenges, three (Vandorn Farm, Zarya Cosmodrome, Exit 115) can be done in any order, but Blackwater Lake should be done last. To start each, you need a "purple shot" for the Necrofluid Gauntlet. To obtain a purple shot:
-                        <ul>
-                            <li>Shoot any of the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">clock faces</a> of the broken clock tower in Ashwood with the DG-2 Turret to stop it.</li>
-                            <li>Shoot the stopped face with the Necrofluid Gauntlet to retrieve the purple shot. This will disable that clock face.</li>
-                            <li>If you have no purple shots left, end the round, and at the start of the next round, shoot the clock tower with the DG-2 again. This will reset all clock faces.</li>
-                        </ul>
-                    </li>
-
-                    <li class="dummy-li">
-                        <p class="sub-sub-step">Vandorn Farm Challenge</p>
-                        <ol>
-                            <li>With a purple shot, go to Vandorn Farm and check the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">clock behind the dining room table</a> in the Farmhouse. It will point to 12, 3, 6, or 9.</li>
-                            <li>Stand on the matching <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Roman numeral scratched into the floor</a> around the table.</li>
-                            <li>Place the Gauntlet's crosshair on the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Father skeleton's head</a>. When his eyes turn red, shoot him with the purple gauntlet. His head should fly back, and four energy orbs will fly away.</li>
-                            <li>Collect four items around the farm and place them on the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">ritual circles</a> in the front yard.
-                                <ul>
-                                    <li><a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Farmhouse - Bunk bed, right of Stamin-Up</a></li>
-                                    <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Barn - Upstairs, right of the hay bales</a></li>
-                                    <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Garage - Shelf under the workbench</a></li>
-                                    <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Cellar - Wooden bench, left of the bathtub</a></li>
-                                </ul>
-                            </li>
-                            <li>Interact with the last item to start a lockdown. During the lockdown, you'll need to defend all items from infinitely spawning zombies.
-                                <ul>
-                                    <li>Failing to defend the items, CHANGE ME.</li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </li>
-                    <li class="dummy-li">
-                        <p class="sub-sub-step">Zarya Cosmodrome Challenge</p>
-                        <ol>
-                            <li>Shoot both large <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">spinning radar dishes</a> with a purple shot (two shots required) to slow them down.</li>
-                            <li>Go to the 'Control Room' (behind the Wisp Tea machine). Inside, you'll find eight TVs, <a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">six to the left</a> of the Armour wallbuy, and <a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">two to the right</a>. </li>
-                            <li>Translate the word and enter the corresponding numbers on the six left TVs by shooting the red buttons.</li>
-                            <li>The two TVs on the right will cycle through symbols. These symbols spell a word using pigpen cipher characters, two letters at a time. See the table below or use <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">this cheat sheet</a> to translate the symbols into a word.</li>
-
-                            <li class="dummy-li">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th scope="colgroup">Word in Pigpen</th>
-                                        <th scope="colgroup">Translated Word</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><span class="pig">LAUNCH</span></td>
-                                        <td>LAUNCH</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="pig">WEAPON</span></td>
-                                        <td>WEAPON</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="pig">ENGINE</span></td>
-                                        <td>ENGINE</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="pig">ROCKET</span></td>
-                                        <td>ROCKET</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>Once you have your word, you'll need to enter its corresponding numbers into the remaining six TVs (left to right). Shoot the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">red button on the bottom right of a TV</a> to stop the numbers from cycling.</li>
-                            <ul>
-                                <li>If you stop the TV on the wrong number, CHANGE ME.</li>
-                            </ul>
-                            <li class="dummy-li">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th scope="colgroup">Word</th>
-                                        <th scope="colgroup">Number Sequence</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>LAUNCH</td>
-                                        <td>11 - 00 - 20 - 13 - 02 - 07 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>WEAPON</td>
-                                        <td>22 - 04 - 00 - 15 - 14 - 13 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ENGINE</td>
-                                        <td>04 - 13 - 06 - 08 - 13 - 04 </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ROCKET</td>
-                                        <td>17 - 14 - 02 - 10 - 04 - 19 </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>If done correctly, the wisps in front of the TVs will disappear, and the rocket will launch.</li>
-                        </ol>
-                    </li>
-                    <li class="dummy-li">
-                        <p class="sub-sub-step">Exit 115 Challenge</p>
-                        <ol>
-                            <li><strong>Don't get a purple shot yet.</strong> To start this challenge, coloured lightning needs to be actively striking various buildings in the Exit 115 area. There are two ways to get the lightning to strike:</li>
-
-                            <li class="dummy-li">
-                                <ul>
-                                    <li>Wait a round. The lightning will activate every other round.</li>
-                                    <li>Shoot three <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">street lights</a> around Exit 115 in order with Ol' Tessie's DG-2 Turret. One street light will be <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">sparking</a> at a time, and once shot, the spark will move to another street light.</li>
-                                </ul>
-                            </li>
-                            <li>Shoot the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">clock on the mechanic's roof</a> with a purple shot to freeze time for 60 seconds.</li>
-                            <li>While time is frozen, awaken three specific zombies and lead them to a specific colour lightning. The zombies don't need to be woke up at the same time; you can lead one at a time.
-                            <ul>
-                                <li><strong>Mechanic:</strong> Summon Klaus near the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">garage corpse</a> -&gt; Lead to <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Yellow Lightning (Service Station Roof)</a>.</li>
-                                <li><strong>Trucker:</strong> Ram the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">red crate</a> across from gas pumps with Ol' Tessie -&gt; Lead to <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Red Lightning (Gas Pump Roof)</a>.</li>
-                                <li><strong>Waitress:</strong> Melee the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Diner cash register</a> (takes multiple melees if you don't have Melee Macchiato) -&gt; Lead to <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Blue Lightning (Diner Roof)</a>.</li>
-                            </ul>
-                            </li><li>Once at the lightning, the zombie will stand still, and look like they're being shocked. Once all zombies are in their respective lightning strikes, they'll all disappear, and wisps will spawn in their place.
-                            </li>
-                        </ol>
-                    </li>
-                    <li class="dummy-li">
-                        <p class="sub-sub-step">Blackwater Lake Challenge</p>
-                        <ol>
-                            <li>Interact with the <a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">wisp on the dock</a> in Blackwater Lake.</li>
-                            <li>Shoot the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">projector</a> in the Cabin with a purple shot. It will show a sequence of four different images on the projection screen.</li>
-                            <li>Note the sequence of four images shown, then shoot the corresponding film reels in that order. Image to Reel location:
-                            <ul>
-                                <li><a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Front of Cabin</a> -&gt; <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Upstairs near gramophone</a></li>
-                                <li><a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Back of Cabin</a> -&gt; <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Outside under stairs near Ammo Box</a></li>
-                                <li><a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Boathouse</a> -&gt; <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Hanging from ceiling</a></li>
-                                <li><a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Tool Shed</a> -&gt; <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">On a shelf</a></li>
-                            </ul>
+        <li class="dummy-li">
+            <p><strong>Key Locations:</strong></p>
+            <ul>
+                <li>
+                    <strong>Bruin Key</strong> (Crashed Rocket; Ashwood to Zarya Cosmodrome) - Forces you to hold your Knife:
+                    <ul>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">On the wall just outside Zarya Cosmodrome, on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
                         </li>
-                            <li>Stand by the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">box at the foot of the bed</a> in the Cabin's upstairs bedroom.</li>
-                            <li>Summon Klaus (the closest radio is at the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">back of the Cabin</a>) and command him to the bed to pick up the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Death Whistle</a>.</li>
-                        </ol>
-                    </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">On the fallen radio tower, between Ashwood and Zarya Cosmodrome</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">On the cliff just outside Ashwood, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nightbird Key</strong> (Orda Graveyard; Ashwood to Exit 115) - Reduces max health to 50 and disables health regen:
+                    <ul>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">In the T. rex skull, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">In the mouth of the T. rex skull on the cliff, on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">Behind the Project Janus vehicle on the right when coming from Exit 115</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Terrapin Key</strong> (Grounded Ship; Ashwood to Vandorn Farm) - Movement speed is significantly reduced:
+                    <ul>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">In the open blue crate on deck near the front of the ship, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">In a window on deck on the left side of the ship, on the left when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                        <li>
+                            <a href="pictures/ol_tessie_upgrades/">By some barrel under the ship (near the inaccessible stairs), on the right when coming from Ashwood</a> === <a href="pictures/ol_tessie_upgrades/">Location on Map</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Once all three keys have been brought to the Seal of Sorrow, a cutscene will play.
+            Once it's done, the <a href="pictures/ol_tessie_upgrades/">DG-2 Turret</a> will spawn where the Seal of Sorrow was.
+        </li>
+        <li>
+            With Ol' Tessie in the Garage, interact with the <a href="pictures/ol_tessie_upgrades/">workbench</a> to craft the upgrade.
+        </li>
+    </ol>
+</div>
 
-                    <li class="dummy-li">
-                        <p class="step-group-title" id="dust_to_dust_step4">Boss Fight</p>
-                        <p class="boss-fight-phases">Pre-fight Wisp Collection</p>
-                    </li>
-                    <li>
-                        Interact with Klaus to blow the horn. After 20-30 seconds, wisps will fly from the Pyramid.
-                    </li>
-                    <li>
-                        You must drive Ol' Tessie through four specific "Fog" areas, collecting three <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Wisps</a> in each area (12 total). All players must be in Ol' Tessie and stay inside until you collect all wisps or fail. Follow this path around the map: Blackwater Lake -&gt; Janus Tower Plaza -&gt; Vandorn Farm -&gt; Ashwood -&gt; Blackwater Lake.
-                        <ul>
-                            <li>You must collect all three wisps in an area before leaving it. If you exit a fog zone without collecting all three, or go in the wrong order/direction, you will fail and must wait for the next round.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Once you collect the last wisp, you will be teleported (with Ol' Tessie) inside the Pyramid for the boss fight against Veytharion.
-                    </li>
-                    <li class="dummy-li">
-                        <p class="boss-fight-phases">Boss Fight Notes</p>
-                        <ul>
-                            <li>Almost all the damage you deal in the fight will come from Ol' Tessie. Here's a summary of Ol' Tessie's Mechanics:
-                                <ul>
-                                    <li>When the boss is above the raised area in the middle of the arena, ram it to deal damage (using the boost is not required, as the game will automatically speed you up).</li>
-                                    <li>Drive over the <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Green Barnacles</a> on the ground to repair the vehicle. In standard mode, these respawn on a timer (in Cursed or past round 100 in any mode, these will not respawn).</li>
-                                    <li>If the vehicle reaches zero health, you'll be ejected. Interact with Ol' Tessie to repair it.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dummy-li">
-                        <p class="boss-fight-phases">Phases 1 and 2</p>
-                        <ol>
-                            <li>Dodge missiles (indicated by <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">red circles on the ground</a>) and ram the boss with Ol' Tessie when it is safe.</li>
-                            <li>Ramming a "mouth" on the boss 1-2 times will break it, revealing a <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">red glowing "crit" spot</a>. Try to ram/shoot this to deal more damage.</li>
-                            <li>Eventually, Veytharion will enter an immunity state and start spinning.</li>
-                            <li>To end the immune phase, look for a <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">Purple Beam of light</a> in the arena. Drive Tessie into it to "charge" the vehicle.</li>
-                            <li>Once charged, ram Veytharion to stun him and expose a <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">yellow, glowing weak point</a> on his underbelly.</li>
-                            <li>Shoot the weak point. The Necrofluid Gauntlet and the DG-2 Turret are recommended for this part.</li>
-                            <li>Max Ammo and Max Armour power-ups spawn. If they spawn up in the air in the corners of the arena, you'll need to shoot and retrieve them with the Necrofluid Gauntlet.</li>
-                        </ol>
-                    </li>
-                    <li class="dummy-li">
-                        <p class="boss-fight-phases">Phase 3:</p>
-                        <ol>
-                            <li>Veytharion will charge a massive Laser Attack, indicated by <a href="pictures/dust_to_dust_main_quest/" class="incomplete-path">one of the mouths glowing purple</a>.</li>
-                            <li>You must boost directly into him while he is charging the laser to interrupt the attack.</li>
-                            <li>If you fail to interrupt, you can try hiding behind a pillar.</li>
-                            <li>Repeat the charge/ram/shoot cycle to defeat him and trigger the final cinematic.</li>
-                        </ol>
-                    </li>
-                </ol>
-            </div>
-        </div>
+<!-- Main Easter Egg -->
+<div class="content-container" data-section-ind="Easter Eggs" id="main_ee">
+    <h2 class="section-title">'Dust to Dust' Main Quest</h2>
+    <ol>
+        <li class="dummy-li">
+            <p class="step-group-title" id="main_ee_step1">Crafting the Serum</p>
+        </li>
+        <li>
+            Install the Pack-a-Punch upgrade on Ol' Tessie.
+        </li>
+        <li>
+            You must collect six items to craft the Serum. These items can be collected in any order, and their steps can be done simultaneously.
+            <ul>
+                <li>
+                    <strong>Hoard Hunk Chucks:</strong> Upgrade Ol' Tessie with the <a href="#ol_tessie_upgrades" class="link-to-page">Abomination Beam</a>. Destroy any <a href="pictures/main_ee/">purple Aether Flora</a>, found randomly in the fog, with the beam to drop a bunch of loot and the Hoard Hunk Chucks.
+                </li>
+                <li>
+                    <strong>Widow's Lantern:</strong> Pick up the <a href="pictures/main_ee/">Jar of Spores</a> from the open kitchen cabinet in the Cabin in Blackwater Lake. Interact with the <a href="pictures/main_ee/">horse corpse</a> covered with mushrooms on the road in front of Vandorn Farm. After three rounds, the <a href="pictures/main_ee/">Widow's Lantern</a> will spawn on the Horse.
+                </li>
+                <li>
+                    <strong>Ravager Eyes:</strong> Kill a Ravager with any of the three <a href="pictures/main_ee/">Saw Traps</a> around the map (Vandorn Farm, Ashwood, or Exit 115). The first Ravager killed will drop the <a href="pictures/main_ee/">Ravager Eyes</a>.
+                </li>
+                <li>
+                    <strong>Human Bones:</strong> In the Vandorn Farm Barn, locate the <a href="pictures/main_ee/">hanging corpse</a> dripping blood above the Ryden 45K wallbuy. Throw a Tomahawk at the right foot of the corpse, then throw a Molotov at the fallen foot to burn it. Pick up the <a href="pictures/main_ee/">Human Bones</a>.
+                    <ul>
+                        <li>A free Tomahawk spawns in the <a href="pictures/main_ee/">Kitchen of the Exit 115 Diner</a>, and a free Molotov spawns on the <a href="pictures/main_ee/">barrel in front of the Ashwood Garage</a>.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Mysterious Limb:</strong> Upgrade Ol' Tessie with the <a href="#ol_tessie_upgrades" class="link-to-page">Abomination Beam</a>. Kill a Zursa with the beam to drop the <a href="pictures/main_ee/">Mysterious Limb</a>.
+                </li>
+                <li>
+                    <strong>Powder of the Forgotten:</strong> Obtain the Wisp Tea perk (machine in Zarya Cosmodrome). Go to the 'Tailor's Shop' in Ashwood and activate the <a href="pictures/main_ee/">Wisp</a> by dealing damage to zombies. It will fly into the Mirror, revealing the "Seal of Sorrow". Shoot the Mirror with the <a href="#necrofluid_gauntlet" class="link-to-page">Necrofluid Gauntlet</a> to break it and pick up the <a href="pictures/main_ee/">Powder of the Forgotten</a>.
+                </li>
+            </ul>
+        </li>
 
-        <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v=1767544654581" defer=""></script>
+        <li class="dummy-li">
+            <p class="step-group-title" id="main_ee_step2">Mixing the Ingredients</p>
+        </li>
+        <li>
+            Go to 'Yuri's Lab' in the Zarya Cosmodrome (left of the M15 MOD O wallbuy).
+        </li>
+        <li>
+            Interact with the <a href="pictures/main_ee/">Powder of the Forgotten</a> on the table to spawn <a href="pictures/main_ee/">three sets of symbols on the chalkboard</a>.
+        </li>
+        <li>
+            Each symbol indicates which item you must interact with on the table, and in what order (top to bottom). See the table below or use <a href="pictures/main_ee/serum_symbols.webp">this cheat sheet</a> to match the left symbol in each set with the item it represents.
+            <ul>
+                <li>If you interact with the items in the wrong order, you'll have to go to the next round to retry.</li>
+            </ul>
+        </li>
+        <li class="dummy-li">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="colgroup">Chalkboard Word (in Pigpen)</th>
+                    <th scope="colgroup">Translated Word</th>
+                    <th scope="colgroup">Ingredient</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><span class="pig">FUNGI</span></td>
+                    <td>FUNGI</td>
+                    <td>Widow's Lantern</td>
+                </tr>
+                <tr>
+                    <td><span class="pig">LIMBS</span></td>
+                    <td>LIMBS</td>
+                    <td>Mysterious Limb</td>
+                </tr>
+                <tr>
+                    <td><span class="pig">OCULI</span></td>
+                    <td>OCULI</td>
+                    <td>Ravager Eyes</td>
+                </tr>
+                <tr>
+                    <td><span class="pig">CONCH</span></td>
+                    <td>CONCH</td>
+                    <td>Hoard Hunk Chucks</td>
+                </tr>
+                <tr>
+                    <td><span class="pig">TALUS</span></td>
+                    <td>TALUS</td>
+                    <td>Human Bones</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+        <li>
+            If done correctly, interact with the beaker in the middle to "Add Blood" to start a lockdown. The player who added blood will have reduced health, and health regen disabled, but you can heal with the Necrofluid Gauntlet. Kill zombies until the room fills with gas.
+        </li>
 
-        <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v=1767544654581" defer=""></script>
-        <script src="/js/navigation/nav-utils.js?v=1767544654581" defer=""></script>
+        <li class="dummy-li">
+            <p class="step-group-title" id="main_ee_step3">Gauntlet Challenges</p>
+        </li>
+        <li>
+            Obtain the <a href="#ol_tessie_upgrades" class="link-to-page">DG-2 Turret Upgrade</a> for Ol' Tessie.
+        </li>
+        <li>
+            You must complete four challenges, three (Vandorn Farm, Zarya Cosmodrome, Exit 115) can be done in any order, but Blackwater Lake should be done last. To start each, you need a "purple shot" for the Necrofluid Gauntlet. To obtain a purple shot:
+            <ul>
+                <li>Shoot any of the <a href="pictures/main_ee/">clock faces</a> of the broken clock tower in Ashwood with the DG-2 Turret to stop it.</li>
+                <li>Shoot the stopped face with the Necrofluid Gauntlet to retrieve the purple shot. This will disable that clock face.</li>
+                <li>If you have no purple shots left, end the round, and at the start of the next round, shoot the clock tower with the DG-2 again. This will reset all clock faces.</li>
+            </ul>
+        </li>
 
-        <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v=1767544654581" defer=""></script>
-        <script src="/js/ui/lightbox.js?v=1767544654581" defer=""></script>
+        <li class="dummy-li">
+            <p class="sub-sub-step" id="main_ee_step3_1">Vandorn Farm Challenge</p>
+            <ol>
+                <li>With a purple shot, go to Vandorn Farm and check the <a href="pictures/main_ee/">clock behind the dining room table</a> in the Farmhouse. It will point to 12, 3, 6, or 9.</li>
+                <li>Stand on the matching <a href="pictures/main_ee/">Roman numeral scratched into the floor</a> around the table.</li>
+                <li>Place the Gauntlet's crosshair on the <a href="pictures/main_ee/">Father skeleton's head</a>. When his eyes turn red, shoot him with the purple gauntlet. His head should fly back, and four energy orbs will fly away.</li>
+                <li>Collect four items around the farm and place them on the <a href="pictures/main_ee/">ritual circles</a> in the front yard.
+                    <ul>
+                        <li><a href="pictures/main_ee/">Farmhouse - Bunk bed, right of Stamin-Up</a></li>
+                        <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Barn - Upstairs, right of the hay bales</a></li>
+                        <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Garage - Shelf under the workbench</a></li>
+                        <li><a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">Cellar - Wooden bench, left of the bathtub</a></li>
+                    </ul>
+                </li>
+                <li>Interact with the last item to start a lockdown. During the lockdown, you'll need to defend all items from infinitely spawning zombies.
+                    <ul>
+                        <li>Failing to defend the items, CHANGE ME.</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li class="dummy-li">
+            <p class="sub-sub-step" id="main_ee_step3_2">Zarya Cosmodrome Challenge</p>
+            <ol>
+                <li>Shoot both large <a href="pictures/main_ee/">spinning radar dishes</a> with a purple shot (two shots required) to slow them down.</li>
+                <li>Go to the 'Control Room' (behind the Wisp Tea machine). Inside, you'll find eight TVs, <a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">six to the left</a> of the Armour wallbuy, and <a href="pictures/dust_to_dust_main_quest" class="wrong_file_type">two to the right</a>. </li>
+                <li>Translate the word and enter the corresponding numbers on the six left TVs by shooting the red buttons.</li>
+                <li>The two TVs on the right will cycle through symbols. These symbols spell a word using pigpen cipher characters, two letters at a time. See the table below or use <a href="pictures/main_ee/">this cheat sheet</a> to translate the symbols into a word.</li>
 
-        <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v=1767544654581" defer=""></script>
-        <script src="/js/content/quick-links.js?v=1767544654581" defer=""></script>
+                <li class="dummy-li">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="colgroup">Word in Pigpen</th>
+                            <th scope="colgroup">Translated Word</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><span class="pig">LAUNCH</span></td>
+                            <td>LAUNCH</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pig">WEAPON</span></td>
+                            <td>WEAPON</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pig">ENGINE</span></td>
+                            <td>ENGINE</td>
+                        </tr>
+                        <tr>
+                            <td><span class="pig">ROCKET</span></td>
+                            <td>ROCKET</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>Once you have your word, you'll need to enter its corresponding numbers into the remaining six TVs (left to right). Shoot the <a href="pictures/main_ee/">red button on the bottom right of a TV</a> to stop the numbers from cycling.</li>
+                <ul>
+                    <li>If you stop the TV on the wrong number, CHANGE ME.</li>
+                </ul>
+                <li class="dummy-li">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="colgroup">Word</th>
+                            <th scope="colgroup">Number Sequence</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>LAUNCH</td>
+                            <td>11 - 00 - 20 - 13 - 02 - 07 </td>
+                        </tr>
+                        <tr>
+                            <td>WEAPON</td>
+                            <td>22 - 04 - 00 - 15 - 14 - 13 </td>
+                        </tr>
+                        <tr>
+                            <td>ENGINE</td>
+                            <td>04 - 13 - 06 - 08 - 13 - 04 </td>
+                        </tr>
+                        <tr>
+                            <td>ROCKET</td>
+                            <td>17 - 14 - 02 - 10 - 04 - 19 </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>If done correctly, the wisps in front of the TVs will disappear, and the rocket will launch.</li>
+            </ol>
+        </li>
+        <li class="dummy-li">
+            <p class="sub-sub-step" id="main_ee_step3_3">Exit 115 Challenge</p>
+            <ol>
+                <li><strong>Don't get a purple shot yet.</strong> To start this challenge, coloured lightning needs to be actively striking various buildings in the Exit 115 area. There are two ways to get the lightning to strike:</li>
 
-        <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v=1767544654581" defer=""></script>
+                <li class="dummy-li">
+                    <ul>
+                        <li>Wait a round. The lightning will activate every other round.</li>
+                        <li>Shoot three <a href="pictures/main_ee/">street lights</a> around Exit 115 in order with Ol' Tessie's DG-2 Turret. One street light will be <a href="pictures/main_ee/">sparking</a> at a time, and once shot, the spark will move to another street light.</li>
+                    </ul>
+                </li>
+                <li>Shoot the <a href="pictures/main_ee/">clock on the mechanic's roof</a> with a purple shot to freeze time for 60 seconds.</li>
+                <li>While time is frozen, awaken three specific zombies and lead them to a specific colour lightning. The zombies don't need to be woke up at the same time; you can lead one at a time.
+                <ul>
+                    <li><strong>Mechanic:</strong> Summon Klaus near the <a href="pictures/main_ee/">garage corpse</a> -&gt; Lead to <a href="pictures/main_ee/">Yellow Lightning (Service Station Roof)</a>.</li>
+                    <li><strong>Trucker:</strong> Ram the <a href="pictures/main_ee/">red crate</a> across from gas pumps with Ol' Tessie -&gt; Lead to <a href="pictures/main_ee/">Red Lightning (Gas Pump Roof)</a>.</li>
+                    <li><strong>Waitress:</strong> Melee the <a href="pictures/main_ee/">Diner cash register</a> (takes multiple melees if you don't have Melee Macchiato) -&gt; Lead to <a href="pictures/main_ee/">Blue Lightning (Diner Roof)</a>.</li>
+                </ul>
+                </li><li>Once at the lightning, the zombie will stand still, and look like they're being shocked. Once all zombies are in their respective lightning strikes, they'll all disappear, and wisps will spawn in their place.
+                </li>
+            </ol>
+        </li>
+        <li class="dummy-li">
+            <p class="sub-sub-step" id="main_ee_step3_4">Blackwater Lake Challenge</p>
+            <ol>
+                <li>Interact with the <a href="pictures/main_ee/">wisp on the dock</a> in Blackwater Lake.</li>
+                <li>Shoot the <a href="pictures/main_ee/">projector</a> in the Cabin with a purple shot. It will show a sequence of four different images on the projection screen.</li>
+                <li>Note the sequence of four images shown, then shoot the corresponding film reels in that order. Image to Reel location:
+                <ul>
+                    <li><a href="pictures/main_ee/">Front of Cabin</a> -&gt; <a href="pictures/main_ee/">Upstairs near gramophone</a></li>
+                    <li><a href="pictures/main_ee/">Back of Cabin</a> -&gt; <a href="pictures/main_ee/">Outside under stairs near Ammo Box</a></li>
+                    <li><a href="pictures/main_ee/">Boathouse</a> -&gt; <a href="pictures/main_ee/">Hanging from ceiling</a></li>
+                    <li><a href="pictures/main_ee/">Tool Shed</a> -&gt; <a href="pictures/main_ee/">On a shelf</a></li>
+                </ul>
+            </li>
+                <li>Stand by the <a href="pictures/main_ee/">box at the foot of the bed</a> in the Cabin's upstairs bedroom.</li>
+                <li>Summon Klaus (the closest radio is at the <a href="pictures/main_ee/">back of the Cabin</a>) and command him to the bed to pick up the <a href="pictures/main_ee/">Death Whistle</a>.</li>
+            </ol>
+        </li>
 
-        <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v=1767544654581" defer=""></script>
+        <li class="dummy-li">
+            <p class="step-group-title" id="main_ee_step4">Veytharion Boss Fight</p>
+            <p class="boss-fight-phases">Pre-fight Wisp Collection</p>
+        </li>
+        <li>
+            Interact with Klaus to blow the horn. After 20-30 seconds, wisps will fly from the Pyramid.
+        </li>
+        <li>
+            You must drive Ol' Tessie through four specific "Fog" areas, collecting three <a href="pictures/main_ee/">Wisps</a> in each area (12 total). All players must be in Ol' Tessie and stay inside until you collect all wisps or fail. Follow this path around the map: Blackwater Lake -&gt; Janus Tower Plaza -&gt; Vandorn Farm -&gt; Ashwood -&gt; Blackwater Lake.
+            <ul>
+                <li>You must collect all three wisps in an area before leaving it. If you exit a fog zone without collecting all three, or go in the wrong order/direction, you will fail and must wait for the next round.</li>
+            </ul>
+        </li>
+        <li>
+            Once you collect the last wisp, you will be teleported (with Ol' Tessie) inside the Pyramid for the boss fight against Veytharion.
+        </li>
+        <li class="dummy-li">
+            <p class="boss-fight-phases">Boss Fight Notes</p>
+            <ul>
+                <li>Almost all the damage you deal in the fight will come from Ol' Tessie. Here's a summary of Ol' Tessie's Mechanics:
+                    <ul>
+                        <li>When the boss is above the raised area in the middle of the arena, ram it to deal damage (using the boost is not required, as the game will automatically speed you up).</li>
+                        <li>Drive over the <a href="pictures/main_ee/">Green Barnacles</a> on the ground to repair the vehicle. In standard mode, these respawn on a timer (in Cursed or past round 100 in any mode, these will not respawn).</li>
+                        <li>If the vehicle reaches zero health, you'll be ejected. Interact with Ol' Tessie to repair it.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="dummy-li">
+            <p class="boss-fight-phases">Phases 1 and 2</p>
+            <ol>
+                <li>Dodge missiles (indicated by <a href="pictures/main_ee/">red circles on the ground</a>) and ram the boss with Ol' Tessie when it is safe.</li>
+                <li>Ramming a "mouth" on the boss 1-2 times will break it, revealing a <a href="pictures/main_ee/">red glowing "crit" spot</a>. Try to ram/shoot this to deal more damage.</li>
+                <li>Eventually, Veytharion will enter an immunity state and start spinning.</li>
+                <li>To end the immune phase, look for a <a href="pictures/main_ee/">Purple Beam of light</a> in the arena. Drive Tessie into it to "charge" the vehicle.</li>
+                <li>Once charged, ram Veytharion to stun him and expose a <a href="pictures/main_ee/">yellow, glowing weak point</a> on his underbelly.</li>
+                <li>Shoot the weak point. The Necrofluid Gauntlet and the DG-2 Turret are recommended for this part.</li>
+                <li>Max Ammo and Max Armour power-ups spawn. If they spawn up in the air in the corners of the arena, you'll need to shoot and retrieve them with the Necrofluid Gauntlet.</li>
+            </ol>
+        </li>
+        <li class="dummy-li">
+            <p class="boss-fight-phases">Phase 3:</p>
+            <ol>
+                <li>Veytharion will charge a massive Laser Attack, indicated by <a href="pictures/main_ee/">one of the mouths glowing purple</a>.</li>
+                <li>You must boost directly into him while he is charging the laser to interrupt the attack.</li>
+                <li>If you fail to interrupt, you can try hiding behind a pillar.</li>
+                <li>Repeat the charge/ram/shoot cycle to defeat him and trigger the final cinematic.</li>
+            </ol>
+        </li>
+    </ol>
+</div>
 
-        <!-- Main scripts -->
-        <script src="/js/scripts.js?v=1767544654581" defer=""></script>
+<div class="content-container" id="song_ee">
+    <h2 class="section-title">"Turned to Ashes" song</h2>
+    <p class="song-link">
+        Link to song on streaming
+        <a href="https://song.link/s/4rQA8VIjP9YhjvDiZgAgOx" class="external-link">here</a>.
+    </p>
+    <ol>
+        <li>
+            Interact with three "Mister Peeks Headphones" around the map. Headphone locations:
+            <ul>
+                <li>
+                    <a href="pictures/song_ee/">Server Room (Janus Towers Plaza) - On top of a server in the middle of the room, across from Quick Revive</a>
+                </li>
+                <li>
+                    <a href="pictures/song_ee/">Judgement Square (Ashwood) - On the broken wooden wood, left and above the VS Recon wallbuy</a>
+                </li>
+                <li>
+                    <a href="pictures/song_ee/">Exit 115 - In the passenger seat of the Jeep-type car on the road</a>
+                </li>
+            </ul>
+        </li>
+        <li>Once all three headphones are interacted with, the song will start.</li>
+    </ol>
+</div>
 
-    
 
-</body></html>
+<div class="content-container" data-section-header-level="1" data-section-ind="Free Loot Easter Eggs" id="aether_loot_plant">
+    <h2 class="section-title">Aether Loot Plant</h2>
+    <ol>
+        <li>Pick up a Fertilizer Canister:</li>
+        <ol>
+            <li><a href="pictures/aether_loot_plant/">Janus Towers Plaza - Near the Jump Pad</a></li>
+            <li><a href="pictures/aether_loot_plant/">Vandorn Farm - Upstairs in the Barn, left of the power switch</a></li>
+            <li><a href="pictures/aether_loot_plant/">Ashwood - Right of the VS Recon wallbuy in 'Judgement Square'</a></li>
+            <li><a href="pictures/aether_loot_plant/">Blackwater Lake - In the Toolshed</a></li>
+        </ol>
+        <li><a href="pictures/aether_loot_plant/">Aether Plants</a> can be found scattered around all the main "points of interest" around the map. Interact with an Aether Plant to "spray" it. This will spawn zombies; you'll need to defend the plant. Once it's fully grown, it'll drop a variety of loot, including Essence, Salvage, and Equipment.</li>
+        <li>Placing the Toxic Growth field upgrade on the aether plant has a chance to provide better loot, like PAP Crystals, Aether Tools, etc.</li>
+    </ol>
+</div>
+
+<div class="content-container" id="dempsey_side_quest">
+    <h2 class="section-title">Good Soldiers Trophy/Achievement (Dempsey's Side Quest/Dark Ops Calling Card)</h2>
+    <ol>
+        <li>Play as Tank Dempsey.</li>
+        <li>Travel to the 'Crashed Rocket' area in the Fog, between Ashwood and Zarya Cosmodrome.</li>
+        <li>Around <a href="pictures/dempsey_side_quest/">this area on the map</a>, there'll be an area that Ol' Tessie can't enter. Look for the corpses and interact with the <a href="pictures/dempsey_side_quest/">Dog Tags, hidden in the snow</a>.</li>
+        <li>You'll be teleported to a Forest area. Follow the wisp/objectives and survive waves of zombies.</li>
+        <li>Eventually, you'll be turned into a Disciple. Kill the remaining zombies.</li>
+        <li>Once done, you'll be returned to the main map. Essence, Salvage, and a Legendary Scorestreak will spawn. The "Good Soldiers" trophy/achievement will also pop, and you'll receive the <a href="pictures/dempsey_side_quest/">Lucidity Dark Ops Calling Card</a>.</li>
+    </ol>
+</div>
+
+<div class="content-container" id="jump_pad_raygun_mark_2">
+    <h2 class="section-title">Free Ray Gun Mark II (Portal Quest)</h2>
+    <ol>
+        <li>
+            Open every <a href="pictures/jump_pad_raygun_mark_2/">wooden barrier</a> around the map with Ol' Tessie.
+            <ul>
+                <li>To make sure you got all the barriers, drive a full loop around the whole map: Janus Towers Plaza -> Blackwater Lake -> Ashwood -> Exit 115 -> Zarya Cosmodrome -> Ashwood -> Vandorn Farm -> Janus Towers Plaza.</li>
+            </ul>
+        </li>
+        <li>
+            Use all seven Jump Pads around the map: Janus Towers Plaza, Blackwater Lake, Vandorn Farm, Ashwood (Double Tap Side), Ashwood (Juggernog Side), Zarya Cosmodrome, Exit 115.
+            <ul>
+                <li>You only need to use each pad once (not in both directions it goes).</li>
+            </ul>
+        </li>
+        <li>Go to 'Janus Towers Plaza' and wait four rounds. To guarantee a free Ray Gun Mark 2, wait until round 18 to do the rest of this easter egg.</li>
+        <li>
+            A <a href="pictures/jump_pad_raygun_mark_2/">light on the tower</a> (above the Jump Pad) will begin to blink, signalling a 7-digit number code. Count the blinks to get each number (there is a small break between numbers and a long flash when the sequence restarts).
+            <ul>
+                <li>The numbers can only be 1-7, with no repeats.</li>
+            </ul>
+        </li>
+        <li>
+            Each jump pad has a corresponding number (see below). Use the Jump Pads in the order given by the blinking light.
+            <ul>
+                <li>If you use a Jump Pad in the wrong order, your progress will reset, and you'll need to wait CHANGE ME rounds to get a new code from the blinking light.</li>
+            </ul>
+        </li>
+        <li class="dummy-li">
+            Jump Pad Numbers:
+            <ul>
+                Janus Towers: 1
+                Vandorn Farm: 2
+                Ashwood (Double Tap): 3
+                Blackwater Lake: 4
+                Exit 115: 5
+                Zarya Cosmodrome: 6
+                Ashwood (Juggernog): 7
+            </ul>
+        </li>
+        <li>If done correctly, a <a href="pictures/jump_pad_raygun_mark_2/">purple portal</a> will spawn in the air in the "flight path" between two Jump Pads. <strong>Don't use any Jump Pads</strong>, instead drive to either jump pad that would fling you into the portal, then use it to enter the portal.</li>
+        <li>Once you enter the portal, you'll be teleported back to Ashwood. The portal will drop a bunch of dead zombies then, after a few seconds, it'll drop various loot items including the Ray Gun Mark 2 (if you're on/past round 18).</li>
+    </ol>
+</div>
+
+<div class="content-container" id="free_perk_soda_fountain">
+    <h2 class="section-title">Free Perk (Soda Fountain)</h2>
+    <ol>
+        <li>Based on the perk you want, collect three ingredients (see below). Place them in the <a href="pictures/free_perk_soda_fountain/">soda cup</a> in the drink fountain behind the counter in the Exit 115 Diner to brew the free perk.
+            <ul>
+                <li>You must only collect the three items for the perk you want. Collecting any other items will not allow you to get the perk.</li>
+                <li>You can only get one free perk per match.</li>
+                <li>Brewing all four perks in four different matches will give you the "Mixologist" Trophy/Achievement.</li>
+            </ul>
+        </li>
+        <li class="dummy-li">Perk items locations:
+            <ul>
+                <li>Juggernog:
+                    <ol>
+                        <li><a href="pictures/free_perk_soda_fountain/">Weed: Janus Towers Plaza - On the pavement.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Milk: Vandorn Farm - Next to the cellar entrance in the Barn.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Eggs: Exit 115 - On a shelf in the back of Reb's Diner.</a></li>
+                    </ol>
+                </li>
+                <li>Speed Cola:
+                    <ol>
+                        <li><a href="pictures/free_perk_soda_fountain/">Plant: Blackwater Lake - Behind the first truck.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Tomatoes/Walnuts: Ashwood - Inside a crate in Hardgrove's Mercantile (right of Vulture Aid).</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Sugar: Exit 115 - On the counter in Reb's Diner.</a></li>
+                    </ol>
+                </li>
+                <li>Quick Revive:
+                    <ol>
+                        <li><a href="pictures/free_perk_soda_fountain/">Toilet Cleaner: Janus Towers Plaza - On a shelf in the Quick Revive room.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Fish: Blackwater Lake - At the end of the dock.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Stim Shot: Zarya Cosmodrome - On a shelf in the Control Room (building behind Wisp Tea).</a></li>
+                    </ol>
+                </li>
+                <li>Stamin-Up:
+                    <ol>
+                        <li><a href="pictures/free_perk_soda_fountain/">Potatoes/Lemons: Vandorn Farm - In the Cellar.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Beans: Ashwood - Inside Hardgrove's Mercantile.</a></li>
+                        <li><a href="pictures/free_perk_soda_fountain/">Gasoline: Exit 115 - Next to a dumpster.</a></li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="content-container" id="claw_talisman">
+    <h2 class="section-title">Permanent Melee Kill Double Points (Bear Boss/Claw Talisman)</h2>
+    <ol>
+        <li>Obtain the Death Perception perk. The perk machine is on the <a href="pictures/claw_talisman/">second floor of the barn</a> in Vandorn Farm.
+            <ul>
+                <li>It's also recommended to have Melee Macchiato, a tier 2 or 3 Pack-a-Punched melee weapon, as the challenge is melee-focused.</li>
+            </ul>
+        </li>
+        <li>With Death Perception, search the ground in the 'Crashed Rocket' area (between Ashwood and Zarya Cosmodrome), or 'Orda Graveyard' area (between Ashwood and Exit 115) for <a href="pictures/claw_talisman/">glowing Bear prints</a>.</li>
+        <li>Interact with the prints and follow the direction they point to find the next one (about 5 prints total). The final print will trigger a teleport sequence, which will transport you to a dedicated arena to fight a high-health HVT Bear.
+            <ul>
+                <li>Upon entering the arena, your guns will be removed. They can be picked up from the ground somewhere around the arena, but don’t use them if you want the Talisman.</li>
+            </ul>
+        </li>
+        <li>To receive the permanent Double Points reward, you must kill the bear using only your melee weapon.
+            <ul>
+                <li>If you kill the bear with guns, you will receive a standard loot chest (which has a chance for a Ray Gun), but not the permanent double points.</li>
+            </ul>
+        </li>
+        <li>If the bear is defeated with melee, loot the chest to pick up the Claw Talisman.
+            <ul>
+                <li>The Talisman grants Permanent Double Points on all melee kills for the remainder of the match.</li>
+                <li>With the Barista Brawl augment for Melee Macchiato and the Talisman quipped, a melee "headshot" will award 320 points.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="content-container" id="arc_xd_race">
+    <h2 class="section-title">ARC-XD Race</h2>
+    <ol>
+        <li>Go to the Zarya Cosmodrome and ensure that every buyable door is open.</li>
+        <li>Search the "Fog" areas for the <a href="pictures/arc_xd_race/">ARC-XD remote controller</a>. If you can't find it, check the Cosmodrome for any doors you might've missed. The controller can spawn in one of three locations:
+            <ul>
+                <li><a href="pictures/arc_xd_race/">Crashed Plane (Zarya to Exit 115): Hidden behind a tree stump near the crashed plane wreckage</a> === <a href="pictures/arc_xd_race/">Location on map</a></li>
+                <li><a href="pictures/arc_xd_race/">Lost Cabins (Blackwater to Ashwood): On the second floor of the cabin closest to Blackwater Lake, placed on the table next to the briefcase/suitcase</a> === <a href="pictures/arc_xd_race/">Location on map</a></li>
+                <li><a href="pictures/arc_xd_race/">Grounded Ship (Ashwood to Farm): On the deck of the ship, near a container window. You might need to stand on Ol' Tessie to reach it</a> === <a href="pictures/arc_xd_race/">Location on map</a></li>
+            </ul>
+        </li>
+        <li>Interact with the controller to be teleported into the minigame.
+            <ul>
+                <li>In Co-op, all players must vote/agree to join the race.</li>
+            </ul>
+        </li>
+        <li>Drive the RC-XD through the course in the Cosmodrome. You have approximately 1.5 minutes to complete the loop.
+            <ul>
+                <li>In Solo, your reward tier (Gold, Silver, Bronze) depends on your finish time. In Co-op, it is a competitive race against other players.</li>
+            </ul>
+        </li>
+        <li>Mr. Peeks will appear and drop loot such as Salvage, Weapons, or Equipment based on your ranking.</li>
+    </ol>
+</div>
+
+<div class="content-container" id="axe_throwing">
+    <h2 class="section-title">Axe Throwing (Mr. Peeks Loot)</h2>
+    <ol>
+        <li>Go to the Toolshed at Blackwater Lake, and interact with the <a href="pictures/axe_throwing/">trophy sitting on the shelf</a>. The trophy should glow.</li>
+        <li>A <a href="pictures/axe_throwing/">Combat Axe will have spawned on a log</a> outside the toolshed; interact to pick it up.</li>
+        <li>Go to the <a href="pictures/axe_throwing/">open area behind the fence on the road</a> near the Power Pump. <a href="pictures/axe_throwing/">Floating targets</a> will appear, which you must hit with the Combat Axe. After hitting a few stationary targets, the targets will start moving.
+            <ul>
+                <li>You have infinite axes for this minigame, so you can keep throwing without running out.</li>
+            </ul>
+        </li>
+        <li>Once you successfully hit the final target, Mr Peeks will appear and spawn a trophy (one for each player) containing loot.
+            <ul>
+                <li>Rewards will get better the further through the rounds you go.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="content-container" id="tv_twins_wisp_tea">
+    <h2 class="section-title">Free Wisp Tea (TV Twins)</h2>
+    <ol>
+        <li>Go to the second floor of the Farmhouse at Vandorn Farm. Interact with the <a href="pictures/tv_twins_wisp_tea/">TV opposite the Stamin-Up machine</a> until you see two little girls in a room. Keep interacting until you see only one.</li>
+        <li>Head down to the Cellar of the Barn. Look for the <a href="pictures/tv_twins_wisp_tea/">ghost girl</a> scratching tic-tac-toe into the floor. Approach the ghost, and she will fade away.</li>
+        <li>Go back to the TV in the Farmhouse. Continue interacting with it until the image displays the room again, but with no girls this time.</li>
+        <li>Go outside to the area near the power pump. You'll see the <a href="pictures/tv_twins_wisp_tea/">two ghost girls dancing</a>. Approach them, and they'll disappear, dropping rewards, including a free Wisp Tea perk can.
+            <ul>
+                <li>You can find the girls dancing around Vandorn Farm every few rounds for more loot drops.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+<div class="content-container" id="chompy">
+    <h2 class="section-title">Chompy (Trash Can)</h2>
+    <ul>
+        <li>Around the map, there are multiple <a href="pictures/chompy/">trash cans labelled "Chompy."</a></li>
+        <li>Meleeing Chompy while it's active (unknown why or how to activate it) will cause the lid to open. Interact to give it your currently held weapon or throw equipment inside to receive Salvage, or in rare instances, a Ray Gun.</li>
+    </ul>
+</div>
+
+<div class="content-container" id="vending_machine">
+    <h2 class="section-title">Vending Machine (Free Loot)</h2>
+    <ul>
+        <li>Melee the vending machines at Janus Towers Plaza (right of the Rampage Inducer) or Exit 115 (CHANGE ME) once per round for random, small loot drops.</li>
+        <li>Meleeing the vending machine with Melee Macchiato's punch will break the machine, and it will drop a bunch of loot. This will disable the machine for the rest of the match.</li>
+    </ul>
+</div>
+
+<div class="content-container" data-section-header-level="1" data-section-ind="Misc. Easter Eggs" id="free_powerups">
+    <h2 class="section-title">Free Power-ups + Free Perk</h2>
+    <ul>
+        <li>
+            There are nine power-ups hidden around the map, that will spawn that power-up when shot. Each power-up can only be spawned once per match. The Fire Sale and Perk Can Power-ups only spawn after the other seven have been shot. Locations:
+            <ul>
+                <li><a href="pictures/free_powerups/">Max Ammo: Janus Towers Plaza - Shoot the ceiling grate in the Server Room</a></li>
+                <li><a href="pictures/free_powerups/">Insta-Kill: Vandorn Farm - Shoot the top of the silo outside the map near the Barn</a></li>
+                <li><a href="pictures/free_powerups/">Nuke: Ashwood - Shoot the top of the church tower</a></li>
+                <li><a href="pictures/free_powerups/">Full Power: Zarya Cosmodrome - Shoot the object under the rocket (left path, through the fence)</a></li>
+                <li><a href="pictures/free_powerups/">Double Points: Lost Cabins (Fog) - Shoot the object outside the window on the second floor</a></li>
+                <li><a href="pictures/free_powerups/">Max Armor: Grounded Ship (Fog) - Shoot the top container on the ship</a></li>
+                <li><a href="pictures/free_powerups/">Bonus Points: Exit 115 - Shoot under the car on the bridge above Reb's Diner</a></li>
+                <li><a href="pictures/free_powerups/">Fire Sale: Blackwater Lake - Spawns above the stairs in the Lodge (spawns after activating all the others)</a></li>
+                <li><a href="pictures/free_powerups/">Perk Can: Blackwater Lake - Spawns above the stairs in the Lodge (spawns after activating all the others)</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="content-container" id="spawn_a_zursa">
+    <h2 class="section-title">Spawn a Zursa</h2>
+    <ol>
+        <li>Obtain the <a href="#necrofluid_gauntlet">Necrofluid Gauntlet</a>.</li>
+        <li>Shoot three hidden skulls in 'Zarya Cosmodrome' (in any order) with the Necrofluid Gauntlet to spawn a Zursa Bear.
+            <ul>
+                <li>Saving and quitting on the same round you spawned the bear, then reloading and going to the next round, will allow you to repeat this easter egg.</li>
+            </ul>
+        </li>
+        <li class="dummy-li">Skull locations:
+            <ul>
+                <li><a href="pictures/spawn_a_zursa/">Zarya Cosmodrome - In a zombie spawn, right of the Rocket</a></li>
+                <li><a href="pictures/spawn_a_zursa/">Support Systems - Behind the DS20 Mirage wallbuy</a></li>
+                <li><a href="pictures/spawn_a_zursa/">Flame Trench - On some metal beams, out of a zombie spawn window, "behind" the PhD Flopper machine</a></li>
+            </ul>
+        </li>
+
+    </ol>
+</div>

@@ -1,3 +1,5 @@
+console.log('[DEBUG] core/page-utils.js loaded');
+
 /**
  * Page-level utility functions
  * Handles page identification and title management

@@ -1,3 +1,5 @@
+console.log('[DEBUG] navigation/scroll-manager.js loaded');
+
 /**
  * Scroll management and history handling
  * Manages smooth scrolling, anchor navigation, and browser history

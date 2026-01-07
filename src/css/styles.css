@@ -202,15 +202,58 @@ CONTENT STYLES
 .content-container-top,
 .content-container {
     text-align: left;
-    padding: 5px 15px;
+    padding: 5px 20px;
     position: relative;
-    inline-size: auto;
+    max-width: 900px;
+    margin: 0 auto;
     overflow-wrap: break-word;
     border-bottom: 2px solid grey;
 }
 
 .content-container-top {
     border-bottom: 4px solid grey;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb-nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 20px 0;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '›';
+    margin: 0 8px;
+    color: var(--primary-text);
+    opacity: 0.6;
+}
+
+.breadcrumb-item a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item:last-child {
+    color: var(--primary-text);
+    opacity: 0.8;
 }
 
 /* Warning and info boxes */
@@ -236,7 +279,6 @@ p.warning::before {
 
 p.boss-fight-phases {
     color: #bdb968;
-    background-color: rgb(140 137 65 / 8%);
     border-left: 4px solid #9a9b52;
     min-width: 75px;
     width: fit-content;
@@ -259,9 +301,7 @@ p.step-group-title {
     font-size: 115%;
     color: var(--accent-yellow);
     padding: 5px 8px;
-    background-color: rgb(201 196 73 / 10%);
-    border-left: 4px solid var(--accent-yellow);
-    border-radius: 0 4px 4px 0;
+    border-bottom: 1px solid grey;
     min-width: 150px;
     width: fit-content;
 }
@@ -293,10 +333,8 @@ h2.section-title {
     font-weight: bold;
     font-size: 130%;
     color: var(--accent-green);
-    padding: 8px 11px;
-    background-color: rgb(107 195 67 / 10%);
-    border-left: 5px solid var(--accent-green);
-    border-radius: 0 6px 6px 0;
+    padding: 8px 5px;
+    border-bottom: 1px solid grey;
     line-height: 1.75;
     min-width: 350px;
     width: fit-content;
@@ -315,10 +353,7 @@ p.sub-sub-step {
     font-size: 105%;
     color: var(--secondary-accent-green);
     padding: 6px 9px;
-    background: linear-gradient(to bottom, rgb(107 195 67 / 15%), rgb(201 196 73 / 15%));
-    border-left: 4.5px solid;
-    border-image: linear-gradient(to bottom, var(--accent-green), var(--accent-yellow)) 1;
-    border-radius: 0 5px 5px 0;
+    border-bottom: 1px solid grey;
     width: fit-content;
 }
 
@@ -378,9 +413,7 @@ table caption {
     margin-bottom: 15px;
     text-align: left;
     padding: 8px 10px;
-    background-color: rgb(201 196 73 / 10%);
-    border-left: 4px solid var(--accent-yellow);
-    border-radius: 0 4px 4px 0;
+    border-bottom: 1px solid grey;
     caption-side: top;
     line-height: 1.75;
 }
@@ -649,6 +682,11 @@ MOBILE SPECIFIC STYLES
 
 /* Mobile responsive fixes */
 @media (width <= 768px) {
+    .content-container-top,
+    .content-container {
+        padding: 10px 20px;
+    }
+
     ol,
     ul {
         padding-inline-start: 20px;

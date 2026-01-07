@@ -32,7 +32,7 @@ if (!jsFile) {
 
 console.log(`Found React bundle: ${jsFile}\n`);
 
-// Recursively find all HTML files
+// Recursively find all HTML and template files
 function findHtmlFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
 
@@ -42,7 +42,7 @@ function findHtmlFiles(dir, fileList = []) {
 
         if (stat.isDirectory()) {
             findHtmlFiles(filePath, fileList);
-        } else if (file.endsWith('.html')) {
+        } else if (file.endsWith('.html') || file.endsWith('.njk')) {
             fileList.push(filePath);
         }
     });
@@ -50,16 +50,21 @@ function findHtmlFiles(dir, fileList = []) {
     return fileList;
 }
 
-// Find all HTML files that might use React solvers
+// Find all HTML and template files that might use React solvers
 const gamesDir = path.join(__dirname, '../src/games');
-const allHtmlFiles = findHtmlFiles(gamesDir);
+const includesDir = path.join(__dirname, '../src/_includes');
+const allHtmlFiles = [
+    ...findHtmlFiles(gamesDir),
+    ...findHtmlFiles(includesDir)
+];
 
 let updatedCount = 0;
 let skippedCount = 0;
 
 // Pattern to match React bundle script tags (absolute or relative paths)
 // Matches both /react-solvers/assets/ and /react-solvers/dist/assets/ for backwards compatibility
-const scriptPattern = /<script type="module" src="(\.\.\/|\/)?react-solvers\/(dist\/)?assets\/index-[^"?]+\.js(\?v=[^"]+)?"><\/script>/g;
+// Also matches PLACEHOLDER pattern for Eleventy templates
+const scriptPattern = /<script type="module" src="(\.\.\/|\/)?react-solvers\/(dist\/)?assets\/index-[^"?>]+\.js(\?v=[^"]+)?"><\/script>/g;
 
 allHtmlFiles.forEach(htmlFilePath => {
     const html = fs.readFileSync(htmlFilePath, 'utf8');
