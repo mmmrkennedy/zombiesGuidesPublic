@@ -1,6 +1,5 @@
 import os
 import subprocess
-from PIL import Image
 import shutil
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -158,34 +157,77 @@ def valid_dir(image_dir):
 
 
 if __name__ == "__main__":
-    image_dir = ""
+    import sys
+    import argparse
 
-    while True:
-        convert_option = input("Convert to WebP (1), convert to PNG (2), or Quit (3)? ")
+    # Set up argument parser for non-interactive usage
+    parser = argparse.ArgumentParser(description='Convert images to WebP or PNG')
+    parser.add_argument('--mode', choices=['webp', 'png'], default='webp',
+                        help='Conversion mode: webp (default) or png')
+    parser.add_argument('--dir', type=str, default=None,
+                        help='Directory to process (default: src/games)')
+    parser.add_argument('--quality', type=int, default=90,
+                        help='WebP quality 1-100 (default: 90)')
+    parser.add_argument('--include-webp', action='store_true',
+                        help='Include existing webp files in conversion')
+    parser.add_argument('--interactive', action='store_true',
+                        help='Run in interactive mode')
 
-        if convert_option == "1":
-            if input("Default Config? (y/n): ") == "n":
-                image_dir = valid_dir(image_dir)
+    args = parser.parse_args()
 
-                image_quality = input("Enter the image quality (1-100), 90 is Default: ")
-                if image_quality == "":
-                    image_quality = "90"
+    # Interactive mode (original behavior)
+    if args.interactive:
+        image_dir = ""
+        while True:
+            convert_option = input("Convert to WebP (1), convert to PNG (2), or Quit (3)? ")
 
-                include_webp = input("Include webp files? (y/n), No is default: ")
-                if include_webp == "" or include_webp.lower() == "n":
-                    image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
+            if convert_option == "1":
+                if input("Default Config? (y/n): ") == "n":
+                    image_dir = valid_dir(image_dir)
+
+                    image_quality = input("Enter the image quality (1-100), 90 is Default: ")
+                    if image_quality == "":
+                        image_quality = "90"
+
+                    include_webp = input("Include webp files? (y/n), No is default: ")
+                    if include_webp == "" or include_webp.lower() == "n":
+                        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
+                    else:
+                        image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.webp']
+
+                    png_to_webp(image_dir, image_quality, image_extensions)
                 else:
-                    image_extensions = ['.png', '.jpg', '.jpeg', '.bmp', '.webp']
+                    image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
+                    path = r"D:\programming_projects\zombiesGuidesPublic\games"
+                    png_to_webp(path, "90", image_extensions)
 
-                png_to_webp(image_dir, image_quality, image_extensions)
-            else:
-                image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
-                path = r"D:\programming_projects\zombiesGuidesPublic\games"
-                png_to_webp(path, "90", image_extensions)
+            elif convert_option == "2":
+                image_dir = valid_dir(image_dir)
+                webp_to_png(image_dir)
 
-        elif convert_option == "2":
-            image_dir = valid_dir(image_dir)
-            webp_to_png(image_dir)
+            elif convert_option == "3":
+                break
+    else:
+        # Non-interactive mode (for build scripts)
+        # Determine directory
+        if args.dir:
+            target_dir = args.dir
+        else:
+            # Get script directory and construct path to src/games
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            target_dir = os.path.join(script_dir, '..', 'src', 'games')
+            target_dir = os.path.normpath(target_dir)
 
-        elif convert_option == "3":
-            break
+        if not os.path.exists(target_dir):
+            print(f"Error: Directory {target_dir} does not exist!")
+            sys.exit(1)
+
+        print(f"Processing directory: {target_dir}")
+
+        if args.mode == 'webp':
+            image_extensions = ['.png', '.jpg', '.jpeg', '.bmp']
+            if args.include_webp:
+                image_extensions.append('.webp')
+            png_to_webp(target_dir, args.quality, image_extensions)
+        elif args.mode == 'png':
+            webp_to_png(target_dir)

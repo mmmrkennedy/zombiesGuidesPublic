@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '/css/global_solver.css';
+import '../../css/global_solver.css';
+import '../../css/styles.css';
 import WW2HangmanSolver from './components/WW2HangmanSolver';
 import WW2StatueSolver from './components/WW2StatueSolver';
 import WW2HammerPuzzleSolver from './components/WW2HammerPuzzleSolver';
@@ -311,22 +312,6 @@ window.ZombiesSolvers = {
             </React.StrictMode>
         );
         console.log('IWBeastVenomXBoxSolver mounted successfully');
-    },
-
-    mountBeastMorseCodeSolver(elementId: string) {
-        console.log('Mounting IWBeastMorseCodeSolver to:', elementId);
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error('Element not found:', elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWBeastMorseCodeSolver />
-            </React.StrictMode>
-        );
-        console.log('IWBeastMorseCodeSolver mounted successfully');
     },
 };
 

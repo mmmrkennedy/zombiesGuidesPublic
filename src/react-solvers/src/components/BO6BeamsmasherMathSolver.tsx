@@ -10,6 +10,32 @@ type SelectedSymbols = {
 
 const selectedSymbols: SelectedSymbols = { X: null, Y: null, Z: null };
 
+function check_enabled_images(
+  image_value: SelectedSymbolValue | undefined,
+  letter: SymbolKey,
+  img_value: SelectedSymbolValue,
+  selectedSymbols: SelectedSymbols
+): string {
+  if (image_value === img_value) {
+    return 'selected';
+
+  } else if (image_value !== null && image_value !== undefined) {
+    return 'img-disabled';
+
+  } else {
+    // Check if this value is already selected by a different letter
+    const otherValues = Object.entries(selectedSymbols)
+      .filter(([k]) => k !== letter)
+      .map(([_, v]) => v);
+
+    if (otherValues.includes(img_value)) {
+      return 'img-disabled';
+    }
+
+    return '';
+  }
+}
+
 function calculateFormulas(selectedSymbols: SelectedSymbols) {
     const { X, Y, Z } = selectedSymbols;
 
@@ -20,7 +46,7 @@ function calculateFormulas(selectedSymbols: SelectedSymbols) {
         let formula3: number | string = Math.abs(Y + Z - X);
 
         if (formula1 < 0 || formula2 < 0 || formula3 < 0) {
-            return 'Invalid Selection (A formula returned a negative number)';
+            return 'Invalid Selection (a formula returned a negative number)';
         }
 
         if (formula1 < 10) {
@@ -77,6 +103,14 @@ export default function BO6BeamsmasherMathSolver() {
         } else {
             selectedSymbols[letter] = value;
 
+            const otherValues = Object.entries(selectedSymbols)
+              .filter(([k]) => k !== letter)
+              .map(([_, v]) => v);
+
+            if (otherValues.includes(value)){
+              return;
+            }
+
             if (letter === 'X') {
                 setSelectedX(value);
             }
@@ -113,36 +147,36 @@ export default function BO6BeamsmasherMathSolver() {
             <div className="solver-symbol-select form-row" id="xSymbols">
                 <p>X Symbol:</p>
                 <div className={'beamsmasher-img-row'}>
-                    <img className={selectedX === 0 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="X0" onClick={() => selectSymbol(selectedSymbols, 'X', 0)} />
-                    <img className={selectedX === 10 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="X10" onClick={() => selectSymbol(selectedSymbols, 'X', 10)} />
-                    <img className={selectedX === 11 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="X11" onClick={() => selectSymbol(selectedSymbols, 'X', 11)} />
-                    <img className={selectedX === 20 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="X20" onClick={() => selectSymbol(selectedSymbols, 'X', 20)} />
-                    <img className={selectedX === 21 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="X21" onClick={() => selectSymbol(selectedSymbols, 'X', 21)} />
-                    <img className={selectedX === 22 ? 'selected' : selectedX !== null && selectedX !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="X22" onClick={() => selectSymbol(selectedSymbols, 'X', 22)} />
+                    <img className={check_enabled_images(selectedX, 'X', 0, selectedSymbols)} src={IMG_0} alt="X0" onClick={() => selectSymbol(selectedSymbols, 'X', 0)} />
+                    <img className={check_enabled_images(selectedX, 'X', 10, selectedSymbols)} src={IMG_10} alt="X10" onClick={() => selectSymbol(selectedSymbols, 'X', 10)} />
+                    <img className={check_enabled_images(selectedX, 'X', 11, selectedSymbols)} src={IMG_11} alt="X11" onClick={() => selectSymbol(selectedSymbols, 'X', 11)} />
+                    <img className={check_enabled_images(selectedX, 'X', 20, selectedSymbols)} src={IMG_20} alt="X20" onClick={() => selectSymbol(selectedSymbols, 'X', 20)} />
+                    <img className={check_enabled_images(selectedX, 'X', 21, selectedSymbols)} src={IMG_21} alt="X21" onClick={() => selectSymbol(selectedSymbols, 'X', 21)} />
+                    <img className={check_enabled_images(selectedX, 'X', 22, selectedSymbols)} src={IMG_22} alt="X22" onClick={() => selectSymbol(selectedSymbols, 'X', 22)} />
                 </div>
             </div>
 
             <div className="solver-symbol-select form-row" id="ySymbols">
                 <p>Y Symbol:</p>
                 <div className={'beamsmasher-img-row'}>
-                    <img className={selectedY === 0 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Y0" onClick={() => selectSymbol(selectedSymbols, 'Y', 0)} />
-                    <img className={selectedY === 10 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Y10" onClick={() => selectSymbol(selectedSymbols, 'Y', 10)} />
-                    <img className={selectedY === 11 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Y11" onClick={() => selectSymbol(selectedSymbols, 'Y', 11)} />
-                    <img className={selectedY === 20 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Y20" onClick={() => selectSymbol(selectedSymbols, 'Y', 20)} />
-                    <img className={selectedY === 21 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Y21" onClick={() => selectSymbol(selectedSymbols, 'Y', 21)} />
-                    <img className={selectedY === 22 ? 'selected' : selectedY !== null && selectedY !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Y22" onClick={() => selectSymbol(selectedSymbols, 'Y', 22)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 0, selectedSymbols)} src={IMG_0} alt="Y0" onClick={() => selectSymbol(selectedSymbols, 'Y', 0)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 10, selectedSymbols)} src={IMG_10} alt="Y10" onClick={() => selectSymbol(selectedSymbols, 'Y', 10)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 11, selectedSymbols)} src={IMG_11} alt="Y11" onClick={() => selectSymbol(selectedSymbols, 'Y', 11)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 20, selectedSymbols)} src={IMG_20} alt="Y20" onClick={() => selectSymbol(selectedSymbols, 'Y', 20)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 21, selectedSymbols)} src={IMG_21} alt="Y21" onClick={() => selectSymbol(selectedSymbols, 'Y', 21)} />
+                    <img className={check_enabled_images(selectedY, 'Y', 22, selectedSymbols)} src={IMG_22} alt="Y22" onClick={() => selectSymbol(selectedSymbols, 'Y', 22)} />
                 </div>
             </div>
 
             <div className="solver-symbol-select form-row" id="zSymbols">
                 <p>Z Symbol:</p>
                 <div className={'beamsmasher-img-row'}>
-                    <img className={selectedZ === 0 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_0} alt="Z0" onClick={() => selectSymbol(selectedSymbols, 'Z', 0)} />
-                    <img className={selectedZ === 10 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_10} alt="Z10" onClick={() => selectSymbol(selectedSymbols, 'Z', 10)} />
-                    <img className={selectedZ === 11 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_11} alt="Z11" onClick={() => selectSymbol(selectedSymbols, 'Z', 11)} />
-                    <img className={selectedZ === 20 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_20} alt="Z20" onClick={() => selectSymbol(selectedSymbols, 'Z', 20)} />
-                    <img className={selectedZ === 21 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_21} alt="Z21" onClick={() => selectSymbol(selectedSymbols, 'Z', 21)} />
-                    <img className={selectedZ === 22 ? 'selected' : selectedZ !== null && selectedZ !== undefined ? 'img-disabled' : ''} src={IMG_22} alt="Z22" onClick={() => selectSymbol(selectedSymbols, 'Z', 22)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 0, selectedSymbols)} src={IMG_0} alt="Z0" onClick={() => selectSymbol(selectedSymbols, 'Z', 0)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 10, selectedSymbols)} src={IMG_10} alt="Z10" onClick={() => selectSymbol(selectedSymbols, 'Z', 10)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 11, selectedSymbols)} src={IMG_11} alt="Z11" onClick={() => selectSymbol(selectedSymbols, 'Z', 11)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 20, selectedSymbols)} src={IMG_20} alt="Z20" onClick={() => selectSymbol(selectedSymbols, 'Z', 20)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 21, selectedSymbols)} src={IMG_21} alt="Z21" onClick={() => selectSymbol(selectedSymbols, 'Z', 21)} />
+                    <img className={check_enabled_images(selectedZ, 'Z', 22, selectedSymbols)} src={IMG_22} alt="Z22" onClick={() => selectSymbol(selectedSymbols, 'Z', 22)} />
                 </div>
             </div>
 

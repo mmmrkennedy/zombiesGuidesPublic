@@ -5,8 +5,8 @@ const { JSDOM } = require('jsdom');
 const { SitemapStream, streamToPromise } = require('sitemap');
 
 const SITE_URL = 'https://mmmrkennedy.com'; // Change to your site
-const INDEX_FILE = path.resolve('./src/index.html'); // Path to your index.html
-const OUTPUT_FILE = path.resolve('./src/sitemap.xml');
+const INDEX_FILE = path.resolve('./dist/index.html'); // Path to your index.html
+const OUTPUT_FILE = path.resolve('./dist/sitemap.xml');
 
 async function buildSitemap() {
     if (!fs.existsSync(INDEX_FILE)) {
@@ -37,7 +37,7 @@ async function buildSitemap() {
 
     // then add all linked pages
     for (const link of uniqueLinks) {
-        const filePath = path.resolve('./src', link);
+        const filePath = path.resolve('./dist', link);
         if (fs.existsSync(filePath)) {
             const stats = fs.statSync(filePath);
             sitemap.write({ url: `/${link}`, lastmod: stats.mtime });
