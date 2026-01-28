@@ -34,7 +34,7 @@ function scrollToAnchors() {
                 // console.log('Anchor link clicked:', href);
                 event.preventDefault();
                 const elementId = href.substring(1);
-                scrollToElement(elementId, 105); // This will add to history
+                scrollToElement(elementId, 75); // This will add to history
             }
         }
     });
@@ -98,7 +98,7 @@ function initHistoryManagement() {
         const hash = window.location.hash;
         if (hash && hash.length > 1) {
             const elementId = hash.substring(1);
-            scrollToElement(elementId, 105, true);
+            scrollToElement(elementId, 75, true);
         } else {
             const contentWindow = document.querySelector('.content-window');
             if (contentWindow && contentWindow.scrollTop > 0) {

@@ -1,17 +1,43 @@
+/*
+===============================================================================
+SOLVER STYLES - Interactive Puzzle Elements
+===============================================================================
+Standalone CSS for React-based solver modules. Visually consistent with main
+stylesheet while maintaining distinct interactive element styling.
+===============================================================================
+*/
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* CSS Custom Properties for global_solver.css */
+/* CSS Custom Properties - Unified with main stylesheet */
 :root {
-    /* Spacing scale */
-    --spacing-xs: 2px;
-    --spacing-sm: 5px;
-    --spacing-md: 10px;
-    --spacing-lg: 15px;
-    --spacing-xl: 20px;
+    /* Spacing scale - matches main CSS */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Color Palette - matches main CSS */
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #252525;
+    --color-bg-tertiary: #333333;
+
+    --color-text-primary: #e5e5e5;
+    --color-text-secondary: #b0b0b0;
+    --color-text-muted: #808080;
+
+    --color-border-subtle: #333333;
+    --color-border-medium: #444444;
+
+    /* Solver accent colors - gold/amber theme */
+    --color-solver-accent: #c9a961;        /* Primary gold accent */
+    --color-solver-accent-bright: #d4b56f; /* Brighter gold for hovers */
+    --color-solver-active: #b89a5a;        /* Active state */
 
     /* Border radius scale */
     --radius-sm: 3px;
@@ -19,25 +45,19 @@
     --radius-lg: 8px;
 
     /* Shadow scale */
-    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.3);
-    --shadow-xl: 0 8px 25px rgba(107, 195, 67, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
 
-    /* Button colors */
-    --btn-primary-from: #444;
-    --btn-primary-to: #333;
-    --btn-primary-hover-from: #555;
-    --btn-primary-hover-to: #404040;
-    --btn-active-from: #6bc343;
-    --btn-active-to: #5aa038;
-    --btn-active-hover-from: #7dd54f;
-    --btn-active-hover-to: #6bc343;
-
-    /* Fixed dimensions */
+    /* Fixed dimensions for solver grids */
     --tile-size: 50px;
     --chess-board-size: 400px;
 }
+
+/*
+===============================================================================
+SOLVER CONTAINER
+===============================================================================
+*/
 
 .solver-container {
     display: block;
@@ -45,20 +65,24 @@
     min-width: 360px;
     max-width: fit-content;
     margin: auto;
-    padding: 15px;
+    padding: var(--space-lg);
     text-align: left;
     box-sizing: border-box;
-
-    /* Strong visual boundary with depth */
     background-color: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--color-border-medium);
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-md);
 }
 
 .solver-container.centered {
     text-align: center;
 }
+
+/*
+===============================================================================
+TYPOGRAPHY
+===============================================================================
+*/
 
 fieldset {
     border: none;
@@ -68,10 +92,10 @@ fieldset {
 
 legend {
     padding: 0;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--space-xl);
     font-weight: 700;
     font-size: 24px;
-    color: #fff;
+    color: var(--color-text-primary);
     letter-spacing: -0.5px;
 }
 
@@ -79,29 +103,29 @@ legend {
     font-size: 24px;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: var(--spacing-xl);
-    color: #fff;
+    margin-bottom: var(--space-xl);
+    color: var(--color-text-primary);
     letter-spacing: -0.5px;
 }
 
 .solver-container h3 {
     font-size: 18px;
     font-weight: 600;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    color: #fff;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
 }
 
 .solver-container h4 {
     font-size: 16px;
     font-weight: 600;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-    color: #ddd;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
 }
 
 .solver-instructions {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 14px;
     line-height: 1.6;
     width: 0;
@@ -113,8 +137,23 @@ legend {
 .solver-container label {
     display: block;
     font-weight: 500;
-    color: #ccc;
+    color: var(--color-text-secondary);
 }
+
+/* Color utility classes */
+.text-green {
+    color: lawngreen;
+}
+
+.text-pink {
+    color: #d97aa6;
+}
+
+/*
+===============================================================================
+FORMS - Unified with main stylesheet
+===============================================================================
+*/
 
 .solver-container input.solver,
 .solver-container select.solver {
@@ -125,60 +164,131 @@ legend {
 
 .solver-container select,
 .solver-container input {
-    background-color: #2a2a2a;
-    border: 2px solid #444;
-    border-radius: 6px;
-    color: #fff;
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-medium);
+    border-radius: 4px;
+    padding: var(--space-sm) var(--space-md);
     font-size: 14px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .solver-container select:focus,
 .solver-container input:focus {
     outline: none;
-    border-color: var(--accent-green);
+    border-color: var(--color-solver-accent);
+    background-color: var(--color-bg-secondary);
 }
 
 .form-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 10px;
-    background-color: #222;
-    border-radius: 8px;
-    border: 1px solid #333;
+    margin-bottom: var(--space-md);
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-subtle);
     max-width: 100%;
 }
 
 .form-row label {
-    padding: var(--spacing-md);
-    padding-right: var(--spacing-sm);
+    padding: var(--space-md);
+    padding-right: var(--space-sm);
 }
 
 .form-row input,
 .form-row select {
     flex: 1;
-    margin: var(--spacing-sm) var(--spacing-md) !important;
+    margin: var(--space-sm) var(--space-md) !important;
 }
 
+/*
+===============================================================================
+BUTTONS - Unified style with main CSS
+===============================================================================
+*/
+
+.btn-base,
+.solver-button {
+    margin: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-medium);
+    border-radius: 6px;
+    cursor: pointer;
+    pointer-events: auto;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-base:hover,
+.solver-button:hover {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border-medium);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-base:active,
+.solver-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-base.active,
+.solver-button.active {
+    background-color: var(--color-solver-accent);
+    color: var(--color-bg-primary);
+    border-color: var(--color-solver-accent);
+    font-weight: 700;
+}
+
+.btn-base.active:hover,
+.solver-button.active:hover {
+    background-color: var(--color-solver-accent-bright);
+    border-color: var(--color-solver-accent-bright);
+}
+
+.btn-base.disabled,
+.solver-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-base.disabled:hover,
+.solver-button.disabled:hover {
+    transform: none;
+    background-color: var(--color-bg-tertiary);
+    box-shadow: var(--shadow-sm);
+}
+
+/*
+===============================================================================
+SYMBOL SELECTION - Image-based buttons
+===============================================================================
+*/
+
 .solver-symbol-select {
-    padding: var(--spacing-lg);
+    padding: var(--space-lg);
 }
 
 .solver-symbol-select button {
-    background: #2a2a2a;
-    border: 2px solid #444;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 4px;
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border-medium);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+    margin: var(--space-xs);
     cursor: pointer;
     display: inline-block;
     transition: all 0.2s ease;
 }
 
 .solver-symbol-select button:hover:not(:disabled) {
-    border-color: var(--accent-green);
-    background: #333;
+    border-color: var(--color-solver-accent);
+    background: var(--color-bg-secondary);
     transform: translateY(-2px);
 }
 
@@ -189,7 +299,7 @@ legend {
 .solver-symbol-select button:disabled {
     cursor: not-allowed;
     opacity: 0.4;
-    border-color: #333;
+    border-color: var(--color-border-subtle);
 }
 
 .solver-symbol-select img {
@@ -202,7 +312,7 @@ legend {
 
 .solver-symbol-select img.with-border {
     border: 4px solid transparent;
-    border-radius: var(--spacing-sm);
+    border-radius: var(--space-sm);
 }
 
 .solver-symbol-select img.shaolin {
@@ -210,7 +320,7 @@ legend {
 }
 
 .solver-symbol-select img.selected {
-    border: 3px solid green;
+    border: 3px solid var(--color-solver-accent);
 }
 
 .solver-symbol-select img.hidden {
@@ -229,12 +339,18 @@ legend {
     pointer-events: none;
 }
 
+/*
+===============================================================================
+OUTPUT DISPLAY
+===============================================================================
+*/
+
 .solver-output {
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 8px;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -243,88 +359,51 @@ legend {
     justify-content: center;
 }
 
-/* BASE BUTTON CLASS - Use this for all buttons */
-.btn-base {
-    margin: 8px;
-    padding: 12px 24px;
-    background: linear-gradient(145deg, var(--btn-primary-from), var(--btn-primary-to));
-    color: white;
-    border: 2px solid #555;
-    border-radius: 8px;
-    cursor: pointer;
-    pointer-events: auto;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+.error-message {
+    color: #d95b43;
+    margin-top: var(--space-md);
 }
 
-.btn-base:hover {
-    background: linear-gradient(145deg, var(--btn-primary-hover-from), var(--btn-primary-hover-to));
-    border-color: #666;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+.solver-buttons {
+    margin-top: var(--space-xl);
 }
 
-.btn-base:active {
-    transform: translateY(0);
-    box-shadow: var(--shadow-sm);
-}
+/*
+===============================================================================
+GRID LAYOUTS - Puzzle-specific layouts
+===============================================================================
+*/
 
-.btn-base.active {
-    background: linear-gradient(145deg, var(--btn-active-from), var(--btn-active-to));
-    color: white;
-    border-color: var(--accent-green);
-}
-
-.btn-base.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    filter: grayscale(50%);
-}
-
-.btn-base.disabled:hover {
-    transform: none;
-    background: linear-gradient(145deg, var(--btn-primary-from), var(--btn-primary-to));
-    box-shadow: var(--shadow-md);
-}
-
-/* SPECIFIC BUTTON VARIATIONS */
-.solver-button {
-    /* Inherits all styles from .btn-base */
-}
-
-/* Grid layouts for puzzle solvers that mimic in-game layouts */
 .aligned-buttons,
 .aligned-labels {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four columns to mimic puzzle structure */
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
     text-align: center;
 }
 
 .aligned-buttons.vertical {
-    grid-template-columns: 1fr; /* Change to a single column for vertical layout */
-    gap: var(--spacing-md); /* Optional: Add spacing between the buttons */
-    text-align: center; /* Optional: Center-align the buttons */
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    text-align: center;
 }
 
 .aligned-button {
-    padding: var(--spacing-md);
+    padding: var(--space-md);
     font-size: 16px;
     cursor: pointer;
 }
 
 .aligned-button.square {
     padding: 0;
-    margin: 5px;
+    margin: var(--space-sm);
     font-size: 16px;
     cursor: pointer;
-    aspect-ratio: 1; /* Makes the button a perfect square */
-    width: 100%; /* Optional: Adjust to fit the container width */
-    max-width: var(--tile-size); /* Optional: Limit size for consistent squares */
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: var(--tile-size);
     display: flex;
-    justify-content: center; /* Center text inside the button */
+    justify-content: center;
     align-items: center;
 }
 
@@ -333,7 +412,6 @@ legend {
     display: inline-block;
 }
 
-/* In-line Buttons */
 .in-line-button {
     border-radius: 0;
     text-transform: uppercase;
@@ -341,8 +419,14 @@ legend {
 }
 
 .in-line-button.active {
-    color: black !important;
+    color: var(--color-bg-primary) !important;
 }
+
+/*
+===============================================================================
+CHESSBOARD SOLVER
+===============================================================================
+*/
 
 .chessboard {
     --dynamic-tile-size: min(var(--tile-size), calc((100vw - 120px) / 8));
@@ -377,10 +461,16 @@ legend {
     cursor: pointer;
 }
 
+/*
+===============================================================================
+DRAGGABLE ELEMENTS
+===============================================================================
+*/
+
 .draggable-container {
-    margin-top: var(--spacing-md);
+    margin-top: var(--space-md);
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--space-md);
 }
 
 .draggable-image {
@@ -389,8 +479,24 @@ legend {
     cursor: grab;
 }
 
+.placed-draggable {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+}
+
+/*
+===============================================================================
+VENOM BOARD SOLVER
+===============================================================================
+*/
+
 .venom-board-wrapper {
-    margin-top: 20px;
+    margin-top: var(--space-xl);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -402,12 +508,12 @@ legend {
     display: grid;
     grid-template-columns: repeat(6, var(--venom-tile-size));
     gap: 2px;
-    background-color: yellow;
-    padding: 8px;
+    background-color: #d4a961;
+    padding: var(--space-sm);
     height: fit-content;
     width: fit-content;
     position: relative;
-    border: 3px solid #1a1a1a;
+    border: 3px solid var(--color-bg-primary);
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -432,31 +538,54 @@ legend {
     justify-content: center;
 }
 
+.venom-box-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.venom-box-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.venom-box-label {
+    min-width: 80px;
+}
+
+/*
+===============================================================================
+MAHJONG-STYLE TILES
+===============================================================================
+*/
+
 .winning-hand {
     border-radius: var(--radius-lg);
 }
 
 .melds {
-    margin: var(--spacing-md) 0;
+    margin: var(--space-md) 0;
 }
 
 .meld-group {
     display: inline-flex;
-    margin: var(--spacing-sm) var(--spacing-md);
-    gap: var(--spacing-xs);
+    margin: var(--space-sm) var(--space-md);
+    gap: var(--space-xs);
 }
 
 .selected-tiles {
-    margin: var(--spacing-xl) 0;
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    margin: var(--space-xl) 0;
+    padding: 0 var(--space-lg) var(--space-lg);
     border-radius: var(--radius-lg);
 }
 
 .selected-tiles-row {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
 }
 
 .selected-tile {
@@ -467,25 +596,35 @@ legend {
 }
 
 .clear-button {
-    margin-left: var(--spacing-md);
+    margin-left: var(--space-md);
 }
+
+.tile-display {
+    height: 75px;
+}
+
+/*
+===============================================================================
+LETTER SYMBOL MATCHING
+===============================================================================
+*/
 
 .letter-symbols-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    max-width: calc(5 * 100px + 4 * var(--spacing-md)); /* 5 items max per row */
-    gap: var(--spacing-md);
-    margin: 0 auto; /* Center the grid */
+    max-width: calc(5 * 100px + 4 * var(--space-md));
+    gap: var(--space-md);
+    margin: 0 auto;
     justify-items: center;
 }
 
 .letter-symbol-box {
     display: flex;
-    border: 2px solid #444;
+    border: 2px solid var(--color-border-medium);
     border-radius: var(--radius-sm);
     overflow: hidden;
     pointer-events: none;
-    background-color: #333;
+    background-color: var(--color-bg-tertiary);
 }
 
 .letter-text-side {
@@ -496,7 +635,7 @@ legend {
     justify-content: center;
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: var(--color-text-primary);
 }
 
 .letter-image-side {
@@ -518,42 +657,34 @@ legend {
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
     scrollbar-width: none;
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    -ms-overflow-style: none;
 }
 
 .matching-words-grid::-webkit-scrollbar {
-    display: none; /* WebKit browsers */
+    display: none;
 }
 
 .word-item {
-    padding: var(--spacing-sm);
-    background-color: #444;
+    padding: var(--space-sm);
+    background-color: var(--color-bg-tertiary);
     border-radius: var(--radius-sm);
     font-size: 14px;
     cursor: text;
 }
 
-.tile-display {
-    height: 75px;
-}
+/*
+===============================================================================
+FLOPPY DISK SOLVER
+===============================================================================
+*/
 
-/* Color utility classes */
-.text-green {
-    color: lawngreen;
-}
-
-.text-pink {
-    color: deeppink;
-}
-
-/* Floppy disk solver grid */
 .floppy-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: var(--space-sm);
     max-width: 500px;
 }
 
@@ -565,60 +696,27 @@ legend {
 .floppy-result {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: var(--space-sm);
     justify-content: center;
 }
 
-/* Venom Box solver */
-.venom-box-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
-}
+/*
+===============================================================================
+SKULL SOLVER
+===============================================================================
+*/
 
-.venom-box-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.venom-box-label {
-    min-width: 80px;
-}
-
-/* Venom Maze solver */
-.placed-draggable {
-    width: 100%;
-    height: 100%;
-    cursor: grab;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-}
-
-.error-message {
-    color: #ef4444;
-    margin-top: 10px;
-}
-
-.solver-buttons {
-    margin-top: 20px;
-}
-
-/* Skull 4 solver */
 .skull-selected-symbols {
     display: flex;
-    gap: 10px;
+    gap: var(--space-md);
     justify-content: center;
 }
 
 .skull-symbol-slot {
     width: 60px;
     height: 60px;
-    border: 2px solid #666;
-    border-radius: 5px;
+    border: 2px solid var(--color-border-medium);
+    border-radius: var(--space-sm);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -626,17 +724,17 @@ legend {
 }
 
 .skull-symbol-slot.filled {
-    background-color: #444;
+    background-color: var(--color-bg-tertiary);
     cursor: pointer;
 }
 
 .skull-symbol-slot.empty {
-    background-color: #222;
+    background-color: var(--color-bg-secondary);
     cursor: default;
 }
 
 .skull-symbol-label {
-    color: white;
+    color: var(--color-text-primary);
     font-size: 12px;
     font-weight: bold;
 }
@@ -647,14 +745,20 @@ legend {
 }
 
 .skull-slot-number {
-    color: #666;
+    color: var(--color-text-muted);
     font-size: 10px;
 }
+
+/*
+===============================================================================
+BEAMSMASHER SOLVER
+===============================================================================
+*/
 
 .beamsmasher-img-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--space-md);
     margin-left: 7px;
 }
 
@@ -664,22 +768,22 @@ legend {
     max-width: var(--tile-size);
     max-height: 100px;
     display: block;
-    border: 2px solid #444;
+    border: 2px solid var(--color-border-medium);
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    background-color: #2a2a2a;
+    background-color: var(--color-bg-tertiary);
 }
 
 .beamsmasher-img-row img:hover:not(.img-disabled) {
-    border-color: var(--accent-green);
+    border-color: var(--color-solver-accent);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .beamsmasher-img-row img.selected {
-    border: 3px solid var(--accent-green);
-    box-shadow: 0 0 10px rgba(107, 195, 67, 0.4);
+    border: 3px solid var(--color-solver-accent);
+    box-shadow: 0 0 10px rgba(201, 169, 97, 0.4);
 }
 
 .beamsmasher-img-row img.img-disabled {
@@ -688,7 +792,12 @@ legend {
     pointer-events: none;
 }
 
-/* Mobile Styles */
+/*
+===============================================================================
+MOBILE RESPONSIVE
+===============================================================================
+*/
+
 @media (width <= 768px) {
     .solver-container {
         max-width: 90vw;

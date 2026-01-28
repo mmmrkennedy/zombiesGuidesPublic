@@ -431,7 +431,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon");
   eleventyConfig.addPassthroughCopy("src/font");
   eleventyConfig.addPassthroughCopy("src/easter_egg_help");
-  eleventyConfig.addPassthroughCopy("src/games/**/pictures");
+  eleventyConfig.addPassthroughCopy("src/games/**/*.{webp,png,jpg,jpeg,svg}");
   eleventyConfig.addPassthroughCopy("src/react-solvers");
   eleventyConfig.addPassthroughCopy("src/*.{webp,png,jpg,jpeg,svg,ico,xml,txt}");
   eleventyConfig.addPassthroughCopy("src/_headers");
