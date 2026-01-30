@@ -4,11 +4,12 @@
     "description": "Zombies Guides website with automated build system",
     "type": "module",
     "scripts": {
-        "build": "npm run build:react && npm run build:eleventy && npm run build:sitemap",
-        "build:full": "npm run clean && npm run build",
+        "build": "bun run build:react && bun run build:eleventy && bun run minify && bun run build:sitemap",
+        "build:full": "bun run clean && bun run build",
         "clean": "rimraf dist",
         "build:react": "vite build",
         "build:eleventy": "eleventy --incremental",
+        "minify": "node build_scripts/minify-assets.js",
         "build:sitemap": "node build_scripts/sitemap-generator.cjs",
         "convert:images": "python python_utilities/image_converter.py",
         "convert:images:webp": "python python_utilities/image_converter.py --mode webp --quality 90",
@@ -34,7 +35,6 @@
     "author": "mmmrkennedy",
     "license": "MIT",
     "dependencies": {
-        "generate-robotstxt": "^8.0.3",
         "jsdom": "^22.1.0",
         "react": "^19.2.1",
         "react-dom": "^19.2.1",
@@ -50,6 +50,7 @@
         "@types/react": "^19.2.2",
         "@types/react-dom": "^19.2.2",
         "@vitejs/plugin-react": "^5.0.4",
+        "clean-css-cli": "^5.6.3",
         "eslint": "^9.38.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-react": "^7.37.5",
@@ -59,6 +60,7 @@
         "rimraf": "^6.1.2",
         "stylelint": "^16.25.0",
         "stylelint-config-standard": "^39.0.1",
+        "terser": "^5.46.0",
         "typescript": "^5.9.3",
         "vite": "^7.1.11"
     }

@@ -34,7 +34,7 @@ function scrollToAnchors() {
                 // console.log('Anchor link clicked:', href);
                 event.preventDefault();
                 const elementId = href.substring(1);
-                scrollToElement(elementId, 75); // This will add to history
+                scrollToElement(elementId); // This will add to history
             }
         }
     });
@@ -43,17 +43,16 @@ function scrollToAnchors() {
 /**
  * Scrolls to a specific element by ID with offset
  */
-function scrollToElement(elementId, offset, fromPopstate = false) {
-    // console.log('scrollToElement called:', { elementId, offset, fromPopstate });
-
+function scrollToElement(elementId, fromPopstate = false) {
     const element = document.getElementById(elementId);
     const contentWindow = document.querySelector('.content-window');
+    const topBackgroundBox = document.querySelector('.top-buttons-background-box');
+    const topBackBoxHeight = topBackgroundBox.getBoundingClientRect().height;
+
     if (element && contentWindow) {
         const elementPosition = element.getBoundingClientRect().top;
         const contentWindowScrollTop = contentWindow.scrollTop;
-        const targetY = elementPosition + contentWindowScrollTop - offset;
-
-        // console.log('Scrolling to:', { elementId, targetY });
+        const targetY = elementPosition + contentWindowScrollTop - topBackBoxHeight;
 
         contentWindow.scrollTo({
             top: targetY,

@@ -71,13 +71,10 @@ a.external-link::after {
     width: 16px;
     height: 16px;
     margin-left: 4px;
-    background-color: currentColor;
+    background-color: currentcolor;
     mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48cGF0aCBkPSJNOCA4aDh2OCIvPjxwYXRoIGQ9Im04IDE2IDgtOCIvPjwvc3ZnPg==');
-    -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48cGF0aCBkPSJNOCA4aDh2OCIvPjxwYXRoIGQ9Im04IDE2IDgtOCIvPjwvc3ZnPg==');
     mask-size: contain;
-    -webkit-mask-size: contain;
     mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
     vertical-align: middle;
 }
 
@@ -86,7 +83,7 @@ a.incomplete-path {
     color: red;
 }
 
-a.wrong_file_type {
+a.wrong-file-type {
     color: orange;
 }
 
@@ -226,7 +223,7 @@ CONTENT STYLES
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0 0 15px 0;
+    margin: 0 0 15px;
     font-size: 14px;
 }
 
@@ -437,7 +434,6 @@ table caption {
     font-weight: bold;
     text-align: center;
     max-width: 100%;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -554,6 +550,7 @@ LIGHTBOX STYLES
 INPUT AND SELECT
 =======================================
 */
+
 /* Global styling for all input and select elements */
 input,
 select {

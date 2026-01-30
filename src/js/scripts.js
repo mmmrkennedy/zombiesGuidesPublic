@@ -15,11 +15,6 @@ function navigateToIndex() {
     window.NavUtils.navigateToIndex();
 }
 
-function isCSSLoaded(href) {
-    const links = document.querySelectorAll('link[rel="stylesheet"]');
-    return Array.from(links).some(link => link.href.includes(href));
-}
-
 function toggleHamburgerMenu() {
     const overlay = document.getElementById('hamburgerMenuOverlay');
     if (overlay.classList.contains('active')) {
@@ -29,41 +24,6 @@ function toggleHamburgerMenu() {
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden'; // Disable scrolling when menu is open
     }
-}
-
-function closeHamburgerMenu() {
-    const overlay = document.getElementById('hamburgerMenuOverlay');
-    overlay.classList.remove('active');
-    document.body.style.overflow = ''; // Re-enable scrolling
-}
-
-function setupHamburgerMenuLinks() {
-    if (!isCSSLoaded('/css/hamburger_menu.css')) {
-        console.error('Hamburger CSS is not loaded in head tag.');
-        return;
-    }
-
-    // This function will be called after quick links are generated
-    // Add click handlers to all links to close the menu
-    const hamburgerMenuLinks = document.getElementById('hamburgerMenuLinks');
-    const overlay = document.getElementById('hamburgerMenuOverlay');
-
-    if (!hamburgerMenuLinks || !overlay) {
-        return;
-    }
-
-    // Add click handlers to all links to close the menu
-    const allLinks = hamburgerMenuLinks.querySelectorAll('a');
-    allLinks.forEach(link => {
-        link.addEventListener('click', closeHamburgerMenu);
-    });
-
-    // Add click-outside-to-close functionality
-    overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) {
-            closeHamburgerMenu();
-        }
-    });
 }
 
 /*
@@ -404,7 +364,6 @@ document.addEventListener('DOMContentLoaded', function () {
             { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },
             { name: 'Solver Buttons', fn: () => window.LinkProcessor?.setupSolverButtons() },
             { name: 'Quick Links', fn: () => window.QuickLinks?.initializeQuickLinks() },
-            { name: 'Hamburger Menu', fn: setupHamburgerMenuLinks },
             { name: 'Lightbox Container', fn: () => window.Lightbox?.addLightboxContainer() },
             { name: 'Lightbox Class', fn: () => window.Lightbox?.addLightboxClass() },
             { name: 'Lightbox Init', fn: () => window.Lightbox?.initLightbox() },

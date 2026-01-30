@@ -40,3 +40,4 @@ easter_egg_help
 /old_solvers/
 /backups/
 /.eleventyignore
+!.stylelintrc.json

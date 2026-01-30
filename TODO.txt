@@ -1,1 +1,0 @@
-Add the li.p-style class to p tags inside list tags.

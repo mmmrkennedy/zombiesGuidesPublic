@@ -28,8 +28,7 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     /* Color Palette - Neutral dark theme with subtle warmth */
     --color-bg-primary: #1a1a1a;
     --color-bg-secondary: #252525;
-    --color-bg-tertiary: #333333;
-
+    --color-bg-tertiary: #333;
     --color-text-primary: #e5e5e5;
     --color-text-secondary: #b0b0b0;
     --color-text-muted: #808080;
@@ -45,14 +44,12 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     --color-link-external: #8bc076;     /* Brighter sage green */
 
     /* Functional Colors */
-    --color-warning-bg: rgba(217, 91, 67, 0.12);
+    --color-warning-bg: rgb(217 91 67 / 12%);
     --color-warning-border: #d95b43;
     --color-warning-text: #f5a68f;
-
     --color-note-border: #5a5a5a;
-
-    --color-border-subtle: #333333;
-    --color-border-medium: #444444;
+    --color-border-subtle: #333;
+    --color-border-medium: #444;
 
     /* Spacing Scale - Consistent rhythm */
     --space-xs: 4px;
@@ -67,7 +64,6 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     --font-size-md: 18px;
     --font-size-lg: 22px;
     --font-size-xl: 28px;
-
     --line-height-tight: 1.4;
     --line-height-normal: 1.6;
     --line-height-relaxed: 1.75;
@@ -75,7 +71,7 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     /* Layout */
     --header-height-mobile: 56px;
     --header-height-desktop: 72px;
-    --content-max-width: 1000px;
+    --content-max-width: 900px;
 }
 
 /*
@@ -134,7 +130,7 @@ h4 {
     font-weight: 600;
     padding: var(--space-sm) 0;
     border-bottom: 2px solid var(--color-border-medium);
-    margin: var(--space-xl) 0 var(--space-lg);
+    margin: var(--space-lg) 0 var(--space-md);
 }
 
 .step-group-title {
@@ -235,7 +231,7 @@ a:hover {
     width: 14px;
     height: 14px;
     margin-left: var(--space-xs);
-    background-color: currentColor;
+    background-color: currentcolor;
     mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48cGF0aCBkPSJNOCA4aDh2OCIvPjxwYXRoIGQ9Im04IDE2IDgtOCIvPjwvc3ZnPg==');
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -244,7 +240,7 @@ a:hover {
 
 /* Link validation states */
 .incomplete-path { color: #d95b43; }
-.wrong_file_type { color: #e89850; }
+.wrong-file-type { color: #e89850; }
 .file-doesnt-exist { color: #c8a150; }
 
 .disabled {
@@ -372,6 +368,16 @@ select {
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8e4df' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: 16px;
+    padding-right: var(--space-xl);
+}
+
 input:focus,
 select:focus {
     outline: none;
@@ -389,16 +395,6 @@ input:disabled,
 select:disabled {
     opacity: 0.5;
     pointer-events: none;
-}
-
-select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8e4df' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right var(--space-sm) center;
-    background-size: 16px;
-    padding-right: var(--space-xl);
 }
 
 input[type='number'] {
@@ -465,7 +461,7 @@ input.spacing {
 details.spacing {
     margin: var(--space-lg) 0;
     border-left: 2px solid var(--color-tier-1);
-    background-color: rgba(212, 165, 116, 0.08);
+    background-color: rgb(212 165 116 / 8%);
     display: inline-block;
     padding: var(--space-xs);
 }
@@ -591,7 +587,6 @@ Page structure and containers.
     font-weight: 600;
     text-align: center;
     max-width: 100%;
-    word-wrap: break-word;
     overflow-wrap: break-word;
     color: var(--color-tier-1);
 }
@@ -612,7 +607,7 @@ Page structure and containers.
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgb(0 0 0 / 95%);
     z-index: 2000;
     justify-content: center;
     align-items: center;
@@ -628,7 +623,7 @@ Page structure and containers.
     max-height: 93vh;
     display: block;
     border: 1px solid var(--color-border-medium);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 40%);
 }
 
 .close-lightbox {
@@ -770,6 +765,7 @@ Mobile-specific adjustments.
     .toggle-button.bottom-right {
         --btn-bottom: var(--space-md);
         --btn-right: var(--space-md);
+
         padding: var(--space-md);
         width: 48px;
         height: 48px;
