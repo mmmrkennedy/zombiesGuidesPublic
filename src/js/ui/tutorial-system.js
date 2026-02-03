@@ -28,10 +28,10 @@ function isTutorialCSSLoaded() {
  * Adds the tutorial box HTML to the page
  */
 function addTutorialBox() {
-    const smoothScrollDiv = document.querySelector('div.smooth-scroll');
+    const contentWindowDiv = document.querySelector('div.content-window');
 
-    if (!smoothScrollDiv) {
-        console.log('SmoothScrollDiv is missing, unable to generate Tutorial Box');
+    if (!contentWindowDiv) {
+        console.log('contentWindowDiv is missing, unable to generate Tutorial Box');
         return false;
     }
 
@@ -81,6 +81,13 @@ function addTutorialBox() {
 
                     <!-- Page 5 -->
                     <div class="tutorial-page" data-page="5">
+                        <p>Ads on this site are <strong>togglable</strong> via the switch in the top right.</p>
+                        <p>They are placed as unobtrusively as possible to keep the quality of the site high.</p>
+                        <p>If you find the guides helpful, leaving them on is a great way to support the site.</p>
+                    </div>
+                    
+                    <!-- Page 6 -->
+                    <div class="tutorial-page" data-page="6">
                         <p>If you ever need to jump to the top of a guide, just use the "Back to Top" button.</p>
                         <p>Also, the guides are open to anyone who wishes to contribute. Join the <a class="external-link" href="https://discord.com/invite/hQng3Yz48A">Discord Server</a> to start helping out.</p>
                         <p>Thanks for checking out the Website!</p>
@@ -102,7 +109,7 @@ function addTutorialBox() {
             </div>
         </div>
     `;
-    smoothScrollDiv.insertAdjacentHTML('beforebegin', tutorialHTML);
+    contentWindowDiv.insertAdjacentHTML('beforebegin', tutorialHTML);
     return true;
 }
 

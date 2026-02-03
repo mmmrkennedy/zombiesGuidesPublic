@@ -1,0 +1,86 @@
+.page-layout {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ad-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* Stick the ads so they follow the user as they scroll */
+.ad-sidebar .ad-container {
+    position: sticky;
+    top: calc(var(--header-height-desktop) + 20px);
+}
+
+.version-and-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ad-toggle-label {
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    user-select: none;
+}
+
+.ad-toggle-switch {
+    position: relative;
+    width: 32px;
+    height: 17px;
+    cursor: pointer;
+    pointer-events: all !important;
+}
+
+.ad-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ad-toggle-slider {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-border-subtle);
+    border-radius: 17px;
+    transition: background-color 0.3s;
+}
+
+.ad-toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--color-text-muted);
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.ad-toggle-switch input:checked + .ad-toggle-slider {
+    background-color: var(--color-border-medium);
+}
+
+.ad-toggle-switch input:checked + .ad-toggle-slider::before {
+    transform: translateX(15px);
+    background-color: var(--color-tier-1);
+}
+
+/* On smaller screens, hide sidebars entirely */
+@media (width <= 1024px) {
+    .ad-sidebar {
+        display: none;
+    }
+
+    .ad-container {
+        max-width: 90vw;
+    }
+}

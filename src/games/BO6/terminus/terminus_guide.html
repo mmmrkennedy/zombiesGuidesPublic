@@ -587,47 +587,9 @@ description:
 <script>
     window.addEventListener('load', () => {
         if (window.ZombiesSolvers) {
-            if (typeof window.ZombiesSolvers.mountBeamsmasherSolver === 'function') {
-                try {
-                    window.ZombiesSolvers.mountBeamsmasherSolver('beamsmasher-react');
-                    console.log('[ZombiesSolvers] Successfully mounted BeamsmasherSolver into #beamsmasher-react');
-                } catch (err) {
-                    console.error('[ZombiesSolvers] mountBeamsmasherSolver threw an error:', err);
-                }
-            } else {
-                console.error('[ZombiesSolvers] mountBeamsmasherSolver is not a function. Available keys:', Object.keys(window.ZombiesSolvers));
-            }
+            window.ZombiesSolvers.mountBeamsmasherSolver('beamsmasher-react');
         } else {
-            // Check if any related scripts exist on the page at all
-            const allScripts = Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
-            console.error('[ZombiesSolvers] window.ZombiesSolvers is undefined at load time.');
-            console.error('[ZombiesSolvers] All script src\'s on page:', allScripts);
-
-            // Check if the target mount point even exists
-            const mountTarget = document.getElementById('beamsmasher-react');
-            console.error('[ZombiesSolvers] Mount target #beamsmasher-react exists:', !!mountTarget, mountTarget || null);
-
-            // Listen in case it loads late (e.g. async/deferred script)
-            const observer = new MutationObserver(() => {
-                if (window.ZombiesSolvers) {
-                    observer.disconnect();
-                    console.warn('[ZombiesSolvers] Detected late load of ZombiesSolvers. Attempting mount now...');
-                    try {
-                        window.ZombiesSolvers.mountBeamsmasherSolver('beamsmasher-react');
-                        console.log('[ZombiesSolvers] Successfully mounted after late load.');
-                    } catch (err) {
-                        console.error('[ZombiesSolvers] Mount failed after late load:', err);
-                    }
-                }
-            });
-            observer.observe(document.head, { childList: true });
-            observer.observe(document.body, { childList: true });
-
-            // Safety timeout to disconnect the observer if it never shows up
-            setTimeout(() => {
-                observer.disconnect();
-                console.error('[ZombiesSolvers] Timed out (5s) waiting for ZombiesSolvers to appear on window.');
-            }, 5000);
+            console.error('ZombiesSolvers not loaded!');
         }
     });
 </script>

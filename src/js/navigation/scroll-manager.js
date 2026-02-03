@@ -54,6 +54,8 @@ function scrollToElement(elementId, fromPopstate = false) {
         const contentWindowScrollTop = contentWindow.scrollTop;
         const targetY = elementPosition + contentWindowScrollTop - topBackBoxHeight;
 
+        console.log(`[DEBUG] Content Window: ${contentWindow} & targetY=${targetY}`);
+
         contentWindow.scrollTo({
             top: targetY,
             behavior: 'smooth',

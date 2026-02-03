@@ -436,7 +436,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
   // Passthrough copy static assets
-  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/css/*");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/favicon");
   eleventyConfig.addPassthroughCopy("src/font");
