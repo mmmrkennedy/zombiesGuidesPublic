@@ -25,6 +25,7 @@ cmake-build-*/
 # Custom
 /*/*.txt
 !/guide_making_utils/commit_checklist.txt
+!/guide_making_utils/given_difficulties.txt
 /Easter Egg Help/*
 *.png
 /venv/
@@ -41,3 +42,4 @@ easter_egg_help
 /backups/
 /.eleventyignore
 !.stylelintrc.json
+/nul

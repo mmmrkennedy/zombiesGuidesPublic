@@ -4,7 +4,7 @@
     "description": "Zombies Guides website with automated build system",
     "type": "module",
     "scripts": {
-        "build": "bun run build:react && bun run build:eleventy && bun run minify && bun run build:sitemap",
+        "build": "bun run build:react && bun run build:eleventy && bun run minify && bun build:sitemap",
         "build:full": "bun run clean && bun run build",
         "clean": "rimraf dist",
         "build:react": "vite build",

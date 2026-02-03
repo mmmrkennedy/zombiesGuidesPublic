@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- SEO Meta Tags -->
+        <title>{{ title }}</title>
+        <meta name="description" content="{{ description }}">
+        <meta name="keywords" content="Call of Duty, Zombies, Easter Egg, Guide, Walkthrough, Quest, Side Quest, Main Quest">
+        <meta name="author" content="mmmrkennedy">
+        <link rel="canonical" href="https://mmmrkennedy.com{{ page.url }}">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://mmmrkennedy.com{{ page.url }}">
+        <meta property="og:title" content="{{ title }}">
+        <meta property="og:description" content="{{ description }}">
+        <meta property="og:image" content="https://mmmrkennedy.com/SEO_img.webp">
+        <meta property="og:site_name" content="mmmrkennedy's Zombies Guides">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://mmmrkennedy.com{{ page.url }}">
+        <meta name="twitter:title" content="{{ title }}">
+        <meta name="twitter:description" content="{{ description }}">
+        <meta name="twitter:image" content="https://mmmrkennedy.com/SEO_img.webp">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
+        <link rel="stylesheet" type="text/css" href="/css/tutorial_box.css?v={{ site.buildVersion }}">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+
+        <!-- REACT_BUNDLE_MODULEPRELOAD -->
+
+        <!-- Prefetch the Solver HTMLs to avoid React Pop-in -->
+        <link rel="prefetch" href="/games/BO3/gorod_krovi/gorod_krovi_solver.html">
+        <link rel="prefetch" href="/games/IW/shaolin_shuffle/shaolin_shuffle_solvers.html">
+        <link rel="prefetch" href="/games/IW/attack_of_the_radioactive_thing/attack_solvers.html">
+        <link rel="prefetch" href="/games/IW/the_beast_from_beyond/beast_solvers.html">
+        <link rel="prefetch" href="/games/WW2/the_shadowed_throne/the_shadowed_throne_solvers.html">
+        <link rel="prefetch" href="/games/WW2/the_frozen_dawn/the_frozen_dawn_solver.html">
+        <link rel="prefetch" href="/games/BO6/terminus/beamsmasher_solver.html">
+        <link rel="prefetch" href="/games/BO6/shattered_veil/shattered_veil_mark_2_solver.html">
+        <link rel="prefetch" href="/games/BO6/reckoning/reckoning_solvers.html">
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "{{ title }}",
+            "description": "{{ description }}",
+            "url": "https://mmmrkennedy.com{{ page.url }}",
+            "image": "https://mmmrkennedy.com/SEO_img.webp",
+            "author": {
+                "@type": "Person",
+                "name": "mmmrkennedy",
+                "url": "https://mmmrkennedy.com"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "mmmrkennedy's Zombies Guides",
+                "url": "https://mmmrkennedy.com"
+            },
+            "about": {
+                "@type": "VideoGame",
+                "name": "Call of Duty Zombies"
+            }
+        }
+        </script>
+    </head>
+
+    <body>
+        <div class="smooth-scroll content-window">
+            <h1 style="text-align: center">Call of Duty Zombies Easter Eggs &amp; Quests Guides</h1>
+
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14" />
+                        <path d="m18 13-6-6-6 6" />
+                        <path d="M12 7v14" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
+            </div>
+
+            <div class="version-display" data-version="{{ site.buildVersion }}">
+                v.
+                <span id="version-number">0</span>
+            </div>
+
+            <div class="content-container">
+                {{ content | safe }}
+            </div>
+        </div>
+
+        <!-- Core utilities -->
+        <script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- Navigation -->
+        <script src="/js/navigation/scroll-manager.js?v={{ site.buildVersion }}" defer></script>
+        <script src="/js/navigation/nav-utils.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- UI Components -->
+        <script src="/js/ui/tutorial-system.js?v={{ site.buildVersion }}" defer></script>
+        <script src="/js/ui/lightbox.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- Content Processing -->
+        <script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
+        <script src="/js/content/quick-links.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- Device & Environment -->
+        <script src="/js/device/mobile-detection.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- Shared utilities -->
+        <script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
+
+        <!-- Main scripts -->
+        <script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>
+    </body>
+</html>

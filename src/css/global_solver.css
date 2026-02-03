@@ -62,7 +62,7 @@ SOLVER CONTAINER
     width: 100%;
     min-width: 360px;
     max-width: fit-content;
-    margin: auto;
+    margin-left: 0 !important;
     padding: var(--space-lg);
     text-align: left;
     box-sizing: border-box;
@@ -128,7 +128,6 @@ legend {
     line-height: 1.6;
     width: 0;
     min-width: 100%;
-    overflow-wrap: break-word;
     overflow-wrap: break-word;
 }
 

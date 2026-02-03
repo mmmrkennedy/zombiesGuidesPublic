@@ -306,6 +306,7 @@ a:hover {
 .boss-fight-phases {
     color: var(--color-tier-2);
     border-left: 3px solid var(--color-tier-2);
+    font-size: var(--font-size-md);
 }
 
 .notes {

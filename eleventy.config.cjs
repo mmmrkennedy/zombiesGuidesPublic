@@ -17,8 +17,15 @@ function generateQuickLinks(content, outputPath) {
     const dom = new JSDOM(content);
     const document = dom.window.document;
 
-    const container = document.querySelector('.content-container-top');
-    if (!container) return content;
+    let container = document.querySelector('.content-container-top');
+    if (!container) {
+      // Create the container and insert it before the first .content-container
+      container = document.createElement('div');
+      container.className = 'content-container-top';
+      const firstSection = document.querySelector('.content-container');
+      if (!firstSection) return content;
+      firstSection.parentNode.insertBefore(container, firstSection);
+    }
 
     // Clear existing manual content
     container.innerHTML = '';
