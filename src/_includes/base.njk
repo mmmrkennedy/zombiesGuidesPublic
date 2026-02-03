@@ -89,7 +89,7 @@
         {%- endif %}
     </head>
 
-    <body>
+    <body{% if skipTOC %} data-skip-toc="true"{% endif %}>
         <!-- Version display component -->
         <div class="version-display" data-version="{{ site.buildVersion }}">
             v.

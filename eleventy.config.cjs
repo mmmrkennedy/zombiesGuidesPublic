@@ -17,6 +17,9 @@ function generateQuickLinks(content, outputPath) {
     const dom = new JSDOM(content);
     const document = dom.window.document;
 
+    // Skip TOC generation if the page opts out
+    if (document.body?.dataset?.skipToc === 'true') return content;
+
     let container = document.querySelector('.content-container-top');
     if (!container) {
       // Create the container and insert it before the first .content-container
@@ -32,7 +35,7 @@ function generateQuickLinks(content, outputPath) {
 
     // Build navigation from page structure
     const navStructure = buildNavStructure(document);
-    renderNavigation(container, navStructure);
+    renderNavigation(container, navStructure, outputPath);
 
     return dom.serialize();
   } catch (error) {
@@ -125,7 +128,7 @@ function buildNavStructure(document) {
 /**
  * Renders navigation structure to DOM
  */
-function renderNavigation(container, structure) {
+function renderNavigation(container, structure, outputPath) {
   const document = container.ownerDocument;
 
   for (const section of structure) {
@@ -148,7 +151,7 @@ function renderNavigation(container, structure) {
     let listStack = [rootList];
 
     for (const item of section.items) {
-      const link = createNavLink(document, item.element, item.customName);
+      const link = createNavLink(document, item.element, item.customName, outputPath);
       if (!link) continue;
 
       // Adjust nesting level based on indent
@@ -183,9 +186,9 @@ function renderNavigation(container, structure) {
 /**
  * Creates a navigation link element
  */
-function createNavLink(document, element, customName = null) {
+function createNavLink(document, element, customName = null, outputPath = '') {
   if (!element.id) {
-    console.warn(`Quick link element missing ID: ${element.textContent?.substring(0, 50)}`);
+    console.warn(`[${outputPath}] Quick link element missing ID: ${element.textContent?.substring(0, 50)}`);
     return null;
   }
 
@@ -437,10 +440,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/favicon");
   eleventyConfig.addPassthroughCopy("src/font");
-  eleventyConfig.addPassthroughCopy("src/easter_egg_help");
   eleventyConfig.addPassthroughCopy("src/games/**/*.{webp,png,jpg,jpeg,svg}");
-  eleventyConfig.addPassthroughCopy("src/react-solvers");
   eleventyConfig.addPassthroughCopy("src/*.{webp,png,jpg,jpeg,svg,ico,xml,txt}");
+  eleventyConfig.addPassthroughCopy("src/react-solvers");
   eleventyConfig.addPassthroughCopy("src/_headers");
 
   // Preserve .html file extensions instead of using directory index
