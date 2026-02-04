@@ -1,0 +1,6 @@
+dist/
+build/
+node_modules/
+*.min.css
+public/static/css/
+react-solvers/dist/

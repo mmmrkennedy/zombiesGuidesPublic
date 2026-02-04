@@ -1,0 +1,9 @@
+dist/
+build/
+node_modules/
+*.min.js
+*.min.css
+*.bundle.js
+*.chunk.js
+public/static/js/
+react-solvers/dist/

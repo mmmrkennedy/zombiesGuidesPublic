@@ -24,10 +24,7 @@ Finished:
 - All of WW2
 - Liberty Falls (BO6)
 - Shadows of Evil (BO3)
-
-In Limbo (I don't wanna):
-
-- Outbreak (CW)
+- Terminus (BO6)
 
 Planned:
 

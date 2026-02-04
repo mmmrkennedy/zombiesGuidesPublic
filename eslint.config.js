@@ -1,23 +1,60 @@
-import js from '@eslint/js';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import prettier from 'eslint-config-prettier';
-import globals from 'globals';
+import js from "@eslint/js";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import tseslint from "typescript-eslint";
+import prettier from "eslint-config-prettier";
+import globals from "globals";
 
 export default [
     {
-        ignores: ['build/**', 'dist/**', 'react-solvers/dist/**', 'old_solvers/**', 'public/static/js/**', '**/*.bundle.js', '**/*.chunk.js'],
+        ignores: [
+            "build/**",
+            "dist/**",
+            "react-solvers/dist/**",
+            "src/react-solvers/dist/**",
+            "old_solvers/**",
+            "public/static/js/**",
+            "**/*.bundle.js",
+            "**/*.chunk.js",
+            "**/*.min.js",
+        ],
     },
     js.configs.recommended,
+    // CommonJS files config (build scripts, config files)
     {
-        files: ['**/*.{js,jsx}'],
+        files: ["**/*.cjs"],
+        languageOptions: {
+            ecmaVersion: 2022,
+            sourceType: "commonjs",
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            "no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                },
+            ],
+            "no-console": "off",
+            "prefer-const": "warn",
+            "no-var": "error",
+            "eqeqeq": "warn",
+            "no-debugger": "error",
+        },
+    },
+    // JavaScript files config
+    {
+        files: ["**/*.{js,jsx}"],
         plugins: {
             react,
-            'react-hooks': reactHooks,
+            "react-hooks": reactHooks,
         },
         languageOptions: {
             ecmaVersion: 2022,
-            sourceType: 'module',
+            sourceType: "module",
             parserOptions: {
                 ecmaFeatures: {
                     jsx: true,
@@ -25,38 +62,94 @@ export default [
             },
             globals: {
                 ...globals.browser,
-                // Node.js globals for build tools
-                process: 'readonly',
-                __dirname: 'readonly',
-                module: 'readonly',
-                require: 'readonly',
+                process: "readonly",
+                __dirname: "readonly",
+                module: "readonly",
+                require: "readonly",
             },
         },
         settings: {
             react: {
-                version: 'detect',
+                version: "detect",
             },
         },
         rules: {
             // React Rules
-            'react/jsx-uses-react': 'error',
-            'react/jsx-uses-vars': 'error',
-            'react/prop-types': 'off', // Turn off if you don't use PropTypes
+            "react/jsx-uses-react": "error",
+            "react/jsx-uses-vars": "error",
+            "react/prop-types": "off",
 
             // React Hooks Rules
-            'react-hooks/rules-of-hooks': 'error',
-            'react-hooks/exhaustive-deps': 'warn',
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
 
             // General JavaScript Rules
-            'no-unused-vars': [
-                'warn',
+            "no-unused-vars": [
+                "warn",
                 {
-                    argsIgnorePattern: '^_',
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
                 },
             ],
-            'no-console': 'off', // Allow console.log
-            'prefer-const': 'warn',
-            'no-var': 'error',
+            "no-console": ["warn", { allow: ["warn", "error"] }],
+            "prefer-const": "warn",
+            "no-var": "error",
+            "eqeqeq": "warn",
+            "no-debugger": "error",
+        },
+    },
+    // TypeScript/TSX files config
+    ...tseslint.configs.recommended.map((config) => ({
+        ...config,
+        files: ["**/*.{ts,tsx}"],
+    })),
+    {
+        files: ["**/*.{ts,tsx}"],
+        plugins: {
+            react,
+            "react-hooks": reactHooks,
+        },
+        languageOptions: {
+            ecmaVersion: 2022,
+            sourceType: "module",
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+            },
+            globals: {
+                ...globals.browser,
+            },
+        },
+        settings: {
+            react: {
+                version: "detect",
+            },
+        },
+        rules: {
+            // React Rules
+            "react/jsx-uses-react": "error",
+            "react/jsx-uses-vars": "error",
+            "react/prop-types": "off",
+
+            // React Hooks Rules
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
+
+            // TypeScript-specific rules
+            "@typescript-eslint/no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                },
+            ],
+            "@typescript-eslint/no-explicit-any": "warn",
+            "no-console": ["warn", { allow: ["warn", "error"] }],
+            "prefer-const": "warn",
+            "no-var": "error",
+            "eqeqeq": "warn",
+            "no-debugger": "error",
         },
     },
     prettier, // Must be last to override other configs
