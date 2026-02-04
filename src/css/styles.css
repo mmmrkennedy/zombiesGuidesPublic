@@ -640,7 +640,6 @@ Helper classes and special cases.
 */
 
 .solver-with-button {
-    min-width: 850px;
     width: fit-content;
     margin: var(--space-md);
 }
@@ -693,7 +692,6 @@ Mobile-specific adjustments.
     }
 
     .solver-with-button {
-        min-width: unset;
         width: 100%;
         margin: var(--space-md);
     }

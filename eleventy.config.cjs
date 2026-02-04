@@ -440,8 +440,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/favicon");
   eleventyConfig.addPassthroughCopy("src/font");
-  eleventyConfig.addPassthroughCopy("src/games/**/*.{webp,png,jpg,jpeg,svg}");
-  eleventyConfig.addPassthroughCopy("src/*.{webp,png,jpg,jpeg,svg,ico,xml,txt}");
+  eleventyConfig.addPassthroughCopy("src/games/**/*.{webp,png,jpg,jpeg,svg,gif}");
+  eleventyConfig.addPassthroughCopy("src/*.{webp,png,jpg,jpeg,svg,ico,xml,txt,gif}");
   eleventyConfig.addPassthroughCopy("src/react-solvers");
   eleventyConfig.addPassthroughCopy("src/_headers");
 
