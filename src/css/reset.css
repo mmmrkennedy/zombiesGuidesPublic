@@ -1,0 +1,27 @@
+/*
+===============================================================================
+2. RESET & BASE STYLES
+===============================================================================
+Foundation styles and sensible defaults.
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-relaxed);
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+}

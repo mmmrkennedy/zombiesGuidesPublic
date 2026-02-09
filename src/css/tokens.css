@@ -1,0 +1,58 @@
+/*
+===============================================================================
+1. DESIGN TOKENS
+===============================================================================
+Central source of truth for colors, spacing, and sizing.
+Neutral dark theme with subtle warmth for character without being overbearing.
+*/
+
+:root {
+    /* Color Palette - Neutral dark theme with subtle warmth */
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #252525;
+    --color-bg-tertiary: #333;
+    --color-text-primary: #e5e5e5;
+    --color-text-secondary: #b0b0b0;
+    --color-text-muted: #808080;
+
+    /* Hierarchy Colors - Muted gold/amber palette */
+    --color-tier-1: #c9a961;        /* Muted gold - Main sections */
+    --color-tier-2: #b89a5a;        /* Deeper amber - Sub-sections */
+    --color-tier-3: #8a7a52;        /* Olive gold - Tertiary sections */
+
+    /* Link Colors - Distinct but harmonious */
+    --color-link-default: #78a8e8;      /* Brighter blue */
+    --color-link-internal: #6dbaa8;     /* Brighter teal */
+    --color-link-external: #8bc076;     /* Brighter sage green */
+
+    /* Functional Colors */
+    --color-warning-bg: rgb(217 91 67 / 12%);
+    --color-warning-border: #d95b43;
+    --color-warning-text: #f5a68f;
+    --color-note-border: #5a5a5a;
+    --color-border-subtle: #333;
+    --color-border-medium: #444;
+
+    /* Spacing Scale - Consistent rhythm */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+
+    /* Typography Scale (mobile-first defaults) */
+    --font-size-base: 0.9375rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg: 1.1875rem;
+    --font-size-xl: 1.375rem;
+    --line-height-tight: 1.4;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.75;
+
+    /* Layout */
+    --header-height-mobile: 3.5rem;
+    --header-height-desktop: 4.5rem;
+    --content-max-width: 900px;
+}

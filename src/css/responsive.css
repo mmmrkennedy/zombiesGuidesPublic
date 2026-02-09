@@ -1,0 +1,96 @@
+/*
+===============================================================================
+7. RESPONSIVE (DESKTOP)
+===============================================================================
+Desktop-specific upgrades. Base styles are mobile-first.
+*/
+
+@media (width >= 30em) {
+    .title-text {
+        max-width: 65vw;
+    }
+
+    .content-container-top,
+    .content-container {
+        max-width: 100%;
+    }
+}
+
+@media (width >= 48.0625em) {
+    :root {
+        --font-size-base: 1rem;
+        --font-size-xl: 1.75rem;
+        --font-size-lg: 1.375rem;
+    }
+
+    .content-container-top,
+    .content-container {
+        padding: var(--space-sm) var(--space-lg);
+        max-width: var(--content-max-width);
+    }
+
+    ol, ul {
+        padding-inline-start: var(--space-xl);
+    }
+
+    table {
+        margin: var(--space-lg) 0;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .solver-with-button {
+        width: fit-content;
+    }
+
+    .top-buttons-background-box {
+        height: var(--header-height-desktop);
+    }
+
+    .title-text {
+        margin: var(--space-sm);
+        font-size: var(--font-size-xl);
+        max-width: 100%;
+    }
+
+    .title-sub-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .version-display {
+        top: var(--space-xs);
+    }
+
+    .toggle-button.bottom-right {
+        --btn-bottom: 1.25rem;
+        --btn-right: 1.25rem;
+
+        padding: var(--space-sm) var(--space-lg);
+        width: auto;
+        height: auto;
+        opacity: 0.85;
+    }
+
+    .toggle-button.top-left {
+        height: auto;
+    }
+
+    .hamburger-menu-header {
+        height: var(--header-height-desktop);
+    }
+
+    .content-window {
+        padding-bottom: 0;
+        height: calc(100vh - var(--header-height-desktop));
+        height: calc(100dvh - var(--header-height-desktop));
+    }
+}
+
+@media (width >= 75em) {
+    :root {
+        --content-max-width: 1000px;
+    }
+}

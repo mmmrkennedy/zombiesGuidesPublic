@@ -6,7 +6,7 @@
     "scripts": {
         "build": "bun run build:react && bun run build:eleventy && bun run minify && bun build:sitemap",
         "build:full": "bun run clean && bun run build",
-        "build:dev": "bun run build && bun run devs",
+        "build:dev": "bun run build && bun run dev",
         "clean": "rimraf dist",
         "build:react": "vite build",
         "build:eleventy": "eleventy --incremental",

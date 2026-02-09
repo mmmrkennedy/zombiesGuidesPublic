@@ -1,0 +1,36 @@
+/*
+===============================================================================
+6. UTILITIES
+===============================================================================
+Helper classes and special cases.
+*/
+
+.solver-with-button {
+    width: 100%;
+    margin: var(--space-md);
+}
+
+.button-activated-div {
+    max-width: 100%;
+    margin: var(--space-md) var(--space-sm);
+}
+
+.hamburger-icon {
+    pointer-events: none;
+    display: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-menu-content {
+    width: 100%;
+}
+
+.hamburger-menu-toggle {
+    padding-right: var(--space-md);
+    width: unset;
+}
+
+.hamburger-menu-header {
+    height: var(--header-height-mobile);
+}
