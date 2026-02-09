@@ -21,7 +21,8 @@ async function buildSitemap() {
         .filter(a => !a.classList.contains('disabled')) // skip disabled links
         .map(a => a.getAttribute('href'))
         .filter(href => href && !href.startsWith('http') && !href.startsWith('#')) // only relative links
-        .map(href => href.replace(/^\/?/, '')); // normalize
+        .map(href => href.replace(/^\/?/, '')) // normalize
+        .map(href => href.replace(/\.html$/, '')); // remove .html extension
 
     const uniqueLinks = [...new Set(links)];
 
