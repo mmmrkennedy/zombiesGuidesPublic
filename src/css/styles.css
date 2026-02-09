@@ -153,7 +153,7 @@ h4 {
 }
 
 .sub-header {
-    margin-top: calc(var(--space-sm) * -1);
+    margin-top: calc(var(--space-xs) * -1);
     margin-bottom: calc(var(--space-sm) * -1);
 }
 

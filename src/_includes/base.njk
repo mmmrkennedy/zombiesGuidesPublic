@@ -28,7 +28,7 @@
 
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
-        <link rel="stylesheet" type="text/css" href="/css/adstyles.css?v={{ site.buildVersion }}">
+        <link rel="stylesheet" type="text/css" href="/css/kofi.css?v={{ site.buildVersion }}">
         {%- if useSolverCSS %}
         <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v={{ site.buildVersion }}">
         {%- endif %}
@@ -88,85 +88,60 @@
         }
         </script>
         {%- endif %}
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2164582284838563"
-             crossorigin="anonymous">
-        </script>
     </head>
 
     <body{% if skipTOC %} data-skip-toc="true"{% endif %}>
         <div class="version-display" data-version="{{ site.buildVersion }}">
             <div class="version-and-toggle">
-                <span class="ad-toggle-label">Ads</span>
-                <label class="ad-toggle-switch">
-                    <input type="checkbox" id="adToggle">
-                    <span class="ad-toggle-slider"></span>
-                </label>
                 v.<span id="version-number">0</span>
             </div>
         </div>
 
-        <div class="site-wrapper">
-            <div class="top-buttons-background-box">
-                <!-- Title at the top of the page -->
-                <h1 class="title-text">{{ title }}</h1>
 
-                <!-- Mobile devices content -->
-                <div id="mobileContent" style="display: none">
-                    <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="m12 8-4 4 4 4" />
-                            <path d="M16 12H8" />
-                        </svg>
-                    </button>
-                    <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
-                            <path d="M5 3h14" />
-                            <path d="m18 13-6-6-6 6" />
-                            <path d="M12 7v14" />
-                        </svg>
-                    </button>
-                </div>
+        <div class="top-buttons-background-box">
+            <!-- Title at the top of the page -->
+            <h1 class="title-text">{{ title }}</h1>
 
-                <!-- Non-mobile devices content -->
-                <div id="nonMobileContent" style="display: none">
-                    <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
-                    <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
-                </div>
+            <!-- Mobile devices content -->
+            <div id="mobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m12 8-4 4 4 4" />
+                        <path d="M16 12H8" />
+                    </svg>
+                </button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                        <path d="M5 3h14" />
+                        <path d="m18 13-6-6-6 6" />
+                        <path d="M12 7v14" />
+                    </svg>
+                </button>
             </div>
 
-            <div class="page-layout">
-                <div class="ad-sidebar ad-sidebar-left">
-                    <div class="ad-container">
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-2164582284838563"
-                             data-ad-slot="8055973315"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                    </div>
-                </div>
-
-                <div class="content-window">
-                    {# This is where page-specific content will be inserted #}
-                    {{ content | safe }}
-                </div>
-
-                <div class="ad-sidebar ad-sidebar-right">
-                    <div class="ad-container">
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-2164582284838563"
-                             data-ad-slot="8055973315"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                    </div>
-                </div>
+            <!-- Non-mobile devices content -->
+            <div id="nonMobileContent" style="display: none">
+                <button type="button" class="toggle-button top-left" onclick="navigateToIndex()">Back</button>
+                <button type="button" class="toggle-button bottom-right" onclick="scrollToTop()">Back to Top</button>
             </div>
         </div>
+
+        <div class="content-window">
+            {# This is where page-specific content will be inserted #}
+            {{ content | safe }}
+        </div>
+
+
+        <!-- Ko-fi -->
+        {% if showKofi %}
+        <div class="kofi-container">
+            <a href="https://ko-fi.com/X8X61TUY37" target="_blank" class="kofi-button">
+                <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png" alt="Ko-fi" class="kofi-img">
+                Tips (Ko-Fi)
+            </a>
+        </div>
+        {% endif %}
 
         <!-- Core utilities -->
         <script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
@@ -188,10 +163,6 @@
 
         <!-- Shared utilities -->
         <script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
-
-        <!-- Ads -->
-        <script src="/js/ads/ad-injector.js?v={{ site.buildVersion }}" defer></script>
-        <script src="/js/ads/ad-toggle.js?v={{ site.buildVersion }}" defer></script>
 
         <!-- Main scripts -->
         <script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>

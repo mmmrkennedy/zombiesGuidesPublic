@@ -29,7 +29,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
         <link rel="stylesheet" type="text/css" href="/css/tutorial_box.css?v={{ site.buildVersion }}">
-        <link rel="stylesheet" type="text/css" href="/css/adstyles.css?v={{ site.buildVersion }}">
+        <link rel="stylesheet" type="text/css" href="/css/kofi.css?v={{ site.buildVersion }}">
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
 
@@ -71,10 +71,6 @@
             }
         }
         </script>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2164582284838563"
-            crossorigin="anonymous">
-        </script>
     </head>
 
     <body data-skip-toc="true">
@@ -99,17 +95,19 @@
 
             <div class="version-display" data-version="{{ site.buildVersion }}">
                 <div class="version-and-toggle">
-                    <span class="ad-toggle-label">Ads</span>
-                    <label class="ad-toggle-switch">
-                        <input type="checkbox" id="adToggle">
-                        <span class="ad-toggle-slider"></span>
-                    </label>
                     v.<span id="version-number">0</span>
                 </div>
             </div>
 
             <div class="content-container">
                 {{ content | safe }}
+            </div>
+
+            <div class="kofi-container">
+                <a href="https://ko-fi.com/X8X61TUY37" target="_blank" class="kofi-button">
+                    <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png" alt="Ko-fi" class="kofi-img">
+                    Tips (Ko-Fi)
+                </a>
             </div>
         </div>
 
@@ -133,9 +131,6 @@
 
         <!-- Shared utilities -->
         <script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
-
-        <!-- Ads -->
-        <script src="/js/ads/ad-toggle.js?v={{ site.buildVersion }}" defer></script>
 
         <!-- Main scripts -->
         <script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>
