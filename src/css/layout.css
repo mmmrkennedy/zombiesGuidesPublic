@@ -20,7 +20,6 @@ Page structure and containers.
     background-color: var(--color-bg-primary);
     scrollbar-width: thin;
     overflow-wrap: break-word;
-    height: calc(100vh - var(--header-height-mobile));
     height: calc(100dvh - var(--header-height-mobile));
     padding-bottom: var(--header-height-mobile);
 }
@@ -40,6 +39,9 @@ Page structure and containers.
 .content-container-top {
     border-bottom: 2px solid var(--color-border-medium);
 }
+
+/* Uncomment to hide the main ToC (sidebar ToC only): */
+.content-container-top { display: none; }
 
 .top-buttons-background-box {
     flex-shrink: 0;
@@ -115,6 +117,28 @@ Page structure and containers.
     display: block;
     border: 1px solid var(--color-border-medium);
     box-shadow: 0 8px 32px rgb(0 0 0 / 40%);
+}
+
+.lightbox-content img {
+    cursor: zoom-in;
+}
+
+.lightbox.zoomed {
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.lightbox.zoomed .lightbox-content {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lightbox.zoomed .lightbox-content img {
+    max-width: 300vw;
+    max-height: 300vh;
+    cursor: zoom-out;
 }
 
 .close-lightbox {

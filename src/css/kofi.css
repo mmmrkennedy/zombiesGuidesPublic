@@ -7,7 +7,8 @@
 
 .kofi-button {
     background-color: var(--color-tier-1);
-    color: white;
+    color: white !important;
+    font-size: small;
     padding: 5px 10px;
     border-radius: 25px;
     text-decoration: none;
@@ -25,8 +26,8 @@
 }
 
 .kofi-img {
-    height: 20px;
-    margin-right: 8px;
+    height: 17px;
+    margin-right: 4px;
 }
 
 @media (width <= 768px) {

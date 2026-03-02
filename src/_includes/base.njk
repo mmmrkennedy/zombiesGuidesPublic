@@ -9,6 +9,9 @@
         <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
         <meta name="keywords" content="Call of Duty, Zombies, Easter Egg, Guide, {{ title }}, Walkthrough">
         <meta name="author" content="mmmrkennedy">
+        {%- if unfinished or page.url in unfinishedPages %}
+        <meta name="robots" content="noindex, nofollow">
+        {%- endif %}
         <link rel="canonical" href="https://mmmrkennedy.com{{ page.url }}">
 
         <!-- Open Graph / Facebook -->
@@ -128,8 +131,14 @@
         </div>
 
         <div class="content-window">
-            {# This is where page-specific content will be inserted #}
+            {%- if unfinished or page.url in unfinishedPages %}
+            <div class="content-container">
+                <h2>Sorry, this page is not ready yet!</h2>
+                <p>Please check back later.</p>
+            </div>
+            {%- else %}
             {{ content | safe }}
+            {%- endif %}
         </div>
 
 

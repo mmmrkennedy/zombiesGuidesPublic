@@ -107,7 +107,6 @@ legend {
     width: 0;
     min-width: 100%;
     overflow-wrap: break-word;
-    overflow-wrap: break-word;
 }
 
 .solver-container label {
@@ -371,7 +370,7 @@ legend {
 }
 
 .queen {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg');
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

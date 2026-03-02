@@ -16,7 +16,7 @@ function isTutorialCSSLoaded() {
     // Alternative check - look through all stylesheets
     for (let i = 0; i < document.styleSheets.length; i++) {
         const sheet = document.styleSheets[i];
-        if (sheet.href && sheet.href.includes('tutorial_box.css')) {
+        if (sheet.href && sheet.href.includes("tutorial_box.css")) {
             return true;
         }
     }
@@ -28,16 +28,16 @@ function isTutorialCSSLoaded() {
  * Adds the tutorial box HTML to the page
  */
 function addTutorialBox() {
-    const contentWindowDiv = document.querySelector('div.content-window');
+    const contentWindowDiv = document.querySelector("div.content-window");
 
     if (!contentWindowDiv) {
-        console.log('contentWindowDiv is missing, unable to generate Tutorial Box');
+        console.log("contentWindowDiv is missing, unable to generate Tutorial Box");
         return false;
     }
 
     // Check if CSS is loaded before adding HTML
     if (!isTutorialCSSLoaded()) {
-        console.warn('Tutorial CSS not loaded, skipping tutorial box creation');
+        console.warn("Tutorial CSS not loaded, skipping tutorial box creation");
         return false;
     }
 
@@ -109,7 +109,7 @@ function addTutorialBox() {
             </div>
         </div>
     `;
-    contentWindowDiv.insertAdjacentHTML('beforebegin', tutorialHTML);
+    contentWindowDiv.insertAdjacentHTML("beforebegin", tutorialHTML);
     return true;
 }
 
@@ -121,7 +121,7 @@ function isIndexPage() {
     const path = window.location.pathname;
 
     // Common index page patterns
-    return path === '/' || path === '/index.html' || path === '/index.htm' || path.endsWith('/') || path === '';
+    return path === "/" || path === "/index.html" || path === "/index.htm" || path.endsWith("/") || path === "";
 }
 
 /**
@@ -130,21 +130,21 @@ function isIndexPage() {
 function tutorialPopupInit() {
     // Only run on index page
     if (!isIndexPage()) {
-        console.log('Not on index page, skipping tutorial');
+        console.log("Not on index page, skipping tutorial");
         return;
     }
 
     // Check if tutorial has been shown before
-    if (!localStorage.getItem('zombiesGuidesTutorialShown')) {
+    if (!localStorage.getItem("zombiesGuidesTutorialShown")) {
         // Check if CSS is loaded before proceeding
         if (!isTutorialCSSLoaded()) {
-            console.warn('Tutorial CSS not loaded, tutorial will not be shown');
+            console.warn("Tutorial CSS not loaded, tutorial will not be shown");
             return;
         }
 
         const tutorialAdded = addTutorialBox();
         if (!tutorialAdded) {
-            console.warn('Tutorial box could not be added, skipping tutorial');
+            console.warn("Tutorial box could not be added, skipping tutorial");
             return;
         }
 
@@ -156,10 +156,10 @@ function tutorialPopupInit() {
         }, 800);
     } else {
         // Hide tutorial for returning users
-        const tutorialOverlay = document.getElementById('tutorialOverlay');
+        const tutorialOverlay = document.getElementById("tutorialOverlay");
 
         if (tutorialOverlay) {
-            tutorialOverlay.style.display = 'none';
+            tutorialOverlay.style.display = "none";
         }
     }
 }
@@ -168,18 +168,18 @@ function tutorialPopupInit() {
  * Initializes tutorial event listeners and shows first page
  */
 function initTutorial() {
-    const tutorialOverlay = document.getElementById('tutorialOverlay');
+    const tutorialOverlay = document.getElementById("tutorialOverlay");
     if (tutorialOverlay) {
-        tutorialOverlay.style.display = 'flex';
+        tutorialOverlay.style.display = "flex";
     }
 
     // Initialize variables
-    document.getElementById('totalPages').textContent = String(document.querySelectorAll('.tutorial-page').length);
+    document.getElementById("totalPages").textContent = String(document.querySelectorAll(".tutorial-page").length);
 
     // Set up event listeners
-    document.getElementById('prevPageBtn').addEventListener('click', navigatePrevPage);
-    document.getElementById('nextPageBtn').addEventListener('click', navigateNextPage);
-    document.getElementById('finishBtn').addEventListener('click', finishTutorial);
+    document.getElementById("prevPageBtn").addEventListener("click", navigatePrevPage);
+    document.getElementById("nextPageBtn").addEventListener("click", navigateNextPage);
+    document.getElementById("finishBtn").addEventListener("click", finishTutorial);
 
     // Show first page
     showPage(1);
@@ -189,9 +189,9 @@ function initTutorial() {
  * Shows the tutorial overlay
  */
 function showTutorial() {
-    const overlay = document.getElementById('tutorialOverlay');
+    const overlay = document.getElementById("tutorialOverlay");
     if (overlay) {
-        overlay.style.display = 'flex';
+        overlay.style.display = "flex";
     }
 }
 
@@ -199,22 +199,22 @@ function showTutorial() {
  * Shows a specific tutorial page
  */
 function showPage(pageNum) {
-    const pages = document.querySelectorAll('.tutorial-page');
+    const pages = document.querySelectorAll(".tutorial-page");
     const totalPages = pages.length;
-    const currentPageElement = document.getElementById('currentPage');
-    const prevBtn = document.getElementById('prevPageBtn');
-    const nextBtn = document.getElementById('nextPageBtn');
-    const finishBtn = document.getElementById('finishBtn');
+    const currentPageElement = document.getElementById("currentPage");
+    const prevBtn = document.getElementById("prevPageBtn");
+    const nextBtn = document.getElementById("nextPageBtn");
+    const finishBtn = document.getElementById("finishBtn");
 
     // Hide all pages
-    pages.forEach(page => {
-        page.classList.remove('active');
+    pages.forEach((page) => {
+        page.classList.remove("active");
     });
 
     // Show the selected page
     const targetPage = document.querySelector(`.tutorial-page[data-page="${pageNum}"]`);
     if (targetPage) {
-        targetPage.classList.add('active');
+        targetPage.classList.add("active");
     }
 
     // Update page counter
@@ -225,11 +225,11 @@ function showPage(pageNum) {
 
     // Handle last page differently
     if (pageNum === totalPages) {
-        nextBtn.style.display = 'none';
-        finishBtn.style.display = 'block';
+        nextBtn.style.display = "none";
+        finishBtn.style.display = "block";
     } else {
-        nextBtn.style.display = 'block';
-        finishBtn.style.display = 'none';
+        nextBtn.style.display = "block";
+        finishBtn.style.display = "none";
     }
 
     // Update progress bar
@@ -240,7 +240,7 @@ function showPage(pageNum) {
  * Navigates to the next tutorial page
  */
 function navigateNextPage() {
-    const currentPage = parseInt(document.getElementById('currentPage').textContent);
+    const currentPage = parseInt(document.getElementById("currentPage").textContent);
     showPage(currentPage + 1);
 }
 
@@ -248,7 +248,7 @@ function navigateNextPage() {
  * Navigates to the previous tutorial page
  */
 function navigatePrevPage() {
-    const currentPage = parseInt(document.getElementById('currentPage').textContent);
+    const currentPage = parseInt(document.getElementById("currentPage").textContent);
 
     if (currentPage > 1) {
         showPage(currentPage - 1);
@@ -259,19 +259,19 @@ function navigatePrevPage() {
  * Finishes the tutorial and marks it as shown
  */
 function finishTutorial() {
-    const overlay = document.getElementById('tutorialOverlay');
+    const overlay = document.getElementById("tutorialOverlay");
     if (overlay) {
-        overlay.style.display = 'none';
+        overlay.style.display = "none";
     }
-    localStorage.setItem('zombiesGuidesTutorialShown', 'true');
+    localStorage.setItem("zombiesGuidesTutorialShown", "true");
 }
 
 /**
  * Updates the tutorial progress bar
  */
 function updateProgressBar(currentPage, totalPages) {
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
 
     if (progressFill && progressText) {
         const progressPercentage = (currentPage / totalPages) * 100;
@@ -284,8 +284,8 @@ function updateProgressBar(currentPage, totalPages) {
  * Resets tutorial (for debugging/testing)
  */
 function resetTutorial() {
-    console.log('Manually Reset Tutorial...');
-    localStorage.removeItem('zombiesGuidesTutorialShown');
+    console.log("Manually Reset Tutorial...");
+    localStorage.removeItem("zombiesGuidesTutorialShown");
 }
 
 // Make functions available globally

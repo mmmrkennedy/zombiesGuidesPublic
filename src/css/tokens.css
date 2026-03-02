@@ -16,14 +16,14 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     --color-text-muted: #808080;
 
     /* Hierarchy Colors - Muted gold/amber palette */
-    --color-tier-1: #c9a961;        /* Muted gold - Main sections */
-    --color-tier-2: #b89a5a;        /* Deeper amber - Sub-sections */
-    --color-tier-3: #8a7a52;        /* Olive gold - Tertiary sections */
+    --color-tier-1: #c9a961; /* Muted gold - Main sections */
+    --color-tier-2: #b89a5a; /* Deeper amber - Sub-sections */
+    --color-tier-3: #8a7a52; /* Olive gold - Tertiary sections */
 
     /* Link Colors - Distinct but harmonious */
-    --color-link-default: #78a8e8;      /* Brighter blue */
-    --color-link-internal: #6dbaa8;     /* Brighter teal */
-    --color-link-external: #8bc076;     /* Brighter sage green */
+    --color-link-default: #78a8e8; /* Brighter blue */
+    --color-link-internal: #6dbaa8; /* Brighter teal */
+    --color-link-external: #8bc076; /* Brighter sage green */
 
     /* Functional Colors */
     --color-warning-bg: rgb(217 91 67 / 12%);

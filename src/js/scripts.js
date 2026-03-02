@@ -1,4 +1,4 @@
-console.log('[DEBUG] scripts.js loaded at:', new Date().toISOString());
+console.log("[DEBUG] scripts.js loaded at:", new Date().toISOString());
 
 /*
 =======================================
@@ -15,29 +15,20 @@ function navigateToIndex() {
     window.NavUtils.navigateToIndex();
 }
 
-function toggleHamburgerMenu() {
-    const overlay = document.getElementById('hamburgerMenuOverlay');
-    if (overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = ''; // Re-enable scrolling
-    } else {
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Disable scrolling when menu is open
-    }
-}
-
 /*
 =======================================
 LAZY LOAD IMAGES
 =======================================
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     try {
         // Disable preloading on mobile devices to save bandwidth
-        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isMobile =
+            window.innerWidth <= 768 ||
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         if (isMobile) {
-            console.log('Preloading disabled on mobile devices');
+            console.log("Preloading disabled on mobile devices");
             return;
         }
 
@@ -45,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const imageCache = new Map();
 
         // Check if IntersectionObserver is supported
-        if (!('IntersectionObserver' in window)) {
-            console.warn('IntersectionObserver not supported, falling back to immediate image loading');
+        if (!("IntersectionObserver" in window)) {
+            console.warn("IntersectionObserver not supported, falling back to immediate image loading");
             loadAllImagesImmediately();
             return;
         }
@@ -54,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Options for the IntersectionObserver
         const observerOptions = {
             root: null, // viewport
-            rootMargin: '1000px', // load images 1000px before they enter the viewport
+            rootMargin: "1000px", // load images 1000px before they enter the viewport
             threshold: 0.01, // trigger when at least 1% of the element is visible
         };
 
@@ -68,15 +59,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Parse srcset to get available sizes
             const sources = srcset
-                .split(',')
-                .map(s => {
-                    const parts = s.trim().split(' ');
+                .split(",")
+                .map((s) => {
+                    const parts = s.trim().split(" ");
                     return { url: parts[0], width: parseInt(parts[1]) };
                 })
                 .sort((a, b) => a.width - b.width); // Sort by width
 
             // Find the smallest image that's >= effective width
-            const selected = sources.find(s => s.width >= effectiveWidth);
+            const selected = sources.find((s) => s.width >= effectiveWidth);
 
             // If no image is large enough, use the largest available
             return selected ? selected.url : sources[sources.length - 1].url;
@@ -84,14 +75,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Callback for the IntersectionObserver
         const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const aTag = entry.target;
-                    const imgUrl = aTag.getAttribute('href');
-                    const srcset = aTag.getAttribute('data-srcset');
+                    const imgUrl = aTag.getAttribute("href");
+                    const srcset = aTag.getAttribute("data-srcset");
 
                     if (!imgUrl) {
-                        console.warn('Image link missing href attribute:', aTag);
+                        console.warn("Image link missing href attribute:", aTag);
                         return;
                     }
 
@@ -118,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             img.onerror = function () {
-                console.error('Failed to load image:', imgUrl);
+                console.error("Failed to load image:", imgUrl);
             };
 
             img.src = imgUrl;
@@ -127,10 +118,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Fallback function for browsers without IntersectionObserver
         function loadAllImagesImmediately() {
-            const imageLinks = document.querySelectorAll('a.glightbox');
-            imageLinks.forEach(aTag => {
-                const imgUrl = aTag.getAttribute('href');
-                const srcset = aTag.getAttribute('data-srcset');
+            const imageLinks = document.querySelectorAll("a.glightbox");
+            imageLinks.forEach((aTag) => {
+                const imgUrl = aTag.getAttribute("href");
+                const srcset = aTag.getAttribute("data-srcset");
                 const imageToLoad = getAppropriateImageUrl(imgUrl, srcset);
                 if (imageToLoad) {
                     loadImage(imageToLoad, imageCache);
@@ -142,24 +133,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
         // Observe all glightbox links
-        const imageLinks = document.querySelectorAll('a.glightbox');
+        const imageLinks = document.querySelectorAll("a.glightbox");
 
         if (imageLinks.length === 0) {
-            console.log('No image links found to observe');
+            console.log("No image links found to observe");
             return;
         }
 
-        imageLinks.forEach(aTag => {
+        imageLinks.forEach((aTag) => {
             observer.observe(aTag);
         });
 
         console.log(`Observing ${imageLinks.length} image links for lazy loading`);
     } catch (error) {
-        console.error('Error initializing lazy loading:', error);
+        console.error("Error initializing lazy loading:", error);
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     try {
         // Track which pages we've already prefetched
         const prefetchedUrls = new Set();
@@ -175,18 +166,18 @@ document.addEventListener('DOMContentLoaded', function () {
             prefetchedUrls.add(url);
 
             // Create prefetch link element
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
+            const link = document.createElement("link");
+            link.rel = "prefetch";
             link.href = url;
-            link.as = 'document';
+            link.as = "document";
 
             // Optional: Add event listeners to track success/failure
             link.onload = () => {
-                console.log('Prefetched:', url);
+                console.log("Prefetched:", url);
             };
 
             link.onerror = () => {
-                console.warn('Failed to prefetch:', url);
+                console.warn("Failed to prefetch:", url);
                 // Remove from set so we can retry if needed
                 prefetchedUrls.delete(url);
             };
@@ -199,27 +190,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const htmlLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
 
         if (htmlLinks.length === 0) {
-            console.log('No HTML links found to prefetch');
+            console.log("No HTML links found to prefetch");
             return;
         }
 
         // Add hover listeners to all links
-        htmlLinks.forEach(link => {
-            const href = link.getAttribute('href');
+        htmlLinks.forEach((link) => {
+            const href = link.getAttribute("href");
 
             // Skip external links, anchors, and disabled links
-            if (!href || href.startsWith('http') || href.startsWith('#')) {
+            if (!href || href.startsWith("http") || href.startsWith("#")) {
                 return;
             }
 
             // Prefetch on hover (mouseenter is better than mouseover)
             link.addEventListener(
-                'mouseenter',
+                "mouseenter",
                 () => {
-                    console.log(`Prefetched: ${link.getAttribute('href')}`);
+                    console.log(`Prefetched: ${link.getAttribute("href")}`);
                     prefetchPage(href);
                 },
-                { once: true }
+                { once: true },
             ); // 'once: true' removes listener after first trigger
         });
 
@@ -234,40 +225,40 @@ document.addEventListener('DOMContentLoaded', function () {
             return Array.from(prefetchedUrls);
         };
     } catch (error) {
-        console.error('Error initializing page prefetch:', error);
+        console.error("Error initializing page prefetch:", error);
     }
 });
 
 // Enhanced link clicking with cached content feedback
-document.addEventListener('click', function (e) {
+document.addEventListener("click", function (e) {
     const link = e.target.closest('a[href$=".html"]:not(.disabled)');
     if (!link) return;
 
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('#')) return;
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("http") || href.startsWith("#")) return;
 
     // If we have cached HTML and CSS, the page should load very fast
     if (window.isHtmlCached && window.isHtmlCached(href)) {
-        console.log('Fast load: Content preloaded for', href);
+        console.log("Fast load: Content preloaded for", href);
         // Optional: Add visual feedback
-        link.style.opacity = '0.7';
-        setTimeout(() => (link.style.opacity = '1'), 100);
+        link.style.opacity = "0.7";
+        setTimeout(() => (link.style.opacity = "1"), 100);
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const versionDisplay = document.querySelector('.version-display');
-    const versionNumber = document.getElementById('version-number');
+document.addEventListener("DOMContentLoaded", function () {
+    const versionDisplay = document.querySelector(".version-display");
+    const versionNumber = document.getElementById("version-number");
 
     if (versionDisplay && versionNumber) {
-        const version = versionDisplay.getAttribute('data-version') || '0';
+        const version = versionDisplay.getAttribute("data-version") || "0";
         versionNumber.textContent = version.toString().slice(-6); // Last 6 digits
     }
 });
 
 async function includeSolverComponent() {
     try {
-        const solverInserts = document.querySelectorAll('.solver-insert');
+        const solverInserts = document.querySelectorAll(".solver-insert");
 
         if (solverInserts.length === 0) {
             // console.log('No solver components found to load');
@@ -280,7 +271,7 @@ async function includeSolverComponent() {
         // Use Promise.allSettled to handle partial failures gracefully
         for (const insert of solverInserts) {
             if (!insert.dataset.solverHtmlPath) {
-                console.warn('Solver insert missing solverHtmlPath data attribute:', insert);
+                console.warn("Solver insert missing solverHtmlPath data attribute:", insert);
                 continue;
             }
 
@@ -292,9 +283,9 @@ async function includeSolverComponent() {
 
         // Collect event names from successful loads
         results.forEach((result, index) => {
-            if (result.status === 'fulfilled' && result.value) {
+            if (result.status === "fulfilled" && result.value) {
                 event_names.push(result.value);
-            } else if (result.status === 'rejected') {
+            } else if (result.status === "rejected") {
                 console.error(`Solver component ${index} failed to load:`, result.reason);
             }
         });
@@ -311,7 +302,7 @@ async function includeSolverComponent() {
 
         console.log(`Loaded ${event_names.length} solver components successfully`);
     } catch (error) {
-        console.error('Error in includeSolverComponent:', error);
+        console.error("Error in includeSolverComponent:", error);
     }
 }
 
@@ -326,16 +317,16 @@ async function loadSolverComponent(insert) {
         const html = await response.text();
 
         if (!html.trim()) {
-            throw new Error('Empty response received');
+            throw new Error("Empty response received");
         }
 
         insert.innerHTML = html;
 
         // Extract event name from path
         return insert.dataset.solverHtmlPath
-            .split('/')
+            .split("/")
             .pop()
-            .replace(/\.html$/, '');
+            .replace(/\.html$/, "");
     } catch (error) {
         console.error(`Error loading solver component at ${insert.dataset.solverHtmlPath}:`, error);
         insert.innerHTML = `<p class="error" style="color: red; padding: 10px; border: 1px solid red; background: rgba(255,0,0,0.1);">
@@ -350,30 +341,38 @@ async function loadSolverComponent(insert) {
 MAIN INITIALIZATION
 =======================================
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     try {
         // Initialize core utilities with error handling
         const initializationSteps = [
-            { name: 'Scroll Manager', fn: () => window.ScrollManager?.initHistoryManagement() },
+            { name: "Scroll Manager", fn: () => window.ScrollManager?.initHistoryManagement() },
             {
-                name: 'Scroll Manager Clear',
-                fn: () => window.ScrollManager?.clearHashAndScrollTop(),
+                name: "Scroll Manager Clear",
+                fn: () => {
+                    const hash = window.location.hash;
+                    if (hash && hash.length > 1) {
+                        window.ScrollManager?.scrollToElement(hash.substring(1));
+                    } else {
+                        window.ScrollManager?.clearHashAndScrollTop();
+                    }
+                },
             },
-            { name: 'Mobile Detection', fn: () => window.MobileDetection?.updateMobileText() },
-            { name: 'Scroll Anchors', fn: () => window.ScrollManager?.scrollToAnchors() },
-            { name: 'Tutorial System', fn: () => window.TutorialSystem?.tutorialPopupInit() },
-            { name: 'Solver Buttons', fn: () => window.LinkProcessor?.setupSolverButtons() },
-            { name: 'Quick Links', fn: () => window.QuickLinks?.initializeQuickLinks() },
-            { name: 'Lightbox Container', fn: () => window.Lightbox?.addLightboxContainer() },
-            { name: 'Lightbox Class', fn: () => window.Lightbox?.addLightboxClass() },
-            { name: 'Lightbox Init', fn: () => window.Lightbox?.initLightbox() },
-            { name: 'Solver Components', fn: includeSolverComponent },
+            { name: "Mobile Detection", fn: () => window.MobileDetection?.updateMobileText() },
+            { name: "Scroll Anchors", fn: () => window.ScrollManager?.scrollToAnchors() },
+            { name: "Tutorial System", fn: () => window.TutorialSystem?.tutorialPopupInit() },
+            { name: "Solver Buttons", fn: () => window.LinkProcessor?.setupSolverButtons() },
+            { name: "Quick Links", fn: () => window.QuickLinks?.initializeQuickLinks() },
+            { name: "Sidebar TOC", fn: () => window.QuickLinks?.initializeSidebarToc() },
+            { name: "Lightbox Container", fn: () => window.Lightbox?.addLightboxContainer() },
+            { name: "Lightbox Class", fn: () => window.Lightbox?.addLightboxClass() },
+            { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
+            { name: "Solver Components", fn: includeSolverComponent },
         ];
 
         // Execute initialization steps with error handling
         for (const step of initializationSteps) {
             try {
-                if (typeof step.fn === 'function') {
+                if (typeof step.fn === "function") {
                     step.fn();
                 } else {
                     console.warn(`${step.name} function not available`);
@@ -383,6 +382,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     } catch (error) {
-        console.error('Critical error during website initialization:', error);
+        console.error("Critical error during website initialization:", error);
     }
 });

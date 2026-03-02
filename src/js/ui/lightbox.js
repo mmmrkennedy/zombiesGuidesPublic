@@ -12,23 +12,23 @@ let currentIndex = -1;
  */
 function addLightboxClass() {
     // Get all anchor tags on the page
-    const anchorTags = document.querySelectorAll('a');
+    const anchorTags = document.querySelectorAll("a");
 
-    anchorTags.forEach(anchor => {
-        const href = anchor.getAttribute('href');
+    anchorTags.forEach((anchor) => {
+        const href = anchor.getAttribute("href");
         if (!href) return;
 
         // Check if the link ends with a media file extension
-        const mediaExtensions = ['.webp', '.jpg', '.jpeg', '.png', '.gif', '.webm', '.mp4', '.mov'];
-        const endsWithMediaExt = mediaExtensions.some(ext => href.toLowerCase().endsWith(ext));
+        const mediaExtensions = [".webp", ".jpg", ".jpeg", ".png", ".gif", ".webm", ".mp4", ".mov"];
+        const endsWithMediaExt = mediaExtensions.some((ext) => href.toLowerCase().endsWith(ext));
 
         // Add the class if it's a media link
         if (endsWithMediaExt) {
-            anchor.classList.add('lightbox-trigger');
+            anchor.classList.add("lightbox-trigger");
 
             // Store the media type as a data attribute
-            const isVideo = ['.webm', '.mp4', '.mov'].some(ext => href.toLowerCase().endsWith(ext));
-            anchor.dataset.mediaType = isVideo ? 'video' : 'image';
+            const isVideo = [".webm", ".mp4", ".mov"].some((ext) => href.toLowerCase().endsWith(ext));
+            anchor.dataset.mediaType = isVideo ? "video" : "image";
         }
     });
 }
@@ -37,7 +37,7 @@ function addLightboxClass() {
  * Adds lightbox container HTML to the page
  */
 function addLightboxContainer() {
-    const body = document.querySelector('body');
+    const body = document.querySelector("body");
 
     if (body) {
         const lightboxHTML = `
@@ -52,11 +52,11 @@ function addLightboxContainer() {
         </div>
     </div>
     `;
-        body.insertAdjacentHTML('beforeend', lightboxHTML);
+        body.insertAdjacentHTML("beforeend", lightboxHTML);
 
         // console.log('Lightbox container added successfully');
     } else {
-        console.log('No body element found');
+        console.log("No body element found");
     }
 }
 
@@ -70,7 +70,7 @@ function preloadAdjacentMedia(currentIndex) {
     // Preload previous image
     if (currentIndex > 0) {
         const prevTrigger = allTriggers[currentIndex - 1];
-        if (prevTrigger.dataset.mediaType === 'image') {
+        if (prevTrigger.dataset.mediaType === "image") {
             new Image().src = prevTrigger.href;
         }
     }
@@ -78,7 +78,7 @@ function preloadAdjacentMedia(currentIndex) {
     // Preload next image
     if (currentIndex < allTriggers.length - 1) {
         const nextTrigger = allTriggers[currentIndex + 1];
-        if (nextTrigger.dataset.mediaType === 'image') {
+        if (nextTrigger.dataset.mediaType === "image") {
             new Image().src = nextTrigger.href;
         }
     }
@@ -92,30 +92,33 @@ function preloadAdjacentMedia(currentIndex) {
  * @param {string} mediaType - Type of media ('image' or 'video')
  */
 function openLightbox(mediaSrc, captionText, index, mediaType) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxVideo = document.getElementById('lightbox-video');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxVideo = document.getElementById("lightbox-video");
+    const lightboxCaption = document.querySelector(".lightbox-caption");
 
     if (!lightbox || !lightboxImg || !lightboxVideo || !lightboxCaption) return;
 
     // Update current index
     currentIndex = index;
 
-    // Show a loading state
-    lightbox.style.display = 'flex';
-    lightboxImg.style.display = 'none';
-    lightboxVideo.style.display = 'none';
-    lightboxCaption.textContent = 'Loading...';
+    // Reset zoom state for each new image
+    lightbox.classList.remove("zoomed");
 
-    if (mediaType === 'image') {
+    // Show a loading state
+    lightbox.style.display = "flex";
+    lightboxImg.style.display = "none";
+    lightboxVideo.style.display = "none";
+    lightboxCaption.textContent = "Loading...";
+
+    if (mediaType === "image") {
         // Handle image content
         const img = new Image();
         img.src = mediaSrc;
         img.onload = function () {
             // Set the source and display the image
-            lightboxImg.setAttribute('src', mediaSrc);
-            lightboxImg.style.display = 'block';
+            lightboxImg.setAttribute("src", mediaSrc);
+            lightboxImg.style.display = "block";
             lightboxCaption.textContent = captionText;
 
             // Preload adjacent media
@@ -124,13 +127,13 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
 
         img.onerror = function () {
             // Handle error case
-            lightboxCaption.textContent = 'Error loading image';
-            lightboxImg.style.display = 'none';
+            lightboxCaption.textContent = "Error loading image";
+            lightboxImg.style.display = "none";
         };
-    } else if (mediaType === 'video') {
+    } else if (mediaType === "video") {
         // Handle video content
-        lightboxVideo.setAttribute('src', mediaSrc);
-        lightboxVideo.style.display = 'block';
+        lightboxVideo.setAttribute("src", mediaSrc);
+        lightboxVideo.style.display = "block";
         lightboxCaption.textContent = captionText;
 
         // Set up event listeners for video loading
@@ -141,13 +144,13 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
 
         lightboxVideo.onerror = function () {
             // Handle error case
-            lightboxCaption.textContent = 'Error loading video';
-            lightboxVideo.style.display = 'none';
+            lightboxCaption.textContent = "Error loading video";
+            lightboxVideo.style.display = "none";
         };
 
         // Start playing the video
-        lightboxVideo.play().catch(e => {
-            console.log('Auto-play prevented:', e);
+        lightboxVideo.play().catch((e) => {
+            console.log("Auto-play prevented:", e);
             // This is expected on many browsers due to autoplay policies
         });
     }
@@ -160,7 +163,7 @@ function navigateToPrevious() {
     if (currentIndex > 0) {
         const prevTrigger = allTriggers[currentIndex - 1];
         const mediaSrc = prevTrigger.href;
-        let captionText = prevTrigger.dataset.caption || prevTrigger.textContent || 'Media';
+        let captionText = prevTrigger.dataset.caption || prevTrigger.textContent || "Media";
         captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
         const mediaType = prevTrigger.dataset.mediaType;
         openLightbox(mediaSrc, captionText, currentIndex - 1, mediaType);
@@ -174,7 +177,7 @@ function navigateToNext() {
     if (currentIndex < allTriggers.length - 1) {
         const nextTrigger = allTriggers[currentIndex + 1];
         const mediaSrc = nextTrigger.href;
-        let captionText = nextTrigger.dataset.caption || nextTrigger.textContent || 'Media';
+        let captionText = nextTrigger.dataset.caption || nextTrigger.textContent || "Media";
         captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
         const mediaType = nextTrigger.dataset.mediaType;
         openLightbox(mediaSrc, captionText, currentIndex + 1, mediaType);
@@ -185,11 +188,12 @@ function navigateToNext() {
  * Closes the lightbox and stops any playing videos
  */
 function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxVideo = document.getElementById('lightbox-video');
+    const lightbox = document.getElementById("lightbox");
+    const lightboxVideo = document.getElementById("lightbox-video");
 
     if (lightbox) {
-        lightbox.style.display = 'none';
+        lightbox.style.display = "none";
+        lightbox.classList.remove("zoomed");
     }
 
     if (lightboxVideo) {
@@ -206,7 +210,7 @@ function closeLightbox() {
  */
 function handleLightboxClick() {
     const mediaSrc = this.href;
-    let captionText = this.dataset.caption || this.textContent || 'Media';
+    let captionText = this.dataset.caption || this.textContent || "Media";
     captionText = captionText.charAt(0).toUpperCase() + captionText.slice(1);
     const mediaType = this.dataset.mediaType;
     const index = allTriggers.indexOf(this);
@@ -214,46 +218,95 @@ function handleLightboxClick() {
 }
 
 /**
- * Initializes the lightbox by setting up event listeners
+ * Initializes the lightbox by setting up event listeners.
+ * Uses event delegation so dynamically rendered links (e.g. React solvers)
+ * are handled without needing a re-init after mount.
  */
 function initLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const closeBtn = document.querySelector('.close-lightbox');
+    const lightbox = document.getElementById("lightbox");
+    const closeBtn = document.querySelector(".close-lightbox");
 
     if (!lightbox || !closeBtn) {
-        console.log('Lightbox elements not found');
+        console.log("Lightbox elements not found");
         return;
     }
 
-    // Get all lightbox triggers and store them
-    allTriggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
-
-    // Add click event listeners to all lightbox triggers
-    allTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function (event) {
-            event.preventDefault();
-            handleLightboxClick.call(this);
-        });
-    });
-
     // Add close button event listener
-    closeBtn.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener("click", closeLightbox);
 
     // Add lightbox background click listener
-    lightbox.addEventListener('click', event => {
+    lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) {
             closeLightbox();
         }
     });
 
+    // Click-to-zoom on the lightbox image
+    const lightboxImg = document.getElementById("lightbox-img");
+    if (lightboxImg) {
+        lightboxImg.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            if (!lightbox.classList.contains("zoomed")) {
+                // Record click position as % of the current (constrained) image size
+                const rect = lightboxImg.getBoundingClientRect();
+                const pctX = (event.clientX - rect.left) / rect.width;
+                const pctY = (event.clientY - rect.top) / rect.height;
+
+                lightbox.classList.add("zoomed");
+
+                // After layout updates to natural image size, scroll so the
+                // clicked point is centered in the viewport
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const scrollX = pctX * lightboxImg.offsetWidth - lightbox.clientWidth / 2;
+                        const scrollY = pctY * lightboxImg.offsetHeight - lightbox.clientHeight / 2;
+
+                        lightbox.scrollLeft = Math.max(0, scrollX);
+                        lightbox.scrollTop = Math.max(0, scrollY);
+                    });
+                });
+            } else {
+                lightbox.classList.remove("zoomed");
+            }
+        });
+    }
+
+    // Delegated click handler — catches both static and dynamically rendered media links
+    document.addEventListener("click", (event) => {
+        const anchor = event.target.closest("a");
+        if (!anchor) return;
+
+        const href = anchor.getAttribute("href");
+        if (!href) return;
+
+        const mediaExtensions = [".webp", ".jpg", ".jpeg", ".png", ".gif", ".webm", ".mp4", ".mov"];
+        const isMedia = mediaExtensions.some((ext) => href.toLowerCase().endsWith(ext));
+        if (!isMedia) return;
+
+        event.preventDefault();
+
+        // Ensure the anchor has the lightbox-trigger class and media type set
+        if (!anchor.classList.contains("lightbox-trigger")) {
+            anchor.classList.add("lightbox-trigger");
+            const isVideo = [".webm", ".mp4", ".mov"].some((ext) => href.toLowerCase().endsWith(ext));
+            anchor.dataset.mediaType = isVideo ? "video" : "image";
+        }
+
+        // Rebuild trigger list to include any links added after initial page load
+        allTriggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
+
+        handleLightboxClick.call(anchor);
+    });
+
     // Add keyboard event listeners
-    document.addEventListener('keydown', event => {
-        if (lightbox.style.display === 'flex') {
-            if (event.key === 'Escape') {
+    document.addEventListener("keydown", (event) => {
+        if (lightbox.style.display === "flex") {
+            if (event.key === "Escape") {
                 closeLightbox();
-            } else if (event.key === 'ArrowLeft') {
+            } else if (event.key === "ArrowLeft") {
                 navigateToPrevious();
-            } else if (event.key === 'ArrowRight') {
+            } else if (event.key === "ArrowRight") {
                 navigateToNext();
             }
         }

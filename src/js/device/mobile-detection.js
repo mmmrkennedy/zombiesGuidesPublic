@@ -1,4 +1,4 @@
-console.log('[DEBUG] device/mobile-detection.js loaded');
+console.log("[DEBUG] device/mobile-detection.js loaded");
 
 /**
  * Mobile and touch device detection utilities
@@ -30,15 +30,15 @@ function updateMobileText() {
     // console.log("updateMobileText called", isMobileScreenSize());
 
     const contentElements = [
-        { id: 'mobileContent', showOnMobile: true },
-        { id: 'nonMobileContent', showOnMobile: false },
+        { id: "mobileContent", showOnMobile: true },
+        { id: "nonMobileContent", showOnMobile: false },
     ];
 
-    contentElements.forEach(contentItem => {
+    contentElements.forEach((contentItem) => {
         try {
             const element = document.getElementById(contentItem.id);
             if (element) {
-                element.style.display = isMobileDevice === contentItem.showOnMobile ? 'block' : 'none';
+                element.style.display = isMobileDevice === contentItem.showOnMobile ? "block" : "none";
             } else {
                 console.log(`${contentItem.id} not found`);
             }
@@ -56,7 +56,7 @@ window.MobileDetection = {
 };
 
 // Run once on page load
-window.addEventListener('DOMContentLoaded', window.MobileDetection.updateMobileText);
+window.addEventListener("DOMContentLoaded", window.MobileDetection.updateMobileText);
 
 // Update dynamically on resize
-window.addEventListener('resize', window.MobileDetection.updateMobileText);
+window.addEventListener("resize", window.MobileDetection.updateMobileText);

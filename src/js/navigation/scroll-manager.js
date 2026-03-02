@@ -1,4 +1,4 @@
-console.log('[DEBUG] navigation/scroll-manager.js loaded');
+console.log("[DEBUG] navigation/scroll-manager.js loaded");
 
 /**
  * Scroll management and history handling
@@ -9,16 +9,16 @@ console.log('[DEBUG] navigation/scroll-manager.js loaded');
  * Scrolls to the top of the content window
  */
 function scrollToTop(fromPopstate = false) {
-    const contentWindow = document.querySelector('.content-window');
+    const contentWindow = document.querySelector(".content-window");
     if (contentWindow) {
         contentWindow.scrollTo({
             top: 0,
-            behavior: 'smooth',
+            behavior: "smooth",
         });
 
         // Only add to history if this wasn't triggered by popstate
         if (!fromPopstate) {
-            window.history.pushState({ anchor: null }, null, '#');
+            window.history.pushState({ anchor: null }, null, "#");
         }
     }
 }
@@ -27,10 +27,10 @@ function scrollToTop(fromPopstate = false) {
  * Sets up click listeners for anchor links
  */
 function scrollToAnchors() {
-    document.addEventListener('click', function (event) {
-        if (event.target.tagName === 'A') {
-            const href = event.target.getAttribute('href');
-            if (href && href.startsWith('#')) {
+    document.addEventListener("click", function (event) {
+        if (event.target.tagName === "A") {
+            const href = event.target.getAttribute("href");
+            if (href && href.startsWith("#")) {
                 // console.log('Anchor link clicked:', href);
                 event.preventDefault();
                 const elementId = href.substring(1);
@@ -45,8 +45,8 @@ function scrollToAnchors() {
  */
 function scrollToElement(elementId, fromPopstate = false) {
     const element = document.getElementById(elementId);
-    const contentWindow = document.querySelector('.content-window');
-    const topBackgroundBox = document.querySelector('.top-buttons-background-box');
+    const contentWindow = document.querySelector(".content-window");
+    const topBackgroundBox = document.querySelector(".top-buttons-background-box");
     const topBackBoxHeight = topBackgroundBox.getBoundingClientRect().height;
 
     if (element && contentWindow) {
@@ -58,13 +58,13 @@ function scrollToElement(elementId, fromPopstate = false) {
 
         contentWindow.scrollTo({
             top: targetY,
-            behavior: 'smooth',
+            behavior: "smooth",
         });
 
         // Only add to history if this wasn't triggered by popstate (back/forward button)
         if (!fromPopstate) {
             // console.log('Adding to history:', '#' + elementId);
-            window.history.pushState({ anchor: elementId }, null, '#' + elementId);
+            window.history.pushState({ anchor: elementId }, null, "#" + elementId);
         }
     }
 }
@@ -75,12 +75,12 @@ function scrollToElement(elementId, fromPopstate = false) {
 function clearHashAndScrollTop() {
     // Clear hash from URL and scroll to top
     if (window.location.hash) {
-        window.history.replaceState(null, null, window.location.href.split('#')[0]);
+        window.history.replaceState(null, null, window.location.href.split("#")[0]);
     }
 
-    const contentWindow = document.querySelector('.content-window');
+    const contentWindow = document.querySelector(".content-window");
     if (contentWindow) {
-        contentWindow.scrollTo({ top: 0, behavior: 'auto' });
+        contentWindow.scrollTo({ top: 0, behavior: "auto" });
     }
 }
 
@@ -89,8 +89,8 @@ function clearHashAndScrollTop() {
  */
 function initHistoryManagement() {
     // Handle popstate events (back/forward button)
-    window.addEventListener('popstate', function (event) {
-        console.log('Popstate event triggered:', {
+    window.addEventListener("popstate", function (event) {
+        console.log("Popstate event triggered:", {
             hash: window.location.hash,
             state: event.state,
             historyLength: window.history.length,
@@ -101,7 +101,7 @@ function initHistoryManagement() {
             const elementId = hash.substring(1);
             scrollToElement(elementId, 75, true);
         } else {
-            const contentWindow = document.querySelector('.content-window');
+            const contentWindow = document.querySelector(".content-window");
             if (contentWindow && contentWindow.scrollTop > 0) {
                 scrollToTop(true);
             } else {

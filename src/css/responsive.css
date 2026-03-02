@@ -29,7 +29,8 @@ Desktop-specific upgrades. Base styles are mobile-first.
         max-width: var(--content-max-width);
     }
 
-    ol, ul {
+    ol,
+    ul {
         padding-inline-start: var(--space-xl);
     }
 
@@ -78,13 +79,8 @@ Desktop-specific upgrades. Base styles are mobile-first.
         height: auto;
     }
 
-    .hamburger-menu-header {
-        height: var(--header-height-desktop);
-    }
-
     .content-window {
         padding-bottom: 0;
-        height: calc(100vh - var(--header-height-desktop));
         height: calc(100dvh - var(--header-height-desktop));
     }
 }
@@ -92,5 +88,131 @@ Desktop-specific upgrades. Base styles are mobile-first.
 @media (width >= 75em) {
     :root {
         --content-max-width: 1000px;
+    }
+}
+
+/* Sidebar TOC - shown only when there's enough space beside centered content */
+.sidebar-toc {
+    display: none;
+}
+
+@media (width >= 90em) {
+    .sidebar-toc {
+        display: block;
+        position: fixed;
+        top: var(--header-height-desktop);
+        right: 0;
+        width: 0;
+        max-height: calc(100dvh - var(--header-height-desktop) - var(--space-lg));
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.8125rem;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+        scrollbar-width: thin;
+        z-index: 50;
+    }
+
+    .sidebar-toc-header {
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-xs);
+    }
+
+    .sidebar-toc-label {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-text-muted);
+        margin: 0;
+    }
+
+    .sidebar-toc-toggle {
+        background: none;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 3px;
+        color: var(--color-text-muted);
+        font-size: 0.6875rem;
+        line-height: 1;
+        padding: 0 3px;
+        cursor: pointer;
+        transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .sidebar-toc-toggle:hover {
+        border-color: var(--color-border-medium);
+        color: var(--color-text-secondary);
+    }
+
+    .sidebar-toc-body {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sidebar-toc h2 {
+        font-size: 0.75rem;
+        color: var(--color-tier-1);
+        margin: var(--space-sm) 0 2px;
+        font-weight: 600;
+    }
+
+    .sidebar-toc h4 {
+        font-size: 0.6875rem;
+        color: var(--color-tier-2);
+        margin: var(--space-xs) 0 2px;
+        font-weight: 500;
+    }
+
+    .sidebar-toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-toc ul ul {
+        padding-left: var(--space-sm);
+    }
+
+    .sidebar-toc li {
+        position: relative;
+        margin: 1px 0;
+        padding-left: 1.1rem;
+    }
+
+    .sidebar-toc a {
+        display: block;
+        font-size: 0.8125rem;
+        color: var(--color-link-default);
+        text-decoration: none;
+        padding: 1px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .sidebar-toc a:hover {
+        text-decoration: underline;
+        opacity: 1;
+    }
+
+    .sidebar-toc-sub-toggle {
+        position: absolute;
+        left: 0;
+        top: 1px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-text-muted);
+        font-size: 1rem;
+        padding: 0;
+        line-height: 1;
+        transition: color 0.15s ease;
+    }
+
+    .sidebar-toc-sub-toggle:hover {
+        color: var(--color-text-secondary);
     }
 }

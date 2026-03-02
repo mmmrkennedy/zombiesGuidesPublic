@@ -55,7 +55,8 @@ h4 {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
     margin: var(--space-md) 0;
     padding-inline-start: min(3vw, 16px);
 }

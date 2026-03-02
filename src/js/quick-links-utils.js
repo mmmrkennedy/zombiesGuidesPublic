@@ -12,13 +12,23 @@ function shouldExcludeElement(element) {
     // Check if the element itself or any of its ancestors is a solver-container
     let current = element;
     while (current) {
-        if (current.classList && (current.classList.contains('solver-container') || current.classList.contains('stats') || current.classList.contains('weapon-desc') || current.classList.contains('warning') || current.classList.contains('solver-output') || current.classList.contains('solver-symbol-select') || current.classList.contains('aligned-buttons') || current.classList.contains('aligned-label'))) {
+        if (
+            current.classList &&
+            (current.classList.contains("solver-container") ||
+                current.classList.contains("stats") ||
+                current.classList.contains("weapon-desc") ||
+                current.classList.contains("warning") ||
+                current.classList.contains("solver-output") ||
+                current.classList.contains("solver-symbol-select") ||
+                current.classList.contains("aligned-buttons") ||
+                current.classList.contains("aligned-label"))
+        ) {
             return true;
         }
         current = current.parentElement;
     }
 
-    return element.dataset && element.dataset.boolQuickLink === 'false';
+    return element.dataset && element.dataset.boolQuickLink === "false";
 }
 
 /**
@@ -49,7 +59,7 @@ function getQuickLinkElements(document) {
     const results = [];
 
     // Get all div.content-container elements
-    const containers = document.querySelectorAll('div.content-container');
+    const containers = document.querySelectorAll("div.content-container");
 
     for (const container of containers) {
         if (shouldExcludeElement(container)) continue;
@@ -58,16 +68,17 @@ function getQuickLinkElements(document) {
             element: container,
             indentLevel: 0,
             isSectionHeader: container.dataset.sectionInd !== undefined,
-            sectionHeaderLevel: container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
+            sectionHeaderLevel:
+                container.dataset.sectionHeaderLevel !== undefined ? container.dataset.sectionHeaderLevel : 0,
         });
 
-        const titles = container.querySelectorAll('p.step-group-title, p.upgrade-title, p.sub-sub-step');
+        const titles = container.querySelectorAll("p.step-group-title, p.upgrade-title, p.sub-sub-step");
 
         for (const [title_counter, title] of titles.entries()) {
             if (shouldExcludeElement(title)) continue;
 
             let indentLevel = 1;
-            if (title.classList.contains('sub-sub-step') && title_counter !== 0) {
+            if (title.classList.contains("sub-sub-step") && title_counter !== 0) {
                 indentLevel = 2;
             }
             if (title.dataset.customIndent) {
@@ -75,7 +86,7 @@ function getQuickLinkElements(document) {
             }
 
             if (title.dataset.customQuickLink) {
-                const customLinks = title.dataset.customQuickLink.split(';');
+                const customLinks = title.dataset.customQuickLink.split(";");
                 title.id = customLinks[0];
                 for (const customName of customLinks) {
                     results.push({
@@ -99,13 +110,12 @@ function getQuickLinkElements(document) {
 /**
  * Generates HTML string for navigation links
  * @param {Array} elements - array of element data objects
- * @param {boolean} isHamburgerMenu - whether this is for hamburger menu (removes sub-header class)
  * @returns {string} - HTML string for navigation
  */
-function generateNavHTML(elements, isHamburgerMenu = false) {
-    if (!elements || elements.length === 0) return '';
+function generateNavHTML(elements) {
+    if (!elements || elements.length === 0) return "";
 
-    let html = '';
+    let html = "";
     let currentIndentLevel = 0;
     let listStack = [];
 
@@ -118,30 +128,29 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
         if (isSectionHeader) {
             // Close any open lists
             while (listStack.length > 0) {
-                html += '</ul>';
+                html += "</ul>";
                 listStack.pop();
             }
 
             if (sectionHeaderLevel === 0) {
                 html += `<h2>${element.dataset.sectionInd}</h2>`;
             } else {
-                const subHeaderClass = isHamburgerMenu ? '' : ' class="sub-header"';
-                html += `<h4${subHeaderClass}>${element.dataset.sectionInd}</h4>`;
+                html += `<h4 class="sub-header">${element.dataset.sectionInd}</h4>`;
             }
 
-            html += '<ul>';
+            html += "<ul>";
             listStack = [true];
             currentIndentLevel = 0;
         }
 
         if (listStack.length === 0) {
-            html += '<ul>';
+            html += "<ul>";
             listStack = [true];
             currentIndentLevel = 0;
         }
 
         const elementId = element.id;
-        if (elementId === '') {
+        if (elementId === "") {
             console.log(`Element Quick Link with text **${element.textContent}** skipped, no ID given`);
             continue;
         }
@@ -151,13 +160,13 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
         // Handle nesting
         if (indentLevel > currentIndentLevel) {
             while (currentIndentLevel < indentLevel) {
-                html += '<ul>';
+                html += "<ul>";
                 listStack.push(true);
                 currentIndentLevel++;
             }
         } else if (indentLevel < currentIndentLevel) {
             while (listStack.length > 1 && currentIndentLevel > indentLevel) {
-                html += '</ul>';
+                html += "</ul>";
                 listStack.pop();
                 currentIndentLevel--;
             }
@@ -168,7 +177,7 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
 
     // Close remaining lists
     while (listStack.length > 0) {
-        html += '</ul>';
+        html += "</ul>";
         listStack.pop();
     }
 
@@ -176,7 +185,7 @@ function generateNavHTML(elements, isHamburgerMenu = false) {
 }
 
 // Export for Node.js environments
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
     module.exports = {
         getQuickLinkElements,
         generateNavHTML,
@@ -184,7 +193,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 // Make available globally for browser environments
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
     window.QuickLinksUtils = {
         getElementTitle,
         getQuickLinkElements,

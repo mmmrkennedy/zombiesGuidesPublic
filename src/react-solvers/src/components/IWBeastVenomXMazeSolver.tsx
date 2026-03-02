@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
 // Type definitions
 interface MazeSolution {
@@ -7,7 +7,7 @@ interface MazeSolution {
     path: [number, number][];
 }
 
-type DraggableType = 'start' | 'end';
+type DraggableType = "start" | "end";
 
 interface DraggableState {
     type: DraggableType;
@@ -262,16 +262,19 @@ const mazeSolutionCoordinates: MazeSolution[] = [
 
 // Helper function to find solution path
 function findSolPath(startCoords: [number, number], endCoords: [number, number]): [number, number][] | null {
-    const solution = mazeSolutionCoordinates.find(({ start, end }) => JSON.stringify(start) === JSON.stringify(startCoords) && JSON.stringify(end) === JSON.stringify(endCoords));
+    const solution = mazeSolutionCoordinates.find(
+        ({ start, end }) =>
+            JSON.stringify(start) === JSON.stringify(startCoords) && JSON.stringify(end) === JSON.stringify(endCoords),
+    );
     return solution ? solution.path : null;
 }
 
 export default function IWBeastVenomXMazeSolver() {
     const [draggables, setDraggables] = useState<DraggableState[]>([
-        { type: 'start', position: null },
-        { type: 'end', position: null },
+        { type: "start", position: null },
+        { type: "end", position: null },
     ]);
-    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const [solutionPath, setSolutionPath] = useState<[number, number][] | null>(null);
     const [draggedItem, setDraggedItem] = useState<DraggableType | null>(null);
 
@@ -279,11 +282,11 @@ export default function IWBeastVenomXMazeSolver() {
     const boardRef = useRef<HTMLDivElement>(null);
 
     // Image paths
-    const IMG_YELLOW_SQUARE = '/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp';
-    const IMG_BLUE_DIAMOND = '/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp';
+    const IMG_YELLOW_SQUARE = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp";
+    const IMG_BLUE_DIAMOND = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp";
 
     // Draw path on canvas
-    const drawPath = (pathCoords: [number, number][], color = 'blue', width = 10) => {
+    const drawPath = (pathCoords: [number, number][], color = "blue", width = 10) => {
         const canvas = canvasRef.current;
         const board = boardRef.current;
         if (!canvas || !board) return;
@@ -294,7 +297,7 @@ export default function IWBeastVenomXMazeSolver() {
         canvas.width = boardRect.width;
         canvas.height = boardRect.height;
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -355,8 +358,8 @@ export default function IWBeastVenomXMazeSolver() {
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, [solutionPath]);
 
     // Draw solution path when it changes
@@ -368,12 +371,12 @@ export default function IWBeastVenomXMazeSolver() {
 
     const handleDragStart = (e: React.DragEvent, type: DraggableType) => {
         setDraggedItem(type);
-        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.effectAllowed = "move";
     };
 
     const handleDragOver = (e: React.DragEvent) => {
         e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
+        e.dataTransfer.dropEffect = "move";
     };
 
     const handleDrop = (e: React.DragEvent, row: number, col: number) => {
@@ -382,53 +385,57 @@ export default function IWBeastVenomXMazeSolver() {
         if (!draggedItem) return;
 
         // Check if square is already occupied
-        const isOccupied = draggables.some(d => d.position && d.position[0] === row && d.position[1] === col && d.type !== draggedItem);
+        const isOccupied = draggables.some(
+            (d) => d.position && d.position[0] === row && d.position[1] === col && d.type !== draggedItem,
+        );
 
         if (isOccupied) {
-            setErrorMessage('This square is already occupied!');
+            setErrorMessage("This square is already occupied!");
             return;
         }
 
         // Update draggable position
-        setDraggables(prev => prev.map(d => (d.type === draggedItem ? { ...d, position: [row, col] as [number, number] } : d)));
+        setDraggables((prev) =>
+            prev.map((d) => (d.type === draggedItem ? { ...d, position: [row, col] as [number, number] } : d)),
+        );
 
-        setErrorMessage('');
+        setErrorMessage("");
         setDraggedItem(null);
     };
 
     const handleSolve = () => {
-        const startDraggable = draggables.find(d => d.type === 'start');
-        const endDraggable = draggables.find(d => d.type === 'end');
+        const startDraggable = draggables.find((d) => d.type === "start");
+        const endDraggable = draggables.find((d) => d.type === "end");
 
         if (!startDraggable?.position || !endDraggable?.position) {
-            setErrorMessage('Please place both the Yellow Square and Blue Diamond.');
+            setErrorMessage("Please place both the Yellow Square and Blue Diamond.");
             return;
         }
 
         const solPath = findSolPath(startDraggable.position, endDraggable.position);
 
         if (!solPath) {
-            setErrorMessage('No solution found, please try again.');
+            setErrorMessage("No solution found, please try again.");
             setSolutionPath(null);
             return;
         }
 
-        setErrorMessage('');
+        setErrorMessage("");
         setSolutionPath(solPath);
     };
 
     const handleReset = () => {
         setDraggables([
-            { type: 'start', position: null },
-            { type: 'end', position: null },
+            { type: "start", position: null },
+            { type: "end", position: null },
         ]);
-        setErrorMessage('');
+        setErrorMessage("");
         setSolutionPath(null);
 
         // Clear canvas
         const canvas = canvasRef.current;
         if (canvas) {
-            const ctx = canvas.getContext('2d');
+            const ctx = canvas.getContext("2d");
             if (ctx) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
             }
@@ -440,12 +447,25 @@ export default function IWBeastVenomXMazeSolver() {
 
         for (let row = 0; row < 6; row++) {
             for (let col = 0; col < 6; col++) {
-                const draggable = draggables.find(d => d.position && d.position[0] === row && d.position[1] === col);
+                const draggable = draggables.find((d) => d.position && d.position[0] === row && d.position[1] === col);
 
                 squares.push(
-                    <div key={`square-${row}-${col}`} className="green-square" onDragOver={handleDragOver} onDrop={e => handleDrop(e, row, col)}>
-                        {draggable && <img className="placed-draggable" src={draggable.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND} alt={draggable.type === 'start' ? 'Yellow Square' : 'Blue Diamond'} draggable onDragStart={e => handleDragStart(e, draggable.type)} />}
-                    </div>
+                    <div
+                        key={`square-${row}-${col}`}
+                        className="green-square"
+                        onDragOver={handleDragOver}
+                        onDrop={(e) => handleDrop(e, row, col)}
+                    >
+                        {draggable && (
+                            <img
+                                className="placed-draggable"
+                                src={draggable.type === "start" ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
+                                alt={draggable.type === "start" ? "Yellow Square" : "Blue Diamond"}
+                                draggable
+                                onDragStart={(e) => handleDragStart(e, draggable.type)}
+                            />
+                        )}
+                    </div>,
                 );
             }
         }
@@ -454,12 +474,31 @@ export default function IWBeastVenomXMazeSolver() {
     };
 
     const renderDraggableContainer = () => {
-        return <div className="draggable-container">{draggables.map(d => !d.position && <img key={d.type} className="draggable-image" src={d.type === 'start' ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND} alt={d.type === 'start' ? 'Yellow Square' : 'Blue Diamond'} draggable onDragStart={e => handleDragStart(e, d.type)} />)}</div>;
+        return (
+            <div className="draggable-container">
+                {draggables.map(
+                    (d) =>
+                        !d.position && (
+                            <img
+                                key={d.type}
+                                className="draggable-image"
+                                src={d.type === "start" ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
+                                alt={d.type === "start" ? "Yellow Square" : "Blue Diamond"}
+                                draggable
+                                onDragStart={(e) => handleDragStart(e, d.type)}
+                            />
+                        ),
+                )}
+            </div>
+        );
     };
 
     return (
         <div className="solver-container">
-            <p className="solver-instructions">Drag the Yellow Square and Blue Diamond onto the board where they're on the monitor in-game, then click Solve.</p>
+            <p className="solver-instructions">
+                Drag the Yellow Square and Blue Diamond onto the board where they're on the monitor in-game, then click
+                Solve.
+            </p>
             {renderDraggableContainer()}
             <div className="venom-board-wrapper">
                 <div ref={boardRef} className="venom-board">

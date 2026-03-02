@@ -22,10 +22,10 @@
 
     <script>
         function logViewportSize() {
-            if (window.matchMedia('(max-width: 768px)').matches) {
-                console.log('Mobile');
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                console.log("Mobile");
             } else {
-                console.log('Desktop');
+                console.log("Desktop");
             }
         }
 
@@ -33,9 +33,9 @@
         logViewportSize();
 
         // Log on resize
-        window.addEventListener('resize', logViewportSize);
+        window.addEventListener("resize", logViewportSize);
 
         // Log on orientation change
-        window.addEventListener('orientationchange', logViewportSize);
+        window.addEventListener("orientationchange", logViewportSize);
     </script>
 </html>

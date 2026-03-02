@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const possibleWords: string[] = [
-    'DAMNATION', // Nuke
-    'REAPER', // Insta-Kill
-    'GEISTKRAFT', // Full Charge
-    'FAMISHED', // Max Ammo
-    'GLUTTONY', // Double Jolts
-    'WONDER', // Tesla Gun & Ripsaw
-    'THEJACKBOX', // Jack-in-the-Boxes
+    "DAMNATION", // Nuke
+    "REAPER", // Insta-Kill
+    "GEISTKRAFT", // Full Charge
+    "FAMISHED", // Max Ammo
+    "GLUTTONY", // Double Jolts
+    "WONDER", // Tesla Gun & Ripsaw
+    "THEJACKBOX", // Jack-in-the-Boxes
 ];
 
 function suggestNextLetter(revealedSequence: string, guessedLetters: string): string[] {
     revealedSequence = revealedSequence.toUpperCase();
     guessedLetters = guessedLetters.toUpperCase();
 
-    return possibleWords.filter(word => {
+    return possibleWords.filter((word) => {
         let wordIndex = 0;
         for (const letter of revealedSequence) {
             let found = false;
@@ -44,27 +44,43 @@ function suggestNextLetter(revealedSequence: string, guessedLetters: string): st
 
 export default function WW2HangmanSolver() {
     // State for user input
-    const [revealedLetters, setRevealedLetters] = React.useState<string>('');
-    const [guessedLetters, setGuessedLetters] = React.useState<string>('');
+    const [revealedLetters, setRevealedLetters] = React.useState<string>("");
+    const [guessedLetters, setGuessedLetters] = React.useState<string>("");
 
     // Calculate suggestion whenever input changes
     const result = suggestNextLetter(revealedLetters, guessedLetters);
 
     return (
         <div className="solver-container">
-            <form onSubmit={e => e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <fieldset>
                     <legend>Hangman Word Solver</legend>
-                    <p className="solver-instructions">Enter the correct letters in order and any incorrect guesses to find possible words.</p>
+                    <p className="solver-instructions">
+                        Enter the correct letters in order and any incorrect guesses to find possible words.
+                    </p>
 
                     <div className="form-row">
                         <label htmlFor="revealed-letters">Correct Letters:</label>
-                        <input type="text" id="revealed-letters" value={revealedLetters} onChange={e => setRevealedLetters(e.target.value)} placeholder="Correct letters in order" className="solver" />
+                        <input
+                            type="text"
+                            id="revealed-letters"
+                            value={revealedLetters}
+                            onChange={(e) => setRevealedLetters(e.target.value)}
+                            placeholder="Correct letters in order"
+                            className="solver"
+                        />
                     </div>
 
                     <div className="form-row">
                         <label htmlFor="guessed-letters">Incorrect Letters:</label>
-                        <input type="text" id="guessed-letters" value={guessedLetters} onChange={e => setGuessedLetters(e.target.value)} placeholder="Wrong letters" className="solver" />
+                        <input
+                            type="text"
+                            id="guessed-letters"
+                            value={guessedLetters}
+                            onChange={(e) => setGuessedLetters(e.target.value)}
+                            placeholder="Wrong letters"
+                            className="solver"
+                        />
                     </div>
                 </fieldset>
 

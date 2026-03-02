@@ -33,9 +33,9 @@ stylesheet while maintaining distinct interactive element styling.
     --color-border-medium: #444;
 
     /* Solver accent colors - gold/amber theme */
-    --color-solver-accent: #c9a961;        /* Primary gold accent */
+    --color-solver-accent: #c9a961; /* Primary gold accent */
     --color-solver-accent-bright: #d4b56f; /* Brighter gold for hovers */
-    --color-solver-active: #b89a5a;        /* Active state */
+    --color-solver-active: #b89a5a; /* Active state */
 
     /* Border radius scale */
     --radius-sm: 3px;
@@ -167,7 +167,9 @@ FORMS - Unified with main stylesheet
     border-radius: 4px;
     padding: var(--space-sm) var(--space-md);
     font-size: 14px;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .solver-container select:focus,
@@ -452,7 +454,7 @@ CHESSBOARD SOLVER
 }
 
 .queen {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg');
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -622,7 +624,6 @@ LETTER SYMBOL MATCHING
     border: 2px solid var(--color-border-medium);
     border-radius: var(--radius-sm);
     overflow: hidden;
-    pointer-events: none;
     background-color: var(--color-bg-tertiary);
 }
 

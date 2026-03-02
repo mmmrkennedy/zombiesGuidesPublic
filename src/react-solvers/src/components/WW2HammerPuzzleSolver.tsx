@@ -1,17 +1,21 @@
-import React from 'react';
+import React from "react";
 
 type Direction = 0 | 1 | 2 | 3;
 type BlockId = 0 | 1 | 2 | 3;
 type DirectionsArray = [Direction, Direction, Direction, Direction];
 
-const DIRECTION_SYMBOLS: string[] = ['↓', '→', '↑', '←'];
-const LABELS: string[] = ['A', 'B', 'C', 'D'];
+const DIRECTION_SYMBOLS: string[] = ["↓", "→", "↑", "←"];
+const LABELS: string[] = ["A", "B", "C", "D"];
 
 function shotsToFaceForward(currDirections: DirectionsArray, id: BlockId): number {
     return (4 - currDirections[id]) % 4;
 }
 
-function updateDirectionsAfterShots(currDirections: DirectionsArray, targetId: BlockId, shotCount: number): DirectionsArray {
+function updateDirectionsAfterShots(
+    currDirections: DirectionsArray,
+    targetId: BlockId,
+    shotCount: number,
+): DirectionsArray {
     let newDirections: DirectionsArray = [...currDirections];
 
     // Update directions based on which block was shot
@@ -81,15 +85,15 @@ function solve_logic(directions: DirectionsArray): number[] {
         shootCounts[2] += 1;
     }
 
-    return shootCounts.map(num => num % 4);
+    return shootCounts.map((num) => num % 4);
 }
 
 export default function WW2HammerPuzzleSolver() {
     const [directions, setDirections] = React.useState<DirectionsArray>([0, 0, 0, 0]);
-    const [result, setResult] = React.useState<string>('');
+    const [result, setResult] = React.useState<string>("");
 
     function change_block_dir(block_id: BlockId): void {
-        setDirections(prevDirections => {
+        setDirections((prevDirections) => {
             const newDirections: DirectionsArray = [...prevDirections];
             newDirections[block_id] = ((newDirections[block_id] + 1) % 4) as Direction;
             return newDirections;
@@ -98,7 +102,7 @@ export default function WW2HammerPuzzleSolver() {
 
     function solve_blocks(directions: DirectionsArray) {
         let shootCounts: number[] = solve_logic(directions);
-        let result: string = '';
+        let result: string = "";
 
         shootCounts.forEach((count, i) => {
             if (count > 0) {
@@ -107,7 +111,7 @@ export default function WW2HammerPuzzleSolver() {
         });
 
         if (result.length === 0) {
-            result = 'Puzzle is already solved!';
+            result = "Puzzle is already solved!";
         }
 
         setResult(result.slice(0, -1));
@@ -115,19 +119,39 @@ export default function WW2HammerPuzzleSolver() {
 
     return (
         <div className="solver-container lightning_puzzle_container">
-            <p className="solver-instructions">Click each block button to cycle through its direction (↓ ↑ → ←). Set each block to match the in-game block positions, then click "Solve!" to get the shooting instructions. Up = Facing Back, Down = Facing Front.</p>
+            <p className="solver-instructions">
+                Click each block button to cycle through its direction (↓ ↑ → ←). Set each block to match the in-game
+                block positions, then click "Solve!" to get the shooting instructions. Up = Facing Back, Down = Facing
+                Front.
+            </p>
 
             <div className="aligned-buttons vertical">
-                <button className="btn-base aligned-button square solver-button" id="blockA" onClick={() => change_block_dir(0)}>
+                <button
+                    className="btn-base aligned-button square solver-button"
+                    id="blockA"
+                    onClick={() => change_block_dir(0)}
+                >
                     {DIRECTION_SYMBOLS[directions[0]]}
                 </button>
-                <button className="btn-base aligned-button square solver-button" id="blockB" onClick={() => change_block_dir(1)}>
+                <button
+                    className="btn-base aligned-button square solver-button"
+                    id="blockB"
+                    onClick={() => change_block_dir(1)}
+                >
                     {DIRECTION_SYMBOLS[directions[1]]}
                 </button>
-                <button className="btn-base aligned-button square solver-button" id="blockC" onClick={() => change_block_dir(2)}>
+                <button
+                    className="btn-base aligned-button square solver-button"
+                    id="blockC"
+                    onClick={() => change_block_dir(2)}
+                >
                     {DIRECTION_SYMBOLS[directions[2]]}
                 </button>
-                <button className="btn-base aligned-button square solver-button" id="blockD" onClick={() => change_block_dir(3)}>
+                <button
+                    className="btn-base aligned-button square solver-button"
+                    id="blockD"
+                    onClick={() => change_block_dir(3)}
+                >
                     {DIRECTION_SYMBOLS[directions[3]]}
                 </button>
             </div>
@@ -138,7 +162,7 @@ export default function WW2HammerPuzzleSolver() {
 
             <div className="solver-output">
                 <p>
-                    {result.split('\n').map((line, i) => (
+                    {result.split("\n").map((line, i) => (
                         <span key={i}>
                             {line}
                             <br />
