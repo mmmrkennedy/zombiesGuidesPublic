@@ -13,6 +13,7 @@ const path = require("path");
 function generateQuickLinks(content, outputPath) {
     if (!outputPath || !outputPath.endsWith(".html")) return content;
 
+    const t0 = Date.now();
     try {
         const dom = new JSDOM(content);
         const document = dom.window.document;
@@ -37,7 +38,9 @@ function generateQuickLinks(content, outputPath) {
         const navStructure = buildNavStructure(document);
         renderNavigation(container, navStructure, outputPath);
 
-        return dom.serialize();
+        const result = dom.serialize();
+        console.log(`[generateQuickLinks] ${outputPath} — ${Date.now() - t0}ms`);
+        return result;
     } catch (error) {
         console.error(`Error generating quick links for ${outputPath}:`, error.message);
         return content;
@@ -186,7 +189,7 @@ function renderNavigation(container, structure, outputPath) {
 /**
  * Creates a navigation link element
  */
-function createNavLink(document, element, customName = null, outputPath = "") {
+function createNavLink(document, element, customName = null, _outputPath = "") {
     if (!element.id) {
         // console.warn(`[${outputPath}] Quick link element missing ID: ${element.textContent?.substring(0, 50)}`);
         return null;
@@ -250,6 +253,7 @@ function classifyLinks(content, outputPath) {
         return content;
     }
 
+    const t0 = Date.now();
     try {
         const dom = new JSDOM(content);
         const document = dom.window.document;
@@ -305,7 +309,9 @@ function classifyLinks(content, outputPath) {
             }
         });
 
-        return modified ? dom.serialize() : content;
+        const result = modified ? dom.serialize() : content;
+        console.log(`[classifyLinks] ${outputPath} — ${Date.now() - t0}ms`);
+        return result;
     } catch (error) {
         console.error(`Error classifying links in ${outputPath}:`, error.message);
         return content;
@@ -322,6 +328,7 @@ function addVersioning(content, outputPath) {
         return content;
     }
 
+    const t0 = Date.now();
     try {
         let modified = content;
         const buildVersion = Date.now().toString();
@@ -366,6 +373,7 @@ function addVersioning(content, outputPath) {
             }
         }
 
+        console.log(`[addVersioning] ${outputPath} — ${Date.now() - t0}ms`);
         return modified;
     } catch (error) {
         console.error(`Error adding versioning to ${outputPath}:`, error.message);
@@ -388,6 +396,7 @@ function injectReactBundle(content, outputPath) {
         return content;
     }
 
+    const t0 = Date.now();
     try {
         const manifestPath = path.join(__dirname, "dist/react-solvers/.vite/manifest.json");
 
@@ -420,11 +429,79 @@ function injectReactBundle(content, outputPath) {
             modified = modified.replace("<!-- REACT_BUNDLE_PLACEHOLDER -->", scriptTag);
         }
 
+        console.log(`[injectReactBundle] ${outputPath} — ${Date.now() - t0}ms`);
         return modified;
     } catch (error) {
         console.error(`❌ Error injecting React bundle in ${outputPath}:`, error.message);
         return content;
     }
+}
+
+// ========================================
+// SMART IMAGE COPY
+// ========================================
+
+const IMAGE_EXTENSIONS = new Set([".webp", ".png", ".jpg", ".jpeg", ".svg", ".gif", ".webm", ".ico", ".xml", ".txt"]);
+
+function walkDir(dir, results = []) {
+    if (!fs.existsSync(dir)) return results;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            walkDir(fullPath, results);
+        } else if (IMAGE_EXTENSIONS.has(path.extname(entry.name).toLowerCase())) {
+            results.push(fullPath);
+        }
+    }
+    return results;
+}
+
+function shouldCopy(src, dest) {
+    if (!fs.existsSync(dest)) return true;
+    return fs.statSync(src).mtimeMs > fs.statSync(dest).mtimeMs;
+}
+
+async function smartCopyImages() {
+    const pairs = [
+        // src/games/**/* → dist/games/**/
+        ...walkDir("src/games").map((src) => ({
+            src,
+            dest: path.join("dist", path.relative("src", src)),
+        })),
+        // src root-level assets → dist/
+        ...fs.readdirSync("src", { withFileTypes: true })
+            .filter((e) => e.isFile() && IMAGE_EXTENSIONS.has(path.extname(e.name).toLowerCase()))
+            .map((e) => ({ src: path.join("src", e.name), dest: path.join("dist", e.name) })),
+    ];
+
+    let copied = 0;
+    let skipped = 0;
+    let lastLoggedDir = null;
+
+    for (const { src, dest } of pairs) {
+        // Log directory changes, but only up to 2 levels deep under games/
+        const relDir = path.relative("src/games", path.dirname(src));
+        if (!relDir.startsWith("..")) {
+            const parts = relDir === "." ? [] : relDir.split(path.sep);
+            if (parts.length >= 1) {
+                const dirKey = parts.slice(0, 2).join("/");
+                if (dirKey !== lastLoggedDir) {
+                    console.log(`[smartCopyImages] Copying images from /games/${dirKey}/`);
+                    lastLoggedDir = dirKey;
+                }
+            }
+        }
+
+        if (shouldCopy(src, dest)) {
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            fs.copyFileSync(src, dest);
+            copied++;
+        } else {
+            skipped++;
+        }
+    }
+
+    console.log(`[smartCopyImages] ${copied} copied, ${skipped} skipped (unchanged)`);
 }
 
 // ========================================
@@ -441,13 +518,14 @@ module.exports = function (eleventyConfig) {
     // Performance optimization: use passthrough for dev server (faster)
     eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
-    // Passthrough copy static assets
+    // Smart image copy: only copies new or changed files
+    eleventyConfig.on("eleventy.before", smartCopyImages);
+
+    // Passthrough copy static assets (non-image)
     eleventyConfig.addPassthroughCopy("src/css/*");
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/favicon");
     eleventyConfig.addPassthroughCopy("src/font");
-    eleventyConfig.addPassthroughCopy("src/games/**/*.{webp,png,jpg,jpeg,svg,gif,webm}");
-    eleventyConfig.addPassthroughCopy("src/*.{webp,png,jpg,jpeg,svg,ico,xml,txt,gif,webm}");
     eleventyConfig.addPassthroughCopy("src/react-solvers");
     eleventyConfig.addPassthroughCopy("src/_headers");
 

@@ -152,5 +152,12 @@ export default [
             "no-debugger": "error",
         },
     },
+    // scripts.js exposes globals for HTML onclick handlers in .njk templates — ESLint can't see cross-file usage
+    {
+        files: ["src/js/scripts.js"],
+        rules: {
+            "no-unused-vars": "off",
+        },
+    },
     prettier, // Must be last to override other configs
 ];

@@ -1,5 +1,3 @@
-console.log("[DEBUG] device/mobile-detection.js loaded");
-
 /**
  * Mobile and touch device detection utilities
  * Handles device-specific functionality and responsive behaviour
@@ -40,10 +38,10 @@ function updateMobileText() {
             if (element) {
                 element.style.display = isMobileDevice === contentItem.showOnMobile ? "block" : "none";
             } else {
-                console.log(`${contentItem.id} not found`);
+                console.warn(`${contentItem.id} not found`);
             }
         } catch (error) {
-            console.log(`Error handling ${contentItem.id}:`, error);
+            console.error(`Error handling ${contentItem.id}:`, error);
         }
     });
 }

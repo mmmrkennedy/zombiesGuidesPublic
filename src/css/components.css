@@ -29,6 +29,11 @@ a:hover {
     font-style: italic;
 }
 
+.solver-link {
+    color: var(--color-link-solver);
+    font-style: italic;
+}
+
 .external-link::after {
     content: "";
     display: inline-block;
@@ -46,9 +51,11 @@ a:hover {
 .incomplete-path {
     color: #d95b43;
 }
+
 .wrong-file-type {
     color: #e89850;
 }
+
 .file-doesnt-exist {
     color: #c8a150;
 }
