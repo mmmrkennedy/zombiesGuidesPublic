@@ -10,10 +10,10 @@ const boards: string[][] = [
     ["BCDEF", "XYZ", "GHILNO", "M", "JKQU", "APRSTVW"],
 ];
 
-const words: Words[] = ["WORM", "MOTH", "CRAB", "YETI"];
+const _words: Words[] = ["WORM", "MOTH", "CRAB", "YETI"];
 
 function find_letterboard(boards: string[][], word: Words, board: BoardIDS): string {
-    let board_num: number = Number(board.split("_")[1]) - 1;
+    const board_num: number = Number(board.split("_")[1]) - 1;
     const found_board: string[] = boards[board_num];
     let number_str = "";
 
@@ -42,7 +42,7 @@ export default function BO6LetterboardSolver() {
     const [result, setResult] = React.useState<string>("Select a Word and Board to continue...");
 
     function handleWordChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        let word: Words = e.target.value as Words;
+        const word: Words = e.target.value as Words;
         setSelectedWord(word);
 
         if (word !== "default" && boardID !== "default") {
@@ -51,7 +51,7 @@ export default function BO6LetterboardSolver() {
     }
 
     function handleBoardChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        let board_ids: BoardIDS = e.target.value as BoardIDS;
+        const board_ids: BoardIDS = e.target.value as BoardIDS;
         setboardID(board_ids);
 
         if (board_ids !== "default" && selectedWord !== "default") {

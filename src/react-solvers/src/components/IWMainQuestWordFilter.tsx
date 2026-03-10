@@ -104,7 +104,7 @@ export default function IWMainQuestWordFilter() {
         if (input === "") {
             handleClearInput();
         } else {
-            let [filtered_words, possible_letters] = filterWordsByPrefix(input);
+            const [filtered_words, possible_letters] = filterWordsByPrefix(input);
             setFilteredWords(filtered_words);
             setPossibleLetters(possible_letters);
         }

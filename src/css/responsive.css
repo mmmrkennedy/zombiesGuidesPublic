@@ -70,7 +70,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         top: var(--space-xs);
     }
 
-    .toggle-button.bottom-right {
+    .btn--fixed.bottom-right {
         --btn-bottom: 1.25rem;
         --btn-right: 1.25rem;
 
@@ -80,7 +80,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         opacity: 0.85;
     }
 
-    .toggle-button.top-left {
+    .btn--fixed.top-left {
         height: auto;
     }
 

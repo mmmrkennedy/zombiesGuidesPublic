@@ -22,7 +22,7 @@ function initializeQuickLinks() {
 
         // Exit early if navigation already exists (built at build-time)
         if (parentElement.children.length > 0) {
-            console.log("Navigation already pre-built, skipping runtime generation");
+            // console.log("Navigation already pre-built, skipping runtime generation");
             return;
         }
 
@@ -92,7 +92,7 @@ function generateQuickLinks(parentElement, elements) {
         const elementId = element.id;
 
         if (elementId === "") {
-            console.log(`Element Quick Link (at screen top) with text **${element.innerText}** skipped, no ID given`);
+            // console.log(`Element Quick Link (at screen top) with text **${element.innerText}** skipped, no ID given`);
             continue; // Skip if no valid ID
         }
 

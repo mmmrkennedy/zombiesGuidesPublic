@@ -67,14 +67,52 @@ a:hover {
 }
 
 /* Buttons */
-.toggle-button {
-    position: fixed;
-    padding: var(--space-sm) var(--space-lg);
-    font-size: var(--font-size-base);
+.btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
     cursor: pointer;
     border: none;
     background-color: var(--color-bg-tertiary);
     color: var(--color-text-primary);
+    border-radius: 4px;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+    background-color: var(--color-border-medium);
+}
+
+.btn--accent {
+    background-color: var(--color-link-external);
+    color: var(--color-bg-primary);
+    font-weight: bold;
+}
+
+.btn--accent:not(:disabled):hover {
+    background-color: var(--color-link-external);
+    filter: brightness(0.85);
+}
+
+.btn--danger {
+    background-color: var(--color-warning-border);
+    color: var(--color-bg-primary);
+    font-weight: bold;
+}
+
+.btn--danger:not(:disabled):hover {
+    background-color: var(--color-warning-border);
+    filter: brightness(0.85);
+}
+
+.btn--fixed {
+    position: fixed;
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-base);
     border-radius: 6px;
     opacity: 0.85;
     transition: all 0.2s ease;
@@ -82,7 +120,7 @@ a:hover {
     inset: var(--btn-top, auto) var(--btn-right, auto) var(--btn-bottom, auto) var(--btn-left, auto);
 }
 
-.toggle-button:hover {
+.btn--fixed:hover {
     background-color: var(--color-bg-secondary);
     opacity: 1;
     transform: translateY(-1px);
@@ -98,7 +136,7 @@ a:hover {
     --btn-right: var(--space-md);
 }
 
-.toggle-button.bottom-right {
+.btn--fixed.bottom-right {
     padding: var(--space-md);
     width: 48px;
     height: 48px;
@@ -108,7 +146,7 @@ a:hover {
     opacity: 0.6;
 }
 
-.toggle-button.top-left {
+.btn--fixed.top-left {
     height: var(--space-2xl);
 }
 
@@ -318,4 +356,164 @@ details.spacing {
     z-index: 9999;
     user-select: none;
     opacity: 0.6;
+}
+
+/* Tutorial Confirm */
+.tutorial-confirm {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border-subtle);
+    border-radius: 6px 6px 0 0;
+    padding: var(--space-lg);
+    text-align: center;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 40%);
+    z-index: 1;
+}
+
+.tutorial-confirm.active {
+    display: block;
+}
+
+.tutorial-confirm p {
+    margin-bottom: var(--space-md);
+}
+
+.tutorial-confirm-btns {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+/* Tutorial Overlay */
+.tutorial-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0 0 0 / 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.tutorial-popup {
+    position: relative;
+    background-color: var(--color-bg-primary);
+    border: 2px solid var(--color-border-subtle);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 50%);
+    padding: var(--space-lg);
+    max-width: 550px;
+    width: 90%;
+    color: var(--color-text-primary);
+}
+
+.tutorial-header {
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: var(--space-sm);
+    text-align: center;
+}
+
+.tutorial-header h2 {
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    margin: 0;
+    color: var(--color-tier-1);
+}
+
+.tutorial-exit-btn {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: transparent;
+    border: 1px solid var(--color-warning-border);
+    border-radius: 4px;
+    color: var(--color-warning-border);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tutorial-exit-btn:hover {
+    background-color: var(--color-warning-border);
+    color: var(--color-bg-primary);
+}
+
+.tutorial-pages-container {
+    min-height: 180px;
+    margin-bottom: var(--space-lg);
+}
+
+.tutorial-page {
+    display: none;
+    animation: fadein 0.5s;
+}
+
+.tutorial-page.active {
+    display: block;
+}
+
+.tutorial-page p {
+    margin-bottom: var(--space-sm);
+    line-height: var(--line-height-normal);
+}
+
+.tutorial-page ul {
+    margin-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.tutorial-page li {
+    margin-bottom: var(--space-sm);
+}
+
+.tutorial-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.tutorial-progress-container {
+    margin-top: var(--space-md);
+}
+
+.tutorial-progress-bar {
+    height: 6px;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: var(--space-sm);
+}
+
+.tutorial-progress-fill {
+    height: 100%;
+    width: 0; /* Updated by JS */
+    background-color: var(--color-link-default);
+    transition: width 0.3s ease;
+}
+
+.tutorial-progress-text {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-link-external);
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

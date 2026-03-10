@@ -4,51 +4,30 @@
  */
 
 /**
- * Checks if tutorial CSS is loaded by looking for the stylesheet
- */
-function isTutorialCSSLoaded() {
-    // Check for link element with tutorial CSS
-    const linkElement = document.querySelector('link[href*="tutorial_box.css"]');
-    if (linkElement) {
-        return true;
-    }
-
-    // Alternative check - look through all stylesheets
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        const sheet = document.styleSheets[i];
-        if (sheet.href && sheet.href.includes("tutorial_box.css")) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-/**
  * Adds the tutorial box HTML to the page
  */
 function addTutorialBox() {
     const contentWindowDiv = document.querySelector("div.content-window");
 
     if (!contentWindowDiv) {
-        console.log("contentWindowDiv is missing, unable to generate Tutorial Box");
-        return false;
-    }
-
-    // Check if CSS is loaded before adding HTML
-    if (!isTutorialCSSLoaded()) {
-        console.warn("Tutorial CSS not loaded, skipping tutorial box creation");
+        console.error("contentWindowDiv is missing, unable to generate Tutorial Box");
         return false;
     }
 
     const tutorialHTML = `
     <div class="tutorial-overlay" id="tutorialOverlay">
             <div class="tutorial-popup">
+                <div class="tutorial-confirm" id="tutorialConfirm">
+                    <p>Are you sure you want to skip the tutorial?</p>
+                    <div class="tutorial-confirm-btns">
+                        <button id="confirmYesBtn" class="btn btn--danger">Yes, skip</button>
+                        <button id="confirmNoBtn" class="btn">Cancel</button>
+                    </div>
+                </div>
+
                 <div class="tutorial-header">
                     <h2 id="tutorialTitle">Welcome to Zombies Easter Egg Guides!</h2>
-                    <div class="tutorial-page-indicator">
-                        <span id="currentPage">1</span>/<span id="totalPages">4</span>
-                    </div>
+                    <button id="exitBtn" class="tutorial-exit-btn" aria-label="Close tutorial">&times;</button>
                 </div>
 
                 <!-- Tutorial Pages Container -->
@@ -75,29 +54,22 @@ function addTutorialBox() {
 
                     <!-- Page 4 -->
                     <div class="tutorial-page" data-page="4">
-                        <p>Links in <a class="external-link" href="https://youtube.com">Green (YouTube)</a> lead to other websites, like YouTube or Reddit.</p>
+                        <p>Links in <a class="external-link" href="https://youtube.com" target="_blank">Green (YouTube)</a> lead to other websites, like YouTube or Reddit.</p>
                         <p>We try to make it clear where each link goes before you click it.</p>
                     </div>
-
+                    
                     <!-- Page 5 -->
                     <div class="tutorial-page" data-page="5">
-                        <p>Ads on this site are <strong>togglable</strong> via the switch in the top right.</p>
-                        <p>They are placed as unobtrusively as possible to keep the quality of the site high.</p>
-                        <p>If you find the guides helpful, leaving them on is a great way to support the site.</p>
-                    </div>
-                    
-                    <!-- Page 6 -->
-                    <div class="tutorial-page" data-page="6">
                         <p>If you ever need to jump to the top of a guide, just use the "Back to Top" button.</p>
-                        <p>Also, the guides are open to anyone who wishes to contribute. Join the <a class="external-link" href="https://discord.com/invite/hQng3Yz48A">Discord Server</a> to start helping out.</p>
+                        <p>Also, the guides are open to anyone who wishes to contribute. Join the <a class="external-link" href="https://discord.com/invite/hQng3Yz48A" target="_blank">Discord Server</a> to start helping out.</p>
                         <p>Thanks for checking out the Website!</p>
                     </div>
                 </div>
                 
                 <div class="tutorial-navigation">
-                    <button id="prevPageBtn" class="tutorial-nav-btn" disabled>Previous</button>
-                    <button id="nextPageBtn" class="tutorial-nav-btn">Next</button>
-                    <button id="finishBtn" class="tutorial-nav-btn finish-btn" style="display: none;">Finish</button>
+                    <button id="prevPageBtn" class="btn" disabled>Previous</button>
+                    <button id="nextPageBtn" class="btn">Next</button>
+                    <button id="finishBtn" class="btn btn--accent" style="display: none;">Finish</button>
                 </div>
                 
                 <div class="tutorial-progress-container">
@@ -130,18 +102,12 @@ function isIndexPage() {
 function tutorialPopupInit() {
     // Only run on index page
     if (!isIndexPage()) {
-        console.log("Not on index page, skipping tutorial");
+        console.warn("Not on index page, skipping tutorial");
         return;
     }
 
     // Check if tutorial has been shown before
     if (!localStorage.getItem("zombiesGuidesTutorialShown")) {
-        // Check if CSS is loaded before proceeding
-        if (!isTutorialCSSLoaded()) {
-            console.warn("Tutorial CSS not loaded, tutorial will not be shown");
-            return;
-        }
-
         const tutorialAdded = addTutorialBox();
         if (!tutorialAdded) {
             console.warn("Tutorial box could not be added, skipping tutorial");
@@ -164,6 +130,8 @@ function tutorialPopupInit() {
     }
 }
 
+let currentPage = 1;
+
 /**
  * Initializes tutorial event listeners and shows first page
  */
@@ -173,13 +141,16 @@ function initTutorial() {
         tutorialOverlay.style.display = "flex";
     }
 
-    // Initialize variables
-    document.getElementById("totalPages").textContent = String(document.querySelectorAll(".tutorial-page").length);
-
     // Set up event listeners
     document.getElementById("prevPageBtn").addEventListener("click", navigatePrevPage);
     document.getElementById("nextPageBtn").addEventListener("click", navigateNextPage);
     document.getElementById("finishBtn").addEventListener("click", finishTutorial);
+    document.getElementById("exitBtn").addEventListener("click", exitTutorial);
+    document.getElementById("confirmYesBtn").addEventListener("click", finishTutorial);
+    document.getElementById("confirmNoBtn").addEventListener("click", hideConfirm);
+    tutorialOverlay.addEventListener("click", (e) => {
+        if (e.target === tutorialOverlay) exitTutorial();
+    });
 
     // Show first page
     showPage(1);
@@ -201,10 +172,11 @@ function showTutorial() {
 function showPage(pageNum) {
     const pages = document.querySelectorAll(".tutorial-page");
     const totalPages = pages.length;
-    const currentPageElement = document.getElementById("currentPage");
     const prevBtn = document.getElementById("prevPageBtn");
     const nextBtn = document.getElementById("nextPageBtn");
     const finishBtn = document.getElementById("finishBtn");
+
+    currentPage = pageNum;
 
     // Hide all pages
     pages.forEach((page) => {
@@ -216,9 +188,6 @@ function showPage(pageNum) {
     if (targetPage) {
         targetPage.classList.add("active");
     }
-
-    // Update page counter
-    currentPageElement.textContent = pageNum;
 
     // Update button states
     prevBtn.disabled = pageNum === 1;
@@ -240,7 +209,6 @@ function showPage(pageNum) {
  * Navigates to the next tutorial page
  */
 function navigateNextPage() {
-    const currentPage = parseInt(document.getElementById("currentPage").textContent);
     showPage(currentPage + 1);
 }
 
@@ -248,11 +216,23 @@ function navigateNextPage() {
  * Navigates to the previous tutorial page
  */
 function navigatePrevPage() {
-    const currentPage = parseInt(document.getElementById("currentPage").textContent);
-
     if (currentPage > 1) {
         showPage(currentPage - 1);
     }
+}
+
+/**
+ * Shows the confirm overlay — used by the exit button and overlay click
+ */
+function exitTutorial() {
+    document.getElementById("tutorialConfirm").classList.add("active");
+}
+
+/**
+ * Hides the confirm overlay
+ */
+function hideConfirm() {
+    document.getElementById("tutorialConfirm").classList.remove("active");
 }
 
 /**
@@ -282,16 +262,17 @@ function updateProgressBar(currentPage, totalPages) {
 
 /**
  * Resets tutorial (for debugging/testing)
+ * Run window.TutorialSystem.resetTutorial() in browser console to call
  */
 function resetTutorial() {
-    console.log("Manually Reset Tutorial...");
+    // console.log("Manually Reset Tutorial...");
     localStorage.removeItem("zombiesGuidesTutorialShown");
+    window.location.reload();
 }
 
 // Make functions available globally
 window.TutorialSystem = {
     addTutorialBox,
-    isTutorialCSSLoaded,
     isIndexPage,
     tutorialPopupInit,
     initTutorial,
@@ -299,6 +280,7 @@ window.TutorialSystem = {
     showPage,
     navigateNextPage,
     navigatePrevPage,
+    exitTutorial,
     finishTutorial,
     updateProgressBar,
     resetTutorial,

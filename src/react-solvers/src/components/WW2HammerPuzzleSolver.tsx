@@ -16,7 +16,7 @@ function updateDirectionsAfterShots(
     targetId: BlockId,
     shotCount: number,
 ): DirectionsArray {
-    let newDirections: DirectionsArray = [...currDirections];
+    const newDirections: DirectionsArray = [...currDirections];
 
     // Update directions based on which block was shot
     if (targetId === 1) {
@@ -42,7 +42,7 @@ function updateDirectionsAfterShots(
 }
 
 function solve_logic(directions: DirectionsArray): number[] {
-    let shootCounts: number[] = [0, 0, 0, 0];
+    const shootCounts: number[] = [0, 0, 0, 0];
     let currDirections: DirectionsArray = [...directions];
 
     // A: A2, B1
@@ -101,7 +101,7 @@ export default function WW2HammerPuzzleSolver() {
     }
 
     function solve_blocks(directions: DirectionsArray) {
-        let shootCounts: number[] = solve_logic(directions);
+        const shootCounts: number[] = solve_logic(directions);
         let result: string = "";
 
         shootCounts.forEach((count, i) => {

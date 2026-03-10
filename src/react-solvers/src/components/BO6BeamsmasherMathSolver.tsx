@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 type SymbolKey = "X" | "Y" | "Z";
 type SelectedSymbolValue = 0 | 10 | 11 | 20 | 21 | 22 | null;

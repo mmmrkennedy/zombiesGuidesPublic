@@ -192,11 +192,6 @@ export default function BO6PeriodicTableSolver() {
         }
     }
 
-    function reset_input() {
-        setElementInput("");
-        setResult(<div>Enter a symbol to find matching elements...</div>);
-    }
-
     return (
         <div className="solver-container">
             <h3>Periodic Table Element Finder</h3>
