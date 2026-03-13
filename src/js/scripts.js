@@ -365,6 +365,13 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "Lightbox Class", fn: () => window.Lightbox?.addLightboxClass() },
             { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
             { name: "Solver Components", fn: includeSolverComponent },
+            {
+                name: "Incomplete Paths",
+                fn: () =>
+                    document
+                        .querySelectorAll("a.incomplete-path")
+                        .forEach((a) => a.addEventListener("click", (e) => e.preventDefault())),
+            },
         ];
 
         // Execute initialization steps with error handling
