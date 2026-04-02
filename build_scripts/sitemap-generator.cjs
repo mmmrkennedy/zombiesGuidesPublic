@@ -3,10 +3,25 @@ const fs = require("fs");
 const path = require("path");
 const { JSDOM } = require("jsdom");
 const { SitemapStream, streamToPromise } = require("sitemap");
+const { execSync } = require("child_process");
 
 const SITE_URL = "https://mmmrkennedy.com"; // Change to your site
 const INDEX_FILE = path.resolve("./dist/index.html"); // Path to your index.html
 const OUTPUT_FILE = path.resolve("./dist/sitemap.xml");
+
+function getGitLastModified(link) {
+    try {
+        // link is something like "games/BO6/terminus/terminus_guide.html"
+        // find the source file in src/ or wherever your Eleventy input is
+        const result = execSync(
+            `git log -1 --format="%cI" -- "${link}"`,
+            { encoding: "utf8" }
+        ).trim();
+        return result || null;
+    } catch {
+        return null;
+    }
+}
 
 async function buildSitemap() {
     if (!fs.existsSync(INDEX_FILE)) {
@@ -22,7 +37,8 @@ async function buildSitemap() {
         .map((a) => a.getAttribute("href"))
         .filter((href) => href && !href.startsWith("http") && !href.startsWith("#")) // only relative links
         .map((href) => href.replace(/^\/?/, "")) // normalize
-        .map((href) => href.replace(/\.html$/, "")); // remove .html extension
+        .map((href) => href.replace(/\?.*$/, "")); // remove query string ".html?foo"
+        // .map((href) => href.replace(/\.html$/, "")); // remove .html extension
 
     const uniqueLinks = [...new Set(links)];
 
@@ -38,12 +54,11 @@ async function buildSitemap() {
 
     // then add all linked pages
     for (const link of uniqueLinks) {
-        const filePath = path.resolve("./dist", link);
+        const filePath = path.resolve("./src", link);
         if (fs.existsSync(filePath)) {
             const stats = fs.statSync(filePath);
-            sitemap.write({ url: `/${link}`, lastmod: stats.mtime });
-        } else {
-            sitemap.write({ url: `/${link}` });
+            const lastmod = getGitLastModified(filePath) || stats.mtime;
+            sitemap.write({ url: `/${link}`, lastmod });
         }
     }
 
