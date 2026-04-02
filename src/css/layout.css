@@ -57,7 +57,7 @@ Page structure and containers.
     justify-content: center;
 }
 
-.toggle-button.top-left {
+.btn--fixed.top-left {
     position: absolute;
     left: var(--space-md);
     top: 50%;

@@ -18,7 +18,6 @@ import IWBeastEightQueensSolver from "./components/IWBeastEightQueensSolver";
 import IWBeastFloppySolver from "./components/IWBeastFloppySolver";
 import IWBeastVenomXMazeSolver from "./components/IWBeastVenomXMazeSolver";
 import IWBeastVenomXBoxSolver from "./components/IWBeastVenomXBoxSolver";
-import IWBeastMorseCodeSolver from "./components/IWBeastMorseCodeSolver";
 
 /**
  * Mount functions - These allow you to embed React components anywhere in your HTML
@@ -59,10 +58,9 @@ declare global {
 // Global namespace for all solvers
 window.ZombiesSolvers = {
     mountHangmanSolver(elementId: string) {
-        console.log("Mounting WW2HangmanSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountHangmanSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -71,14 +69,12 @@ window.ZombiesSolvers = {
                 <WW2HangmanSolver />
             </React.StrictMode>,
         );
-        console.log("WW2HangmanSolver mounted successfully");
     },
 
     mountStatueSolver(elementId: string) {
-        console.log("Mounting WW2StatueSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountStatueSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -87,14 +83,12 @@ window.ZombiesSolvers = {
                 <WW2StatueSolver />
             </React.StrictMode>,
         );
-        console.log("WW2StatueSolver mounted successfully");
     },
 
     mountHammerSolver(elementId: string) {
-        console.log("Mounting WW2HammerPuzzleSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountHammerSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -103,14 +97,12 @@ window.ZombiesSolvers = {
                 <WW2HammerPuzzleSolver />
             </React.StrictMode>,
         );
-        console.log("WW2StatueSolver mounted successfully");
     },
 
     mountValveSolver(elementId: string) {
-        console.log("Mounting ValveSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountValveSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -119,14 +111,12 @@ window.ZombiesSolvers = {
                 <BO3ValveSolver />
             </React.StrictMode>,
         );
-        console.log("ValveSolver mounted successfully");
     },
 
     mountBeamsmasherSolver(elementId: string) {
-        console.log("Mounting BeamsmasherSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountBeamsmasherSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -135,14 +125,12 @@ window.ZombiesSolvers = {
                 <BO6BeamsmasherMathSolver />
             </React.StrictMode>,
         );
-        console.log("BeamsmasherSolver mounted successfully");
     },
 
     mountMaxisItemsSolver(elementId: string) {
-        console.log("Mounting BO6MaxisItemsSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountMaxisItemsSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -151,14 +139,12 @@ window.ZombiesSolvers = {
                 <BO6MaxisItemsSolver />
             </React.StrictMode>,
         );
-        console.log("BO6MaxisItemsSolver mounted successfully");
     },
 
     mountPeriodicTableSolver(elementId: string) {
-        console.log("Mounting BO6PeriodicTableSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountPeriodicTableSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -167,14 +153,12 @@ window.ZombiesSolvers = {
                 <BO6PeriodicTableSolver />
             </React.StrictMode>,
         );
-        console.log("BO6PeriodicTableSolver mounted successfully");
     },
 
     mountLetterboardSolver(elementId: string) {
-        console.log("Mounting BO6LetterboardSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountLetterboardSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -183,14 +167,12 @@ window.ZombiesSolvers = {
                 <BO6LetterboardSolver />
             </React.StrictMode>,
         );
-        console.log("BO6LetterboardSolver mounted successfully");
     },
 
     mountMahjongSolver(elementId: string) {
-        console.log("Mounting IWMahjongSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountMahjongSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -199,14 +181,12 @@ window.ZombiesSolvers = {
                 <IWMahjongSolver />
             </React.StrictMode>,
         );
-        console.log("IWMahjongSolver mounted successfully");
     },
 
     mountShaolinWordFilter(elementId: string) {
-        console.log("Mounting IWMainQuestWordFilter to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountShaolinWordFilter: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -215,14 +195,12 @@ window.ZombiesSolvers = {
                 <IWMainQuestWordFilter />
             </React.StrictMode>,
         );
-        console.log("IWMainQuestWordFilter mounted successfully");
     },
 
     mountChemicalStepSolver(elementId: string) {
-        console.log("Mounting IWChemicalStepSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountChemicalStepSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -231,14 +209,12 @@ window.ZombiesSolvers = {
                 <IWChemicalStepSolver />
             </React.StrictMode>,
         );
-        console.log("IWChemicalStepSolver mounted successfully");
     },
 
     mountAttackGnSSkull4Solver(elementId: string) {
-        console.log("Mounting IWGnSSkull4Solver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountAttackGnSSkull4Solver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -247,14 +223,12 @@ window.ZombiesSolvers = {
                 <IWGnSSkull4Solver />
             </React.StrictMode>,
         );
-        console.log("IWGnSSkull4Solver mounted successfully");
     },
 
     mountBeastGnSEightQueensSolver(elementId: string) {
-        console.log("Mounting IWBeastEightQueensSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountBeastGnSEightQueensSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -263,14 +237,12 @@ window.ZombiesSolvers = {
                 <IWBeastEightQueensSolver />
             </React.StrictMode>,
         );
-        console.log("IWBeastEightQueensSolver mounted successfully");
     },
 
     mountBeastFloppyDiskSolver(elementId: string) {
-        console.log("Mounting IWBeastFloppySolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountBeastFloppyDiskSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -279,14 +251,12 @@ window.ZombiesSolvers = {
                 <IWBeastFloppySolver />
             </React.StrictMode>,
         );
-        console.log("IWBeastFloppySolver mounted successfully");
     },
 
     mountBeastVenomXMazeSolver(elementId: string) {
-        console.log("Mounting IWBeastVenomXBoxSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountBeastVenomXMazeSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -295,14 +265,12 @@ window.ZombiesSolvers = {
                 <IWBeastVenomXMazeSolver />
             </React.StrictMode>,
         );
-        console.log("IWBeastVenomXBoxSolver mounted successfully");
     },
 
     mountBeastVenomXBoxSolver(elementId: string) {
-        console.log("Mounting IWBeastVenomXBoxSolver to:", elementId);
         const element = document.getElementById(elementId);
         if (!element) {
-            console.error("Element not found:", elementId);
+            console.error("mountBeastVenomXBoxSolver: element not found:", elementId);
             return;
         }
         const root = ReactDOM.createRoot(element);
@@ -311,7 +279,6 @@ window.ZombiesSolvers = {
                 <IWBeastVenomXBoxSolver />
             </React.StrictMode>,
         );
-        console.log("IWBeastVenomXBoxSolver mounted successfully");
     },
 };
 
@@ -322,9 +289,6 @@ if (devRoot) {
     root.render(
         <React.StrictMode>
             <div>
-                <h2>Beast Morse Code Solver</h2>
-                <IWBeastMorseCodeSolver />
-
                 <h2>Beast Venom X Maze Solver</h2>
                 <IWBeastVenomXMazeSolver />
 

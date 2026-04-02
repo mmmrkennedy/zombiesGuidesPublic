@@ -86,7 +86,7 @@ function hasDuplicates(array: string[]): boolean {
 
 function solveCipher(targetWord: string, swingsetLettersArr: string[]): string {
     targetWord = targetWord.toLowerCase();
-    let swingsetLetters: string = swingsetLettersArr.join("").toLowerCase();
+    const swingsetLetters: string = swingsetLettersArr.join("").toLowerCase();
 
     // Validate input
     if (swingsetLetters.length !== 4) {

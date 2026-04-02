@@ -1,12 +1,10 @@
-console.log("[DEBUG] scripts.js loaded at:", new Date().toISOString());
-
 /*
 =======================================
 GLOBAL FUNCTION WRAPPERS FOR HTML COMPATIBILITY
 =======================================
  */
 
-// Wrapper functions for HTML onclick handlers
+// Wrapper functions for HTML onclick handlers (called from .njk templates)
 function scrollToTop() {
     window.ScrollManager.scrollToTop();
 }
@@ -28,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         if (isMobile) {
-            console.log("Preloading disabled on mobile devices");
+            // console.log("Preloading disabled on mobile devices");
             return;
         }
 
@@ -118,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Fallback function for browsers without IntersectionObserver
         function loadAllImagesImmediately() {
-            const imageLinks = document.querySelectorAll("a.glightbox");
+            const imageLinks = document.querySelectorAll("a.lightbox-trigger");
             imageLinks.forEach((aTag) => {
                 const imgUrl = aTag.getAttribute("href");
                 const srcset = aTag.getAttribute("data-srcset");
@@ -132,11 +130,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create the observer
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // Observe all glightbox links
-        const imageLinks = document.querySelectorAll("a.glightbox");
+        // Observe all lightbox trigger links
+        const imageLinks = document.querySelectorAll("a.lightbox-trigger");
 
         if (imageLinks.length === 0) {
-            console.log("No image links found to observe");
+            console.warn("No image links found to observe");
             return;
         }
 
@@ -144,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             observer.observe(aTag);
         });
 
-        console.log(`Observing ${imageLinks.length} image links for lazy loading`);
+        // console.log(`Observing ${imageLinks.length} image links for lazy loading`);
     } catch (error) {
         console.error("Error initializing lazy loading:", error);
     }
@@ -173,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Optional: Add event listeners to track success/failure
             link.onload = () => {
-                console.log("Prefetched:", url);
+                // console.log("Prefetched:", url);
             };
 
             link.onerror = () => {
@@ -190,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const htmlLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
 
         if (htmlLinks.length === 0) {
-            console.log("No HTML links found to prefetch");
+            console.warn("No HTML links found to prefetch");
             return;
         }
 
@@ -207,14 +205,14 @@ document.addEventListener("DOMContentLoaded", function () {
             link.addEventListener(
                 "mouseenter",
                 () => {
-                    console.log(`Prefetched: ${link.getAttribute("href")}`);
+                    // console.log(`Prefetched: ${link.getAttribute("href")}`);
                     prefetchPage(href);
                 },
                 { once: true },
             ); // 'once: true' removes listener after first trigger
         });
 
-        console.log(`Hover prefetch enabled for ${htmlLinks.length} links`);
+        // console.log(`Hover prefetch enabled for ${htmlLinks.length} links`);
 
         // Optional: Expose helper for debugging
         window.isPrefetched = function (url) {
@@ -239,7 +237,7 @@ document.addEventListener("click", function (e) {
 
     // If we have cached HTML and CSS, the page should load very fast
     if (window.isHtmlCached && window.isHtmlCached(href)) {
-        console.log("Fast load: Content preloaded for", href);
+        // console.log("Fast load: Content preloaded for", href);
         // Optional: Add visual feedback
         link.style.opacity = "0.7";
         setTimeout(() => (link.style.opacity = "1"), 100);
@@ -294,13 +292,13 @@ async function includeSolverComponent() {
         for (const eventName of event_names) {
             try {
                 document.dispatchEvent(new CustomEvent(eventName));
-                console.log(`Dispatched event: ${eventName}`);
+                // console.log(`Dispatched event: ${eventName}`);
             } catch (error) {
                 console.error(`Error dispatching event ${eventName}:`, error);
             }
         }
 
-        console.log(`Loaded ${event_names.length} solver components successfully`);
+        // console.log(`Loaded ${event_names.length} solver components successfully`);
     } catch (error) {
         console.error("Error in includeSolverComponent:", error);
     }
@@ -367,6 +365,13 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "Lightbox Class", fn: () => window.Lightbox?.addLightboxClass() },
             { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
             { name: "Solver Components", fn: includeSolverComponent },
+            {
+                name: "Incomplete Paths",
+                fn: () =>
+                    document
+                        .querySelectorAll("a.incomplete-path")
+                        .forEach((a) => a.addEventListener("click", (e) => e.preventDefault())),
+            },
         ];
 
         // Execute initialization steps with error handling

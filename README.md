@@ -14,7 +14,7 @@ Next:
 
 Finished:
 
-- All Of Black Ops Cold War (Except Outbreak)
+- All Of Black Ops Cold War
 - All Of Vanguard
 - All Of Black Ops 4
 - All of Infinite Warfare

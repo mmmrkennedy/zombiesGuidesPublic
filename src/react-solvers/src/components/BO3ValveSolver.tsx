@@ -96,7 +96,7 @@ function format_list_as_str(list_of_correct_vals: ValveConfig | undefined): stri
 
         const value = list_of_correct_vals[i];
         if (value !== undefined && value > 3) {
-            console.log("ERROR: Value for %s is greater than 3 (%s)", loc_name, value);
+            console.error("Value for %s is greater than 3 (%s)", loc_name, value);
         }
 
         result += "Set " + loc_name + " to: " + list_of_correct_vals[i] + "\n";

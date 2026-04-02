@@ -1,5 +1,3 @@
-console.log("[DEBUG] navigation/scroll-manager.js loaded");
-
 /**
  * Scroll management and history handling
  * Manages smooth scrolling, anchor navigation, and browser history
@@ -54,8 +52,6 @@ function scrollToElement(elementId, fromPopstate = false) {
         const contentWindowScrollTop = contentWindow.scrollTop;
         const targetY = elementPosition + contentWindowScrollTop - topBackBoxHeight;
 
-        console.log(`[DEBUG] Content Window: ${contentWindow} & targetY=${targetY}`);
-
         contentWindow.scrollTo({
             top: targetY,
             behavior: "smooth",
@@ -89,12 +85,12 @@ function clearHashAndScrollTop() {
  */
 function initHistoryManagement() {
     // Handle popstate events (back/forward button)
-    window.addEventListener("popstate", function (event) {
-        console.log("Popstate event triggered:", {
-            hash: window.location.hash,
-            state: event.state,
-            historyLength: window.history.length,
-        });
+    window.addEventListener("popstate", function (_event) {
+        // console.log("Popstate event triggered:", {
+        //     hash: window.location.hash,
+        //     state: _event.state,
+        //     historyLength: window.history.length,
+        // });
 
         const hash = window.location.hash;
         if (hash && hash.length > 1) {

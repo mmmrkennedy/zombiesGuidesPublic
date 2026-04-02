@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Configuration
-const CSS_FILES = ["./css/styles.css", "./css/global_solver.css", "./css/tutorial_box.css"];
+const CSS_FILES = ["./css/styles.css", "./css/global_solver.css"];
 
 // Extract all CSS class names from CSS files
 function extractCSSClasses(cssContent) {

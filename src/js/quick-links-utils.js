@@ -151,7 +151,7 @@ function generateNavHTML(elements) {
 
         const elementId = element.id;
         if (elementId === "") {
-            console.log(`Element Quick Link with text **${element.textContent}** skipped, no ID given`);
+            // console.log(`Element Quick Link with text **${element.textContent}** skipped, no ID given`);
             continue;
         }
 

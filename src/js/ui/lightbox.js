@@ -56,7 +56,7 @@ function addLightboxContainer() {
 
         // console.log('Lightbox container added successfully');
     } else {
-        console.log("No body element found");
+        console.warn("No body element found");
     }
 }
 
@@ -150,7 +150,7 @@ function openLightbox(mediaSrc, captionText, index, mediaType) {
 
         // Start playing the video
         lightboxVideo.play().catch((e) => {
-            console.log("Auto-play prevented:", e);
+            console.warn("Auto-play prevented:", e);
             // This is expected on many browsers due to autoplay policies
         });
     }
@@ -227,7 +227,7 @@ function initLightbox() {
     const closeBtn = document.querySelector(".close-lightbox");
 
     if (!lightbox || !closeBtn) {
-        console.log("Lightbox elements not found");
+        console.warn("Lightbox elements not found");
         return;
     }
 

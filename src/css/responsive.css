@@ -5,7 +5,12 @@
 Desktop-specific upgrades. Base styles are mobile-first.
 */
 
-@media (width >= 30em) {
+/* Sidebar TOC - shown only when there's enough space beside centered content */
+.sidebar-toc {
+    display: none;
+}
+
+@media (width >= 30em) { /* --bp-xs */
     .title-text {
         max-width: 65vw;
     }
@@ -16,7 +21,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
     }
 }
 
-@media (width >= 48.0625em) {
+@media (width >= 48.0625em) { /* --bp-md */
     :root {
         --font-size-base: 1rem;
         --font-size-xl: 1.75rem;
@@ -65,7 +70,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         top: var(--space-xs);
     }
 
-    .toggle-button.bottom-right {
+    .btn--fixed.bottom-right {
         --btn-bottom: 1.25rem;
         --btn-right: 1.25rem;
 
@@ -75,7 +80,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         opacity: 0.85;
     }
 
-    .toggle-button.top-left {
+    .btn--fixed.top-left {
         height: auto;
     }
 
@@ -85,18 +90,13 @@ Desktop-specific upgrades. Base styles are mobile-first.
     }
 }
 
-@media (width >= 75em) {
+@media (width >= 75em) { /* --bp-lg */
     :root {
         --content-max-width: 1000px;
     }
 }
 
-/* Sidebar TOC - shown only when there's enough space beside centered content */
-.sidebar-toc {
-    display: none;
-}
-
-@media (width >= 90em) {
+@media (width >= 90em) { /* --bp-xl */
     .sidebar-toc {
         display: block;
         position: fixed;
@@ -104,8 +104,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         right: 0;
         width: 0;
         max-height: calc(100dvh - var(--header-height-desktop) - var(--space-lg));
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden auto;
         padding: var(--space-sm) var(--space-md);
         font-size: 0.8125rem;
         line-height: 1.6;

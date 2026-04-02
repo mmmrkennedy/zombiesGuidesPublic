@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const ingredient_number_data: Record<string, number[]> = {
     "Racing Fuel": [5, 6, 6, 6, 6, 8, 11, 13, 14, 14, 14, 16],
@@ -300,7 +300,9 @@ export default function IWChemicalStepSolver() {
             return;
         }
 
-        let [oNumResult, colourOptionTv, letter, oNumNumbers] = calcResults;
+        // Double comments (oNumResult, , letter) is required to use const
+        const [oNumResult, , letter, oNumNumbers] = calcResults;
+        let colourOptionTv = calcResults[1];
         let finalONum: string | number = oNumResult;
 
         if (oNum !== 0) {
