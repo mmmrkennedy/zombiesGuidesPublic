@@ -354,6 +354,15 @@ OUTPUT DISPLAY
     box-shadow: inset 0 2px 4px rgb(0 0 0 / 30%);
 }
 
+@keyframes result-recalc {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.result-recalc {
+    animation: result-recalc 0.25s ease-out;
+}
+
 .solver-output-centered {
     display: flex;
     justify-content: center;

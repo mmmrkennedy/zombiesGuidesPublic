@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 // Type definitions
 type Color = "red" | "green" | "blue" | "black" | "yellow" | "white";
@@ -14,6 +14,15 @@ interface ColorCounts {
 }
 
 const COLORS: Color[] = ["red", "green", "blue", "black", "yellow", "white"];
+
+const COLOR_TEXT: Record<Color, string> = {
+    red:    "#e74c3c",
+    green:  "#2ecc71",
+    blue:   "#5dade2",
+    black:  "#aaaaaa",
+    yellow: "#f1c40f",
+    white:  "#ecf0f1",
+};
 
 // Helper functions converted from venom_x_box.js
 function calcS(arr: Color[]): number {
@@ -77,75 +86,75 @@ function venomBoxCalc(buttonArr: Color[]): string {
     if (X === 3) {
         // c1, (!bl) ? B3 : c2;
         if (counts.black === 0) {
-            return "Press Button #3";
+            return "Button #3";
         }
 
         // c2, (BL = g) ? B1 : c3;
         if (buttonArr[X - 1] === "green") {
-            return "Press Button #1";
+            return "Button #1";
         }
 
         // c3, (sum(r) > 1) ? BL(r) : c4;
         if (counts.red > 1) {
-            return `Press Button #${BL(buttonArr, "red")}`;
+            return `Button #${BL(buttonArr, "red")}`;
         }
 
         // c4, B2
-        return "Press Button #2";
+        return "Button #2";
     } else if (X === 4) {
         // c1, ((sum(y) > 1) && S >= 2 ? BL(y) : c2;
         if (counts.yellow > 1 && S >= 2) {
-            return `Press Button #${BL(buttonArr, "yellow")}`;
+            return `Button #${BL(buttonArr, "yellow")}`;
         }
 
         // c2, ((BL(w) && sum(b) = 0) ? B1 : c3;
         if (buttonArr[X - 1] === "white" && counts.blue === 0) {
-            return "Press Button #1";
+            return "Button #1";
         }
 
         // c3, (sum(bl) > 1) ? BL : c4;
         if (counts.black > 1) {
-            return `Press Button #${X}`;
+            return `Button #${X}`;
         }
 
         // c4, B3
-        return "Press Button #3";
+        return "Button #3";
     } else if (X === 5) {
         // c1, (W <= 3) ? W1 : c2;
         if (areAllLessThanEqual(W, 3)) {
-            return "Press Button #1";
+            return "Button #1";
         }
 
         // c2, (sum(w) = 1 && sum(b) > 1) ? W2 : c3;
         if (counts.white === 1 && counts.blue > 1) {
-            return "Press Button #2";
+            return "Button #2";
         }
 
         // c3, (sum(r) = 0 && W % 2 = 0 && S < 4) ? WL : c4;
         if (counts.red === 0 && isAnyEven(W) && S < 4) {
-            return "Press Button #5";
+            return "Button #5";
         }
 
         // c4, W1
-        return "Press Button #1";
+        return "Button #1";
     } else if (X === 6) {
         // c1, (sum(y) != 0)
         if (counts.yellow !== 0) {
-            return "Press Button #3";
+            return "Button #3";
         }
 
         // c2, (sum(bl) = 1 && sum(w) > 1) ? W4 : c3;
         if (counts.black === 1 && counts.white > 1) {
-            return "Press Button #4";
+            return "Button #4";
         }
 
         // c3, (S >=1 && sum(r) > 1) ? W5 : c4;
         if (S >= 1 && counts.red > 1) {
-            return "Press Button #5";
+            return "Button #5";
         }
 
         // c4, BL
-        return "Press Button #6";
+        return "Button #6";
     }
 
     return "";
@@ -154,6 +163,7 @@ function venomBoxCalc(buttonArr: Color[]): string {
 export default function IWBeastVenomXBoxSolver() {
     const [buttonCount, setButtonCount] = useState<ButtonCount>(3);
     const [selectedColors, setSelectedColors] = useState<Color[]>(["red", "red", "red"]);
+    const calcKeyRef = useRef(0);
 
     const handleButtonCountChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newCount = parseInt(e.target.value) as ButtonCount;
@@ -161,16 +171,20 @@ export default function IWBeastVenomXBoxSolver() {
         // Initialize colors array when button count changes
         const initialColors = Array(newCount).fill("red") as Color[];
         setSelectedColors(initialColors);
+        calcKeyRef.current++;
     };
 
     const handleColorChange = (index: number, color: Color) => {
         const newColors = [...selectedColors];
         newColors[index] = color;
         setSelectedColors(newColors);
+        calcKeyRef.current++;
     };
 
     // Calculate result directly from state
     const result = selectedColors.length === buttonCount ? venomBoxCalc(selectedColors) : "";
+
+    const solutionButtonIndex = result ? (parseInt(result.match(/#(\d+)/)?.[1] ?? "0") - 1) : -1;
 
     return (
         <div className="solver-container">
@@ -218,7 +232,11 @@ export default function IWBeastVenomXBoxSolver() {
             </div>
 
             <div className="solver-output" id="venom-x-box-result">
-                <p>{result}</p>
+                <p
+                    key={calcKeyRef.current}
+                    className="result-recalc"
+                    style={solutionButtonIndex >= 0 ? { color: COLOR_TEXT[selectedColors[solutionButtonIndex]] } : undefined}
+                >Press {result}</p>
             </div>
         </div>
     );
