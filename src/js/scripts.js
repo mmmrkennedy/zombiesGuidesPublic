@@ -359,19 +359,14 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "Scroll Anchors", fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: "Tutorial System", fn: () => window.TutorialSystem?.tutorialPopupInit() },
             { name: "Solver Buttons", fn: () => window.LinkProcessor?.setupSolverButtons() },
+            { name: "Incomplete Paths", fn: () => window.LinkProcessor?.disableIncompleteLinks },
             { name: "Quick Links", fn: () => window.QuickLinks?.initializeQuickLinks() },
             { name: "Sidebar TOC", fn: () => window.QuickLinks?.initializeSidebarToc() },
             { name: "Lightbox Container", fn: () => window.Lightbox?.addLightboxContainer() },
             { name: "Lightbox Class", fn: () => window.Lightbox?.addLightboxClass() },
             { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
+            { name: "Reveal Button Build", fn: () => window.SolverButtonProcessor?.initRevealButtons() },
             { name: "Solver Components", fn: includeSolverComponent },
-            {
-                name: "Incomplete Paths",
-                fn: () =>
-                    document
-                        .querySelectorAll("a.incomplete-path")
-                        .forEach((a) => a.addEventListener("click", (e) => e.preventDefault())),
-            },
         ];
 
         // Execute initialization steps with error handling

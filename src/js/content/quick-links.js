@@ -13,16 +13,16 @@ function initializeQuickLinks() {
 
         if (page === "index.html") return;
 
-        const parentElement = document.getElementById("hamburgerMenuLinks");
+        const parentElement = document.querySelector(".quick-links-container");
 
         if (!parentElement) {
-            console.warn("Navigation container not found");
+            console.warn("Quick Links container (quick-links-container) not found");
             return;
         }
 
         // Exit early if navigation already exists (built at build-time)
         if (parentElement.children.length > 0) {
-            // console.log("Navigation already pre-built, skipping runtime generation");
+            // console.log("Quick Links already pre-built, skipping runtime generation");
             return;
         }
 
@@ -149,7 +149,7 @@ function generateQuickLinks(parentElement, elements) {
 function initializeSidebarToc() {
     if (document.body.dataset.skipToc === "true") return;
 
-    const tocContainer = document.querySelector(".content-container-top");
+    const tocContainer = document.querySelector(".quick-links-container");
     if (!tocContainer || !tocContainer.children.length) return;
 
     document.querySelector(".sidebar-toc")?.remove();

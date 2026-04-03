@@ -13,29 +13,10 @@
         <div>
             <h1>All Solvers - Development Preview</h1>
 
-            <div id="root" style="text-align: center"></div>
+            <div id="root" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding-bottom: 40px"></div>
         </div>
 
         <!-- Vite will inject the script here during development -->
         <script type="module" src="src/main.tsx?v=1767549486337"></script>
     </body>
-
-    <script>
-        function logViewportSize() {
-            if (window.matchMedia("(max-width: 768px)").matches) {
-                console.log("Mobile");
-            } else {
-                console.log("Desktop");
-            }
-        }
-
-        // Log on initial load
-        logViewportSize();
-
-        // Log on resize
-        window.addEventListener("resize", logViewportSize);
-
-        // Log on orientation change
-        window.addEventListener("orientationchange", logViewportSize);
-    </script>
 </html>

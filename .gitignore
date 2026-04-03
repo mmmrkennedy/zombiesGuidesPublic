@@ -27,6 +27,7 @@ easter_egg_help/
 guide_making_utils/
 old_solvers/
 nul
+/PSD ZM_Guides/
 
 # Text files in root subdirectories (except specific ones)
 /*/*.txt

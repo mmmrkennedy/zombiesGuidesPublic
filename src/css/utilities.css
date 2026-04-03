@@ -13,4 +13,10 @@ Helper classes and special cases.
 .button-activated-div {
     max-width: 100%;
     margin: var(--space-md) var(--space-sm);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-medium);
+
+    /* border-left: 3px solid var(--color-note-border); */
+    border-radius: 4px;
+    padding: var(--space-md);
 }

@@ -8,7 +8,7 @@ const path = require("path");
 
 /**
  * Eleventy transform to auto-generate quick links navigation
- * Scans page content and builds table of contents in .content-container-top
+ * Scans page content and builds table of contents in .quick-links-container
  */
 function generateQuickLinks(content, outputPath) {
     if (!outputPath || !outputPath.endsWith(".html")) return content;
@@ -21,11 +21,11 @@ function generateQuickLinks(content, outputPath) {
         // Skip TOC generation if the page opts out
         if (document.body?.dataset?.skipToc === "true") return content;
 
-        let container = document.querySelector(".content-container-top");
+        let container = document.querySelector(".quick-links-container");
         if (!container) {
             // Create the container and insert it before the first .content-container
             container = document.createElement("div");
-            container.className = "content-container-top";
+            container.className = "quick-links-container";
             const firstSection = document.querySelector(".content-container");
             if (!firstSection) return content;
             firstSection.parentNode.insertBefore(container, firstSection);
@@ -258,8 +258,8 @@ function classifyLinks(content, outputPath) {
         const dom = new JSDOM(content);
         const document = dom.window.document;
 
-        // Skip links inside .content-container-top
-        const links = document.querySelectorAll("a:not(.content-container-top a)");
+        // Skip links inside .quick-links-container
+        const links = document.querySelectorAll("a:not(.quick-links-container a)");
         let modified = false;
 
         links.forEach((link) => {
@@ -268,7 +268,13 @@ function classifyLinks(content, outputPath) {
 
             // Classify anchor links (internal page links)
             if (href.includes("#")) {
-                if (!link.classList.contains("link-to-page")) {
+                if (href.includes(".html#")) {
+                    console.log(`New internal link detected ${href}`);
+                    link.classList.add("internal-link");
+                    modified = true;
+                }
+
+                 else if (!link.classList.contains("link-to-page")) {
                     link.classList.add("link-to-page");
                     modified = true;
                 }

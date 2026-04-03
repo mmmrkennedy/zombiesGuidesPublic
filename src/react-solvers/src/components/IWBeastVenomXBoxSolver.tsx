@@ -195,8 +195,8 @@ export default function IWBeastVenomXBoxSolver() {
 
             <div id="venom-x-box-buttons" className="venom-box-buttons">
                 {Array.from({ length: buttonCount }, (_, i) => (
-                    <div className="form-row">
-                        <div key={i} className="venom-box-row">
+                    <div key={i} className="form-row">
+                        <div className="venom-box-row">
                             <label htmlFor={`venom-button-${i}`} className="venom-box-label">
                                 Button {i + 1}:
                             </label>

@@ -34,6 +34,25 @@ a:hover {
     font-style: italic;
 }
 
+.internal-link {
+    color: var(--color-link-page);
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.internal-link::after {
+    content: "";
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: var(--space-xs);
+    background-color: currentcolor;
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNxdWFyZS1hcnJvdy1yaWdodC1leGl0LWljb24gbHVjaWRlLXNxdWFyZS1hcnJvdy1yaWdodC1leGl0Ij48cGF0aCBkPSJNMTAgMTJoMTEiLz48cGF0aCBkPSJtMTcgMTYgNC00LTQtNCIvPjxwYXRoIGQ9Ik0yMSA2LjM0NFY1YTIgMiAwIDAgMC0yLTJINWEyIDIgMCAwIDAtMiAydjE0YTIgMiAwIDAgMCAyIDJoMTRhMiAyIDAgMCAwIDItMnYtMS4zNDQiLz48L3N2Zz4=");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+}
+
 .external-link::after {
     content: "";
     display: inline-block;
@@ -41,7 +60,7 @@ a:hover {
     height: 0.875rem;
     margin-left: var(--space-xs);
     background-color: currentcolor;
-    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48cGF0aCBkPSJNOCA4aDh2OCIvPjxwYXRoIGQ9Im04IDE2IDgtOCIvPjwvc3ZnPg==");
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNxdWFyZS1hcnJvdy1vdXQtdXAtcmlnaHQtaWNvbiBsdWNpZGUtc3F1YXJlLWFycm93LW91dC11cC1yaWdodCI+PHBhdGggZD0iTTIxIDEzdjZhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJWNWEyIDIgMCAwIDEgMi0yaDYiLz48cGF0aCBkPSJtMjEgMy05IDkiLz48cGF0aCBkPSJNMTUgM2g2djYiLz48L3N2Zz4="); /* From https://lucide.dev/icons/ */
     mask-size: contain;
     mask-repeat: no-repeat;
     vertical-align: middle;
@@ -356,6 +375,13 @@ details.spacing {
     z-index: 9999;
     user-select: none;
     opacity: 0.6;
+}
+
+.top-buttons-background-box .version-display {
+    position: absolute;
+    bottom: 0;
+    right: var(--space-xs);
+    top: unset;
 }
 
 /* Tutorial Confirm */

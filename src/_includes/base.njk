@@ -93,13 +93,6 @@
     </head>
 
     <body{% if skipTOC %} data-skip-toc="true"{% endif %}>
-        <div class="version-display" data-version="{{ site.buildVersion }}">
-            <div class="version-and-toggle">
-                v.<span id="version-number">0</span>
-            </div>
-        </div>
-
-
         <div class="top-buttons-background-box">
             <!-- Title at the top of the page -->
             <h1 class="title-text">{{ title }}</h1>
@@ -127,6 +120,12 @@
                 <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">Back</button>
                 <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">Back to Top</button>
             </div>
+
+            <div class="version-display" data-version="{{ site.buildVersion }}">
+                <div class="version-and-toggle">
+                    v.<span id="version-number">0</span>
+                </div>
+            </div>
         </div>
 
         <div class="content-window">
@@ -146,7 +145,7 @@
         <div class="kofi-container">
             <a href="https://ko-fi.com/X8X61TUY37" target="_blank" class="kofi-button">
                 <img src="/tips_symbol.png" alt="Ko-fi" class="kofi-img">
-                Tips (Ko-Fi)
+                Tips
             </a>
         </div>
         {% endif %}
@@ -165,6 +164,7 @@
         <!-- Content Processing -->
         <script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
         <script src="/js/content/quick-links.js?v={{ site.buildVersion }}" defer></script>
+        <script src="/js/content/solver-button-processor.js?v={{ site.buildVersion }}" defer></script>
 
         <!-- Device & Environment -->
         <script src="/js/device/mobile-detection.js?v={{ site.buildVersion }}" defer></script>

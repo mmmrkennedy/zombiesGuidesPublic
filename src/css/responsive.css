@@ -11,11 +11,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
 }
 
 @media (width >= 30em) { /* --bp-xs */
-    .title-text {
-        max-width: 65vw;
-    }
-
-    .content-container-top,
+    .quick-links-container,
     .content-container {
         max-width: 100%;
     }
@@ -28,7 +24,7 @@ Desktop-specific upgrades. Base styles are mobile-first.
         --font-size-lg: 1.375rem;
     }
 
-    .content-container-top,
+    .quick-links-container,
     .content-container {
         padding: var(--space-sm) var(--space-lg);
         max-width: var(--content-max-width);
@@ -58,16 +54,10 @@ Desktop-specific upgrades. Base styles are mobile-first.
 
     .title-text {
         margin: var(--space-sm);
-        font-size: var(--font-size-xl);
-        max-width: 100%;
     }
 
     .title-sub-text {
         font-size: var(--font-size-sm);
-    }
-
-    .version-display {
-        top: var(--space-xs);
     }
 
     .btn--fixed.bottom-right {
@@ -97,6 +87,13 @@ Desktop-specific upgrades. Base styles are mobile-first.
 }
 
 @media (width >= 90em) { /* --bp-xl */
+    /* When non-mobile is detected, hide quick links for ToC */
+    .quick-links-container { display: none; }
+
+    .version-display {
+        top: var(--space-xs);
+    }
+
     .sidebar-toc {
         display: block;
         position: fixed;

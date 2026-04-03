@@ -276,7 +276,7 @@ export default function IWBeastVenomXMazeSolver() {
     ]);
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [solutionPath, setSolutionPath] = useState<[number, number][] | null>(null);
-    const [draggedItem, setDraggedItem] = useState<DraggableType | null>(null);
+    const [selectedPiece, setSelectedPiece] = useState<DraggableType | null>(null);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const boardRef = useRef<HTMLDivElement>(null);
@@ -369,48 +369,39 @@ export default function IWBeastVenomXMazeSolver() {
         }
     }, [solutionPath]);
 
-    const handleDragStart = (e: React.DragEvent, type: DraggableType) => {
-        setDraggedItem(type);
-        e.dataTransfer.effectAllowed = "move";
-    };
-
-    const handleDragOver = (e: React.DragEvent) => {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = "move";
-    };
-
-    const handleDrop = (e: React.DragEvent, row: number, col: number) => {
-        e.preventDefault();
-
-        if (!draggedItem) return;
-
-        // Check if square is already occupied
-        const isOccupied = draggables.some(
-            (d) => d.position && d.position[0] === row && d.position[1] === col && d.type !== draggedItem,
-        );
-
-        if (isOccupied) {
-            setErrorMessage("This square is already occupied!");
-            return;
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        if (canvas) {
+            const ctx = canvas.getContext("2d");
+            if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
-
-        // Update draggable position
-        setDraggables((prev) =>
-            prev.map((d) => (d.type === draggedItem ? { ...d, position: [row, col] as [number, number] } : d)),
-        );
-
-        setErrorMessage("");
-        setDraggedItem(null);
     };
 
-    const handleSolve = () => {
-        const startDraggable = draggables.find((d) => d.type === "start");
-        const endDraggable = draggables.find((d) => d.type === "end");
+    const handleTrayPieceClick = (type: DraggableType) => {
+        const piece = draggables.find((d) => d.type === type);
 
-        if (!startDraggable?.position || !endDraggable?.position) {
-            setErrorMessage("Please place both the Yellow Square and Blue Diamond.");
-            return;
+        if (piece?.position) {
+            // Pick it up from the board
+            setDraggables((prev) => prev.map((d) => (d.type === type ? { ...d, position: null } : d)));
+            setSelectedPiece(type);
+            setSolutionPath(null);
+            clearCanvas();
+            setErrorMessage("");
+        } else {
+            setSelectedPiece((prev) => (prev === type ? null : type));
         }
+    };
+
+    const runSolve = (currentDraggables: DraggableState[]) => {
+        const placedCount = currentDraggables.filter((d) => d.position).length;
+
+        // TODO: add single-piece behaviour here (e.g. highlight valid end positions)
+        if (placedCount < 2) return;
+
+        const startDraggable = currentDraggables.find((d) => d.type === "start");
+        const endDraggable = currentDraggables.find((d) => d.type === "end");
+
+        if (!startDraggable?.position || !endDraggable?.position) return;
 
         const solPath = findSolPath(startDraggable.position, endDraggable.position);
 
@@ -424,22 +415,37 @@ export default function IWBeastVenomXMazeSolver() {
         setSolutionPath(solPath);
     };
 
+    const handleCellClick = (row: number, col: number) => {
+        const pieceInCell = draggables.find((d) => d.position && d.position[0] === row && d.position[1] === col);
+
+        if (pieceInCell) {
+            // Pick up the piece from the board
+            setDraggables((prev) => prev.map((d) => (d.type === pieceInCell.type ? { ...d, position: null } : d)));
+            setSelectedPiece(pieceInCell.type);
+            setSolutionPath(null);
+            clearCanvas();
+            setErrorMessage("");
+        } else if (selectedPiece) {
+            // Place the selected piece and auto-solve with the updated state
+            const newDraggables = draggables.map((d) =>
+                d.type === selectedPiece ? { ...d, position: [row, col] as [number, number] } : d,
+            );
+            setDraggables(newDraggables);
+            setSelectedPiece(null);
+            setErrorMessage("");
+            runSolve(newDraggables);
+        }
+    };
+
     const handleReset = () => {
         setDraggables([
             { type: "start", position: null },
             { type: "end", position: null },
         ]);
+        setSelectedPiece(null);
         setErrorMessage("");
         setSolutionPath(null);
-
-        // Clear canvas
-        const canvas = canvasRef.current;
-        if (canvas) {
-            const ctx = canvas.getContext("2d");
-            if (ctx) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-            }
-        }
+        clearCanvas();
     };
 
     const renderBoard = () => {
@@ -452,17 +458,14 @@ export default function IWBeastVenomXMazeSolver() {
                 squares.push(
                     <div
                         key={`square-${row}-${col}`}
-                        className="green-square"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, row, col)}
+                        className={`green-square${selectedPiece && !draggable ? " green-square" : ""}`}
+                        onClick={() => handleCellClick(row, col)}
                     >
                         {draggable && (
                             <img
                                 className="placed-draggable"
                                 src={draggable.type === "start" ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
                                 alt={draggable.type === "start" ? "Yellow Square" : "Blue Diamond"}
-                                draggable
-                                onDragStart={(e) => handleDragStart(e, draggable.type)}
                             />
                         )}
                     </div>,
@@ -476,19 +479,21 @@ export default function IWBeastVenomXMazeSolver() {
     const renderDraggableContainer = () => {
         return (
             <div className="draggable-container">
-                {draggables.map(
-                    (d) =>
-                        !d.position && (
-                            <img
-                                key={d.type}
-                                className="draggable-image"
-                                src={d.type === "start" ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
-                                alt={d.type === "start" ? "Yellow Square" : "Blue Diamond"}
-                                draggable
-                                onDragStart={(e) => handleDragStart(e, d.type)}
-                            />
-                        ),
-                )}
+                {draggables.map((d) => (
+                    <button
+                        key={d.type}
+                        className={`draggable-piece-btn${selectedPiece === d.type ? " draggable-piece-btn--selected" : ""}${d.position ? " draggable-piece-btn" : ""}`}
+                        onClick={() => handleTrayPieceClick(d.type)}
+                        aria-pressed={selectedPiece === d.type}
+                        aria-label={d.type === "start" ? "Yellow Square" : "Blue Diamond"}
+                    >
+                        <img
+                            className="draggable-image"
+                            src={d.type === "start" ? IMG_YELLOW_SQUARE : IMG_BLUE_DIAMOND}
+                            alt=""
+                        />
+                    </button>
+                ))}
             </div>
         );
     };
@@ -496,8 +501,8 @@ export default function IWBeastVenomXMazeSolver() {
     return (
         <div className="solver-container">
             <p className="solver-instructions">
-                Drag the Yellow Square and Blue Diamond onto the board where they're on the monitor in-game, then click
-                Solve.
+                Click the Yellow Square or Blue Diamond to select it, then click a grid cell to place it. Click a placed
+                piece to pick it back up. Once both are placed, click Solve.
             </p>
             {renderDraggableContainer()}
             <div className="venom-board-wrapper">
@@ -508,9 +513,6 @@ export default function IWBeastVenomXMazeSolver() {
             </div>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="solver-buttons">
-                <button className="btn-base solver-button" onClick={handleSolve} disabled={!!solutionPath}>
-                    Solve
-                </button>
                 <button className="btn-base solver-button" onClick={handleReset}>
                     Reset
                 </button>

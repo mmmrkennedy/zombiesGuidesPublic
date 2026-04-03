@@ -170,6 +170,7 @@ FORMS - Unified with main stylesheet
     transition:
         border-color 0.2s ease,
         background-color 0.2s ease;
+    padding-right: 2rem;
 }
 
 .solver-container select:focus,
@@ -473,16 +474,30 @@ DRAGGABLE ELEMENTS
     gap: var(--space-md);
 }
 
+.draggable-piece-btn {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.draggable-piece-btn--selected {
+    border-color: var(--color-accent, #f0c040);
+    box-shadow: 0 0 0 2px var(--color-accent, #f0c040);
+    background-color: var(--color-border-subtle);
+}
+
 .draggable-image {
     width: 45px;
     height: 45px;
-    cursor: grab;
+    display: block;
 }
 
 .placed-draggable {
     width: 100%;
     height: 100%;
-    cursor: grab;
     position: absolute;
     top: 0;
     left: 0;
@@ -537,6 +552,11 @@ VENOM BOARD SOLVER
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.green-square--target {
+    background-color: #5aba5a;
 }
 
 .venom-box-buttons {
