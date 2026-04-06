@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- SEO Meta Tags -->
-        <title>{{ title }}{% if title != "Zombies Easter Eggs & Quests Guides" %} - Call of Duty Zombies Guide{% endif %}</title>
+        <title>{{ title }}{% if title != "Zombies Easter Eggs & Quests Guides" %}{% endif %}</title>
         <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
         <meta name="keywords" content="Call of Duty, Zombies, Easter Egg, Guide, {{ title }}, Walkthrough">
         <meta name="author" content="mmmrkennedy">
@@ -15,19 +15,17 @@
         <link rel="canonical" href="https://mmmrkennedy.com{{ page.url }}">
 
         <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="website">
         <meta property="og:url" content="https://mmmrkennedy.com{{ page.url }}">
-        <meta property="og:title" content="{{ title }} - Call of Duty Zombies Guide">
+        <meta property="og:title" content="{{ title }}">
         <meta property="og:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title + ' with step-by-step instructions, pictures, and videos.' }}">
         <meta property="og:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
         <meta property="og:site_name" content="mmmrkennedy's Zombies Guides">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content="https://mmmrkennedy.com{{ page.url }}">
-        <meta name="twitter:title" content="{{ title }} - Call of Duty Zombies Guide">
+        <meta name="twitter:title" content="{{ title }}">
         <meta name="twitter:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title }}">
         <meta name="twitter:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
 
