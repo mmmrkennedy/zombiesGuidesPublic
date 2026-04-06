@@ -25,6 +25,7 @@ Finished:
 - Liberty Falls (BO6)
 - Shadows of Evil (BO3)
 - Terminus (BO6)
+- Ascension (BO1)
 
 Planned:
 

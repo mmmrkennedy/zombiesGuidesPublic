@@ -147,11 +147,12 @@ description: Complete COD Zombies "Der Riese" map guide. Features all side quest
 
 <script>
     const version = new URLSearchParams(window.location.search).get('version');
+    let title_text = 'Der Riese Guide | Call of Duty Zombies';
+
     if (version === 'remake') {
-        document.querySelector('h1.title-text').textContent = 'The Giant Guide';
-        document.title = 'The Giant - Call of Duty Zombies Guide';
-    } else if (version === 'original') {
-        document.querySelector('h1.title-text').textContent = 'Der Riese Guide';
-        document.title = 'Der Riese - Call of Duty Zombies Guide';
+        title_text = 'The Giant Guide | Black Ops 3 Zombies';
     }
+
+    document.querySelector('h1.title-text').textContent = title_text;
+    document.title = title_text;
 </script>
