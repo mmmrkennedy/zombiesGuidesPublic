@@ -239,8 +239,9 @@ td {
     border: 1px solid var(--color-border-subtle);
 }
 
-td:first-child,
-th:first-child {
+th:first-child,
+td:first-child {
+    width: 1%;
     white-space: nowrap;
 }
 
