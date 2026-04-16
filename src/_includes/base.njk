@@ -1,46 +1,47 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- SEO Meta Tags -->
-        <title>{{ title }}{% if title != "Zombies Easter Eggs & Quests Guides" %}{% endif %}</title>
-        <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
-        <meta name="keywords" content="Call of Duty, Zombies, Easter Egg, Guide, {{ title }}, Walkthrough">
-        <meta name="author" content="mmmrkennedy">
-        {%- if unfinished or page.url in unfinishedPages %}
+    <!-- SEO Meta Tags -->
+    <title>{{ title }}{% if title != "Zombies Easter Eggs & Quests Guides" %}{% endif %}</title>
+    <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
+    <meta name="author" content="mmmrkennedy">
+    {%- if unfinished or page.url in unfinishedPages %}
         <meta name="robots" content="noindex, nofollow">
-        {%- endif %}
-        <link rel="canonical" href="https://mmmrkennedy.com{{ page.url }}">
+    {%- else %}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    {%- endif %}
+    <link rel="canonical" href="https://mmmrkennedy.com{{ page.url }}">
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://mmmrkennedy.com{{ page.url }}">
-        <meta property="og:title" content="{{ title }}">
-        <meta property="og:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title + ' with step-by-step instructions, pictures, and videos.' }}">
-        <meta property="og:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
-        <meta property="og:site_name" content="mmmrkennedy's Zombies Guides">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mmmrkennedy.com{{ page.url }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title + ' with step-by-step instructions, pictures, and videos.' }}">
+    <meta property="og:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
+    <meta property="og:site_name" content="mmmrkennedy's Zombies Guides">
 
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:url" content="https://mmmrkennedy.com{{ page.url }}">
-        <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title }}">
-        <meta name="twitter:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mmmrkennedy.com{{ page.url }}">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title }}">
+    <meta name="twitter:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
 
-        <!-- Stylesheets -->
-        <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
-        {%- if useSolverCSS %}
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
+    {%- if useSolverCSS %}
         <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v={{ site.buildVersion }}">
-        {%- endif %}
+    {%- endif %}
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-        <base target="_blank">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <base target="_blank">
 
-        <!-- JSON-LD Structured Data -->
-        <script type="application/ld+json">
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "HowTo",
@@ -64,119 +65,116 @@
                 "name": "Call of Duty Zombies"
             }
         }
-        </script>
+    </script>
 
-        {%- if breadcrumb %}
-        <!-- Breadcrumb Structured Data -->
+    {%- if breadcrumb %}
         <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://mmmrkennedy.com/"
-                }
-                {%- for crumb in breadcrumb -%}
-                ,{
-                    "@type": "ListItem",
-                    "position": {{ loop.index + 1 }},
-                    "name": "{{ crumb }}"
-                }
-                {%- endfor %}
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://mmmrkennedy.com/"
+                    }
+            {%- for crumb in breadcrumb -%}
+        ,{
+            "@type": "ListItem",
+            "position": {{ loop.index + 1 }},
+            "name": "{{ crumb.name }}",
+            "item": "https://mmmrkennedy.com{{ crumb.url }}"
+        }
+        {%- endfor %}
             ]
         }
         </script>
-        {%- endif %}
-    </head>
+    {%- endif %}
+</head>
 
-    <body{% if skipTOC %} data-skip-toc="true"{% endif %}>
-        <div class="top-buttons-background-box">
-            <!-- Title at the top of the page -->
-            <h1 class="title-text">{{ title }}</h1>
+<body{% if skipTOC %} data-skip-toc="true"{% endif %}>
+<div class="top-buttons-background-box">
+    <!-- Title at the top of the page -->
+    <h1 class="title-text">{{ title }}</h1>
 
-            <!-- Mobile devices content -->
-            <div id="mobileContent" style="display: none">
-                <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="m12 8-4 4 4 4" />
-                        <path d="M16 12H8" />
-                    </svg>
-                </button>
-                <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
-                        <path d="M5 3h14" />
-                        <path d="m18 13-6-6-6 6" />
-                        <path d="M12 7v14" />
-                    </svg>
-                </button>
-            </div>
+    <!-- Mobile devices content -->
+    <div id="mobileContent" style="display: none">
+        <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m12 8-4 4 4 4" />
+                <path d="M16 12H8" />
+            </svg>
+        </button>
+        <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+                <path d="M5 3h14" />
+                <path d="m18 13-6-6-6 6" />
+                <path d="M12 7v14" />
+            </svg>
+        </button>
+    </div>
 
-            <!-- Non-mobile devices content -->
-            <div id="nonMobileContent" style="display: none">
-                <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">Back</button>
-                <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">Back to Top</button>
-            </div>
+    <!-- Non-mobile devices content -->
+    <div id="nonMobileContent" style="display: none">
+        <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">Back</button>
+        <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">Back to Top</button>
+    </div>
 
-            <div class="version-display" data-version="{{ site.buildVersion }}">
-                <div class="version-and-toggle">
-                    v.<span id="version-number">0</span>
-                </div>
-            </div>
+    <div class="version-display" data-version="{{ site.buildVersion }}">
+        <div class="version-and-toggle">
+            v.<span id="version-number">0</span>
         </div>
+    </div>
+</div>
 
-        <div class="content-window">
-            {%- if unfinished or page.url in unfinishedPages %}
-            <div class="content-container">
-                <h2>Sorry, this page is not ready yet!</h2>
-                <p>Please check back later.</p>
-            </div>
-            {%- else %}
-            {{ content | safe }}
-            {%- endif %}
+<div class="content-window">
+    {%- if unfinished or page.url in unfinishedPages %}
+        <div class="content-container">
+            <h2>Sorry, this page is not ready yet!</h2>
+            <p>Please check back later.</p>
         </div>
+    {%- else %}
+        {{ content | safe }}
+    {%- endif %}
+</div>
 
 
-        <!-- Ko-fi -->
-        {% if showKofi %}
-        <div class="kofi-container">
-            <a href="https://ko-fi.com/X8X61TUY37" target="_blank" class="kofi-button">
-                <img src="/tips_symbol.png" alt="Ko-fi" class="kofi-img">
-                Tips
-            </a>
-        </div>
-        {% endif %}
+<!-- Ko-fi -->
+{% if showKofi %}
+    <div class="kofi-container">
+        <a href="https://ko-fi.com/X8X61TUY37" target="_blank" class="kofi-button"> <img src="/tips_symbol.png" alt="Ko-fi" class="kofi-img"> Tips </a>
+    </div>
+{% endif %}
 
-        <!-- Core utilities -->
-        <script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
+<!-- Core utilities -->
+<script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- Navigation -->
-        <script src="/js/navigation/scroll-manager.js?v={{ site.buildVersion }}" defer></script>
-        <script src="/js/navigation/nav-utils.js?v={{ site.buildVersion }}" defer></script>
+<!-- Navigation -->
+<script src="/js/navigation/scroll-manager.js?v={{ site.buildVersion }}" defer></script>
+<script src="/js/navigation/nav-utils.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- UI Components -->
-        <script src="/js/ui/tutorial-system.js?v={{ site.buildVersion }}" defer></script>
-        <script src="/js/ui/lightbox.js?v={{ site.buildVersion }}" defer></script>
+<!-- UI Components -->
+<script src="/js/ui/tutorial-system.js?v={{ site.buildVersion }}" defer></script>
+<script src="/js/ui/lightbox.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- Content Processing -->
-        <script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
-        <script src="/js/content/quick-links.js?v={{ site.buildVersion }}" defer></script>
-        <script src="/js/content/solver-button-processor.js?v={{ site.buildVersion }}" defer></script>
+<!-- Content Processing -->
+<script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
+<script src="/js/content/quick-links.js?v={{ site.buildVersion }}" defer></script>
+<script src="/js/content/solver-button-processor.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- Device & Environment -->
-        <script src="/js/device/mobile-detection.js?v={{ site.buildVersion }}" defer></script>
+<!-- Device & Environment -->
+<script src="/js/device/mobile-detection.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- Shared utilities -->
-        <script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
+<!-- Shared utilities -->
+<script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
 
-        <!-- Main scripts -->
-        <script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>
+<!-- Main scripts -->
+<script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>
 
-        {%- if useReactSolvers %}
-        <!-- REACT_BUNDLE_PLACEHOLDER -->
-        {%- endif %}
-    </body>
+{%- if useReactSolvers %}
+    <!-- REACT_BUNDLE_PLACEHOLDER -->
+{%- endif %}
+</body>
 </html>
