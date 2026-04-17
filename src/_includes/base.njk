@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>{{ title }}{% if title != "Zombies Easter Eggs & Quests Guides" %}{% endif %}</title>
-    <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
+    {%- if mapName and solverTitle %}
+        {%- set pageTitle = mapName + ' ' + solverTitle + ' | ' + titleSuffix %}
+    {%- elif mapName %}
+        {%- set pageTitle = mapName + ' Guide | ' + titleSuffix %}
+    {%- else %}
+        {%- set pageTitle = title %}
+    {%- endif %}
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + pageTitle + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}">
     <meta name="author" content="mmmrkennedy">
     {%- if unfinished or page.url in unfinishedPages %}
         <meta name="robots" content="noindex, nofollow">
@@ -18,16 +25,16 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://mmmrkennedy.com{{ page.url }}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title + ' with step-by-step instructions, pictures, and videos.' }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + pageTitle + ' with step-by-step instructions, pictures, and videos.' }}">
     <meta property="og:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
     <meta property="og:site_name" content="mmmrkennedy's Zombies Guides">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://mmmrkennedy.com{{ page.url }}">
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + title }}">
+    <meta name="twitter:title" content="{{ pageTitle }}">
+    <meta name="twitter:description" content="{{ description or 'Complete walkthrough and Easter Egg guide for ' + pageTitle }}">
     <meta name="twitter:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
 
     <!-- Stylesheets -->
@@ -45,8 +52,8 @@
         {
             "@context": "https://schema.org",
             "@type": "HowTo",
-            "name": "{{ title }}",
-            "description": "{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + title + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}",
+            "name": "{{ pageTitle }}",
+            "description": "{{ description or 'Complete Call of Duty Zombies Easter Egg guide for ' + pageTitle + '. Step-by-step walkthrough with pictures, videos, and detailed instructions.' }}",
             "url": "https://mmmrkennedy.com{{ page.url }}",
             "image": "{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}",
             "author": {
@@ -87,6 +94,27 @@
             "item": "https://mmmrkennedy.com{{ crumb.url }}"
         }
         {%- endfor %}
+        {%- if solverTitle %}
+        ,{
+            "@type": "ListItem",
+            "position": {{ breadcrumb | length + 2 }},
+            "name": "{{ mapName }}",
+            "item": "https://mmmrkennedy.com{{ guideUrl }}"
+        }
+        ,{
+            "@type": "ListItem",
+            "position": {{ breadcrumb | length + 3 }},
+            "name": "{{ solverTitle }}",
+            "item": "https://mmmrkennedy.com{{ page.url }}"
+        }
+        {%- else %}
+        ,{
+            "@type": "ListItem",
+            "position": {{ breadcrumb | length + 2 }},
+            "name": "{{ mapName or pageTitle }}",
+            "item": "https://mmmrkennedy.com{{ page.url }}"
+        }
+        {%- endif %}
             ]
         }
         </script>
@@ -96,7 +124,7 @@
 <body{% if skipTOC %} data-skip-toc="true"{% endif %}>
 <div class="top-buttons-background-box">
     <!-- Title at the top of the page -->
-    <h1 class="title-text">{{ title }}</h1>
+    <h1 class="title-text">{{ pageTitle }}</h1>
 
     <!-- Mobile devices content -->
     <div id="mobileContent" style="display: none">

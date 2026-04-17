@@ -1,8 +1,9 @@
 {
+    "titleSuffix": "Call of Duty Zombies",
     "breadcrumb": [
         {
             "name": "World At War",
-            "url": "/games/WAW/"
+            "url": "/#WAW"
         }
     ]
 }

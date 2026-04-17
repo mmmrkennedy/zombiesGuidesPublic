@@ -534,6 +534,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/font");
     eleventyConfig.addPassthroughCopy("src/react-solvers");
     eleventyConfig.addPassthroughCopy("src/_headers");
+    eleventyConfig.addPassthroughCopy("src/_redirects");
 
     // Preserve .html file extensions instead of using directory index
     eleventyConfig.addGlobalData("permalink", () => {

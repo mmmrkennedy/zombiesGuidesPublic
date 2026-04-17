@@ -1,8 +1,9 @@
 {
+    "titleSuffix": "Black Ops 3 Zombies",
     "breadcrumb": [
         {
             "name": "Black Ops 3",
-            "url": "/games/BO3/"
+            "url": "/#BO3"
         }
     ]
 }

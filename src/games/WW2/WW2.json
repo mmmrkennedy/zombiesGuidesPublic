@@ -1,8 +1,9 @@
 {
+    "titleSuffix": "WW2 Zombies",
     "breadcrumb": [
         {
             "name": "WW2",
-            "url": "/games/WW2/"
+            "url": "/#WW2"
         }
     ]
 }

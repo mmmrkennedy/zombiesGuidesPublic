@@ -1,8 +1,9 @@
 {
+    "titleSuffix": "Vanguard Zombies",
     "breadcrumb": [
         {
             "name": "Vanguard",
-            "url": "/games/VG/"
+            "url": "/#VG"
         }
     ]
 }
