@@ -547,6 +547,9 @@ module.exports = function (eleventyConfig) {
         };
     });
 
+    // Strip .html extension from URLs so canonicals match Cloudflare Pretty URLs
+    eleventyConfig.addFilter("cleanUrl", (url) => url ? url.replace(/\.html$/, "") : url);
+
     // Add a filter to format dates
     eleventyConfig.addFilter("dateFormat", function (date) {
         return new Date(date).toLocaleDateString();
