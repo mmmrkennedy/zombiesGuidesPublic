@@ -2,6 +2,9 @@ const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
 
+const BUILD_VERSION = Date.now().toString();
+let cachedManifest = null;
+
 // ========================================
 // TRANSFORM FUNCTIONS
 // ========================================
@@ -248,76 +251,98 @@ function shouldExcludeFromNav(element) {
  * Runs on all HTML output files
  */
 function classifyLinks(content, outputPath) {
-    // Only process HTML files
-    if (!outputPath || !outputPath.endsWith(".html")) {
-        return content;
-    }
+    if (!outputPath || !outputPath.endsWith(".html")) return content;
 
     const t0 = Date.now();
     try {
-        const dom = new JSDOM(content);
-        const document = dom.window.document;
+        // Extract quick-links-container so its internal anchor links are not reclassified
+        let qlSection = "";
+        let processable = content;
+        const PLACEHOLDER = "\x00QL\x00";
 
-        // Skip links inside .quick-links-container
-        const links = document.querySelectorAll("a:not(.quick-links-container a)");
+        const qlIdx = content.indexOf('class="quick-links-container"');
+        if (qlIdx !== -1) {
+            const divStart = content.lastIndexOf("<div", qlIdx);
+            if (divStart !== -1) {
+                let depth = 0, pos = divStart;
+                while (pos < content.length) {
+                    if (content[pos] === "<") {
+                        if (content.startsWith("<div", pos) && /[\s>]/.test(content[pos + 4])) {
+                            depth++; pos += 4;
+                        } else if (content.startsWith("</div>", pos)) {
+                            if (--depth === 0) {
+                                qlSection = content.slice(divStart, pos + 6);
+                                processable = content.slice(0, divStart) + PLACEHOLDER + content.slice(pos + 6);
+                                break;
+                            }
+                            pos += 6;
+                        } else pos++;
+                    } else pos++;
+                }
+            }
+        }
+
+        const VALID_EXTS = [".webp", ".html", ".webm", ".gif", ".jpg", ".jpeg", ".png", ".mp4"];
         let modified = false;
 
-        links.forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href) return;
+        const result = processable.replace(/<a(\s[^>]*)>/gi, (match, attrs) => {
+            const hrefMatch = /href=["']([^"']*)["']/i.exec(attrs);
+            if (!hrefMatch) return match;
+            const href = hrefMatch[1];
+            let overrideHref = null;
 
-            // Classify anchor links (internal page links)
+            const classMatch = /class=["']([^"']*)["']/i.exec(attrs);
+            const existing = new Set(classMatch ? classMatch[1].split(/\s+/).filter(Boolean) : []);
+            const sizeBefore = existing.size;
+
             if (href.includes("#")) {
-                if (href.includes(".html#")) {
-                    console.log(`New internal link detected ${href}`);
-                    link.classList.add("internal-link");
-                    modified = true;
-                }
-
-                 else if (!link.classList.contains("link-to-page")) {
-                    link.classList.add("link-to-page");
-                    modified = true;
+                if (href.startsWith("#")) {
+                    existing.add("link-to-page");
+                } else {
+                    existing.add("internal-link");
                 }
             }
 
-            // Classify external links
             const isExternal =
-                href.includes("youtu.be") ||
-                href.includes("youtube") ||
-                href.includes("discord.com") ||
-                href.startsWith("http://") ||
+                href.includes("youtu.be") || href.includes("youtube") ||
+                href.includes("discord.com") || href.startsWith("http://") ||
                 href.startsWith("https://") ||
                 (href.includes(".com") && !href.startsWith("/"));
 
-            if (isExternal && !link.classList.contains("external-link")) {
-                link.classList.add("external-link");
-                modified = true;
-            }
+            if (isExternal) existing.add("external-link");
 
-            // Validate internal links (not anchors, not external)
             if (!href.startsWith("#") && !href.startsWith("http")) {
-                // Check for incomplete paths
-                if (href.endsWith("/") && !link.classList.contains("incomplete-path")) {
-                    link.classList.add("incomplete-path");
-                    modified = true;
+                if (href.endsWith("/")) {
+                    existing.add("incomplete-path");
+                    overrideHref = "#";
                     console.warn(`Incomplete path in ${outputPath}: ${href}`);
-                }
-
-                // Check for valid file extensions
-                const validExtensions = [".webp", ".html", ".webm", ".gif", ".jpg", ".jpeg", ".png", ".mp4"];
-                const hasValidExtension = validExtensions.some((ext) => href.toLowerCase().includes(ext));
-
-                if (!hasValidExtension && !href.endsWith("/") && !link.classList.contains("wrong_file_type")) {
-                    link.classList.add("wrong_file_type");
-                    modified = true;
-                    console.warn(`Invalid file type in ${outputPath}: ${href}`);
+                } else {
+                    const pathWithoutQuery = href.split("?")[0];
+                    const hasUnknownExt = /\.[a-z0-9]+$/i.test(pathWithoutQuery);
+                    const hasKnownExt = VALID_EXTS.some((ext) => pathWithoutQuery.toLowerCase().endsWith(ext));
+                    if (hasUnknownExt && !hasKnownExt) {
+                        existing.add("wrong_file_type");
+                        console.warn(`Invalid file type in ${outputPath}: ${href}`);
+                    }
                 }
             }
+
+            if (existing.size === sizeBefore && overrideHref === null) return match;
+
+            modified = true;
+            const classStr = [...existing].join(" ");
+            let newAttrs = classMatch
+                ? attrs.replace(/class=["'][^"']*["']/i, `class="${classStr}"`)
+                : ` class="${classStr}"${attrs}`;
+            if (overrideHref !== null) {
+                newAttrs = newAttrs.replace(/href=["'][^"']*["']/i, `href="${overrideHref}"`);
+            }
+            return `<a${newAttrs}>`;
         });
 
-        const result = modified ? dom.serialize() : content;
+        const final = qlSection ? result.replace(PLACEHOLDER, qlSection) : result;
         console.log(`[classifyLinks] ${outputPath} — ${Date.now() - t0}ms`);
-        return result;
+        return modified ? final : content;
     } catch (error) {
         console.error(`Error classifying links in ${outputPath}:`, error.message);
         return content;
@@ -337,7 +362,7 @@ function addVersioning(content, outputPath) {
     const t0 = Date.now();
     try {
         let modified = content;
-        const buildVersion = Date.now().toString();
+        const buildVersion = BUILD_VERSION;
 
         // Add ?v= parameter to CSS links without version
         modified = modified.replace(
@@ -404,15 +429,16 @@ function injectReactBundle(content, outputPath) {
 
     const t0 = Date.now();
     try {
-        const manifestPath = path.join(__dirname, "dist/react-solvers/.vite/manifest.json");
-
-        if (!fs.existsSync(manifestPath)) {
-            console.warn("⚠️  React manifest not found - skipping bundle injection");
-            return content;
+        if (!cachedManifest) {
+            const manifestPath = path.join(__dirname, "dist/react-solvers/.vite/manifest.json");
+            if (!fs.existsSync(manifestPath)) {
+                console.warn("⚠️  React manifest not found - skipping bundle injection");
+                return content;
+            }
+            cachedManifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
         }
 
-        const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-
+        const manifest = cachedManifest;
         // Vite manifest structure: { "index.html": { "file": "assets/index-HASH.js", ... } }
         const indexEntry = manifest["index.html"];
         if (!indexEntry || !indexEntry.file) {

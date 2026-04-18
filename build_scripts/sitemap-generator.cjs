@@ -9,17 +9,28 @@ const SITE_URL = "https://mmmrkennedy.com"; // Change to your site
 const INDEX_FILE = path.resolve("./dist/index.html"); // Path to your index.html
 const OUTPUT_FILE = path.resolve("./dist/sitemap.xml");
 
-function getGitLastModified(link) {
+function getAllGitLastModified() {
     try {
-        // link is something like "games/BO6/terminus/terminus_guide.html"
-        // find the source file in src/ or wherever your Eleventy input is
-        const result = execSync(
-            `git log -1 --format="%cI" -- "${link}"`,
-            { encoding: "utf8" }
+        const output = execSync(
+            "git log --format=%cI --name-only --diff-filter=ACMRT",
+            { encoding: "utf8", maxBuffer: 50 * 1024 * 1024 }
         ).trim();
-        return result || null;
+
+        const map = {};
+        let currentDate = null;
+        for (const line of output.split("\n")) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            if (/^\d{4}-\d{2}-\d{2}T/.test(trimmed)) {
+                currentDate = trimmed;
+            } else if (currentDate) {
+                const normalized = trimmed.replace(/\\/g, "/");
+                if (!(normalized in map)) map[normalized] = currentDate;
+            }
+        }
+        return map;
     } catch {
-        return null;
+        return {};
     }
 }
 
@@ -37,8 +48,8 @@ async function buildSitemap() {
         .map((a) => a.getAttribute("href"))
         .filter((href) => href && !href.startsWith("http") && !href.startsWith("#")) // only relative links
         .map((href) => href.replace(/^\/?/, "")) // normalize
-        .map((href) => href.replace(/\?.*$/, "")); // remove query string ".html?foo"
-        // .map((href) => href.replace(/\.html$/, "")); // remove .html extension
+        .map((href) => href.replace(/\?.*$/, "")) // remove query string ".html?foo"
+        .map((href) => href.replace(/\.html$/, "")); // remove .html extension
 
     const uniqueLinks = [...new Set(links)];
 
@@ -46,6 +57,9 @@ async function buildSitemap() {
         console.error("No valid links found in index.html");
         process.exit(1);
     }
+
+    const repoRoot = path.resolve(".");
+    const gitDates = getAllGitLastModified();
 
     const sitemap = new SitemapStream({ hostname: SITE_URL });
 
@@ -56,8 +70,8 @@ async function buildSitemap() {
     for (const link of uniqueLinks) {
         const filePath = path.resolve("./src", link);
         if (fs.existsSync(filePath)) {
-            const stats = fs.statSync(filePath);
-            const lastmod = getGitLastModified(filePath) || stats.mtime;
+            const relPath = path.relative(repoRoot, filePath).replace(/\\/g, "/");
+            const lastmod = gitDates[relPath] || fs.statSync(filePath).mtime;
             sitemap.write({ url: `/${link}`, lastmod });
         }
     }
