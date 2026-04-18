@@ -37,7 +37,7 @@ async function minifyCSS(filePath) {
         const output = new CleanCSS({}).minify([filePath]);
         if (output.errors.length) throw new Error(output.errors.join(", "));
         fs.writeFileSync(filePath, output.styles, "utf8");
-        console.log(`✅ CSS: ${path.relative(distDir, filePath)}`);
+        // console.log(`✅ CSS: ${path.relative(distDir, filePath)}`);
     } catch (error) {
         console.error(`❌ Error minifying ${filePath}:`, error.message);
     }
@@ -49,13 +49,13 @@ async function minifyJS(filePath) {
         const result = await terserMinify(input, { compress: true, mangle: true });
         if (!result.code) throw new Error("terser returned no output");
         fs.writeFileSync(filePath, result.code, "utf8");
-        console.log(`✅ JS:  ${path.relative(distDir, filePath)}`);
+        // console.log(`✅ JS:  ${path.relative(distDir, filePath)}`);
     } catch (error) {
         console.error(`❌ Error minifying ${filePath}:`, error.message);
     }
 }
 
-console.log("🚀 Starting asset minification...\n");
+// console.log("🚀 Starting asset minification...\n");
 
 if (!fs.existsSync(distDir)) {
     console.error("❌ dist directory not found. Run build first.");
@@ -65,11 +65,11 @@ if (!fs.existsSync(distDir)) {
 const cssFiles = findFiles(distDir, [".css"]);
 const jsFiles = findFiles(distDir, [".js"]);
 
-console.log(`Found ${cssFiles.length} CSS files and ${jsFiles.length} JS files\n`);
+// console.log(`Found ${cssFiles.length} CSS files and ${jsFiles.length} JS files\n`);
 
 await Promise.all([
     ...cssFiles.map(minifyCSS),
     ...jsFiles.map(minifyJS),
 ]);
 
-console.log("\n✨ Minification complete!");
+// console.log("\n✨ Minification complete!");
