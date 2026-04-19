@@ -71,8 +71,7 @@ export default defineConfig({
         // Clear the output directory before building
         emptyOutDir: true,
 
-        // Generate source maps for debugging
-        sourcemap: true,
+        sourcemap: false,
 
         // Generate manifest for dynamic bundle resolution
         manifest: true,

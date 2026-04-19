@@ -41,11 +41,16 @@ function scrollToAnchors() {
 /**
  * Scrolls to a specific element by ID with offset
  */
+let cachedTopBarHeight = null;
+
 function scrollToElement(elementId, fromPopstate = false) {
     const element = document.getElementById(elementId);
     const contentWindow = document.querySelector(".content-window");
-    const topBackgroundBox = document.querySelector(".top-buttons-background-box");
-    const topBackBoxHeight = topBackgroundBox.getBoundingClientRect().height;
+    if (cachedTopBarHeight === null) {
+        const topBackgroundBox = document.querySelector(".top-buttons-background-box");
+        cachedTopBarHeight = topBackgroundBox ? topBackgroundBox.getBoundingClientRect().height : 0;
+    }
+    const topBackBoxHeight = cachedTopBarHeight;
 
     if (element && contentWindow) {
         const elementPosition = element.getBoundingClientRect().top;

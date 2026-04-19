@@ -283,6 +283,8 @@ function classifyLinks(content, outputPath) {
         }
 
         const VALID_EXTS = [".webp", ".html", ".webm", ".gif", ".jpg", ".jpeg", ".png", ".mp4"];
+        const LIGHTBOX_EXTS = new Set([".webp", ".jpg", ".jpeg", ".png", ".gif", ".webm", ".mp4", ".mov"]);
+        const LIGHTBOX_VIDEO_EXTS = new Set([".webm", ".mp4", ".mov"]);
         let modified = false;
 
         const result = processable.replace(/<a(\s[^>]*)>/gi, (match, attrs) => {
@@ -327,7 +329,15 @@ function classifyLinks(content, outputPath) {
                 }
             }
 
-            if (existing.size === sizeBefore && overrideHref === null) return match;
+            const hrefLower = href.toLowerCase().split("?")[0];
+            const hrefExt = hrefLower.match(/\.[a-z0-9]+$/)?.[0];
+            let dataMediaType = null;
+            if (hrefExt && LIGHTBOX_EXTS.has(hrefExt)) {
+                existing.add("lightbox-trigger");
+                dataMediaType = LIGHTBOX_VIDEO_EXTS.has(hrefExt) ? "video" : "image";
+            }
+
+            if (existing.size === sizeBefore && overrideHref === null && dataMediaType === null) return match;
 
             modified = true;
             const classStr = [...existing].join(" ");
@@ -336,6 +346,9 @@ function classifyLinks(content, outputPath) {
                 : ` class="${classStr}"${attrs}`;
             if (overrideHref !== null) {
                 newAttrs = newAttrs.replace(/href=["'][^"']*["']/i, `href="${overrideHref}"`);
+            }
+            if (dataMediaType !== null && !/data-media-type=/i.test(newAttrs)) {
+                newAttrs += ` data-media-type="${dataMediaType}"`;
             }
             return `<a${newAttrs}>`;
         });

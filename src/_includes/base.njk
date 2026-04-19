@@ -38,13 +38,20 @@
     <meta name="twitter:image" content="{{ ogImage or 'https://mmmrkennedy.com/og_image.png' }}">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
+    {%- if site.bundled %}
+        <link rel="stylesheet" type="text/css" href="/css/bundle.min.css?v={{ site.buildVersion }}">
+    {%- else %}
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v={{ site.buildVersion }}">
+    {%- endif %}
     {%- if useSolverCSS %}
         <link rel="stylesheet" type="text/css" href="/css/global_solver.css?v={{ site.buildVersion }}">
     {%- endif %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="dns-prefetch" href="//ko-fi.com">
+    <link rel="dns-prefetch" href="//www.youtube.com">
+    <link rel="dns-prefetch" href="//discord.com">
     <!-- REACT_BUNDLE_MODULEPRELOAD -->
 
     <!-- JSON-LD Structured Data -->
@@ -176,30 +183,21 @@
     </div>
 {% endif %}
 
-<!-- Core utilities -->
+{%- if site.bundled %}
+<script src="/js/bundle.min.js?v={{ site.buildVersion }}" defer></script>
+{%- else %}
 <script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- Navigation -->
 <script src="/js/navigation/scroll-manager.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/navigation/nav-utils.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- UI Components -->
 <script src="/js/ui/tutorial-system.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/ui/lightbox.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- Content Processing -->
 <script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/content/quick-links.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/content/solver-button-processor.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- Device & Environment -->
 <script src="/js/device/mobile-detection.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- Shared utilities -->
 <script src="/js/quick-links-utils.js?v={{ site.buildVersion }}" defer></script>
-
-<!-- Main scripts -->
 <script src="/js/scripts.js?v={{ site.buildVersion }}" defer></script>
+{%- endif %}
 
 {%- if useReactSolvers %}
     <!-- REACT_BUNDLE_PLACEHOLDER -->

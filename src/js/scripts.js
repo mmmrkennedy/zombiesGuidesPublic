@@ -363,7 +363,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { name: "Quick Links", fn: () => window.QuickLinks?.initializeQuickLinks() },
             { name: "Sidebar TOC", fn: () => window.QuickLinks?.initializeSidebarToc() },
             { name: "Lightbox Container", fn: () => window.Lightbox?.addLightboxContainer() },
-            { name: "Lightbox Class", fn: () => window.Lightbox?.addLightboxClass() },
             { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
             { name: "Reveal Button Build", fn: () => window.SolverButtonProcessor?.initRevealButtons() },
             { name: "Solver Components", fn: includeSolverComponent },

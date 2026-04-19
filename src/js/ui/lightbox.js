@@ -3,35 +3,9 @@
  * Handles media display, navigation, and keyboard controls
  */
 
-// Store all lightbox triggers for navigation
 let allTriggers = [];
 let currentIndex = -1;
-
-/**
- * Adds lightbox class to media links
- */
-function addLightboxClass() {
-    // Get all anchor tags on the page
-    const anchorTags = document.querySelectorAll("a");
-
-    anchorTags.forEach((anchor) => {
-        const href = anchor.getAttribute("href");
-        if (!href) return;
-
-        // Check if the link ends with a media file extension
-        const mediaExtensions = [".webp", ".jpg", ".jpeg", ".png", ".gif", ".webm", ".mp4", ".mov"];
-        const endsWithMediaExt = mediaExtensions.some((ext) => href.toLowerCase().endsWith(ext));
-
-        // Add the class if it's a media link
-        if (endsWithMediaExt) {
-            anchor.classList.add("lightbox-trigger");
-
-            // Store the media type as a data attribute
-            const isVideo = [".webm", ".mp4", ".mov"].some((ext) => href.toLowerCase().endsWith(ext));
-            anchor.dataset.mediaType = isVideo ? "video" : "image";
-        }
-    });
-}
+const preloadedUrls = new Set();
 
 /**
  * Adds lightbox container HTML to the page
@@ -67,21 +41,16 @@ function addLightboxContainer() {
 function preloadAdjacentMedia(currentIndex) {
     if (!allTriggers.length) return;
 
-    // Preload previous image
-    if (currentIndex > 0) {
-        const prevTrigger = allTriggers[currentIndex - 1];
-        if (prevTrigger.dataset.mediaType === "image") {
-            new Image().src = prevTrigger.href;
-        }
-    }
+    const toPreload = [];
+    if (currentIndex > 0) toPreload.push(allTriggers[currentIndex - 1]);
+    if (currentIndex < allTriggers.length - 1) toPreload.push(allTriggers[currentIndex + 1]);
 
-    // Preload next image
-    if (currentIndex < allTriggers.length - 1) {
-        const nextTrigger = allTriggers[currentIndex + 1];
-        if (nextTrigger.dataset.mediaType === "image") {
-            new Image().src = nextTrigger.href;
+    toPreload.forEach((trigger) => {
+        if (trigger.dataset.mediaType === "image" && !preloadedUrls.has(trigger.href)) {
+            preloadedUrls.add(trigger.href);
+            new Image().src = trigger.href;
         }
-    }
+    });
 }
 
 /**
@@ -315,7 +284,6 @@ function initLightbox() {
 
 // Make functions available globally
 window.Lightbox = {
-    addLightboxClass,
     addLightboxContainer,
     preloadAdjacentMedia,
     openLightbox,
