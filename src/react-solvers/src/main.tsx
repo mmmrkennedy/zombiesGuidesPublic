@@ -18,6 +18,7 @@ import IWBeastEightQueensSolver from "./components/IWBeastEightQueensSolver";
 import IWBeastFloppySolver from "./components/IWBeastFloppySolver";
 import IWBeastVenomXMazeSolver from "./components/IWBeastVenomXMazeSolver";
 import IWBeastVenomXBoxSolver from "./components/IWBeastVenomXBoxSolver";
+import BO1DialSolver from "./components/BO1DialSolver";
 
 /**
  * Mount functions - These allow you to embed React components anywhere in your HTML
@@ -47,6 +48,7 @@ interface ZombiesSolvers {
     mountBeastFloppyDiskSolver: MountFunction;
     mountBeastVenomXMazeSolver: MountFunction;
     mountBeastVenomXBoxSolver: MountFunction;
+    mountDialSolver: MountFunction;
 }
 
 declare global {
@@ -57,6 +59,20 @@ declare global {
 
 // Global namespace for all solvers
 window.ZombiesSolvers = {
+    mountDialSolver(elementId: string) {
+        const element = document.getElementById(elementId);
+        if (!element) {
+            console.error("mountDialSolver: element not found:", elementId);
+            return;
+        }
+        const root = ReactDOM.createRoot(element);
+        root.render(
+            <React.StrictMode>
+                <BO1DialSolver />
+            </React.StrictMode>,
+        );
+    },
+
     mountHangmanSolver(elementId: string) {
         const element = document.getElementById(elementId);
         if (!element) {
@@ -289,6 +305,9 @@ if (devRoot) {
     root.render(
         <React.StrictMode>
             <div>
+                <h2>COTD Dials Solver</h2>
+                <BO1DialSolver />
+
                 <h2>Beast Venom X Maze Solver</h2>
                 <IWBeastVenomXMazeSolver />
 
