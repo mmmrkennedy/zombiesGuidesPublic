@@ -53,36 +53,33 @@ export default function WW2HangmanSolver() {
     return (
         <div className="solver-container">
             <form onSubmit={(e) => e.preventDefault()}>
-                <fieldset>
-                    <legend>Hangman Word Solver</legend>
-                    <p className="solver-instructions">
-                        Enter the correct letters in order and any incorrect guesses to find possible words.
-                    </p>
+                <p className="solver-instructions">
+                    Enter the correct letters in order and any incorrect guesses to find possible words.
+                </p>
 
-                    <div className="form-row">
-                        <label htmlFor="revealed-letters">Correct Letters:</label>
-                        <input
-                            type="text"
-                            id="revealed-letters"
-                            value={revealedLetters}
-                            onChange={(e) => setRevealedLetters(e.target.value)}
-                            placeholder="Correct letters in order"
-                            className="solver"
-                        />
-                    </div>
+                <div className="form-row">
+                    <label htmlFor="revealed-letters">Correct Letters:</label>
+                    <input
+                        type="text"
+                        id="revealed-letters"
+                        value={revealedLetters}
+                        onChange={(e) => setRevealedLetters(e.target.value)}
+                        placeholder="Correct letters in order"
+                        className="solver"
+                    />
+                </div>
 
-                    <div className="form-row">
-                        <label htmlFor="guessed-letters">Incorrect Letters:</label>
-                        <input
-                            type="text"
-                            id="guessed-letters"
-                            value={guessedLetters}
-                            onChange={(e) => setGuessedLetters(e.target.value)}
-                            placeholder="Wrong letters"
-                            className="solver"
-                        />
-                    </div>
-                </fieldset>
+                <div className="form-row">
+                    <label htmlFor="guessed-letters">Incorrect Letters:</label>
+                    <input
+                        type="text"
+                        id="guessed-letters"
+                        value={guessedLetters}
+                        onChange={(e) => setGuessedLetters(e.target.value)}
+                        placeholder="Wrong letters"
+                        className="solver"
+                    />
+                </div>
 
                 <div className="solver-output" role="status" aria-live="polite">
                     <h3>Possible Words:</h3>
