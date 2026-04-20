@@ -5,27 +5,23 @@
     "type": "module",
     "scripts": {
         "// build": "Production builds — bundled, minified, versioned",
-        "build": "bun run build:react && BUNDLE=true bun run build:eleventy && BUNDLE=true node build_scripts/minify-assets.js && bun build:sitemap",
+        "build": "bun run build:react && BUNDLE=true bun run build:eleventy && BUNDLE=true node build_scripts/minify-assets.js && node build_scripts/minify-html.js && bun build:sitemap",
         "build:full": "bun run clean && bun run build",
         "serve:prod": "bun run build:full && python build_scripts/serve.py",
-
         "// dev": "Development servers — unbundled, hot reload",
         "dev": "eleventy --serve",
         "dev:watch": "concurrently --names \"vite,11ty\" --prefix-colors \"cyan,green\" \"vite build --watch\" \"eleventy --serve\"",
         "dev:react": "vite",
-
         "// steps": "Individual build steps",
         "build:react": "vite build",
         "build:eleventy": "eleventy --incremental",
         "build:sitemap": "node build_scripts/sitemap-generator.cjs",
         "minify": "node build_scripts/minify-assets.js",
         "clean": "rimraf dist",
-
         "// images": "Image conversion utilities",
         "convert:images": "python python_utilities/image_converter.py",
         "convert:images:webp": "python python_utilities/image_converter.py --mode webp --quality 90",
         "convert:images:png": "python python_utilities/image_converter.py --mode png",
-
         "// lint": "Linting and formatting",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
@@ -66,6 +62,7 @@
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.0.0",
         "globals": "^16.4.0",
+        "html-minifier-terser": "^7.2.0",
         "prettier": "^3.6.2",
         "rimraf": "^6.1.2",
         "stylelint": "^16.25.0",

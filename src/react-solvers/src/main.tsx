@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "../../css/global_solver.css";
 import "../../css/styles.css";
 import WW2HangmanSolver from "./components/WW2HangmanSolver";
 import WW2StatueSolver from "./components/WW2StatueSolver";
