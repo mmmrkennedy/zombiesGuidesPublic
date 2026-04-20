@@ -46,8 +46,7 @@
     "license": "MIT",
     "dependencies": {
         "jsdom": "^22.1.0",
-        "react": "^19.2.1",
-        "react-dom": "^19.2.1",
+        "preact": "^10.29.1",
         "sitemap": "^8.0.0"
     },
     "engines": {
@@ -57,9 +56,9 @@
     "devDependencies": {
         "@11ty/eleventy": "^3.1.2",
         "@eslint/js": "^9.38.0",
+        "@preact/preset-vite": "^2.10.5",
         "@types/react": "^19.2.2",
         "@types/react-dom": "^19.2.2",
-        "@vitejs/plugin-react": "^5.0.4",
         "clean-css-cli": "^5.6.3",
         "concurrently": "^9.2.1",
         "eslint": "^9.38.0",

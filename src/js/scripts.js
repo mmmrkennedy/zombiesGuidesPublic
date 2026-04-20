@@ -1,17 +1,6 @@
-/*
-=======================================
-GLOBAL FUNCTION WRAPPERS FOR HTML COMPATIBILITY
-=======================================
- */
-
-// Wrapper functions for HTML onclick handlers (called from .njk templates)
-function scrollToTop() {
-    window.ScrollManager.scrollToTop();
-}
-
-function navigateToIndex() {
-    window.NavUtils.navigateToIndex();
-}
+window.navigateToIndex = function () {
+    window.location.href = "/";
+};
 
 /*
 =======================================
@@ -21,11 +10,7 @@ LAZY LOAD IMAGES
 document.addEventListener("DOMContentLoaded", function () {
     try {
         // Disable preloading on mobile devices to save bandwidth
-        const isMobile =
-            window.innerWidth <= 768 ||
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        if (isMobile) {
+        if (window.MobileDetection?.isMobileScreenSize()) {
             // console.log("Preloading disabled on mobile devices");
             return;
         }
@@ -227,32 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Enhanced link clicking with cached content feedback
-document.addEventListener("click", function (e) {
-    const link = e.target.closest('a[href$=".html"]:not(.disabled)');
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-    if (!href || href.startsWith("http") || href.startsWith("#")) return;
-
-    // If we have cached HTML and CSS, the page should load very fast
-    if (window.isHtmlCached && window.isHtmlCached(href)) {
-        // console.log("Fast load: Content preloaded for", href);
-        // Optional: Add visual feedback
-        link.style.opacity = "0.7";
-        setTimeout(() => (link.style.opacity = "1"), 100);
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const versionDisplay = document.querySelector(".version-display");
-    const versionNumber = document.getElementById("version-number");
-
-    if (versionDisplay && versionNumber) {
-        const version = versionDisplay.getAttribute("data-version") || "0";
-        versionNumber.textContent = version.toString().slice(-6); // Last 6 digits
-    }
-});
 
 async function includeSolverComponent() {
     try {
@@ -355,14 +314,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 },
             },
-            { name: "Mobile Detection", fn: () => window.MobileDetection?.updateMobileText() },
             { name: "Scroll Anchors", fn: () => window.ScrollManager?.scrollToAnchors() },
             { name: "Tutorial System", fn: () => window.TutorialSystem?.tutorialPopupInit() },
             { name: "Solver Buttons", fn: () => window.LinkProcessor?.setupSolverButtons() },
             { name: "Incomplete Paths", fn: () => window.LinkProcessor?.disableIncompleteLinks },
             { name: "Quick Links", fn: () => window.QuickLinks?.initializeQuickLinks() },
             { name: "Sidebar TOC", fn: () => window.QuickLinks?.initializeSidebarToc() },
-            { name: "Lightbox Container", fn: () => window.Lightbox?.addLightboxContainer() },
             { name: "Lightbox Init", fn: () => window.Lightbox?.initLightbox() },
             { name: "Reveal Button Build", fn: () => window.SolverButtonProcessor?.initRevealButtons() },
             { name: "Solver Components", fn: includeSolverComponent },

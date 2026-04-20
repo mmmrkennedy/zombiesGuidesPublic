@@ -5,6 +5,14 @@
 Desktop-specific upgrades. Base styles are mobile-first.
 */
 
+#mobile-content { display: block; }
+#non-mobile-content { display: none; }
+
+@media (width >= 48.0625em) { /* --bp-md */
+    #mobile-content { display: none; }
+    #non-mobile-content { display: block; }
+}
+
 /* Sidebar TOC - shown only when there's enough space beside centered content */
 .sidebar-toc {
     display: none;

@@ -13,7 +13,6 @@ const BUNDLE = process.env.BUNDLE === "true";
 const JS_BUNDLE_ORDER = [
     "core/page-utils.js",
     "navigation/scroll-manager.js",
-    "navigation/nav-utils.js",
     "ui/tutorial-system.js",
     "ui/lightbox.js",
     "content/link-processor.js",
@@ -85,7 +84,7 @@ async function bundleCSS() {
 async function bundleJS() {
     const outPath = path.join(distDir, "js", "bundle.min.js");
     try {
-        const parts = JS_BUNDLE_ORDER.map((f) => fs.readFileSync(path.join(distDir, "js", f), "utf8"));
+        const parts = JS_BUNDLE_ORDER.map((f) => `(function(){\n${fs.readFileSync(path.join(distDir, "js", f), "utf8")}\n})();`);
         const result = await terserMinify(parts.join("\n"), { compress: true, mangle: true });
         if (!result.code) throw new Error("terser returned no output");
         fs.writeFileSync(outPath, result.code, "utf8");

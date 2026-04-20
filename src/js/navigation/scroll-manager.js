@@ -100,7 +100,7 @@ function initHistoryManagement() {
         const hash = window.location.hash;
         if (hash && hash.length > 1) {
             const elementId = hash.substring(1);
-            scrollToElement(elementId, 75, true);
+            scrollToElement(elementId, true);
         } else {
             const contentWindow = document.querySelector(".content-window");
             if (contentWindow && contentWindow.scrollTop > 0) {

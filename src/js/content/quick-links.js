@@ -11,7 +11,7 @@ function initializeQuickLinks() {
     try {
         const page = window.PageUtils.getCurrentPage();
 
-        if (page === "index.html") return;
+        if (!page || page === "index.html") return;
 
         const parentElement = document.querySelector(".quick-links-container");
 

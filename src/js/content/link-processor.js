@@ -5,7 +5,7 @@
 function setupSolverButtons() {
     const solver_button_divs = document.getElementsByClassName("solver-with-button");
 
-    if (!solver_button_divs) return;
+    if (!solver_button_divs.length) return;
 
     for (const solver_button_div of solver_button_divs) {
         const toggle_button = solver_button_div.querySelector(".in-line-button");

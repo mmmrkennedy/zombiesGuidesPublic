@@ -8,33 +8,6 @@ let currentIndex = -1;
 const preloadedUrls = new Set();
 
 /**
- * Adds lightbox container HTML to the page
- */
-function addLightboxContainer() {
-    const body = document.querySelector("body");
-
-    if (body) {
-        const lightboxHTML = `
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <div class="lightbox-content">
-            <div class="lightbox-caption"></div>
-            <img id="lightbox-img" src="" alt="Enlarged image">
-            <video id="lightbox-video" controls loop style="display: none; max-height: 80vh; object-fit: contain;">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-    `;
-        body.insertAdjacentHTML("beforeend", lightboxHTML);
-
-        // console.log('Lightbox container added successfully');
-    } else {
-        console.warn("No body element found");
-    }
-}
-
-/**
  * Preloads adjacent media for faster navigation
  * @param {number} currentIndex - Index of the current media item
  */
@@ -284,7 +257,6 @@ function initLightbox() {
 
 // Make functions available globally
 window.Lightbox = {
-    addLightboxContainer,
     preloadAdjacentMedia,
     openLightbox,
     navigateToPrevious,

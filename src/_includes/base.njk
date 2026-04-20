@@ -134,7 +134,7 @@
     <h1 class="title-text">{{ pageTitle }}</h1>
 
     <!-- Mobile devices content -->
-    <div id="mobileContent" style="display: none">
+    <div id="mobile-content">
         <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
                 <circle cx="12" cy="12" r="10" />
@@ -142,7 +142,7 @@
                 <path d="M16 12H8" />
             </svg>
         </button>
-        <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">
+        <button type="button" class="btn btn--fixed bottom-right" onclick="window.ScrollManager.scrollToTop()">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
                 <path d="M5 3h14" />
                 <path d="m18 13-6-6-6 6" />
@@ -152,14 +152,14 @@
     </div>
 
     <!-- Non-mobile devices content -->
-    <div id="nonMobileContent" style="display: none">
+    <div id="non-mobile-content">
         <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">Back</button>
-        <button type="button" class="btn btn--fixed bottom-right" onclick="scrollToTop()">Back to Top</button>
+        <button type="button" class="btn btn--fixed bottom-right" onclick="window.ScrollManager.scrollToTop()">Back to Top</button>
     </div>
 
-    <div class="version-display" data-version="{{ site.buildVersion }}">
+    <div class="version-display">
         <div class="version-and-toggle">
-            v.<span id="version-number">0</span>
+            v.<span>{{ site.buildVersionShort }}</span>
         </div>
     </div>
 </div>
@@ -188,7 +188,6 @@
 {%- else %}
 <script src="/js/core/page-utils.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/navigation/scroll-manager.js?v={{ site.buildVersion }}" defer></script>
-<script src="/js/navigation/nav-utils.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/ui/tutorial-system.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/ui/lightbox.js?v={{ site.buildVersion }}" defer></script>
 <script src="/js/content/link-processor.js?v={{ site.buildVersion }}" defer></script>
@@ -202,5 +201,16 @@
 {%- if useReactSolvers %}
     <!-- REACT_BUNDLE_PLACEHOLDER -->
 {%- endif %}
+
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <div class="lightbox-content">
+        <div class="lightbox-caption"></div>
+        <img id="lightbox-img" src="" alt="Enlarged image">
+        <video id="lightbox-video" controls loop style="display: none; max-height: 80vh; object-fit: contain;">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 </body>
 </html>
