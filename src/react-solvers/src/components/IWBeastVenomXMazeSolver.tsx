@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// Image paths
+const IMG_YELLOW_SQUARE = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp";
+const IMG_BLUE_DIAMOND = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp";
+
 // Type definitions
 interface MazeSolution {
     start: [number, number];
@@ -281,10 +285,6 @@ export default function IWBeastVenomXMazeSolver() {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const boardRef = useRef<HTMLDivElement>(null);
-
-    // Image paths
-    const IMG_YELLOW_SQUARE = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp";
-    const IMG_BLUE_DIAMOND = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp";
 
     // Draw path on canvas
     const drawPath = (pathCoords: [number, number][], color = "blue", width = 10) => {

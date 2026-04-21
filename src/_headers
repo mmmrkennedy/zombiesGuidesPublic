@@ -9,6 +9,7 @@
 
 # Cache HTML files for shorter time to allow updates
 /*.html
+/**/*.html
   Cache-Control: public, max-age=300, must-revalidate
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

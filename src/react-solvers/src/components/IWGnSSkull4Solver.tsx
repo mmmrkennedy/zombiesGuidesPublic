@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ALPHABET: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
+
 const VALID_WORDS: string[] = [
     "aldehydes",
     "allomer",

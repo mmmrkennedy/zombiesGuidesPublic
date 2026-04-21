@@ -52,6 +52,11 @@
     <link rel="dns-prefetch" href="//ko-fi.com">
     <link rel="dns-prefetch" href="//www.youtube.com">
     <link rel="dns-prefetch" href="//discord.com">
+    {%- if preloadImages %}
+        {%- for imgSrc in preloadImages %}
+        <link rel="preload" as="image" href="{{ imgSrc }}">
+        {%- endfor %}
+    {%- endif %}
     <!-- REACT_BUNDLE_MODULEPRELOAD -->
 
     <!-- JSON-LD Structured Data -->
@@ -135,15 +140,15 @@
 
     <!-- Mobile devices content -->
     <div id="mobile-content">
-        <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left">
+        <button type="button" class="btn btn--fixed top-left" onclick="navigateToIndex()" aria-label="Back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-left-icon lucide-circle-arrow-left" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" />
                 <path d="m12 8-4 4 4 4" />
                 <path d="M16 12H8" />
             </svg>
         </button>
-        <button type="button" class="btn btn--fixed bottom-right" onclick="window.ScrollManager.scrollToTop()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line">
+        <button type="button" class="btn btn--fixed bottom-right" onclick="window.ScrollManager.scrollToTop()" aria-label="Back to Top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-to-line-icon lucide-arrow-up-to-line" aria-hidden="true">
                 <path d="M5 3h14" />
                 <path d="m18 13-6-6-6 6" />
                 <path d="M12 7v14" />

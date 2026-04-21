@@ -9,127 +9,28 @@ LAZY LOAD IMAGES
  */
 document.addEventListener("DOMContentLoaded", function () {
     try {
-        // Disable preloading on mobile devices to save bandwidth
-        if (window.MobileDetection?.isMobileScreenSize()) {
-            // console.log("Preloading disabled on mobile devices");
-            return;
-        }
-
-        // Cache for loaded images
         const imageCache = new Map();
 
-        // Check if IntersectionObserver is supported
-        if (!("IntersectionObserver" in window)) {
-            console.warn("IntersectionObserver not supported, falling back to immediate image loading");
-            loadAllImagesImmediately();
-            return;
-        }
-
-        // Options for the IntersectionObserver
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: "1000px", // load images 1000px before they enter the viewport
-            threshold: 0.01, // trigger when at least 1% of the element is visible
-        };
-
-        // Helper function to determine which image size to load based on viewport AND pixel ratio
-        function getAppropriateImageUrl(href, srcset) {
-            if (!srcset) return href;
-
-            const viewportWidth = window.innerWidth;
-            const dpr = window.devicePixelRatio || 1;
-            const effectiveWidth = viewportWidth * dpr;
-
-            // Parse srcset to get available sizes
-            const sources = srcset
-                .split(",")
-                .map((s) => {
-                    const parts = s.trim().split(" ");
-                    return { url: parts[0], width: parseInt(parts[1]) };
-                })
-                .sort((a, b) => a.width - b.width); // Sort by width
-
-            // Find the smallest image that's >= effective width
-            const selected = sources.find((s) => s.width >= effectiveWidth);
-
-            // If no image is large enough, use the largest available
-            return selected ? selected.url : sources[sources.length - 1].url;
-        }
-
-        // Callback for the IntersectionObserver
-        const observerCallback = (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const aTag = entry.target;
-                    const imgUrl = aTag.getAttribute("href");
-                    const srcset = aTag.getAttribute("data-srcset");
-
-                    if (!imgUrl) {
-                        console.warn("Image link missing href attribute:", aTag);
-                        return;
-                    }
-
-                    // Get the appropriate image URL for current viewport
-                    const imageToLoad = getAppropriateImageUrl(imgUrl, srcset);
-
-                    // If image isn't in cache, load it
-                    if (!imageCache.has(imageToLoad)) {
-                        loadImage(imageToLoad, imageCache);
-                    }
-
-                    // Unobserve since we've loaded it and it's now cached
-                    observer.unobserve(aTag);
-                }
-            });
-        };
-
-        // Helper function to load individual image
-        function loadImage(imgUrl, cache) {
+        function loadImage(imgUrl) {
+            if (imageCache.has(imgUrl)) return;
             const img = new Image();
-
-            img.onload = function () {
-                // console.log('Image loaded successfully:', imgUrl);
-            };
-
-            img.onerror = function () {
-                console.error("Failed to load image:", imgUrl);
-            };
-
+            img.onerror = () => console.error("Failed to load image:", imgUrl);
             img.src = imgUrl;
-            cache.set(imgUrl, img);
+            imageCache.set(imgUrl, img);
         }
 
-        // Fallback function for browsers without IntersectionObserver
-        function loadAllImagesImmediately() {
-            const imageLinks = document.querySelectorAll("a.lightbox-trigger");
-            imageLinks.forEach((aTag) => {
-                const imgUrl = aTag.getAttribute("href");
-                const srcset = aTag.getAttribute("data-srcset");
-                const imageToLoad = getAppropriateImageUrl(imgUrl, srcset);
-                if (imageToLoad) {
-                    loadImage(imageToLoad, imageCache);
-                }
-            });
-        }
-
-        // Create the observer
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        // Observe all lightbox trigger links
         const imageLinks = document.querySelectorAll("a.lightbox-trigger");
 
-        if (imageLinks.length === 0) {
-            console.warn("No image links found to observe");
-            return;
-        }
+        if (imageLinks.length === 0) return;
 
         imageLinks.forEach((aTag) => {
-            observer.observe(aTag);
+            const imageUrl = aTag.getAttribute("href");
+            aTag.addEventListener("pointerenter", () => loadImage(imageUrl), { once: true });
+            aTag.addEventListener("click", () => loadImage(imageUrl), { once: true });
         });
 
-        // console.log(`Observing ${imageLinks.length} image links for lazy loading`);
     } catch (error) {
-        console.error("Error initializing lazy loading:", error);
+        console.error("Error initializing lightbox preloading:", error);
     }
 });
 
@@ -169,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.head.appendChild(link);
         }
 
-        // Find all internal HTML links (excluding disabled ones)
-        const htmlLinks = document.querySelectorAll('a[href$=".html"]:not(.disabled)');
+        // Find all internal links (excluding external, anchors, and disabled ones)
+        const htmlLinks = document.querySelectorAll('a[data-prefetchable]:not(.disabled)')
 
         if (htmlLinks.length === 0) {
             console.warn("No HTML links found to prefetch");

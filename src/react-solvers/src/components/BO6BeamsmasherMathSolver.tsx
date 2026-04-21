@@ -1,4 +1,12 @@
 import React from "react";
+import { preload } from "react-dom";
+
+const IMG_0 = "/games/BO6/terminus/pictures/beamsmasher/0.webp";
+const IMG_10 = "/games/BO6/terminus/pictures/beamsmasher/10.webp";
+const IMG_11 = "/games/BO6/terminus/pictures/beamsmasher/11.webp";
+const IMG_20 = "/games/BO6/terminus/pictures/beamsmasher/20.webp";
+const IMG_21 = "/games/BO6/terminus/pictures/beamsmasher/21.webp";
+const IMG_22 = "/games/BO6/terminus/pictures/beamsmasher/22.webp";
 
 type SymbolKey = "X" | "Y" | "Z";
 type SelectedSymbolValue = 0 | 10 | 11 | 20 | 21 | 22 | null;
@@ -68,16 +76,17 @@ function calculateFormulas(selectedSymbols: SelectedSymbols) {
 }
 
 export default function BO6BeamsmasherMathSolver() {
+    preload(IMG_0, { as: "image" });
+    preload(IMG_10, { as: "image" });
+    preload(IMG_11, { as: "image" });
+    preload(IMG_20, { as: "image" });
+    preload(IMG_21, { as: "image" });
+    preload(IMG_22, { as: "image" });
+
     const [selectedX, setSelectedX] = React.useState<SelectedSymbolValue>();
     const [selectedY, setSelectedY] = React.useState<SelectedSymbolValue>();
     const [selectedZ, setSelectedZ] = React.useState<SelectedSymbolValue>();
     const [result, setResult] = React.useState<string>("N/A");
-    const IMG_0 = "/games/BO6/terminus/pictures/beamsmasher/0.webp";
-    const IMG_10 = "/games/BO6/terminus/pictures/beamsmasher/10.webp";
-    const IMG_11 = "/games/BO6/terminus/pictures/beamsmasher/11.webp";
-    const IMG_20 = "/games/BO6/terminus/pictures/beamsmasher/20.webp";
-    const IMG_21 = "/games/BO6/terminus/pictures/beamsmasher/21.webp";
-    const IMG_22 = "/games/BO6/terminus/pictures/beamsmasher/22.webp";
 
     function selectSymbol(selectedSymbols: SelectedSymbols, letter: SymbolKey, value: SelectedSymbolValue) {
         letter = letter.toUpperCase() as SymbolKey;

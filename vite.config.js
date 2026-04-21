@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import preact from "@preact/preset-vite";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
@@ -14,8 +14,9 @@ function serveGamesDirectory() {
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
                 // Check if request is for a file in /games/
-                if (req.url && req.url.startsWith("/games/")) {
-                    const filePath = path.join(__dirname, "src", req.url);
+                if (req.url && (req.url.startsWith("/games/") || req.url.startsWith("/css/"))) {
+                    const urlPath = req.url.split("?")[0];
+                    const filePath = path.join(__dirname, "src", urlPath);
                     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                         // Serve the file
                         const ext = path.extname(filePath);
@@ -26,6 +27,7 @@ function serveGamesDirectory() {
                             ".jpeg": "image/jpeg",
                             ".svg": "image/svg+xml",
                             ".gif": "image/gif",
+                            ".css": "text/css",
                         };
                         res.setHeader("Content-Type", contentTypes[ext] || "application/octet-stream");
                         fs.createReadStream(filePath).pipe(res);
@@ -40,7 +42,7 @@ function serveGamesDirectory() {
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [preact(), serveGamesDirectory()],
+    plugins: [react(), serveGamesDirectory()],
 
     // Serve from react-solvers directory for dev server
     root: path.resolve(__dirname, "./src/react-solvers"),

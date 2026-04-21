@@ -1,5 +1,7 @@
 import React from "react";
 
+const imagePath = "/games/IW/the_beast_from_beyond/floppy_disk_puzzle/pictures/";
+
 function processSymbols(symbols: number[]): number[] {
     // The numbers indicate the corresponding file name number
     const lines = [
@@ -24,7 +26,6 @@ export default function IWBeastFloppySolver() {
     const [selectedSymbols, setSelectedSymbols] = React.useState<number[]>([]);
     const maxSymbols = 4;
     const totalSymbols = 12;
-    const imagePath = "/games/IW/the_beast_from_beyond/floppy_disk_puzzle/pictures/";
 
     const selectSymbol = (symbolId: number) => {
         if (selectedSymbols.length < maxSymbols && !selectedSymbols.includes(symbolId)) {
