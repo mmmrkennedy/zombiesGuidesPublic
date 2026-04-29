@@ -5,8 +5,6 @@ solverTitle: 'Valve Solver'
 guideUrl: '/games/BO3/gorod_krovi/gorod_krovi_guide.html'
 description: Interactive Solver for the Gorod Krovi Easter Egg Valves in Black Ops 3 Zombies.
 ---
-
-<!-- Legend to other parts -->
 <div class="content-container">
     <div id="valve-solver-react"></div>
 </div>
@@ -14,7 +12,7 @@ description: Interactive Solver for the Gorod Krovi Easter Egg Valves in Black O
 <script>
     window.addEventListener("load", () => {
         if (window.ZombiesSolvers) {
-            window.ZombiesSolvers.mountValveSolver("valve-solver-react");
+            window.ZombiesSolvers.mountValveSolver("valve-solver-react", { title: "Valve Solver" });
         } else {
             console.error("ZombiesSolvers not loaded!");
         }

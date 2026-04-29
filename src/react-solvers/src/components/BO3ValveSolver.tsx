@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "preact/hooks";
 
 type ValveLocation = "department_store" | "supply_depot" | "armory" | "infirmary" | "tank_factory" | "dragon_command";
 
@@ -105,13 +105,13 @@ function format_list_as_str(list_of_correct_vals: ValveConfig | undefined): stri
     return result.slice(0, -1);
 }
 
-export default function BO3ValveSolver() {
+export default function BO3ValveSolver({ title }: { title?: string }) {
     const [greenValve, setGreenValve] = useState<ValveLocation>("department_store");
     const [pinkValve, setPinkValve] = useState<ValveLocation>("department_store");
-    const [result, setResult] = React.useState<string>("");
+    const [result, setResult] = useState<string>("");
 
-    function handle_green_valve_change(e: React.ChangeEvent<HTMLSelectElement>) {
-        const newGreenValve = e.target.value as ValveLocation;
+    function handle_green_valve_change(e: Event) {
+        const newGreenValve = (e.currentTarget as HTMLSelectElement).value as ValveLocation;
         setGreenValve(newGreenValve);
 
         if (newGreenValve === pinkValve) {
@@ -122,8 +122,8 @@ export default function BO3ValveSolver() {
         }
     }
 
-    function handle_pink_valve_change(e: React.ChangeEvent<HTMLSelectElement>) {
-        const newPinkValve = e.target.value as ValveLocation;
+    function handle_pink_valve_change(e: Event) {
+        const newPinkValve = (e.currentTarget as HTMLSelectElement).value as ValveLocation;
         setPinkValve(newPinkValve);
 
         if (newPinkValve === greenValve) {
@@ -136,6 +136,7 @@ export default function BO3ValveSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Select the location of the Green Light Valve and the Pink Cylinder Valve from the dropdowns. The solver
                 will automatically display which valves to adjust and their target settings.

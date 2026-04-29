@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 const possibleWords: string[] = [
     "DAMNATION", // Nuke
@@ -42,16 +42,17 @@ function suggestNextLetter(revealedSequence: string, guessedLetters: string): st
     });
 }
 
-export default function WW2HangmanSolver() {
+export default function WW2HangmanSolver({ title }: { title?: string }) {
     // State for user input
-    const [revealedLetters, setRevealedLetters] = React.useState<string>("");
-    const [guessedLetters, setGuessedLetters] = React.useState<string>("");
+    const [revealedLetters, setRevealedLetters] = useState<string>("");
+    const [guessedLetters, setGuessedLetters] = useState<string>("");
 
     // Calculate suggestion whenever input changes
     const result = suggestNextLetter(revealedLetters, guessedLetters);
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <form onSubmit={(e) => e.preventDefault()}>
                 <p className="solver-instructions">
                     Enter the correct letters in order and any incorrect guesses to find possible words.
@@ -63,7 +64,7 @@ export default function WW2HangmanSolver() {
                         type="text"
                         id="revealed-letters"
                         value={revealedLetters}
-                        onChange={(e) => setRevealedLetters(e.target.value)}
+                        onInput={(e) => setRevealedLetters((e.target as HTMLInputElement).value)}
                         placeholder="Correct letters in order"
                         className="solver"
                     />
@@ -75,7 +76,7 @@ export default function WW2HangmanSolver() {
                         type="text"
                         id="guessed-letters"
                         value={guessedLetters}
-                        onChange={(e) => setGuessedLetters(e.target.value)}
+                        onInput={(e) => setGuessedLetters((e.target as HTMLInputElement).value)}
                         placeholder="Wrong letters"
                         className="solver"
                     />

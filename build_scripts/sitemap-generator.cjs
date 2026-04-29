@@ -43,13 +43,16 @@ async function buildSitemap() {
     const html = fs.readFileSync(INDEX_FILE, "utf8");
     const dom = new JSDOM(html);
 
+    const IMAGE_EXTENSIONS = /\.(webp|png|jpg|jpeg|gif|svg|avif|ico)$/i;
+
     const links = Array.from(dom.window.document.querySelectorAll("a"))
-        .filter((a) => !a.classList.contains("disabled")) // skip disabled links
+        .filter((a) => !a.classList.contains("disabled"))
         .map((a) => a.getAttribute("href"))
-        .filter((href) => href && !href.startsWith("http") && !href.startsWith("#")) // only relative links
-        .map((href) => href.replace(/^\/?/, "")) // normalize
-        .map((href) => href.replace(/\?.*$/, "")) // remove query string ".html?foo"
-        .map((href) => href.replace(/\.html$/, "")); // remove .html extension
+        .filter((href) => href && !href.startsWith("http") && !href.startsWith("#"))
+        .filter((href) => !IMAGE_EXTENSIONS.test(href)) // skip image links
+        .map((href) => href.replace(/^\/?/, ""))
+        .map((href) => href.replace(/\?.*$/, ""))
+        .map((href) => href.replace(/\.html$/, ""));
 
     const uniqueLinks = [...new Set(links)];
 

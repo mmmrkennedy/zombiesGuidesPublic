@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 type Direction = 0 | 1 | 2 | 3;
 type BlockId = 0 | 1 | 2 | 3;
@@ -88,9 +88,9 @@ function solve_logic(directions: DirectionsArray): number[] {
     return shootCounts.map((num) => num % 4);
 }
 
-export default function WW2HammerPuzzleSolver() {
-    const [directions, setDirections] = React.useState<DirectionsArray>([0, 0, 0, 0]);
-    const [result, setResult] = React.useState<string>("");
+export default function WW2HammerPuzzleSolver({ title }: { title?: string }) {
+    const [directions, setDirections] = useState<DirectionsArray>([0, 0, 0, 0]);
+    const [result, setResult] = useState<string>("");
 
     function change_block_dir(block_id: BlockId): void {
         setDirections((prevDirections) => {
@@ -119,6 +119,7 @@ export default function WW2HammerPuzzleSolver() {
 
     return (
         <div className="solver-container lightning_puzzle_container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Click each block button to cycle through its direction (↓ ↑ → ←). Set each block to match the in-game
                 block positions, then click "Solve!" to get the shooting instructions. Up = Facing Back, Down = Facing

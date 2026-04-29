@@ -97,13 +97,13 @@ legend {
     letter-spacing: -0.5px;
 }
 
-.solver-container h2 {
-    font-size: 24px;
-    font-weight: 700;
+.solver-title {
+    font-size: 18px;
+    font-weight: 600;
     margin-top: 0;
-    margin-bottom: var(--space-xl);
-    color: var(--color-text-primary);
-    letter-spacing: -0.5px;
+    margin-bottom: 0;
+    color: var(--color-text-secondary);
+    text-align: center;
 }
 
 .solver-container h3 {
@@ -601,7 +601,7 @@ MAHJONG-STYLE TILES
 
 .meld-group {
     display: inline-flex;
-    margin: var(--space-sm) var(--space-md);
+    margin: var(--space-xs) var(--space-sm);
     gap: var(--space-xs);
 }
 
@@ -612,8 +612,8 @@ MAHJONG-STYLE TILES
 }
 
 .selected-tiles-row {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(7, 35px);
     gap: var(--space-sm);
     margin-top: var(--space-md);
 }
@@ -625,12 +625,23 @@ MAHJONG-STYLE TILES
     border-radius: var(--radius-sm);
 }
 
+.selected-tile-empty {
+    width: 35px;
+    height: var(--tile-size);
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--color-border-medium);
+    opacity: 0.5;
+}
+
 .clear-button {
     margin-left: var(--space-md);
 }
 
 .tile-display {
-    height: 75px;
+    width: 35px;
+    height: var(--tile-size);
+    object-fit: contain;
+    border-radius: var(--radius-sm);
 }
 
 /*
@@ -743,7 +754,7 @@ SKULL SOLVER
 
 .skull-symbol-slot {
     width: 60px;
-    height: 60px;
+    height: 75px;
     border: 2px solid var(--color-border-medium);
     border-radius: var(--space-sm);
     display: flex;
@@ -823,6 +834,28 @@ BEAMSMASHER SOLVER
 
 /*
 ===============================================================================
+SOLVER-ONLY PAGE LAYOUT
+===============================================================================
+*/
+
+.solver-only-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl) var(--space-lg);
+    gap: var(--space-xl);
+}
+
+.solver-only-page .content-container {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    padding: 0;
+    max-width: 100%;
+}
+
+/*
+===============================================================================
 MOBILE RESPONSIVE
 ===============================================================================
 */
@@ -838,9 +871,6 @@ MOBILE RESPONSIVE
         text-align: center;
     }
 
-    .selected-tiles-row {
-        max-width: 200px;
-    }
 
     .matching-words-grid {
         grid-template-columns: 1fr;

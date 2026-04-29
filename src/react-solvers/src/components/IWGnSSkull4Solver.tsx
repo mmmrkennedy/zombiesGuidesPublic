@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "preact/hooks";
 
 const ALPHABET: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -133,7 +133,7 @@ function solveCipher(targetWord: string, swingsetLettersArr: string[]): string {
     }
 }
 
-export default function IWGnSSkull4Solver() {
+export default function IWGnSSkull4Solver({ title }: { title?: string }) {
     const [word, setWord] = useState("");
     const [selectedSymbols, setSelectedSymbols] = useState(["", "", "", ""]);
     const [result, setResult] = useState("Enter the Word and select 4 symbols.");
@@ -150,6 +150,14 @@ export default function IWGnSSkull4Solver() {
             setSelectedSymbols(newSymbols);
         }
     };
+
+    useEffect(() => {
+        const filled = selectedSymbols.filter((s) => s !== "");
+        if (filled.length === 4 && word) {
+            const solution = solveCipher(word, selectedSymbols);
+            if (!solution.startsWith("Error:")) setResult(solution);
+        }
+    }, [selectedSymbols, word]);
 
     const handleSolve = () => {
         if (!word.trim()) {
@@ -178,6 +186,7 @@ export default function IWGnSSkull4Solver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Select the target word from the dropdown, then click the 4 letter symbols that match the in-game
                 swingset symbols. Click "Calculate" to get the code sequence.
@@ -186,7 +195,7 @@ export default function IWGnSSkull4Solver() {
                 <label className="solver-symbol-select" htmlFor="word">
                     Select Word:
                 </label>
-                <select id="word" className="solver" value={word} onChange={(e) => setWord(e.target.value)}>
+                <select id="word" className="solver" value={word} onChange={(e) => setWord((e.target as HTMLSelectElement).value)}>
                     <option value="">Choose a word...</option>
                     {VALID_WORDS.map((validWord) => (
                         <option key={validWord} value={validWord}>

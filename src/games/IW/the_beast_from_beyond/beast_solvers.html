@@ -21,8 +21,6 @@ preloadImages:
   - /games/IW/the_beast_from_beyond/venom/venom_maze/pictures/blue_diamond.webp
 ---
 
-<!-- Legend to other parts -->
-
 <div class="content-container">
     <div id="beast-venomx-box-solver-react"></div>
 </div>
@@ -42,10 +40,10 @@ preloadImages:
 <script>
     window.addEventListener("load", () => {
         if (window.ZombiesSolvers) {
-            window.ZombiesSolvers.mountBeastGnSEightQueensSolver("beast-eight-queens-react");
-            window.ZombiesSolvers.mountBeastFloppyDiskSolver("beast-floppy-solver-react");
-            window.ZombiesSolvers.mountBeastVenomXMazeSolver("beast-venomx-maze-solver-react");
-            window.ZombiesSolvers.mountBeastVenomXBoxSolver("beast-venomx-box-solver-react");
+            window.ZombiesSolvers.mountBeastGnSEightQueensSolver("beast-eight-queens-react", { title: "Eight Queens Solver" });
+            window.ZombiesSolvers.mountBeastFloppyDiskSolver("beast-floppy-solver-react", { title: "Floppy Disk Solver" });
+            window.ZombiesSolvers.mountBeastVenomXMazeSolver("beast-venomx-maze-solver-react", { title: "Venom X Maze Solver" });
+            window.ZombiesSolvers.mountBeastVenomXBoxSolver("beast-venomx-box-solver-react", { title: "Venom X Box Solver" });
         } else {
             console.error("ZombiesSolvers not loaded!");
         }

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 type WallID = "wall1" | "wall2" | "wall3" | "wall4";
 type StatueIndex = 0 | 1 | 2 | 3;
@@ -168,10 +168,10 @@ function solvePuzzle(directions: RotationList, puzzleID: PuzzleID) {
 }
 
 // Main React Component
-export default function WW2StatueSolver() {
-    const [activeWall, setActiveWall] = React.useState<WallID>("wall1");
-    const [directions, setDirections] = React.useState<RotationList>([2, 2, 2, 2]);
-    const [result, setResult] = React.useState<string>("");
+export default function WW2StatueSolver({ title }: { title?: string }) {
+    const [activeWall, setActiveWall] = useState<WallID>("wall1");
+    const [directions, setDirections] = useState<RotationList>([2, 2, 2, 2]);
+    const [result, setResult] = useState<string>("");
 
     function handleWallClick(wallId: WallID) {
         setActiveWall(wallId);
@@ -191,6 +191,7 @@ export default function WW2StatueSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Select the wall you're solving, then click each statue button to cycle through its facing direction (↑ →
                 ↓ ←) until they match the in-game positions. Click "Solve!" to get the turning instructions.

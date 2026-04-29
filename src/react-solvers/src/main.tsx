@@ -1,5 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { render } from "preact";
 import "../../css/styles.css";
 import WW2HangmanSolver from "./components/WW2HangmanSolver";
 import WW2StatueSolver from "./components/WW2StatueSolver";
@@ -19,16 +18,11 @@ import IWBeastVenomXMazeSolver from "./components/IWBeastVenomXMazeSolver";
 import IWBeastVenomXBoxSolver from "./components/IWBeastVenomXBoxSolver";
 import BO1DialSolver from "./components/BO1DialSolver";
 
-/**
- * Mount functions - These allow you to embed React components anywhere in your HTML
- *
- * Usage in HTML:
- * <div id="statue-solver-1"></div>
- * <script>
- *   window.ZombiesSolvers.mountValveSolver(ID_OF_DIV_ABOVE);
- * </script>
- */
-type MountFunction = (elementId: string) => void;
+interface MountOptions {
+    title?: string;
+}
+
+type MountFunction = (elementId: string, options?: MountOptions) => void;
 
 interface ZombiesSolvers {
     mountHangmanSolver: MountFunction;
@@ -56,305 +50,59 @@ declare global {
     }
 }
 
+function mount(elementId: string, label: string, node: preact.VNode /*, options?: MountOptions */) {
+    const element = document.getElementById(elementId);
+    if (!element) {
+        console.error(`mount${label}: element not found:`, elementId);
+        return;
+    }
+    render(node, element);
+}
+
 // Global namespace for all solvers
 window.ZombiesSolvers = {
-    mountDialSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountDialSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO1DialSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountHangmanSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountHangmanSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <WW2HangmanSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountStatueSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountStatueSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <WW2StatueSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountHammerSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountHammerSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <WW2HammerPuzzleSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountValveSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountValveSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO3ValveSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountBeamsmasherSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountBeamsmasherSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO6BeamsmasherMathSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountMaxisItemsSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountMaxisItemsSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO6MaxisItemsSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountPeriodicTableSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountPeriodicTableSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO6PeriodicTableSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountLetterboardSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountLetterboardSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <BO6LetterboardSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountMahjongSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountMahjongSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWMahjongSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountShaolinWordFilter(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountShaolinWordFilter: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWMainQuestWordFilter />
-            </React.StrictMode>,
-        );
-    },
-
-    mountChemicalStepSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountChemicalStepSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWChemicalStepSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountAttackGnSSkull4Solver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountAttackGnSSkull4Solver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWGnSSkull4Solver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountBeastGnSEightQueensSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountBeastGnSEightQueensSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWBeastEightQueensSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountBeastFloppyDiskSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountBeastFloppyDiskSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWBeastFloppySolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountBeastVenomXMazeSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountBeastVenomXMazeSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWBeastVenomXMazeSolver />
-            </React.StrictMode>,
-        );
-    },
-
-    mountBeastVenomXBoxSolver(elementId: string) {
-        const element = document.getElementById(elementId);
-        if (!element) {
-            console.error("mountBeastVenomXBoxSolver: element not found:", elementId);
-            return;
-        }
-        const root = ReactDOM.createRoot(element);
-        root.render(
-            <React.StrictMode>
-                <IWBeastVenomXBoxSolver />
-            </React.StrictMode>,
-        );
-    },
+    mountDialSolver: (id, opts) => mount(id, "DialSolver", <BO1DialSolver title={opts?.title} />),
+    mountHangmanSolver: (id, opts) => mount(id, "HangmanSolver", <WW2HangmanSolver title={opts?.title} />),
+    mountStatueSolver: (id, opts) => mount(id, "StatueSolver", <WW2StatueSolver title={opts?.title} />),
+    mountHammerSolver: (id, opts) => mount(id, "HammerSolver", <WW2HammerPuzzleSolver title={opts?.title} />),
+    mountValveSolver: (id, opts) => mount(id, "ValveSolver", <BO3ValveSolver title={opts?.title} />),
+    mountBeamsmasherSolver: (id, opts) => mount(id, "BeamsmasherSolver", <BO6BeamsmasherMathSolver title={opts?.title} />),
+    mountMaxisItemsSolver: (id, opts) => mount(id, "MaxisItemsSolver", <BO6MaxisItemsSolver title={opts?.title} />),
+    mountPeriodicTableSolver: (id, opts) => mount(id, "PeriodicTableSolver", <BO6PeriodicTableSolver title={opts?.title} />),
+    mountLetterboardSolver: (id, opts) => mount(id, "LetterboardSolver", <BO6LetterboardSolver title={opts?.title} />),
+    mountMahjongSolver: (id, opts) => mount(id, "MahjongSolver", <IWMahjongSolver title={opts?.title} />),
+    mountShaolinWordFilter: (id, opts) => mount(id, "ShaolinWordFilter", <IWMainQuestWordFilter title={opts?.title} />),
+    mountChemicalStepSolver: (id, opts) => mount(id, "ChemicalStepSolver", <IWChemicalStepSolver title={opts?.title} />),
+    mountAttackGnSSkull4Solver: (id, opts) => mount(id, "AttackGnSSkull4Solver", <IWGnSSkull4Solver title={opts?.title} />),
+    mountBeastGnSEightQueensSolver: (id, opts) => mount(id, "BeastGnSEightQueensSolver", <IWBeastEightQueensSolver title={opts?.title} />),
+    mountBeastFloppyDiskSolver: (id, opts) => mount(id, "BeastFloppyDiskSolver", <IWBeastFloppySolver title={opts?.title} />),
+    mountBeastVenomXMazeSolver: (id, opts) => mount(id, "BeastVenomXMazeSolver", <IWBeastVenomXMazeSolver title={opts?.title} />),
+    mountBeastVenomXBoxSolver: (id, opts) => mount(id, "BeastVenomXBoxSolver", <IWBeastVenomXBoxSolver title={opts?.title} />),
 };
 
 // For test page: auto-mount all solvers
 const devRoot = document.getElementById("root");
 if (devRoot) {
-    const root = ReactDOM.createRoot(devRoot);
-    root.render(
-        <React.StrictMode>
-            <div>
-                <h2>COTD Dials Solver</h2>
-                <BO1DialSolver />
-
-                <h2>Beast Venom X Maze Solver</h2>
-                <IWBeastVenomXMazeSolver />
-
-                <h2>Beast Venom X Box Solver</h2>
-                <IWBeastVenomXBoxSolver />
-
-                <h2>Beast Floppy Disk Solver</h2>
-                <IWBeastFloppySolver />
-
-                <h2>Beast Eight Queens Solver</h2>
-                <IWBeastEightQueensSolver />
-
-                <h2>Attack GnS Skull 4 Solver</h2>
-                <IWGnSSkull4Solver />
-
-                <h2>Attack Chemical Step Solver</h2>
-                <IWChemicalStepSolver />
-
-                <h2>Shaolin Main Quest Word Filter</h2>
-                <IWMainQuestWordFilter />
-
-                <h2>Mahjong Solver</h2>
-                <IWMahjongSolver />
-
-                <h2>Hangman Solver</h2>
-                <WW2HangmanSolver />
-
-                <h2>Statue Solver</h2>
-                <WW2StatueSolver />
-
-                <h2>Lightning Hammer Solver</h2>
-                <WW2HammerPuzzleSolver />
-
-                <h2>Valve Solver</h2>
-                <BO3ValveSolver />
-
-                <h2>Beamsmasher Solver</h2>
-                <BO6BeamsmasherMathSolver />
-
-                <h2>Maxis Items Solver</h2>
-                <BO6MaxisItemsSolver />
-
-                <h2>Periodic Table Solver</h2>
-                <BO6PeriodicTableSolver />
-
-                <h2>Letterboard Solver</h2>
-                <BO6LetterboardSolver />
-            </div>
-        </React.StrictMode>,
+    render(
+        <div>
+            <BO1DialSolver title="COTD Dials Solver" />
+            <IWBeastVenomXMazeSolver title="Beast Venom X Maze Solver" />
+            <IWBeastVenomXBoxSolver title="Beast Venom X Box Solver" />
+            <IWBeastFloppySolver title="Beast Floppy Disk Solver" />
+            <IWBeastEightQueensSolver title="Beast Eight Queens Solver" />
+            <IWGnSSkull4Solver title="Attack GnS Skull 4 Solver" />
+            <IWChemicalStepSolver title="Attack Chemical Step Solver" />
+            <IWMainQuestWordFilter title="Shaolin Main Quest Word Filter" />
+            <IWMahjongSolver title="Mahjong Solver" />
+            <WW2HangmanSolver title="Hangman Solver" />
+            <WW2StatueSolver title="Statue Solver" />
+            <WW2HammerPuzzleSolver title="Lightning Hammer Solver" />
+            <BO3ValveSolver title="Valve Solver" />
+            <BO6BeamsmasherMathSolver title="Beamsmasher Solver" />
+            <BO6MaxisItemsSolver title="Maxis Items Solver" />
+            <BO6PeriodicTableSolver title="Periodic Table Solver" />
+            <BO6LetterboardSolver title="Letterboard Solver" />
+        </div>,
+        devRoot,
     );
 }

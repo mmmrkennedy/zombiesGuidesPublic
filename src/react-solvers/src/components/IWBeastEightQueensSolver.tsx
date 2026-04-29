@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 const solution_cords_queens: number[][][] = [
     [
@@ -180,7 +180,7 @@ function find_valid_sol(starting_queen_cords: number[]) {
         let solution: boolean[][] = solutions_queens[i];
 
         for (let j = 0; j < 4; j++) {
-            if (solution[starting_y][starting_x] === true) {
+            if (solution[starting_y][starting_x]) {
                 // console.log(`Found Solution at i: ${i}, Rotation ${j}, starting_x: ${starting_x}, starting_y: ${starting_y}`);
                 return solution;
             }
@@ -188,7 +188,7 @@ function find_valid_sol(starting_queen_cords: number[]) {
             for (let k = 0; k < flipped_options.length; k++) {
                 const solution_flipped = flip2DArray(solution, flipped_options[k]);
 
-                if (solution_flipped[starting_y][starting_x] === true) {
+                if (solution_flipped[starting_y][starting_x]) {
                     // console.log(`Found Solution at i: ${i}, Rotation ${j}, Flipped ${flipped_options[k]}, starting_x: ${starting_x}, starting_y: ${starting_y}`);
                     return solution_flipped;
                 }
@@ -201,11 +201,11 @@ function find_valid_sol(starting_queen_cords: number[]) {
     return null;
 }
 
-export default function IWBeastEightQueensSolver() {
-    const [queenLocation, setQueenLocation] = React.useState<number[]>([0, 0]);
-    const [solution, setSolution] = React.useState<boolean[][] | null>(null);
-    const [message, setMessage] = React.useState<string>("Click a square to move the Queen.");
-    const [isMovementEnabled, setIsMovementEnabled] = React.useState<boolean>(true);
+export default function IWBeastEightQueensSolver({ title }: { title?: string }) {
+    const [queenLocation, setQueenLocation] = useState<number[]>([0, 0]);
+    const [solution, setSolution] = useState<boolean[][] | null>(null);
+    const [message, setMessage] = useState<string>("Click a square to move the Queen.");
+    const [isMovementEnabled, setIsMovementEnabled] = useState<boolean>(true);
 
     const generateChessboard = () => {
         const squares = [];
@@ -258,6 +258,7 @@ export default function IWBeastEightQueensSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Click the chessboard square where the starting Queen is located in your game to move the Queen. Then
                 click "Solve" to show all 8 Queen placements that solve the puzzle.

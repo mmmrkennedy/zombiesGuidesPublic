@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "preact/hooks";
 
 // Type definitions
 type Color = "red" | "green" | "blue" | "black" | "yellow" | "white";
@@ -160,13 +160,13 @@ function venomBoxCalc(buttonArr: Color[]): string {
     return "";
 }
 
-export default function IWBeastVenomXBoxSolver() {
+export default function IWBeastVenomXBoxSolver({ title }: { title?: string }) {
     const [buttonCount, setButtonCount] = useState<ButtonCount>(3);
     const [selectedColors, setSelectedColors] = useState<Color[]>(["red", "red", "red"]);
     const calcKeyRef = useRef(0);
 
-    const handleButtonCountChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const newCount = parseInt(e.target.value) as ButtonCount;
+    const handleButtonCountChange = (e: Event) => {
+        const newCount = parseInt((e.currentTarget as HTMLSelectElement).value) as ButtonCount;
         setButtonCount(newCount);
         // Initialize colors array when button count changes
         const initialColors = Array(newCount).fill("red") as Color[];
@@ -188,6 +188,7 @@ export default function IWBeastVenomXBoxSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Select the number of buttons, then set each buttons colour to the same order as the ones in-game (from
                 top to bottom). The Solution will automatically appear.
@@ -218,7 +219,7 @@ export default function IWBeastVenomXBoxSolver() {
                                 id={`venom-button-${i}`}
                                 name="venom-button"
                                 value={selectedColors[i]}
-                                onChange={(e) => handleColorChange(i, e.target.value as Color)}
+                                onChange={(e) => handleColorChange(i, (e.target as HTMLSelectElement).value as Color)}
                             >
                                 {COLORS.map((color) => (
                                     <option key={color} value={color}>

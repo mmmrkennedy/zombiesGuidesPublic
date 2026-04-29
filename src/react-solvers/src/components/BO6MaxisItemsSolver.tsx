@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 type FileValue = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -43,16 +43,16 @@ function sort_files(updatedFiles: FileValue[]) {
     }
 }
 
-export default function BO6MaxisItemsSolver() {
-    const [file1, setFile1] = React.useState<FileValue>(0);
-    const [file2, setFile2] = React.useState<FileValue>(0);
-    const [file3, setFile3] = React.useState<FileValue>(0);
-    const [file4, setFile4] = React.useState<FileValue>(0);
-    const [result, setResult] = React.useState<string>("Select 4 files...");
+export default function BO6MaxisItemsSolver({ title }: { title?: string }) {
+    const [file1, setFile1] = useState<FileValue>(0);
+    const [file2, setFile2] = useState<FileValue>(0);
+    const [file3, setFile3] = useState<FileValue>(0);
+    const [file4, setFile4] = useState<FileValue>(0);
+    const [result, setResult] = useState<string>("Select 4 files...");
 
-    function handle_file_select_change(e: React.ChangeEvent<HTMLSelectElement>) {
-        const selected_file_value = Number(e.target.value) as FileValue;
-        const selected_file_number = e.target.id as FileNumber;
+    function handle_file_select_change(e: Event) {
+        const selected_file_value = Number((e.currentTarget as HTMLSelectElement).value) as FileValue;
+        const selected_file_number = (e.currentTarget as HTMLSelectElement).id as FileNumber;
 
         let updatedFiles: FileValue[];
 
@@ -100,7 +100,7 @@ export default function BO6MaxisItemsSolver() {
 
     return (
         <div className="solver-container">
-            <h3>S.A.M. File Order Solver</h3>
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Select the 4 different S.A.M. Files found in-game from the dropdowns. The solver will automatically sort
                 them chronologically by date and display the correct code order.

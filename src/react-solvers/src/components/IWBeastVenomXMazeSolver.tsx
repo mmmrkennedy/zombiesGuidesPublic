@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "preact/hooks";
 
 // Image paths
 const IMG_YELLOW_SQUARE = "/games/IW/the_beast_from_beyond/venom/venom_maze/pictures/yellow_square.webp";
@@ -273,7 +273,7 @@ function findSolPath(startCoords: [number, number], endCoords: [number, number])
     return solution ? solution.path : null;
 }
 
-export default function IWBeastVenomXMazeSolver() {
+export default function IWBeastVenomXMazeSolver({ title }: { title?: string }) {
     const [draggables, setDraggables] = useState<DraggableState[]>([
         { type: "start", position: null },
         { type: "end", position: null },
@@ -553,6 +553,7 @@ export default function IWBeastVenomXMazeSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Click the Yellow Square or Blue Diamond to select it, then click a grid cell to place it. Once placed,
                 valid positions for the other piece will be shown. If there is only one solution, it'll be drawn

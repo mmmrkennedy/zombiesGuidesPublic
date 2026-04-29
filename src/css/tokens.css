@@ -31,7 +31,9 @@ Neutral dark theme with subtle warmth for character without being overbearing.
     --color-warning-bg: rgb(217 91 67 / 12%);
     --color-warning-border: #d95b43;
     --color-warning-text: #f5a68f;
-    --color-note-border: #5a5a5a;
+    --color-note-border: #5a8ab5;
+    --color-note-bg: rgb(90 138 181 / 10%);
+    --color-note-text: #93bfe0;
     --color-border-subtle: #333;
     --color-border-medium: #444;
 

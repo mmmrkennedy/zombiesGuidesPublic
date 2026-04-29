@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 type DialIndex = 0 | 1 | 2 | 3;
 type DialValue = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -53,9 +53,9 @@ function formatResult(solution: Solution): string {
     return lines.join("\n") + `\nTotal turns: ${solution.total}`;
 }
 
-export default function BO1DialSolver() {
-    const [dials, setDials] = React.useState<[number, number, number, number]>([0, 0, 0, 0]);
-    const [result, setResult] = React.useState<string>(formatResult(solve([0, 0, 0, 0])));
+export default function BO1DialSolver({ title }: { title?: string }) {
+    const [dials, setDials] = useState<[number, number, number, number]>([0, 0, 0, 0]);
+    const [result, setResult] = useState<string>(formatResult(solve([0, 0, 0, 0])));
 
     function handleDialChange(index: DialIndex, value: string) {
         const parsed = parseInt(value);
@@ -69,6 +69,7 @@ export default function BO1DialSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Set each dial to its current in-game value (0–9). The solver will calculate the minimum number of turns
                 required to reach <strong>2-7-4-6</strong>.
@@ -94,7 +95,7 @@ export default function BO1DialSolver() {
                     <select
                         id={`dial-${name}`}
                         value={dials[i]}
-                        onChange={(e) => handleDialChange(i as DialIndex, e.target.value)}
+                        onChange={(e) => handleDialChange(i as DialIndex, (e.target as HTMLSelectElement).value)}
                     >
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
                             <option key={n} value={n}>

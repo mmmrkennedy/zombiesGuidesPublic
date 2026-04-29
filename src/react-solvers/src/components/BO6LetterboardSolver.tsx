@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 type Words = "default" | "CRAB" | "MOTH" | "WORM" | "YETI";
 type BoardIDS = "default" | "board_1" | "board_2" | "board_3" | "board_4";
@@ -9,8 +9,6 @@ const boards: string[][] = [
     ["AIOUY", "QX", "BCDEFGH", "S", "LMNPRTVW", "JKZ"],
     ["BCDEF", "XYZ", "GHILNO", "M", "JKQU", "APRSTVW"],
 ];
-
-const _words: Words[] = ["WORM", "MOTH", "CRAB", "YETI"];
 
 function find_letterboard(boards: string[][], word: Words, board: BoardIDS): string {
     const board_num: number = Number(board.split("_")[1]) - 1;
@@ -36,13 +34,13 @@ function find_letterboard(boards: string[][], word: Words, board: BoardIDS): str
     }
 }
 
-export default function BO6LetterboardSolver() {
-    const [selectedWord, setSelectedWord] = React.useState<Words>("default");
-    const [boardID, setboardID] = React.useState<BoardIDS>("default");
-    const [result, setResult] = React.useState<string>("Select a Word and Board to continue...");
+export default function BO6LetterboardSolver({ title }: { title?: string }) {
+    const [selectedWord, setSelectedWord] = useState<Words>("default");
+    const [boardID, setboardID] = useState<BoardIDS>("default");
+    const [result, setResult] = useState<string>("Select a Word and Board to continue...");
 
-    function handleWordChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        const word: Words = e.target.value as Words;
+    function handleWordChange(e: Event) {
+        const word: Words = (e.currentTarget as HTMLSelectElement).value as Words;
         setSelectedWord(word);
 
         if (word !== "default" && boardID !== "default") {
@@ -50,8 +48,8 @@ export default function BO6LetterboardSolver() {
         }
     }
 
-    function handleBoardChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        const board_ids: BoardIDS = e.target.value as BoardIDS;
+    function handleBoardChange(e: Event) {
+        const board_ids: BoardIDS = (e.currentTarget as HTMLSelectElement).value as BoardIDS;
         setboardID(board_ids);
 
         if (board_ids !== "default" && selectedWord !== "default") {
@@ -61,6 +59,7 @@ export default function BO6LetterboardSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <form onSubmit={(e) => e.preventDefault()}>
                 <p className="solver-instructions">
                     Select the word and board found in-game to calculate the correct code. The code will be

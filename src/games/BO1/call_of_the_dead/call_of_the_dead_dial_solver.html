@@ -5,8 +5,6 @@ solverTitle: 'Dials Solver'
 guideUrl: '/games/BO1/call_of_the_dead/call_of_the_dead_guide.html'
 description: Interactive Solver for the Call of the Dead Easter Egg Dials in Black Ops 1 Zombies.
 ---
-
-<!-- Legend to other parts -->
 <div class="content-container">
     <div id="dial-solver-react"></div>
 </div>
@@ -14,7 +12,7 @@ description: Interactive Solver for the Call of the Dead Easter Egg Dials in Bla
 <script>
     window.addEventListener("load", () => {
         if (window.ZombiesSolvers) {
-            window.ZombiesSolvers.mountDialSolver("dial-solver-react");
+            window.ZombiesSolvers.mountDialSolver("dial-solver-react", { title: "Lighthouse Dials Solver" });
         } else {
             console.error("ZombiesSolvers not loaded!");
         }

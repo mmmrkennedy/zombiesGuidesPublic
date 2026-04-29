@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "preact/hooks";
 
 const ingredient_number_data: Record<string, number[]> = {
     "Racing Fuel": [5, 6, 6, 6, 6, 8, 11, 13, 14, 14, 14, 16],
@@ -153,7 +153,7 @@ function mainLogic(
         return "Invalid M number or TV number, please try again.";
     }
 
-    let oNumStr = "";
+    let oNumStr;
     if (possibleONums.length === 1) {
         oNumStr = possibleONums[0].toString();
     } else {
@@ -240,7 +240,7 @@ function formatResult(oNum: string | number, colourOption: string | undefined): 
     return `${oNumStr}\n${colourStr}`;
 }
 
-export default function IWChemicalStepSolver() {
+export default function IWChemicalStepSolver({ title }: { title?: string }) {
     const [mNum, setMNum] = useState<number>(0);
     const [lowerBound, setLowerBound] = useState<number>(0);
     const [insectNum, setInsectNum] = useState<number>(0);
@@ -368,6 +368,7 @@ export default function IWChemicalStepSolver() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 This is a multi-step solver. Enter values as prompted and click "Calculate" to reveal the next steps.
                 Use "I know what I'm doing" to show all inputs at once. The solver will guide you through calculating
@@ -383,7 +384,7 @@ export default function IWChemicalStepSolver() {
                     id="mNum"
                     className="solver"
                     value={mNum || ""}
-                    onChange={(e) => setMNum(Number(e.target.value))}
+                    onInput={(e) => setMNum(Number((e.target as HTMLInputElement).value))}
                 />
             </div>
 
@@ -396,7 +397,7 @@ export default function IWChemicalStepSolver() {
                     id="lowerBound"
                     className="solver"
                     value={lowerBound || ""}
-                    onChange={(e) => setLowerBound(Number(e.target.value))}
+                    onInput={(e) => setLowerBound(Number((e.target as HTMLInputElement).value))}
                 />
             </div>
 
@@ -414,7 +415,7 @@ export default function IWChemicalStepSolver() {
                         id="insectNum"
                         className="solver"
                         value={insectNum || ""}
-                        onChange={(e) => setInsectNum(Number(e.target.value))}
+                        onInput={(e) => setInsectNum(Number((e.target as HTMLInputElement).value))}
                     />
                 </div>
             )}
@@ -426,7 +427,7 @@ export default function IWChemicalStepSolver() {
                         id="finalChem"
                         className="spacing"
                         value={finalChem}
-                        onChange={(e) => setFinalChem(e.target.value as ChemicalType)}
+                        onChange={(e) => setFinalChem((e.target as HTMLSelectElement).value as ChemicalType)}
                     >
                         <option value="default" disabled>
                             Select Chemical
@@ -452,7 +453,7 @@ export default function IWChemicalStepSolver() {
                         id="racingNum"
                         className="solver"
                         value={racingNum || ""}
-                        onChange={(e) => setRacingNum(Number(e.target.value))}
+                        onInput={(e) => setRacingNum(Number((e.target as HTMLInputElement).value))}
                     />
                 </div>
             )}
@@ -467,7 +468,7 @@ export default function IWChemicalStepSolver() {
                         id="oNum"
                         className="solver"
                         value={oNum || ""}
-                        onChange={(e) => setONum(Number(e.target.value))}
+                        onInput={(e) => setONum(Number((e.target as HTMLInputElement).value))}
                     />
                 </div>
             )}

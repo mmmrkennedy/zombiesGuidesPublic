@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "preact/hooks";
 
 type Tile = {
     value: number;
@@ -72,7 +72,7 @@ function calculateHand(selectedTiles: Tile[]): HandResult {
     };
 }
 
-export default function IWMahjongSolver() {
+export default function IWMahjongSolver({ title }: { title?: string }) {
     const [selectedTiles, setSelectedTiles] = useState<Tile[]>([]);
     const [handResult, setHandResult] = useState<HandResult | null>(null);
 
@@ -99,20 +99,9 @@ export default function IWMahjongSolver() {
         setHandResult(null); // Clear any previous result
     };
 
-    // Helper function to render groups of tiles (melds or pairs)
-    const renderTileGroup = (tiles: number[], title: string) => (
-        <div>
-            <h4>{title}:</h4>
-            <div className="meld-group">
-                {tiles.map((value, index) => (
-                    <img key={index} className="tile-display" src={tileImages[value]} alt={`${value} Dot`} />
-                ))}
-            </div>
-        </div>
-    );
-
     return (
         <div className="solver-container centered">
+            {title && <h2 className="solver-title">{title}</h2>}
             <form onSubmit={(e) => e.preventDefault()}>
                 <p className="solver-instructions">
                     Click on the tiles as they appear in-game. If a valid hand is found, it'll be shown
@@ -152,39 +141,38 @@ export default function IWMahjongSolver() {
                                     : `Selected Tiles (${selectedTiles.length}/14):`}
                             </h4>
                             <div className="selected-tiles-row">
-                                {selectedTiles.map((tile, index) => (
-                                    <img
-                                        key={index}
-                                        className="selected-tile"
-                                        src={tile.src}
-                                        alt={`${tile.value} Dot`}
-                                    />
-                                ))}
+                                {Array.from({ length: 14 }, (_, index) =>
+                                    selectedTiles[index] ? (
+                                        <img
+                                            key={index}
+                                            className="selected-tile"
+                                            src={selectedTiles[index].src}
+                                            alt={`${selectedTiles[index].value} Dot`}
+                                        />
+                                    ) : (
+                                        <div key={index} className="selected-tile-empty" aria-hidden="true" />
+                                    ),
+                                )}
                             </div>
                         </div>
                     )}
 
-                    {/* Display winning hand breakdown */}
+                    {/* Display winning hand as sorted row matching in-game layout */}
                     {handResult?.isWinning && (
                         <div className="winning-hand">
                             <h3>Winning Hand!</h3>
-                            <div className="melds">
-                                <h4>Melds:</h4>
-                                {handResult.melds.map((meld, index) => (
-                                    <div key={index} className="meld-group">
-                                        {meld.map((value, tileIndex) => (
-                                            <img
-                                                key={tileIndex}
-                                                className="tile-display"
-                                                src={tileImages[value]}
-                                                alt={`${value} Dot`}
-                                            />
-                                        ))}
-                                    </div>
-                                ))}
+                            <div className="selected-tiles-row">
+                                {[...selectedTiles]
+                                    .sort((a, b) => a.value - b.value)
+                                    .map((tile, index) => (
+                                        <img
+                                            key={index}
+                                            className="selected-tile"
+                                            src={tile.src}
+                                            alt={`${tile.value} Dot`}
+                                        />
+                                    ))}
                             </div>
-                            {/* Show the pair if one exists */}
-                            {handResult.pair && renderTileGroup(handResult.pair, "Pair")}
                         </div>
                     )}
                 </div>

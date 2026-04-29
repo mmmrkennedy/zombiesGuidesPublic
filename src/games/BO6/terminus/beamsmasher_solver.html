@@ -12,14 +12,12 @@ preloadImages:
   - /games/BO6/terminus/pictures/beamsmasher/21.webp
   - /games/BO6/terminus/pictures/beamsmasher/22.webp
 ---
-
-<!-- Legend to other parts -->
 <div class="content-container" id="beamsmasher-solver-react"></div>
 
 <script>
     window.addEventListener("load", () => {
         if (window.ZombiesSolvers) {
-            window.ZombiesSolvers.mountBeamsmasherSolver("beamsmasher-solver-react");
+            window.ZombiesSolvers.mountBeamsmasherSolver("beamsmasher-solver-react", { title: "Beamsmasher Solver" });
         } else {
             console.error("ZombiesSolvers not loaded!");
         }

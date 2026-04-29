@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 const imagePath = "/games/IW/the_beast_from_beyond/floppy_disk_puzzle/pictures/";
 
@@ -22,8 +22,8 @@ function processSymbols(symbols: number[]): number[] {
     return [];
 }
 
-export default function IWBeastFloppySolver() {
-    const [selectedSymbols, setSelectedSymbols] = React.useState<number[]>([]);
+export default function IWBeastFloppySolver({ title }: { title?: string }) {
+    const [selectedSymbols, setSelectedSymbols] = useState<number[]>([]);
     const maxSymbols = 4;
     const totalSymbols = 12;
 
@@ -70,6 +70,7 @@ export default function IWBeastFloppySolver() {
 
     return (
         <div className="solver-container floppy">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Click the 4 symbols that appear in your game. The solver will validate the sequence and show the correct
                 order if valid.

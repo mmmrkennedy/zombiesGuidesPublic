@@ -16,7 +16,7 @@ let cachedManifest = null;
 function generateQuickLinks(content, outputPath) {
     if (!outputPath || !outputPath.endsWith(".html")) return content;
 
-    const t0 = Date.now();
+    // const t0 = Date.now();
     try {
         const dom = new JSDOM(content);
         const document = dom.window.document;
@@ -42,7 +42,7 @@ function generateQuickLinks(content, outputPath) {
         renderNavigation(container, navStructure, outputPath);
 
         const result = dom.serialize();
-        console.log(`[generateQuickLinks] ${outputPath} — ${Date.now() - t0}ms`);
+        // console.log(`[generateQuickLinks] ${outputPath} — ${Date.now() - t0}ms`);
         return result;
     } catch (error) {
         console.error(`Error generating quick links for ${outputPath}:`, error.message);
@@ -253,7 +253,7 @@ function shouldExcludeFromNav(element) {
 function classifyLinks(content, outputPath) {
     if (!outputPath || !outputPath.endsWith(".html")) return content;
 
-    const t0 = Date.now();
+    // const t0 = Date.now();
     try {
         // Extract quick-links-container so its internal anchor links are not reclassified
         let qlSection = "";
@@ -354,7 +354,7 @@ function classifyLinks(content, outputPath) {
         });
 
         const final = qlSection ? result.replace(PLACEHOLDER, qlSection) : result;
-        console.log(`[classifyLinks] ${outputPath} — ${Date.now() - t0}ms`);
+        // console.log(`[classifyLinks] ${outputPath} — ${Date.now() - t0}ms`);
         return modified ? final : content;
     } catch (error) {
         console.error(`Error classifying links in ${outputPath}:`, error.message);
@@ -372,7 +372,7 @@ function addVersioning(content, outputPath) {
         return content;
     }
 
-    const t0 = Date.now();
+    // const t0 = Date.now();
     try {
         let modified = content;
         const buildVersion = BUILD_VERSION;
@@ -417,7 +417,7 @@ function addVersioning(content, outputPath) {
             }
         }
 
-        console.log(`[addVersioning] ${outputPath} — ${Date.now() - t0}ms`);
+        // console.log(`[addVersioning] ${outputPath} — ${Date.now() - t0}ms`);
         return modified;
     } catch (error) {
         console.error(`Error adding versioning to ${outputPath}:`, error.message);
@@ -440,7 +440,7 @@ function injectReactBundle(content, outputPath) {
         return content;
     }
 
-    const t0 = Date.now();
+    // const t0 = Date.now();
     try {
         if (!cachedManifest) {
             const manifestPath = path.join(__dirname, "dist/react-solvers/.vite/manifest.json");
@@ -474,7 +474,7 @@ function injectReactBundle(content, outputPath) {
             modified = modified.replace("<!-- REACT_BUNDLE_PLACEHOLDER -->", scriptTag);
         }
 
-        console.log(`[injectReactBundle] ${outputPath} — ${Date.now() - t0}ms`);
+        // console.log(`[injectReactBundle] ${outputPath} — ${Date.now() - t0}ms`);
         return modified;
     } catch (error) {
         console.error(`❌ Error injecting React bundle in ${outputPath}:`, error.message);
@@ -531,7 +531,7 @@ async function smartCopyImages() {
             if (parts.length >= 1) {
                 const dirKey = parts.slice(0, 2).join("/");
                 if (dirKey !== lastLoggedDir) {
-                    console.log(`[smartCopyImages] Copying images from /games/${dirKey}/`);
+                    // console.log(`[smartCopyImages] Copying images from /games/${dirKey}/`);
                     lastLoggedDir = dirKey;
                 }
             }

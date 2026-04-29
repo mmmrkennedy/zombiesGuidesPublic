@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import preact from "@preact/preset-vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
@@ -42,7 +42,7 @@ function serveGamesDirectory() {
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react(), serveGamesDirectory()],
+    plugins: [preact(), serveGamesDirectory()],
 
     // Serve from react-solvers directory for dev server
     root: path.resolve(__dirname, "./src/react-solvers"),

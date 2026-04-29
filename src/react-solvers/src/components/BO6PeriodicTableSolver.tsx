@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from "react";
+import { useState } from "preact/hooks";
+import type { ComponentChildren } from "preact";
 
 type ElementObj = {
     symbol: string;
@@ -131,11 +132,11 @@ function format_element_number(element_number: number): string {
     return "#" + element_number.toString().padStart(3, "0");
 }
 
-export default function BO6PeriodicTableSolver() {
+export default function BO6PeriodicTableSolver({ title }: { title?: string }) {
     const [elementInput, setElementInput] = useState<string>("");
-    const [result, setResult] = useState<React.ReactNode>(<div>Enter a symbol to find matching elements...</div>);
+    const [result, setResult] = useState<ComponentChildren>(<div>Enter a symbol to find matching elements...</div>);
 
-    function filter_elements(periodicElements: ElementObj[], element_input: string): React.ReactNode {
+    function filter_elements(periodicElements: ElementObj[], element_input: string): ComponentChildren {
         const inputLower = element_input.toLowerCase();
         const inputReversed = element_input.split("").reverse().join("").toLowerCase();
 
@@ -182,11 +183,11 @@ export default function BO6PeriodicTableSolver() {
         );
     }
 
-    function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-        setElementInput(e.target.value);
+    function handleInputChange(e: Event) {
+        setElementInput((e.currentTarget as HTMLInputElement).value);
 
-        if (e.target.value !== "") {
-            setResult(filter_elements(periodicElements, e.target.value));
+        if ((e.currentTarget as HTMLInputElement).value !== "") {
+            setResult(filter_elements(periodicElements, (e.currentTarget as HTMLInputElement).value));
         } else {
             setResult(<div>Enter a symbol to find matching elements...</div>);
         }
@@ -194,7 +195,7 @@ export default function BO6PeriodicTableSolver() {
 
     return (
         <div className="solver-container">
-            <h3>Periodic Table Element Finder</h3>
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Type 1-2 letters from the in-game monitors. The solver will automatically search forwards and backwards
                 for the element (e.g., "fc" matches Californium "Cf"). Exact matches are shown first, followed by
@@ -210,7 +211,7 @@ export default function BO6PeriodicTableSolver() {
                     placeholder="e.g., H, He, Li..."
                     maxLength={2}
                     value={elementInput}
-                    onChange={handleInputChange}
+                    onInput={handleInputChange}
                 />
             </div>
 

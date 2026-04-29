@@ -1,5 +1,4 @@
-import React from "react";
-import { preload } from "react-dom";
+import { useState } from "preact/hooks";
 
 const IMG_0 = "/games/BO6/terminus/pictures/beamsmasher/0.webp";
 const IMG_10 = "/games/BO6/terminus/pictures/beamsmasher/10.webp";
@@ -75,18 +74,11 @@ function calculateFormulas(selectedSymbols: SelectedSymbols) {
     }
 }
 
-export default function BO6BeamsmasherMathSolver() {
-    preload(IMG_0, { as: "image" });
-    preload(IMG_10, { as: "image" });
-    preload(IMG_11, { as: "image" });
-    preload(IMG_20, { as: "image" });
-    preload(IMG_21, { as: "image" });
-    preload(IMG_22, { as: "image" });
-
-    const [selectedX, setSelectedX] = React.useState<SelectedSymbolValue>();
-    const [selectedY, setSelectedY] = React.useState<SelectedSymbolValue>();
-    const [selectedZ, setSelectedZ] = React.useState<SelectedSymbolValue>();
-    const [result, setResult] = React.useState<string>("N/A");
+export default function BO6BeamsmasherMathSolver({ title }: { title?: string }) {
+    const [selectedX, setSelectedX] = useState<SelectedSymbolValue>();
+    const [selectedY, setSelectedY] = useState<SelectedSymbolValue>();
+    const [selectedZ, setSelectedZ] = useState<SelectedSymbolValue>();
+    const [result, setResult] = useState<string>("N/A");
 
     function selectSymbol(selectedSymbols: SelectedSymbols, letter: SymbolKey, value: SelectedSymbolValue) {
         letter = letter.toUpperCase() as SymbolKey;
@@ -149,6 +141,7 @@ export default function BO6BeamsmasherMathSolver() {
 
     return (
         <div className="solver-container beamsmasher">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Click the symbol images that match the sticky notes on the in-game computer (one for X, one for Y, one
                 for Z). The solver will automatically calculate and display the three-part code.

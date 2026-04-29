@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "preact/hooks";
 
 const words: string[] = [
     "ACTORS",
@@ -92,13 +92,13 @@ function filterWordsByPrefix(prefix: string): string[][] {
     return [filtered_words, possible_letters];
 }
 
-export default function IWMainQuestWordFilter() {
-    const [inputString, setInputString] = React.useState<string>("");
-    const [filteredWords, setFilteredWords] = React.useState<string[]>(words);
-    const [possibleLetters, setPossibleLetters] = React.useState<string[]>([]);
+export default function IWMainQuestWordFilter({ title }: { title?: string }) {
+    const [inputString, setInputString] = useState<string>("");
+    const [filteredWords, setFilteredWords] = useState<string[]>(words);
+    const [possibleLetters, setPossibleLetters] = useState<string[]>([]);
 
-    function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const input: string = e.target.value;
+    function handleInputChange(e: Event) {
+        const input: string = (e.currentTarget as HTMLInputElement).value;
         setInputString(input);
 
         if (input === "") {
@@ -118,6 +118,7 @@ export default function IWMainQuestWordFilter() {
 
     return (
         <div className="solver-container">
+            {title && <h2 className="solver-title">{title}</h2>}
             <p className="solver-instructions">
                 Enter letters to filter the word list. The solver shows matching words and possible next letters based
                 on your current input.
@@ -129,7 +130,7 @@ export default function IWMainQuestWordFilter() {
                     type="text"
                     className="solver"
                     value={inputString}
-                    onChange={handleInputChange}
+                    onInput={handleInputChange}
                     placeholder="Type letters..."
                 />
             </div>
